@@ -391,6 +391,22 @@ function flashExampleRow(item) {
   return row;
 }
 
+function appendStemWithBreaks(target, stem) {
+  const lines = stem
+    .replace(/\s+(?=[AB]:\s)/g, "\n")
+    .split("\n")
+    .filter(Boolean);
+
+  lines.forEach((line, lineIdx) => {
+    const segs = line.split(/\(\s*\)/);
+    segs.forEach((seg, i) => {
+      target.appendChild(document.createTextNode(seg));
+      if (i < segs.length - 1) target.appendChild(el("span", { class: "blank" }, "　"));
+    });
+    if (lineIdx < lines.length - 1) target.appendChild(el("br"));
+  });
+}
+
 /* ---- STEP 2: meaning check ---- */
 function renderCheck(body) {
   const item = session.checkOrder[session.checkIdx];
@@ -474,11 +490,7 @@ function renderPractice(body) {
 
   // stem with blank
   const stemP = el("p", { class: "stem" });
-  const segs = q_.stem.split(/\(\s*\)/);
-  segs.forEach((seg, i) => {
-    stemP.appendChild(document.createTextNode(seg));
-    if (i < segs.length - 1) stemP.appendChild(el("span", { class: "blank" }, "　"));
-  });
+  appendStemWithBreaks(stemP, q_.stem);
   box.appendChild(stemP);
 
   const choiceWrap = el("div", { class: "choices" });
