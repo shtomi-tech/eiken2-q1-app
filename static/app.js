@@ -204,7 +204,7 @@ function renderHome() {
   quest.appendChild(el("div", { class: "sectionHead" },
     el("div", {},
       el("p", { class: "label" }, "Mission"),
-      el("h2", {}, final.cleared ? "英検2級 大問1 CLEAR" : "大問1 攻略状況"),
+      el("h2", {}, final.cleared ? `${currentDataset.shortLabel} 大問1 CLEAR` : "大問1 攻略状況"),
     ),
   ));
   const questGrid = el("div", { class: "dailyGrid" });
@@ -713,7 +713,7 @@ function renderDone(body) {
   if (isFinal) {
     banner.appendChild(el("div", { class: "big" }, `${session.finalCorrect} / ${session.checkOrder.length}`));
     banner.appendChild(el("h2", {}, session.finalCorrect === session.checkOrder.length
-      ? "英検2級 大問1 CLEAR"
+      ? `${dataset().shortLabel} 大問1 CLEAR`
       : "最終チェック完了。30/30でCLEAR"));
   } else if (isMeaning) {
     banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
