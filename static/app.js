@@ -121,6 +121,8 @@ function renderHome() {
 
   const nextQ = state.qList.find((q) => !unit(q).learned);
   const actions = el("div", { class: "actions" });
+  actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
+    "意味チェックだけ演習する（全語句ランダム）"));
   if (reviewQs.length) {
     actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
       `間違えた問題を演習する（${reviewQs.length}問）`));
@@ -140,7 +142,7 @@ function renderHome() {
   path.appendChild(el("div", { class: "pathHead" },
     el("p", { class: "label" }, "Question Path"),
     el("h2", {}, "大問1（全17問）"),
-    el("p", { class: "hint" }, "各設問の4つの選択肢の語句を覚えてから、その設問を解きます。クリックで開始。"),
+    el("p", { class: "hint" }, "各設問に出る4つの語句を覚えてから、その設問を解きます。クリックで開始。"),
   ));
   const list = el("div", { class: "itemList" });
   for (const q of state.qList) {
@@ -171,6 +173,10 @@ function statCell(n, d, caption) {
 
 function reviewQueue() {
   return state.qList.filter((q) => unit(q).needsReview);
+}
+
+function allVocabularyItems() {
+  return state.qList.flatMap((q) => state.itemsByQ[q] || []);
 }
 
 /* ============================================================
@@ -211,29 +217,44 @@ function startReview() {
   renderSession();
 }
 
+function startMeaningPractice() {
+  const queue = shuffle(allVocabularyItems());
+  session = {
+    mode: "meaning",
+    q: null,
+    items: queue,
+    stage: "check",
+    checkOrder: queue,
+    checkIdx: 0,
+    checkAnswered: false,
+    meaningCorrect: 0,
+  };
+  renderSession();
+}
+
 function renderSession() {
   $("#homePanel").classList.add("hide");
   const panel = $("#sessionPanel");
   panel.classList.remove("hide");
   panel.innerHTML = "";
 
+  const isMeaning = session.mode === "meaning";
   const q = session.q;
-  const isIdiom = session.items[0].type === "idiom";
+  const isIdiom = !isMeaning && session.items[0].type === "idiom";
   const isReview = session.mode === "review";
 
   // header
   panel.appendChild(el("div", { class: "itemHead" },
     el("div", {},
-      el("p", { class: "label" }, isReview
-        ? `復習演習 ${session.reviewIdx + 1} / ${session.reviewQueue.length}`
-        : `第${q}問 ・ ${isIdiom ? "熟語" : "単語"}`),
+      el("p", { class: "label" }, sessionLabel(q, isIdiom, isReview, isMeaning)),
       el("h2", {}, stageTitle(session.stage)),
     ),
     el("button", { class: "ghost", onclick: () => renderHome() }, "一覧へ戻る"),
   ));
 
   // stage bar
-  if (isReview) panel.appendChild(reviewBar());
+  if (isMeaning) panel.appendChild(meaningBar());
+  else if (isReview) panel.appendChild(reviewBar());
   else panel.appendChild(stageBar(session.stage));
 
   const body = el("div", {});
@@ -245,7 +266,14 @@ function renderSession() {
   else if (session.stage === "done") renderDone(body);
 }
 
+function sessionLabel(q, isIdiom, isReview, isMeaning) {
+  if (isMeaning) return `全語句ランダム ${session.checkIdx + 1} / ${session.checkOrder.length}`;
+  if (isReview) return `復習演習 ${session.reviewIdx + 1} / ${session.reviewQueue.length}`;
+  return `第${q}問 ・ ${isIdiom ? "熟語" : "単語"}`;
+}
+
 function stageTitle(stage) {
+  if (session && session.mode === "meaning") return "意味チェックだけ演習";
   if (session && session.mode === "review") return "間違えた問題を演習";
   return {
     flash: "STEP 1　覚える（暗記カード）",
@@ -266,6 +294,15 @@ function reviewBar() {
   });
   if (!count) bar.appendChild(el("div", { class: "stagePill active" }, "復習完了"));
   return bar;
+}
+
+function meaningBar() {
+  return el("div", { class: "stageBar meaningBar" },
+    el("div", { class: "stagePill active" },
+      `意味チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`),
+    el("div", { class: "stagePill" },
+      `回答済 ${session.checkIdx} / 正解 ${session.meaningCorrect}`),
+  );
 }
 
 function stageBar(stage) {
@@ -293,9 +330,6 @@ function renderFlash(body) {
     el("div", { class: "flashWord" }, surfaceOf(item)),
     el("div", { class: "flashPos" }, item.pos || ""),
   ));
-  head.appendChild(item.is_answer
-    ? el("div", { class: "flashAnswerTag" }, "この設問の正解語")
-    : el("div", { class: "flashPos" }, "選択肢の語"));
   card.appendChild(head);
 
   const inner = el("div", { class: "flashBody" });
@@ -382,6 +416,7 @@ function renderCheck(body) {
         if (txt === correct) c.classList.add("correct");
         else if (txt === m && !isCorrect) c.classList.add("wrong");
       });
+      if (session.mode === "meaning" && isCorrect) session.meaningCorrect += 1;
       const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng") },
         el("h3", {}, isCorrect ? "正解！" : "おしい！"),
         el("p", {}, `${surface}：${correct}`),
@@ -396,10 +431,13 @@ function renderCheck(body) {
           onclick: () => {
             session.checkAnswered = false;
             session._checkChoices = null;
-            if (last) { session.stage = "practice"; renderSession(); }
+            if (last) {
+              session.stage = session.mode === "meaning" ? "done" : "practice";
+              renderSession();
+            }
             else { session.checkIdx++; renderSession(); }
           },
-        }, last ? "本番形式の問題へ →" : "次へ →"),
+        }, last ? (session.mode === "meaning" ? "結果を見る →" : "本番形式の問題へ →") : "次へ →"),
       ));
     });
     choiceWrap.appendChild(btn);
@@ -483,15 +521,24 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
 /* ---- DONE ---- */
 function renderDone(body) {
   const q = session.q;
+  const isMeaning = session.mode === "meaning";
   const isReview = session.mode === "review";
   const banner = el("div", { class: "doneBanner" });
   banner.appendChild(el("p", { class: "label", style: "color:rgba(250,249,246,.72)" }, "Step Complete"));
-  banner.appendChild(el("div", { class: "big" }, session.practiceResult ? "正解！" : "復習リストに残しました"));
-  banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
+  if (isMeaning) {
+    banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
+    banner.appendChild(el("h2", {}, "全語句の意味チェックが完了しました"));
+  } else {
+    banner.appendChild(el("div", { class: "big" }, session.practiceResult ? "正解！" : "復習リストに残しました"));
+    banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
+  }
   body.appendChild(banner);
 
   const actions = el("div", { class: "actions" });
-  if (isReview) {
+  if (isMeaning) {
+    actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
+      "もう一度ランダムで演習する"));
+  } else if (isReview) {
     const nextReview = reviewQueue()[0];
     if (nextReview) {
       actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
