@@ -175,6 +175,12 @@ function answerActions(...buttons) {
   return el("div", { class: "actions answerActions" }, ...buttons);
 }
 
+function revealAnswerActions(actions) {
+  requestAnimationFrame(() => {
+    actions.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
 function reviewQueue() {
   return state.qList.filter((q) => unit(q).needsReview);
 }
@@ -429,7 +435,7 @@ function renderCheck(body) {
       box.appendChild(fb);
 
       const last = session.checkIdx === session.checkOrder.length - 1;
-      box.appendChild(answerActions(
+      const actions = answerActions(
         el("button", {
           class: "cta",
           onclick: () => {
@@ -442,7 +448,9 @@ function renderCheck(body) {
             else { session.checkIdx++; renderSession(); }
           },
         }, last ? (session.mode === "meaning" ? "結果を見る →" : "本番形式の問題へ →") : "次へ →"),
-      ));
+      );
+      box.appendChild(actions);
+      revealAnswerActions(actions);
     });
     choiceWrap.appendChild(btn);
   });
@@ -517,9 +525,11 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
   saveProgress();
 
   session.practiceResult = isCorrect;
-  box.appendChild(answerActions(
+  const actions = answerActions(
     el("button", { class: "cta", onclick: () => { session.stage = "done"; renderSession(); } }, "結果を見る →"),
-  ));
+  );
+  box.appendChild(actions);
+  revealAnswerActions(actions);
 }
 
 /* ---- DONE ---- */
