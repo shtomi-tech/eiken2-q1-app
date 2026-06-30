@@ -39,6 +39,14 @@ function unit(q) {
   if (typeof u.wrongCount !== "number") u.wrongCount = 0;
   return state.progress.units[q];
 }
+function finalProgress() {
+  if (!state.progress.finalCheck) state.progress.finalCheck = {};
+  const f = state.progress.finalCheck;
+  if (typeof f.bestScore !== "number") f.bestScore = 0;
+  if (typeof f.lastScore !== "number") f.lastScore = 0;
+  if (typeof f.cleared !== "boolean") f.cleared = false;
+  return f;
+}
 
 /* ---- helpers ---- */
 const $ = (sel) => document.querySelector(sel);
@@ -104,6 +112,7 @@ function renderHome() {
   const learned = state.qList.filter((q) => unit(q).learned).length;
   const solved = state.qList.filter((q) => unit(q).solvedCorrect).length;
   const reviewQs = reviewQueue();
+  const final = finalProgress();
 
   // daily / summary
   const summary = el("section", { class: "card" });
@@ -123,6 +132,12 @@ function renderHome() {
   const actions = el("div", { class: "actions" });
   actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
     "意味チェックだけ演習する（全語句ランダム）"));
+  const canStartFinal = finalUnlocked();
+  const finalAttrs = canStartFinal
+    ? { class: "cta finalCta", onclick: startFinalCheck }
+    : { class: "cta finalCta", disabled: "disabled" };
+  actions.appendChild(el("button", finalAttrs,
+    canStartFinal ? "最終チェック30問に挑戦する" : "最終チェック30問（未解放）"));
   if (reviewQs.length) {
     actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
       `間違えた問題を演習する（${reviewQs.length}問）`));
@@ -136,6 +151,21 @@ function renderHome() {
   }
   summary.appendChild(actions);
   home.appendChild(summary);
+
+  const quest = el("section", { class: "card questCard" });
+  quest.appendChild(el("div", { class: "sectionHead" },
+    el("div", {},
+      el("p", { class: "label" }, "Mission"),
+      el("h2", {}, final.cleared ? "英検2級 大問1 CLEAR" : "大問1 攻略状況"),
+    ),
+  ));
+  const questGrid = el("div", { class: "dailyGrid" });
+  questGrid.appendChild(statCell(solved, total, "通常ステージ CLEAR"));
+  questGrid.appendChild(statCell(reviewQs.length, total, "復習対象"));
+  questGrid.appendChild(statCell(final.bestScore, 30, "最終チェック BEST"));
+  quest.appendChild(questGrid);
+  quest.appendChild(el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final)));
+  home.appendChild(quest);
 
   // question path
   const path = el("section", { class: "card" });
@@ -187,6 +217,25 @@ function reviewQueue() {
 
 function allVocabularyItems() {
   return state.qList.flatMap((q) => state.itemsByQ[q] || []);
+}
+
+function finalUnlocked() {
+  return state.qList.length > 0
+    && state.qList.every((q) => unit(q).solvedCorrect)
+    && reviewQueue().length === 0;
+}
+
+function finalMessage(solved, total, reviewCount, final) {
+  if (final.cleared) return `最終チェックを${final.lastScore}/30で突破済みです。`;
+  if (!finalUnlocked()) {
+    const needs = [];
+    if (solved < total) needs.push(`通常ステージをあと${total - solved}問`);
+    if (reviewCount) needs.push(`復習対象をあと${reviewCount}問`);
+    return `最終チェック解放まで：${needs.join(" / ")}`;
+  }
+  return final.bestScore
+    ? `最終チェック解放中。過去最高は${final.bestScore}/30です。30/30でCLEAR。`
+    : "最終チェック解放中。30問の意味チェックで30/30を取るとCLEAR。";
 }
 
 /* ============================================================
@@ -243,6 +292,21 @@ function startMeaningPractice() {
   renderSession();
 }
 
+function startFinalCheck() {
+  const queue = shuffle(allVocabularyItems()).slice(0, 30);
+  session = {
+    mode: "final",
+    q: null,
+    items: queue,
+    stage: "check",
+    checkOrder: queue,
+    checkIdx: 0,
+    checkAnswered: false,
+    finalCorrect: 0,
+  };
+  renderSession();
+}
+
 function renderSession() {
   $("#homePanel").classList.add("hide");
   const panel = $("#sessionPanel");
@@ -250,21 +314,23 @@ function renderSession() {
   panel.innerHTML = "";
 
   const isMeaning = session.mode === "meaning";
+  const isFinal = session.mode === "final";
   const q = session.q;
-  const isIdiom = !isMeaning && session.items[0].type === "idiom";
+  const isIdiom = !isMeaning && !isFinal && session.items[0].type === "idiom";
   const isReview = session.mode === "review";
 
   // header
   panel.appendChild(el("div", { class: "itemHead" },
     el("div", {},
-      el("p", { class: "label" }, sessionLabel(q, isIdiom, isReview, isMeaning)),
+      el("p", { class: "label" }, sessionLabel(q, isIdiom, isReview, isMeaning, isFinal)),
       el("h2", {}, stageTitle(session.stage)),
     ),
     el("button", { class: "ghost", onclick: () => renderHome() }, "一覧へ戻る"),
   ));
 
   // stage bar
-  if (isMeaning) panel.appendChild(meaningBar());
+  if (isFinal) panel.appendChild(finalBar());
+  else if (isMeaning) panel.appendChild(meaningBar());
   else if (isReview) panel.appendChild(reviewBar());
   else panel.appendChild(stageBar(session.stage));
 
@@ -277,13 +343,15 @@ function renderSession() {
   else if (session.stage === "done") renderDone(body);
 }
 
-function sessionLabel(q, isIdiom, isReview, isMeaning) {
+function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
+  if (isFinal) return `最終チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   if (isMeaning) return `全語句ランダム ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   if (isReview) return `復習演習 ${session.reviewIdx + 1} / ${session.reviewQueue.length}`;
   return `第${q}問 ・ ${isIdiom ? "熟語" : "単語"}`;
 }
 
 function stageTitle(stage) {
+  if (session && session.mode === "final") return "最終チェック30問";
   if (session && session.mode === "meaning") return "意味チェックだけ演習";
   if (session && session.mode === "review") return "間違えた問題を演習";
   return {
@@ -316,6 +384,15 @@ function meaningBar() {
   );
 }
 
+function finalBar() {
+  return el("div", { class: "stageBar meaningBar" },
+    el("div", { class: "stagePill active" },
+      `最終チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`),
+    el("div", { class: "stagePill" },
+      `回答済 ${session.checkIdx} / 正解 ${session.finalCorrect}`),
+  );
+}
+
 function stageBar(stage) {
   const order = ["flash", "check", "practice"];
   const cur = order.indexOf(stage);
@@ -337,8 +414,12 @@ function renderFlash(body) {
 
   const card = el("div", { class: "flash" });
   const head = el("div", { class: "flashHead" });
-  head.appendChild(el("div", {},
+  const wordLine = el("div", { class: "flashWordLine" },
     el("div", { class: "flashWord" }, surfaceOf(item)),
+  );
+  if (item.ipa) wordLine.appendChild(el("div", { class: "flashIpa" }, item.ipa));
+  head.appendChild(el("div", {},
+    wordLine,
     el("div", { class: "flashPos" }, item.pos || ""),
   ));
   card.appendChild(head);
@@ -444,6 +525,7 @@ function renderCheck(body) {
         else if (txt === m && !isCorrect) c.classList.add("wrong");
       });
       if (session.mode === "meaning" && isCorrect) session.meaningCorrect += 1;
+      if (session.mode === "final" && isCorrect) session.finalCorrect += 1;
       const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng") },
         el("h3", {}, isCorrect ? "正解！" : "おしい！"),
         el("p", {}, `${surface}：${correct}`),
@@ -452,6 +534,7 @@ function renderCheck(body) {
       box.appendChild(fb);
 
       const last = session.checkIdx === session.checkOrder.length - 1;
+      if (last && session.mode === "final") saveFinalResult();
       const actions = answerActions(
         el("button", {
           class: "cta",
@@ -459,12 +542,12 @@ function renderCheck(body) {
             session.checkAnswered = false;
             session._checkChoices = null;
             if (last) {
-              session.stage = session.mode === "meaning" ? "done" : "practice";
+              session.stage = (session.mode === "meaning" || session.mode === "final") ? "done" : "practice";
               renderSession();
             }
             else { session.checkIdx++; renderSession(); }
           },
-        }, last ? (session.mode === "meaning" ? "結果を見る →" : "本番形式の問題へ →") : "次へ →"),
+        }, last ? ((session.mode === "meaning" || session.mode === "final") ? "結果を見る →" : "本番形式の問題へ →") : "次へ →"),
       );
       box.appendChild(actions);
       revealAnswerActions(actions);
@@ -473,6 +556,18 @@ function renderCheck(body) {
   });
   box.appendChild(choiceWrap);
   body.appendChild(box);
+}
+
+function saveFinalResult() {
+  const f = finalProgress();
+  f.lastScore = session.finalCorrect;
+  f.bestScore = Math.max(f.bestScore, session.finalCorrect);
+  f.lastTriedAt = new Date().toISOString();
+  if (session.finalCorrect === session.checkOrder.length) {
+    f.cleared = true;
+    f.clearedAt = new Date().toISOString();
+  }
+  saveProgress();
 }
 
 /* ---- STEP 3: practice (actual question) ---- */
@@ -549,10 +644,16 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
 function renderDone(body) {
   const q = session.q;
   const isMeaning = session.mode === "meaning";
+  const isFinal = session.mode === "final";
   const isReview = session.mode === "review";
   const banner = el("div", { class: "doneBanner" });
   banner.appendChild(el("p", { class: "label", style: "color:rgba(250,249,246,.72)" }, "Step Complete"));
-  if (isMeaning) {
+  if (isFinal) {
+    banner.appendChild(el("div", { class: "big" }, `${session.finalCorrect} / ${session.checkOrder.length}`));
+    banner.appendChild(el("h2", {}, session.finalCorrect === session.checkOrder.length
+      ? "英検2級 大問1 CLEAR"
+      : "最終チェック完了。30/30でCLEAR"));
+  } else if (isMeaning) {
     banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
     banner.appendChild(el("h2", {}, "全語句の意味チェックが完了しました"));
   } else {
@@ -562,7 +663,11 @@ function renderDone(body) {
   body.appendChild(banner);
 
   const actions = el("div", { class: "actions" });
-  if (isMeaning) {
+  if (isFinal) {
+    if (session.finalCorrect !== session.checkOrder.length) {
+      actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, "もう一度30問に挑戦する"));
+    }
+  } else if (isMeaning) {
     actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
       "もう一度ランダムで演習する"));
   } else if (isReview) {
