@@ -169,6 +169,11 @@ h2 {
 }
 .answerActions .cta { min-width: min(100%, 260px); }
 .cta { border-radius: 0 0 8px 8px; font-weight: 600; }
+.startCta {
+  background: var(--ink);
+  border-color: var(--ink);
+  min-width: min(100%, 300px);
+}
 .reviewCta {
   background: var(--clay);
   border-color: var(--clay);

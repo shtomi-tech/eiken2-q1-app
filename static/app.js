@@ -130,6 +130,13 @@ function renderHome() {
 
   const nextQ = state.qList.find((q) => !unit(q).learned);
   const actions = el("div", { class: "actions" });
+  if (nextQ) {
+    actions.appendChild(el("button", { class: "cta startCta", onclick: () => startLearn(nextQ) },
+      `まずはここから：第${nextQ}問を学習する`));
+  } else {
+    actions.appendChild(el("button", { class: "cta startCta", onclick: () => startLearn(state.qList[0]) },
+      "もう一周する（第1問から）"));
+  }
   actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
     "意味チェックだけ演習する（全語句ランダム）"));
   const canStartFinal = finalUnlocked();
@@ -141,13 +148,6 @@ function renderHome() {
   if (reviewQs.length) {
     actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
       `間違えた問題を演習する（${reviewQs.length}問）`));
-  }
-  if (nextQ) {
-    actions.appendChild(el("button", { class: "cta", onclick: () => startLearn(nextQ) },
-      `次の設問を学習する（第${nextQ}問）`));
-  } else {
-    actions.appendChild(el("button", { class: "cta", onclick: () => startLearn(state.qList[0]) },
-      "もう一周する（第1問から）"));
   }
   summary.appendChild(actions);
   home.appendChild(summary);
