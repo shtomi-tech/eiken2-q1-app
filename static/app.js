@@ -171,6 +171,10 @@ function statCell(n, d, caption) {
   );
 }
 
+function answerActions(...buttons) {
+  return el("div", { class: "actions answerActions" }, ...buttons);
+}
+
 function reviewQueue() {
   return state.qList.filter((q) => unit(q).needsReview);
 }
@@ -425,7 +429,7 @@ function renderCheck(body) {
       box.appendChild(fb);
 
       const last = session.checkIdx === session.checkOrder.length - 1;
-      box.appendChild(el("div", { class: "actions" },
+      box.appendChild(answerActions(
         el("button", {
           class: "cta",
           onclick: () => {
@@ -513,7 +517,7 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
   saveProgress();
 
   session.practiceResult = isCorrect;
-  box.appendChild(el("div", { class: "actions" },
+  box.appendChild(answerActions(
     el("button", { class: "cta", onclick: () => { session.stage = "done"; renderSession(); } }, "結果を見る →"),
   ));
 }

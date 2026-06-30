@@ -164,6 +164,19 @@ h2 {
 }
 
 .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.answerActions {
+  position: fixed;
+  z-index: 20;
+  right: 16px;
+  bottom: 12px;
+  left: 16px;
+  max-width: 1048px;
+  margin: 0 auto;
+  border: 1px solid var(--ink);
+  background: rgba(250, 249, 246, .96);
+  padding: 10px;
+}
+.answerActions .cta { min-width: min(100%, 260px); }
 .cta { border-radius: 0 0 8px 8px; font-weight: 600; }
 .reviewCta {
   background: var(--clay);
