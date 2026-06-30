@@ -1,33 +1,63 @@
 "use strict";
 
 /* ============================================================
-   英検2級 大問1 単語アプリ
+   英検 大問1 単語アプリ
    学習フロー：暗記カード → 理解チェック → 本番演習（設問ごと）
    ※ 間隔反復（Leitner）は未実装。進捗は localStorage に保存。
    ============================================================ */
 
-const STORE_KEY = "eiken2_q1_v1";
-const VOCAB_URL = "data/vocab_2026-1.json";
-const QUESTIONS_URL = "data/questions_2026-1.json";
+const LEGACY_STORE_KEY = "eiken2_q1_v1";
+const STORE_PREFIX = "eiken_q1_progress_";
+const DATASET_KEY = "eiken_q1_dataset";
+const DATASETS = {
+  "eiken2-2026-1": {
+    label: "英検2級 2026年度第1回",
+    shortLabel: "2級",
+    vocabUrl: "data/vocab_2026-1.json",
+    questionsUrl: "data/questions_2026-1.json",
+  },
+  "eikenp2-2026-1": {
+    label: "英検準2級 2026年度第1回",
+    shortLabel: "準2級",
+    vocabUrl: "data/vocab_p2_2026-1.json",
+    questionsUrl: "data/questions_p2_2026-1.json",
+  },
+};
+const DEFAULT_DATASET_ID = "eiken2-2026-1";
 
 const state = {
+  datasetId: loadDatasetId(),
   itemsByQ: {},   // q -> [item, ...]
   questions: {},  // q -> {stem, choices, answerIndex, translation}
-  qList: [],      // [1..17]
+  qList: [],      // [1..n]
   meaningPool: { word: [], idiom: [] }, // ダミー用の意味プール
-  progress: loadProgress(),
+  progress: { units: {} },
 };
 
 /* ---- progress (localStorage) ---- */
-function loadProgress() {
+function loadDatasetId() {
   try {
-    const raw = localStorage.getItem(STORE_KEY);
+    const id = localStorage.getItem(DATASET_KEY);
+    if (id && DATASETS[id]) return id;
+  } catch (e) { /* ignore */ }
+  return DEFAULT_DATASET_ID;
+}
+function dataset() {
+  return DATASETS[state.datasetId] || DATASETS[DEFAULT_DATASET_ID];
+}
+function progressKey(datasetId = state.datasetId) {
+  return STORE_PREFIX + datasetId;
+}
+function loadProgress(datasetId = state.datasetId) {
+  try {
+    let raw = localStorage.getItem(progressKey(datasetId));
+    if (!raw && datasetId === DEFAULT_DATASET_ID) raw = localStorage.getItem(LEGACY_STORE_KEY);
     if (raw) return JSON.parse(raw);
   } catch (e) { /* ignore */ }
   return { units: {} };
 }
 function saveProgress() {
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(state.progress)); } catch (e) { /* ignore */ }
+  try { localStorage.setItem(progressKey(), JSON.stringify(state.progress)); } catch (e) { /* ignore */ }
 }
 function unit(q) {
   if (!state.progress.units[q]) state.progress.units[q] = {};
@@ -77,10 +107,19 @@ function surfaceOf(item) { return item.type === "idiom" ? item.phrase : item.wor
 /* ============================================================
    load data
    ============================================================ */
-async function loadData() {
+async function loadData(datasetId = state.datasetId) {
+  state.datasetId = datasetId;
+  state.itemsByQ = {};
+  state.questions = {};
+  state.qList = [];
+  state.meaningPool = { word: [], idiom: [] };
+  state.progress = loadProgress(datasetId);
+  try { localStorage.setItem(DATASET_KEY, datasetId); } catch (e) { /* ignore */ }
+
+  const current = dataset();
   const [vocab, qs] = await Promise.all([
-    fetch(VOCAB_URL).then((r) => r.json()),
-    fetch(QUESTIONS_URL).then((r) => r.json()),
+    fetch(current.vocabUrl).then((r) => r.json()),
+    fetch(current.questionsUrl).then((r) => r.json()),
   ]);
 
   const words = (vocab.words || []).map((w) => ({ ...w, type: "word" }));
@@ -99,6 +138,13 @@ async function loadData() {
     .sort((a, b) => a - b);
 }
 
+async function switchDataset(datasetId) {
+  if (!DATASETS[datasetId] || datasetId === state.datasetId) return;
+  await loadData(datasetId);
+  session = null;
+  renderHome();
+}
+
 /* ============================================================
    HOME
    ============================================================ */
@@ -113,14 +159,16 @@ function renderHome() {
   const solved = state.qList.filter((q) => unit(q).solvedCorrect).length;
   const reviewQs = reviewQueue();
   const final = finalProgress();
+  const currentDataset = dataset();
 
   // daily / summary
   const summary = el("section", { class: "card" });
   summary.appendChild(el("div", { class: "sectionHead" },
     el("div", {},
       el("p", { class: "label" }, "Today"),
-      el("h2", {}, "設問ごとに「覚えて→確かめて→解く」"),
+      el("h2", {}, `${currentDataset.shortLabel} 大問1を「覚えて→確かめて→解く」`),
     ),
+    datasetPicker(),
   ));
   const grid = el("div", { class: "dailyGrid" });
   grid.appendChild(statCell(learned, total, "学習した設問"));
@@ -171,7 +219,7 @@ function renderHome() {
   const path = el("section", { class: "card" });
   path.appendChild(el("div", { class: "pathHead" },
     el("p", { class: "label" }, "Question Path"),
-    el("h2", {}, "大問1（全17問）"),
+    el("h2", {}, `${currentDataset.shortLabel} 大問1（全${total}問）`),
     el("p", { class: "hint" }, "各設問に出る4つの語句を覚えてから、その設問を解きます。クリックで開始。"),
   ));
   const list = el("div", { class: "itemList" });
@@ -199,6 +247,20 @@ function statCell(n, d, caption) {
     el("div", { class: "dailyNum", html: `${n}<small>/ ${d}</small>` }),
     el("div", { class: "dailyCaption" }, caption),
   );
+}
+
+function datasetPicker() {
+  const wrap = el("label", { class: "datasetPicker" },
+    el("span", { class: "fieldLabel" }, "問題セット"),
+  );
+  const select = el("select", { class: "datasetSelect", onchange: (e) => switchDataset(e.target.value) });
+  Object.entries(DATASETS).forEach(([id, data]) => {
+    const opt = el("option", { value: id }, data.label);
+    if (id === state.datasetId) opt.selected = true;
+    select.appendChild(opt);
+  });
+  wrap.appendChild(select);
+  return wrap;
 }
 
 function answerActions(...buttons) {

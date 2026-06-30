@@ -134,6 +134,16 @@ h2 {
   margin-bottom: 14px;
 }
 .sectionHead h2 { margin: 0; }
+.datasetPicker {
+  display: grid;
+  gap: 4px;
+  min-width: min(100%, 260px);
+}
+.datasetPicker .fieldLabel { margin: 0; }
+.datasetSelect {
+  min-width: 220px;
+  width: 100%;
+}
 
 /* ---- Daily menu ---- */
 .dailyGrid {

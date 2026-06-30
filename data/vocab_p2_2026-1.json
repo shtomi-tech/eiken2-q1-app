@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "exam": "英検準2級 2026年度第1回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2026-1-1ji-p2kyu.pdf",
+    "note": "問題PDFと解答PDFをもとに、大問1の選択肢語句を学習用に整理。",
+    "counts": { "words": 40, "idioms": 20, "total": 60 }
+  },
+  "words": [
+    { "q": 1, "is_answer": false, "word": "nervously", "ipa": "/ˈnɜːrvəsli/", "pos": "副詞", "meaning": "緊張して、不安そうに", "example": "He waited nervously for the result." },
+    { "q": 1, "is_answer": true, "word": "absolutely", "ipa": "/ˈæbsəluːtli/", "pos": "副詞", "meaning": "完全に、本当に、まったく", "example": "This meal is absolutely delicious." },
+    { "q": 1, "is_answer": false, "word": "rarely", "ipa": "/ˈrerli/", "pos": "副詞", "meaning": "めったに〜ない", "example": "She rarely eats breakfast." },
+    { "q": 1, "is_answer": false, "word": "separately", "ipa": "/ˈseprətli/", "pos": "副詞", "meaning": "別々に、個別に", "example": "The students worked separately." },
+
+    { "q": 2, "is_answer": true, "word": "transferred", "ipa": "/trænsˈfɜːrd/", "pos": "動詞", "meaning": "異動させた、移した", "example": "Dennis was transferred to the New York office." },
+    { "q": 2, "is_answer": false, "word": "reduced", "ipa": "/rɪˈduːst/", "pos": "動詞", "meaning": "減らした、縮小した", "example": "The store reduced the price." },
+    { "q": 2, "is_answer": false, "word": "proposed", "ipa": "/prəˈpoʊzd/", "pos": "動詞", "meaning": "提案した、申し込んだ", "example": "She proposed a new plan." },
+    { "q": 2, "is_answer": false, "word": "apologized", "ipa": "/əˈpɑːlədʒaɪzd/", "pos": "動詞", "meaning": "謝った", "example": "He apologized for being late." },
+
+    { "q": 3, "is_answer": true, "word": "dangers", "ipa": "/ˈdeɪndʒərz/", "pos": "名詞", "meaning": "危険、危険性", "example": "They learned about the dangers of smoking." },
+    { "q": 3, "is_answer": false, "word": "palaces", "ipa": "/ˈpæləsɪz/", "pos": "名詞", "meaning": "宮殿", "example": "The city has many old palaces." },
+    { "q": 3, "is_answer": false, "word": "markets", "ipa": "/ˈmɑːrkɪts/", "pos": "名詞", "meaning": "市場、マーケット", "example": "We bought fruit at the markets." },
+    { "q": 3, "is_answer": false, "word": "galleries", "ipa": "/ˈɡæləriz/", "pos": "名詞", "meaning": "美術館、展示室", "example": "The galleries were full of paintings." },
+
+    { "q": 4, "is_answer": false, "word": "wooden", "ipa": "/ˈwʊdn/", "pos": "形容詞", "meaning": "木製の", "example": "They sat on a wooden chair." },
+    { "q": 4, "is_answer": false, "word": "boring", "ipa": "/ˈbɔːrɪŋ/", "pos": "形容詞", "meaning": "退屈な", "example": "The movie was boring." },
+    { "q": 4, "is_answer": false, "word": "cute", "ipa": "/kjuːt/", "pos": "形容詞", "meaning": "かわいい", "example": "That dog is cute." },
+    { "q": 4, "is_answer": true, "word": "reasonable", "ipa": "/ˈriːzənəbəl/", "pos": "形容詞", "meaning": "手ごろな、妥当な", "example": "The price seemed reasonable." },
+
+    { "q": 5, "is_answer": false, "word": "award", "ipa": "/əˈwɔːrd/", "pos": "名詞", "meaning": "賞、賞品", "example": "She won an award." },
+    { "q": 5, "is_answer": false, "word": "aisle", "ipa": "/aɪl/", "pos": "名詞", "meaning": "通路", "example": "He walked down the aisle." },
+    { "q": 5, "is_answer": false, "word": "attempt", "ipa": "/əˈtempt/", "pos": "名詞", "meaning": "試み、挑戦", "example": "This is my first attempt." },
+    { "q": 5, "is_answer": true, "word": "announcement", "ipa": "/əˈnaʊnsmənt/", "pos": "名詞", "meaning": "発表、お知らせ", "example": "Mr. Harris made an announcement." },
+
+    { "q": 6, "is_answer": false, "word": "policies", "ipa": "/ˈpɑːləsiz/", "pos": "名詞", "meaning": "方針、政策", "example": "The company changed its policies." },
+    { "q": 6, "is_answer": false, "word": "blankets", "ipa": "/ˈblæŋkɪts/", "pos": "名詞", "meaning": "毛布", "example": "We need warm blankets." },
+    { "q": 6, "is_answer": true, "word": "statues", "ipa": "/ˈstætʃuːz/", "pos": "名詞", "meaning": "像、彫像", "example": "Artists will create statues for the parks." },
+    { "q": 6, "is_answer": false, "word": "insects", "ipa": "/ˈɪnsekts/", "pos": "名詞", "meaning": "昆虫", "example": "Some insects live under stones." },
+
+    { "q": 7, "is_answer": false, "word": "battery", "ipa": "/ˈbætəri/", "pos": "名詞", "meaning": "電池、バッテリー", "example": "My phone battery is low." },
+    { "q": 7, "is_answer": true, "word": "receipt", "ipa": "/rɪˈsiːt/", "pos": "名詞", "meaning": "レシート、領収書", "example": "He keeps the receipt in a safe place." },
+    { "q": 7, "is_answer": false, "word": "website", "ipa": "/ˈwebsaɪt/", "pos": "名詞", "meaning": "ウェブサイト", "example": "I checked the website." },
+    { "q": 7, "is_answer": false, "word": "frame", "ipa": "/freɪm/", "pos": "名詞", "meaning": "枠、額縁、骨組み", "example": "The picture has a wooden frame." },
+
+    { "q": 8, "is_answer": false, "word": "paste", "ipa": "/peɪst/", "pos": "動詞", "meaning": "貼る、貼り付ける", "example": "Paste the photo here." },
+    { "q": 8, "is_answer": false, "word": "blame", "ipa": "/bleɪm/", "pos": "動詞", "meaning": "責める、〜のせいにする", "example": "Do not blame your friends." },
+    { "q": 8, "is_answer": true, "word": "trust", "ipa": "/trʌst/", "pos": "動詞", "meaning": "信頼する", "example": "People can trust their friends." },
+    { "q": 8, "is_answer": false, "word": "scratch", "ipa": "/skrætʃ/", "pos": "動詞", "meaning": "ひっかく、傷をつける", "example": "The cat scratched the door." },
+
+    { "q": 9, "is_answer": false, "word": "enter", "ipa": "/ˈentər/", "pos": "動詞", "meaning": "入る、入力する、参加する", "example": "Enter your name here." },
+    { "q": 9, "is_answer": false, "word": "engage", "ipa": "/ɪnˈɡeɪdʒ/", "pos": "動詞", "meaning": "従事する、関わる", "example": "They engage in sports." },
+    { "q": 9, "is_answer": false, "word": "claim", "ipa": "/kleɪm/", "pos": "動詞", "meaning": "主張する、要求する", "example": "He claimed that he was right." },
+    { "q": 9, "is_answer": true, "word": "score", "ipa": "/skɔːr/", "pos": "動詞", "meaning": "得点する、点を取る", "example": "How many points did you score?" },
+
+    { "q": 10, "is_answer": true, "word": "ache", "ipa": "/eɪk/", "pos": "動詞", "meaning": "痛む、うずく", "example": "My legs started to ache." },
+    { "q": 10, "is_answer": false, "word": "soothe", "ipa": "/suːð/", "pos": "動詞", "meaning": "なだめる、和らげる", "example": "The music soothed the baby." },
+    { "q": 10, "is_answer": false, "word": "push", "ipa": "/pʊʃ/", "pos": "動詞", "meaning": "押す", "example": "Push the door open." },
+    { "q": 10, "is_answer": false, "word": "gather", "ipa": "/ˈɡæðər/", "pos": "動詞", "meaning": "集める、集まる", "example": "People gathered in the park." }
+  ],
+  "idioms": [
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "next to", "pos": "前置詞句", "meaning": "〜の隣に", "example": "The store is next to the station." },
+    { "q": 11, "is_answer": true, "type": "idiom", "phrase": "except for", "pos": "前置詞句", "meaning": "〜を除いて、〜以外は", "example": "Everyone came except for Ken." },
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "across from", "pos": "前置詞句", "meaning": "〜の向かいに", "example": "The gym is across from the theater." },
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "up to", "pos": "前置詞句", "meaning": "最大〜まで、〜次第で", "example": "You can choose up to three items." },
+
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "get on", "pos": "句動詞", "meaning": "乗る、うまくやっていく", "example": "Get on the bus here." },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "take off", "pos": "句動詞", "meaning": "脱ぐ、離陸する", "example": "Please take off your shoes." },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "give up", "pos": "句動詞", "meaning": "あきらめる", "example": "Do not give up." },
+    { "q": 12, "is_answer": true, "type": "idiom", "phrase": "look out", "pos": "句動詞", "meaning": "気をつける、注意する", "example": "Look out! There is a bee." },
+
+    { "q": 13, "is_answer": true, "type": "idiom", "phrase": "out of the question", "pos": "慣用句", "meaning": "問題外で、不可能で", "example": "Buying a new phone is out of the question." },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "up in the air", "pos": "慣用句", "meaning": "未定で、はっきりしていない", "example": "The plan is still up in the air." },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "in a good temper", "pos": "慣用句", "meaning": "機嫌がよくて", "example": "He was in a good temper today." },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "none of your business", "pos": "慣用句", "meaning": "あなたには関係ないこと", "example": "That is none of your business." },
+
+    { "q": 14, "is_answer": true, "type": "idiom", "phrase": "make up my mind", "pos": "動詞句", "meaning": "決心する、決める", "example": "I cannot make up my mind." },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "get off my back", "pos": "慣用句", "meaning": "しつこく言うのをやめる", "example": "Please get off my back." },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "go on a voyage", "pos": "動詞句", "meaning": "航海に出る", "example": "They will go on a voyage." },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "put out the light", "pos": "動詞句", "meaning": "明かりを消す", "example": "Put out the light before bed." },
+
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "make a start on", "pos": "動詞句", "meaning": "〜に取りかかる", "example": "Let us make a start on the project." },
+    { "q": 15, "is_answer": true, "type": "idiom", "phrase": "take a look at", "pos": "動詞句", "meaning": "〜を見る、確認する", "example": "Take a look at several phones." },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "do a favor for", "pos": "動詞句", "meaning": "〜のために親切なことをする", "example": "Can you do a favor for me?" },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "have a word with", "pos": "動詞句", "meaning": "〜と少し話をする", "example": "I need to have a word with you." }
+  ]
+}

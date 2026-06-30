@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "exam": "英検準2級 2026年度第1回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2026-1-1ji-p2kyu.pdf",
+    "answer_pdf": "202601Fp2kyu.pdf",
+    "counts": { "questions": 15 }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "A: Michael, this meal is (   ) delicious! It’s the best pasta that I’ve ever eaten.  B: Really? I’m glad you like it.",
+      "choices": ["nervously", "absolutely", "rarely", "separately"],
+      "answerIndex": 1,
+      "translation": "A: マイケル、この料理は本当においしい！今まで食べた中で最高のパスタだよ。 B: 本当？気に入ってくれてうれしいよ。"
+    },
+    {
+      "q": 2,
+      "stem": "Dennis was recently (   ) to his company’s New York office. He likes his new apartment and is slowly finding out about the city.",
+      "choices": ["transferred", "reduced", "proposed", "apologized"],
+      "answerIndex": 0,
+      "translation": "デニスは最近、会社のニューヨーク支社へ異動になった。彼は新しいアパートを気に入り、少しずつ街について知っている。"
+    },
+    {
+      "q": 3,
+      "stem": "Today, Mr. Carter taught his students about the (   ) of smoking. The students learned about the health problems it can cause.",
+      "choices": ["dangers", "palaces", "markets", "galleries"],
+      "answerIndex": 0,
+      "translation": "今日、カーター先生は生徒たちに喫煙の危険性について教えた。生徒たちは喫煙が引き起こす健康問題について学んだ。"
+    },
+    {
+      "q": 4,
+      "stem": "A: Why did you choose that hotel for our vacation?  B: It had good reviews, and the price seemed (   ) compared to other options.",
+      "choices": ["wooden", "boring", "cute", "reasonable"],
+      "answerIndex": 3,
+      "translation": "A: どうして休暇のホテルにそこを選んだの？ B: 評判がよくて、他の選択肢と比べて値段が手ごろに思えたんだ。"
+    },
+    {
+      "q": 5,
+      "stem": "At the start of the lesson, Mr. Harris made an (   ). He told the class that a student teacher would be teaching his lessons for the next few weeks.",
+      "choices": ["award", "aisle", "attempt", "announcement"],
+      "answerIndex": 3,
+      "translation": "授業の始めに、ハリス先生は発表をした。彼は、これから数週間、教育実習生が授業を担当するとクラスに伝えた。"
+    },
+    {
+      "q": 6,
+      "stem": "The mayor has asked several local artists to create (   ) that will be put in the city’s parks. The artists have been told that they can use either metal or stone.",
+      "choices": ["policies", "blankets", "statues", "insects"],
+      "answerIndex": 2,
+      "translation": "市長は地元の芸術家数人に、市内の公園に置く像を作るよう依頼した。芸術家たちは金属か石を使ってよいと伝えられている。"
+    },
+    {
+      "q": 7,
+      "stem": "When Adam buys expensive items, he always keeps the (   ) in a safe place. That way, he can return an item if it has a problem.",
+      "choices": ["battery", "receipt", "website", "frame"],
+      "answerIndex": 1,
+      "translation": "アダムは高価な品物を買うと、いつもレシートを安全な場所に保管する。そうすれば、問題があったときに返品できる。"
+    },
+    {
+      "q": 8,
+      "stem": "People can (   ) their friends to support them during difficult times and help them find solutions.",
+      "choices": ["paste", "blame", "trust", "scratch"],
+      "answerIndex": 2,
+      "translation": "人は困難な時に友人を信頼して支えてもらい、解決策を見つける助けを得ることができる。"
+    },
+    {
+      "q": 9,
+      "stem": "A: How many points did you (   ) in the math test?  B: Only 50 out of 100. I did really badly.",
+      "choices": ["enter", "engage", "claim", "score"],
+      "answerIndex": 3,
+      "translation": "A: 数学のテストで何点取ったの？ B: 100点中50点だけ。すごく悪かった。"
+    },
+    {
+      "q": 10,
+      "stem": "After running ten kilometers, Evan’s legs started to (   ). He sat down to rest and did some leg stretching exercises.",
+      "choices": ["ache", "soothe", "push", "gather"],
+      "answerIndex": 0,
+      "translation": "10キロ走った後、エバンの脚は痛み始めた。彼は座って休み、脚のストレッチをした。"
+    },
+    {
+      "q": 11,
+      "stem": "Almost all the pets in the shelter found homes, (   ) one dog that was still waiting for a family.",
+      "choices": ["next to", "except for", "across from", "up to"],
+      "answerIndex": 1,
+      "translation": "保護施設のほとんどすべてのペットは引き取り先が見つかったが、家族をまだ待っている犬が1匹だけ例外だった。"
+    },
+    {
+      "q": 12,
+      "stem": "A: (   )! There’s a bee near your face!  B: Oh, I didn’t see it. Thanks for letting me know.",
+      "choices": ["Get on", "Take off", "Give up", "Look out"],
+      "answerIndex": 3,
+      "translation": "A: 気をつけて！顔の近くにハチがいるよ！ B: あ、見えてなかった。教えてくれてありがとう。"
+    },
+    {
+      "q": 13,
+      "stem": "A: Dad, can I have a new smartphone for my birthday this year?  B: No, that’s (   ), Megan. Your birthday is next month, and you just got a new one last month.",
+      "choices": ["out of the question", "up in the air", "in a good temper", "none of your business"],
+      "answerIndex": 0,
+      "translation": "A: お父さん、今年の誕生日に新しいスマートフォンをもらえる？ B: だめだ、それは問題外だよ、メーガン。誕生日は来月だし、先月新しいものを買ったばかりだろう。"
+    },
+    {
+      "q": 14,
+      "stem": "A: Have you decided which club to join, Chris?  B: No. I can’t (   ). They all seem so interesting.",
+      "choices": ["make up my mind", "get off my back", "go on a voyage", "put out the light"],
+      "answerIndex": 0,
+      "translation": "A: どのクラブに入るか決めた、クリス？ B: いや。決められないんだ。全部おもしろそうなんだ。"
+    },
+    {
+      "q": 15,
+      "stem": "Before buying a new smartphone, you should (   ) several different ones. That way, you can find one that is right for you.",
+      "choices": ["make a start on", "take a look at", "do a favor for", "have a word with"],
+      "answerIndex": 1,
+      "translation": "新しいスマートフォンを買う前に、いくつか違うものを見てみるべきだ。そうすれば自分に合うものを見つけられる。"
+    }
+  ]
+}
