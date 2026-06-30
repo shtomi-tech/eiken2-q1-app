@@ -165,6 +165,11 @@ h2 {
 
 .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
 .cta { border-radius: 0 0 8px 8px; font-weight: 600; }
+.reviewCta {
+  background: var(--clay);
+  border-color: var(--clay);
+}
+.reviewCta:hover { background: #8f3e22; }
 
 .settingRow {
   display: flex;
@@ -203,6 +208,10 @@ h2 {
 .qCard:hover { background: var(--parchment); }
 .qCard.done { border-left: 4px solid var(--ok); }
 .qCard.due { border-left: 4px solid var(--clay); }
+.qCard.review {
+  border-left: 4px solid var(--clay);
+  background: #fff7f1;
+}
 .qCard .qno {
   font-family: var(--mono);
   font-size: 11px;
@@ -220,6 +229,7 @@ h2 {
 }
 .qCard.done .qstat { color: var(--ok); }
 .qCard.due .qstat { color: var(--clay); }
+.qCard.review .qstat { color: var(--clay); }
 
 /* ---- Session shell ---- */
 .stageBar {
@@ -244,6 +254,7 @@ h2 {
 .stagePill:last-child { border-right: 0; }
 .stagePill.active { background: var(--ink); color: var(--parchment); }
 .stagePill.cleared { color: var(--ok); }
+.reviewBar .stagePill.active { background: var(--clay); color: var(--parchment); }
 
 .roundInfo {
   border: 1px solid var(--ink);
