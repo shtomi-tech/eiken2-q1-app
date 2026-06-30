@@ -196,13 +196,14 @@ function allVocabularyItems() {
 let session = null;
 
 function startLearn(q) {
+  const items = state.itemsByQ[q];
   session = {
     mode: "learn",
     q,
-    items: state.itemsByQ[q],
+    items: shuffle(items),
     stage: "flash",
     flashIdx: 0,
-    checkOrder: shuffle(state.itemsByQ[q]),
+    checkOrder: shuffle(items),
     checkIdx: 0,
     checkAnswered: false,
   };
