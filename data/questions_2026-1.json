@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "exam": "英検2級 2026年度第1回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "note": "正解は公式解答（2026年度第1回）と照合済み。choices は本番の出題順。answerIndex は0始まり。"
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "In many countries, the (   ) wears a white dress at a wedding. However, in some countries, she may wear a red dress.",
+      "choices": ["lawyer", "warrior", "surgeon", "bride"],
+      "answerIndex": 3,
+      "translation": "多くの国では、花嫁は結婚式で白いドレスを着る。しかし一部の国では赤いドレスを着ることもある。"
+    },
+    {
+      "q": 2,
+      "stem": "The teacher asked her students to find Argentina on a (   ). She wanted them to learn about countries that are far away from Japan.",
+      "choices": ["branch", "globe", "scale", "trail"],
+      "answerIndex": 1,
+      "translation": "先生は生徒たちに地球儀でアルゼンチンを探すよう言った。日本から遠い国について学ばせたかったのだ。"
+    },
+    {
+      "q": 3,
+      "stem": "Yuki only started studying Korean two years ago, but she can already read the newspaper without any (   ). Everyone is surprised by how quickly she has learned the language.",
+      "choices": ["glory", "balance", "difficulty", "priority"],
+      "answerIndex": 2,
+      "translation": "ユキは2年前に韓国語を学び始めたばかりだが、もう難なく新聞を読める。誰もが習得の速さに驚いている。"
+    },
+    {
+      "q": 4,
+      "stem": "A: Are you all right? You have a (   ) to be quiet when you're worried.  B: Do I? I never realized I was like that. I'm fine. I just don't have much to say today.",
+      "choices": ["tendency", "discrimination", "shelter", "content"],
+      "answerIndex": 0,
+      "translation": "A: 大丈夫？ 心配があると黙りこむ傾向があるよ。 B: そう？ 自分では気づかなかった。大丈夫、今日は話すことが少ないだけ。"
+    },
+    {
+      "q": 5,
+      "stem": "Teachers at Billings Academy try to (   ) leadership qualities in their students. They teach the students how to communicate, make decisions, and take responsibility.",
+      "choices": ["hate", "foster", "divide", "pronounce"],
+      "answerIndex": 1,
+      "translation": "ビリングズ学園の教師は生徒のリーダーシップ資質を育もうとする。意思疎通・意思決定・責任の取り方を教えている。"
+    },
+    {
+      "q": 6,
+      "stem": "On a (   ) Saturday night, Mr. and Mrs. Nelson order pizza and watch TV together. But sometimes, they go out to a restaurant.",
+      "choices": ["gradual", "chemical", "typical", "false"],
+      "answerIndex": 2,
+      "translation": "いつもの土曜の夜、ネルソン夫妻はピザを注文して一緒にテレビを見る。だが時にはレストランに出かける。"
+    },
+    {
+      "q": 7,
+      "stem": "When the movie ended, many people in the theater began to (   ). The story was very sad.",
+      "choices": ["occur", "swell", "tap", "weep"],
+      "answerIndex": 3,
+      "translation": "映画が終わると、劇場の多くの人がすすり泣き始めた。物語はとても悲しかった。"
+    },
+    {
+      "q": 8,
+      "stem": "The biology professor showed his students some videos of living cells. He wanted to (   ) how cells work.",
+      "choices": ["occupy", "polish", "illustrate", "congratulate"],
+      "answerIndex": 2,
+      "translation": "生物学の教授は生きた細胞の動画を見せた。細胞の働きを（実例で）説明したかったのだ。"
+    },
+    {
+      "q": 9,
+      "stem": "The Green Wolves and the Blue Stars were very evenly matched in the championship game. The Green Wolves (   ) won when they scored a goal in the last seconds of the game.",
+      "choices": ["secretly", "gently", "barely", "repeatedly"],
+      "answerIndex": 2,
+      "translation": "決勝戦でグリーン・ウルブズとブルー・スターズは実力伯仲だった。ウルブズは試合終了間際に得点し、かろうじて勝った。"
+    },
+    {
+      "q": 10,
+      "stem": "When the teacher said there would be a test next week, the students (   ). They had hoped that they would have more time to study.",
+      "choices": ["frowned", "slipped", "guessed", "crawled"],
+      "answerIndex": 0,
+      "translation": "来週テストがあると先生が言うと、生徒たちは顔をしかめた。もっと勉強する時間があると思っていたのだ。"
+    },
+    {
+      "q": 11,
+      "stem": "(   ), people should drink eight glasses of water a day to stay healthy. However, some people may need more or less than this.",
+      "choices": ["For a fresh start", "On a specific occasion", "In case of emergency", "As a general rule"],
+      "answerIndex": 3,
+      "translation": "一般的には、健康のため1日コップ8杯の水を飲むべきだとされる。ただし、人によってはこれより多くも少なくも必要になりうる。"
+    },
+    {
+      "q": 12,
+      "stem": "Ben moved out of his parents' house and into an apartment last week. Now, he has to do everything (   ), like cooking and cleaning.",
+      "choices": ["on the air", "at a distance", "to his surprise", "on his own"],
+      "answerIndex": 3,
+      "translation": "ベンは先週、実家を出てアパートに引っ越した。今は料理や掃除など、すべてを自分一人でやらねばならない。"
+    },
+    {
+      "q": 13,
+      "stem": "In the meeting, the president said that he could not (   ) the plan to expand the office because it would be too expensive.",
+      "choices": ["take away from", "go along with", "bring out in", "watch out for"],
+      "answerIndex": 1,
+      "translation": "会議で社長は、費用がかかりすぎるため事務所拡張の計画には賛成できないと述べた。"
+    },
+    {
+      "q": 14,
+      "stem": "After (   ) tests, the doctors discovered that Masahiro had a rare illness. They immediately started treating him.",
+      "choices": ["a series of", "the edge of", "a member of", "the back of"],
+      "answerIndex": 0,
+      "translation": "一連の検査の後、医師たちはマサヒロが珍しい病気だと突き止めた。すぐに治療を始めた。"
+    },
+    {
+      "q": 15,
+      "stem": "A: Our presentation next week will include a lot of data. It will take a lot of work to prepare.  B: (   ), we are going to be very busy! Let's get started right away.",
+      "choices": ["In other words", "In the beginning", "Back and forth", "On the contrary"],
+      "answerIndex": 0,
+      "translation": "A: 来週の発表は大量のデータを含む。準備は大変だ。 B: つまり、すごく忙しくなるってことだね！ さっそく始めよう。"
+    },
+    {
+      "q": 16,
+      "stem": "The two paintings looked (   ) each other at first, but when John looked more closely, he saw that they were very similar in one way.",
+      "choices": ["distinct from", "composed of", "absent from", "threatening to"],
+      "answerIndex": 0,
+      "translation": "2枚の絵は最初は互いに別物に見えたが、ジョンがよく見ると、ある点で非常に似ていることがわかった。"
+    },
+    {
+      "q": 17,
+      "stem": "The company had to (   ) some of its workers because it was losing money. It was a very difficult decision to make.",
+      "choices": ["flip over", "lay off", "bring about", "catch up"],
+      "answerIndex": 1,
+      "translation": "その会社は赤字のため一部の従業員を解雇せざるをえなかった。とても難しい決断だった。"
+    }
+  ]
+}
