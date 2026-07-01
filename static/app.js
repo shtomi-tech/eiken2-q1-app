@@ -22,6 +22,12 @@ const DATASETS = {
     vocabUrl: "data/vocab_p2_2026-1.json",
     questionsUrl: "data/questions_p2_2026-1.json",
   },
+  "eikenp2-2025-3": {
+    label: "英検準2級 2025年度第3回",
+    shortLabel: "準2級",
+    vocabUrl: "data/vocab_p2_2025-3.json",
+    questionsUrl: "data/questions_p2_2025-3.json",
+  },
 };
 const DEFAULT_DATASET_ID = "eiken2-2026-1";
 

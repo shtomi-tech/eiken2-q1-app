@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "exam": "英検準2級 2025年度第3回 一次試験（F日程）",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2025-3-1ji-p2kyu.pdf",
+    "note": "問題PDFをもとに、大問1の選択肢語句を学習用に整理。解答は各設問の文脈から確定。",
+    "counts": { "words": 40, "idioms": 20, "total": 60 }
+  },
+  "words": [
+    { "q": 1, "is_answer": false, "word": "skill", "ipa": "/skɪl/", "pos": "名詞", "meaning": "技術、技能、腕前", "example": "Cooking is a useful skill.", "etymology": "古ノルド語 skil（区別・分別）から。「見分けられる能力」が「技能」へ。", "collocation": "develop a skill / communication skills" },
+    { "q": 1, "is_answer": false, "word": "audio", "ipa": "/ˈɔːdioʊ/", "pos": "名詞・形容詞", "meaning": "音声（の）、オーディオ", "example": "The audio was not clear.", "etymology": "ラテン語 audire（聞く）から。「聞く」に関するもの。", "collocation": "audio file / audio quality" },
+    { "q": 1, "is_answer": true, "word": "joy", "ipa": "/dʒɔɪ/", "pos": "名詞", "meaning": "喜び、うれしさ", "example": "Her eyes were filled with joy.", "etymology": "ラテン語 gaudium（喜び）から。心が満たされる感情。", "collocation": "filled with joy / tears of joy" },
+    { "q": 1, "is_answer": false, "word": "rent", "ipa": "/rent/", "pos": "名詞・動詞", "meaning": "家賃、賃貸料／賃借りする", "example": "The rent is very high in this city.", "etymology": "ラテン語 reddere（返す・支払う）から。定期的に支払うお金。", "collocation": "pay the rent / rent a car" },
+
+    { "q": 2, "is_answer": false, "word": "shadow", "ipa": "/ˈʃædoʊ/", "pos": "名詞", "meaning": "影、日陰", "example": "The tree cast a long shadow.", "etymology": "古英語 sceadu（影）から。光がさえぎられてできる暗い部分。", "collocation": "cast a shadow / in the shadow" },
+    { "q": 2, "is_answer": false, "word": "talent", "ipa": "/ˈtælənt/", "pos": "名詞", "meaning": "才能、素質", "example": "She has a talent for music.", "etymology": "ギリシャ語 talanton（重さ・貨幣単位）から。聖書の寓話を経て「生まれ持った才能」へ。", "collocation": "a talent for / show one’s talent" },
+    { "q": 2, "is_answer": false, "word": "pattern", "ipa": "/ˈpætərn/", "pos": "名詞", "meaning": "模様、型、パターン", "example": "The shirt has a nice pattern.", "etymology": "ラテン語 pater（父）→ patron（手本）から。「手本・型」の意味。", "collocation": "a pattern of / follow a pattern" },
+    { "q": 2, "is_answer": true, "word": "value", "ipa": "/ˈvæljuː/", "pos": "名詞・動詞", "meaning": "価値、値打ち／重んじる", "example": "Gold has a high value.", "etymology": "ラテン語 valere（価値がある・強い）から。物の値打ちを表す。", "collocation": "a high value / value one’s time" },
+
+    { "q": 3, "is_answer": true, "word": "impression", "ipa": "/ɪmˈpreʃn/", "pos": "名詞", "meaning": "印象、感じ", "example": "I had a good impression of him.", "etymology": "ラテン語 imprimere（押し付ける）から。心に押しつけられた印。", "collocation": "a good impression / first impression" },
+    { "q": 3, "is_answer": false, "word": "survey", "ipa": "/ˈsɜːrveɪ/", "pos": "名詞・動詞", "meaning": "調査、アンケート／調査する", "example": "They did a survey of customers.", "etymology": "ラテン語 super（上から）+ videre（見る）。上から全体を見渡す。", "collocation": "conduct a survey / a survey of" },
+    { "q": 3, "is_answer": false, "word": "requirement", "ipa": "/rɪˈkwaɪərmənt/", "pos": "名詞", "meaning": "必要条件、要件", "example": "English is a requirement for this job.", "etymology": "require（必要とする）+ -ment。必要とされる事柄。", "collocation": "meet a requirement / entry requirement" },
+    { "q": 3, "is_answer": false, "word": "purse", "ipa": "/pɜːrs/", "pos": "名詞", "meaning": "財布、（女性用の）ハンドバッグ", "example": "She put the coins in her purse.", "etymology": "ギリシャ語 bursa（革袋）から。お金を入れる小さな袋。", "collocation": "open one’s purse / a leather purse" },
+
+    { "q": 4, "is_answer": false, "word": "statement", "ipa": "/ˈsteɪtmənt/", "pos": "名詞", "meaning": "発言、声明、明細書", "example": "The company made a statement.", "etymology": "state（述べる）+ -ment。はっきり述べたもの。", "collocation": "make a statement / bank statement" },
+    { "q": 4, "is_answer": false, "word": "product", "ipa": "/ˈprɒdʌkt/", "pos": "名詞", "meaning": "製品、産物", "example": "This product is very popular.", "etymology": "ラテン語 producere（前に導き出す）から。作り出されたもの。", "collocation": "a new product / dairy products" },
+    { "q": 4, "is_answer": false, "word": "failure", "ipa": "/ˈfeɪljər/", "pos": "名詞", "meaning": "失敗、故障", "example": "The plan ended in failure.", "etymology": "fail（失敗する）+ -ure。うまくいかないこと。", "collocation": "end in failure / a complete failure" },
+    { "q": 4, "is_answer": true, "word": "journey", "ipa": "/ˈdʒɜːrni/", "pos": "名詞", "meaning": "旅、旅行、行程", "example": "She saw many places on her journey.", "etymology": "フランス語 journée（一日の行程）から。もとは「1日の旅」。", "collocation": "a long journey / on a journey" },
+
+    { "q": 5, "is_answer": false, "word": "wondered", "ipa": "/ˈwʌndərd/", "pos": "動詞", "meaning": "〜だろうかと思った、不思議に思った", "example": "I wondered why he was late.", "etymology": "wonder（不思議に思う）+ -ed。心の中で問いかける。", "collocation": "wonder why / wonder if" },
+    { "q": 5, "is_answer": true, "word": "disappeared", "ipa": "/ˌdɪsəˈpɪərd/", "pos": "動詞", "meaning": "消えた、見えなくなった", "example": "My headache has totally disappeared.", "etymology": "dis-（否定）+ appear（現れる）+ -ed。現れなくなる＝消える。", "collocation": "disappear completely / suddenly disappear" },
+    { "q": 5, "is_answer": false, "word": "supposed", "ipa": "/səˈpoʊzd/", "pos": "動詞・形容詞", "meaning": "〜だと思った／〜することになっている", "example": "You are supposed to be quiet here.", "etymology": "ラテン語 sub-（下に）+ ponere（置く）。前提として置く。", "collocation": "be supposed to / suppose that" },
+    { "q": 5, "is_answer": false, "word": "entered", "ipa": "/ˈentərd/", "pos": "動詞", "meaning": "入った、参加した", "example": "She entered the room quietly.", "etymology": "ラテン語 intra（中へ）から。中に入る。", "collocation": "enter a room / enter a contest" },
+
+    { "q": 6, "is_answer": false, "word": "forward", "ipa": "/ˈfɔːrwərd/", "pos": "副詞", "meaning": "前へ、前方に", "example": "He stepped forward.", "etymology": "fore（前）+ -ward（〜の方へ）。前方向へ。", "collocation": "move forward / look forward to" },
+    { "q": 6, "is_answer": false, "word": "loudly", "ipa": "/ˈlaʊdli/", "pos": "副詞", "meaning": "大声で、騒々しく", "example": "They laughed loudly.", "etymology": "loud（大きな音の）+ -ly。音が大きい様子で。", "collocation": "speak loudly / laugh loudly" },
+    { "q": 6, "is_answer": false, "word": "worldwide", "ipa": "/ˌwɜːrldˈwaɪd/", "pos": "副詞・形容詞", "meaning": "世界中で（の）", "example": "The product is sold worldwide.", "etymology": "world（世界）+ wide（広く）。世界に広く。", "collocation": "sold worldwide / worldwide fame" },
+    { "q": 6, "is_answer": true, "word": "altogether", "ipa": "/ˌɔːltəˈɡeðər/", "pos": "副詞", "meaning": "合計で、まったく、全部で", "example": "She spent twenty hours on it altogether.", "etymology": "all（すべて）+ together（一緒に）。全部合わせて。", "collocation": "altogether about / stop altogether" },
+
+    { "q": 7, "is_answer": false, "word": "cold", "ipa": "/koʊld/", "pos": "形容詞", "meaning": "冷たい、寒い", "example": "It is cold outside today.", "etymology": "古英語 cald（冷たい）から。温度が低い。", "collocation": "a cold day / feel cold" },
+    { "q": 7, "is_answer": false, "word": "shy", "ipa": "/ʃaɪ/", "pos": "形容詞", "meaning": "恥ずかしがりの、内気な", "example": "He is too shy to speak in public.", "etymology": "古英語 sceoh（おびえた）から。人前でおじけづく。", "collocation": "a shy smile / feel shy" },
+    { "q": 7, "is_answer": true, "word": "cheap", "ipa": "/tʃiːp/", "pos": "形容詞", "meaning": "安い、安価な", "example": "You can get a cheap one at that store.", "etymology": "古英語 cēap（取引・値段）から。「良い取引＝安い」。", "collocation": "a cheap ticket / cheap and good" },
+    { "q": 7, "is_answer": false, "word": "guilty", "ipa": "/ˈɡɪlti/", "pos": "形容詞", "meaning": "有罪の、罪の意識がある", "example": "He felt guilty about the lie.", "etymology": "古英語 gylt（罪）+ -y。罪がある状態。", "collocation": "feel guilty / found guilty" },
+
+    { "q": 8, "is_answer": false, "word": "rest", "ipa": "/rest/", "pos": "動詞・名詞", "meaning": "休む、休憩／残り", "example": "You should rest after work.", "etymology": "古英語 ræst（休息）から。動きを止めて休む。", "collocation": "rest for a while / take a rest" },
+    { "q": 8, "is_answer": false, "word": "attend", "ipa": "/əˈtend/", "pos": "動詞", "meaning": "出席する、参加する", "example": "She attended the meeting.", "etymology": "ラテン語 ad-（〜へ）+ tendere（伸ばす）。心を向けて出向く。", "collocation": "attend a meeting / attend school" },
+    { "q": 8, "is_answer": true, "word": "erase", "ipa": "/ɪˈreɪs/", "pos": "動詞", "meaning": "消す、削除する", "example": "Please do not erase the words on the board.", "etymology": "ラテン語 e-（外へ）+ radere（削る）。削り取って消す。", "collocation": "erase the words / erase a file" },
+    { "q": 8, "is_answer": false, "word": "hire", "ipa": "/ˈhaɪər/", "pos": "動詞", "meaning": "雇う、（英）賃借りする", "example": "The company hired a new worker.", "etymology": "古英語 hyrian（賃金で雇う）から。お金を払って人を使う。", "collocation": "hire a worker / hire a car" },
+
+    { "q": 9, "is_answer": false, "word": "order", "ipa": "/ˈɔːrdər/", "pos": "動詞・名詞", "meaning": "注文する、命じる／順序", "example": "He ordered a coffee.", "etymology": "ラテン語 ordo（並び・順序）から。物事を整える。", "collocation": "order food / in order" },
+    { "q": 9, "is_answer": false, "word": "catch", "ipa": "/kætʃ/", "pos": "動詞", "meaning": "捕まえる、間に合う", "example": "She caught the ball.", "etymology": "ラテン語 captare（つかもうとする）から。手に入れる。", "collocation": "catch a ball / catch a train" },
+    { "q": 9, "is_answer": false, "word": "hide", "ipa": "/haɪd/", "pos": "動詞", "meaning": "隠す、隠れる", "example": "He hid the letter in a drawer.", "etymology": "古英語 hydan（隠す）から。見えないようにする。", "collocation": "hide behind / hide the truth" },
+    { "q": 9, "is_answer": true, "word": "rate", "ipa": "/reɪt/", "pos": "動詞・名詞", "meaning": "評価する、格付けする／割合", "example": "She went to stores to rate the different models.", "etymology": "ラテン語 rata（割り当てられた）から。基準に照らして評価する。", "collocation": "rate a product / a high rate" },
+
+    { "q": 10, "is_answer": false, "word": "heal", "ipa": "/hiːl/", "pos": "動詞", "meaning": "（傷などが）治る、癒やす", "example": "The wound healed quickly.", "etymology": "古英語 hælan（健康にする）から。whole（全体）と同語源。", "collocation": "heal a wound / time heals" },
+    { "q": 10, "is_answer": false, "word": "chase", "ipa": "/tʃeɪs/", "pos": "動詞", "meaning": "追いかける、追い求める", "example": "The dog chased the cat.", "etymology": "ラテン語 captare（つかもうとする）から。catch と同語源。", "collocation": "chase a dream / chase after" },
+    { "q": 10, "is_answer": true, "word": "dry", "ipa": "/draɪ/", "pos": "動詞・形容詞", "meaning": "乾かす、乾く／乾いた", "example": "Let’s hang our towels outside to dry.", "etymology": "古英語 dryge（乾いた）から。水分がない状態にする。", "collocation": "dry the towels / dry weather" },
+    { "q": 10, "is_answer": false, "word": "accept", "ipa": "/əkˈsept/", "pos": "動詞", "meaning": "受け入れる、受け取る", "example": "She accepted the invitation.", "etymology": "ラテン語 ad-（〜へ）+ capere（取る）。受け取る。", "collocation": "accept an offer / accept help" }
+  ],
+  "idioms": [
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "take over", "pos": "句動詞", "meaning": "引き継ぐ、乗っ取る", "example": "She will take over the business.", "etymology": "take（取る）+ over（越えて）。役割を越えて引き取る。", "collocation": "take over a job / take over from" },
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "come to", "pos": "句動詞", "meaning": "（合計が）〜になる、意識を取り戻す", "example": "The bill came to fifty dollars.", "etymology": "come（来る）+ to（〜へ）。ある結果に至る。", "collocation": "come to a total / come to oneself" },
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "point out", "pos": "句動詞", "meaning": "指摘する、指し示す", "example": "He pointed out my mistake.", "etymology": "point（指す）+ out（外へ）。指して示す。", "collocation": "point out a mistake / point out that" },
+    { "q": 11, "is_answer": true, "type": "idiom", "phrase": "laugh at", "pos": "句動詞", "meaning": "〜を見て笑う、〜を笑いものにする", "example": "Her classmates always laugh at her jokes.", "etymology": "laugh（笑う）+ at（〜に向けて）。対象に向けて笑う。", "collocation": "laugh at a joke / laugh at oneself" },
+
+    { "q": 12, "is_answer": true, "type": "idiom", "phrase": "all over", "pos": "前置詞句", "meaning": "一面に、〜じゅうに", "example": "There was snow all over the ground.", "etymology": "all（すべて）+ over（覆って）。全体を覆って。", "collocation": "all over the ground / all over the world" },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "just like", "pos": "前置詞句", "meaning": "ちょうど〜のように", "example": "He sings just like his father.", "etymology": "just（まさに）+ like（〜のような）。まさに同じように。", "collocation": "just like you / just like before" },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "up to", "pos": "前置詞句", "meaning": "〜まで、〜次第で", "example": "It’s up to you to decide.", "etymology": "up（上へ）+ to（〜まで）。ある限度・責任まで。", "collocation": "up to you / up to ten" },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "ahead of", "pos": "前置詞句", "meaning": "〜の前に、〜より進んで", "example": "She arrived ahead of the others.", "etymology": "ahead（前方に）+ of（〜の）。〜より前に。", "collocation": "ahead of time / ahead of schedule" },
+
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "have a dream", "pos": "動詞句", "meaning": "夢を見る、夢を持つ", "example": "I have a dream of becoming a doctor.", "etymology": "have（持つ）+ a dream（夢）。夢を抱く。", "collocation": "have a dream of / have a big dream" },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "have a word", "pos": "動詞句", "meaning": "（人と）ちょっと話をする", "example": "Can I have a word with you?", "etymology": "have（持つ）+ a word（一言）。一言かわす。", "collocation": "have a word with / have a quick word" },
+    { "q": 13, "is_answer": true, "type": "idiom", "phrase": "make an excuse", "pos": "動詞句", "meaning": "言い訳をする", "example": "Don’t make an excuse for being late.", "etymology": "make（作る）+ an excuse（言い訳）。言い訳を作り出す。", "collocation": "make an excuse for / a poor excuse" },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "make a start", "pos": "動詞句", "meaning": "始める、着手する", "example": "Let’s make a start on the project.", "etymology": "make（作る）+ a start（開始）。始まりを作る。", "collocation": "make a start on / make an early start" },
+
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "as soon as", "pos": "接続詞句", "meaning": "〜するとすぐに", "example": "Call me as soon as you arrive.", "etymology": "as（同じくらい）+ soon（すぐに）+ as。同じ早さで＝〜するや否や。", "collocation": "as soon as possible / as soon as you can" },
+    { "q": 14, "is_answer": true, "type": "idiom", "phrase": "as long as", "pos": "接続詞句", "meaning": "〜する限り、〜さえすれば", "example": "You can stay as long as you are quiet.", "etymology": "as（同じくらい）+ long（長い）+ as。「〜の間ずっと／条件が続く限り」。", "collocation": "as long as you like / as long as possible" },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "even if", "pos": "接続詞句", "meaning": "たとえ〜でも", "example": "I’ll go even if it rains.", "etymology": "even（〜でさえ）+ if（もし）。仮定を強調。", "collocation": "even if it rains / even if you try" },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "by the time", "pos": "接続詞句", "meaning": "〜する時までには", "example": "By the time we arrived, it was dark.", "etymology": "by（〜までに）+ the time（その時）。ある時点までに。", "collocation": "by the time you come / by the time it ends" },
+
+    { "q": 15, "is_answer": true, "type": "idiom", "phrase": "succeeded in", "pos": "句動詞", "meaning": "〜に成功した", "example": "She succeeded in playing the song perfectly.", "etymology": "succeed（成功する）+ in（〜において）。ある事柄で成功する。", "collocation": "succeed in doing / succeed in business" },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "lived on", "pos": "句動詞", "meaning": "〜を常食にした、生き続けた", "example": "They lived on rice and fish.", "etymology": "live（生きる）+ on（〜に頼って）。〜を糧に生きる。", "collocation": "live on rice / live on forever" },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "suffered from", "pos": "句動詞", "meaning": "〜に苦しんだ、〜を患った", "example": "He suffered from a bad cold.", "etymology": "suffer（苦しむ）+ from（〜から）。原因から苦しみを受ける。", "collocation": "suffer from illness / suffer from pain" },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "felt like", "pos": "句動詞", "meaning": "〜したい気がした、〜のように感じた", "example": "I felt like taking a walk.", "etymology": "feel（感じる）+ like（〜のような）。〜したい気分になる。", "collocation": "feel like doing / feel like a rest" }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "exam": "英検準2級 2025年度第3回 一次試験（F日程）",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2025-3-1ji-p2kyu.pdf",
+    "answer_pdf": null,
+    "answer_note": "解答PDFの提供なし。各設問の文脈から一意に確定（標準的な語彙・語法問題）。",
+    "counts": { "questions": 15 }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "Kate’s son’s eyes were filled with (   ) when he saw the new toy train that she had bought for his birthday present.",
+      "choices": ["skill", "audio", "joy", "rent"],
+      "answerIndex": 2,
+      "translation": "ケイトの息子の目は、誕生日プレゼントに彼女が買った新しいおもちゃの電車を見て、喜びでいっぱいになった。"
+    },
+    {
+      "q": 2,
+      "stem": "Gold is harder to find than silver. Because of this, gold has a higher (   ).",
+      "choices": ["shadow", "talent", "pattern", "value"],
+      "answerIndex": 3,
+      "translation": "金は銀よりも見つけるのが難しい。このため、金はより高い価値を持っている。"
+    },
+    {
+      "q": 3,
+      "stem": "A: Have you met Josh yet?  B: Yes, we only talked for a few minutes, but I had a very good (   ) of him. He seems really friendly.",
+      "choices": ["impression", "survey", "requirement", "purse"],
+      "answerIndex": 0,
+      "translation": "A: もうジョシュに会った？ B: うん、数分話しただけだけど、彼にとても良い印象を持ったよ。すごく親しみやすそうだね。"
+    },
+    {
+      "q": 4,
+      "stem": "Last summer, Audrey took a trip across Europe for two months. She saw many interesting places on her (   ).",
+      "choices": ["statement", "product", "failure", "journey"],
+      "answerIndex": 3,
+      "translation": "昨年の夏、オードリーは2か月かけてヨーロッパ横断の旅をした。彼女はその旅で多くの興味深い場所を見た。"
+    },
+    {
+      "q": 5,
+      "stem": "A: Are you feeling better, Pete?  B: Yes, my headache has totally (   ). I went to bed early last night, and when I woke up, the pain had gone.",
+      "choices": ["wondered", "disappeared", "supposed", "entered"],
+      "answerIndex": 1,
+      "translation": "A: 気分は良くなった、ピート？ B: うん、頭痛が完全に消えたよ。昨夜は早く寝て、起きたら痛みがなくなっていたんだ。"
+    },
+    {
+      "q": 6,
+      "stem": "Daniela worked on her report for a few hours each day for over a week. She spent about twenty hours on it (   ).",
+      "choices": ["forward", "loudly", "worldwide", "altogether"],
+      "answerIndex": 3,
+      "translation": "ダニエラは1週間以上、毎日数時間ずつレポートに取り組んだ。彼女は合計で約20時間をそれに費やした。"
+    },
+    {
+      "q": 7,
+      "stem": "A: I want to buy a new computer, but they’re all so expensive.  B: You can get a (   ) one at that store. It’s having a sale this week.",
+      "choices": ["cold", "shy", "cheap", "guilty"],
+      "answerIndex": 2,
+      "translation": "A: 新しいパソコンを買いたいけど、どれもすごく高いんだ。 B: あの店なら安いのが買えるよ。今週セールをやっているんだ。"
+    },
+    {
+      "q": 8,
+      "stem": "A: Justin, please do not (   ) the words on the board. I want to use them for my next class.  B: OK, Mrs. Brown.",
+      "choices": ["rest", "attend", "erase", "hire"],
+      "answerIndex": 2,
+      "translation": "A: ジャスティン、黒板の言葉を消さないでね。次の授業で使いたいの。 B: わかりました、ブラウン先生。"
+    },
+    {
+      "q": 9,
+      "stem": "Jenna wanted to buy a new smartphone, so she went to several stores to (   ) the different models. She compared their prices and features.",
+      "choices": ["order", "catch", "hide", "rate"],
+      "answerIndex": 3,
+      "translation": "ジェナは新しいスマートフォンを買いたかったので、いくつかの店に行ってさまざまな機種を評価した。彼女はそれらの値段と機能を比べた。"
+    },
+    {
+      "q": 10,
+      "stem": "A: It’s really sunny today. Let’s hang our towels outside to (   ).  B: Good idea. We’ll have clean towels to use after our swim.",
+      "choices": ["heal", "chase", "dry", "accept"],
+      "answerIndex": 2,
+      "translation": "A: 今日は本当に晴れているね。タオルを外に干して乾かそう。 B: いい考えだね。泳いだ後にきれいなタオルが使えるね。"
+    },
+    {
+      "q": 11,
+      "stem": "Jane wants to be a comedian in the future. She is really funny, and her classmates always (   ) her jokes.",
+      "choices": ["take over", "come to", "point out", "laugh at"],
+      "answerIndex": 3,
+      "translation": "ジェーンは将来コメディアンになりたいと思っている。彼女は本当に面白く、クラスメートはいつも彼女の冗談に笑う。"
+    },
+    {
+      "q": 12,
+      "stem": "When Karen woke up, there was snow (   ) the ground. She was happy because she knew that there would be no school that day.",
+      "choices": ["all over", "just like", "up to", "ahead of"],
+      "answerIndex": 0,
+      "translation": "カレンが起きると、地面一面に雪が積もっていた。その日は学校が休みになるとわかっていたので、彼女は嬉しかった。"
+    },
+    {
+      "q": 13,
+      "stem": "A: Why were you late for school today, Ben?  B: I don’t want to (   ). The truth is that I overslept.",
+      "choices": ["have a dream", "have a word", "make an excuse", "make a start"],
+      "answerIndex": 2,
+      "translation": "A: 今日はどうして学校に遅刻したの、ベン？ B: 言い訳はしたくないんだ。本当のところは寝坊しただけなんだ。"
+    },
+    {
+      "q": 14,
+      "stem": "Justin does not mind doing the cooking for his family (   ) he does not have to wash the dishes afterward.",
+      "choices": ["as soon as", "as long as", "even if", "by the time"],
+      "answerIndex": 1,
+      "translation": "ジャスティンは、後で皿洗いをしなくてよいのであれば、家族のために料理をするのを嫌がらない。"
+    },
+    {
+      "q": 15,
+      "stem": "After several weeks of practicing on the piano, Ella finally (   ) playing the song perfectly. Her father was very happy because it was his favorite song.",
+      "choices": ["succeeded in", "lived on", "suffered from", "felt like"],
+      "answerIndex": 0,
+      "translation": "何週間もピアノの練習をした後、エラはついにその曲を完璧に弾くことに成功した。それは父のお気に入りの曲だったので、彼はとても喜んだ。"
+    }
+  ]
+}
