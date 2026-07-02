@@ -30,6 +30,8 @@ const DATASETS = {
   },
 };
 const DEFAULT_DATASET_ID = "eiken2-2026-1";
+// 選択肢を描画した直後、この時間だけクリックを無視する（誤ダブルクリック防止）
+const CHOICE_GUARD_MS = 400;
 
 const state = {
   datasetId: loadDatasetId(),
@@ -109,6 +111,9 @@ function shuffle(arr) {
   return a;
 }
 function surfaceOf(item) { return item.type === "idiom" ? item.phrase : item.word; }
+// 選択肢を描画した瞬間の時刻を記録し、直後の誤クリックを無視する
+function armChoiceGuard() { session._choicesReadyAt = performance.now() + CHOICE_GUARD_MS; }
+function choicesLocked() { return performance.now() < (session._choicesReadyAt || 0); }
 
 /* ============================================================
    load data
@@ -558,6 +563,7 @@ function appendStemWithBreaks(target, stem) {
 
 /* ---- STEP 2: meaning check ---- */
 function renderCheck(body) {
+  armChoiceGuard();
   const item = session.checkOrder[session.checkIdx];
   const surface = surfaceOf(item);
 
@@ -583,7 +589,7 @@ function renderCheck(body) {
       el("span", {}, m),
     );
     btn.addEventListener("click", () => {
-      if (session.checkAnswered) return;
+      if (session.checkAnswered || choicesLocked()) return;
       session.checkAnswered = true;
       const isCorrect = m === correct;
       [...choiceWrap.children].forEach((c) => {
@@ -640,6 +646,7 @@ function saveFinalResult() {
 
 /* ---- STEP 3: practice (actual question) ---- */
 function renderPractice(body) {
+  armChoiceGuard();
   const q = session.q;
   const q_ = state.questions[q];
   const items = state.itemsByQ[q];
@@ -670,7 +677,7 @@ function renderPractice(body) {
 }
 
 function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
-  if (session.practiceAnswered) return;
+  if (session.practiceAnswered || choicesLocked()) return;
   session.practiceAnswered = true;
   const correctIdx = q_.answerIndex;
   const isCorrect = idx === correctIdx;
