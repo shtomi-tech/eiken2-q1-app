@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "exam": "英検2級 2025年度第3回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "note": "正解は公式解答（2025年度第3回）と照合済み。choices は本番の出題順。answerIndex は0始まり。"
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "At the gym, Hugh did exercises to increase the strength of his (   ) body. After a few months, people began to comment on his big chest muscles.",
+      "choices": ["major", "upper", "direct", "elastic"],
+      "answerIndex": 1,
+      "translation": "ジムで、ヒューは上半身の筋力を高める運動をした。数か月後、人々は彼の大きな胸の筋肉について話すようになった。"
+    },
+    {
+      "q": 2,
+      "stem": "Cindy had excellent views of the ocean and nearby islands as she stood at the edge of a tall (   ). Looking down, she could see waves crashing on the rocks far below.",
+      "choices": ["troop", "proverb", "cliff", "duty"],
+      "answerIndex": 2,
+      "translation": "シンディは高い崖の端に立ち、海と近くの島々のすばらしい景色を眺めた。下を見ると、はるか下の岩に波が打ちつけているのが見えた。"
+    },
+    {
+      "q": 3,
+      "stem": "A: How did your husband (   ) when you told him about the baby?  B: He was really happy. He says that he can't wait to become a dad.",
+      "choices": ["exist", "react", "seize", "disappear"],
+      "answerIndex": 1,
+      "translation": "A: 赤ちゃんのことを伝えたとき、ご主人はどんな反応をした？ B: とても喜んでいたよ。父親になるのが待ちきれないって。"
+    },
+    {
+      "q": 4,
+      "stem": "A: What do you want to be when you grow up, Amy?  B: I'm not sure, but I think I'd like to be a (   ). I want to learn about the meaning of life.",
+      "choices": ["president", "spectator", "philosopher", "conductor"],
+      "answerIndex": 2,
+      "translation": "A: 大きくなったら何になりたいの、エイミー？ B: わからないけど、哲学者になりたいかも。人生の意味について学びたいんだ。"
+    },
+    {
+      "q": 5,
+      "stem": "A: What did you do when you realized you had lost your passport?  B: I started to (   ), but then I remembered that I had put it in my suitcase.",
+      "choices": ["interact", "panic", "fly", "swim"],
+      "answerIndex": 1,
+      "translation": "A: パスポートをなくしたと気づいたとき、どうしたの？ B: パニックになり始めたけど、スーツケースに入れたことを思い出した。"
+    },
+    {
+      "q": 6,
+      "stem": "A: How is your new job going, Sarah?  B: It's great, but there is so much to learn. My boss says we will (   ) my progress next month.",
+      "choices": ["recover", "review", "expand", "suspect"],
+      "answerIndex": 1,
+      "translation": "A: 新しい仕事はどう、サラ？ B: いい感じだけど、覚えることが多い。上司は来月、私の進捗を確認すると言っている。"
+    },
+    {
+      "q": 7,
+      "stem": "Neil stopped to (   ) his shoelaces in the middle of the sidewalk. They had come undone while he was walking.",
+      "choices": ["tie", "earn", "hire", "pour"],
+      "answerIndex": 0,
+      "translation": "ニールは歩道の真ん中で立ち止まり、靴ひもを結んだ。歩いている間にほどけてしまっていた。"
+    },
+    {
+      "q": 8,
+      "stem": "A: Why do you think many people support the soccer team, even though it has not won a championship for twenty years?  B: Because the fans have a lot of (   ) to the team.",
+      "choices": ["fortune", "distinction", "loyalty", "suspicion"],
+      "answerIndex": 2,
+      "translation": "A: そのサッカーチームは20年間優勝していないのに、なぜ多くの人が応援していると思う？ B: ファンがチームに強い忠誠心を持っているからだよ。"
+    },
+    {
+      "q": 9,
+      "stem": "Arguments often result from people's (   ) of each other's ways, so it is important for everyone to try to understand the people around them.",
+      "choices": ["wealth", "rage", "ignorance", "poverty"],
+      "answerIndex": 2,
+      "translation": "口論はしばしば互いのやり方に対する無理解から生じるので、誰もが周りの人々を理解しようとすることが大切だ。"
+    },
+    {
+      "q": 10,
+      "stem": "A: I heard you got lost in the mountains last weekend. That sounds scary!  B: It was, but (   ), I found a stream and followed it down to the road.",
+      "choices": ["innocently", "thankfully", "traditionally", "resentfully"],
+      "answerIndex": 1,
+      "translation": "A: 先週末、山で迷ったんだって。怖そうだね！ B: 怖かったよ。でもありがたいことに、小川を見つけて、それを下って道路に出られた。"
+    },
+    {
+      "q": 11,
+      "stem": "A: What did you do to get such a good score on your French test?  B: I (   ) to study all the vocabulary every night before I go to sleep.",
+      "choices": ["shake hands", "give way", "take pains", "make sense"],
+      "answerIndex": 2,
+      "translation": "A: フランス語のテストでそんなによい点を取るために何をしたの？ B: 寝る前に毎晩、単語を全部勉強するよう苦労して努めたんだ。"
+    },
+    {
+      "q": 12,
+      "stem": "The two brothers were (   ) the same size when they were children, but now, one of them is much bigger than the other.",
+      "choices": ["more or less", "sooner or later", "day and night", "before and after"],
+      "answerIndex": 0,
+      "translation": "その2人の兄弟は子どものころはだいたい同じ体格だったが、今では一方がもう一方よりずっと大きい。"
+    },
+    {
+      "q": 13,
+      "stem": "After Samantha and Mark took an expensive vacation, they could barely (   ) the money they had left. They couldn't afford to eat at restaurants or buy new clothes.",
+      "choices": ["show off", "put away", "live on", "consist of"],
+      "answerIndex": 2,
+      "translation": "サマンサとマークは高額な休暇を取った後、残ったお金でかろうじて生活するしかなかった。外食したり新しい服を買ったりする余裕はなかった。"
+    },
+    {
+      "q": 14,
+      "stem": "A: Did your cat come home last night?  B: Yes, he did. He came home at 3 a.m. He looked a little dirty, but otherwise he was (   ).",
+      "choices": ["bit by bit", "far and away", "all or nothing", "safe and sound"],
+      "answerIndex": 3,
+      "translation": "A: 昨夜、猫は帰ってきた？ B: うん。午前3時に帰ってきた。少し汚れていたけど、それ以外は無事だったよ。"
+    },
+    {
+      "q": 15,
+      "stem": "Clara went to the bookstore (   ) a novel by an author she had heard about. She wanted to buy a copy to read that evening.",
+      "choices": ["in search of", "for fear of", "on behalf of", "with regard to"],
+      "answerIndex": 0,
+      "translation": "クララは聞いたことのある作家の小説を探しに本屋へ行った。その晩読むために1冊買いたかったのだ。"
+    },
+    {
+      "q": 16,
+      "stem": "A: What are you planning to do this afternoon?  B: I think I'll (   ). I didn't sleep well last night, so I'm feeling pretty tired.",
+      "choices": ["make a move", "take a nap", "make a wish", "take a chance"],
+      "answerIndex": 1,
+      "translation": "A: 今日の午後は何をする予定？ B: 昼寝をしようかな。昨夜よく眠れなくて、かなり疲れているんだ。"
+    },
+    {
+      "q": 17,
+      "stem": "A: Do you think many people will come to the company Christmas party?  B: (   ) I know, most people are planning to attend.",
+      "choices": ["As fast as", "As far as", "As long as", "As well as"],
+      "answerIndex": 1,
+      "translation": "A: 会社のクリスマスパーティーには多くの人が来ると思う？ B: 私の知る限り、ほとんどの人が出席する予定だよ。"
+    }
+  ]
+}

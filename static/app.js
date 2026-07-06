@@ -16,6 +16,12 @@ const DATASETS = {
     vocabUrl: "data/vocab_2026-1.json",
     questionsUrl: "data/questions_2026-1.json",
   },
+  "eiken2-2025-3": {
+    label: "英検2級 2025年度第3回",
+    shortLabel: "2級",
+    vocabUrl: "data/vocab_2025-3.json",
+    questionsUrl: "data/questions_2025-3.json",
+  },
   "eikenp2-2026-1": {
     label: "英検準2級 2026年度第1回",
     shortLabel: "準2級",

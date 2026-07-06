@@ -1,0 +1,504 @@
+{
+  "meta": {
+    "exam": "英検2級 2025年度第3回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2025-3-1ji-2kyu.pdf",
+    "note": "正解は公式解答（2025年度第3回）と照合済み。語源は定説に基づき、学習に効く範囲で簡潔化。",
+    "counts": { "words": 40, "idioms": 28, "total": 68 }
+  },
+  "words": [
+    {
+      "q": 1, "is_answer": false, "word": "major", "ipa": "/ˈmeɪdʒər/", "pos": "形容詞",
+      "meaning": "主要な、大きな",
+      "etymology": "ラテン語 maior「より大きい」。majority（多数）と同根で「大きい・重要な」方向の語。",
+      "example": "The company made a major change to its plan.",
+      "collocation": "a major problem / a major city"
+    },
+    {
+      "q": 1, "is_answer": true, "word": "upper", "ipa": "/ˈʌpər/", "pos": "形容詞",
+      "meaning": "上の、上部の",
+      "etymology": "up（上へ）+ 比較を表す -er。「より上にある」から上部の意味。",
+      "example": "Hugh did exercises to increase the strength of his upper body.",
+      "collocation": "upper body / upper floor / upper class"
+    },
+    {
+      "q": 1, "is_answer": false, "word": "direct", "ipa": "/dəˈrekt/", "pos": "形容詞",
+      "meaning": "直接の、まっすぐな",
+      "etymology": "ラテン語 dirigere「まっすぐに導く」から。direction（方向）と同根。",
+      "example": "There is a direct train from the airport to the city.",
+      "collocation": "direct contact / direct flight"
+    },
+    {
+      "q": 1, "is_answer": false, "word": "elastic", "ipa": "/ɪˈlæstɪk/", "pos": "形容詞",
+      "meaning": "弾力のある、伸縮する",
+      "etymology": "ギリシャ語 elastos「伸ばせる」系の語。elastic band（輪ゴム）で覚えるとよい。",
+      "example": "The elastic material stretches easily.",
+      "collocation": "elastic band / elastic material"
+    },
+
+    {
+      "q": 2, "is_answer": false, "word": "troop", "ipa": "/truːp/", "pos": "名詞",
+      "meaning": "部隊、一団",
+      "etymology": "古フランス語 troupe「群れ、一団」。group と似た「まとまり」の感覚。",
+      "example": "A troop of soldiers entered the town.",
+      "collocation": "a troop of soldiers / troop movements"
+    },
+    {
+      "q": 2, "is_answer": false, "word": "proverb", "ipa": "/ˈprɑːvɜːrb/", "pos": "名詞",
+      "meaning": "ことわざ",
+      "etymology": "ラテン語 proverbium < pro-（前に）+ verbum（言葉）。昔から前面に出て使われる言葉。",
+      "example": "My grandmother often used an old proverb.",
+      "collocation": "an old proverb / as the proverb says"
+    },
+    {
+      "q": 2, "is_answer": true, "word": "cliff", "ipa": "/klɪf/", "pos": "名詞",
+      "meaning": "崖、断崖",
+      "etymology": "古英語 clif「崖」。基本語で、climb（登る）と音で結びつけて覚えやすい。",
+      "example": "She stood at the edge of a tall cliff.",
+      "collocation": "a steep cliff / the edge of a cliff"
+    },
+    {
+      "q": 2, "is_answer": false, "word": "duty", "ipa": "/ˈduːti/", "pos": "名詞",
+      "meaning": "義務、職務",
+      "etymology": "due（当然支払われる・当然の）から。「当然すべきこと」が duty。",
+      "example": "It is my duty to help the guests.",
+      "collocation": "do one's duty / on duty"
+    },
+
+    {
+      "q": 3, "is_answer": false, "word": "exist", "ipa": "/ɪɡˈzɪst/", "pos": "動詞",
+      "meaning": "存在する",
+      "etymology": "ラテン語 existere < ex-（外へ）+ sistere（立つ）。外に立ち現れる。",
+      "example": "Many different opinions exist in the class.",
+      "collocation": "still exist / exist in nature"
+    },
+    {
+      "q": 3, "is_answer": true, "word": "react", "ipa": "/riˈækt/", "pos": "動詞",
+      "meaning": "反応する",
+      "etymology": "re-（返して）+ act（行動する）。相手の行動に返す動き。",
+      "example": "How did your husband react when you told him about the baby?",
+      "collocation": "react to news / react quickly"
+    },
+    {
+      "q": 3, "is_answer": false, "word": "seize", "ipa": "/siːz/", "pos": "動詞",
+      "meaning": "つかむ、奪い取る",
+      "etymology": "古フランス語 saisir「所有する、つかむ」。chance を目的語にして「機会をつかむ」。",
+      "example": "The police seized the stolen goods.",
+      "collocation": "seize a chance / seize control"
+    },
+    {
+      "q": 3, "is_answer": false, "word": "disappear", "ipa": "/ˌdɪsəˈpɪr/", "pos": "動詞",
+      "meaning": "消える、姿を消す",
+      "etymology": "dis-（反対）+ appear（現れる）。現れなくなること。",
+      "example": "The sun disappeared behind the clouds.",
+      "collocation": "suddenly disappear / disappear from view"
+    },
+
+    {
+      "q": 4, "is_answer": false, "word": "president", "ipa": "/ˈprezɪdənt/", "pos": "名詞",
+      "meaning": "大統領、社長、会長",
+      "etymology": "ラテン語 praesidere「前に座る、管理する」。pre-（前）+ sit（座る）の感覚。",
+      "example": "The president gave a speech to the nation.",
+      "collocation": "company president / student council president"
+    },
+    {
+      "q": 4, "is_answer": false, "word": "spectator", "ipa": "/ˈspekteɪtər/", "pos": "名詞",
+      "meaning": "観客、見物人",
+      "etymology": "ラテン語 spectare「見る」。inspect, respect と同じ spect（見る）の語根。",
+      "example": "Thousands of spectators watched the game.",
+      "collocation": "a spectator sport / spectators in the stadium"
+    },
+    {
+      "q": 4, "is_answer": true, "word": "philosopher", "ipa": "/fəˈlɑːsəfər/", "pos": "名詞",
+      "meaning": "哲学者、思想家",
+      "etymology": "ギリシャ語 philos（愛する）+ sophia（知恵）。「知を愛する人」。",
+      "example": "She wants to be a philosopher and learn about the meaning of life.",
+      "collocation": "a Greek philosopher / moral philosopher"
+    },
+    {
+      "q": 4, "is_answer": false, "word": "conductor", "ipa": "/kənˈdʌktər/", "pos": "名詞",
+      "meaning": "指揮者、車掌",
+      "etymology": "conduct（導く）+ -or（人）。音楽や乗客を導く人。",
+      "example": "The conductor raised his hand before the music began.",
+      "collocation": "train conductor / orchestra conductor"
+    },
+
+    {
+      "q": 5, "is_answer": false, "word": "interact", "ipa": "/ˌɪntərˈækt/", "pos": "動詞",
+      "meaning": "交流する、相互に作用する",
+      "etymology": "inter-（間で）+ act（行動する）。互いに行動し合うこと。",
+      "example": "Students interact with each other during group work.",
+      "collocation": "interact with people / interact online"
+    },
+    {
+      "q": 5, "is_answer": true, "word": "panic", "ipa": "/ˈpænɪk/", "pos": "動詞",
+      "meaning": "うろたえる、パニックになる",
+      "etymology": "ギリシャ神 Pan が引き起こす突然の恐怖に由来する語とされる。",
+      "example": "I started to panic when I realized my passport was gone.",
+      "collocation": "don't panic / panic about a test"
+    },
+    {
+      "q": 5, "is_answer": false, "word": "fly", "ipa": "/flaɪ/", "pos": "動詞",
+      "meaning": "飛ぶ、飛行機で行く",
+      "etymology": "古英語 fleogan「飛ぶ」。flight（飛行）と同系。",
+      "example": "They will fly to Canada next week.",
+      "collocation": "fly to London / fly over the city"
+    },
+    {
+      "q": 5, "is_answer": false, "word": "swim", "ipa": "/swɪm/", "pos": "動詞",
+      "meaning": "泳ぐ",
+      "etymology": "古英語 swimman「泳ぐ」。基本的な動作動詞。",
+      "example": "We swam in the lake all afternoon.",
+      "collocation": "swim across a river / go swimming"
+    },
+
+    {
+      "q": 6, "is_answer": false, "word": "recover", "ipa": "/rɪˈkʌvər/", "pos": "動詞",
+      "meaning": "回復する、取り戻す",
+      "etymology": "re-（再び）+ cover（覆う・保護する）系。「元の状態を取り戻す」。",
+      "example": "She recovered quickly from her illness.",
+      "collocation": "recover from illness / recover lost files"
+    },
+    {
+      "q": 6, "is_answer": true, "word": "review", "ipa": "/rɪˈvjuː/", "pos": "動詞",
+      "meaning": "見直す、確認する、復習する",
+      "etymology": "re-（再び）+ view（見る）。もう一度見ること。",
+      "example": "My boss says we will review my progress next month.",
+      "collocation": "review progress / review notes"
+    },
+    {
+      "q": 6, "is_answer": false, "word": "expand", "ipa": "/ɪkˈspænd/", "pos": "動詞",
+      "meaning": "拡大する、広げる",
+      "etymology": "ラテン語 expandere < ex-（外へ）+ pandere（広げる）。",
+      "example": "The company plans to expand its business overseas.",
+      "collocation": "expand a business / expand rapidly"
+    },
+    {
+      "q": 6, "is_answer": false, "word": "suspect", "ipa": "/səˈspekt/", "pos": "動詞",
+      "meaning": "疑う、怪しいと思う",
+      "etymology": "ラテン語 suspicere「下から見る」。spec（見る）の語根を含む。",
+      "example": "I suspect that the story is not true.",
+      "collocation": "suspect a problem / suspect someone of"
+    },
+
+    {
+      "q": 7, "is_answer": true, "word": "tie", "ipa": "/taɪ/", "pos": "動詞",
+      "meaning": "結ぶ、縛る",
+      "etymology": "古英語 tigan「結ぶ」。名詞 tie（ネクタイ）も「結ぶもの」。",
+      "example": "Neil stopped to tie his shoelaces.",
+      "collocation": "tie one's shoes / tie a knot"
+    },
+    {
+      "q": 7, "is_answer": false, "word": "earn", "ipa": "/ɜːrn/", "pos": "動詞",
+      "meaning": "稼ぐ、得る",
+      "etymology": "古英語 earnian「労働で得る」。努力して得る感覚。",
+      "example": "She earns money by teaching piano.",
+      "collocation": "earn money / earn respect"
+    },
+    {
+      "q": 7, "is_answer": false, "word": "hire", "ipa": "/haɪər/", "pos": "動詞",
+      "meaning": "雇う、借りる",
+      "etymology": "古英語 hyrian「賃金を払って使う」。人にも物にも使う。",
+      "example": "The store will hire new workers this summer.",
+      "collocation": "hire a worker / hire a car"
+    },
+    {
+      "q": 7, "is_answer": false, "word": "pour", "ipa": "/pɔːr/", "pos": "動詞",
+      "meaning": "注ぐ、激しく降る",
+      "etymology": "中英語 pouren「注ぐ」。液体が流れ出るイメージ。",
+      "example": "Please pour some tea into this cup.",
+      "collocation": "pour water / pour rain"
+    },
+
+    {
+      "q": 8, "is_answer": false, "word": "fortune", "ipa": "/ˈfɔːrtʃən/", "pos": "名詞",
+      "meaning": "幸運、財産",
+      "etymology": "ラテン語 fortuna「運命、幸運」。fortunate（幸運な）と同根。",
+      "example": "He made a fortune through his business.",
+      "collocation": "good fortune / make a fortune"
+    },
+    {
+      "q": 8, "is_answer": false, "word": "distinction", "ipa": "/dɪˈstɪŋkʃən/", "pos": "名詞",
+      "meaning": "区別、卓越、名誉",
+      "etymology": "distinct（別個の）+ -ion。語根 stinguere「刺して分ける」から区別の意味。",
+      "example": "There is an important distinction between the two ideas.",
+      "collocation": "make a distinction / a clear distinction"
+    },
+    {
+      "q": 8, "is_answer": true, "word": "loyalty", "ipa": "/ˈlɔɪəlti/", "pos": "名詞",
+      "meaning": "忠誠、忠実さ",
+      "etymology": "loyal（忠実な）+ -ty。loyal は law（法）と同系で「法にかなった」。",
+      "example": "The fans have a lot of loyalty to the team.",
+      "collocation": "loyalty to a team / customer loyalty"
+    },
+    {
+      "q": 8, "is_answer": false, "word": "suspicion", "ipa": "/səˈspɪʃən/", "pos": "名詞",
+      "meaning": "疑い、疑念",
+      "etymology": "suspect と同根。spec（見る）を含み、「疑いの目で見ること」。",
+      "example": "The strange noise filled her with suspicion.",
+      "collocation": "arouse suspicion / under suspicion"
+    },
+
+    {
+      "q": 9, "is_answer": false, "word": "wealth", "ipa": "/welθ/", "pos": "名詞",
+      "meaning": "富、豊かさ",
+      "etymology": "weal（幸福、繁栄）+ -th。well と同じ「よい状態」の感覚。",
+      "example": "The country gained great wealth from trade.",
+      "collocation": "great wealth / wealth of information"
+    },
+    {
+      "q": 9, "is_answer": false, "word": "rage", "ipa": "/reɪdʒ/", "pos": "名詞",
+      "meaning": "激怒、怒り",
+      "etymology": "ラテン語 rabies「狂暴、激しい怒り」系。激しい感情を表す。",
+      "example": "He shouted in rage after hearing the news.",
+      "collocation": "in a rage / road rage"
+    },
+    {
+      "q": 9, "is_answer": true, "word": "ignorance", "ipa": "/ˈɪɡnərəns/", "pos": "名詞",
+      "meaning": "無知、知らないこと",
+      "etymology": "ignore（知らないふりをする、無視する）+ -ance。ラテン語 ignorare「知らない」。",
+      "example": "Arguments often result from people's ignorance of each other's ways.",
+      "collocation": "ignorance of the law / complete ignorance"
+    },
+    {
+      "q": 9, "is_answer": false, "word": "poverty", "ipa": "/ˈpɑːvərti/", "pos": "名詞",
+      "meaning": "貧困、欠乏",
+      "etymology": "ラテン語 pauper「貧しい」。poor と関連する語。",
+      "example": "The charity helps children living in poverty.",
+      "collocation": "live in poverty / reduce poverty"
+    },
+
+    {
+      "q": 10, "is_answer": false, "word": "innocently", "ipa": "/ˈɪnəsəntli/", "pos": "副詞",
+      "meaning": "無邪気に、悪気なく",
+      "etymology": "innocent（無罪の、無邪気な）+ -ly。in-（否定）+ nocere（害する）で「害のない」。",
+      "example": "The child smiled innocently.",
+      "collocation": "ask innocently / smile innocently"
+    },
+    {
+      "q": 10, "is_answer": true, "word": "thankfully", "ipa": "/ˈθæŋkfəli/", "pos": "副詞",
+      "meaning": "ありがたいことに、感謝して",
+      "etymology": "thankful（感謝している）+ -ly。文全体を修飾して「幸いにも」。",
+      "example": "Thankfully, I found a stream and followed it down to the road.",
+      "collocation": "thankfully, ... / smile thankfully"
+    },
+    {
+      "q": 10, "is_answer": false, "word": "traditionally", "ipa": "/trəˈdɪʃənəli/", "pos": "副詞",
+      "meaning": "伝統的に、昔から",
+      "etymology": "tradition（伝統）+ -ally。ラテン語 tradere「手渡す」から。",
+      "example": "This festival is traditionally held in spring.",
+      "collocation": "traditionally used / traditionally held"
+    },
+    {
+      "q": 10, "is_answer": false, "word": "resentfully", "ipa": "/rɪˈzentfəli/", "pos": "副詞",
+      "meaning": "腹を立てて、恨めしそうに",
+      "etymology": "resentful（憤慨している）+ -ly。re- + sentir（感じる）で「強く感じ返す」。",
+      "example": "He looked at them resentfully.",
+      "collocation": "speak resentfully / look resentfully"
+    }
+  ],
+  "idioms": [
+    {
+      "q": 11, "is_answer": false, "type": "idiom", "phrase": "shake hands", "pos": "動詞句",
+      "meaning": "握手する",
+      "etymology": "shake（振る）+ hands（手）。あいさつや合意の動作。",
+      "example": "They shook hands after the meeting.",
+      "collocation": "shake hands with someone"
+    },
+    {
+      "q": 11, "is_answer": false, "type": "idiom", "phrase": "give way", "pos": "動詞句",
+      "meaning": "道を譲る、崩れる、屈する",
+      "etymology": "way（道・進路）を give（与える）から「進路を譲る」。",
+      "example": "Drivers must give way to pedestrians.",
+      "collocation": "give way to traffic / give way under pressure"
+    },
+    {
+      "q": 11, "is_answer": true, "type": "idiom", "phrase": "take pains", "pos": "動詞句",
+      "meaning": "苦労する、骨を折る、努める",
+      "etymology": "pain（苦労）を take（引き受ける）という形で「手間を惜しまない」。",
+      "example": "I took pains to study all the vocabulary every night.",
+      "collocation": "take pains to do"
+    },
+    {
+      "q": 11, "is_answer": false, "type": "idiom", "phrase": "make sense", "pos": "動詞句",
+      "meaning": "意味をなす、理にかなう",
+      "etymology": "sense（意味・感覚）を make（作る）から「意味が成立する」。",
+      "example": "Your explanation makes sense.",
+      "collocation": "make sense to someone / it makes sense"
+    },
+
+    {
+      "q": 12, "is_answer": true, "type": "idiom", "phrase": "more or less", "pos": "副詞句",
+      "meaning": "多かれ少なかれ、だいたい",
+      "etymology": "more（もっと）or less（少なく）で、細部の差をならして言う表現。",
+      "example": "The two brothers were more or less the same size.",
+      "collocation": "more or less the same / more or less finished"
+    },
+    {
+      "q": 12, "is_answer": false, "type": "idiom", "phrase": "sooner or later", "pos": "副詞句",
+      "meaning": "遅かれ早かれ、いつかは",
+      "etymology": "soon（早く）or later（遅く）で、時期はともかく起こるという意味。",
+      "example": "Sooner or later, you will need to make a decision.",
+      "collocation": "sooner or later, ..."
+    },
+    {
+      "q": 12, "is_answer": false, "type": "idiom", "phrase": "day and night", "pos": "副詞句",
+      "meaning": "昼も夜も、絶えず",
+      "etymology": "day（昼）and night（夜）を並べ、ずっと続くことを表す。",
+      "example": "The team worked day and night to finish the project.",
+      "collocation": "work day and night"
+    },
+    {
+      "q": 12, "is_answer": false, "type": "idiom", "phrase": "before and after", "pos": "副詞句",
+      "meaning": "前後で、前と後に",
+      "etymology": "before（前）and after（後）。変化の比較でよく使う。",
+      "example": "The photos show the room before and after the repair.",
+      "collocation": "before and after photos"
+    },
+
+    {
+      "q": 13, "is_answer": false, "type": "idiom", "phrase": "show off", "pos": "句動詞",
+      "meaning": "見せびらかす、誇示する",
+      "etymology": "show（見せる）+ off（外へ）。外に向けて目立たせる。",
+      "example": "He likes to show off his new watch.",
+      "collocation": "show off skills / show off money"
+    },
+    {
+      "q": 13, "is_answer": false, "type": "idiom", "phrase": "put away", "pos": "句動詞",
+      "meaning": "片付ける、蓄える",
+      "etymology": "put（置く）+ away（離れた所へ）。しまい込むイメージ。",
+      "example": "Please put away your toys.",
+      "collocation": "put away clothes / put away money"
+    },
+    {
+      "q": 13, "is_answer": true, "type": "idiom", "phrase": "live on", "pos": "句動詞",
+      "meaning": "〜を食べて生きる、〜で暮らす",
+      "etymology": "live（生きる）+ on（支えとして）。生活のよりどころを表す。",
+      "example": "They could barely live on the money they had left.",
+      "collocation": "live on a small income / live on rice"
+    },
+    {
+      "q": 13, "is_answer": false, "type": "idiom", "phrase": "consist of", "pos": "句動詞",
+      "meaning": "〜から成る、構成される",
+      "etymology": "consist（成り立つ）+ of（材料・構成要素）。",
+      "example": "The team consists of ten members.",
+      "collocation": "consist of parts / consist of members"
+    },
+
+    {
+      "q": 14, "is_answer": false, "type": "idiom", "phrase": "bit by bit", "pos": "副詞句",
+      "meaning": "少しずつ",
+      "etymology": "bit（少し）を重ねて、段階的な変化を表す。",
+      "example": "Bit by bit, she learned to speak Japanese.",
+      "collocation": "improve bit by bit"
+    },
+    {
+      "q": 14, "is_answer": false, "type": "idiom", "phrase": "far and away", "pos": "副詞句",
+      "meaning": "はるかに、断然",
+      "etymology": "far（遠く）+ away（離れて）で、差が大きいことを強める。",
+      "example": "This is far and away the best restaurant in town.",
+      "collocation": "far and away the best"
+    },
+    {
+      "q": 14, "is_answer": false, "type": "idiom", "phrase": "all or nothing", "pos": "形容詞句・名詞句",
+      "meaning": "全か無かの、一か八かの",
+      "etymology": "all（全部）or nothing（無）で中間がないこと。",
+      "example": "It was an all-or-nothing decision.",
+      "collocation": "an all-or-nothing approach"
+    },
+    {
+      "q": 14, "is_answer": true, "type": "idiom", "phrase": "safe and sound", "pos": "形容詞句",
+      "meaning": "無事で、ぴんぴんして",
+      "etymology": "safe（安全な）+ sound（健全な）。同じ意味を重ねて強調する表現。",
+      "example": "The cat came home safe and sound.",
+      "collocation": "arrive safe and sound"
+    },
+
+    {
+      "q": 15, "is_answer": true, "type": "idiom", "phrase": "in search of", "pos": "前置詞句",
+      "meaning": "〜を探して、〜を求めて",
+      "etymology": "search（探索）を名詞として使い、「探索の中で」から。",
+      "example": "Clara went to the bookstore in search of a novel.",
+      "collocation": "go in search of / in search of work"
+    },
+    {
+      "q": 15, "is_answer": false, "type": "idiom", "phrase": "for fear of", "pos": "前置詞句",
+      "meaning": "〜を恐れて、〜しないように",
+      "etymology": "fear（恐れ）のために、という構造。",
+      "example": "She spoke quietly for fear of waking the baby.",
+      "collocation": "for fear of failure / for fear of doing"
+    },
+    {
+      "q": 15, "is_answer": false, "type": "idiom", "phrase": "on behalf of", "pos": "前置詞句",
+      "meaning": "〜を代表して、〜のために",
+      "etymology": "behalf は「利益・側」を表す語。ある人の側に立つ表現。",
+      "example": "I accepted the award on behalf of the team.",
+      "collocation": "speak on behalf of / on behalf of everyone"
+    },
+    {
+      "q": 15, "is_answer": false, "type": "idiom", "phrase": "with regard to", "pos": "前置詞句",
+      "meaning": "〜に関して",
+      "etymology": "regard（見る、考慮）を使い、「〜を見る観点で」。",
+      "example": "We have no comments with regard to the plan.",
+      "collocation": "with regard to this issue"
+    },
+
+    {
+      "q": 16, "is_answer": false, "type": "idiom", "phrase": "make a move", "pos": "動詞句",
+      "meaning": "行動を起こす、動き出す",
+      "etymology": "move（動き）を make（作る）から「一歩動く」。",
+      "example": "We should make a move before it gets dark.",
+      "collocation": "make a move toward / make the first move"
+    },
+    {
+      "q": 16, "is_answer": true, "type": "idiom", "phrase": "take a nap", "pos": "動詞句",
+      "meaning": "昼寝をする、仮眠を取る",
+      "etymology": "nap（短い眠り）を take（取る）。",
+      "example": "I think I'll take a nap this afternoon.",
+      "collocation": "take a short nap / take a quick nap"
+    },
+    {
+      "q": 16, "is_answer": false, "type": "idiom", "phrase": "make a wish", "pos": "動詞句",
+      "meaning": "願いごとをする",
+      "etymology": "wish（願い）を make（作る）から、心の中で願いを立てる。",
+      "example": "Make a wish before you blow out the candles.",
+      "collocation": "make a wish on a star"
+    },
+    {
+      "q": 16, "is_answer": false, "type": "idiom", "phrase": "take a chance", "pos": "動詞句",
+      "meaning": "思い切ってやってみる、賭けに出る",
+      "etymology": "chance（機会・可能性）を take（取る）。リスクを含む機会を選ぶこと。",
+      "example": "He decided to take a chance and start a new business.",
+      "collocation": "take a chance on / take a chance with"
+    },
+
+    {
+      "q": 17, "is_answer": false, "type": "idiom", "phrase": "as fast as", "pos": "接続詞句",
+      "meaning": "〜と同じくらい速く",
+      "etymology": "as ... as の同等比較。fast（速い）を比べる形。",
+      "example": "Run as fast as you can.",
+      "collocation": "as fast as possible / as fast as one can"
+    },
+    {
+      "q": 17, "is_answer": true, "type": "idiom", "phrase": "as far as", "pos": "接続詞句",
+      "meaning": "〜する限りでは、〜まで",
+      "etymology": "far（遠く、範囲）を使い、知識や関心の範囲を示す。",
+      "example": "As far as I know, most people are planning to attend.",
+      "collocation": "as far as I know / as far as I'm concerned"
+    },
+    {
+      "q": 17, "is_answer": false, "type": "idiom", "phrase": "as long as", "pos": "接続詞句",
+      "meaning": "〜する限り、〜でありさえすれば",
+      "etymology": "long（長さ・期間）を使い、条件が続く範囲を表す。",
+      "example": "You can stay here as long as you are quiet.",
+      "collocation": "as long as possible / as long as you want"
+    },
+    {
+      "q": 17, "is_answer": false, "type": "idiom", "phrase": "as well as", "pos": "接続詞句",
+      "meaning": "〜だけでなく、〜と同じくらい上手に",
+      "etymology": "well（よく）を使った同等比較から、追加の意味にも広がった表現。",
+      "example": "She speaks Spanish as well as English.",
+      "collocation": "A as well as B / as well as anyone"
+    }
+  ]
+}
