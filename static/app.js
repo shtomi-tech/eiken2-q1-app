@@ -73,7 +73,7 @@ function loadProgress(datasetId = state.datasetId) {
 }
 function saveProgress() {
   try { localStorage.setItem(progressKey(), JSON.stringify(state.progress)); } catch (e) { /* ignore */ }
-  queueSharedSave();
+  if (cloud) cloud.queueSave();
 }
 function unit(q) {
   if (!state.progress.units[q]) state.progress.units[q] = {};
@@ -95,60 +95,15 @@ function finalProgress() {
 }
 
 /* ============================================================
-   cloud sync（生徒別・共有URL ?s=&t=）
+   cloud sync（生徒別・共有URL ?s=&t=）— harness/cloud.js を利用
    共通スキーマ app_students / app_progress（app="eiken2-q1"）。
-   config.json が無ければクラウドは無効で、従来どおり匿名ローカル動作。
+   config.json が無ければ no-op で、従来どおり匿名ローカル動作（無回帰）。
+   RPC/認証/デバウンス保存は vendor/harness/cloud.js に集約。
+   このアプリ固有＝複数データセットの進捗を1つのjsonbにまとめる点のみ。
    ============================================================ */
 const APP_ID = "eiken2-q1";
-const CONFIG_PATH = "static/config.json";
-let runtimeConfig = {};
-let cloudSaveQueue = Promise.resolve();
-let cloudSaveTimer = null;
-const sharedSession = { requested: false, enabled: false, studentId: "", token: "", student: null };
+let cloud = null; // harness createCloud のインスタンス（init で生成）
 
-async function loadOptionalJson(path) {
-  try {
-    const r = await fetch(path, { cache: "no-store" });
-    if (!r.ok) return {};
-    return await r.json();
-  } catch (e) { return {}; }
-}
-function normalizeConfig(raw = {}) {
-  const supabase = raw.supabase || {};
-  return {
-    appBaseUrl: String(raw.appBaseUrl || "").trim(),
-    supabaseUrl: String(raw.supabaseUrl || supabase.url || "").trim().replace(/\/+$/, ""),
-    supabaseAnonKey: String(raw.supabaseAnonKey || supabase.anonKey || "").trim(),
-  };
-}
-function parseSharedParams() {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    studentId: p.get("s") || p.get("student") || "",
-    token: p.get("t") || p.get("token") || "",
-  };
-}
-function hasCloudConfig() {
-  return Boolean(runtimeConfig.supabaseUrl && runtimeConfig.supabaseAnonKey);
-}
-async function supabaseRpc(name, payload) {
-  if (!hasCloudConfig()) throw new Error("Supabase設定が未完了です。");
-  const res = await fetch(`${runtimeConfig.supabaseUrl}/rest/v1/rpc/${name}`, {
-    method: "POST",
-    headers: {
-      apikey: runtimeConfig.supabaseAnonKey,
-      Authorization: `Bearer ${runtimeConfig.supabaseAnonKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`${name}: ${res.status} ${text || res.statusText}`);
-  }
-  if (res.status === 204) return null;
-  return res.json();
-}
 function setShareStatus(message, tone = "") {
   const slot = $("#shareStatus");
   if (!slot) return;
@@ -167,62 +122,20 @@ function collectAllProgress() {
   map[state.datasetId] = state.progress; // 直近のメモリ状態を優先
   return map;
 }
-async function startSharedSession() {
-  const authRows = await supabaseRpc("app_auth_student", {
-    p_student_id: sharedSession.studentId,
-    p_access_token: sharedSession.token,
+// クラウドから来た進捗（{datasetId: progress}）を localStorage へ反映
+function applyCloudProgress(map) {
+  if (!map || typeof map !== "object") return;
+  Object.entries(map).forEach(([id, prog]) => {
+    if (DATASETS[id] && prog && typeof prog === "object") {
+      try { localStorage.setItem(progressKey(id), JSON.stringify(prog)); } catch (e) { /* ignore */ }
+    }
   });
-  const student = Array.isArray(authRows) ? authRows[0] : authRows;
-  if (!student || !student.id) {
-    throw new Error("生徒URLを確認できませんでした。QRコードを作り直してください。");
-  }
-  sharedSession.enabled = true;
-  sharedSession.student = { id: String(student.id), name: String(student.display_name || student.id) };
-
-  const loaded = await supabaseRpc("app_load_progress", {
-    p_app: APP_ID,
-    p_student_id: sharedSession.studentId,
-    p_access_token: sharedSession.token,
-  });
-  const cloud = Array.isArray(loaded) ? loaded[0] : loaded;
-  const map = (cloud && typeof cloud === "object") ? (cloud.progress || cloud) : {};
-  if (map && typeof map === "object") {
-    Object.entries(map).forEach(([id, prog]) => {
-      if (DATASETS[id] && prog && typeof prog === "object") {
-        try { localStorage.setItem(progressKey(id), JSON.stringify(prog)); } catch (e) { /* ignore */ }
-      }
-    });
-  }
-}
-async function pushSharedProgress() {
-  await supabaseRpc("app_save_progress", {
-    p_app: APP_ID,
-    p_student_id: sharedSession.studentId,
-    p_access_token: sharedSession.token,
-    p_progress: collectAllProgress(),
-  });
-}
-function queueSharedSave() {
-  if (!sharedSession.enabled) return;
-  setShareStatus(`${sharedSession.student.name} さんの進捗を保存中…`, "syncing");
-  clearTimeout(cloudSaveTimer);
-  cloudSaveTimer = setTimeout(() => {
-    cloudSaveQueue = cloudSaveQueue
-      .then(() => pushSharedProgress())
-      .then(() => setShareStatus(`${sharedSession.student.name} さんの進捗を保存しました。`, "ok"))
-      .catch((e) => {
-        console.error(e);
-        setShareStatus("進捗のクラウド保存に失敗しました。通信状況を確認してください。", "ng");
-      });
-  }, 600);
 }
 function applySharedUi() {
-  document.body.classList.toggle("sharedMode", sharedSession.enabled);
+  const enabled = Boolean(cloud && cloud.isEnabled());
+  document.body.classList.toggle("sharedMode", enabled);
   const resetBtn = $("#resetBtn");
-  if (resetBtn) resetBtn.classList.toggle("hide", sharedSession.enabled);
-  if (sharedSession.enabled) {
-    setShareStatus(`${sharedSession.student.name} さんとして学習中（進捗はクラウド保存）`, "ok");
-  }
+  if (resetBtn) resetBtn.classList.toggle("hide", enabled);
 }
 
 /* ---- helpers ---- */
@@ -915,7 +828,7 @@ function renderDone(body) {
    ============================================================ */
 async function init() {
   $("#resetBtn").addEventListener("click", () => {
-    if (sharedSession.enabled) return;
+    if (cloud && cloud.isEnabled()) return;
     if (confirm("すべての進捗を消去します。よろしいですか？")) {
       state.progress = { units: {} };
       saveProgress();
@@ -923,24 +836,14 @@ async function init() {
     }
   });
 
-  // 生徒別クラウド同期（共有URL ?s=&t= があり、config.json が揃っているときのみ）
-  runtimeConfig = normalizeConfig(await loadOptionalJson(CONFIG_PATH));
-  const shared = parseSharedParams();
-  sharedSession.studentId = shared.studentId;
-  sharedSession.token = shared.token;
-  sharedSession.requested = Boolean(shared.studentId || shared.token);
-  if (sharedSession.requested) {
-    if (!hasCloudConfig()) {
-      setShareStatus("共有URLですが、クラウド設定が未完了です。先生に連絡してください。", "ng");
-    } else {
-      try {
-        await startSharedSession();
-      } catch (e) {
-        console.error(e);
-        setShareStatus(e.message || "共有URLの読み込みに失敗しました。", "ng");
-      }
-    }
-  }
+  // 生徒別クラウド同期（共有URL ?s=&t= があり、config.json が揃っているときのみ有効）
+  cloud = createCloud({
+    appId: APP_ID,
+    getPayload: collectAllProgress,
+    applyLoaded: applyCloudProgress,
+    onStatus: setShareStatus,
+  });
+  await cloud.init();
   applySharedUi();
 
   try {
