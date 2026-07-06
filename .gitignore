@@ -1,1 +1,3 @@
 .netlify/
+node_modules/
+static/config.json

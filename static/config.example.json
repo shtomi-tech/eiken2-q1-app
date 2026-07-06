@@ -1,0 +1,5 @@
+{
+  "appBaseUrl": "https://shtomi-tech.github.io/eiken2-q1-app/",
+  "supabaseUrl": "https://YOUR_PROJECT_ID.supabase.co",
+  "supabaseAnonKey": "YOUR_SUPABASE_ANON_KEY"
+}

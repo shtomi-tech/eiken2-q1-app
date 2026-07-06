@@ -25,6 +25,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate runtime config
+        run: node scripts/write-config.mjs
+        env:
+          APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -37,6 +49,9 @@ jobs:
             --exclude='.netlify' \
             --exclude='_site' \
             --exclude='netlify.toml' \
+            --exclude='scripts' \
+            --exclude='node_modules' \
+            --exclude='MVP_SCOPE.md' \
             ./ _site/
 
       - name: Upload artifact
