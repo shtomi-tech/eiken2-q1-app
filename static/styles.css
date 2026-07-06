@@ -47,7 +47,7 @@ button:hover { background: #000; }
 button:disabled { opacity: .45; cursor: default; }
 
 button.ghost { background: transparent; color: var(--ink); }
-button.ghost:hover { background: var(--ink); color: var(--parchment); }
+button.ghost:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
 
 select, input {
   width: 100%;

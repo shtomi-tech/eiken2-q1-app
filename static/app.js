@@ -38,6 +38,7 @@ const DATASETS = {
 const DEFAULT_DATASET_ID = "eiken2-2026-1";
 // 選択肢を描画した直後、この時間だけクリックを無視する（誤ダブルクリック防止）
 const CHOICE_GUARD_MS = 400;
+const FLASH_NAV_GUARD_MS = 450;
 
 const state = {
   datasetId: loadDatasetId(),
@@ -120,6 +121,8 @@ function surfaceOf(item) { return item.type === "idiom" ? item.phrase : item.wor
 // 選択肢を描画した瞬間の時刻を記録し、直後の誤クリックを無視する
 function armChoiceGuard() { session._choicesReadyAt = performance.now() + CHOICE_GUARD_MS; }
 function choicesLocked() { return performance.now() < (session._choicesReadyAt || 0); }
+function armFlashNavGuard() { session._flashNavReadyAt = performance.now() + FLASH_NAV_GUARD_MS; }
+function flashNavLocked() { return performance.now() < (session._flashNavReadyAt || 0); }
 
 /* ============================================================
    load data
@@ -512,13 +515,21 @@ function renderFlash(body) {
   body.appendChild(card);
 
   const nav = el("div", { class: "actions" });
-  if (session.flashIdx > 0) {
-    nav.appendChild(el("button", { class: "ghost", onclick: () => { session.flashIdx--; renderSession(); } }, "← 前のカード"));
-  }
+  const canGoBack = session.flashIdx > 0;
+  const prevAttrs = canGoBack ? { class: "ghost" } : { class: "ghost", disabled: "disabled" };
+  prevAttrs.onclick = () => {
+    if (!canGoBack || flashNavLocked()) return;
+    armFlashNavGuard();
+    session.flashIdx--;
+    renderSession();
+  };
+  nav.appendChild(el("button", prevAttrs, "← 前のカード"));
   const last = session.flashIdx === items.length - 1;
   nav.appendChild(el("button", {
     class: "cta",
     onclick: () => {
+      if (flashNavLocked()) return;
+      armFlashNavGuard();
       if (last) { session.stage = "check"; renderSession(); }
       else { session.flashIdx++; renderSession(); }
     },
