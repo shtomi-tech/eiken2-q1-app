@@ -224,6 +224,7 @@ function renderHome() {
   const solved = state.qList.filter((q) => unit(q).solvedCorrect).length;
   const reviewQs = reviewQueue();
   const final = finalProgress();
+  const finalTotal = allVocabularyItems().length;
   const currentDataset = dataset();
 
   // daily / summary
@@ -257,7 +258,7 @@ function renderHome() {
     ? { class: "cta finalCta", onclick: startFinalCheck }
     : { class: "cta finalCta", disabled: "disabled" };
   actions.appendChild(el("button", finalAttrs,
-    canStartFinal ? "最終チェック30問に挑戦する" : "最終チェック30問（未解放）"));
+    canStartFinal ? `最終チェック${finalTotal}問に挑戦する` : `最終チェック${finalTotal}問（未解放）`));
   if (reviewQs.length) {
     actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
       `間違えた問題を演習する（${reviewQs.length}問）`));
@@ -275,9 +276,9 @@ function renderHome() {
   const questGrid = el("div", { class: "dailyGrid" });
   questGrid.appendChild(statCell(solved, total, "通常ステージ CLEAR"));
   questGrid.appendChild(statCell(reviewQs.length, total, "復習対象"));
-  questGrid.appendChild(statCell(final.bestScore, 30, "最終チェック BEST"));
+  questGrid.appendChild(statCell(final.bestScore, finalTotal, "最終チェック BEST"));
   quest.appendChild(questGrid);
-  quest.appendChild(el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final)));
+  quest.appendChild(el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final, finalTotal)));
   home.appendChild(quest);
 
   // question path
@@ -352,8 +353,8 @@ function finalUnlocked() {
     && reviewQueue().length === 0;
 }
 
-function finalMessage(solved, total, reviewCount, final) {
-  if (final.cleared) return `最終チェックを${final.lastScore}/30で突破済みです。`;
+function finalMessage(solved, total, reviewCount, final, finalTotal) {
+  if (final.cleared) return `最終チェックを${final.lastScore}/${finalTotal}で突破済みです。`;
   if (!finalUnlocked()) {
     const needs = [];
     if (solved < total) needs.push(`通常ステージをあと${total - solved}問`);
@@ -361,8 +362,8 @@ function finalMessage(solved, total, reviewCount, final) {
     return `最終チェック解放まで：${needs.join(" / ")}`;
   }
   return final.bestScore
-    ? `最終チェック解放中。過去最高は${final.bestScore}/30です。30/30でCLEAR。`
-    : "最終チェック解放中。30問の意味チェックで30/30を取るとCLEAR。";
+    ? `最終チェック解放中。過去最高は${final.bestScore}/${finalTotal}です。${finalTotal}/${finalTotal}でCLEAR。`
+    : `最終チェック解放中。${finalTotal}問の意味チェックで${finalTotal}/${finalTotal}を取るとCLEAR。`;
 }
 
 /* ============================================================
@@ -420,7 +421,7 @@ function startMeaningPractice() {
 }
 
 function startFinalCheck() {
-  const queue = shuffle(allVocabularyItems()).slice(0, 30);
+  const queue = shuffle(allVocabularyItems());
   session = {
     mode: "final",
     q: null,
@@ -478,7 +479,7 @@ function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
 }
 
 function stageTitle(stage) {
-  if (session && session.mode === "final") return "最終チェック30問";
+  if (session && session.mode === "final") return `最終チェック${session.checkOrder.length}問`;
   if (session && session.mode === "meaning") return "意味チェックだけ演習";
   if (session && session.mode === "review") return "間違えた問題を演習";
   return {
@@ -789,7 +790,7 @@ function renderDone(body) {
     banner.appendChild(el("div", { class: "big" }, `${session.finalCorrect} / ${session.checkOrder.length}`));
     banner.appendChild(el("h2", {}, session.finalCorrect === session.checkOrder.length
       ? `${dataset().shortLabel} 大問1 CLEAR`
-      : "最終チェック完了。30/30でCLEAR"));
+      : `最終チェック完了。${session.checkOrder.length}/${session.checkOrder.length}でCLEAR`));
   } else if (isMeaning) {
     banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
     banner.appendChild(el("h2", {}, "全語句の意味チェックが完了しました"));
@@ -802,7 +803,7 @@ function renderDone(body) {
   const actions = el("div", { class: "actions" });
   if (isFinal) {
     if (session.finalCorrect !== session.checkOrder.length) {
-      actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, "もう一度30問に挑戦する"));
+      actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, `もう一度${session.checkOrder.length}問に挑戦する`));
     }
   } else if (isMeaning) {
     actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
