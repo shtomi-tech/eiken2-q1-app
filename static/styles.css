@@ -205,6 +205,49 @@ h2 {
   border-color: var(--ink);
 }
 
+/* おすすめ（主導線）＝1つだけ大きく。従属メニューはアウトラインで重量を下げる */
+.recommend {
+  border-top: 1px solid var(--ink);
+  margin-top: 16px;
+  padding-top: 14px;
+}
+.recEyebrow {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--clay);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.recommend .startCta { width: 100%; min-width: 0; }
+.recWhy { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+
+.secondaryActions {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 12px;
+}
+.secondaryActions .label { margin-bottom: 10px; }
+.secondaryActions .actions { margin-top: 0; }
+.secondaryCta {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  font-weight: 500;
+}
+.secondaryCta:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
+.secondaryCta.reviewCta,
+.secondaryCta.finalCta {
+  background: transparent;
+  color: var(--clay);
+  border-color: var(--clay);
+}
+.secondaryCta.reviewCta:hover:not(:disabled),
+.secondaryCta.finalCta:hover:not(:disabled) { background: var(--clay); color: var(--parchment); }
+
 .settingRow {
   display: flex;
   align-items: center;

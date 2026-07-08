@@ -242,28 +242,72 @@ function renderHome() {
   grid.appendChild(statCell(reviewQs.length, total, "間違えた設問"));
   summary.appendChild(grid);
 
+  // --- 次にやること（Hickの法則：迷わせないため主導線は常に1つに絞る） ---
   const nextQ = state.qList.find((q) => !unit(q).learned);
-  const actions = el("div", { class: "actions" });
-  if (nextQ) {
-    actions.appendChild(el("button", { class: "cta startCta", onclick: () => startLearn(nextQ) },
-      `まずはここから：第${nextQ}問を学習する`));
-  } else {
-    actions.appendChild(el("button", { class: "cta startCta", onclick: () => startLearn(state.qList[0]) },
-      "もう一周する（第1問から）"));
-  }
-  actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
-    "意味チェックだけ演習する（全語句ランダム）"));
   const canStartFinal = finalUnlocked();
-  const finalAttrs = canStartFinal
-    ? { class: "cta finalCta", onclick: startFinalCheck }
-    : { class: "cta finalCta", disabled: "disabled" };
-  actions.appendChild(el("button", finalAttrs,
-    canStartFinal ? `最終チェック${finalTotal}問に挑戦する` : `最終チェック${finalTotal}問（未解放）`));
-  if (reviewQs.length) {
-    actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
-      `間違えた問題を演習する（${reviewQs.length}問）`));
+
+  // おすすめ（主導線）＝状態に応じて1つだけ決める。重要度：学習 → 復習 → 最終 → 周回。
+  let primary;
+  if (nextQ) {
+    primary = {
+      label: `第${nextQ}問を学習する`,
+      why: "暗記カード → 意味チェック → 本番形式の3ステップで進みます。",
+      onclick: () => startLearn(nextQ),
+    };
+  } else if (reviewQs.length) {
+    primary = {
+      label: `間違えた${reviewQs.length}問を復習する`,
+      why: "まちがえた設問をつぶすと、最終チェックが解放されます。",
+      onclick: startReview,
+    };
+  } else if (canStartFinal && !final.cleared) {
+    primary = {
+      label: `最終チェック${finalTotal}問に挑戦する`,
+      why: `全${finalTotal}語の意味を通しで確認。${finalTotal}問正解でCLEARです。`,
+      onclick: startFinalCheck,
+    };
+  } else {
+    primary = {
+      label: "第1問からもう一周する",
+      why: "はじめの設問から、覚え直し・解き直しをします。",
+      onclick: () => startLearn(state.qList[0]),
+    };
   }
-  summary.appendChild(actions);
+
+  const rec = el("div", { class: "recommend" });
+  rec.appendChild(el("p", { class: "recEyebrow" }, "▶ まずはここから"));
+  rec.appendChild(el("button", { class: "cta startCta", onclick: primary.onclick }, primary.label));
+  rec.appendChild(el("p", { class: "recWhy" }, primary.why));
+  summary.appendChild(rec);
+
+  // そのほかの練習（従属メニュー・重要度順）。おすすめと重複する行動は出さない。
+  const more = [];
+  if (reviewQs.length && primary.onclick !== startReview) {
+    more.push({ cls: "secondaryCta reviewCta", label: `間違えた${reviewQs.length}問を復習`, onclick: startReview });
+  }
+  if (!final.cleared && primary.onclick !== startFinalCheck) {
+    if (canStartFinal) {
+      more.push({ cls: "secondaryCta finalCta", label: `最終チェック${finalTotal}問に挑戦`, onclick: startFinalCheck });
+    } else {
+      const remain = total - solved;
+      more.push({ cls: "secondaryCta", label: `最終チェック（あと${remain}問で解放）`, disabled: true });
+    }
+  }
+  more.push({ cls: "secondaryCta", label: `意味だけをまとめて練習（全${finalTotal}語・設問は解かない）`, onclick: startMeaningPractice });
+
+  if (more.length) {
+    const moreWrap = el("div", { class: "secondaryActions" });
+    moreWrap.appendChild(el("p", { class: "label" }, "そのほかの練習"));
+    const row = el("div", { class: "actions" });
+    more.forEach((m) => {
+      const attrs = { class: m.cls };
+      if (m.disabled) attrs.disabled = "disabled";
+      else attrs.onclick = m.onclick;
+      row.appendChild(el("button", attrs, m.label));
+    });
+    moreWrap.appendChild(row);
+    summary.appendChild(moreWrap);
+  }
   home.appendChild(summary);
 
   const quest = el("section", { class: "card questCard" });
