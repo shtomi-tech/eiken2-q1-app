@@ -85,12 +85,18 @@ function unit(q) {
   if (typeof u.wrongCount !== "number") u.wrongCount = 0;
   return state.progress.units[q];
 }
-function finalProgress() {
+function finalProgress(finalTotal) {
   if (!state.progress.finalCheck) state.progress.finalCheck = {};
   const f = state.progress.finalCheck;
   if (typeof f.bestScore !== "number") f.bestScore = 0;
   if (typeof f.lastScore !== "number") f.lastScore = 0;
   if (typeof f.cleared !== "boolean") f.cleared = false;
+  // 語彙データが後から増減すると、以前のCLEAR判定（当時の総数基準）が
+  // 現在の総数と食い違い、最終チェックが解放されないまま隠れてしまう。
+  if (f.cleared && typeof finalTotal === "number" && f.bestScore < finalTotal) {
+    f.cleared = false;
+    saveProgress();
+  }
   return f;
 }
 
@@ -223,8 +229,8 @@ function renderHome() {
   const learned = state.qList.filter((q) => unit(q).learned).length;
   const solved = state.qList.filter((q) => unit(q).solvedCorrect).length;
   const reviewQs = reviewQueue();
-  const final = finalProgress();
   const finalTotal = allVocabularyItems().length;
+  const final = finalProgress(finalTotal);
   const currentDataset = dataset();
 
   // daily / summary
