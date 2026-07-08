@@ -431,6 +431,7 @@ function startFinalCheck() {
     checkIdx: 0,
     checkAnswered: false,
     finalCorrect: 0,
+    finalWrong: [],
   };
   renderSession();
 }
@@ -536,10 +537,7 @@ function stageBar(stage) {
 }
 
 /* ---- STEP 1: flashcards ---- */
-function renderFlash(body) {
-  const items = session.items;
-  const item = items[session.flashIdx];
-
+function buildFlashCard(item) {
   const card = el("div", { class: "flash" });
   const head = el("div", { class: "flashHead" });
   const wordLine = el("div", { class: "flashWordLine" },
@@ -558,7 +556,14 @@ function renderFlash(body) {
   if (item.example) inner.appendChild(flashExampleRow(item));
   if (item.collocation) inner.appendChild(flashRow("使い方・コロケーション", item.collocation, "flashColl"));
   card.appendChild(inner);
-  body.appendChild(card);
+  return card;
+}
+
+function renderFlash(body) {
+  const items = session.items;
+  const item = items[session.flashIdx];
+
+  body.appendChild(buildFlashCard(item));
 
   const nav = el("div", { class: "actions" });
   const canGoBack = session.flashIdx > 0;
@@ -663,6 +668,7 @@ function renderCheck(body) {
       });
       if (session.mode === "meaning" && isCorrect) session.meaningCorrect += 1;
       if (session.mode === "final" && isCorrect) session.finalCorrect += 1;
+      if (session.mode === "final" && !isCorrect) session.finalWrong.push(item);
       const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng") },
         el("h3", {}, isCorrect ? "正解！" : "おしい！"),
         el("p", {}, `${surface}：${correct}`),
@@ -799,6 +805,15 @@ function renderDone(body) {
     banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
   }
   body.appendChild(banner);
+
+  if (isFinal && session.finalWrong && session.finalWrong.length) {
+    const review = el("div", { class: "wrongReview" });
+    review.appendChild(el("p", { class: "label" }, "Review"));
+    review.appendChild(el("h3", {}, `間違えた語句（${session.finalWrong.length}語）の暗記カード`));
+    review.appendChild(el("p", { class: "hint" }, "意味・語源・例文をもう一度確認しましょう。"));
+    session.finalWrong.forEach((item) => review.appendChild(buildFlashCard(item)));
+    body.appendChild(review);
+  }
 
   const actions = el("div", { class: "actions" });
   if (isFinal) {

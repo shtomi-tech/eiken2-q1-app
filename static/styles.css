@@ -447,6 +447,10 @@ h2 {
 .doneBanner h2 { color: var(--parchment); }
 .doneBanner .big { font-family: var(--serif); font-size: 40px; line-height: 1.1; }
 
+.wrongReview { margin-top: 24px; border-top: 2px solid var(--ink); padding-top: 20px; }
+.wrongReview h3 { margin-top: 4px; }
+.wrongReview .flash { margin-top: 16px; }
+
 .hide { display: none !important; }
 
 @media (max-width: 720px) {
