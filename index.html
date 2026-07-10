@@ -3,35 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英検 大問1 単語アプリ</title>
-<link rel="stylesheet" href="static/styles.css?v=0.1.0">
+<title>英検 演習</title>
+<link rel="stylesheet" href="static/styles.css?v=0.2.0">
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <span class="backlink">Eiken ・ Reading Q1</span>
-      <h1>英検 大問1 単語アプリ</h1>
+      <span class="backlink">Eiken ・ Reading Practice</span>
+      <h1 id="appTitle">英検 大問1 単語アプリ</h1>
       <p class="shareStatus" id="shareStatus" role="status" aria-live="polite"></p>
-    </div>
-    <div class="topActions">
-      <button class="ghost" id="resetBtn" type="button">進捗リセット</button>
     </div>
   </header>
 
-  <main>
-    <section class="card hero">
-      <p class="label">Vocabulary First</p>
-      <h2>大問1の語句を「覚えてから解く」</h2>
-      <p class="hint">各設問の4つの選択肢を、意味・語源・例文で覚える → 意味チェック → 本番形式で解く、の3ステップ。</p>
-    </section>
+  <nav class="appNav" id="appNav"></nav>
 
+  <main>
     <div id="homePanel"></div>
     <div id="sessionPanel" class="hide"></div>
   </main>
 </div>
 
 <script src="static/vendor/harness/cloud.js?v=0.1.0"></script>
-<script src="static/app.js?v=0.1.0"></script>
+<script src="static/mode-q1.js?v=0.1.0"></script>
+<script src="static/mode-q3.js?v=0.1.0"></script>
+<script src="static/app.js?v=0.2.0"></script>
 </body>
 </html>

@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "exam": "英検2級 2026年度第1回 一次試験",
+    "section": "Reading 大問3（内容一致選択）",
+    "note": "正解は公式解答（2026年度第1回）と照合済み。answerIndex は0始まり。文分割・根拠・解説・和訳・内容整理はエージェント作成、要レビュー。"
+  },
+  "passages": [
+    {
+      "id": "2026-1-3A",
+      "part": "A",
+      "type": "email",
+      "title": "Your service",
+      "header": {
+        "from": "Matthew Watts <mwatts@polarvillageelementary.edu>",
+        "to": "Mary Carter <mcarter@trackfitrentals.com>",
+        "date": "May 27",
+        "subject": "Your service"
+      },
+      "paragraphs": [
+        {
+          "sentences": [
+            "My name is Matthew Watts, and I am a teacher at Polar Village Elementary School.",
+            "We are looking for an outdoor facility where we can hold an athletic event this fall.",
+            "One of my coworkers recommended your facility and suggested I contact you.",
+            "She used one of the grounds for an event at the school where she had previously worked.",
+            "Also, your facility is appealing because it is easy to access from several train stations."
+          ],
+          "translation": "私はマシュー・ワッツと申します。ポーラー・ビレッジ小学校の教員です。この秋に運動系のイベントを開催できる屋外施設を探しています。同僚の一人がそちらの施設を勧めてくれ、連絡するよう提案してくれました。彼女は以前勤めていた学校で行われたイベントで、そちらのグラウンドの一つを使ったことがあるそうです。また、複数の駅からアクセスしやすい点も魅力的です。"
+        },
+        {
+          "sentences": [
+            "Although the exact date has not been set, our athletic event will take place on a weekday in September or October.",
+            "We hope to use the large ground from 8 a.m. to 3 p.m.",
+            "Currently, we expect about 150 people to attend the event, including some parents and teachers.",
+            "According to the website, this is about the number of people your facility can hold."
+          ],
+          "translation": "正確な日程はまだ決まっていませんが、イベントは9月か10月の平日に行う予定です。大きい方のグラウンドを午前8時から午後3時まで使いたいと考えています。現在のところ、保護者や教員を含めて約150人が参加する見込みです。ウェブサイトによると、これはそちらの施設が収容できる人数とほぼ同じとのことです。"
+        },
+        {
+          "sentences": [
+            "Could you please let me know which date might be suitable for our event?",
+            "It would be great if you could provide a few possible dates.",
+            "We can meet to discuss the details of the event as needed.",
+            "Our school is close to your main office, and we have enough teachers and staff.",
+            "Therefore, we can easily adjust our schedules to make sure at least one person can visit for the meeting before 5 p.m. on the day you choose."
+          ],
+          "translation": "私どものイベントに都合の良い日程を教えていただけますか。候補日をいくつか挙げていただけると助かります。必要であれば、お会いしてイベントの詳細を話し合うこともできます。私どもの学校はそちらの本部に近く、教員・スタッフにも余裕があります。そのため、そちらが指定した日の午後5時までに、少なくとも一人が打ち合わせに伺えるよう、スケジュールを容易に調整できます。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 24,
+          "stem": "What is one reason Matthew Watts is interested in the facility?",
+          "choices": [
+            "The ground is perfect for camping.",
+            "The staff working there is helpful.",
+            "It is located near public transportation.",
+            "It is popular among schoolchildren."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [4] },
+          "explanation": "第1段落最終文「it is easy to access from several train stations（複数の駅からアクセスしやすい）」を、選択肢3は \"near public transportation\" と言い換えている。",
+          "translation": "マシュー・ワッツがその施設に興味を持った理由の一つは何か。\n1 キャンプに最適なグラウンドだから。\n2 そこで働くスタッフが親切だから。\n3 公共交通機関の近くにあるから。\n4 学童の間で人気があるから。"
+        },
+        {
+          "q": 25,
+          "stem": "Regarding the event that is being planned,",
+          "choices": [
+            "the number of people will likely be appropriate for the space.",
+            "it will happen only on weekends this September or October.",
+            "only the students from the school will attend this year.",
+            "it will last all day until the end of the year."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 1, "sentences": [2, 3] },
+          "explanation": "第2段落「about 150 people」＋「this is about the number of people your facility can hold（施設が収容できる人数とほぼ同じ）」から、人数が施設の規模に見合っていることが分かる。",
+          "translation": "計画中のイベントについて、\n1 人数は会場の規模に見合ったものになりそうだ。\n2 今年の9月か10月の週末にのみ行われる。\n3 今年は学校の生徒だけが参加する。\n4 年末まで一日中続く。"
+        },
+        {
+          "q": 26,
+          "stem": "Why does Matthew mention the location of the school and the number of staff to Mary Carter?",
+          "choices": [
+            "To suggest changing the time of the event to the morning.",
+            "To ask if the facility staff can help prepare for the event.",
+            "To explain that the school needs more teachers than it has.",
+            "To show that visiting her in the office is not too difficult."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 2, "sentences": [3, 4] },
+          "explanation": "第3段落「Our school is close to your main office, and we have enough teachers and staff.」に続き「we can easily adjust our schedules to make sure at least one person can visit（誰か一人が訪問できるよう調整できる）」とあり、訪問が難しくないことを示すための説明だと分かる。",
+          "translation": "マシューはなぜ学校の場所とスタッフの人数についてメアリー・カーターに触れているのか。\n1 イベントの時間を午前に変更することを提案するため。\n2 施設のスタッフが準備を手伝えるか尋ねるため。\n3 学校に教員が足りていないことを説明するため。\n4 彼女のオフィスを訪ねるのがそれほど難しくないことを示すため。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 相談の背景",
+            "lines": [
+              ["マシュー・ワッツは", { "blank": 1 }, "。"],
+              ["秋に", { "blank": 2 }, "を屋外施設で開催したいと考えている。"],
+              ["同僚が以前の勤務先でグラウンドを使ったことがきっかけで、この施設を知った。"],
+              ["施設に興味を持った理由の一つ：", { "blank": 3 }, "こと。"]
+            ]
+          },
+          {
+            "label": "¶2 イベントの詳細",
+            "lines": [
+              ["開催日：まだ未定だが", { "blank": 4 }, "。"],
+              ["使用時間：午前8時から午後3時まで、大きい方のグラウンドを使用。"],
+              ["想定人数：", { "blank": 5 }, "で、施設が収容できる人数とほぼ同じ。"]
+            ]
+          },
+          {
+            "label": "¶3 メアリーへの依頼",
+            "lines": [
+              ["メアリーに", { "blank": 6 }, "を教えてほしいと依頼している。"],
+              ["学校がメアリーのオフィスに近く、スタッフにも余裕があるため、", { "blank": 7 }, "ように調整できる。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "小学校の教員", "accepted": ["小学校の教員", "小学校の先生"] },
+          { "id": 2, "answer": "運動系の校外イベント", "accepted": ["運動系の校外イベント", "運動会のようなイベント", "陸上系のイベント"] },
+          { "id": 3, "answer": "複数の駅からアクセスしやすい", "accepted": ["複数の駅からアクセスしやすい", "駅から近い"] },
+          { "id": 4, "answer": "9月か10月の平日", "accepted": ["9月か10月の平日"] },
+          { "id": 5, "answer": "約150人", "accepted": ["約150人", "150人程度"] },
+          { "id": 6, "answer": "都合の良い候補日をいくつか", "accepted": ["都合の良い候補日をいくつか", "候補日をいくつか"] },
+          { "id": 7, "answer": "午後5時までに誰か一人が訪問できる", "accepted": ["午後5時までに誰か一人が訪問できる", "5時までに誰かが訪問できる"] }
+        ],
+        "distractors": ["中学校の校長", "文化祭", "駐車場が広い", "12月中旬", "約300人", "全ての候補日を一度に", "午前中に全員で訪問する"]
+      }
+    },
+    {
+      "id": "2026-1-3B",
+      "part": "B",
+      "type": "article",
+      "title": "The Humboldt Brothers",
+      "header": null,
+      "paragraphs": [
+        {
+          "sentences": [
+            "Alexander and Wilhelm von Humboldt were born in the late eighteenth century in what is now Germany into a wealthy family.",
+            "When Alexander was just a child, their father passed away.",
+            "Even before his death, their parents wanted to ensure that their sons received a good education.",
+            "Following his death, the brothers were raised mainly by their mother, who held strict and serious religious beliefs.",
+            "She took charge of their education, hiring famous educators and experts in various fields to tutor them.",
+            "The brothers' education covered many academic subjects, such as mathematics, languages, history, and economics."
+          ],
+          "translation": "アレクサンダーとヴィルヘルムのフンボルト兄弟は、18世紀後半、現在のドイツにあたる地域の裕福な家庭に生まれた。アレクサンダーがまだ幼い頃、父が亡くなった。父の死以前から、両親は息子たちが良い教育を受けられるよう望んでいた。父の死後、兄弟は主に、厳格で敬虔な宗教観を持つ母によって育てられた。母は教育を取り仕切り、様々な分野の著名な学者や専門家を家庭教師として雇った。兄弟の教育は、数学・語学・歴史・経済学など多くの学問分野に及んだ。"
+        },
+        {
+          "sentences": [
+            "The younger of the two, Alexander, had been deeply interested in adventure since early childhood.",
+            "The money he received after his mother's death made his dream of traveling to South America come true.",
+            "He spent several years there studying plants, animals, and the natural features of the land.",
+            "Alexander wrote books about what he had learned there after the trip.",
+            "One of his most famous books is Kosmos, in which he tried to explain how everything in the natural world worked and how things were connected to each other."
+          ],
+          "translation": "弟のアレクサンダーは、幼少期から冒険に強い関心を持っていた。母の死後に受け取った資金により、南米へ旅する夢が実現した。彼は南米で数年を過ごし、植物・動物・その土地の自然の特徴を研究した。アレクサンダーは旅から戻った後、そこで学んだことについて本を執筆した。最も有名な著作の一つが『コスモス』で、自然界のあらゆる物事がどう機能し、互いにどうつながっているかを説明しようとした。"
+        },
+        {
+          "sentences": [
+            "On the other hand, Wilhelm's passion was education and language.",
+            "He served as the education director of the Ministry of the Interior in Prussia and helped found a university.",
+            "The proposal he wrote for the university has influenced the German university system ever since.",
+            "He is also known for his studies of language.",
+            "He considered language to be something whose structure and character reflected the culture and individuality of its speakers.",
+            "According to him, language was not just a collection of words but a means that allowed people to perceive the world."
+          ],
+          "translation": "一方、兄ヴィルヘルムが情熱を注いだのは教育と言語だった。彼はプロイセンの内務省で教育局長を務め、大学の設立に尽力した。彼がその大学のために書いた提案書は、それ以来ドイツの大学制度に影響を与え続けている。彼はまた、言語研究でも知られている。言語とは、その構造や性質が話者の文化や個性を反映するものだと考えた。彼によれば、言語は単なる語の集合ではなく、人が世界を捉えるための手段だった。"
+        },
+        {
+          "sentences": [
+            "It is clear that the environment in which the Humboldt brothers grew up gave them opportunities to achieve something with a lasting impact.",
+            "They enjoyed a life that not everyone could have, growing up around great leaders, scientists, and writers.",
+            "Their wealthy background gave them early access to quality education and rich intellectual opportunities.",
+            "These experiences helped shape ideas that continue to influence society today.",
+            "While not many people in the world may know their names, many people have indirectly received benefits from their work."
+          ],
+          "translation": "フンボルト兄弟が育った環境が、後世に残る成果を成し遂げる機会を彼らに与えたことは明らかである。彼らは偉大な指導者・科学者・作家たちに囲まれて育つという、誰もが得られるわけではない生活を享受した。裕福な家庭環境のおかげで、早くから質の高い教育と豊かな知的機会に触れることができた。こうした経験が、今日の社会にも影響を与え続ける考えを形作った。彼らの名を知る人は世界的に見れば多くないかもしれないが、多くの人が間接的に彼らの功績の恩恵を受けている。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 27,
+          "stem": "To provide a great education for the Humboldt brothers, their mother",
+          "choices": [
+            "took them to Berlin to learn languages through their travels.",
+            "chose to send them to a famous school for wealthy families.",
+            "arranged private lessons with academic experts for them.",
+            "had their own parents decide what the brothers should study."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [4] },
+          "explanation": "第1段落「She took charge of their education, hiring famous educators and experts in various fields to tutor them.（著名な学者や専門家を家庭教師として雇った）」を、選択肢3は \"arranged private lessons with academic experts\" と言い換えている。",
+          "translation": "フンボルト兄弟に素晴らしい教育を与えるため、母親は\n1 語学を学ばせるため、旅行でベルリンに連れて行った。\n2 裕福な家庭向けの有名な学校に彼らを通わせることを選んだ。\n3 専門家による個別指導を彼らのために手配した。\n4 兄弟が何を学ぶべきかを、自分自身の両親（＝兄弟の祖父母）に決めさせた。"
+        },
+        {
+          "q": 28,
+          "stem": "What made it possible for Alexander von Humboldt to travel to South America?",
+          "choices": [
+            "The money left to him after his mother passed away.",
+            "The sales of the book he wrote about the natural world.",
+            "An invitation from his brother to travel to new places.",
+            "Support given by a group of scientists in South America."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 1, "sentences": [1] },
+          "explanation": "第2段落「The money he received after his mother's death made his dream of traveling to South America come true.」がそのまま根拠。本の出版は旅の後（第2段落4文目）なので選択肢2は誤り。",
+          "translation": "アレクサンダー・フォン・フンボルトが南米へ旅することを可能にしたのは何か。\n1 母が亡くなった後に彼に残された資金。\n2 彼が自然界について書いた本の売上。\n3 兄弟からの、新しい土地へ旅しようという誘い。\n4 南米の科学者集団による支援。"
+        },
+        {
+          "q": 29,
+          "stem": "What did Wilhelm von Humboldt believe about language?",
+          "choices": [
+            "It developed in similar ways across different cultures and societies.",
+            "It reflected both the German cultural background and educational systems.",
+            "It was a tool that helped individuals see and understand the world around them.",
+            "It was closely related to education and played a role in creating university systems."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 2, "sentences": [5] },
+          "explanation": "第3段落最終文「language was not just a collection of words but a means that allowed people to perceive the world.（人が世界を捉える手段）」を、選択肢3は \"a tool that helped individuals see and understand the world\" と言い換えている。",
+          "translation": "ヴィルヘルム・フォン・フンボルトは言語について何を信じていたか。\n1 異なる文化や社会でも同じように発達する。\n2 ドイツの文化的背景と教育制度の両方を反映している。\n3 人が身の回りの世界を見て理解する助けとなる道具である。\n4 教育と密接に関係し、大学制度を作る役割を果たした。"
+        },
+        {
+          "q": 30,
+          "stem": "What is one reason the Humboldt brothers could focus on their achievements?",
+          "choices": [
+            "Their childhood provided them with access to knowledge and learning.",
+            "Their jobs were flexible enough to allow them a lot of free time for research.",
+            "They had a lot of volunteer workers who were willing to work for them.",
+            "They worked with teams of several great assistants on each project."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 3, "sentences": [0, 2] },
+          "explanation": "第4段落「the environment in which the Humboldt brothers grew up gave them opportunities...」および「Their wealthy background gave them early access to quality education and rich intellectual opportunities.」から、幼少期の環境が知識・学びへのアクセスを与えたことが分かる。",
+          "translation": "フンボルト兄弟が自分たちの功績に打ち込めた理由の一つは何か。\n1 彼らの幼少期の環境が、知識や学びへのアクセスを彼らに与えたから。\n2 彼らの仕事は研究のための自由な時間をたくさん取れるほど融通が利いたから。\n3 彼らのために喜んで働くボランティアが大勢いたから。\n4 各プロジェクトで、何人もの優れた助手たちと協力して取り組んだから。"
+        },
+        {
+          "q": 31,
+          "stem": "Which of the following statements is true?",
+          "choices": [
+            "Alexander finished writing a book about the functions of nature before he went on a journey.",
+            "The Humboldt brothers desired to become rich and chose their own study subjects accordingly.",
+            "The Humboldts' father wanted to teach them piano himself and took steps to make it happen.",
+            "Wilhelm wrote a proposal that has had a great impact on the German university system."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 2, "sentences": [2] },
+          "explanation": "第3段落「The proposal he wrote for the university has influenced the German university system ever since.」がそのまま根拠。選択肢1は本の執筆が旅の後（第2段落）なので誤り。",
+          "translation": "次のうち正しいものはどれか。\n1 アレクサンダーは、旅に出る前に自然の働きについての本を書き終えていた。\n2 フンボルト兄弟は裕福になることを望み、それに応じて自分の研究分野を選んだ。\n3 フンボルト兄弟の父は、自らピアノを教えたいと考え、そのための手を打った。\n4 ヴィルヘルムは、ドイツの大学制度に大きな影響を与えることになる提案書を書いた。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 生い立ちと教育",
+            "lines": [
+              ["フンボルト兄弟は", { "blank": 1 }, "に生まれた。"],
+              ["幼い頃に", { "blank": 2 }, "が亡くなった。"],
+              ["その後は主に", { "blank": 3 }, "が教育を取り仕切り、", { "blank": 4 }, "を家庭教師として雇った。"]
+            ]
+          },
+          {
+            "label": "¶2 兄アレクサンダーの功績",
+            "lines": [
+              ["幼少期から", { "blank": 5 }, "に強い関心を持っていた。"],
+              ["", { "blank": 6 }, "によって南米への旅を実現させた。"],
+              ["旅で得た知識をもとに本を執筆した（代表作は『コスモス』）。"]
+            ]
+          },
+          {
+            "label": "¶3 弟ヴィルヘルムの功績",
+            "lines": [
+              ["プロイセンの内務省で教育局長を務め、", { "blank": 7 }, "に貢献した。"],
+              ["言語とは単なる語の集合ではなく、人が", { "blank": 8 }, "だと考えた。"]
+            ]
+          },
+          {
+            "label": "¶4 まとめ",
+            "lines": [
+              ["兄弟が育った", { "blank": 1 }, "な環境が、質の高い教育と知的な機会を早くから与えた。"],
+              ["その経験が、今日の社会にも影響を与える考えを形作った。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "裕福な家庭", "accepted": ["裕福な家庭", "裕福な家庭環境"] },
+          { "id": 2, "answer": "父", "accepted": ["父", "父親"] },
+          { "id": 3, "answer": "母", "accepted": ["母", "母親"] },
+          { "id": 4, "answer": "有名な学者や専門家", "accepted": ["有名な学者や専門家", "著名な学者や専門家"] },
+          { "id": 5, "answer": "冒険", "accepted": ["冒険"] },
+          { "id": 6, "answer": "母の死後に得た資金", "accepted": ["母の死後に得た資金", "母の死後に受け取った遺産", "母の遺産"] },
+          { "id": 7, "answer": "大学の設立", "accepted": ["大学の設立", "大学を設立すること"] },
+          { "id": 8, "answer": "世界を捉える手段", "accepted": ["世界を捉える手段", "世界を理解する手段"] }
+        ],
+        "distractors": ["貧しい家庭", "兄", "叔父", "近所の子どもたち", "音楽の才能", "会社を設立すること", "富を得る手段", "戦争で得た名声"]
+      }
+    }
+  ]
+}
