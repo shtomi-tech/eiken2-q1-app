@@ -1,0 +1,304 @@
+{
+  "meta": {
+    "exam": "英検準2級 2026年度第1回 一次試験",
+    "section": "Reading 大問3（内容一致選択）",
+    "note": "正解は公式解答（2026年度第1回）と照合済み。answerIndex は0始まり。文分割・根拠・解説・和訳・内容整理はエージェント作成、要レビュー。"
+  },
+  "passages": [
+    {
+      "id": "p2-2026-1-3A",
+      "part": "A",
+      "type": "email",
+      "title": "About joining my band",
+      "header": {
+        "from": "Andrea Patterson <andrea123@ground-mail.com>",
+        "to": "Travis Longman <t.j.longman-0428@skyhigh-message.com>",
+        "date": "February 20",
+        "subject": "About joining my band"
+      },
+      "paragraphs": [
+        {
+          "sentences": [
+            "This is Andrea Patterson.",
+            "Thanks for your message.",
+            "It is great to hear that you are interested in joining our band as a guitarist.",
+            "As you said in your email, we were looking for a new member.",
+            "However, we just found someone last week.",
+            "So, unfortunately, we will not be able to include you in our band.",
+            "I am sorry to say that because I know how well you can play the guitar."
+          ],
+          "translation": "アンドレア・パターソンです。メッセージをありがとうございます。あなたがギタリストとして私たちのバンドに加入することに興味を持ってくれて、とても嬉しく思います。メールにあった通り、私たちは新しいメンバーを探していました。しかし、先週ちょうど新しいメンバーが見つかりました。そのため、残念ながらあなたをバンドに迎えることはできません。あなたがどれほどギターが上手いか知っているので、申し訳なく思っています。"
+        },
+        {
+          "sentences": [
+            "However, I do have some good news for you.",
+            "I know another band whose members are still looking for a good guitarist.",
+            "They are also students at our college.",
+            "While they do not cover famous songs, they perform original music.",
+            "The band started last year, but last week, the guitarist had to quit the band because he needed to focus on his studies.",
+            "They usually practice on weekends in the music room on campus."
+          ],
+          "translation": "ですが、あなたにとって良い知らせもあります。まだ良いギタリストを探している別のバンドを知っています。彼らも私たちと同じ大学の学生です。有名な曲のカバーはせず、オリジナル曲を演奏しています。そのバンドは昨年結成されましたが、先週、それまでのギタリストが学業に専念する必要があるためバンドを辞めることになりました。彼らは普段、週末にキャンパスの音楽室で練習しています。"
+        },
+        {
+          "sentences": [
+            "If you are interested, you can give me your phone number, and I will pass it to them.",
+            "You could also exchange emails if you prefer, but I think it might be easier to talk with them directly on the phone.",
+            "They can tell you more about the band.",
+            "Then, you can go watch one of their practices to see if you like their music.",
+            "Let me know what you think."
+          ],
+          "translation": "興味があれば、あなたの電話番号を教えてください。私からそのバンドに伝えます。メールのやり取りでも構いませんが、電話で直接話す方が話しやすいかもしれません。彼らからバンドについてもっと詳しく聞けるでしょう。そのうえで、彼らの練習を見に行き、音楽が気に入るかどうか確かめることができます。あなたの考えを聞かせてください。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 23,
+          "stem": "Travis Longman cannot join Andrea Patterson's band because",
+          "choices": [
+            "she thinks he is not good enough for her band.",
+            "her band is only looking for a singer, not a guitarist.",
+            "she has already found a new member for the band.",
+            "her band had already broken up by the time he asked."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [4, 5] },
+          "explanation": "第1段落「we just found someone last week. So, unfortunately, we will not be able to include you in our band.（先週ちょうど新しいメンバーが見つかったので、あなたを迎えられない）」から、すでに新しいメンバーが見つかったことが加入できない理由だと分かる。",
+          "translation": "トラビス・ロングマンがアンドレア・パターソンのバンドに加入できないのはなぜか。\n1 彼女は彼がバンドに見合う実力ではないと思っているから。\n2 彼女のバンドが探しているのはギタリストではなく歌手だから。\n3 彼女はすでにバンドの新しいメンバーを見つけていたから。\n4 彼が頼んだ時点で、彼女のバンドはすでに解散していたから。"
+        },
+        {
+          "q": 24,
+          "stem": "What is true about the band members that Andrea recommends?",
+          "choices": [
+            "They prefer to play songs from other bands.",
+            "They have been active for several years.",
+            "They practice in a studio outside the campus.",
+            "They have been seeking a new guitarist."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 1, "sentences": [1, 4] },
+          "explanation": "第2段落「I know another band whose members are still looking for a good guitarist.」および「last week, the guitarist had to quit the band because he needed to focus on his studies.」から、そのバンドが新しいギタリストを探し続けていることが分かる。",
+          "translation": "アンドレアが勧めるバンドのメンバーについて正しいものはどれか。\n1 他のバンドの曲を演奏することを好んでいる。\n2 何年も活動を続けている。\n3 キャンパス外のスタジオで練習している。\n4 新しいギタリストを探し続けている。"
+        },
+        {
+          "q": 25,
+          "stem": "What will Travis probably do right after reading this email?",
+          "choices": [
+            "Send an email to one of the band members.",
+            "Go check out the practice of the recommended band.",
+            "Provide his phone number to Andrea.",
+            "Call Andrea for information about the band."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 2, "sentences": [0] },
+          "explanation": "第3段落冒頭「If you are interested, you can give me your phone number, and I will pass it to them.」から、トラビスがまず行うべきことはアンドレアに自分の電話番号を伝えることだと分かる。練習見学（選択肢2）はその後の段階。",
+          "translation": "このメールを読んだ直後に、トラビスはおそらく何をするか。\n1 バンドメンバーの一人にメールを送る。\n2 勧められたバンドの練習を見に行く。\n3 アンドレアに自分の電話番号を伝える。\n4 バンドについての情報を求めてアンドレアに電話する。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 加入をお断りする理由",
+            "lines": [
+              ["アンドレアは、トラビスからのギタリスト加入希望のメールに返信している。"],
+              ["しかし、", { "blank": 1 }, "ため、トラビスをバンドに加入させることができない。"],
+              [{ "blank": 2 }, "ことを、アンドレアは申し訳なく思っている。"]
+            ]
+          },
+          {
+            "label": "¶2 別のバンドの紹介",
+            "lines": [
+              ["アンドレアは、まだ", { "blank": 3 }, "を探している別のバンドを知っている。"],
+              ["そのバンドは", { "blank": 4 }, "を演奏しており、同じ大学の学生たちである。"],
+              ["前のギタリストが", { "blank": 5 }, "ため、先週バンドを辞めた。"],
+              ["普段は", { "blank": 6 }, "にキャンパスの音楽室で練習している。"]
+            ]
+          },
+          {
+            "label": "¶3 トラビスへの提案",
+            "lines": [
+              ["興味があれば、トラビスは", { "blank": 7 }, "をアンドレアに伝えればよい。"],
+              ["アンドレアがそれを", { "blank": 8 }, "に伝える。"],
+              ["トラビスは練習を見学して", { "blank": 9 }, "を確認できる。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "すでに新しいメンバーを先週見つけた", "accepted": ["すでに新しいメンバーを先週見つけた", "先週新しいメンバーが見つかった"] },
+          { "id": 2, "answer": "トラビスのギターの腕前が良いのを知っている", "accepted": ["トラビスのギターの腕前が良いのを知っている", "トラビスがギターが上手いことを知っている"] },
+          { "id": 3, "answer": "良いギタリスト", "accepted": ["良いギタリスト"] },
+          { "id": 4, "answer": "オリジナル曲", "accepted": ["オリジナル曲", "オリジナル音楽"] },
+          { "id": 5, "answer": "学業に専念する必要がある", "accepted": ["学業に専念する必要がある", "勉強に集中する必要がある"] },
+          { "id": 6, "answer": "週末", "accepted": ["週末"] },
+          { "id": 7, "answer": "自分の電話番号", "accepted": ["自分の電話番号", "電話番号"] },
+          { "id": 8, "answer": "新しいバンドのメンバー", "accepted": ["新しいバンドのメンバー", "別のバンド"] },
+          { "id": 9, "answer": "自分がその音楽を気に入るかどうか", "accepted": ["自分がその音楽を気に入るかどうか", "音楽が気に入るかどうか"] }
+        ],
+        "distractors": ["ギターの練習方法", "有名な曲", "怪我をした", "平日", "メールアドレス", "大学の事務局", "楽器の値段"]
+      }
+    },
+    {
+      "id": "p2-2026-1-3B",
+      "part": "B",
+      "type": "article",
+      "title": "Pig Beach",
+      "header": null,
+      "paragraphs": [
+        {
+          "sentences": [
+            "Big Major Cay in the country of the Bahamas is a small island with a beautiful beach known as Pig Beach.",
+            "On this island, visitors can see and sometimes play with pigs swimming near the beach.",
+            "In recent years, these pigs have gained popularity worldwide because of social media.",
+            "This has led many tourists to visit the island to see this unique sight.",
+            "As a result, this has had some negative impact on these animals."
+          ],
+          "translation": "バハマにあるビッグ・メジャー・ケイ島は、「ピッグ・ビーチ」として知られる美しいビーチがある小さな島である。この島では、訪れた人はビーチ近くを泳ぐ豚を見たり、時には触れ合ったりすることができる。近年、この豚たちはソーシャルメディアのおかげで世界的に人気を集めている。そのため、この珍しい光景を見ようと多くの観光客が島を訪れるようになった。その結果、これらの動物にはいくらか悪い影響も生じている。"
+        },
+        {
+          "sentences": [
+            "These pigs are not native to the island, and nobody knows exactly how they arrived there.",
+            "One story says that old sailors left their pigs on the island.",
+            "Another story suggests that the pigs swam to the island after escaping from a broken ship.",
+            "Some people believe the pigs were brought there by farmers from a nearby island.",
+            "In any case, after these pigs learned that humans, especially tourists today, would feed them, they made the place their home."
+          ],
+          "translation": "これらの豚はこの島に元々いた動物ではなく、どのようにしてそこに来たのか誰も正確には知らない。ある説では、昔の船乗りたちが自分の豚を島に残していったとされる。別の説では、壊れた船から逃げた豚が泳いで島にたどり着いたとされる。近くの島の農家が持ち込んだと考える人もいる。いずれにせよ、人間、特に今日の観光客が餌をくれると分かってから、豚たちはそこを自分たちの住処にした。"
+        },
+        {
+          "sentences": [
+            "Today, tourists who come to see the pigs sometimes cause problems.",
+            "They often give the pigs various kinds of food, but much of it is not good for their health.",
+            "This could make the pigs sick.",
+            "Some reports said that pigs ate harmful items, such as plastic.",
+            "In the past, some of the pigs died after people fed them on the beach, as they had also eaten too much sand with the food."
+          ],
+          "translation": "今日、豚を見に来る観光客が時に問題を引き起こすことがある。彼らはしばしば豚に様々な種類の食べ物を与えるが、その多くは豚の健康に良くない。これが豚を病気にする恐れがある。豚がプラスチックのような有害なものを食べたという報告もある。過去には、ビーチで餌をもらった豚が、食べ物と一緒に砂を食べ過ぎたために死んでしまったこともあった。"
+        },
+        {
+          "sentences": [
+            "To protect the pigs, several organizations and the local government are taking action.",
+            "For example, they have started campaigns to educate tourists on how to behave properly around the swimming pigs.",
+            "They are also cleaning up the beach and making stricter rules on feeding the pigs.",
+            "They aim to improve the situation for both the pigs and the environment through more eco-friendly tourism.",
+            "These events have also made people reconsider how humans should interact with wild animals."
+          ],
+          "translation": "豚を守るため、いくつかの団体と地元政府が対策を取っている。例えば、泳ぐ豚の周りでの適切な振る舞い方を観光客に教えるキャンペーンを始めている。ビーチの清掃や、餌やりについてのより厳しい規則作りも行っている。より環境に配慮した観光を通じて、豚と環境の双方にとっての状況改善を目指している。こうした出来事は、人間が野生動物とどう関わるべきかを人々に考え直させることにもなった。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 26,
+          "stem": "What is true about Big Major Cay?",
+          "choices": [
+            "Social media has made it famous for its large, beautiful beach.",
+            "There are pigs living there without any contact with humans.",
+            "This island, where pigs live, offers tourists a very unusual view.",
+            "It experienced a drop in tourists in recent years due to the pigs."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [0, 1, 3] },
+          "explanation": "第1段落「visitors can see and sometimes play with pigs swimming near the beach」および「This has led many tourists to visit the island to see this unique sight.（この珍しい光景を見ようと多くの観光客が訪れる）」から、豚が暮らすこの島が観光客に珍しい光景を提供していることが分かる。",
+          "translation": "ビッグ・メジャー・ケイ島について正しいものはどれか。\n1 ソーシャルメディアのおかげで、その広く美しいビーチで有名になった。\n2 人間と全く接触せずに暮らす豚たちがいる。\n3 豚が暮らすこの島は、観光客にとても珍しい光景を提供している。\n4 近年、豚が原因で観光客数が減少した。"
+        },
+        {
+          "q": 27,
+          "stem": "One possible explanation for the pigs being on the island is that",
+          "choices": [
+            "people brought them to attract tourists.",
+            "a broken ship landed there with them inside.",
+            "they originally came from this island.",
+            "sailors brought them but left them behind."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 1, "sentences": [1] },
+          "explanation": "第2段落「One story says that old sailors left their pigs on the island.（昔の船乗りたちが豚を島に残していったという説がある）」がそのまま根拠。",
+          "translation": "島に豚がいることについて考えられる説明の一つは\n1 人々が観光客を呼び込むために豚を連れてきたということ。\n2 壊れた船が豚を乗せたまま島に流れ着いたということ。\n3 豚はもともとこの島の出身だったということ。\n4 船乗りたちが豚を連れてきて、置き去りにしたということ。"
+        },
+        {
+          "q": 28,
+          "stem": "How are the pigs affected by tourists?",
+          "choices": [
+            "They feel stressed when tourists touch them carelessly.",
+            "They are fed food that is not good for them to eat.",
+            "Their homes are being destroyed because of plastic trash.",
+            "Too many tourists drive them away from their homes."
+          ],
+          "answerIndex": 1,
+          "evidence": { "paragraph": 2, "sentences": [1] },
+          "explanation": "第3段落「They often give the pigs various kinds of food, but much of it is not good for their health.（豚に与える食べ物の多くが健康に良くない）」から、観光客が豚にとって良くない食べ物を与えていることが分かる。",
+          "translation": "観光客は豚にどのような影響を与えているか。\n1 観光客に無造作に触られるとストレスを感じる。\n2 豚にとって良くない食べ物を与えられている。\n3 プラスチックごみによって住処が破壊されつつある。\n4 観光客が多すぎて住処から追い出されている。"
+        },
+        {
+          "q": 29,
+          "stem": "What was done to protect the pigs on the island?",
+          "choices": [
+            "The government provided locals with information on how to handle them.",
+            "The government made a rule that no tourists could go to the island.",
+            "Some groups were working to teach tourists how to treat them correctly.",
+            "Some groups were cleaning the beach without the help of the government."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 3, "sentences": [0, 1] },
+          "explanation": "第4段落「several organizations and the local government are taking action」および「they have started campaigns to educate tourists on how to behave properly around the swimming pigs.（観光客に正しい接し方を教えるキャンペーンを始めた）」から、団体が観光客への教育に取り組んでいることが分かる。選択肢4は「政府の助けなしに」が誤り。",
+          "translation": "島の豚を保護するために何が行われたか。\n1 政府が地元住民に、豚の扱い方についての情報を提供した。\n2 政府が、観光客が島に行けないという規則を作った。\n3 いくつかの団体が、観光客に正しい接し方を教える取り組みを行っていた。\n4 いくつかの団体が、政府の助けなしにビーチの清掃を行っていた。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 島と豚の人気",
+            "lines": [
+              ["ビッグ・メジャー・ケイ島には、", { "blank": 1 }, "として知られる美しいビーチがある。"],
+              ["訪れた人は、ビーチ近くを泳ぐ", { "blank": 2 }, "を見たり、時には触れ合ったりできる。"],
+              ["近年、", { "blank": 3 }, "のおかげで世界的に人気が高まった。"],
+              ["その結果、豚には", { "blank": 4 }, "影響も生じている。"]
+            ]
+          },
+          {
+            "label": "¶2 豚がいる理由の諸説",
+            "lines": [
+              ["豚がどのようにして島に来たのかは", { "blank": 5 }, "。"],
+              ["ある説では、", { "blank": 6 }, "が豚を島に残していったとされる。"],
+              ["別の説では、豚が", { "blank": 7 }, "から逃げて泳いできたとされる。"],
+              ["近隣の島の", { "blank": 8 }, "が持ち込んだという説もある。"]
+            ]
+          },
+          {
+            "label": "¶3 観光客が引き起こす問題",
+            "lines": [
+              ["観光客はしばしば豚に", { "blank": 9 }, "を与えるが、その多くは健康に良くない。"],
+              ["豚が", { "blank": 10 }, "のような有害なものを食べたという報告もある。"],
+              ["過去には、餌と一緒に", { "blank": 11 }, "を食べ過ぎて死んだ豚もいた。"]
+            ]
+          },
+          {
+            "label": "¶4 保護活動",
+            "lines": [
+              ["豚を守るため、", { "blank": 12 }, "と地元政府が対策を取っている。"],
+              ["観光客に豚への正しい接し方を教える", { "blank": 13 }, "を始めている。"],
+              ["ビーチの", { "blank": 14 }, "や、餌やりについての", { "blank": 15 }, "も行っている。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "ピッグ・ビーチ", "accepted": ["ピッグ・ビーチ", "Pig Beach"] },
+          { "id": 2, "answer": "豚", "accepted": ["豚"] },
+          { "id": 3, "answer": "ソーシャルメディア", "accepted": ["ソーシャルメディア", "SNS"] },
+          { "id": 4, "answer": "いくつかの悪い", "accepted": ["いくつかの悪い", "悪い", "負の"] },
+          { "id": 5, "answer": "誰にも分かっていない", "accepted": ["誰にも分かっていない", "誰も正確には知らない"] },
+          { "id": 6, "answer": "昔の船乗りたち", "accepted": ["昔の船乗りたち", "船乗りたち"] },
+          { "id": 7, "answer": "壊れた船", "accepted": ["壊れた船"] },
+          { "id": 8, "answer": "農家の人々", "accepted": ["農家の人々", "農家"] },
+          { "id": 9, "answer": "様々な種類の食べ物", "accepted": ["様々な種類の食べ物", "いろいろな食べ物"] },
+          { "id": 10, "answer": "プラスチック", "accepted": ["プラスチック"] },
+          { "id": 11, "answer": "砂", "accepted": ["砂"] },
+          { "id": 12, "answer": "いくつかの団体", "accepted": ["いくつかの団体", "複数の団体"] },
+          { "id": 13, "answer": "キャンペーン", "accepted": ["キャンペーン"] },
+          { "id": 14, "answer": "清掃", "accepted": ["清掃", "掃除"] },
+          { "id": 15, "answer": "より厳しい規則", "accepted": ["より厳しい規則", "厳しいルール"] }
+        ],
+        "distractors": ["水族館", "猫", "地元の学校", "確実な事実", "農園主が最初に飼っていた", "動物園", "観光客が減った", "海水"]
+      }
+    }
+  ]
+}

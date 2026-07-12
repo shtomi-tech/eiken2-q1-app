@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "exam": "英検2級 2025年度第2回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "note": "正解は公式解答（2025年度第2回）と照合済み。choices は本番の出題順。answerIndex は0始まり。"
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "When King Otto died, his son was still too young to (   ) the kingdom. King Otto's brother looked after the country until the young prince was old enough to rule.",
+      "choices": ["overlap", "govern", "forgive", "arrest"],
+      "answerIndex": 1,
+      "translation": "オットー王が亡くなったとき、息子はまだ幼くて王国を統治することができなかった。若い王子が統治できる年齢になるまで、オットー王の弟がその国を治めた。"
+    },
+    {
+      "q": 2,
+      "stem": "The IT company has greatly (   ) since it opened five years ago. It now has offices in over 30 cities.",
+      "choices": ["suffered", "reflected", "expanded", "influenced"],
+      "answerIndex": 2,
+      "translation": "そのIT企業は5年前の開業以来大きく拡大した。今では30以上の都市にオフィスを構えている。"
+    },
+    {
+      "q": 3,
+      "stem": "Because Westbrook Junior High School's softball team won the state championship, they have (   ) for next month's national finals.",
+      "choices": ["robbed", "qualified", "weighed", "disappeared"],
+      "answerIndex": 1,
+      "translation": "ウェストブルック中学校のソフトボールチームは州選手権で優勝したので、来月の全国大会への出場資格を得た。"
+    },
+    {
+      "q": 4,
+      "stem": "After working as a taxi driver for more than 10 years, Sue has decided to try a new (   ). She is now training to become a nurse.",
+      "choices": ["device", "complaint", "occupation", "proverb"],
+      "answerIndex": 2,
+      "translation": "10年以上タクシー運転手として働いた後、スーは新しい職業に挑戦することにした。彼女は今、看護師になるための訓練を受けている。"
+    },
+    {
+      "q": 5,
+      "stem": "Matthew's story (   ) his friends' attention completely. They hardly noticed how much time had passed while he was telling it.",
+      "choices": ["accepted", "flattened", "gripped", "promised"],
+      "answerIndex": 2,
+      "translation": "マシューの話は友人たちの注意を完全に引きつけた。彼が話している間、どれだけ時間が経ったか彼らはほとんど気づかなかった。"
+    },
+    {
+      "q": 6,
+      "stem": "The politician's view on education was (   ) through his whole career. He never changed his opinion that teachers should be paid more.",
+      "choices": ["massive", "internal", "consistent", "recent"],
+      "answerIndex": 2,
+      "translation": "その政治家の教育に対する考えは、彼のキャリアを通じて一貫していた。教師の給与を上げるべきだという意見を彼は決して変えなかった。"
+    },
+    {
+      "q": 7,
+      "stem": "A: How was your math test today, James?  B: I did (   ) well. I wasn't expecting to pass, but I ended up getting 82 percent.",
+      "choices": ["necessarily", "surprisingly", "continuously", "faithfully"],
+      "answerIndex": 1,
+      "translation": "A: 今日の数学のテストはどうだった、ジェームズ？ B: 意外とよくできたよ。合格するとは思っていなかったのに、結局82パーセント取れた。"
+    },
+    {
+      "q": 8,
+      "stem": "Susie wanted to make a salad, so she chopped up some tomatoes, onions, and avocadoes together. Then, she put the (   ) in a bowl and added some spices.",
+      "choices": ["surgery", "pollution", "resort", "mixture"],
+      "answerIndex": 3,
+      "translation": "スージーはサラダを作りたかったので、トマト、玉ねぎ、アボカドを一緒に刻んだ。それから、その混ぜたものをボウルに入れ、スパイスを加えた。"
+    },
+    {
+      "q": 9,
+      "stem": "Sports referees and umpires must have excellent (   ). They have to be able to make accurate decisions in just a few seconds, often under great pressure.",
+      "choices": ["laughter", "climate", "illness", "judgment"],
+      "answerIndex": 3,
+      "translation": "スポーツの審判は優れた判断力を持っていなければならない。彼らは多くの場合大きなプレッシャーの下で、わずか数秒で正確な判断を下せる必要がある。"
+    },
+    {
+      "q": 10,
+      "stem": "A: What type of government does our country have?  B: Well, we live in a (   ), so we can vote for the people we want to represent us.",
+      "choices": ["tragedy", "democracy", "mystery", "philosophy"],
+      "answerIndex": 1,
+      "translation": "A: 私たちの国はどんな種類の政治体制なの？ B: そうだね、私たちは民主主義国家に住んでいるから、自分たちを代表してほしい人に投票できるんだよ。"
+    },
+    {
+      "q": 11,
+      "stem": "The security alarm in the hotel (   ) in the middle of the night, so all the guests and workers had to leave quickly.",
+      "choices": ["dropped by", "came down", "passed on", "went off"],
+      "answerIndex": 3,
+      "translation": "ホテルの防犯警報が真夜中に鳴り、宿泊客と従業員は全員急いで避難しなければならなかった。"
+    },
+    {
+      "q": 12,
+      "stem": "After graduating from college, Rachel got a job in a bookstore. She wants to work there (   ), but she hopes to find a job in marketing in the future.",
+      "choices": ["in the old days", "for the time being", "up in the air", "at the same time"],
+      "answerIndex": 1,
+      "translation": "大学を卒業した後、レイチェルは書店で仕事を得た。彼女は当面そこで働きたいと思っているが、将来的にはマーケティングの仕事を見つけたいと考えている。"
+    },
+    {
+      "q": 13,
+      "stem": "The two cars looked (   ) each other, but one cost three times as much as the other. The expensive one had far superior performance.",
+      "choices": ["jealous of", "confident of", "limited to", "identical to"],
+      "answerIndex": 3,
+      "translation": "その2台の車は互いに同一に見えたが、一方はもう一方の3倍の価格だった。高価な方ははるかに優れた性能を持っていた。"
+    },
+    {
+      "q": 14,
+      "stem": "The teacher advised Emma to review her notes (   ) relying only on the textbook. He said it would help her understand the material better and prepare well for the test.",
+      "choices": ["because of", "provided that", "rather than", "even though"],
+      "answerIndex": 2,
+      "translation": "先生はエマに、教科書だけに頼るのではなくノートを復習するよう助言した。そうすることで内容をよりよく理解し、テストの準備もしっかりできると彼は言った。"
+    },
+    {
+      "q": 15,
+      "stem": "A: What do those birds (   )?  B: They seem to eat insects. Look, there's one catching a fly in its beak.",
+      "choices": ["turn in", "cut off", "feed on", "hang on"],
+      "answerIndex": 2,
+      "translation": "A: あの鳥たちは何を食べているの？ B: 昆虫を食べているみたいだね。ほら、一羽がくちばしでハエを捕まえているよ。"
+    },
+    {
+      "q": 16,
+      "stem": "A: Do we have to pay to see the butterfly garden at the zoo?  B: No. It's (   ). You can visit it whenever you want.",
+      "choices": ["out of breath", "against its will", "easy to use", "free of charge"],
+      "answerIndex": 3,
+      "translation": "A: 動物園の蝶園を見るのにお金を払う必要はある？ B: いいえ、無料だよ。いつでも好きなときに訪れられるよ。"
+    },
+    {
+      "q": 17,
+      "stem": "There are (   ) good reasons for studying a foreign language, such as meeting new people and finding a job in another country.",
+      "choices": ["the other of", "the most of", "a kind of", "a number of"],
+      "answerIndex": 3,
+      "translation": "外国語を学ぶことにはいくつもの正当な理由がある。例えば新しい人々と出会うことや、他国で仕事を見つけることなどだ。"
+    }
+  ]
+}

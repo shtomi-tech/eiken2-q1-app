@@ -1,0 +1,304 @@
+{
+  "meta": {
+    "exam": "英検2級 2025年度第3回 一次試験",
+    "section": "Reading 大問3（内容一致選択）",
+    "note": "正解は公式解答（2025年度第3回）と照合済み。answerIndex は0始まり。文分割・根拠・解説・和訳・内容整理はエージェント作成、要レビュー。"
+  },
+  "passages": [
+    {
+      "id": "2025-3-3A",
+      "part": "A",
+      "type": "email",
+      "title": "Retirement party",
+      "header": {
+        "from": "Julia Young <j_young@nflowtech.com>",
+        "to": "Todd Musk <t_musk@nflowtech.com>",
+        "date": "June 19",
+        "subject": "Retirement party"
+      },
+      "paragraphs": [
+        {
+          "sentences": [
+            "Thank you for giving me some time over the phone this morning.",
+            "I hope that I didn't cause you much trouble.",
+            "After the call, our team finally decided on all the details of the retirement party for our manager, Mr. Jenkins.",
+            "This will be a special opportunity for us to show how thankful we have been for his long years of achievement at the company."
+          ],
+          "translation": "今朝はお電話でお時間をいただき、ありがとうございました。ご迷惑をおかけしていなければよいのですが。電話の後、私たちのチームは、マネージャーのジェンキンス氏の退職パーティーの詳細をすべて決定しました。これは、彼の長年にわたる会社での功績への感謝を示す特別な機会になります。"
+        },
+        {
+          "sentences": [
+            "For this party, we are planning a surprise movie to be shown on a large screen.",
+            "This will include slides about Mr. Jenkins's key achievements since joining the company, special photos with his coworkers, and messages from his customers' companies.",
+            "By displaying it this way, everyone at the party will be able to look back on his great career.",
+            "For this event to be successful, the professional support of the IT department is very important, so we would like to ask for your help."
+          ],
+          "translation": "このパーティーのために、私たちは大きなスクリーンに映すサプライズ動画を計画しています。これには、彼が入社してからの主な功績についてのスライド、同僚との特別な写真、そして取引先企業からのメッセージが含まれます。このように映し出すことで、パーティーに参加する全員が彼の素晴らしいキャリアを振り返ることができます。このイベントを成功させるには、IT部門による専門的なサポートがとても重要なので、あなたに協力をお願いしたいのです。"
+        },
+        {
+          "sentences": [
+            "We have collected all the photos, but we're having trouble creating a clear and exciting graphic to show his great sales results over the years.",
+            "We have the data and need help turning it into a powerful picture.",
+            "For the event day, we want good video and sound, and we would like to help set up the right equipment.",
+            "I'm truly sorry to trouble you during your busy time, but I would be delighted if you could help us with this."
+          ],
+          "translation": "写真はすべて集め終えたのですが、彼の長年にわたる素晴らしい営業成績を示す、わかりやすく魅力的なグラフィックの作成に苦労しています。データはあるので、それを説得力のある図にする作業を手伝ってほしいのです。当日は、良い映像と音響がほしいので、適切な機材の設置も手伝っていただきたいと思っています。お忙しいところ本当に申し訳ありませんが、お力を貸していただければ嬉しいです。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 24,
+          "stem": "What happened after the phone call today?",
+          "choices": [
+            "The manager announced a new company policy about retirement.",
+            "The IT department talked about new computers for the office.",
+            "Julia Young's team agreed on details for a future celebration.",
+            "Employees talked about taking over tasks from Mr. Jenkins."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [2] },
+          "explanation": "第1段落「After the call, our team finally decided on all the details of the retirement party for our manager, Mr. Jenkins.（電話の後、チームは退職パーティーの詳細をすべて決定した）」を、選択肢3は \"Julia Young's team agreed on details for a future celebration\" と言い換えている。",
+          "translation": "今日の電話でのやり取りの後、何が起きたか。\n1 マネージャーが退職に関する新しい会社方針を発表した。\n2 IT部門がオフィス用の新しいコンピューターについて話し合った。\n3 ジュリア・ヤングのチームが今後のお祝い会の詳細について合意した。\n4 社員たちがジェンキンス氏の業務の引き継ぎについて話し合った。"
+        },
+        {
+          "q": 25,
+          "stem": "The surprise movie for Mr. Jenkins's retirement party will",
+          "choices": [
+            "show messages from people who are not members of his company.",
+            "be sent to the family members of Mr. Jenkins's coworkers from the past.",
+            "include a short company history and a timeline of its growth.",
+            "be shown on display screens set up on each table during the party."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 1, "sentences": [1] },
+          "explanation": "第2段落「messages from his customers' companies（取引先企業からのメッセージ）」は、自社の社員ではない人々からのメッセージを指すため、選択肢1「彼の会社の社員ではない人々からのメッセージを見せる」に合致する。",
+          "translation": "ジェンキンス氏の退職パーティーのためのサプライズ動画は、\n1 彼の会社の社員ではない人々からのメッセージを見せる。\n2 ジェンキンス氏の同僚だった人々の家族に送られる。\n3 簡単な会社の歴史とその成長の年表を含む。\n4 パーティー中、各テーブルに設置された表示画面に映される。"
+        },
+        {
+          "q": 26,
+          "stem": "What does Julia Young want help with?",
+          "choices": [
+            "Collecting the necessary numbers about Mr. Jenkins's sales to make slides.",
+            "Putting together a list of songs to play for people to choose from.",
+            "Checking and preparing computers at the sales department before the party.",
+            "Creating something exciting to show Mr. Jenkins's history at the company."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 2, "sentences": [0, 1] },
+          "explanation": "第3段落「we're having trouble creating a clear and exciting graphic to show his great sales results over the years（輝かしい営業成績を示す、わかりやすく魅力的なグラフィックの作成に苦労している）」から、依頼したいのはデータ収集ではなく、既にあるデータを魅力的な形にすることだと分かる（\"We have the data\" とあり、数字自体は既に持っている）。選択肢4「ジェンキンス氏の社歴を示す魅力的なものを作ること」が合致する。",
+          "translation": "ジュリア・ヤングは何について手伝ってほしいと思っているか。\n1 スライドを作るために、ジェンキンス氏の営業成績に関する必要な数字を集めること。\n2 人々が選べるように、流す曲のリストをまとめること。\n3 パーティーの前に営業部門のコンピューターを確認・準備すること。\n4 ジェンキンス氏の会社での歴史を示す魅力的なものを作ること。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 電話の後の経緯",
+            "lines": [
+              ["ジュリアは今朝の電話でのやり取りに感謝している。"],
+              ["電話の後、チームは", { "blank": 1 }, "の詳細をすべて決定した。"],
+              ["このパーティーは、ジェンキンス氏の", { "blank": 2 }, "への感謝を示す特別な機会である。"]
+            ]
+          },
+          {
+            "label": "¶2 サプライズ動画の内容",
+            "lines": [
+              ["大きなスクリーンで映すサプライズ動画を計画している。"],
+              ["動画には", { "blank": 3 }, "、同僚との写真、", { "blank": 4 }, "からのメッセージが含まれる。"],
+              ["成功のためには", { "blank": 5 }, "の協力が重要である。"]
+            ]
+          },
+          {
+            "label": "¶3 依頼内容",
+            "lines": [
+              ["写真は集まったが、", { "blank": 6 }, "の作成に苦労している。"],
+              ["当日は", { "blank": 7 }, "を用意する手伝いもお願いしたい。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "ジェンキンス氏の退職パーティー", "accepted": ["ジェンキンス氏の退職パーティー", "マネージャーの退職パーティー"] },
+          { "id": 2, "answer": "長年にわたる会社での功績", "accepted": ["長年にわたる会社での功績", "長年の功績"] },
+          { "id": 3, "answer": "入社以来の主な功績を紹介するスライド", "accepted": ["入社以来の主な功績を紹介するスライド", "彼の主な功績のスライド"] },
+          { "id": 4, "answer": "取引先企業（顧客）", "accepted": ["取引先企業（顧客）", "顧客企業", "取引先"] },
+          { "id": 5, "answer": "IT部門", "accepted": ["IT部門"] },
+          { "id": 6, "answer": "営業成績を示す分かりやすく魅力的なグラフィック", "accepted": ["営業成績を示す分かりやすく魅力的なグラフィック", "売上を示す魅力的な図"] },
+          { "id": 7, "answer": "映像と音響の機材", "accepted": ["映像と音響の機材", "映像・音響機材"] }
+        ],
+        "distractors": ["新入社員の歓迎会", "定年退職に関する新しい規則", "顧客からの苦情リスト", "経理部門", "個人的な出費の記録", "パーティー会場の予約", "流す曲のプレイリスト"]
+      }
+    },
+    {
+      "id": "2025-3-3B",
+      "part": "B",
+      "type": "article",
+      "title": "Stopping Advertisements",
+      "header": null,
+      "paragraphs": [
+        {
+          "sentences": [
+            "It is said that the earliest advertisement appeared in ancient Egypt.",
+            "Later, after newspapers were invented, advertising spread as a way for businesses to share information about their products.",
+            "This tool not only encouraged people to buy goods and helped businesses make money but also caused problems with negative effects on everyday life.",
+            "The increase in advertisements has led to more advertisements with wrong information and has changed the look of cities by covering streets with many signs and billboards."
+          ],
+          "translation": "最古の広告は古代エジプトに現れたと言われている。その後、新聞が発明されると、広告は企業が自社製品についての情報を伝える手段として広まった。この手段は人々に商品の購入を促し、企業が利益を上げる助けになっただけでなく、日常生活に悪影響を及ぼす問題も引き起こした。広告の増加により、誤った情報を含む広告が増え、多くの看板や広告板が通りを覆うことで都市の景観も変わってしまった。"
+        },
+        {
+          "sentences": [
+            "Different countries have set up rules stopping advertisements for some products and services to protect public health and well-being.",
+            "For example, many countries have reduced or fully stopped tobacco advertising due to tobacco's harmful effects on health.",
+            "Also, some countries, like Australia and the UK, have set strict laws to control the advertising of alcohol to young people.",
+            "Some areas have removed advertisements for unhealthy food from schools.",
+            "In this way, advertising has been controlled strictly to protect people's health."
+          ],
+          "translation": "さまざまな国が、公衆の健康と幸福を守るため、一部の製品やサービスの広告を禁止する規則を設けてきた。例えば、多くの国がたばこの健康への悪影響を理由に、たばこの広告を減らす、あるいは全面的に禁止している。また、オーストラリアや英国のように、若者向けの酒類の広告を規制する厳しい法律を定めている国もある。学校から不健康な食品の広告を撤去した地域もある。このように、人々の健康を守るため、広告は厳しく規制されてきた。"
+        },
+        {
+          "sentences": [
+            "In the early 2000s, São Paulo, Brazil, passed the Clean City Law.",
+            "This law prohibited advertisements on taxis and buses, and outside store entrances.",
+            "Many advertisements were removed, and it became possible for citizens to enjoy the beauty of buildings.",
+            "However, electronic signs, which had started to gain popularity, could be used even under the law.",
+            "Later, in Grenoble, France, the decision was made to ban certain advertisements, including electronic signs.",
+            "Some companies tried to introduce new electronic signs before the decision, but they could not.",
+            "In Grenoble, after advertisements were removed, the spaces for the signs were planted with trees and plants."
+          ],
+          "translation": "2000年代初め、ブラジルのサンパウロは「クリーンシティ法」を可決した。この法律は、タクシーやバス、店舗の入口の外側での広告を禁止した。多くの広告が撤去され、市民は建物の美しさを楽しめるようになった。しかし、当時人気が出始めていた電子看板は、この法律のもとでも使用することができた。その後、フランスのグルノーブルでは、電子看板を含む一部の広告を禁止する決定がなされた。一部の企業はその決定の前に新しい電子看板を導入しようとしたが、できなかった。グルノーブルでは、広告が撤去された後、看板があった場所に木々や植物が植えられた。"
+        },
+        {
+          "sentences": [
+            "Advertisement bans are not welcomed everywhere.",
+            "The local government of Vernier, Switzerland, has tried to ban outdoor advertisements.",
+            "The government argued that the city's view was spoiled by too many advertisements and that it was necessary to remove them to bring back its beauty and improve the overall environment.",
+            "However, freedom of speech is emphasized in the country, and the right to advertise is seen as an important part of that freedom.",
+            "Some believe that banning advertisements would go against this right.",
+            "Moreover, some businesses worry that they might lose customers if advertisements are banned."
+          ],
+          "translation": "広告の禁止はどこでも歓迎されているわけではない。スイスのヴェルニエ市の地方自治体は、屋外広告を禁止しようとした。政府は、あまりに多くの広告によって都市の景観が損なわれており、その美しさを取り戻し全体的な環境を改善するために広告を撤去する必要があると主張した。しかし、この国では表現の自由が重んじられており、広告をする権利はその自由の重要な一部だと見なされている。広告の禁止はこの権利に反すると考える人もいる。さらに、広告が禁止されれば顧客を失うのではないかと懸念する企業もある。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 27,
+          "stem": "With an increase in advertisements in people's daily lives,",
+          "choices": [
+            "people have become more likely to come across advertisements with incorrect information.",
+            "stores and businesses put more effort into creating better advertisements than others.",
+            "the importance of advertising in ancient Egypt has become the target of study.",
+            "even ordinary people have begun to make their own advertisements for different purposes."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 0, "sentences": [3] },
+          "explanation": "第1段落最終文「The increase in advertisements has led to more advertisements with wrong information（広告の増加により、誤った情報を含む広告が増えた）」を、選択肢1は \"more likely to come across advertisements with incorrect information\" と言い換えている。",
+          "translation": "人々の日常生活における広告の増加に伴い、\n1 人々は誤った情報を含む広告に出会う可能性が高くなった。\n2 店舗や企業は他社よりも優れた広告を作ることに一層力を注ぐようになった。\n3 古代エジプトにおける広告の重要性が研究対象になった。\n4 一般の人々でさえ、様々な目的のために自分自身の広告を作るようになった。"
+        },
+        {
+          "q": 28,
+          "stem": "Why have some countries decided to control certain types of advertisements?",
+          "choices": [
+            "To encourage young people to cook more often at home.",
+            "To promote products that are good for the environment.",
+            "To protect people's health from being harmed.",
+            "To increase profits for businesses selling healthier products."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 1, "sentences": [0] },
+          "explanation": "第2段落冒頭「Different countries have set up rules stopping advertisements for some products and services to protect public health and well-being.（公衆の健康と幸福を守るため）」がそのまま根拠。",
+          "translation": "一部の国々はなぜ特定の種類の広告を規制することにしたのか。\n1 若者に家でもっと料理をするよう促すため。\n2 環境に良い製品を宣伝するため。\n3 人々の健康が損なわれるのを守るため。\n4 より健康的な製品を販売する企業の利益を増やすため。"
+        },
+        {
+          "q": 29,
+          "stem": "Under São Paulo's Clean City Law, electronic signs were",
+          "choices": [
+            "given a few years before they were completely banned.",
+            "discussed more often than any other topic in advertisements.",
+            "criticized by government officials more.",
+            "left without becoming the target of the law."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 2, "sentences": [3] },
+          "explanation": "第3段落「electronic signs, which had started to gain popularity, could be used even under the law（電子看板は、この法律のもとでも使用できた）」から、電子看板は法律の規制対象にはならなかったことが分かる。",
+          "translation": "サンパウロのクリーンシティ法のもとで、電子看板は\n1 完全に禁止されるまで数年間の猶予が与えられた。\n2 広告の中で他のどの話題よりも頻繁に議論された。\n3 政府当局からより多く批判された。\n4 その法律の規制対象にならないまま残された。"
+        },
+        {
+          "q": 30,
+          "stem": "In Switzerland, some people think that",
+          "choices": [
+            "banning advertisements would be against the right to advertise and freedom of speech.",
+            "removing advertisements would improve the economy and bring more tourists.",
+            "fewer advertisements will lead to a decrease in the number of violent crimes.",
+            "it will be easier for the cities to invite new businesses by banning advertisements."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 3, "sentences": [3, 4] },
+          "explanation": "第4段落「freedom of speech is emphasized in the country, and the right to advertise is seen as an important part of that freedom.」「Some believe that banning advertisements would go against this right.」から、広告禁止は表現の自由・広告をする権利に反すると考える人がいることが分かる。",
+          "translation": "スイスでは、一部の人々は次のように考えている。\n1 広告を禁止することは、広告する権利と表現の自由に反することになる。\n2 広告を撤去すれば経済が改善し、観光客が増える。\n3 広告が減れば凶悪犯罪の件数が減少する。\n4 広告を禁止することで、都市が新しい企業を誘致しやすくなる。"
+        },
+        {
+          "q": 31,
+          "stem": "Which of the following statements is true?",
+          "choices": [
+            "Television appeared in the twentieth century mainly to broadcast advertisements.",
+            "Advertisements can help businesses share information about their products and make a profit.",
+            "São Paulo followed Grenoble's successful way to ban electronic advertisements.",
+            "Freedom of speech is the most important right above all other rights in Switzerland."
+          ],
+          "answerIndex": 1,
+          "evidence": { "paragraph": 0, "sentences": [1, 2] },
+          "explanation": "第1段落「advertising spread as a way for businesses to share information about their products」および「helped businesses make money」がそのまま根拠。選択肢3はサンパウロがグルノーブルの方法に倣ったという記述はなく、時系列も逆（サンパウロが先に法律を制定した）なので誤り。選択肢4は表現の自由が「他のあらゆる権利の中で最も重要」という記述はなく誤り。",
+          "translation": "次のうち正しいものはどれか。\n1 テレビは主に広告を放送するために20世紀に登場した。\n2 広告は企業が自社製品についての情報を伝え、利益を得るのに役立つことがある。\n3 サンパウロは電子広告の禁止に成功したグルノーブルの方法に倣った。\n4 スイスでは表現の自由が他のあらゆる権利の中で最も重要な権利である。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 広告の歴史と弊害",
+            "lines": [
+              ["最古の広告は", { "blank": 1 }, "に現れたと言われている。"],
+              ["", { "blank": 2 }, "の発明後、広告は企業が製品情報を伝える手段として広まった。"],
+              ["広告の増加は、", { "blank": 3 }, "広告を増やし、看板が都市の景観を変えた。"]
+            ]
+          },
+          {
+            "label": "¶2 健康保護のための広告規制",
+            "lines": [
+              ["各国は公衆の健康と幸福を守るため、", { "blank": 4 }, "の広告を規制する法律を設けている。"],
+              ["例：多くの国が", { "blank": 5 }, "の広告を減らす、あるいは禁止している。"],
+              ["オーストラリアや英国では、若者向けの", { "blank": 6 }, "の広告を厳しく規制している。"]
+            ]
+          },
+          {
+            "label": "¶3 サンパウロとグルノーブルの事例",
+            "lines": [
+              ["2000年代初め、サンパウロは", { "blank": 7 }, "法を制定し、タクシー・バス・店舗入口の広告を禁止した。"],
+              ["ただし", { "blank": 8 }, "はこの法律のもとでも使用できた。"],
+              ["グルノーブルでは後に電子看板を含む広告を禁止し、跡地に", { "blank": 9 }, "を植えた。"]
+            ]
+          },
+          {
+            "label": "¶4 スイスの反対意見",
+            "lines": [
+              ["スイス・ヴェルニエ市は屋外広告の禁止を試みたが、歓迎されなかった。"],
+              ["反対派は、広告禁止は", { "blank": 10 }, "に反すると考えている。"],
+              ["一部の企業は", { "blank": 11 }, "を失うことを懸念している。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "古代エジプト", "accepted": ["古代エジプト"] },
+          { "id": 2, "answer": "新聞", "accepted": ["新聞"] },
+          { "id": 3, "answer": "誤った情報を含む", "accepted": ["誤った情報を含む", "誤情報の"] },
+          { "id": 4, "answer": "一部の製品やサービス", "accepted": ["一部の製品やサービス", "特定の製品・サービス"] },
+          { "id": 5, "answer": "たばこ", "accepted": ["たばこ", "タバコ"] },
+          { "id": 6, "answer": "酒類（アルコール）", "accepted": ["酒類（アルコール）", "アルコール", "酒類"] },
+          { "id": 7, "answer": "クリーンシティ", "accepted": ["クリーンシティ", "クリーンシティ法"] },
+          { "id": 8, "answer": "電子看板", "accepted": ["電子看板"] },
+          { "id": 9, "answer": "木々や植物", "accepted": ["木々や植物", "木や植物"] },
+          { "id": 10, "answer": "表現の自由・広告をする権利", "accepted": ["表現の自由・広告をする権利", "広告する権利や表現の自由"] },
+          { "id": 11, "answer": "顧客", "accepted": ["顧客", "客"] }
+        ],
+        "distractors": ["古代ローマ", "テレビ", "全ての製品やサービス", "コーヒー", "エコシティ", "紙の看板", "花壇", "経済的自由", "従業員の給与", "税金を納める義務"]
+      }
+    }
+  ]
+}

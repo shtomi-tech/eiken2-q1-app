@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "exam": "英検準2級 2025年度第2回 一次試験",
+    "section": "Reading 大問3（内容一致選択）",
+    "note": "正解は公式解答（2025年度第2回）と照合済み。answerIndex は0始まり。文分割・根拠・解説・和訳・内容整理はエージェント作成、要レビュー。"
+  },
+  "passages": [
+    {
+      "id": "p2-2025-2-3A",
+      "part": "A",
+      "type": "email",
+      "title": "Important information about the tennis tournament",
+      "header": {
+        "from": "Victoria Hill <info@grand-tennis.com>",
+        "to": "Jake Adams <j.adams-123@network-globally.com>",
+        "date": "April 28",
+        "subject": "Important information about the tennis tournament"
+      },
+      "paragraphs": [
+        {
+          "sentences": [
+            "This is Victoria Hill.",
+            "We are glad to hear that your team will join us again for our next tennis tournament on May 5.",
+            "This will be our fifth tournament.",
+            "We are very surprised and excited because we have never had so many teams in a tournament before.",
+            "This time, we have planned matches not only for men's and women's teams but also for mixed teams."
+          ],
+          "translation": "こちらはヴィクトリア・ヒルです。あなたのチームが5月5日に開催する次回のテニストーナメントに再び参加してくださると聞き、嬉しく思っています。これは私たちにとって5回目の大会になります。これまでにこれほど多くのチームが大会に参加したことがなかったので、私たちはとても驚き、また興奮しています。今回は、男子・女子チームだけでなく、混合チームの試合も計画しています。"
+        },
+        {
+          "sentences": [
+            "There is one thing we are sorry to tell you.",
+            "We see that you want to play in the B-level group.",
+            "We believe your skills are perfect for that level, too.",
+            "However, you cannot play in the B-level group.",
+            "Many teams have asked to play in this group, although we only have ten spots.",
+            "Because you applied a little late, there are no more spots left."
+          ],
+          "translation": "一つ、残念なことをお伝えしなければなりません。あなたがBレベルの部に出場したいとお考えなのは承知しています。あなたのチームの実力はそのレベルにもぴったりだと私たちも思っています。しかしながら、Bレベルの部には出場いただけません。この部には多くのチームから参加希望がありましたが、枠は10しかありません。あなたの申し込みが少し遅かったため、もう空き枠が残っていないのです。"
+        },
+        {
+          "sentences": [
+            "Therefore, we want to suggest that you play at a higher level, the A-level group.",
+            "We understand it will be tough, but we believe you can try.",
+            "Also, you have a choice to move to the C-level group or wait for a team in the B-level group to cancel.",
+            "However, we encourage you to take part in the A-level group.",
+            "Otherwise, we will pay you back your tournament fee right away."
+          ],
+          "translation": "そこで、より上のレベルであるAレベルの部でプレーされることをご提案したいと思います。厳しいとは思いますが、あなたなら挑戦できると私たちは考えています。また、Cレベルの部に移るか、Bレベルの部でキャンセルが出るのを待つという選択肢もあります。しかし私たちは、Aレベルの部への参加をお勧めします。そうでない場合は、大会参加費をすぐに返金いたします。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 23,
+          "stem": "What is true about the tennis tournament on May 5?",
+          "choices": [
+            "Victoria Hill expected more teams to apply.",
+            "It includes only mixed teams of men and women.",
+            "It is the first tournament Jake Adams will play in.",
+            "More teams are attending than ever before."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 0, "sentences": [3] },
+          "explanation": "第1段落4文目「we have never had so many teams in a tournament before（これまでにこれほど多くのチームが参加したことがない）」を、選択肢4は \"More teams are attending than ever before\" と言い換えている。",
+          "translation": "5月5日のテニストーナメントについて正しいものはどれか。\n1 ヴィクトリア・ヒルはもっと多くのチームが参加すると予想していた。\n2 男女混合チームのみが参加する。\n3 ジェイク・アダムスが参加する最初の大会である。\n4 これまで以上に多くのチームが参加している。"
+        },
+        {
+          "q": 24,
+          "stem": "Jake's team cannot play in the B-level group because",
+          "choices": [
+            "the spots for the group have been filled.",
+            "not enough teams applied for the group.",
+            "his team's skills are too high for the level.",
+            "his team is not allowed to play at the event."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 1, "sentences": [4, 5] },
+          "explanation": "第2段落「Many teams have asked to play in this group, although we only have ten spots.」「Because you applied a little late, there are no more spots left.（申し込みが遅く、枠が埋まってしまった）」から、選択肢1が正しい。",
+          "translation": "ジェイクのチームがBレベルの部に出場できないのはなぜか。\n1 その部の枠がすでに埋まってしまったから。\n2 その部に応募したチームが十分でなかったから。\n3 彼のチームの実力がそのレベルには高すぎるから。\n4 彼のチームは大会への参加を許可されていないから。"
+        },
+        {
+          "q": 25,
+          "stem": "What is one thing that Victoria advised Jake to do?",
+          "choices": [
+            "Give up playing in the C-level group.",
+            "Take part in the A-level group.",
+            "Pay more for the tournament.",
+            "Join the other team in the B-level group."
+          ],
+          "answerIndex": 1,
+          "evidence": { "paragraph": 2, "sentences": [0, 3] },
+          "explanation": "第3段落「we want to suggest that you play at a higher level, the A-level group」「we encourage you to take part in the A-level group（Aレベルへの参加を勧める）」から、選択肢2が正しい。",
+          "translation": "ヴィクトリアがジェイクに助言したことの一つは何か。\n1 Cレベルの部でプレーすることを諦めること。\n2 Aレベルの部に参加すること。\n3 大会によりお金を多く払うこと。\n4 Bレベルの部の別のチームに加わること。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 大会の案内",
+            "lines": [
+              ["ヴィクトリア・ヒルは、ジェイクのチームが", { "blank": 1 }, "に再び参加することを喜んでいる。"],
+              ["今回で", { "blank": 2 }, "目の大会になる。"],
+              ["これまでで最も多いチーム数の参加に、運営側は", { "blank": 3 }, "。"],
+              ["今回は男女チームだけでなく", { "blank": 4 }, "の試合も予定されている。"]
+            ]
+          },
+          {
+            "label": "¶2 Bレベルに出場できない理由",
+            "lines": [
+              ["ジェイクのチームは", { "blank": 5 }, "には出場できない。"],
+              ["理由は、枠が", { "blank": 6 }, "しかなく、申し込みが", { "blank": 7 }, "ため、空きがなくなったから。"]
+            ]
+          },
+          {
+            "label": "¶3 ヴィクトリアからの提案",
+            "lines": [
+              ["代わりにより上のレベルである", { "blank": 8 }, "でのプレーを勧めている。"],
+              ["他に、", { "blank": 9 }, "に移るか、Bレベルで", { "blank": 10 }, "のを待つという選択肢もある。"],
+              ["Aレベルに参加しない場合は", { "blank": 11 }, "としている。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "5月5日のテニストーナメント", "accepted": ["5月5日のテニストーナメント", "テニストーナメント"] },
+          { "id": 2, "answer": "5回", "accepted": ["5回", "5回目"] },
+          { "id": 3, "answer": "驚き興奮している", "accepted": ["驚き興奮している", "驚いて興奮している"] },
+          { "id": 4, "answer": "混合チーム", "accepted": ["混合チーム", "ミックスチーム"] },
+          { "id": 5, "answer": "Bレベルの部", "accepted": ["Bレベルの部", "Bレベル"] },
+          { "id": 6, "answer": "10", "accepted": ["10", "10枠", "10スポット"] },
+          { "id": 7, "answer": "少し遅かった", "accepted": ["少し遅かった", "遅かった"] },
+          { "id": 8, "answer": "Aレベルの部", "accepted": ["Aレベルの部", "Aレベル"] },
+          { "id": 9, "answer": "Cレベルの部", "accepted": ["Cレベルの部", "Cレベル"] },
+          { "id": 10, "answer": "キャンセルが出る", "accepted": ["キャンセルが出る", "キャンセル待ち"] },
+          { "id": 11, "answer": "大会参加費をすぐに返金する", "accepted": ["大会参加費をすぐに返金する", "参加費を返金する"] }
+        ],
+        "distractors": ["来月開催されるゴルフ大会", "3回", "がっかりしている", "シニアチーム", "Aレベルの部", "20", "早すぎた", "Sレベルの部", "Dレベルの部", "メンバーが増える", "罰金を科す"]
+      }
+    },
+    {
+      "id": "p2-2025-2-3B",
+      "part": "B",
+      "type": "article",
+      "title": "Salt",
+      "header": null,
+      "paragraphs": [
+        {
+          "sentences": [
+            "Salt is necessary for humans to survive.",
+            "It is a common item widely available today.",
+            "Because it gives extra flavor to meals, it may be simply considered an item used for cooking.",
+            "However, it is not only used to add flavor.",
+            "Salt was seen very differently in the past.",
+            "With many historical factors, salt was important in many ways in various cultures around the world."
+          ],
+          "translation": "塩は人間が生き延びるために必要不可欠である。今日では広く入手できるありふれた品である。食事に風味を加えてくれるため、単に料理に使う品だと単純に考えられがちである。しかし、風味付けだけに使われてきたわけではない。過去において、塩は現在とはかなり異なる見方をされていた。多くの歴史的要因により、塩は世界各地のさまざまな文化において、多くの点で重要な役割を果たしていた。"
+        },
+        {
+          "sentences": [
+            "In the past, people all over the world wanted salt for a variety of reasons.",
+            "For example, people used salt when there were no refrigerators.",
+            "This was because it could help food last longer.",
+            "Salt was also useful in the field of medicine.",
+            "Past records show that it was used to treat both humans and animals.",
+            "People relied on salt as a medicine to improve their health conditions and to treat animals' injuries."
+          ],
+          "translation": "過去には、世界中の人々がさまざまな理由で塩を求めていた。例えば、冷蔵庫がなかった時代、人々は塩を使っていた。これは、塩が食べ物をより長持ちさせる助けになったからである。塩は医療の分野でも役立った。過去の記録によると、塩は人間と動物の両方の治療に使われていたことが分かる。人々は、健康状態を改善したり動物のけがを治療したりするための薬として塩に頼っていた。"
+        },
+        {
+          "sentences": [
+            "History shows that salt was often linked to money and the economy.",
+            "For example, according to some records, salt was so valuable that it was used as money.",
+            "In Europe, salt helped some cities grow their economies.",
+            "Even new cities and roads were built to produce and deliver salt.",
+            "Moreover, a lot of wars happened over salt around the world.",
+            "It shows how much salt meant to people throughout history."
+          ],
+          "translation": "歴史を見ると、塩はしばしばお金や経済と結びついていたことが分かる。例えば、一部の記録によると、塩は非常に価値が高く、お金として使われていたこともあったという。ヨーロッパでは、塩によっていくつかの都市が経済を発展させた。塩を生産し輸送するために、新しい都市や道路さえ作られた。さらに、世界各地で塩をめぐる多くの戦争が起きた。これは、歴史を通じて塩が人々にとってどれほど大きな意味を持っていたかを示している。"
+        },
+        {
+          "sentences": [
+            "It is clear that salt has had a huge impact on people.",
+            "Nowadays, salt is still used in cooking and medicine.",
+            "In addition, salt is found in other situations.",
+            "It is a great cleaner for polishing metal items.",
+            "It is also helpful to melt snow on the road on snowy days and to prevent the roads from freezing.",
+            "For these reasons, salt will probably continue to influence people's lives in the future."
+          ],
+          "translation": "塩が人々に大きな影響を与えてきたことは明らかである。現在でも、塩は料理や医療に使われ続けている。さらに、塩は他の場面でも見られる。金属製品を磨くための優れた洗浄剤でもある。また、雪の日に道路の雪を溶かし、路面の凍結を防ぐのにも役立つ。こうした理由から、塩は今後も人々の生活に影響を与え続けるだろう。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 26,
+          "stem": "What did people think about salt in the past?",
+          "choices": [
+            "It was an item that was easily available anywhere.",
+            "It was one of the best discoveries in the cooking world.",
+            "It had other purposes than adding flavor to meals.",
+            "It had various tastes when it was cooked differently."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [3, 5] },
+          "explanation": "第1段落「However, it is not only used to add flavor.」および「salt was important in many ways in various cultures around the world.」から、塩には風味付け以外の用途があったことが分かる。選択肢3が正しい。",
+          "translation": "過去の人々は塩についてどう考えていたか。\n1 どこでも簡単に手に入る品だった。\n2 料理の世界における最高の発見の一つだった。\n3 食事に風味を加える以外の用途もあった。\n4 調理法によってさまざまな味わいがあった。"
+        },
+        {
+          "q": 27,
+          "stem": "People in the past used salt as",
+          "choices": [
+            "an item to keep people from catching a cold.",
+            "a poison to kill dangerous animals.",
+            "a medicine to treat injured animals.",
+            "a product to wash people's hair."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 1, "sentences": [3, 5] },
+          "explanation": "第2段落「Salt was also useful in the field of medicine.」「People relied on salt as a medicine ... to treat animals' injuries.（動物のけがの治療にも塩を薬として用いた）」から、選択肢3が正しい。",
+          "translation": "過去の人々は塩を何として使っていたか。\n1 人々が風邪をひくのを防ぐための品。\n2 危険な動物を殺すための毒。\n3 けがをした動物を治療するための薬。\n4 人の髪を洗うための製品。"
+        },
+        {
+          "q": 28,
+          "stem": "What is true about the impact of salt in the past?",
+          "choices": [
+            "Salt was offered to end war everywhere around the world.",
+            "Money became useless because it was replaced with salt.",
+            "Roads were created by rich salt producers.",
+            "New cities and roads were built to make or carry salt."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 2, "sentences": [3] },
+          "explanation": "第3段落「Even new cities and roads were built to produce and deliver salt.（塩を生産・輸送するために新しい都市や道路が作られた）」がそのまま根拠で、選択肢4と一致する。",
+          "translation": "過去における塩の影響について正しいものはどれか。\n1 世界中の戦争を終わらせるために塩が差し出された。\n2 塩に置き換えられたため、お金は使われなくなった。\n3 裕福な塩生産者によって道路が作られた。\n4 塩を作ったり運んだりするために、新しい都市や道路が作られた。"
+        },
+        {
+          "q": 29,
+          "stem": "How does salt help people's lives today?",
+          "choices": [
+            "It is used in beauty products to make people's skin smooth.",
+            "It can be used as an item to clean things with.",
+            "It helps people stay warm on snowy days.",
+            "It helps to cool down people's bodies when they are sick."
+          ],
+          "answerIndex": 1,
+          "evidence": { "paragraph": 3, "sentences": [3] },
+          "explanation": "第4段落「It is a great cleaner for polishing metal items.（金属製品を磨く優れた洗浄剤）」から、選択肢2「物を掃除する道具として使える」が正しい。",
+          "translation": "今日、塩は人々の生活にどのように役立っているか。\n1 肌を滑らかにする美容製品に使われている。\n2 物を掃除する道具として使うことができる。\n3 雪の日に人々の体を温かく保つのに役立つ。\n4 体調が悪いときに人々の体を冷やすのに役立つ。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 塩の位置づけ",
+            "lines": [
+              ["塩は人間が生きるために", { "blank": 1 }, "である。"],
+              ["今日では、単に", { "blank": 2 }, "に使う品だと考えられがちである。"],
+              ["しかし過去には、塩は現在とは", { "blank": 3 }, "見方をされ、多くの文化で重要だった。"]
+            ]
+          },
+          {
+            "label": "¶2 過去の用途（保存・医療）",
+            "lines": [
+              ["", { "blank": 4 }, "がなかった時代、食べ物を", { "blank": 5 }, "ために塩が使われた。"],
+              ["塩は", { "blank": 6 }, "の分野でも役立ち、人間と動物の治療に用いられた。"]
+            ]
+          },
+          {
+            "label": "¶3 お金・経済とのつながり",
+            "lines": [
+              ["塩は非常に価値が高く、", { "blank": 7 }, "として使われたこともあった。"],
+              ["ヨーロッパでは、塩を生産・輸送するために", { "blank": 8 }, "が作られた。"],
+              ["塩をめぐって世界各地で", { "blank": 9 }, "が起きた。"]
+            ]
+          },
+          {
+            "label": "¶4 現在の役割",
+            "lines": [
+              ["現在も塩は料理や医療のほか、", { "blank": 10 }, "としても使われている。"],
+              ["雪の日には", { "blank": 11 }, "のにも役立つ。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "必要不可欠なもの", "accepted": ["必要不可欠なもの", "必要なもの"] },
+          { "id": 2, "answer": "料理", "accepted": ["料理", "調理"] },
+          { "id": 3, "answer": "大きく異なる", "accepted": ["大きく異なる", "全く違う"] },
+          { "id": 4, "answer": "冷蔵庫", "accepted": ["冷蔵庫"] },
+          { "id": 5, "answer": "長持ちさせる", "accepted": ["長持ちさせる", "腐りにくくする"] },
+          { "id": 6, "answer": "医療", "accepted": ["医療", "医学"] },
+          { "id": 7, "answer": "お金", "accepted": ["お金", "貨幣"] },
+          { "id": 8, "answer": "新しい都市や道路", "accepted": ["新しい都市や道路", "都市や道路"] },
+          { "id": 9, "answer": "多くの戦争", "accepted": ["多くの戦争", "戦争"] },
+          { "id": 10, "answer": "金属を磨く洗浄剤", "accepted": ["金属を磨く洗浄剤", "金属を磨く道具"] },
+          { "id": 11, "answer": "雪を溶かし路面の凍結を防ぐ", "accepted": ["雪を溶かし路面の凍結を防ぐ", "雪を溶かし凍結を防ぐ"] }
+        ],
+        "distractors": ["贅沢品", "娯楽", "何も変わらない", "冷凍庫", "早く腐らせる", "建築", "争い", "少ない戦争", "燃料", "服の染色剤", "気温を上げる"]
+      }
+    }
+  ]
+}

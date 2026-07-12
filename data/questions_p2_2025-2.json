@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "exam": "英検準2級 2025年度第2回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2025-2-1ji-p2kyu.pdf",
+    "answer_pdf": "202502Fp2kyu.pdf",
+    "counts": { "questions": 15 }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "After working as a reporter for a newspaper for several years, Angela became its (   ). It is her job to decide which news stories will appear in the newspaper.",
+      "choices": ["architect", "engineer", "editor", "astronaut"],
+      "answerIndex": 2,
+      "translation": "新聞記者として数年間働いた後、アンジェラはその新聞の編集者になった。どのニュース記事を新聞に載せるかを決めるのが彼女の仕事だ。"
+    },
+    {
+      "q": 2,
+      "stem": "A: I’m looking for ideas for this year’s company trip. Does anyone have any (   )?  B: We could go hiking around Tindall Lake. It’s really pretty there at this time of year.",
+      "choices": ["figures", "characters", "puzzles", "suggestions"],
+      "answerIndex": 3,
+      "translation": "A: 今年の社員旅行のアイデアを探しているんだ。何か提案はある？ B: ティンドール湖の周りをハイキングするのはどう？この時期はとてもきれいだよ。"
+    },
+    {
+      "q": 3,
+      "stem": "A: Mom, can we make some cookies today?  B: No. We don’t have all the (   ). There aren’t any eggs or sugar.",
+      "choices": ["explosions", "ingredients", "participants", "forecasts"],
+      "answerIndex": 1,
+      "translation": "A: お母さん、今日クッキーを作ってもいい？ B: だめよ。材料が全部そろっていないの。卵も砂糖もないわ。"
+    },
+    {
+      "q": 4,
+      "stem": "The ship’s captain (   ) dived into the sea and swam to the little girl who had fallen into the water.",
+      "choices": ["unfortunately", "awfully", "bravely", "hardly"],
+      "answerIndex": 2,
+      "translation": "その船の船長は勇敢に海へ飛び込み、水に落ちた小さな女の子のもとへ泳いでいった。"
+    },
+    {
+      "q": 5,
+      "stem": "A: Charlie, the soup is ready. Could you put those (   ) on the counter?  B: Sure, Mom.",
+      "choices": ["bowls", "ropes", "logs", "rays"],
+      "answerIndex": 0,
+      "translation": "A: チャーリー、スープができたわよ。あのボウルをカウンターに置いてくれる？ B: いいよ、お母さん。"
+    },
+    {
+      "q": 6,
+      "stem": "Judy has a (   ) problem. She is getting married next week, but her dog tried to eat her wedding dress and destroyed it.",
+      "choices": ["curly", "serious", "steady", "careful"],
+      "answerIndex": 1,
+      "translation": "ジュディは深刻な問題を抱えている。来週結婚するのに、飼い犬がウェディングドレスを食べようとして台無しにしてしまったのだ。"
+    },
+    {
+      "q": 7,
+      "stem": "After graduating from college, Terry moved to Boston to (   ) his marketing company there. He thought the city would be a good place to start a business.",
+      "choices": ["blush", "base", "bend", "broadcast"],
+      "answerIndex": 1,
+      "translation": "大学を卒業した後、テリーは自分のマーケティング会社の拠点をそこに置くためにボストンへ引っ越した。彼はその街がビジネスを始めるのに良い場所だと考えた。"
+    },
+    {
+      "q": 8,
+      "stem": "Lisa tried to remember the man’s name, but her mind completely (   ). As a result, she struggled to continue the conversation naturally.",
+      "choices": ["collected", "hurt", "blanked", "waved"],
+      "answerIndex": 2,
+      "translation": "リサはその男性の名前を思い出そうとしたが、頭が完全に真っ白になった。その結果、会話を自然に続けるのに苦労した。"
+    },
+    {
+      "q": 9,
+      "stem": "A: Have you finished writing your postcards to your friends?  B: Yes. I’m going to (   ) them on my way to school tomorrow.",
+      "choices": ["stand", "steam", "mail", "float"],
+      "answerIndex": 2,
+      "translation": "A: 友達へのはがきは書き終わった？ B: うん。明日学校に行く途中で投函するつもりだよ。"
+    },
+    {
+      "q": 10,
+      "stem": "A: What are you doing with that old tennis ball, honey?  B: I’m going to (   ) it against the garage wall and catch it. It was fun when I was a kid.",
+      "choices": ["feed", "share", "chew", "bounce"],
+      "answerIndex": 3,
+      "translation": "A: その古いテニスボールで何をしているの？ B: ガレージの壁にぶつけて弾ませて、キャッチしようと思ってるんだ。子供の頃楽しかったから。"
+    },
+    {
+      "q": 11,
+      "stem": "(   ) her full-time job, Sheila teaches guitar lessons on the weekends. She is always so busy.",
+      "choices": ["On account of", "For fear of", "In addition to", "By means of"],
+      "answerIndex": 2,
+      "translation": "シーラはフルタイムの仕事に加えて、週末にギターのレッスンを教えている。彼女はいつもとても忙しい。"
+    },
+    {
+      "q": 12,
+      "stem": "A: I have a history test tomorrow, and I’m really worried.  B: Just (   ). You’ve studied hard, so you should be ready for it.",
+      "choices": ["see it off", "learn by heart", "come of age", "take it easy"],
+      "answerIndex": 3,
+      "translation": "A: 明日歴史のテストがあって、本当に心配なんだ。 B: 気楽にしなよ。しっかり勉強したんだから、準備はできているはずだよ。"
+    },
+    {
+      "q": 13,
+      "stem": "The students had a meeting to prepare for their class party. They discussed what foods to bring, which games to play, (   ).",
+      "choices": ["by all means", "in no time", "out of date", "and so on"],
+      "answerIndex": 3,
+      "translation": "生徒たちはクラスパーティーの準備をするために集まった。どんな食べ物を持ってくるか、どんなゲームをするかなどを話し合った。"
+    },
+    {
+      "q": 14,
+      "stem": "A: Did your mom help you make this cake, Jenny?  B: No. No one helped me. I made it (   ).",
+      "choices": ["on my own", "for good", "from day to day", "in a word"],
+      "answerIndex": 0,
+      "translation": "A: このケーキ作るのお母さんが手伝ってくれたの、ジェニー？ B: ううん。誰も手伝ってくれなかったよ。ひとりで作ったの。"
+    },
+    {
+      "q": 15,
+      "stem": "A: I saw you running in the park yesterday. Do you like to run?  B: Yes. It’s a good way to keep (   ).",
+      "choices": ["on your side", "in good shape", "at the front", "with any luck"],
+      "answerIndex": 1,
+      "translation": "A: 昨日公園で走っているのを見たよ。走るのは好きなの？ B: うん。良い体調を保つ良い方法だからね。"
+    }
+  ]
+}

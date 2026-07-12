@@ -9,13 +9,42 @@
 const EikenQ3App = (function () {
 
 const APP_ID = "eiken2-q3";
-const DATA_URL = "data/q3_questions_2026-1.json";
-const LOCAL_KEY = "eiken2q3.progress.v1";
+const LEGACY_LOCAL_KEY = "eiken2q3.progress.v1";
+const STORE_PREFIX = "eiken2q3.progress.";
+const DATASET_KEY = "eiken_q3_dataset";
+const DATASETS = {
+  "eiken2-2026-1": {
+    label: "英検2級 2026年度第1回",
+    dataUrl: "data/q3_questions_2026-1.json",
+  },
+  "eiken2-2025-3": {
+    label: "英検2級 2025年度第3回",
+    dataUrl: "data/q3_questions_2025-3.json",
+  },
+  "eiken2-2025-2": {
+    label: "英検2級 2025年度第2回",
+    dataUrl: "data/q3_questions_2025-2.json",
+  },
+  "eikenp2-2026-1": {
+    label: "英検準2級 2026年度第1回",
+    dataUrl: "data/q3_questions_p2_2026-1.json",
+  },
+  "eikenp2-2025-3": {
+    label: "英検準2級 2025年度第3回",
+    dataUrl: "data/q3_questions_p2_2025-3.json",
+  },
+  "eikenp2-2025-2": {
+    label: "英検準2級 2025年度第2回",
+    dataUrl: "data/q3_questions_p2_2025-2.json",
+  },
+};
+const DEFAULT_DATASET_ID = "eiken2-2026-1";
 
 const homePanel = document.getElementById("homePanel");
 const passagePanel = document.getElementById("sessionPanel");
 const shareStatusEl = document.getElementById("shareStatus");
 
+let datasetId = loadDatasetId();
 let DATA = null;
 let progress = { questions: {}, summaries: {} };
 let route = { view: "home" };
@@ -24,6 +53,20 @@ const summaryDraftCache = {}; // passageId -> { filledMap, active }
 const wordOrderCache = {}; // passageId -> shuffled word list
 
 let cloud = null;
+
+function loadDatasetId() {
+  try {
+    const id = localStorage.getItem(DATASET_KEY);
+    if (id && DATASETS[id]) return id;
+  } catch (e) { /* ignore */ }
+  return DEFAULT_DATASET_ID;
+}
+function currentDataset() {
+  return DATASETS[datasetId] || DATASETS[DEFAULT_DATASET_ID];
+}
+function progressKey(id = datasetId) {
+  return STORE_PREFIX + id;
+}
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -36,16 +79,18 @@ function shuffle(arr) {
 
 function saveLocal() {
   try {
-    localStorage.setItem(LOCAL_KEY, JSON.stringify(progress));
+    localStorage.setItem(progressKey(), JSON.stringify(progress));
   } catch (e) {
     /* ignore */
   }
   if (cloud) cloud.queueSave();
 }
 
-function loadLocal() {
+function loadLocal(id = datasetId) {
+  progress = { questions: {}, summaries: {} };
   try {
-    const raw = localStorage.getItem(LOCAL_KEY);
+    let raw = localStorage.getItem(progressKey(id));
+    if (!raw && id === DEFAULT_DATASET_ID) raw = localStorage.getItem(LEGACY_LOCAL_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && typeof parsed === "object") {
@@ -123,10 +168,19 @@ function renderHome() {
   passagePanel.innerHTML = "";
   homePanel.classList.remove("hide");
 
+  const datasetOptions = Object.entries(DATASETS).map(([id, d]) =>
+    `<option value="${id}"${id === datasetId ? " selected" : ""}>${escapeHtml(d.label)}</option>`
+  ).join("");
+  const datasetPickerHtml = `<label class="datasetPicker">
+    <span class="fieldLabel">問題セット</span>
+    <select class="datasetSelect" id="q3DatasetSelect">${datasetOptions}</select>
+  </label>`;
+
   const heroHtml = `<section class="card hero">
     <p class="label">Reading Comprehension</p>
     <h2>長文を読み、根拠を示しながら解く</h2>
     <p class="hint">4択に解答したら、根拠だと思う文を本文からタップして選ぶ。選択肢が合っていても根拠がずれていれば、それも記録される。内容整理では、本文を見ながら日本語の要約の空所を埋める。</p>
+    ${datasetPickerHtml}
   </section>`;
 
   const wrongQ = wrongQuestionQueue();
@@ -170,6 +224,9 @@ function renderHome() {
   </section>`;
 
   homePanel.innerHTML = `${heroHtml}${banner}<div class="passageList">${cards}</div>${otherHtml}`;
+
+  const datasetSelect = document.getElementById("q3DatasetSelect");
+  if (datasetSelect) datasetSelect.addEventListener("change", (e) => switchDataset(e.target.value));
 
   const reviewBtn = document.getElementById("startReviewBtn");
   if (reviewBtn) reviewBtn.addEventListener("click", startReview);
@@ -633,19 +690,59 @@ function setShareStatus(message, tone) {
   shareStatusEl.className = "shareStatus" + (tone ? ` ${tone}` : "");
 }
 
-async function boot() {
-  loadLocal();
-  const res = await fetch(DATA_URL, { cache: "no-store" });
+async function loadData(id) {
+  datasetId = id;
+  try { localStorage.setItem(DATASET_KEY, id); } catch (e) { /* ignore */ }
+  loadLocal(id);
+  const res = await fetch(currentDataset().dataUrl, { cache: "no-store" });
   DATA = await res.json();
+}
+
+async function switchDataset(id) {
+  if (!DATASETS[id] || id === datasetId) return;
+  await loadData(id);
+  Object.keys(summaryDraftCache).forEach((k) => delete summaryDraftCache[k]);
+  Object.keys(wordOrderCache).forEach((k) => delete wordOrderCache[k]);
+  renderHome();
+}
+
+function collectAllProgress() {
+  const map = {};
+  Object.keys(DATASETS).forEach((id) => {
+    try {
+      const raw = localStorage.getItem(progressKey(id));
+      if (raw) map[id] = JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+  });
+  map[datasetId] = progress;
+  return map;
+}
+
+function applyCloudProgress(map) {
+  if (!map || typeof map !== "object") return;
+  // 旧形式（{questions, summaries} を直接保存していたころ）の互換読み込み。
+  if (map.questions || map.summaries) {
+    try { localStorage.setItem(progressKey(DEFAULT_DATASET_ID), JSON.stringify(map)); } catch (e) { /* ignore */ }
+    return;
+  }
+  Object.entries(map).forEach(([id, prog]) => {
+    if (DATASETS[id] && prog && typeof prog === "object") {
+      try { localStorage.setItem(progressKey(id), JSON.stringify(prog)); } catch (e) { /* ignore */ }
+    }
+  });
+}
+
+async function boot() {
+  await loadData(datasetId);
 
   if (typeof createCloud === "function") {
     cloud = createCloud({
       appId: APP_ID,
       configPath: "static/config.json",
-      getPayload: () => progress,
+      getPayload: () => collectAllProgress(),
       applyLoaded: (loaded) => {
-        progress = { questions: loaded.questions || {}, summaries: loaded.summaries || {} };
-        saveLocalNoSync();
+        applyCloudProgress(loaded);
+        loadLocal(datasetId);
         if (route.view === "home") renderHome();
       },
       onStatus: setShareStatus,
@@ -654,14 +751,6 @@ async function boot() {
   }
 
   renderHome();
-}
-
-function saveLocalNoSync() {
-  try {
-    localStorage.setItem(LOCAL_KEY, JSON.stringify(progress));
-  } catch (e) {
-    /* ignore */
-  }
 }
 
 let booted = false;

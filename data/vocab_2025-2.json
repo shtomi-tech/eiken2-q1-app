@@ -1,0 +1,504 @@
+{
+  "meta": {
+    "exam": "英検2級 2025年度第2回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2025-2-1ji-2kyu.pdf",
+    "note": "正解は公式解答（2025年度第2回）と照合済み。語源は定説に基づき、学習に効く範囲で簡潔化。",
+    "counts": { "words": 40, "idioms": 28, "total": 68 }
+  },
+  "words": [
+    {
+      "q": 1, "is_answer": false, "word": "overlap", "ipa": "/ˌoʊvərˈlæp/", "pos": "動詞",
+      "meaning": "重なる、重複する",
+      "etymology": "over（上に）+ lap（重ねる、包む）。「上に重なって覆う」から。",
+      "example": "The two meetings overlap, so I can only attend one.",
+      "collocation": "overlap with（〜と重なる） / a significant overlap"
+    },
+    {
+      "q": 1, "is_answer": true, "word": "govern", "ipa": "/ˈɡʌvərn/", "pos": "動詞",
+      "meaning": "統治する、支配する",
+      "etymology": "ラテン語 gubernare「舵を取る」（ギリシャ語 kybernan「操舵する」に由来）。governor, government と同根。",
+      "example": "The new prime minister will govern the country for the next four years.",
+      "collocation": "govern a country / be governed by（〜によって統治される）"
+    },
+    {
+      "q": 1, "is_answer": false, "word": "forgive", "ipa": "/fərˈɡɪv/", "pos": "動詞",
+      "meaning": "許す",
+      "etymology": "古英語 forgiefan < for-（完全に）+ giefan（与える＝give）。「完全に与える→罪を免除する」。",
+      "example": "She finally forgave her brother for breaking her phone.",
+      "collocation": "forgive someone for / forgive and forget"
+    },
+    {
+      "q": 1, "is_answer": false, "word": "arrest", "ipa": "/əˈrest/", "pos": "動詞",
+      "meaning": "逮捕する",
+      "etymology": "古フランス語 arester < ラテン語 ad-（〜へ）+ restare（とどまる＝rest）。「動きを止める」。",
+      "example": "The police arrested the suspect near the station.",
+      "collocation": "arrest a suspect / be arrested for（〜の容疑で逮捕される）"
+    },
+
+    {
+      "q": 2, "is_answer": false, "word": "suffer", "ipa": "/ˈsʌfər/", "pos": "動詞",
+      "meaning": "苦しむ、被害を受ける",
+      "etymology": "ラテン語 sufferre < sub-（下で）+ ferre（運ぶ）。「重荷を下から支える→耐え忍ぶ」。",
+      "example": "Many farmers suffered from the long drought last summer.",
+      "collocation": "suffer from（〜に苦しむ） / suffer damage"
+    },
+    {
+      "q": 2, "is_answer": false, "word": "reflect", "ipa": "/rɪˈflekt/", "pos": "動詞",
+      "meaning": "反射する；よく考える；反映する",
+      "etymology": "ラテン語 reflectere < re-（後ろへ）+ flectere（曲げる）。「光などを跳ね返す」。",
+      "example": "The lake reflected the mountains perfectly on a calm morning.",
+      "collocation": "reflect light / reflect on（〜についてよく考える）"
+    },
+    {
+      "q": 2, "is_answer": true, "word": "expand", "ipa": "/ɪkˈspænd/", "pos": "動詞",
+      "meaning": "拡大する、広がる",
+      "etymology": "ラテン語 expandere < ex-（外へ）+ pandere（広げる）。expansion と同根。",
+      "example": "The city has expanded rapidly over the past decade.",
+      "collocation": "expand rapidly / expand into new markets"
+    },
+    {
+      "q": 2, "is_answer": false, "word": "influence", "ipa": "/ˈɪnfluəns/", "pos": "動詞",
+      "meaning": "影響を与える",
+      "etymology": "ラテン語 influere「流れ込む」< in-（中へ）+ fluere（流れる＝fluid）。占星術で星の力が流れ込むという発想から。",
+      "example": "Her teacher greatly influenced her decision to become a scientist.",
+      "collocation": "influence a decision / be influenced by"
+    },
+
+    {
+      "q": 3, "is_answer": false, "word": "rob", "ipa": "/rɑːb/", "pos": "動詞",
+      "meaning": "奪う、強奪する",
+      "etymology": "古フランス語 rober「奪う」。ゲルマン系語根 *raubōną（奪う）に由来。",
+      "example": "Thieves robbed the bank early in the morning.",
+      "collocation": "rob a bank / rob someone of something（人から〜を奪う）"
+    },
+    {
+      "q": 3, "is_answer": true, "word": "qualify", "ipa": "/ˈkwɑːlɪfaɪ/", "pos": "動詞",
+      "meaning": "資格を得る、予選を通過する",
+      "etymology": "中世ラテン語 qualificare < qualis（どのような）+ facere（作る）。「性質を与える→資格づける」。",
+      "example": "She trained hard and finally qualified for the Olympics.",
+      "collocation": "qualify for（〜の資格を得る） / a qualified teacher（有資格の教師）"
+    },
+    {
+      "q": 3, "is_answer": false, "word": "weigh", "ipa": "/weɪ/", "pos": "動詞",
+      "meaning": "重さを量る；重要である",
+      "etymology": "古英語 wegan「運ぶ、重さを量る」。weight と同根。",
+      "example": "The nurse weighed the baby right after he was born.",
+      "collocation": "weigh oneself / weigh the pros and cons（利害得失を比較検討する）"
+    },
+    {
+      "q": 3, "is_answer": false, "word": "disappear", "ipa": "/ˌdɪsəˈpɪr/", "pos": "動詞",
+      "meaning": "消える、姿を消す",
+      "etymology": "dis-（否定）+ appear（現れる）。appear はラテン語 apparere に由来。",
+      "example": "The sun disappeared behind the clouds within minutes.",
+      "collocation": "disappear from view / suddenly disappear"
+    },
+
+    {
+      "q": 4, "is_answer": false, "word": "device", "ipa": "/dɪˈvaɪs/", "pos": "名詞",
+      "meaning": "装置、機器",
+      "etymology": "古フランス語 devis「工夫、計画」< deviser（分ける、工夫する）。ラテン語 dividere と関連。",
+      "example": "This small device can measure your heart rate accurately.",
+      "collocation": "an electronic device / a safety device"
+    },
+    {
+      "q": 4, "is_answer": false, "word": "complaint", "ipa": "/kəmˈpleɪnt/", "pos": "名詞",
+      "meaning": "苦情、不満",
+      "etymology": "古フランス語 complainte < complaindre（嘆く）< ラテン語 con- + plangere（胸を打って嘆く）。",
+      "example": "The hotel received several complaints about the noise.",
+      "collocation": "make a complaint / file a complaint（苦情を申し立てる）"
+    },
+    {
+      "q": 4, "is_answer": true, "word": "occupation", "ipa": "/ˌɑːkjuˈpeɪʃən/", "pos": "名詞",
+      "meaning": "職業；占有、占領",
+      "etymology": "ラテン語 occupatio < occupare（占める、従事する）。occupy と同根。",
+      "example": "Please state your name, age, and occupation on the form.",
+      "collocation": "one's current occupation / a military occupation（軍事占領）"
+    },
+    {
+      "q": 4, "is_answer": false, "word": "proverb", "ipa": "/ˈprɑːvɜːrb/", "pos": "名詞",
+      "meaning": "ことわざ",
+      "etymology": "ラテン語 proverbium < pro-（前に）+ verbum（言葉＝verb）。「昔から言い伝えられた言葉」。",
+      "example": "\"Actions speak louder than words\" is a well-known proverb.",
+      "collocation": "an old proverb / as the proverb says（ことわざにあるように）"
+    },
+
+    {
+      "q": 5, "is_answer": false, "word": "accept", "ipa": "/əkˈsept/", "pos": "動詞",
+      "meaning": "受け入れる",
+      "etymology": "ラテン語 accipere < ad-（〜へ）+ capere（取る＝capture）。「受け取る」。",
+      "example": "She accepted the job offer without hesitation.",
+      "collocation": "accept an offer / accept responsibility（責任を受け入れる）"
+    },
+    {
+      "q": 5, "is_answer": false, "word": "flatten", "ipa": "/ˈflætən/", "pos": "動詞",
+      "meaning": "平らにする",
+      "etymology": "flat（平らな）+ -en（動詞化接尾辞）。flat は古ノルド語 flatr に由来。",
+      "example": "The storm flattened several trees in the park.",
+      "collocation": "flatten a surface / flatten out（平らになる）"
+    },
+    {
+      "q": 5, "is_answer": true, "word": "grip", "ipa": "/ɡrɪp/", "pos": "動詞",
+      "meaning": "しっかりつかむ；（注意・興味などを）とらえる",
+      "etymology": "古英語 gripan「つかむ」。grasp と同系のゲルマン語根。",
+      "example": "The thriller gripped readers from the very first page.",
+      "collocation": "grip someone's attention / a firm grip（しっかりした握り）"
+    },
+    {
+      "q": 5, "is_answer": false, "word": "promise", "ipa": "/ˈprɑːmɪs/", "pos": "動詞",
+      "meaning": "約束する",
+      "etymology": "ラテン語 promittere < pro-（前もって）+ mittere（送る＝mission）。「前もって言い送る」。",
+      "example": "He promised to call her as soon as he arrived.",
+      "collocation": "promise to do / keep a promise（約束を守る）"
+    },
+
+    {
+      "q": 6, "is_answer": false, "word": "massive", "ipa": "/ˈmæsɪv/", "pos": "形容詞",
+      "meaning": "巨大な、大規模な",
+      "etymology": "mass（塊）+ -ive。mass はラテン語 massa「塊」に由来。",
+      "example": "A massive earthquake struck the region last night.",
+      "collocation": "a massive amount of / massive damage"
+    },
+    {
+      "q": 6, "is_answer": false, "word": "internal", "ipa": "/ɪnˈtɜːrnəl/", "pos": "形容詞",
+      "meaning": "内部の、内的な",
+      "etymology": "ラテン語 internus「内側の」< inter（間）。external（外部の）の対義語。",
+      "example": "The company is dealing with some internal problems.",
+      "collocation": "internal affairs（内政） / an internal organ（内臓）"
+    },
+    {
+      "q": 6, "is_answer": true, "word": "consistent", "ipa": "/kənˈsɪstənt/", "pos": "形容詞",
+      "meaning": "一貫した、矛盾のない",
+      "etymology": "ラテン語 consistere < con-（共に）+ sistere（立つ）。「共に立ち続ける→変わらない」。",
+      "example": "Her performance has been consistent throughout the season.",
+      "collocation": "consistent with（〜と一致した） / remain consistent"
+    },
+    {
+      "q": 6, "is_answer": false, "word": "recent", "ipa": "/ˈriːsənt/", "pos": "形容詞",
+      "meaning": "最近の",
+      "etymology": "ラテン語 recens「新しい、最近の」。",
+      "example": "In recent years, more people have started working from home.",
+      "collocation": "in recent years / a recent study（最近の研究）"
+    },
+
+    {
+      "q": 7, "is_answer": false, "word": "necessarily", "ipa": "/ˌnesəˈserəli/", "pos": "副詞",
+      "meaning": "必然的に、（否定文で）必ずしも",
+      "etymology": "necessary（必要な）+ -ily。necessary はラテン語 necesse「避けられない」に由来。",
+      "example": "Expensive products are not necessarily better in quality.",
+      "collocation": "not necessarily（必ずしも〜ではない）"
+    },
+    {
+      "q": 7, "is_answer": true, "word": "surprisingly", "ipa": "/sərˈpraɪzɪŋli/", "pos": "副詞",
+      "meaning": "驚いたことに、意外にも",
+      "etymology": "surprise（驚かせる）+ -ing + -ly。surprise はラテン語 super-（超えて）+ prehendere（つかむ）で「不意を突いてつかむ」。",
+      "example": "The exam was surprisingly easy compared to last year's.",
+      "collocation": "surprisingly well / surprisingly, ...（意外にも〜）"
+    },
+    {
+      "q": 7, "is_answer": false, "word": "continuously", "ipa": "/kənˈtɪnjuəsli/", "pos": "副詞",
+      "meaning": "継続的に、絶え間なく",
+      "etymology": "continuous（連続した）+ -ly。ラテン語 continuus < continere（つなぐ）。",
+      "example": "The machine has been running continuously for 24 hours.",
+      "collocation": "work continuously / rain continuously"
+    },
+    {
+      "q": 7, "is_answer": false, "word": "faithfully", "ipa": "/ˈfeɪθfəli/", "pos": "副詞",
+      "meaning": "忠実に",
+      "etymology": "faithful（忠実な）+ -ly。faith はラテン語 fides「信頼」に由来。",
+      "example": "The dog followed its owner faithfully wherever he went.",
+      "collocation": "serve faithfully / Yours faithfully（手紙の結び）"
+    },
+
+    {
+      "q": 8, "is_answer": false, "word": "surgery", "ipa": "/ˈsɜːrdʒəri/", "pos": "名詞",
+      "meaning": "外科手術",
+      "etymology": "ギリシャ語 kheirourgia「手仕事」< kheir（手）+ ergon（仕事）。surgeon と同根。",
+      "example": "He needed surgery to repair his broken leg.",
+      "collocation": "undergo surgery（手術を受ける） / perform surgery"
+    },
+    {
+      "q": 8, "is_answer": false, "word": "pollution", "ipa": "/pəˈluːʃən/", "pos": "名詞",
+      "meaning": "汚染、公害",
+      "etymology": "ラテン語 polluere「汚す」< por- + luere（洗う、汚す）。",
+      "example": "Air pollution is a serious problem in many big cities.",
+      "collocation": "air pollution / reduce pollution"
+    },
+    {
+      "q": 8, "is_answer": false, "word": "resort", "ipa": "/rɪˈzɔːrt/", "pos": "名詞",
+      "meaning": "行楽地、リゾート；（最後の）手段",
+      "etymology": "古フランス語 resortir < re-（再び）+ sortir（出る）。「再び出向く場所」。",
+      "example": "They spent their honeymoon at a beach resort.",
+      "collocation": "a ski resort / a last resort（最後の手段）"
+    },
+    {
+      "q": 8, "is_answer": true, "word": "mixture", "ipa": "/ˈmɪkstʃər/", "pos": "名詞",
+      "meaning": "混合物、混ぜ合わせたもの",
+      "etymology": "ラテン語 mixtura < miscere（混ぜる＝mix）。",
+      "example": "The chef added spices to the mixture before baking it.",
+      "collocation": "a mixture of（〜の混合） / stir the mixture"
+    },
+
+    {
+      "q": 9, "is_answer": false, "word": "laughter", "ipa": "/ˈlæftər/", "pos": "名詞",
+      "meaning": "笑い、笑い声",
+      "etymology": "laugh（笑う）+ -ter。古英語 hlæhtor に由来。",
+      "example": "The room was filled with laughter during the comedy show.",
+      "collocation": "burst into laughter（どっと笑い出す） / roar with laughter"
+    },
+    {
+      "q": 9, "is_answer": false, "word": "climate", "ipa": "/ˈklaɪmət/", "pos": "名詞",
+      "meaning": "気候；（社会などの）風潮",
+      "etymology": "ギリシャ語 klima「傾き、地帯」< klinein（傾く）。緯度による地帯区分から「気候」の意に。",
+      "example": "The region has a mild climate throughout the year.",
+      "collocation": "a mild climate / a change in climate"
+    },
+    {
+      "q": 9, "is_answer": false, "word": "illness", "ipa": "/ˈɪlnəs/", "pos": "名詞",
+      "meaning": "病気",
+      "etymology": "ill（病気の）+ -ness。ill は古ノルド語 illr「悪い」に由来。",
+      "example": "He missed a week of school due to illness.",
+      "collocation": "a serious illness / recover from an illness"
+    },
+    {
+      "q": 9, "is_answer": true, "word": "judgment", "ipa": "/ˈdʒʌdʒmənt/", "pos": "名詞",
+      "meaning": "判断（力）、判決",
+      "etymology": "judge（判断する）+ -ment。ラテン語 judicare < jus（法）+ dicere（言う）。",
+      "example": "Good judgment is essential for a successful leader.",
+      "collocation": "use good judgment / a court's judgment（裁判所の判決）"
+    },
+
+    {
+      "q": 10, "is_answer": false, "word": "tragedy", "ipa": "/ˈtrædʒədi/", "pos": "名詞",
+      "meaning": "悲劇",
+      "etymology": "ギリシャ語 tragōidia「山羊の歌」< tragos（山羊）+ ōide（歌）。山羊を賞品とした古代の演劇競技に由来するとされる説が有力。",
+      "example": "The fire that destroyed the village was a great tragedy.",
+      "collocation": "a tragic event / end in tragedy（悲劇に終わる）"
+    },
+    {
+      "q": 10, "is_answer": true, "word": "democracy", "ipa": "/dɪˈmɑːkrəsi/", "pos": "名詞",
+      "meaning": "民主主義、民主制",
+      "etymology": "ギリシャ語 dēmokratia < dēmos（民衆）+ kratos（権力）。「民衆による支配」。",
+      "example": "Democracy allows citizens to choose their own leaders.",
+      "collocation": "a democratic country / promote democracy"
+    },
+    {
+      "q": 10, "is_answer": false, "word": "mystery", "ipa": "/ˈmɪstəri/", "pos": "名詞",
+      "meaning": "神秘、謎",
+      "etymology": "ギリシャ語 mysterion「秘密の儀式」< myein（目を閉じる）。「秘密にされた事柄」。",
+      "example": "The disappearance of the ship remains a mystery.",
+      "collocation": "solve a mystery / a mystery novel（推理小説）"
+    },
+    {
+      "q": 10, "is_answer": false, "word": "philosophy", "ipa": "/fəˈlɑːsəfi/", "pos": "名詞",
+      "meaning": "哲学；人生観",
+      "etymology": "ギリシャ語 philosophia < philos（愛する）+ sophia（知恵）。「知を愛すること」。",
+      "example": "She studied philosophy at university for four years.",
+      "collocation": "study philosophy / a philosophy of life（人生哲学）"
+    }
+  ],
+  "idioms": [
+    {
+      "q": 11, "is_answer": false, "type": "idiom", "phrase": "dropped by", "pos": "句動詞",
+      "meaning": "立ち寄る",
+      "etymology": "drop（ふらっと落ちる、立ち寄る）+ by（そばに）。",
+      "example": "I dropped by the bakery on my way home.",
+      "collocation": "drop by someone's house（人の家に立ち寄る）"
+    },
+    {
+      "q": 11, "is_answer": false, "type": "idiom", "phrase": "came down", "pos": "句動詞",
+      "meaning": "下りてくる、（雨などが）降る；（価格が）下がる",
+      "etymology": "come（来る）+ down（下へ）。",
+      "example": "The rain came down heavily all afternoon.",
+      "collocation": "come down with a cold（風邪をひく） / prices came down"
+    },
+    {
+      "q": 11, "is_answer": false, "type": "idiom", "phrase": "passed on", "pos": "句動詞",
+      "meaning": "伝える、渡す；（婉曲的に）亡くなる",
+      "etymology": "pass（渡す）+ on（先へ）。",
+      "example": "She passed on the message to her colleague.",
+      "collocation": "pass on information / pass on a tradition（伝統を伝える）"
+    },
+    {
+      "q": 11, "is_answer": true, "type": "idiom", "phrase": "went off", "pos": "句動詞",
+      "meaning": "（警報などが）鳴る、作動する；爆発する",
+      "etymology": "go（作動する）+ off（突然、離れて）。「突然作動し始める」というイメージ。",
+      "example": "The fire alarm suddenly went off during the meeting.",
+      "collocation": "the alarm went off / the bomb went off（爆弾が爆発した）"
+    },
+
+    {
+      "q": 12, "is_answer": false, "type": "idiom", "phrase": "in the old days", "pos": "副詞句",
+      "meaning": "昔は、かつては",
+      "etymology": "old（古い）+ days（日々）。",
+      "example": "In the old days, people wrote letters instead of sending e-mails.",
+      "collocation": "in the old days で始めて過去の習慣を述べる"
+    },
+    {
+      "q": 12, "is_answer": true, "type": "idiom", "phrase": "for the time being", "pos": "副詞句",
+      "meaning": "当分の間、さしあたり",
+      "etymology": "time being「今この時」。「今のところは」の意。",
+      "example": "We'll stay at this hotel for the time being until we find an apartment.",
+      "collocation": "work here for the time being"
+    },
+    {
+      "q": 12, "is_answer": false, "type": "idiom", "phrase": "up in the air", "pos": "形容詞句",
+      "meaning": "未定で、宙に浮いた状態で",
+      "etymology": "文字通り「空中に浮いている」状態から、比喩的に「未確定な」の意に。",
+      "example": "Our vacation plans are still up in the air.",
+      "collocation": "plans are up in the air"
+    },
+    {
+      "q": 12, "is_answer": false, "type": "idiom", "phrase": "at the same time", "pos": "副詞句",
+      "meaning": "同時に；とはいえ",
+      "etymology": "same（同じ）+ time（時）。",
+      "example": "She can cook dinner and talk on the phone at the same time.",
+      "collocation": "at the same time as（〜と同時に）"
+    },
+
+    {
+      "q": 13, "is_answer": false, "type": "idiom", "phrase": "jealous of", "pos": "形容詞句",
+      "meaning": "〜をねたんで、嫉妬して",
+      "etymology": "jealous はギリシャ語 zēlos「熱情」に由来。",
+      "example": "He felt jealous of his brother's success.",
+      "collocation": "be jealous of someone"
+    },
+    {
+      "q": 13, "is_answer": false, "type": "idiom", "phrase": "confident of", "pos": "形容詞句",
+      "meaning": "〜を確信して",
+      "etymology": "confident はラテン語 confidere「信頼する」< con- + fidere（信じる）。",
+      "example": "She is confident of winning the competition.",
+      "collocation": "be confident of success"
+    },
+    {
+      "q": 13, "is_answer": false, "type": "idiom", "phrase": "limited to", "pos": "形容詞句",
+      "meaning": "〜に限られて",
+      "etymology": "limit（限界）はラテン語 limes「境界」に由来。",
+      "example": "Membership in the club is limited to students.",
+      "collocation": "be limited to（〜に限定される）"
+    },
+    {
+      "q": 13, "is_answer": true, "type": "idiom", "phrase": "identical to", "pos": "形容詞句",
+      "meaning": "〜と全く同じで",
+      "etymology": "identical はラテン語 idem「同じもの」に由来。",
+      "example": "Her handwriting is almost identical to her sister's.",
+      "collocation": "be identical to（= be identical with）"
+    },
+
+    {
+      "q": 14, "is_answer": false, "type": "idiom", "phrase": "because of", "pos": "前置詞句",
+      "meaning": "〜のために、〜の理由で",
+      "etymology": "because（なぜなら）+ of。cause（原因）を含む語。",
+      "example": "The game was canceled because of heavy rain.",
+      "collocation": "because of a reason"
+    },
+    {
+      "q": 14, "is_answer": false, "type": "idiom", "phrase": "provided that", "pos": "接続詞句",
+      "meaning": "〜という条件で、もし〜ならば",
+      "etymology": "provide（用意する、条件をつける）の過去分詞から。「条件が満たされていれば」。",
+      "example": "You can borrow my car provided that you return it by evening.",
+      "collocation": "provided that 〜（条件節を導く）"
+    },
+    {
+      "q": 14, "is_answer": true, "type": "idiom", "phrase": "rather than", "pos": "接続詞句",
+      "meaning": "〜よりむしろ、〜ではなく",
+      "etymology": "rather（むしろ）+ than（〜より）。",
+      "example": "She chose to walk rather than take the bus.",
+      "collocation": "A rather than B（BよりむしろA）"
+    },
+    {
+      "q": 14, "is_answer": false, "type": "idiom", "phrase": "even though", "pos": "接続詞句",
+      "meaning": "たとえ〜でも、〜ではあるが",
+      "etymology": "even（たとえ〜でも）+ though（〜だけれども）。",
+      "example": "Even though it was raining, they went for a walk.",
+      "collocation": "even though + 事実を表す節"
+    },
+
+    {
+      "q": 15, "is_answer": false, "type": "idiom", "phrase": "turn in", "pos": "句動詞",
+      "meaning": "提出する；（口語で）寝る",
+      "etymology": "turn（向ける）+ in（中へ）。",
+      "example": "Please turn in your homework by Friday.",
+      "collocation": "turn in an assignment / turn in early（早く寝る）"
+    },
+    {
+      "q": 15, "is_answer": false, "type": "idiom", "phrase": "cut off", "pos": "句動詞",
+      "meaning": "切り離す、遮断する",
+      "etymology": "cut（切る）+ off（離して）。",
+      "example": "The heavy snow cut off the village from the rest of the town.",
+      "collocation": "cut off the power（電源を切る） / be cut off from"
+    },
+    {
+      "q": 15, "is_answer": true, "type": "idiom", "phrase": "feed on", "pos": "句動詞",
+      "meaning": "〜を食べて生きる、〜を常食とする",
+      "etymology": "feed（食べる、食べ物を与える）+ on（〜の上で）。",
+      "example": "Pandas feed mainly on bamboo.",
+      "collocation": "feed on insects / feed on grass"
+    },
+    {
+      "q": 15, "is_answer": false, "type": "idiom", "phrase": "hang on", "pos": "句動詞",
+      "meaning": "待つ；しがみつく",
+      "etymology": "hang（ぶら下がる）+ on（継続）。",
+      "example": "Hang on a minute, I'll be right back.",
+      "collocation": "hang on tight / hang on to（〜にしがみつく）"
+    },
+
+    {
+      "q": 16, "is_answer": false, "type": "idiom", "phrase": "out of breath", "pos": "形容詞句",
+      "meaning": "息切れして",
+      "etymology": "out of（〜の外に）+ breath（息）。「息が切れた状態」。",
+      "example": "After running up the stairs, he was out of breath.",
+      "collocation": "be out of breath"
+    },
+    {
+      "q": 16, "is_answer": false, "type": "idiom", "phrase": "against its will", "pos": "副詞句",
+      "meaning": "意志に反して、いやいやながら",
+      "etymology": "against（〜に反して）+ will（意志）。",
+      "example": "The dog was taken to the vet against its will.",
+      "collocation": "against one's will"
+    },
+    {
+      "q": 16, "is_answer": false, "type": "idiom", "phrase": "easy to use", "pos": "形容詞句",
+      "meaning": "使いやすい",
+      "etymology": "easy（容易な）+ to不定詞。",
+      "example": "This new app is very easy to use.",
+      "collocation": "user-friendly（= easy to use）"
+    },
+    {
+      "q": 16, "is_answer": true, "type": "idiom", "phrase": "free of charge", "pos": "形容詞句",
+      "meaning": "無料で",
+      "etymology": "free（無料の）+ of charge（料金の）。",
+      "example": "The museum offers guided tours free of charge on Sundays.",
+      "collocation": "admission free of charge"
+    },
+
+    {
+      "q": 17, "is_answer": false, "type": "idiom", "phrase": "the other of", "pos": "名詞句",
+      "meaning": "（2つのうち）もう一方の",
+      "etymology": "other（もう一方の）。通常は the other of the two のように使う。",
+      "example": "One twin is quiet, and the other of the pair is very talkative.",
+      "collocation": "the other of the two"
+    },
+    {
+      "q": 17, "is_answer": false, "type": "idiom", "phrase": "the most of", "pos": "名詞句",
+      "meaning": "（通例 the をつけず most of で）〜の大部分",
+      "etymology": "most（最も多くの）+ of。慣用表現としては通常 the をつけず most of と用いる。",
+      "example": "She made the most of her time abroad.",
+      "collocation": "make the most of（〜を最大限に活用する）"
+    },
+    {
+      "q": 17, "is_answer": false, "type": "idiom", "phrase": "a kind of", "pos": "名詞句",
+      "meaning": "一種の",
+      "etymology": "kind（種類）。ゲルマン語根で「生まれ、種類」を表す。",
+      "example": "A dolphin is a kind of mammal, not a fish.",
+      "collocation": "a kind of（〜の一種）"
+    },
+    {
+      "q": 17, "is_answer": true, "type": "idiom", "phrase": "a number of", "pos": "名詞句",
+      "meaning": "いくつもの、多数の",
+      "etymology": "number（数）。「かなりの数の」の意で複数名詞を修飾する。",
+      "example": "There are a number of reasons why she decided to quit her job.",
+      "collocation": "a number of + 複数名詞"
+    }
+  ]
+}

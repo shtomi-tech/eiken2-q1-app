@@ -1,0 +1,296 @@
+{
+  "meta": {
+    "exam": "英検準2級 2025年度第3回 一次試験",
+    "section": "Reading 大問3（内容一致選択）",
+    "note": "正解は公式解答（2025年度第3回）と照合済み。answerIndex は0始まり。文分割・根拠・解説・和訳・内容整理はエージェント作成、要レビュー。"
+  },
+  "passages": [
+    {
+      "id": "p2-2025-3-3A",
+      "part": "A",
+      "type": "email",
+      "title": "Group presentation",
+      "header": {
+        "from": "Aidan Norwick <aidan.norwick@link-humans.com>",
+        "to": "Isabel Jones <isabel-m-jones@beyond-ocean.net>",
+        "date": "February 23",
+        "subject": "Group presentation"
+      },
+      "paragraphs": [
+        {
+          "sentences": [
+            "I hope you are doing well.",
+            "I just wanted to remind you about our group presentation next week.",
+            "You will first talk about the causes of climate change.",
+            "Then, I will explain the effects in detail.",
+            "Finally, you will provide some examples of what people can do in America to help the environment.",
+            "Our presentation should be about ten minutes long, so we should keep our parts short and clear."
+          ],
+          "translation": "お元気でお過ごしのことと思います。来週のグループ発表について念のためお伝えしておきます。あなたはまず気候変動の原因について話してください。次に、私が影響について詳しく説明します。最後に、あなたがアメリカで人々が環境のためにできることの例をいくつか挙げてください。発表全体は10分程度になる予定なので、各自の担当部分は短く分かりやすくまとめましょう。"
+        },
+        {
+          "sentences": [
+            "After our last meeting, I finished writing the notes for my part.",
+            "I also made three slides to help explain my ideas today.",
+            "You said you were working on your second slide last time.",
+            "If you want, I can look at them and give you some ideas.",
+            "You can also check my slides and share your opinions.",
+            "We are making good progress, and there is only a little more work to do."
+          ],
+          "translation": "前回のミーティングの後、私は自分の担当部分のノートを書き終えました。また、自分の考えを説明するためのスライドを3枚作成しました。あなたは前回、2枚目のスライドに取り組んでいると言っていましたね。よければ、それらを見てアイデアを出すこともできます。あなたも私のスライドを確認して意見を聞かせてください。順調に進んでいて、残っている作業はもうわずかです。"
+        },
+        {
+          "sentences": [
+            "We should practice one more time before the presentation.",
+            "Let's meet this Friday afternoon.",
+            "So, we should send each other our slides by Thursday.",
+            "Then, we can practice with perfect slides on Friday.",
+            "That will help us be ready for the presentation.",
+            "Please let me know if that time is not convenient for you.",
+            "Although I won't be available this weekend, we can plan to meet at another time."
+          ],
+          "translation": "発表の前にもう一度練習をしましょう。今度の金曜日の午後に会いませんか。ですから、木曜日までにお互いのスライドを送り合いましょう。そうすれば、金曜日には完璧なスライドで練習できます。それが発表の準備に役立つはずです。もしその時間が都合が悪ければ教えてください。今週末は都合がつきませんが、別の時間に会う計画を立てることもできます。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 23,
+          "stem": "What is true about the presentation?",
+          "choices": [
+            "Its length will be around ten minutes for the two speakers.",
+            "Aidan Norwick will explain what causes climate change.",
+            "Isabel Jones will talk about examples of actions around the world.",
+            "It will take place at a big school event next month."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 0, "sentences": [5] },
+          "explanation": "第1段落最終文「Our presentation should be about ten minutes long（発表全体は10分程度になる予定）」から、二人合わせての発表時間が約10分であることが分かる。気候変動の原因を話すのはイザベル、アメリカでの行動例を話すのもイザベルなので選択肢2・3は誤り。",
+          "translation": "プレゼンテーションについて正しいものはどれか。\n1 二人の話者合わせて長さは10分程度になる。\n2 エイダン・ノーウィックが気候変動の原因を説明する。\n3 イザベル・ジョーンズが世界各地の行動例について話す。\n4 来月の大きな学校行事で行われる。"
+        },
+        {
+          "q": 24,
+          "stem": "Aidan Norwick thinks that",
+          "choices": [
+            "there is so much left to do for the presentation.",
+            "Isabel Jones needs only two slides for the presentation.",
+            "it is important to finish writing notes for his part today.",
+            "he and Isabel Jones are preparing well for the presentation."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 1, "sentences": [5] },
+          "explanation": "第2段落最終文「We are making good progress, and there is only a little more work to do.（順調に進んでいて、残りの作業はわずか）」から、二人の準備が順調であることが分かる。",
+          "translation": "エイダン・ノーウィックが考えていることは\n1 発表のためにやるべきことがまだたくさん残っている。\n2 イザベル・ジョーンズにはスライドが2枚しか必要ない。\n3 自分の担当部分のノートを今日中に書き終えることが重要だ。\n4 彼とイザベル・ジョーンズは発表の準備を順調に進めている。"
+        },
+        {
+          "q": 25,
+          "stem": "What does Aidan suggest to Isabel?",
+          "choices": [
+            "Meeting up on Friday for the final practice.",
+            "Sending their slides to their teacher this Friday.",
+            "Practicing together on Thursday afternoon.",
+            "Spending some time over the weekend together."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 2, "sentences": [0, 1] },
+          "explanation": "第3段落「We should practice one more time before the presentation. Let's meet this Friday afternoon.（発表前にもう一度練習しよう。金曜の午後に会おう）」から、金曜日に最終練習として会うことを提案していると分かる。スライドを送り合うのは木曜日なので選択肢3は誤り。",
+          "translation": "エイダンはイザベルに何を提案しているか。\n1 最終練習のために金曜日に会うこと。\n2 金曜日にスライドを先生に送ること。\n3 木曜日の午後に一緒に練習すること。\n4 週末に一緒に時間を過ごすこと。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 発表の分担",
+            "lines": [
+              ["エイダンはイザベルに、来週の", { "blank": 1 }, "についてリマインドしている。"],
+              ["イザベルは", { "blank": 2 }, "について話し、エイダンは", { "blank": 3 }, "について詳しく説明する。"],
+              ["発表全体の長さは", { "blank": 4 }, "程度になる予定。"]
+            ]
+          },
+          {
+            "label": "¶2 準備の進捗",
+            "lines": [
+              ["エイダンは自分の担当部分のノートを書き終え、", { "blank": 5 }, "枚のスライドを作成した。"],
+              ["イザベルは前回、", { "blank": 6 }, "に取り組んでいた。"],
+              ["二人の準備は", { "blank": 7 }, "。"]
+            ]
+          },
+          {
+            "label": "¶3 練習の提案",
+            "lines": [
+              ["発表前にもう一度練習しようと提案し、", { "blank": 8 }, "の午後に会うことを提案している。"],
+              ["そのために", { "blank": 9 }, "までにお互いのスライドを送り合う。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "グループ発表", "accepted": ["グループ発表", "発表"] },
+          { "id": 2, "answer": "気候変動の原因", "accepted": ["気候変動の原因"] },
+          { "id": 3, "answer": "気候変動の影響", "accepted": ["気候変動の影響", "影響"] },
+          { "id": 4, "answer": "約10分", "accepted": ["約10分", "10分程度"] },
+          { "id": 5, "answer": "3", "accepted": ["3", "三"] },
+          { "id": 6, "answer": "2枚目のスライド", "accepted": ["2枚目のスライド"] },
+          { "id": 7, "answer": "順調に進んでいる", "accepted": ["順調に進んでいる", "うまくいっている"] },
+          { "id": 8, "answer": "金曜日", "accepted": ["金曜日"] },
+          { "id": 9, "answer": "木曜日", "accepted": ["木曜日"] }
+        ],
+        "distractors": ["来週のテスト", "気候変動の対策", "動物の生態", "約30分", "5", "3枚目のスライド", "遅れている", "土曜日", "水曜日"]
+      }
+    },
+    {
+      "id": "p2-2025-3-3B",
+      "part": "B",
+      "type": "article",
+      "title": "Animals That Improve the Environment",
+      "header": null,
+      "paragraphs": [
+        {
+          "sentences": [
+            "Beavers are animals that live in lakes and rivers in North America and Europe.",
+            "When people hear about beavers, not many of them think about the help beavers give to the environment.",
+            "In the past, the number of beavers became smaller because of human activities in various parts of the world.",
+            "But today, experts say that bringing beavers back into nature can help protect the environment.",
+            "Therefore, action has been taken to increase the number of them."
+          ],
+          "translation": "ビーバーは北米とヨーロッパの湖や川に生息する動物である。ビーバーと聞いても、それが環境にもたらす助けについて考える人は多くない。かつて、世界各地で人間の活動が原因でビーバーの数が減少した。しかし今日、専門家はビーバーを自然に戻すことが環境保護に役立つと言う。そのため、ビーバーの数を増やすための対策が取られてきた。"
+        },
+        {
+          "sentences": [
+            "Beavers can bring many advantages.",
+            "Riding Mountain National Park in Canada is a good example of the positive effects of beavers.",
+            "In the park, beavers help reduce the risk of water problems.",
+            "To protect themselves from other animals, beavers make dams, something similar to walls in rivers.",
+            "Because their dams slow the flow of water, they can prevent natural disasters like floods.",
+            "The dams also clean the water by removing harmful materials.",
+            "This improves the quality of water."
+          ],
+          "translation": "ビーバーは多くの利点をもたらしうる。カナダのライディング・マウンテン国立公園は、ビーバーがもたらすプラスの効果の良い例である。この公園では、ビーバーが水に関する問題のリスクを減らすのに役立っている。ビーバーは他の動物から身を守るため、川の中に壁のようなダムを作る。ダムが水の流れを緩やかにするため、洪水のような自然災害を防ぐことができる。また、ダムは有害な物質を取り除くことで水をきれいにする。これにより水質が改善する。"
+        },
+        {
+          "sentences": [
+            "Beavers also have a positive impact on wild animals thanks to their dams.",
+            "Because their dams create places with healthier water that flows very slowly, they make great homes for other wild animals.",
+            "For example, in one part of the United Kingdom, a study found that beavers created a nice environment for birds to live in.",
+            "There are now more frogs and other species living there, too."
+          ],
+          "translation": "ビーバーはそのダムのおかげで、野生動物にも良い影響を与えている。ダムによって、水がゆっくり流れるより健康的な場所ができるため、他の野生動物にとって素晴らしい生息地となる。例えば、イギリスのある地域では、ビーバーが鳥にとって快適な環境を作り出したという研究結果がある。そこには現在、より多くのカエルや他の生物種も生息している。"
+        },
+        {
+          "sentences": [
+            "Some farmers think that there will be negative effects on food production if beavers are not controlled well.",
+            "This is because beavers may eat crops like corn on farms.",
+            "However, there is still the fact that they are a great help to nature.",
+            "The British government has decided to introduce beavers back into the wild.",
+            "So, the number of beavers will continue to grow in the future, while farmers hope that the animals will be controlled properly."
+          ],
+          "translation": "一部の農家は、ビーバーがうまく管理されなければ、食料生産に悪影響が出ると考えている。これは、ビーバーが農場のトウモロコシなどの作物を食べてしまうことがあるためである。しかし、それでもビーバーが自然にとって大きな助けとなっているという事実は変わらない。英国政府は、ビーバーを野生に再導入することを決定した。そのため、今後もビーバーの数は増え続ける見込みである一方、農家はビーバーが適切に管理されることを望んでいる。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 26,
+          "stem": "What happened to beavers in the past?",
+          "choices": [
+            "They were introduced to Europe from North America.",
+            "They decreased in many places due to human activities.",
+            "They had an influence on human lifestyles and activities.",
+            "They increased rapidly in number and harmed the environment."
+          ],
+          "answerIndex": 1,
+          "evidence": { "paragraph": 0, "sentences": [2] },
+          "explanation": "第1段落「In the past, the number of beavers became smaller because of human activities in various parts of the world.（過去、世界各地で人間の活動が原因でビーバーの数が減少した）」がそのまま根拠。",
+          "translation": "過去にビーバーに何が起きたか。\n1 北米からヨーロッパに持ち込まれた。\n2 人間の活動が原因で多くの場所で数が減少した。\n3 人間の生活様式や活動に影響を与えた。\n4 数が急激に増加し、環境に害を与えた。"
+        },
+        {
+          "q": 27,
+          "stem": "In Riding Mountain National Park in Canada,",
+          "choices": [
+            "beavers help get rid of bad substances from the water.",
+            "beavers have no enemies with which they have to live.",
+            "beavers make dams in the water as their gathering places.",
+            "beavers do not influence natural disasters."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 1, "sentences": [5] },
+          "explanation": "第2段落「The dams also clean the water by removing harmful materials.（ダムは有害な物質を取り除いて水をきれいにする）」を、選択肢1は \"help get rid of bad substances from the water\" と言い換えている。",
+          "translation": "カナダのライディング・マウンテン国立公園では、\n1 ビーバーが水中の有害な物質を取り除くのを助けている。\n2 ビーバーには共に生きる必要のある天敵がいない。\n3 ビーバーは集会場所として水中にダムを作る。\n4 ビーバーは自然災害に影響を与えない。"
+        },
+        {
+          "q": 28,
+          "stem": "How do beavers have a positive impact on other wild animals?",
+          "choices": [
+            "They help other animals hunt their food.",
+            "They leave food that other animals can eat.",
+            "They create homes suitable for other animals.",
+            "They clean other animals' bodies with water."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 2, "sentences": [1] },
+          "explanation": "第3段落「they make great homes for other wild animals.（他の野生動物にとって素晴らしい生息地となる）」を、選択肢3は \"create homes suitable for other animals\" と言い換えている。",
+          "translation": "ビーバーはどのようにして他の野生動物に良い影響を与えているか。\n1 他の動物が食料を狩るのを手伝う。\n2 他の動物が食べられる食料を残す。\n3 他の動物に適した生息地を作り出す。\n4 水で他の動物の体をきれいにする。"
+        },
+        {
+          "q": 29,
+          "stem": "Why do some people think beavers may have negative effects?",
+          "choices": [
+            "Because some beavers fail to control the water flow using their dams.",
+            "Because beavers attack farm animals when they are nervous.",
+            "Because other animals that are attracted to beavers may harm humans.",
+            "Because there is a chance that beavers may eat crops on farms."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 3, "sentences": [0, 1] },
+          "explanation": "第4段落「Some farmers think that there will be negative effects on food production if beavers are not controlled well. This is because beavers may eat crops like corn on farms.（ビーバーが農場の作物を食べてしまうことがあるため）」がそのまま根拠。",
+          "translation": "一部の人々がビーバーに悪影響があると考えているのはなぜか。\n1 一部のビーバーがダムで水の流れを制御できないから。\n2 ビーバーが神経質になっているとき、農場の動物を襲うから。\n3 ビーバーに引き寄せられた他の動物が人間に危害を加える可能性があるから。\n4 ビーバーが農場の作物を食べてしまう可能性があるから。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 ビーバーの現状",
+            "lines": [
+              ["ビーバーは北米とヨーロッパの", { "blank": 1 }, "や", { "blank": 2 }, "に生息する動物である。"],
+              ["過去には、", { "blank": 3 }, "が原因で数が減少した。"],
+              ["専門家は、ビーバーを自然に戻すことが", { "blank": 4 }, "に役立つと言う。"]
+            ]
+          },
+          {
+            "label": "¶2 水環境への好影響",
+            "lines": [
+              ["カナダの", { "blank": 5 }, "はビーバーの良い効果の例である。"],
+              ["ビーバーは他の動物から身を守るために", { "blank": 6 }, "を作る。"],
+              ["ダムは水の流れを緩やかにし、", { "blank": 7 }, "を防ぐ。また水をきれいにする。"]
+            ]
+          },
+          {
+            "label": "¶3 野生動物への好影響",
+            "lines": [
+              ["ダムが作る、水がゆっくり流れる場所は他の野生動物にとって", { "blank": 8 }, "となる。"],
+              ["イギリスのある地域では、ビーバーが", { "blank": 9 }, "にとって快適な環境を作った。"]
+            ]
+          },
+          {
+            "label": "¶4 農業への影響",
+            "lines": [
+              ["一部の農家は、ビーバーが", { "blank": 10 }, "を食べることで食料生産に悪影響が出ると考えている。"],
+              ["英国政府はビーバーを", { "blank": 11 }, "ことを決定した。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "湖", "accepted": ["湖", "湖沼"] },
+          { "id": 2, "answer": "川", "accepted": ["川", "河川"] },
+          { "id": 3, "answer": "人間の活動", "accepted": ["人間の活動"] },
+          { "id": 4, "answer": "環境保護", "accepted": ["環境保護", "環境を守ること"] },
+          { "id": 5, "answer": "ライディング・マウンテン国立公園", "accepted": ["ライディング・マウンテン国立公園"] },
+          { "id": 6, "answer": "ダム", "accepted": ["ダム"] },
+          { "id": 7, "answer": "洪水などの自然災害", "accepted": ["洪水などの自然災害", "洪水"] },
+          { "id": 8, "answer": "良い生息地", "accepted": ["良い生息地", "素晴らしい生息地", "住処"] },
+          { "id": 9, "answer": "鳥", "accepted": ["鳥"] },
+          { "id": 10, "answer": "農場の作物", "accepted": ["農場の作物", "トウモロコシなどの作物"] },
+          { "id": 11, "answer": "野生に再導入する", "accepted": ["野生に再導入する", "野生に戻す"] }
+        ],
+        "distractors": ["山", "森", "気候変動", "農業技術", "ナイアガラ国立公園", "巣穴", "干ばつ", "動物園", "魚", "農地の拡大", "動物園で飼育する"]
+      }
+    }
+  ]
+}

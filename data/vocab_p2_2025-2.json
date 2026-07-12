@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "exam": "英検準2級 2025年度第2回 一次試験",
+    "section": "Reading 大問1（空所補充）",
+    "source_pdf": "2025-2-1ji-p2kyu.pdf",
+    "note": "問題PDFと解答PDFをもとに、大問1の選択肢語句を学習用に整理。",
+    "counts": {
+      "words": 40,
+      "idioms": 20,
+      "total": 60
+    }
+  },
+  "words": [
+    { "q": 1, "is_answer": false, "word": "architect", "ipa": "/ˈɑːrkɪtekt/", "pos": "名詞", "meaning": "建築家", "example": "She works as an architect in New York.", "etymology": "ギリシャ語 arkhi-（主要な）+ tekton（建築者）から。建物を設計する人。", "collocation": "become an architect / a famous architect" },
+    { "q": 1, "is_answer": false, "word": "engineer", "ipa": "/ˌendʒɪˈnɪr/", "pos": "名詞", "meaning": "技術者、エンジニア", "example": "He is an engineer at a car company.", "etymology": "ラテン語 ingenium（才能）から。技術で問題を解決する人。", "collocation": "software engineer / a skilled engineer" },
+    { "q": 1, "is_answer": true, "word": "editor", "ipa": "/ˈedɪtər/", "pos": "名詞", "meaning": "編集者", "example": "Angela became the editor of the newspaper.", "etymology": "edit（編集する）+ -or。記事や原稿の内容を決定・整理する人。", "collocation": "become an editor / chief editor" },
+    { "q": 1, "is_answer": false, "word": "astronaut", "ipa": "/ˈæstrənɔːt/", "pos": "名詞", "meaning": "宇宙飛行士", "example": "He dreamed of being an astronaut.", "etymology": "ギリシャ語 astro（星）+ naut（航海者）。星々を旅する人。", "collocation": "train as an astronaut / astronaut suit" },
+
+    { "q": 2, "is_answer": false, "word": "figures", "ipa": "/ˈfɪɡjərz/", "pos": "名詞", "meaning": "数字、図", "example": "The report includes many figures.", "etymology": "ラテン語 figura（形）から。figure（数字、人物、図）の複数形。", "collocation": "sales figures / important figures" },
+    { "q": 2, "is_answer": false, "word": "characters", "ipa": "/ˈkærəktərz/", "pos": "名詞", "meaning": "登場人物、性格", "example": "The novel has many interesting characters.", "etymology": "ギリシャ語 kharakter（刻印）から。character の複数形。", "collocation": "main character / build character" },
+    { "q": 2, "is_answer": false, "word": "puzzles", "ipa": "/ˈpʌzəlz/", "pos": "名詞", "meaning": "パズル、難問", "example": "We solved several puzzles together.", "etymology": "由来ははっきりしないが16世紀末から「困惑させるもの」の意味。puzzle の複数形。", "collocation": "solve a puzzle / jigsaw puzzles" },
+    { "q": 2, "is_answer": true, "word": "suggestions", "ipa": "/səˈdʒestʃənz/", "pos": "名詞", "meaning": "提案", "example": "Does anyone have any suggestions for the trip?", "etymology": "ラテン語 suggerere（下から運ぶ→示唆する）から。suggest（提案する）+ -ion の複数形。", "collocation": "make a suggestion / any suggestions" },
+
+    { "q": 3, "is_answer": false, "word": "explosions", "ipa": "/ɪkˈsploʊʒənz/", "pos": "名詞", "meaning": "爆発", "example": "The explosions could be heard far away.", "etymology": "ラテン語 explodere（舞台から追い出す→爆発する）から。explosion の複数形。", "collocation": "a loud explosion / prevent explosions" },
+    { "q": 3, "is_answer": true, "word": "ingredients", "ipa": "/ɪnˈɡriːdiənts/", "pos": "名詞", "meaning": "材料、成分", "example": "We don't have all the ingredients for the cookies.", "etymology": "ラテン語 ingredi（中に入っていく）から。料理などに入るもの。", "collocation": "basic ingredients / mix the ingredients" },
+    { "q": 3, "is_answer": false, "word": "participants", "ipa": "/pɑːrˈtɪsəpənts/", "pos": "名詞", "meaning": "参加者", "example": "All participants received a certificate.", "etymology": "ラテン語 pars（部分）+ capere（取る）から。participate（参加する）+ -ant の複数形。", "collocation": "workshop participants / active participant" },
+    { "q": 3, "is_answer": false, "word": "forecasts", "ipa": "/ˈfɔːrkæsts/", "pos": "名詞", "meaning": "予報、予測", "example": "The weather forecasts predicted rain.", "etymology": "fore（前もって）+ cast（投げる）から。先を見越して示すもの。", "collocation": "weather forecast / economic forecast" },
+
+    { "q": 4, "is_answer": false, "word": "unfortunately", "ipa": "/ʌnˈfɔːrtʃənətli/", "pos": "副詞", "meaning": "不運にも、残念ながら", "example": "Unfortunately, the concert was cancelled.", "etymology": "un-（否定）+ fortunate（幸運な）+ -ly。運が悪いことに。", "collocation": "unfortunately, / unfortunately for him" },
+    { "q": 4, "is_answer": false, "word": "awfully", "ipa": "/ˈɔːfəli/", "pos": "副詞", "meaning": "ひどく、非常に", "example": "It was awfully cold last night.", "etymology": "awful（ひどい）+ -ly。もとは「畏怖を起こすほど」の意から強調表現に。", "collocation": "awfully sorry / awfully hot" },
+    { "q": 4, "is_answer": true, "word": "bravely", "ipa": "/ˈbreɪvli/", "pos": "副詞", "meaning": "勇敢に", "example": "The captain bravely dived into the sea.", "etymology": "brave（勇敢な）+ -ly。恐れずに行動する様子。", "collocation": "act bravely / fight bravely" },
+    { "q": 4, "is_answer": false, "word": "hardly", "ipa": "/ˈhɑːrdli/", "pos": "副詞", "meaning": "ほとんど〜ない", "example": "I hardly know him.", "etymology": "hard（かろうじて）+ -ly。程度や頻度がごくわずかなことを表す。", "collocation": "hardly ever / hardly any" },
+
+    { "q": 5, "is_answer": true, "word": "bowls", "ipa": "/boʊlz/", "pos": "名詞", "meaning": "ボウル、鉢", "example": "Please put the bowls on the counter.", "etymology": "古英語 bolla（丸い容器）から。bowl の複数形。", "collocation": "soup bowls / a bowl of rice" },
+    { "q": 5, "is_answer": false, "word": "ropes", "ipa": "/roʊps/", "pos": "名詞", "meaning": "ロープ、綱", "example": "They tied the boxes with ropes.", "etymology": "古英語 rap（綱）から。rope の複数形。", "collocation": "climb a rope / tie with ropes" },
+    { "q": 5, "is_answer": false, "word": "logs", "ipa": "/lɔːɡz/", "pos": "名詞", "meaning": "丸太", "example": "They burned logs in the fireplace.", "etymology": "由来は不明だが中英語期から「切り出した木材の塊」を指す。log の複数形。", "collocation": "chop logs / a pile of logs" },
+    { "q": 5, "is_answer": false, "word": "rays", "ipa": "/reɪz/", "pos": "名詞", "meaning": "光線", "example": "The sun's rays warmed the room.", "etymology": "ラテン語 radius（棒、光線）から。ray の複数形。", "collocation": "sun rays / rays of light" },
+
+    { "q": 6, "is_answer": false, "word": "curly", "ipa": "/ˈkɜːrli/", "pos": "形容詞", "meaning": "巻き毛の", "example": "She has curly hair.", "etymology": "curl（巻く）+ -y。丸く巻いた形状を表す。", "collocation": "curly hair / curly lines" },
+    { "q": 6, "is_answer": true, "word": "serious", "ipa": "/ˈsɪriəs/", "pos": "形容詞", "meaning": "深刻な、まじめな", "example": "Judy has a serious problem before her wedding.", "etymology": "ラテン語 serius（重々しい）から。軽く扱えないほど重大な様子。", "collocation": "a serious problem / take it seriously" },
+    { "q": 6, "is_answer": false, "word": "steady", "ipa": "/ˈstedi/", "pos": "形容詞", "meaning": "安定した、着実な", "example": "He has a steady job.", "etymology": "stead（場所、地位）+ -y。しっかり定まって揺るがない様子。", "collocation": "a steady pace / steady income" },
+    { "q": 6, "is_answer": false, "word": "careful", "ipa": "/ˈkerfəl/", "pos": "形容詞", "meaning": "注意深い", "example": "Be careful when you cross the street.", "etymology": "care（注意）+ -ful（満ちた）。注意に満ちている様子。", "collocation": "be careful / a careful plan" },
+
+    { "q": 7, "is_answer": false, "word": "blush", "ipa": "/blʌʃ/", "pos": "動詞", "meaning": "赤面する", "example": "She blushed when he complimented her.", "etymology": "古英語 blyscan（輝く、赤らむ）から。恥ずかしさで顔が赤くなる。", "collocation": "blush with embarrassment / start to blush" },
+    { "q": 7, "is_answer": true, "word": "base", "ipa": "/beɪs/", "pos": "動詞", "meaning": "（拠点を）置く、本拠地とする", "example": "Terry decided to base his company in Boston.", "etymology": "ラテン語 basis（土台）から。活動の土台となる場所を定める。", "collocation": "base a company in / be based in" },
+    { "q": 7, "is_answer": false, "word": "bend", "ipa": "/bend/", "pos": "動詞", "meaning": "曲げる", "example": "Bend your knees slightly.", "etymology": "古英語 bendan（曲げる、張る）から。まっすぐなものを曲げる。", "collocation": "bend the rules / bend down" },
+    { "q": 7, "is_answer": false, "word": "broadcast", "ipa": "/ˈbrɔːdkæst/", "pos": "動詞", "meaning": "放送する", "example": "The station will broadcast the game live.", "etymology": "broad（広い）+ cast（投げる）。広く情報を送り出すこと。", "collocation": "broadcast a program / live broadcast" },
+
+    { "q": 8, "is_answer": false, "word": "collected", "ipa": "/kəˈlektɪd/", "pos": "動詞", "meaning": "集めた、落ち着かせた", "example": "He collected his thoughts before speaking.", "etymology": "ラテン語 colligere（共に集める）から。collect + -ed。", "collocation": "collect data / collected works" },
+    { "q": 8, "is_answer": false, "word": "hurt", "ipa": "/hɜːrt/", "pos": "動詞", "meaning": "傷つけた", "example": "The comment hurt her feelings.", "etymology": "古フランス語 hurter（ぶつかる）から。原形・過去形とも hurt で不規則変化。", "collocation": "hurt someone's feelings / get hurt" },
+    { "q": 8, "is_answer": true, "word": "blanked", "ipa": "/blæŋkt/", "pos": "動詞", "meaning": "（記憶が）真っ白になった", "example": "Her mind blanked when she tried to remember his name.", "etymology": "blank（空白の）+ -ed。頭の中が空白の状態になることを表す口語表現。", "collocation": "mind blanked / blank out" },
+    { "q": 8, "is_answer": false, "word": "waved", "ipa": "/weɪvd/", "pos": "動詞", "meaning": "手を振った", "example": "She waved goodbye to her friends.", "etymology": "古英語 wafian（揺れ動く）から。wave + -ed。", "collocation": "wave goodbye / wave a flag" },
+
+    { "q": 9, "is_answer": false, "word": "stand", "ipa": "/stænd/", "pos": "動詞", "meaning": "立つ、我慢する", "example": "Please stand in line.", "etymology": "古英語 standan（立つ）から。", "collocation": "stand up / can't stand it" },
+    { "q": 9, "is_answer": false, "word": "steam", "ipa": "/stiːm/", "pos": "動詞", "meaning": "蒸気で調理する、蒸す", "example": "You can steam the vegetables.", "etymology": "名詞 steam（蒸気）から派生した動詞。", "collocation": "steam vegetables / steam rises" },
+    { "q": 9, "is_answer": true, "word": "mail", "ipa": "/meɪl/", "pos": "動詞", "meaning": "郵送する", "example": "I'm going to mail the postcards tomorrow.", "etymology": "古フランス語 male（袋、郵便かばん）から。", "collocation": "mail a letter / mail order" },
+    { "q": 9, "is_answer": false, "word": "float", "ipa": "/floʊt/", "pos": "動詞", "meaning": "浮く、浮かべる", "example": "The leaves floated on the water.", "etymology": "古英語 flotian（浮かぶ）から。", "collocation": "float on water / float an idea" },
+
+    { "q": 10, "is_answer": false, "word": "feed", "ipa": "/fiːd/", "pos": "動詞", "meaning": "食べ物を与える", "example": "She feeds the dog every morning.", "etymology": "food（食べ物）と同語源。古英語 fedan。", "collocation": "feed the cat / feed information" },
+    { "q": 10, "is_answer": false, "word": "share", "ipa": "/ʃer/", "pos": "動詞", "meaning": "共有する、分ける", "example": "They shared the pizza.", "etymology": "古英語 scearu（分け前）から。一つのものを分け合う。", "collocation": "share ideas / share a room" },
+    { "q": 10, "is_answer": false, "word": "chew", "ipa": "/tʃuː/", "pos": "動詞", "meaning": "かむ", "example": "Chew your food well.", "etymology": "古英語 ceowan（かむ）から。", "collocation": "chew gum / chew slowly" },
+    { "q": 10, "is_answer": true, "word": "bounce", "ipa": "/baʊns/", "pos": "動詞", "meaning": "弾ませる、跳ねる", "example": "He likes to bounce the ball against the wall.", "etymology": "中期英語 bunsen（打つ）から。ぶつかって跳ね返る動きを表す。", "collocation": "bounce a ball / bounce back" }
+  ],
+  "idioms": [
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "on account of", "pos": "前置詞句", "meaning": "〜の理由で、〜のために", "example": "The game was postponed on account of rain.", "etymology": "account（説明、理由）+ of。理由を示す表現。", "collocation": "on account of illness / on account of the weather" },
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "for fear of", "pos": "前置詞句", "meaning": "〜を恐れて、〜しないように", "example": "He didn't speak for fear of making a mistake.", "etymology": "fear（恐れ）+ of。恐れを理由に行動を控える表現。", "collocation": "for fear of failure / for fear of losing" },
+    { "q": 11, "is_answer": true, "type": "idiom", "phrase": "in addition to", "pos": "前置詞句", "meaning": "〜に加えて", "example": "In addition to her full-time job, Sheila teaches guitar lessons.", "etymology": "addition（追加）+ to。既にあるものに何かを加える表現。", "collocation": "in addition to that / in addition to work" },
+    { "q": 11, "is_answer": false, "type": "idiom", "phrase": "by means of", "pos": "前置詞句", "meaning": "〜の手段によって", "example": "They traveled by means of a small boat.", "etymology": "means（手段）+ of。何かを行うための方法・道具を示す。", "collocation": "by means of a computer / by various means" },
+
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "see it off", "pos": "動詞句", "meaning": "見送る", "example": "We went to the station to see it off.", "etymology": "see A off（Aを見送る）の形が基本。off は「その場を離れて」の意味。", "collocation": "see someone off / go to see it off" },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "learn by heart", "pos": "動詞句", "meaning": "暗記する、そらで覚える", "example": "She learned the poem by heart.", "etymology": "by heart は「心で、そらで」の意。心の中に留めて覚えること。", "collocation": "learn a poem by heart / know by heart" },
+    { "q": 12, "is_answer": false, "type": "idiom", "phrase": "come of age", "pos": "動詞句", "meaning": "成人になる、成熟する", "example": "He will come of age next year.", "etymology": "age（年齢、成熟の年齢）に達する、という意味の古い表現。", "collocation": "come of age at 18 / a coming-of-age story" },
+    { "q": 12, "is_answer": true, "type": "idiom", "phrase": "take it easy", "pos": "動詞句", "meaning": "気楽にする、落ち着く", "example": "Just take it easy before the test. You've studied hard.", "etymology": "it（状況）を easy（気楽なもの）として take（扱う）という発想。", "collocation": "Take it easy. / take things easy" },
+
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "by all means", "pos": "慣用句", "meaning": "どうぞ、ぜひとも", "example": "By all means, come to the party.", "etymology": "all means（あらゆる手段）を使ってでも、という強い許可・勧めの表現。", "collocation": "By all means. / by all means possible" },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "in no time", "pos": "慣用句", "meaning": "あっという間に、すぐに", "example": "The work was finished in no time.", "etymology": "no time（時間がかからない）という直訳から、非常に短時間で。", "collocation": "finish in no time / in no time at all" },
+    { "q": 13, "is_answer": false, "type": "idiom", "phrase": "out of date", "pos": "慣用句", "meaning": "時代遅れの、旧式の", "example": "This map is out of date.", "etymology": "date（有効な期日、流行）の外にある、という発想。", "collocation": "out of date information / become out of date" },
+    { "q": 13, "is_answer": true, "type": "idiom", "phrase": "and so on", "pos": "慣用句", "meaning": "〜など、その他もろもろ", "example": "They discussed what foods to bring, which games to play, and so on.", "etymology": "and（そして）+ so on（そのように続く）。列挙の後に続きがあることを示す。", "collocation": "..., and so on / and so forth" },
+
+    { "q": 14, "is_answer": true, "type": "idiom", "phrase": "on my own", "pos": "慣用句", "meaning": "自分ひとりで、独力で", "example": "No one helped me. I made it on my own.", "etymology": "own（自分自身の）を用いた表現。誰の助けも借りずに。", "collocation": "on my own / do it on your own" },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "for good", "pos": "慣用句", "meaning": "永久に、これを最後に", "example": "He left the town for good.", "etymology": "good（良い、最終的な）状態のままにする、という古い言い回し。", "collocation": "leave for good / gone for good" },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "from day to day", "pos": "慣用句", "meaning": "日々、その日その日で", "example": "Her mood changes from day to day.", "etymology": "day to day（日から日へ）と繰り返し移り変わる様子を表す。", "collocation": "live from day to day / change from day to day" },
+    { "q": 14, "is_answer": false, "type": "idiom", "phrase": "in a word", "pos": "慣用句", "meaning": "一言で言えば、要するに", "example": "In a word, the plan failed.", "etymology": "a word（一つの言葉）で言い表せる、という表現。", "collocation": "in a word, / to put it in a word" },
+
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "on your side", "pos": "慣用句", "meaning": "あなたの味方で", "example": "Don't worry, I'm on your side.", "etymology": "side（側、陣営）にいる、という発想。", "collocation": "be on your side / have luck on your side" },
+    { "q": 15, "is_answer": true, "type": "idiom", "phrase": "in good shape", "pos": "慣用句", "meaning": "良い状態で、健康で", "example": "Running is a good way to keep in good shape.", "etymology": "shape（体調、状態）が良い、という表現。", "collocation": "keep in good shape / stay in good shape" },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "at the front", "pos": "慣用句", "meaning": "先頭に、前方に", "example": "He stood at the front of the line.", "etymology": "front（前面、先頭）に位置することを表す。", "collocation": "at the front of the class / at the front line" },
+    { "q": 15, "is_answer": false, "type": "idiom", "phrase": "with any luck", "pos": "慣用句", "meaning": "運が良ければ", "example": "With any luck, we'll finish on time.", "etymology": "any luck（多少の運）があれば、という条件的な表現。", "collocation": "with any luck, / with a bit of luck" }
+  ]
+}

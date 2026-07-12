@@ -1,0 +1,303 @@
+{
+  "meta": {
+    "exam": "英検2級 2025年度第2回 一次試験",
+    "section": "Reading 大問3（内容一致選択）",
+    "note": "正解は公式解答（2025年度第2回）と照合済み。answerIndex は0始まり。文分割・根拠・解説・和訳・内容整理はエージェント作成、要レビュー。"
+  },
+  "passages": [
+    {
+      "id": "2025-2-3A",
+      "part": "A",
+      "type": "email",
+      "title": "Important course information",
+      "header": {
+        "from": "Sarah Freeman <sfreeman@careerdevelopment.com>",
+        "to": "All Course Participants <participants@careerdevelopment.com>",
+        "date": "March 23",
+        "subject": "Important course information"
+      },
+      "paragraphs": [
+        {
+          "sentences": [
+            "Thank you for applying for the marketing course.",
+            "Before your first lesson, we'd like to give you some essential information.",
+            "In the first session, we'll talk about today's marketing needs.",
+            "To help you understand, please watch a fifteen-minute video of basic concepts and practical examples before the first class on April 6.",
+            "After watching it, there will be a short quiz to test your understanding."
+          ],
+          "translation": "マーケティング講座にお申し込みいただき、ありがとうございます。初回授業の前に、いくつか重要な情報をお伝えしたいと思います。最初のセッションでは、今日のマーケティングニーズについてお話しします。理解を深めていただくため、4月6日の初回授業前に、基本概念と実例を紹介する15分間の動画をご視聴ください。視聴後には、理解度を確認する簡単な小テストがあります。"
+        },
+        {
+          "sentences": [
+            "We will have lessons every Tuesday and Thursday in April and May at 7 p.m.",
+            "However, there will be a slight change in the schedule because the instructor of this course will be away for one week to attend an international conference.",
+            "So, two classes for that week will be held in June.",
+            "Due to this change, the course will end on June 6."
+          ],
+          "translation": "4月と5月の毎週火曜日と木曜日、午後7時に授業を行います。ただし、この講座の講師が国際会議に出席するため1週間不在になる関係で、スケジュールに若干の変更があります。そのため、その週の2回分の授業は6月に行われます。この変更により、講座は6月6日に終了します。"
+        },
+        {
+          "sentences": [
+            "If you miss a lesson, we offer a way to catch up.",
+            "We'll post videos of each lecture on the web.",
+            "However, we allow you to take this offer only twice during the course period because discussing the materials with your classmates is an important part of this class.",
+            "When you miss three sessions or more, please talk to your manager.",
+            "We look forward to seeing you soon!"
+          ],
+          "translation": "授業を欠席した場合、補講の手段をご用意しています。各講義の動画をウェブ上に公開します。ただし、この講座では受講生同士で教材について話し合うことが重要な要素であるため、この動画視聴による補講は講座期間中に2回までとさせていただきます。3回以上欠席した場合は、上司にご相談ください。皆さんにお会いできるのを楽しみにしております！"
+        }
+      ],
+      "questions": [
+        {
+          "q": 24,
+          "stem": "Why does Sarah Freeman want course participants to take the quiz?",
+          "choices": [
+            "To prepare a short video to show in the class.",
+            "To check their understanding of the content of the video.",
+            "To help participants prepare their presentations.",
+            "To divide participants into groups based on their understanding."
+          ],
+          "answerIndex": 1,
+          "evidence": { "paragraph": 0, "sentences": [3, 4] },
+          "explanation": "第1段落最終文「After watching it, there will be a short quiz to test your understanding.（視聴後には理解度を確認する小テストがある）」から、小テストは動画内容の理解度確認のためだと分かる。",
+          "translation": "サラ・フリーマンはなぜ受講者に小テストを受けてほしいのか。\n1 授業で見せる短い動画を準備するため。\n2 動画の内容の理解度を確認するため。\n3 受講者がプレゼンテーションを準備するのを助けるため。\n4 理解度に基づいて受講者をグループ分けするため。"
+        },
+        {
+          "q": 25,
+          "stem": "The class schedule will be changed because",
+          "choices": [
+            "another group will use the classroom.",
+            "some of the weeks include national holidays.",
+            "the instructor will be at another location.",
+            "some participants will take math examinations."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 1, "sentences": [1] },
+          "explanation": "第2段落「the instructor of this course will be away for one week to attend an international conference（講師が国際会議出席のため1週間不在になる）」から、講師が別の場所にいることがスケジュール変更の理由だと分かる。",
+          "translation": "授業スケジュールが変更される理由は\n1 別のグループが教室を使用するから。\n2 一部の週に祝日が含まれるから。\n3 講師が別の場所にいるから。\n4 一部の受講者が数学の試験を受けるから。"
+        },
+        {
+          "q": 26,
+          "stem": "What is one thing Sarah says about catching up with a class?",
+          "choices": [
+            "Participants can talk with the instructor online.",
+            "Participants can take lessons from different marketing courses.",
+            "Participants can receive class materials by e-mail.",
+            "Participants can watch videos of two classes online."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 2, "sentences": [1, 2] },
+          "explanation": "第3段落「We'll post videos of each lecture on the web.」および「we allow you to take this offer only twice during the course period（この補講が使えるのは講座期間中2回まで）」から、受講者はオンラインで最大2回分の授業の動画を視聴できることが分かる。",
+          "translation": "サラが補講について述べていることの一つは何か。\n1 受講者は講師とオンラインで話すことができる。\n2 受講者は別のマーケティング講座の授業を受けることができる。\n3 受講者は授業資料をメールで受け取ることができる。\n4 受講者は2回分の授業の動画をオンラインで視聴できる。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 講座開始前の案内",
+            "lines": [
+              ["サラ・フリーマンは", { "blank": 1 }, "の参加者全員に、初回授業前の案内メールを送った。"],
+              ["4月6日の初回授業前に、", { "blank": 2 }, "を視聴するよう求めている。"],
+              ["視聴後には", { "blank": 3 }, "がある。"]
+            ]
+          },
+          {
+            "label": "¶2 授業スケジュール",
+            "lines": [
+              ["授業は", { "blank": 4 }, "に行われる。"],
+              ["講師が", { "blank": 5 }, "不在になるため、スケジュールが変更される。"],
+              ["その結果、講座は", { "blank": 6 }, "に終了する。"]
+            ]
+          },
+          {
+            "label": "¶3 欠席時の対応",
+            "lines": [
+              ["欠席した場合は各講義の動画をウェブで視聴できるが、この補講が使えるのは", { "blank": 7 }, "。"],
+              ["3回以上欠席した場合は上司に相談するよう求めている。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "マーケティング講座", "accepted": ["マーケティング講座"] },
+          { "id": 2, "answer": "基本概念と実例を紹介する15分間の動画", "accepted": ["基本概念と実例を紹介する15分間の動画", "15分間の動画"] },
+          { "id": 3, "answer": "理解度を確認する小テスト", "accepted": ["理解度を確認する小テスト", "簡単な小テスト"] },
+          { "id": 4, "answer": "4月と5月の毎週火曜日・木曜日の午後7時", "accepted": ["4月と5月の毎週火曜日・木曜日の午後7時", "毎週火曜と木曜の午後7時"] },
+          { "id": 5, "answer": "国際会議出席のため1週間", "accepted": ["国際会議出席のため1週間", "国際会議のため1週間"] },
+          { "id": 6, "answer": "6月6日", "accepted": ["6月6日"] },
+          { "id": 7, "answer": "講座期間中2回まで", "accepted": ["講座期間中2回まで", "2回まで"] }
+        ],
+        "distractors": ["経営学講座", "30分間の講義動画まとめ", "修了証授与式", "3月と4月の毎週月曜・水曜の午後7時", "家族旅行のため2週間", "5月20日", "無制限に何度でも"]
+      }
+    },
+    {
+      "id": "2025-2-3B",
+      "part": "B",
+      "type": "article",
+      "title": "The Mirror Test",
+      "header": null,
+      "paragraphs": [
+        {
+          "sentences": [
+            "Humans and animals are different in many ways.",
+            "Some say only humans can have a language and a culture.",
+            "Among these discussions, one idea that is often discussed is whether only humans can recognize or tell the difference between themselves and others.",
+            "The mirror test is used to judge this.",
+            "It is done by putting a mark on an animal's body.",
+            "The mark is put in a place where the animal cannot see without the help of a mirror.",
+            "If the animal tries to remove the mark on its body, it shows that the animal recognizes itself."
+          ],
+          "translation": "人間と動物はさまざまな点で異なっている。言語や文化を持てるのは人間だけだと言う人もいる。こうした議論の中でしばしば取り上げられるのが、自分と他者を区別して認識できるのは人間だけなのかという問題である。この点を判断するために使われるのが鏡像テストである。これは動物の体にマークを付けることで行われる。マークは、鏡の助けなしには動物自身が見ることのできない場所に付けられる。動物が自分の体についたマークを取り除こうとすれば、それはその動物が自分自身を認識していることを示す。"
+        },
+        {
+          "sentences": [
+            "The same test was done on fish called cleaner wrasses in a tank with a mirror.",
+            "At first, they attacked their reflection.",
+            "This could be because they thought the reflection was another fish.",
+            "Later, they changed how they swam and checked if the fish in the mirror also changed how they swam.",
+            "After they got used to the mirror, they were put to sleep, and a mark was put on them.",
+            "When they woke up and looked in the mirror, many of them tried to take the mark off their body.",
+            "They did so by brushing their body against the tank or the sand on the bottom."
+          ],
+          "translation": "同じテストが、鏡のある水槽の中でホンソメワケベラと呼ばれる魚に対して行われた。最初、彼らは自分の鏡像を攻撃した。これは、鏡像を別の魚だと思ったためかもしれない。その後、彼らは自分の泳ぎ方を変え、鏡の中の魚も同じように泳ぎ方を変えるかどうかを確認した。鏡に慣れた後、彼らは眠らされ、体にマークを付けられた。目を覚まして鏡を見ると、多くの個体が自分の体からマークを取り除こうとした。彼らは水槽や底の砂に体をこすりつけることでそれを行った。"
+        },
+        {
+          "sentences": [
+            "They also recognized themselves in photographs.",
+            "In a test done after the mirror test, researchers showed the fish some pictures.",
+            "When they were shown a picture of themselves with a mark on their body, they tried to remove the mark from their body.",
+            "However, they did not act the same way when pictures of other fish with a mark were shown.",
+            "This suggests that they recognize differences between themselves and other fish."
+          ],
+          "translation": "彼らは写真の中の自分自身も認識した。鏡像テストの後に行われた別のテストでは、研究者たちがこの魚にいくつかの写真を見せた。マーク付きの自分自身の写真を見せられると、彼らは体からマークを取り除こうとした。しかし、マーク付きの他の魚の写真を見せられたときには、同じような行動を取らなかった。このことは、彼らが自分自身と他の魚との違いを認識していることを示唆している。"
+        },
+        {
+          "sentences": [
+            "The mirror test has led to much discussion and debate.",
+            "First, animals that have not seen a mirror before might not understand that what is in the mirror is themselves.",
+            "It does not suggest that they do not recognize themselves.",
+            "Instead, it shows that they have no idea how a mirror works.",
+            "Moreover, vision is not the main sense for all animals.",
+            "Some animals rely more on smell than vision, so failing the mirror test does not always mean they cannot recognize themselves."
+          ],
+          "translation": "鏡像テストは多くの議論や論争を引き起こしてきた。第一に、これまで鏡を見たことがない動物は、鏡に映っているものが自分自身だと理解できないかもしれない。これは、その動物が自分自身を認識していないことを示すわけではない。むしろ、それは鏡の仕組みを理解していないことを示しているにすぎない。さらに、視覚がすべての動物にとって主要な感覚であるとは限らない。視覚よりも嗅覚に頼る動物もいるため、鏡像テストに失敗したからといって、必ずしもその動物が自分自身を認識できないことを意味するわけではない。"
+        }
+      ],
+      "questions": [
+        {
+          "q": 27,
+          "stem": "The mirror test is used",
+          "choices": [
+            "to test an animal's ability to see in the dark.",
+            "to find out how far an animal can see outside.",
+            "to determine if an animal can recognize itself.",
+            "to see when a baby recognizes who its mother is."
+          ],
+          "answerIndex": 2,
+          "evidence": { "paragraph": 0, "sentences": [2, 3] },
+          "explanation": "第1段落「one idea that is often discussed is whether only humans can recognize or tell the difference between themselves and others. The mirror test is used to judge this.」から、鏡像テストは動物が自分自身を認識できるかどうかを判定するために使われることが分かる。",
+          "translation": "鏡像テストは何のために使われるか。\n1 動物が暗闇で見る能力を試すため。\n2 動物が屋外でどれくらい遠くまで見えるかを調べるため。\n3 動物が自分自身を認識できるかどうかを判定するため。\n4 赤ちゃんがいつ母親を認識するかを確認するため。"
+        },
+        {
+          "q": 28,
+          "stem": "How did the cleaner wrasses check if the fish in the mirror was themselves?",
+          "choices": [
+            "They opened and closed their mouths many times.",
+            "They compared the color of their body to that of the mirrored fish.",
+            "They tried to touch the fish in the mirror with their fins.",
+            "They began to swim in a different way than before."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 1, "sentences": [3] },
+          "explanation": "第2段落「Later, they changed how they swam and checked if the fish in the mirror also changed how they swam.（泳ぎ方を変えて鏡の中の魚も同じように変化するか確認した）」から、選択肢4「以前とは違う泳ぎ方をし始めた」が対応する。",
+          "translation": "ホンソメワケベラは、鏡の中の魚が自分自身かどうかをどのように確かめたか。\n1 何度も口を開け閉めした。\n2 自分の体の色と鏡に映った魚の色を比べた。\n3 鏡の中の魚にひれで触れようとした。\n4 以前とは違う泳ぎ方をし始めた。"
+        },
+        {
+          "q": 29,
+          "stem": "What behavior did the cleaner wrasses take when they were shown a picture of themselves with a mark?",
+          "choices": [
+            "They tried to get rid of the mark on their body.",
+            "They escaped from the picture and hid behind a rock.",
+            "They ignored the picture and showed no interest in it.",
+            "They began swimming with other fish in the tank."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 2, "sentences": [2] },
+          "explanation": "第3段落「When they were shown a picture of themselves with a mark on their body, they tried to remove the mark from their body.」がそのまま根拠。",
+          "translation": "ホンソメワケベラは、マーク付きの自分自身の写真を見せられたとき、どのような行動を取ったか。\n1 体についたマークを取り除こうとした。\n2 写真から逃げて岩の後ろに隠れた。\n3 写真を無視し、まったく興味を示さなかった。\n4 水槽の中の他の魚と一緒に泳ぎ始めた。"
+        },
+        {
+          "q": 30,
+          "stem": "In the discussion about the mirror test, it has been pointed out that",
+          "choices": [
+            "it costs a lot of money and takes too much time.",
+            "it is too dangerous to use a piece of glass in the water.",
+            "it only works on fish and some types of monkeys.",
+            "it needs to consider the other senses that animals have."
+          ],
+          "answerIndex": 3,
+          "evidence": { "paragraph": 3, "sentences": [4, 5] },
+          "explanation": "第4段落「vision is not the main sense for all animals. Some animals rely more on smell than vision, so failing the mirror test does not always mean they cannot recognize themselves.」から、鏡像テストの議論では視覚以外の感覚も考慮する必要があると指摘されていることが分かる。",
+          "translation": "鏡像テストに関する議論では、次のことが指摘されている。\n1 多くの費用と時間がかかりすぎる。\n2 水中でガラスを使うのは危険すぎる。\n3 魚と一部のサルにしか通用しない。\n4 動物が持つ他の感覚も考慮する必要がある。"
+        },
+        {
+          "q": 31,
+          "stem": "Which of the following statements is true?",
+          "choices": [
+            "Some fish can understand the difference between themselves and others.",
+            "The cleaner wrasses were marked first and then placed in a tank with a mirror.",
+            "The cleaner wrasses did not notice the marks that were put on their bodies.",
+            "It was found that animals with large brains understood how to use mirrors."
+          ],
+          "answerIndex": 0,
+          "evidence": { "paragraph": 2, "sentences": [4] },
+          "explanation": "第3段落最終文「This suggests that they recognize differences between themselves and other fish.」から、一部の魚（ホンソメワケベラ）が自分と他者の違いを認識できることが分かる。選択肢2は本文と順序が逆（鏡に慣れさせてから眠らせてマークを付けた、第2段落）なので誤り。",
+          "translation": "次のうち正しいものはどれか。\n1 一部の魚は自分自身と他者の違いを理解できる。\n2 ホンソメワケベラは先にマークを付けられ、その後鏡のある水槽に入れられた。\n3 ホンソメワケベラは自分の体に付けられたマークに気づかなかった。\n4 大きな脳を持つ動物は鏡の使い方を理解していることが分かった。"
+        }
+      ],
+      "summary": {
+        "sections": [
+          {
+            "label": "¶1 鏡像テストとは",
+            "lines": [
+              ["自分と他者を区別して認識できるのは", { "blank": 1 }, "かという議論がある。"],
+              ["これを判断するために", { "blank": 2 }, "が使われる。"],
+              ["動物の", { "blank": 3 }, "にマークを付け、それを取り除こうとすれば自己認識の証拠となる。"]
+            ]
+          },
+          {
+            "label": "¶2 ホンソメワケベラでの実験",
+            "lines": [
+              ["鏡のある水槽で", { "blank": 4 }, "という魚に同じテストを行った。"],
+              ["最初は自分の鏡像を", { "blank": 5 }, "。"],
+              ["鏡に慣れさせて眠らせマークを付けたところ、多くが", { "blank": 6 }, "。"]
+            ]
+          },
+          {
+            "label": "¶3 写真を使った追加実験",
+            "lines": [
+              ["マーク付きの自分自身の写真を見せると", { "blank": 7 }, "が、他の魚の写真では同じ反応をしなかった。"]
+            ]
+          },
+          {
+            "label": "¶4 鏡像テストをめぐる議論",
+            "lines": [
+              ["鏡を見たことがない動物は、鏡の中身が自分だと理解できないだけで、自己認識していないとは限らない。"],
+              ["また、", { "blank": 8 }, "に頼る動物もいるため、テストに失敗しても自己認識できないとは限らない。"]
+            ]
+          }
+        ],
+        "blanks": [
+          { "id": 1, "answer": "人間だけ", "accepted": ["人間だけ"] },
+          { "id": 2, "answer": "鏡像テスト", "accepted": ["鏡像テスト"] },
+          { "id": 3, "answer": "鏡なしでは見えない場所", "accepted": ["鏡なしでは見えない場所", "鏡の助けなしでは見えない場所"] },
+          { "id": 4, "answer": "ホンソメワケベラ", "accepted": ["ホンソメワケベラ", "cleaner wrasse"] },
+          { "id": 5, "answer": "別の魚だと思って攻撃した", "accepted": ["別の魚だと思って攻撃した", "他の魚だと思い攻撃した"] },
+          { "id": 6, "answer": "体をこすりつけてマークを取り除こうとした", "accepted": ["体をこすりつけてマークを取り除こうとした", "水槽や砂に体をこすりつけてマークを取ろうとした"] },
+          { "id": 7, "answer": "マークを取り除こうとした", "accepted": ["マークを取り除こうとした", "体からマークを取ろうとした"] },
+          { "id": 8, "answer": "視覚以外の感覚（嗅覚など）", "accepted": ["視覚以外の感覚（嗅覚など）", "嗅覚などの他の感覚"] }
+        ],
+        "distractors": ["動物だけ", "迷路テスト", "一年中日光が当たる場所", "クマノミ", "仲間だと思って近づいた", "水面に飛び跳ねた", "逃げようとした", "聴覚（音）"]
+      }
+    }
+  ]
+}
