@@ -12,39 +12,22 @@ const APP_ID = "eiken2-q3";
 const LEGACY_LOCAL_KEY = "eiken2q3.progress.v1";
 const STORE_PREFIX = "eiken2q3.progress.";
 const DATASET_KEY = "eiken_q3_dataset";
-const DATASETS = {
-  "eiken2-2026-1": {
-    label: "英検2級 2026年度第1回",
-    dataUrl: "data/q3_questions_2026-1.json",
-  },
-  "eiken2-2025-3": {
-    label: "英検2級 2025年度第3回",
-    dataUrl: "data/q3_questions_2025-3.json",
-  },
-  "eiken2-2025-2": {
-    label: "英検2級 2025年度第2回",
-    dataUrl: "data/q3_questions_2025-2.json",
-  },
-  "eikenp2-2026-1": {
-    label: "英検準2級 2026年度第1回",
-    dataUrl: "data/q3_questions_p2_2026-1.json",
-  },
-  "eikenp2-2025-3": {
-    label: "英検準2級 2025年度第3回",
-    dataUrl: "data/q3_questions_p2_2025-3.json",
-  },
-  "eikenp2-2025-2": {
-    label: "英検準2級 2025年度第2回",
-    dataUrl: "data/q3_questions_p2_2025-2.json",
-  },
-};
-const DEFAULT_DATASET_ID = "eiken2-2026-1";
+const MANIFEST_URL = "data/manifest.json";
+// 問題セット一覧は data/manifest.json（"q3"キー）から読み込む。
+// 回を追加するときはデータJSONを置いてmanifest.jsonに1エントリ足すだけでよく、このファイルの編集は不要。
+let DATASETS = {};
+let DEFAULT_DATASET_ID = null;
+async function loadManifest() {
+  const manifest = await fetch(MANIFEST_URL, { cache: "no-store" }).then((r) => r.json());
+  DATASETS = manifest.q3;
+  DEFAULT_DATASET_ID = manifest.defaultDatasetId;
+}
 
 const homePanel = document.getElementById("homePanel");
 const passagePanel = document.getElementById("sessionPanel");
 const shareStatusEl = document.getElementById("shareStatus");
 
-let datasetId = loadDatasetId();
+let datasetId = null; // loadManifest() 完了後、boot() 内で loadDatasetId() により確定する
 let DATA = null;
 let progress = { questions: {}, summaries: {} };
 let route = { view: "home" };
@@ -161,7 +144,14 @@ function sharedMode() {
   return Boolean(cloud && cloud.isEnabled());
 }
 
+function setChromeTitle(title) {
+  const titleEl = document.getElementById("appTitle");
+  if (titleEl) titleEl.textContent = title;
+  document.title = title;
+}
+
 function renderHome() {
+  setChromeTitle(`英検${currentDataset().shortLabel} 大問3 演習アプリ`);
   route = { view: "home" };
   passagePanel.classList.add("hide");
   passagePanel.classList.remove("q3Session");
@@ -733,7 +723,8 @@ function applyCloudProgress(map) {
 }
 
 async function boot() {
-  await loadData(datasetId);
+  await loadManifest();
+  await loadData(loadDatasetId());
 
   if (typeof createCloud === "function") {
     cloud = createCloud({

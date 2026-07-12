@@ -12,51 +12,22 @@ const EikenQ1App = (function () {
 const LEGACY_STORE_KEY = "eiken2_q1_v1";
 const STORE_PREFIX = "eiken_q1_progress_";
 const DATASET_KEY = "eiken_q1_dataset";
-const DATASETS = {
-  "eiken2-2026-1": {
-    label: "英検2級 2026年度第1回",
-    shortLabel: "2級",
-    vocabUrl: "data/vocab_2026-1.json",
-    questionsUrl: "data/questions_2026-1.json",
-  },
-  "eiken2-2025-3": {
-    label: "英検2級 2025年度第3回",
-    shortLabel: "2級",
-    vocabUrl: "data/vocab_2025-3.json",
-    questionsUrl: "data/questions_2025-3.json",
-  },
-  "eiken2-2025-2": {
-    label: "英検2級 2025年度第2回",
-    shortLabel: "2級",
-    vocabUrl: "data/vocab_2025-2.json",
-    questionsUrl: "data/questions_2025-2.json",
-  },
-  "eikenp2-2026-1": {
-    label: "英検準2級 2026年度第1回",
-    shortLabel: "準2級",
-    vocabUrl: "data/vocab_p2_2026-1.json",
-    questionsUrl: "data/questions_p2_2026-1.json",
-  },
-  "eikenp2-2025-3": {
-    label: "英検準2級 2025年度第3回",
-    shortLabel: "準2級",
-    vocabUrl: "data/vocab_p2_2025-3.json",
-    questionsUrl: "data/questions_p2_2025-3.json",
-  },
-  "eikenp2-2025-2": {
-    label: "英検準2級 2025年度第2回",
-    shortLabel: "準2級",
-    vocabUrl: "data/vocab_p2_2025-2.json",
-    questionsUrl: "data/questions_p2_2025-2.json",
-  },
-};
-const DEFAULT_DATASET_ID = "eiken2-2026-1";
+const MANIFEST_URL = "data/manifest.json";
+// 問題セット一覧は data/manifest.json（"q1"キー）から読み込む。
+// 回を追加するときはデータJSONを置いてmanifest.jsonに1エントリ足すだけでよく、このファイルの編集は不要。
+let DATASETS = {};
+let DEFAULT_DATASET_ID = null;
+async function loadManifest() {
+  const manifest = await fetch(MANIFEST_URL, { cache: "no-store" }).then((r) => r.json());
+  DATASETS = manifest.q1;
+  DEFAULT_DATASET_ID = manifest.defaultDatasetId;
+}
 // 選択肢を描画した直後、この時間だけクリックを無視する（誤ダブルクリック防止）
 const CHOICE_GUARD_MS = 400;
 const FLASH_NAV_GUARD_MS = 450;
 
 const state = {
-  datasetId: loadDatasetId(),
+  datasetId: null, // loadManifest() 完了後、boot() 内で loadDatasetId() により確定する
   itemsByQ: {},   // q -> [item, ...]
   questions: {},  // q -> {stem, choices, answerIndex, translation}
   qList: [],      // [1..n]
@@ -232,10 +203,17 @@ async function switchDataset(datasetId) {
   renderHome();
 }
 
+function setChromeTitle(title) {
+  const titleEl = document.getElementById("appTitle");
+  if (titleEl) titleEl.textContent = title;
+  document.title = title;
+}
+
 /* ============================================================
    HOME
    ============================================================ */
 function renderHome() {
+  setChromeTitle(`英検${dataset().shortLabel} 大問1 単語アプリ`);
   $("#sessionPanel").classList.add("hide");
   const home = $("#homePanel");
   home.classList.remove("hide");
@@ -937,17 +915,20 @@ function renderDone(body) {
 let booted = false;
 
 async function boot() {
-  // 生徒別クラウド同期（共有URL ?s=&t= があり、config.json が揃っているときのみ有効）
-  cloud = createCloud({
-    appId: APP_ID,
-    getPayload: collectAllProgress,
-    applyLoaded: applyCloudProgress,
-    onStatus: setShareStatus,
-  });
-  await cloud.init();
-  applySharedUi();
-
   try {
+    await loadManifest();
+    state.datasetId = loadDatasetId();
+
+    // 生徒別クラウド同期（共有URL ?s=&t= があり、config.json が揃っているときのみ有効）
+    cloud = createCloud({
+      appId: APP_ID,
+      getPayload: collectAllProgress,
+      applyLoaded: applyCloudProgress,
+      onStatus: setShareStatus,
+    });
+    await cloud.init();
+    applySharedUi();
+
     await loadData();
     renderHome();
   } catch (e) {
