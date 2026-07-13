@@ -531,6 +531,10 @@ h2 {
 .wrongReview { margin-top: 24px; border-top: 2px solid var(--ink); padding-top: 20px; }
 .wrongReview h3 { margin-top: 4px; }
 .wrongReview .flash { margin-top: 16px; }
+.wrongReview .flash:first-child { margin-top: 0; }
+.wrongReview .reviewCard.reviewCardDone { opacity: .55; }
+.reviewCheckBtn { margin: 14px 18px; }
+.reviewCountHint { margin-top: 16px; }
 
 .hide { display: none !important; }
 

@@ -156,6 +156,10 @@ function shuffle(arr) {
   return a;
 }
 function surfaceOf(item) { return item.type === "idiom" ? item.phrase : item.word; }
+// 選んだ誤答の意味が本当はどの語句のものかを逆引き（混同ペアの可視化）
+function findOwnerOfMeaning(type, meaning, excludeItem) {
+  return allVocabularyItems().find((it) => it !== excludeItem && it.type === type && it.meaning === meaning);
+}
 // 選択肢を描画した瞬間の時刻を記録し、直後の誤クリックを無視する
 function armChoiceGuard() { session._choicesReadyAt = performance.now() + CHOICE_GUARD_MS; }
 function choicesLocked() { return performance.now() < (session._choicesReadyAt || 0); }
@@ -453,6 +457,8 @@ function startLearn(q) {
     checkOrder: shuffle(items),
     checkIdx: 0,
     checkAnswered: false,
+    wrongLog: [],
+    wrongReviewed: false,
   };
   renderSession();
 }
@@ -486,6 +492,8 @@ function startMeaningPractice() {
     checkIdx: 0,
     checkAnswered: false,
     meaningCorrect: 0,
+    wrongLog: [],
+    wrongReviewed: false,
   };
   renderSession();
 }
@@ -501,7 +509,8 @@ function startFinalCheck() {
     checkIdx: 0,
     checkAnswered: false,
     finalCorrect: 0,
-    finalWrong: [],
+    wrongLog: [],
+    wrongReviewed: false,
   };
   renderSession();
 }
@@ -538,6 +547,7 @@ function renderSession() {
 
   if (session.stage === "flash") renderFlash(body);
   else if (session.stage === "check") renderCheck(body);
+  else if (session.stage === "wrongReview") renderWrongReview(body);
   else if (session.stage === "practice") renderPractice(body);
   else if (session.stage === "done") renderDone(body);
 }
@@ -556,6 +566,7 @@ function stageTitle(stage) {
   return {
     flash: "STEP 1　覚える（暗記カード）",
     check: "STEP 2　確かめる（意味チェック）",
+    wrongReview: "STEP 2.5　間違えた語句を復習",
     practice: "STEP 3　解く（本番形式）",
     done: "完了",
   }[stage];
@@ -593,9 +604,9 @@ function finalBar() {
 }
 
 function stageBar(stage) {
-  const order = ["flash", "check", "practice"];
+  const order = ["flash", "check", "wrongReview", "practice"];
   const cur = order.indexOf(stage);
-  const labels = { flash: "1 覚える", check: "2 確かめる", practice: "3 解く" };
+  const labels = { flash: "1 覚える", check: "2 確かめる", wrongReview: "2.5 復習", practice: "3 解く" };
   const bar = el("div", { class: "stageBar" });
   order.forEach((s, i) => {
     let cls = "stagePill";
@@ -738,7 +749,7 @@ function renderCheck(body) {
       });
       if (session.mode === "meaning" && isCorrect) session.meaningCorrect += 1;
       if (session.mode === "final" && isCorrect) session.finalCorrect += 1;
-      if (session.mode === "final" && !isCorrect) session.finalWrong.push(item);
+      if (!isCorrect && session.wrongLog) session.wrongLog.push({ item, picked: m });
       const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng") },
         el("h3", {}, isCorrect ? "正解！" : "おしい！"),
         el("p", {}, `${surface}：${correct}`),
@@ -755,12 +766,12 @@ function renderCheck(body) {
             session.checkAnswered = false;
             session._checkChoices = null;
             if (last) {
-              session.stage = (session.mode === "meaning" || session.mode === "final") ? "done" : "practice";
+              session.stage = nextStageAfterCheck();
               renderSession();
             }
             else { session.checkIdx++; renderSession(); }
           },
-        }, last ? ((session.mode === "meaning" || session.mode === "final") ? "結果を見る →" : "本番形式の問題へ →") : "次へ →"),
+        }, last ? nextAfterCheckLabel() : "次へ →"),
       );
       box.appendChild(actions);
       revealAnswerActions(actions);
@@ -769,6 +780,68 @@ function renderCheck(body) {
   });
   box.appendChild(choiceWrap);
   body.appendChild(box);
+}
+
+// 意味チェックの最終問のあと：誤答があればまず復習ステージへ、無ければ従来どおりの行き先へ
+function afterCheckDestination() {
+  return (session.mode === "meaning" || session.mode === "final") ? "done" : "practice";
+}
+function nextStageAfterCheck() {
+  if (session.wrongLog && session.wrongLog.length && !session.wrongReviewed) return "wrongReview";
+  return afterCheckDestination();
+}
+function nextAfterCheckLabel() {
+  if (session.wrongLog && session.wrongLog.length && !session.wrongReviewed) return "間違えた語句を復習する →";
+  return afterCheckDestination() === "done" ? "結果を見る →" : "本番形式の問題へ →";
+}
+
+/* ---- STEP 2.5: 誤答復習（暗記カード＋逆引き＋読了チェック） ---- */
+function renderWrongReview(body) {
+  const log = session.wrongLog;
+  const checked = new Set();
+
+  body.appendChild(el("p", { class: "hint" }, "間違えた語句を確認してください。読み終えたら「確認した」を押してください。"));
+
+  const listWrap = el("div", { class: "wrongReview" });
+  const hint = el("p", { class: "hint reviewCountHint" }, `残り${log.length}語`);
+  const nextBtn = el("button", {
+    class: "cta",
+    disabled: "disabled",
+    onclick: () => {
+      session.wrongReviewed = true;
+      session.stage = afterCheckDestination();
+      renderSession();
+    },
+  }, afterCheckDestination() === "done" ? "結果を見る →" : "本番形式の問題へ →");
+
+  log.forEach((entry, i) => {
+    const { item, picked } = entry;
+    const owner = findOwnerOfMeaning(item.type, picked, item);
+    const card = buildFlashCard(item);
+    card.classList.add("reviewCard");
+    const wrongLine = el("div", { class: "flashRow" },
+      el("strong", {}, "選んだ意味"),
+      el("div", { class: "flashEtym" }, picked + (owner ? `　→　これは「${surfaceOf(owner)}」の意味です` : "")),
+    );
+    card.querySelector(".flashBody").appendChild(wrongLine);
+    const checkBtn = el("button", { class: "ghost smallGhost reviewCheckBtn", type: "button" }, "確認した");
+    checkBtn.addEventListener("click", () => {
+      if (checked.has(i)) return;
+      checked.add(i);
+      checkBtn.disabled = true;
+      checkBtn.textContent = "確認済み";
+      card.classList.add("reviewCardDone");
+      const remaining = log.length - checked.size;
+      hint.textContent = remaining > 0 ? `残り${remaining}語` : "すべて確認しました";
+      if (checked.size === log.length) nextBtn.disabled = false;
+    });
+    card.appendChild(checkBtn);
+    listWrap.appendChild(card);
+  });
+
+  body.appendChild(listWrap);
+  body.appendChild(hint);
+  body.appendChild(el("div", { class: "actions" }, nextBtn));
 }
 
 function saveFinalResult() {
@@ -875,15 +948,6 @@ function renderDone(body) {
     banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
   }
   body.appendChild(banner);
-
-  if (isFinal && session.finalWrong && session.finalWrong.length) {
-    const review = el("div", { class: "wrongReview" });
-    review.appendChild(el("p", { class: "label" }, "Review"));
-    review.appendChild(el("h3", {}, `間違えた語句（${session.finalWrong.length}語）の暗記カード`));
-    review.appendChild(el("p", { class: "hint" }, "意味・語源・例文をもう一度確認しましょう。"));
-    session.finalWrong.forEach((item) => review.appendChild(buildFlashCard(item)));
-    body.appendChild(review);
-  }
 
   const actions = el("div", { class: "actions" });
   if (isFinal) {
