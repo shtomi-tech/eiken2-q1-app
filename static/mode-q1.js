@@ -295,34 +295,36 @@ function renderHome() {
   rec.appendChild(el("p", { class: "recWhy" }, primary.why));
   summary.appendChild(rec);
 
-  // そのほかの練習（従属メニュー・重要度順）。おすすめと重複する行動は出さない。
-  const more = [];
-  if (reviewQs.length && primary.onclick !== startReview) {
-    more.push({ cls: "secondaryCta reviewCta", label: `間違えた${reviewQs.length}問を復習`, onclick: startReview });
-  }
-  if (!final.cleared && primary.onclick !== startFinalCheck) {
-    if (canStartFinal) {
-      more.push({ cls: "secondaryCta finalCta", label: `最終チェック${finalTotal}問に挑戦`, onclick: startFinalCheck });
-    } else {
-      const remain = total - solved;
-      more.push({ cls: "secondaryCta", label: `最終チェック（あと${remain}問で解放）`, disabled: true });
-    }
-  }
-  more.push({ cls: "secondaryCta", label: `意味だけをまとめて練習（全${finalTotal}語・設問は解かない）`, onclick: startMeaningPractice });
+  // そのほかの練習（従属メニュー・重要度順）。
+  // 問題セット（データセット）や進捗によってボタンの有無が変わるとページ構造が揃わないため、
+  // 常に同じ3項目を固定順で表示し、選べない状態はdisabledで示す（表示/非表示の切り替えはしない）。
+  const remain = total - solved;
+  const more = [
+    {
+      cls: "secondaryCta reviewCta",
+      label: reviewQs.length ? `間違えた${reviewQs.length}問を復習` : "復習対象はありません",
+      onclick: startReview,
+      disabled: !reviewQs.length || primary.onclick === startReview,
+    },
+    final.cleared
+      ? { cls: "secondaryCta finalCta", label: `最終チェックCLEAR済み（BEST ${final.bestScore}/${finalTotal}）`, disabled: true }
+      : canStartFinal
+        ? { cls: "secondaryCta finalCta", label: `最終チェック${finalTotal}問に挑戦`, onclick: startFinalCheck, disabled: primary.onclick === startFinalCheck }
+        : { cls: "secondaryCta", label: `最終チェック（あと${remain}問で解放）`, disabled: true },
+    { cls: "secondaryCta", label: `意味だけをまとめて練習（全${finalTotal}語・設問は解かない）`, onclick: startMeaningPractice },
+  ];
 
-  if (more.length) {
-    const moreWrap = el("div", { class: "secondaryActions" });
-    moreWrap.appendChild(el("p", { class: "label" }, "そのほかの練習"));
-    const row = el("div", { class: "actions" });
-    more.forEach((m) => {
-      const attrs = { class: m.cls };
-      if (m.disabled) attrs.disabled = "disabled";
-      else attrs.onclick = m.onclick;
-      row.appendChild(el("button", attrs, m.label));
-    });
-    moreWrap.appendChild(row);
-    summary.appendChild(moreWrap);
-  }
+  const moreWrap = el("div", { class: "secondaryActions" });
+  moreWrap.appendChild(el("p", { class: "label" }, "そのほかの練習"));
+  const row = el("div", { class: "actions" });
+  more.forEach((m) => {
+    const attrs = { class: m.cls };
+    if (m.disabled) attrs.disabled = "disabled";
+    else attrs.onclick = m.onclick;
+    row.appendChild(el("button", attrs, m.label));
+  });
+  moreWrap.appendChild(row);
+  summary.appendChild(moreWrap);
   summary.appendChild(el("div", { class: "missionNote" },
     el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final, finalTotal)),
   ));
