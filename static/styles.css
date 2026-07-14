@@ -48,7 +48,7 @@ button:disabled { opacity: .45; cursor: default; }
 
 button.ghost { background: transparent; color: var(--ink); }
 button.ghost:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
-.smallGhost { min-height: 34px; padding: 5px 10px; font-size: 12px; }
+.smallGhost { min-height: 44px; padding: 10px 14px; font-size: 12px; }
 
 select, input {
   width: 100%;
@@ -197,6 +197,7 @@ h2 {
   border-left: 1px solid var(--ink);
   margin: 14px 0 16px;
 }
+.dailyGrid.cols4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .dailyCell {
   border-right: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
@@ -222,7 +223,25 @@ h2 {
   scroll-margin: 32px;
 }
 .answerActions .cta { min-width: min(100%, 260px); }
-.cta { border-radius: 0 0 8px 8px; font-weight: 600; }
+.cta { border-radius: 0; font-weight: 600; }
+
+/* 前へ/次への誤タップ防止：両端に離し、主操作（次へ）を優先して大きくする */
+.flashNav { justify-content: space-between; gap: 24px; }
+.flashNav .cta { flex: 1 1 auto; min-width: min(100%, 220px); }
+.flashNav .ghost { flex: 0 0 auto; }
+
+/* 回答後の主操作（次へ）を画面下部に固定し、連続演習での誤タップ・スクロール量を減らす */
+@media (max-width: 720px) {
+  .answerActions {
+    position: sticky;
+    bottom: 0;
+    background: var(--parchment);
+    border-top: 1px solid var(--ink);
+    margin: 14px -16px -16px;
+    padding: 12px 16px;
+    z-index: 5;
+  }
+}
 .startCta {
   background: var(--ink);
   border-color: var(--ink);
@@ -286,6 +305,13 @@ h2 {
 .secondaryCta.reviewCta:hover:not(:disabled),
 .secondaryCta.finalCta:hover:not(:disabled) { background: var(--clay); color: var(--parchment); }
 
+.missionNote {
+  border-top: 1px solid var(--line);
+  margin-top: 16px;
+  padding-top: 12px;
+}
+.missionNote .hint { margin: 0; }
+
 .settingRow {
   display: flex;
   align-items: center;
@@ -300,8 +326,6 @@ h2 {
 
 /* ---- Question path ---- */
 .pathHead { border-top: 2px solid var(--ink); margin-top: 20px; padding-top: 18px; }
-.questCard { border-width: 2px; }
-.questCard .hint { border-top: 1px solid var(--line); padding-top: 12px; }
 
 .itemList {
   display: grid;
@@ -466,7 +490,7 @@ h2 {
 .blank { border-bottom: 2px solid var(--ink); padding: 0 22px; }
 .askWord { font-family: var(--serif); font-size: 26px; margin: 0 0 16px; }
 
-.choices { display: grid; gap: 10px; }
+.choices { display: grid; gap: 12px; }
 .choiceBtn {
   background: var(--paper);
   color: var(--ink);
@@ -541,6 +565,7 @@ h2 {
 @media (max-width: 720px) {
   .dailyGrid, .itemList { grid-template-columns: 1fr; }
   .dailyGrid { grid-template-columns: repeat(3, 1fr); }
+  .dailyGrid.cols4 { grid-template-columns: repeat(2, 1fr); }
   .topActions, .itemHead, .sectionHead { align-items: stretch; }
   .stagePill { min-width: 90px; font-size: 10px; }
 }
@@ -560,24 +585,23 @@ h2 {
 .passageCard .ptitle { font-family: var(--serif); font-size: 18px; font-weight: 500; margin: 0 0 4px; }
 .passageCard .psub { margin: 0 0 12px; color: var(--muted); font-size: 13px; font-family: var(--mono); letter-spacing: .03em; }
 
-.statRow { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 14px; font-size: 13px; }
-.statRow .stat b { font-family: var(--mono); }
-
-.actionRow { display: flex; gap: 10px; flex-wrap: wrap; }
-
-.reviewBanner {
-  background: var(--paper);
-  border: 1px solid var(--clay);
-  padding: 14px 18px;
-  margin-bottom: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+/* 情報ゾーン（タイトル・統計）と操作ゾーン（ボタン）を近接・罫線で分ける（ゲシュタルト：近接・閉合） */
+.passageStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  margin: 12px 0 16px;
+  padding-top: 12px;
 }
-.reviewBanner p { margin: 0; font-size: 14px; }
-.reviewBanner .count { font-family: var(--mono); color: var(--clay); }
+.passageStatCell .dailyCaption { margin: 0 0 4px; }
+.passageStatCell .statValue { margin: 0; font-size: 13px; }
+
+.actionRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
 
 /* ---- passage practice layout ---- */
 .practiceGrid {
@@ -628,7 +652,8 @@ h2 {
 .paraTrans.hide { display: none; }
 
 .linkBtn {
-  background: none; border: none; color: var(--muted); min-height: auto; padding: 0;
+  background: none; border: none; color: var(--muted); min-height: 44px; padding: 0;
+  display: inline-flex; align-items: center;
   font-family: var(--mono); font-size: 11px; text-decoration: underline; text-underline-offset: 3px;
   letter-spacing: .03em; cursor: pointer;
 }
@@ -642,7 +667,16 @@ h2 {
 .evidenceStep { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 4px; }
 .evidenceHint { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
 
-.resultBox { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; }
+/* 大問1の .feedback と同じ「罫線カード＋左太罫」の書式に統一（ゲシュタルト：類同） */
+.resultBox {
+  border: 1px solid var(--ink);
+  border-left: 4px solid var(--ink);
+  background: var(--paper);
+  margin-top: 14px;
+  padding: 12px 14px;
+}
+.resultBox.ok { border-left-color: var(--ok); }
+.resultBox.ng { border-left-color: var(--ng); }
 .resultLine { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; margin-bottom: 4px; }
 .tag { display: inline-block; padding: 2px 8px; font-size: 11px; font-family: var(--mono); letter-spacing: .04em; border: 1px solid currentColor; }
 .tag.ok { color: var(--ok); }
@@ -672,23 +706,29 @@ h2 {
 .answerReveal { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
 /* ---- 大問3セッション内のみ: choices/choiceBtn/blank を上書き（大問1と描画が異なるため） ---- */
-.q3Session .choices { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+/* 選択肢の見た目は大問1と統一（枠のみで正誤を示す・hoverは反転）。レイアウトのみここで上書きする */
+.q3Session .choices { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
 .q3Session .choiceBtn {
-  display: flex; gap: 10px; align-items: flex-start; text-align: left;
-  background: var(--paper); color: var(--ink); border: 1px solid var(--ink);
-  padding: 10px 12px; width: 100%;
+  display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%;
 }
-.q3Session .choiceBtn:hover:not(:disabled) { background: #f0ece0; }
-.q3Session .choiceBtn .num { font-family: var(--mono); color: var(--muted); }
-.q3Session .choiceBtn.correct { background: #dcecdf; border-color: var(--ok); }
-.q3Session .choiceBtn.wrong { background: #f6e2df; border-color: var(--ng); }
+.q3Session .choiceBtn:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
+.q3Session .choiceBtn .num {
+  border: 1px solid currentColor;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: 0 0 24px; height: 24px;
+  font-family: var(--mono); font-size: 12px;
+}
+.q3Session .choiceBtn.correct { border-color: var(--ok); border-width: 2px; }
+.q3Session .choiceBtn.wrong { border-color: var(--ng); border-width: 2px; }
 .q3Session .choiceBtn:disabled { opacity: 1; cursor: default; }
 
 .q3Session .blank {
   display: inline-block;
   min-width: 90px;
+  min-height: 32px;
+  line-height: 24px;
   border-bottom: 2px solid var(--ink);
-  padding: 0 4px;
+  padding: 4px;
   margin: 0 2px;
   text-align: center;
   cursor: pointer;
@@ -701,3 +741,7 @@ h2 {
 .q3Session .blank.correct { border-color: var(--ok); color: var(--ok); }
 .q3Session .blank.wrong { border-color: var(--ng); color: var(--ng); }
 .q3Session .blank[data-locked="1"] { cursor: default; }
+
+@media (max-width: 720px) {
+  .passageStatsGrid, .actionRow { grid-template-columns: 1fr; }
+}

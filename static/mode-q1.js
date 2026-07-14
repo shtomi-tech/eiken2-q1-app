@@ -223,12 +223,6 @@ function renderHome() {
   home.classList.remove("hide");
   home.innerHTML = "";
 
-  home.appendChild(el("section", { class: "card hero" },
-    el("p", { class: "label" }, "Vocabulary First"),
-    el("h2", {}, "大問1の語句を「覚えてから解く」"),
-    el("p", { class: "hint" }, "各設問の4つの選択肢を、意味・語源・例文で覚える → 意味チェック → 本番形式で解く、の3ステップ。"),
-  ));
-
   const total = state.qList.length;
   const learned = state.qList.filter((q) => unit(q).learned).length;
   const solved = state.qList.filter((q) => unit(q).solvedCorrect).length;
@@ -237,19 +231,30 @@ function renderHome() {
   const final = finalProgress(finalTotal);
   const currentDataset = dataset();
 
-  // daily / summary
+  // hero は初回訪問（まだ何も学習していない）時だけ表示し、Today見出しとの説明重複を避ける
+  if (learned === 0) {
+    home.appendChild(el("section", { class: "card hero" },
+      el("p", { class: "label" }, "Vocabulary First"),
+      el("h2", {}, "大問1の語句を「覚えてから解く」"),
+      el("p", { class: "hint" }, "各設問の4つの選択肢を、意味・語源・例文で覚える → 意味チェック → 本番形式で解く、の3ステップ。"),
+    ));
+  }
+
+  // daily / summary（旧・Today/Missionカードを統合。重複する指標は1本化する）
   const summary = el("section", { class: "card" });
+  const headerTitle = final.cleared ? `${currentDataset.shortLabel} 大問1 CLEAR` : `${currentDataset.shortLabel} 大問1を「覚えて→確かめて→解く」`;
   summary.appendChild(el("div", { class: "sectionHead" },
     el("div", {},
-      el("p", { class: "label" }, "Today"),
-      el("h2", {}, `${currentDataset.shortLabel} 大問1を「覚えて→確かめて→解く」`),
+      el("p", { class: "label" }, final.cleared ? "Mission" : "Today"),
+      el("h2", {}, headerTitle),
     ),
     datasetPicker(),
   ));
-  const grid = el("div", { class: "dailyGrid" });
+  const grid = el("div", { class: "dailyGrid cols4" });
   grid.appendChild(statCell(learned, total, "学習した設問"));
-  grid.appendChild(statCell(solved, total, "本番で正解"));
-  grid.appendChild(statCell(reviewQs.length, total, "間違えた設問"));
+  grid.appendChild(statCell(solved, total, "正解"));
+  grid.appendChild(statCell(reviewQs.length, total, "復習対象"));
+  grid.appendChild(statCell(final.bestScore, finalTotal, "最終チェック BEST"));
   summary.appendChild(grid);
 
   // --- 次にやること（Hickの法則：迷わせないため主導線は常に1つに絞る） ---
@@ -318,22 +323,10 @@ function renderHome() {
     moreWrap.appendChild(row);
     summary.appendChild(moreWrap);
   }
-  home.appendChild(summary);
-
-  const quest = el("section", { class: "card questCard" });
-  quest.appendChild(el("div", { class: "sectionHead" },
-    el("div", {},
-      el("p", { class: "label" }, "Mission"),
-      el("h2", {}, final.cleared ? `${currentDataset.shortLabel} 大問1 CLEAR` : "大問1 攻略状況"),
-    ),
+  summary.appendChild(el("div", { class: "missionNote" },
+    el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final, finalTotal)),
   ));
-  const questGrid = el("div", { class: "dailyGrid" });
-  questGrid.appendChild(statCell(solved, total, "通常ステージ CLEAR"));
-  questGrid.appendChild(statCell(reviewQs.length, total, "復習対象"));
-  questGrid.appendChild(statCell(final.bestScore, finalTotal, "最終チェック BEST"));
-  quest.appendChild(questGrid);
-  quest.appendChild(el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final, finalTotal)));
-  home.appendChild(quest);
+  home.appendChild(summary);
 
   // question path
   const path = el("section", { class: "card" });
@@ -646,7 +639,7 @@ function renderFlash(body) {
 
   body.appendChild(buildFlashCard(item));
 
-  const nav = el("div", { class: "actions" });
+  const nav = el("div", { class: "actions flashNav" });
   const canGoBack = session.flashIdx > 0;
   const prevAttrs = canGoBack ? { class: "ghost" } : { class: "ghost", disabled: "disabled" };
   prevAttrs.onclick = () => {

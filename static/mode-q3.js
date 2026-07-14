@@ -150,6 +150,51 @@ function setChromeTitle(title) {
   document.title = title;
 }
 
+function passageIncomplete(p) {
+  return p.questions.some((q) => !(progress.questions[q.q] && progress.questions[q.q].answered));
+}
+function passageSummaryDone(p) {
+  const sp = progress.summaries[p.id];
+  return Boolean(sp && sp.graded);
+}
+function passageLabel(p) {
+  return p.part === "A" ? "3A" : "3B";
+}
+
+// おすすめ（主導線）＝状態に応じて1つだけ決める（Hickの法則：大問1ホームと同じ考え方）。
+// 重要度：復習 → 未完了の文章 → 未実施の内容整理 → 周回。
+function computePrimaryAction(reviewCount) {
+  if (reviewCount > 0) {
+    return {
+      label: `間違えた${reviewCount}件をまとめて復習する`,
+      why: "誤答・根拠不一致の設問と、要復習の内容整理をまとめて解消します。",
+      onclick: startReview,
+    };
+  }
+  const incomplete = DATA.passages.find(passageIncomplete);
+  if (incomplete) {
+    const s = passageStats(incomplete);
+    return {
+      label: `${passageLabel(incomplete)}「${incomplete.title}」の続きから解く（${s.qAnswered}/${s.qTotal}問）`,
+      why: "4択に解答し、根拠だと思う文を本文からタップして選びます。",
+      onclick: () => openPractice(incomplete.id),
+    };
+  }
+  const unsummarized = DATA.passages.find((p) => !passageSummaryDone(p));
+  if (unsummarized) {
+    return {
+      label: `${passageLabel(unsummarized)}「${unsummarized.title}」の内容整理に進む`,
+      why: "本文を見ながら、要約の空所を埋めます。",
+      onclick: () => openSummary(unsummarized.id),
+    };
+  }
+  return {
+    label: "最初の文章からもう一周する",
+    why: "設問・内容整理を解き直します。",
+    onclick: () => openPractice(DATA.passages[0].id),
+  };
+}
+
 function renderHome() {
   setChromeTitle(`英検${currentDataset().shortLabel} 大問3 演習アプリ`);
   route = { view: "home" };
@@ -176,33 +221,59 @@ function renderHome() {
   const wrongQ = wrongQuestionQueue();
   const wrongS = wrongSummaryPassageIds();
   const reviewCount = wrongQ.length + wrongS.length;
+  const primary = computePrimaryAction(reviewCount);
 
-  const banner = reviewCount > 0
-    ? `<div class="reviewBanner">
-        <p>復習が必要な項目が <span class="count">${reviewCount}</span> 件あります（誤答・根拠不一致の設問／要復習の内容整理）。</p>
-        <button type="button" id="startReviewBtn">まとめて復習する</button>
-      </div>`
-    : "";
+  const todayHtml = `<section class="card">
+    <div class="sectionHead">
+      <div>
+        <p class="label">${reviewCount > 0 ? "Review" : "Today"}</p>
+        <h2>${escapeHtml(currentDataset().shortLabel)} 大問3を進める</h2>
+      </div>
+    </div>
+    <div class="recommend">
+      <p class="recEyebrow">▶ まずはここから</p>
+      <button type="button" class="cta startCta" id="primaryActionBtn">${escapeHtml(primary.label)}</button>
+      <p class="recWhy">${escapeHtml(primary.why)}</p>
+    </div>
+  </section>`;
 
   const cards = DATA.passages.map((p) => {
     const s = passageStats(p);
-    const label = p.part === "A" ? "3A" : "3B";
     const typeLabel = p.type === "email" ? "Eメール文" : "説明文";
-    const summaryLabel = s.sGraded ? `${s.sCorrect} / ${s.sTotal} 正解` : "未挑戦";
+    const summaryLabel = s.sGraded ? `${s.sCorrect}/${s.sTotal} 正解・やり直し` : "未挑戦";
+    const practiceLabel = s.qAnswered > 0 ? `${s.qAnswered}/${s.qTotal}問` : `全${s.qTotal}問`;
     return `
       <div class="passageCard">
-        <p class="psub">${label} ・ ${typeLabel}</p>
-        <p class="ptitle">${escapeHtml(p.title)}</p>
-        <div class="statRow">
-          <span class="stat">設問: <b>${s.qAnswered}/${s.qTotal}</b> 解答済み（正解 <b>${s.qCorrect}</b>・根拠一致 <b>${s.qExact}</b>）</span>
-          <span class="stat">内容整理: <b>${summaryLabel}</b></span>
+        <div class="passageInfo">
+          <p class="psub">${passageLabel(p)} ・ ${typeLabel}</p>
+          <p class="ptitle">${escapeHtml(p.title)}</p>
+        </div>
+        <div class="passageStatsGrid">
+          <div class="passageStatCell">
+            <p class="dailyCaption">設問</p>
+            <p class="statValue">${s.qAnswered}/${s.qTotal} 解答済み（正解 ${s.qCorrect}・根拠一致 ${s.qExact}）</p>
+          </div>
+          <div class="passageStatCell">
+            <p class="dailyCaption">内容整理</p>
+            <p class="statValue">${summaryLabel}</p>
+          </div>
         </div>
         <div class="actionRow">
-          <button type="button" data-action="practice" data-passage="${p.id}">設問演習</button>
-          <button class="ghost" type="button" data-action="summary" data-passage="${p.id}">内容整理（要約穴埋め）</button>
+          <button type="button" data-action="practice" data-passage="${p.id}">設問を解く（${practiceLabel}）</button>
+          <button class="ghost" type="button" data-action="summary" data-passage="${p.id}">内容整理（${summaryLabel}）</button>
         </div>
       </div>`;
   }).join("");
+
+  const passagesHtml = `<section class="card">
+    <div class="sectionHead">
+      <div>
+        <p class="label">Passages</p>
+        <h2>文章一覧（全${DATA.passages.length}本）</h2>
+      </div>
+    </div>
+    <div class="passageList">${cards}</div>
+  </section>`;
 
   const otherHtml = sharedMode() ? "" : `<section class="card">
     <details class="moreDetails">
@@ -213,13 +284,13 @@ function renderHome() {
     </details>
   </section>`;
 
-  homePanel.innerHTML = `${heroHtml}${banner}<div class="passageList">${cards}</div>${otherHtml}`;
+  homePanel.innerHTML = `${heroHtml}${todayHtml}${passagesHtml}${otherHtml}`;
 
   const datasetSelect = document.getElementById("q3DatasetSelect");
   if (datasetSelect) datasetSelect.addEventListener("change", (e) => switchDataset(e.target.value));
 
-  const reviewBtn = document.getElementById("startReviewBtn");
-  if (reviewBtn) reviewBtn.addEventListener("click", startReview);
+  const primaryBtn = document.getElementById("primaryActionBtn");
+  if (primaryBtn) primaryBtn.addEventListener("click", primary.onclick);
 
   homePanel.querySelectorAll('[data-action="practice"]').forEach((btn) => {
     btn.addEventListener("click", () => openPractice(btn.dataset.passage));
@@ -394,7 +465,7 @@ function paintPractice(passage, question, isAnswered, stored) {
     </div>`;
   } else if (showResult) {
     const st = stored || computeResultForCurrentSelection(question);
-    stepHtml = `<div class="resultBox">
+    stepHtml = `<div class="resultBox ${st.correct ? "ok" : "ng"}">
       <div class="resultLine">
         <span class="tag ${st.correct ? "ok" : "ng"}">${st.correct ? "正解" : "不正解"}</span>
         <span class="tag ${st.evidenceMatch}">根拠: ${st.evidenceMatch === "exact" ? "一致" : st.evidenceMatch === "partial" ? "部分一致" : "不一致"}</span>
@@ -406,11 +477,9 @@ function paintPractice(passage, question, isAnswered, stored) {
   }
 
   const isLast = route.idx === route.queue.length - 1;
-  const navHtml = `<div class="navRow" style="justify-content:flex-end;">
-    <div style="display:flex; gap:8px;">
-      ${route.idx > 0 ? '<button class="ghost" type="button" id="prevQBtn">前の設問</button>' : ""}
-      ${showResult ? `<button type="button" id="nextQBtn">${isLast ? "この文章を終える" : "次の設問へ"}</button>` : ""}
-    </div>
+  const navHtml = `<div class="navRow">
+    ${route.idx > 0 ? '<button class="ghost" type="button" id="prevQBtn">前の設問</button>' : "<span></span>"}
+    ${showResult ? `<button type="button" id="nextQBtn">${isLast ? "この文章を終える" : "次の設問へ"}</button>` : ""}
   </div>`;
 
   passagePanel.innerHTML = `<div class="practiceGrid">
