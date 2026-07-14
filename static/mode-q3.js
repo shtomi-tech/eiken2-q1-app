@@ -215,7 +215,6 @@ function renderHome() {
     <p class="label">Reading Comprehension</p>
     <h2>長文を読み、根拠を示しながら解く</h2>
     <p class="hint">4択に解答したら、根拠だと思う文を本文からタップして選ぶ。選択肢が合っていても根拠がずれていれば、それも記録される。内容整理では、本文を見ながら日本語の要約の空所を埋める。</p>
-    ${datasetPickerHtml}
   </section>`;
 
   const wrongQ = wrongQuestionQueue();
@@ -223,12 +222,14 @@ function renderHome() {
   const reviewCount = wrongQ.length + wrongS.length;
   const primary = computePrimaryAction(reviewCount);
 
+  // 問題セット選択の置き場所を大問1（Today/MissionカードのsectionHead右側）と揃える
   const todayHtml = `<section class="card">
     <div class="sectionHead">
       <div>
         <p class="label">${reviewCount > 0 ? "Review" : "Today"}</p>
         <h2>${escapeHtml(currentDataset().shortLabel)} 大問3を進める</h2>
       </div>
+      ${datasetPickerHtml}
     </div>
     <div class="recommend">
       <p class="recEyebrow">▶ まずはここから</p>
