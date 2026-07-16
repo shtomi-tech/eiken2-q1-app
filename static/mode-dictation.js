@@ -100,49 +100,51 @@ let els = {};
 function renderShell() {
   sessionPanel.innerHTML = `
     <div class="dictSession">
-      <div class="dict-top-actions">
-        <label class="study-select">
-          <span class="sr-only">教材を選択</span>
-          <select id="dictStudySelect" aria-label="教材を選択"></select>
-        </label>
-        <ol class="step-indicator" aria-label="進行状況">
-          <li id="dictModeProblem" class="step active" aria-current="step">① 問題</li>
-          <li id="dictModeDictation" class="step">② 書き取り</li>
-          <li id="dictModeReview" class="step">③ 答えとスクリプト</li>
-        </ol>
+      <div class="dictHead">
+        <p class="roundInfo" id="dictGradeLabel">EIKEN GRADE 2</p>
+        <div class="datasetPicker">
+          <label class="fieldLabel" for="dictStudySelect">問題セット</label>
+          <select id="dictStudySelect" class="datasetSelect"></select>
+        </div>
       </div>
 
-      <div class="layout">
-        <aside class="sidebar" aria-label="問題一覧">
-          <div class="side-head">
-            <p class="label" id="dictGradeLabel">EIKEN GRADE 2</p>
-            <p id="dictScoreLine" class="score">0 / 30</p>
+      <div class="stageBar" aria-label="進行状況">
+        <span id="dictModeProblem" class="stagePill active" aria-current="step">① 問題</span>
+        <span id="dictModeDictation" class="stagePill">② 書き取り</span>
+        <span id="dictModeReview" class="stagePill">③ 答えとスクリプト</span>
+      </div>
+
+      <div class="dictLayout">
+        <aside class="dictSidebar" aria-label="問題一覧">
+          <div class="dictSideHead">
+            <p class="label">Questions</p>
+            <p id="dictScoreLine" class="dictScore">0 / 30</p>
           </div>
-          <div id="dictQuestionList" class="question-list"></div>
+          <div id="dictQuestionList" class="dictQuestionList"></div>
         </aside>
 
-        <section class="workbench">
-          <div class="lesson-head">
+        <section class="dictWorkbench">
+          <div class="dictLessonHead">
             <div>
-              <p id="dictPartLabel" class="label">PART</p>
+              <p id="dictPartLabel" class="label">Part</p>
               <h2 id="dictLessonTitle">読み込み中…</h2>
             </div>
-            <div id="dictResultBadge" class="result-badge" aria-live="polite">未解答</div>
+            <div id="dictResultBadge" class="dictBadge" aria-live="polite">未解答</div>
           </div>
 
-          <div class="audio-panel">
-            <h3 class="section-title">1. 音声を聞く</h3>
+          <div class="card">
+            <h3 class="dictStepTitle">1. 音声を聞く</h3>
             <audio id="dictAudio" preload="metadata"></audio>
-            <div class="transport">
-              <button id="dictPlayBtn" class="primary play-btn" type="button">▶ 音声を聞く</button>
-              <button id="dictBackBtn" class="back-btn" type="button">5秒戻る</button>
-              <details class="playback-settings">
+            <div class="dictTransport">
+              <button id="dictPlayBtn" class="cta dictPlay" type="button">▶ 音声を聞く</button>
+              <button id="dictBackBtn" class="ghost" type="button">5秒戻る</button>
+              <details class="dictSettings">
                 <summary>再生設定</summary>
-                <div class="playback-settings-body">
-                  <button id="dictReplayBtn" type="button">音声を先頭から再生</button>
-                  <button id="dictLoopBtn" type="button" aria-pressed="false">区間を繰り返す</button>
-                  <label class="speed-control">
-                    <span>速度</span>
+                <div class="dictSettingsBody">
+                  <button id="dictReplayBtn" class="ghost" type="button">音声を先頭から再生</button>
+                  <button id="dictLoopBtn" class="ghost" type="button" aria-pressed="false">区間を繰り返す</button>
+                  <label class="dictSpeed">
+                    <span class="fieldLabel">速度</span>
                     <select id="dictSpeedSelect" aria-label="再生速度">
                       <option value="1">1.00x（おすすめ）</option>
                       <option value="0.85">0.85x</option>
@@ -152,20 +154,20 @@ function renderShell() {
                 </div>
               </details>
             </div>
-            <div class="timeline-row">
+            <div class="dictTimelineRow">
               <span id="dictTimeNow">0:00</span>
               <input id="dictTimeline" type="range" min="0" max="1000" value="0" aria-label="再生位置">
               <span id="dictTimeEnd">0:00</span>
             </div>
-            <details class="segment-edit">
+            <details class="dictSegmentEdit">
               <summary>区間調整</summary>
-              <div class="trim-panel">
-                <div class="trim-actions">
-                  <button id="dictSetStartBtn" type="button">ここから開始</button>
-                  <button id="dictSetEndBtn" type="button">ここで終了</button>
-                  <button id="dictResetSegmentBtn" type="button">区間設定を解除</button>
+              <div class="dictTrimPanel">
+                <div class="dictTrimActions">
+                  <button id="dictSetStartBtn" class="ghost" type="button">ここから開始</button>
+                  <button id="dictSetEndBtn" class="ghost" type="button">ここで終了</button>
+                  <button id="dictResetSegmentBtn" class="ghost" type="button">区間設定を解除</button>
                 </div>
-                <div class="trim-grid">
+                <div class="dictTrimGrid">
                   <label>
                     <span>開始</span>
                     <input id="dictStartInput" type="range" min="0" max="1000" value="0" aria-label="開始位置">
@@ -181,9 +183,9 @@ function renderShell() {
             </details>
           </div>
 
-          <div id="dictProblemPanel" class="panel"></div>
-          <div id="dictDictationPanel" class="panel hidden"></div>
-          <div id="dictReviewPanel" class="panel hidden"></div>
+          <div id="dictProblemPanel" class="card"></div>
+          <div id="dictDictationPanel" class="card hide"></div>
+          <div id="dictReviewPanel" class="card hide"></div>
         </section>
       </div>
     </div>
@@ -267,9 +269,9 @@ function showLoadError(error) {
   console.error(error);
   els.lessonTitle.textContent = "読み込みに失敗しました";
   els.playBtn.disabled = true;
-  els.problemPanel.classList.remove("hidden");
+  els.problemPanel.classList.remove("hide");
   els.problemPanel.innerHTML =
-    '<p class="feedback" aria-live="polite">問題データを読み込めませんでした。ページを再読み込みするか、data/lessons.json を確認してください。</p>';
+    '<p class="feedback ng" aria-live="polite">問題データを読み込めませんでした。ページを再読み込みするか、data/lessons.json を確認してください。</p>';
 }
 
 function bindEvents() {
@@ -357,15 +359,15 @@ function renderQuestionList() {
   let lastPart = null;
   els.questionList.innerHTML = state.lessons.map((lesson, index) => {
     const result = state.answers.get(lesson.id);
-    const classes = ["q-button"];
+    const classes = ["qBtn"];
     if (index === state.index) classes.push("active");
     if (result === true) classes.push("correct");
     if (result === false) classes.push("wrong");
-    if (index === nextUpIndex && index !== state.index) classes.push("next-up");
+    if (index === nextUpIndex && index !== state.index) classes.push("nextUp");
     let header = "";
     if (lesson.part !== lastPart) {
       lastPart = lesson.part;
-      header = `<p class="q-part-head">PART ${lesson.part}</p>`;
+      header = `<p class="qPartHead">PART ${lesson.part}</p>`;
     }
     return `${header}<button class="${classes.join(" ")}" type="button" data-index="${index}">${lesson.id}</button>`;
   }).join("");
@@ -383,45 +385,46 @@ function renderPanels() {
   const lesson = currentLesson();
   const selected = state.selected;
   els.problemPanel.innerHTML = `
-    <h3 class="section-title">2. 答えを選ぶ</h3>
-    <div class="choices">
+    <h3 class="dictStepTitle">2. 答えを選ぶ</h3>
+    <div class="dictChoices">
       ${lesson.choices.map((choice, index) => {
         const value = index + 1;
         const checked = selected === value ? "checked" : "";
         const selectedClass = selected === value ? " selected" : "";
-        return `<label class="choice${selectedClass}">
-          <input type="radio" name="dictChoice" value="${value}" ${checked}>
-          <span>${value}. ${escapeHtml(choice)}</span>
+        return `<label class="dictChoice${selectedClass}">
+          <input class="srOnly" type="radio" name="dictChoice" value="${value}" ${checked}>
+          <span class="key">${value}</span>
+          <span>${escapeHtml(choice)}</span>
         </label>`;
       }).join("")}
     </div>
-    <div class="choice-actions">
-      <button id="dictCheckBtn" class="primary primary-action" type="button" ${selected ? "" : "disabled"}>選択した答えを確認する</button>
-      <button id="dictSkipBtn" class="link-btn" type="button">この問題を飛ばす</button>
-    </div>
     <p id="dictFeedback" class="feedback" aria-live="polite"></p>
+    <div class="dictActions">
+      <button id="dictCheckBtn" class="cta" type="button" ${selected ? "" : "disabled"}>選択した答えを確認する</button>
+      <button id="dictSkipBtn" class="dictLink" type="button">この問題を飛ばす</button>
+    </div>
   `;
 
   els.dictationPanel.innerHTML = `
-    <h3 class="section-title">2. 書き取り</h3>
-    <p class="panel-lead">No. ${lesson.id} の英文を紙に書き取り、目視で確認します。</p>
-    <div class="choice-actions">
-      <button id="dictShowScriptBtn" class="primary primary-action" type="button">スクリプトを表示して確認する</button>
-      <button id="dictBackProblemBtn" class="link-btn" type="button">問題へ戻る</button>
+    <h3 class="dictStepTitle">2. 書き取り</h3>
+    <p class="dictLead">No. ${lesson.id} の英文を紙に書き取り、目視で確認します。</p>
+    <div class="dictActions">
+      <button id="dictShowScriptBtn" class="cta" type="button">スクリプトを表示して確認する</button>
+      <button id="dictBackProblemBtn" class="dictLink" type="button">問題へ戻る</button>
     </div>
   `;
 
   els.reviewPanel.innerHTML = `
-    <p class="answer-line">正解: ${lesson.answer}. ${escapeHtml(lesson.choices[lesson.answer - 1])}</p>
-    <h3 class="section-title">3. 答えとスクリプト</h3>
-    <div class="script">${escapeHtml(scriptWithQuestion(lesson))}</div>
-    <h3>Listening Points</h3>
-    <ul class="tip-list">
+    <h3 class="dictStepTitle">3. 答えとスクリプト</h3>
+    <p class="dictAnswerLine">正解: ${lesson.answer}. ${escapeHtml(lesson.choices[lesson.answer - 1])}</p>
+    <div class="dictScript">${escapeHtml(scriptWithQuestion(lesson))}</div>
+    <p class="label dictTipsLabel">Listening Points</p>
+    <ul class="dictTips">
       ${lesson.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("")}
     </ul>
-    <div class="review-actions">
-      <button id="dictNextBtn" class="primary primary-action" type="button">次の問題へ</button>
-      <button id="dictAgainBtn" type="button">音声をもう一度聞く</button>
+    <div class="dictActions">
+      <button id="dictNextBtn" class="cta" type="button">次の問題へ</button>
+      <button id="dictAgainBtn" class="ghost" type="button">音声をもう一度聞く</button>
     </div>
   `;
 
@@ -454,6 +457,7 @@ function checkAnswer() {
   updateScore();
   updateBadge();
   renderQuestionList();
+  feedback.classList.add(correct ? "ok" : "ng");
   if (correct) {
     feedback.textContent = "正解です。";
     window.setTimeout(nextLesson, 650);
@@ -465,9 +469,9 @@ function checkAnswer() {
 
 function setMode(mode) {
   state.mode = mode;
-  els.problemPanel.classList.toggle("hidden", mode !== "problem");
-  els.dictationPanel.classList.toggle("hidden", mode !== "dictation");
-  els.reviewPanel.classList.toggle("hidden", mode !== "review");
+  els.problemPanel.classList.toggle("hide", mode !== "problem");
+  els.dictationPanel.classList.toggle("hide", mode !== "dictation");
+  els.reviewPanel.classList.toggle("hide", mode !== "review");
   Object.entries(els.tabs).forEach(([name, element]) => {
     element.classList.toggle("active", name === mode);
     if (name === mode) element.setAttribute("aria-current", "step");
@@ -588,7 +592,7 @@ function updateScore() {
 function updateBadge() {
   const lesson = currentLesson();
   const result = state.answers.get(lesson.id);
-  els.resultBadge.className = "result-badge";
+  els.resultBadge.className = "dictBadge";
   if (result === true) {
     els.resultBadge.textContent = "正解";
     els.resultBadge.classList.add("correct");

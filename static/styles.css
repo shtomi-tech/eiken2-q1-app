@@ -174,6 +174,7 @@ h2 {
   display: flex;
   align-items: start;
   gap: 16px;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 14px;
 }
@@ -748,167 +749,82 @@ h2 {
 
 /* ============================================================
    リスニング・ディクテーション モード固有スタイル
-   由来: eiken-dictation/static/styles.css。#sessionPanel を他モードと共用するため、
-   .dictSession 配下にスコープする（.q3Session と同じ方式）。
-   色変数は q1 側の :root にマッピング（--ivory→--parchment, --good→--ok, --bad→--ng）。
+   共通コンポーネント（.card / .label / .fieldLabel / .datasetPicker /
+   .stageBar / .stagePill / .roundInfo / .ghost / .cta / .key / .feedback /
+   .hide）は上の共通定義をそのまま使い、ここではレイアウトと
+   モード固有部品だけを .dict* にスコープして定義する。
    ============================================================ */
 
-.dictSession .dict-top-actions,
-.dictSession .transport,
-.dictSession .timeline-row,
-.dictSession .trim-actions,
-.dictSession .trim-grid,
-.dictSession .choice-actions,
-.dictSession .review-actions {
+.dictHead {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.dictSession .dict-top-actions {
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.dictSession button.active,
-.dictSession button.primary {
-  background: var(--ink);
-  color: var(--parchment);
-}
-
-.dictSession .primary-action {
-  min-height: 52px;
-  font-weight: 700;
-}
-
-.dictSession .step-indicator {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.dictSession .step {
-  padding: 4px 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.02em;
-}
-
-.dictSession .step.active {
-  color: var(--ink);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.dictSession .play-btn {
-  min-height: 52px;
-  font-weight: 700;
-}
-
-.dictSession .study-select select {
-  min-width: 220px;
-}
-
-.dictSession .layout {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 24px;
-}
-
-.dictSession .sidebar,
-.dictSession .workbench,
-.dictSession .audio-panel,
-.dictSession .panel {
-  border: 1px solid var(--ink);
-  background: var(--parchment);
-}
-
-.dictSession .sidebar {
-  align-self: start;
-  max-height: calc(100vh - 128px);
-  overflow: auto;
-}
-
-.dictSession .side-head,
-.dictSession .lesson-head {
-  display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  border-bottom: 1px solid var(--ink);
-  padding: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
 }
+.dictHead .roundInfo { margin: 0; }
 
-.dictSession .score,
-.dictSession .result-badge {
-  margin: 0;
+.dictLayout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.dictWorkbench { min-width: 0; }
+
+/* ---- 問題一覧（サイドバー） ---- */
+.dictSidebar {
   border: 1px solid var(--ink);
-  padding: 4px 8px;
-  font-family: var(--mono);
-  font-size: 12px;
+  background: var(--paper);
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
 }
-
-.dictSession .result-badge.correct {
-  background: var(--ok);
-  border-color: var(--ok);
-  color: var(--parchment);
+.dictSideHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--ink);
+  padding: 12px 14px;
 }
+.dictSideHead .label { margin: 0; }
+.dictScore { margin: 0; font-family: var(--mono); font-size: 12px; }
 
-.dictSession .result-badge.wrong {
-  background: var(--ng);
-  border-color: var(--ng);
-  color: var(--parchment);
-}
-
-.dictSession .question-list {
+.dictQuestionList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: var(--ink);
+  background: var(--line);
   border-top: 1px solid var(--ink);
 }
-
-.dictSession .q-part-head {
+.dictQuestionList .qPartHead {
   grid-column: 1 / -1;
   margin: 0;
-  padding: 6px 8px;
+  padding: 5px 8px;
   background: var(--ink);
   color: var(--parchment);
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
-
-.dictSession .q-button {
+.dictQuestionList .qBtn {
   min-height: 48px;
   border: 0;
-  background: var(--parchment);
+  background: var(--paper);
+  color: var(--ink);
   padding: 4px;
   font-family: var(--mono);
   font-size: 13px;
 }
-
-.dictSession .q-button.active {
-  background: var(--ink);
-  color: var(--parchment);
-}
-
-.dictSession .q-button.correct { box-shadow: inset 0 -4px 0 var(--ok); }
-.dictSession .q-button.wrong { box-shadow: inset 0 -4px 0 var(--ng); }
-
-.dictSession .q-button.next-up {
-  position: relative;
-  font-weight: 700;
-}
-
-.dictSession .q-button.next-up::after {
+.dictQuestionList .qBtn:hover { background: var(--parchment); }
+.dictQuestionList .qBtn.active { background: var(--ink); color: var(--parchment); }
+.dictQuestionList .qBtn.correct { box-shadow: inset 0 -4px 0 var(--ok); }
+.dictQuestionList .qBtn.wrong { box-shadow: inset 0 -4px 0 var(--ng); }
+.dictQuestionList .qBtn.nextUp { position: relative; font-weight: 700; }
+.dictQuestionList .qBtn.nextUp::after {
   content: "";
   position: absolute;
   top: 4px;
@@ -918,29 +834,80 @@ h2 {
   background: var(--clay);
 }
 
-.dictSession .workbench { min-width: 0; }
-
-.dictSession .audio-panel {
-  margin: 16px;
-  padding: 16px;
+/* ---- 設問ヘッダ ---- */
+.dictLessonHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+.dictLessonHead .label { margin-bottom: 4px; }
+.dictLessonHead h2 { margin: 0; }
+.dictBadge {
+  border: 1px solid var(--ink);
   background: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+}
+.dictBadge.correct { border-color: var(--ok); color: var(--ok); }
+.dictBadge.wrong { border-color: var(--ng); color: var(--ng); }
+
+.dictStepTitle {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+}
+.dictLead { margin: 0 0 16px; }
+
+/* ---- 音声トランスポート ---- */
+.dictTransport,
+.dictTimelineRow,
+.dictTrimActions,
+.dictActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dictPlay { min-height: 52px; min-width: min(100%, 240px); }
+
+.dictSession input[type="range"] {
+  flex: 1;
+  width: auto;
+  min-width: 160px;
+  min-height: auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  accent-color: var(--ink);
 }
 
-.dictSession .section-title { margin: 0 0 16px; font-size: 18px; }
-.dictSession .panel-lead { margin-bottom: 16px; }
+.dictTimelineRow { margin-top: 12px; }
+.dictTimelineRow span {
+  min-width: 44px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
 
-.dictSession .playback-settings { position: relative; }
-
-.dictSession .playback-settings summary {
+.dictSettings { position: relative; }
+.dictSettings summary {
   min-height: 44px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink);
   padding: 10px 12px;
   cursor: pointer;
-  color: var(--muted);
   list-style-position: inside;
 }
-
-.dictSession .playback-settings-body {
+.dictSettings summary:hover { background: var(--ink); color: var(--parchment); }
+.dictSession summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.dictSettingsBody {
   position: absolute;
   z-index: 2;
   top: calc(100% + 8px);
@@ -949,176 +916,128 @@ h2 {
   gap: 12px;
   min-width: 240px;
   border: 1px solid var(--ink);
-  background: var(--parchment);
+  background: var(--paper);
   padding: 12px;
 }
+.dictSpeed { display: grid; gap: 4px; }
+.dictSpeed .fieldLabel { margin: 0; }
+.dictSession .ghost[aria-pressed="true"] { background: var(--ink); color: var(--parchment); }
 
-.dictSession .speed-control {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  align-items: center;
-  gap: 8px;
-}
-
-.dictSession .timeline-row { margin-top: 12px; }
-
-.dictSession .timeline-row span {
-  min-width: 44px;
-  font-family: var(--mono);
-  font-size: 12px;
-}
-
-.dictSession input[type="range"] {
-  flex: 1;
-  min-width: 160px;
-  accent-color: var(--ink);
-}
-
-.dictSession .segment-edit {
+.dictSegmentEdit {
   margin-top: 12px;
   border-top: 1px solid var(--line);
   padding-top: 12px;
 }
-
-.dictSession .segment-edit summary {
-  cursor: pointer;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.dictSession .trim-panel { margin-top: 12px; }
-.dictSession .trim-actions { margin-bottom: 12px; }
-
-.dictSession .trim-grid {
-  align-items: stretch;
-  flex-direction: column;
-}
-
-.dictSession .trim-grid label {
+.dictSegmentEdit summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+.dictTrimPanel { margin-top: 12px; display: grid; gap: 12px; }
+.dictTrimGrid { display: grid; gap: 10px; }
+.dictTrimGrid label {
   display: grid;
   grid-template-columns: 44px minmax(160px, 1fr) 48px;
   align-items: center;
   gap: 10px;
 }
+.dictTrimGrid span,
+.dictTrimGrid strong { font-family: var(--mono); font-size: 12px; }
+.dictTrimGrid strong { text-align: right; }
 
-.dictSession .trim-grid span,
-.dictSession .trim-grid strong {
-  font-family: var(--mono);
-  font-size: 12px;
-}
-
-.dictSession .trim-grid strong { text-align: right; }
-
-.dictSession .panel { margin: 16px; padding: 20px; }
-.dictSession .hidden { display: none; }
-
-.dictSession .choices { display: grid; gap: 12px; margin-bottom: 24px; }
-
-.dictSession .choice {
-  display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  align-items: start;
-  gap: 10px;
-  border: 1px solid var(--line);
-  min-height: 56px;
-  padding: 14px 12px;
-  cursor: pointer;
-}
-
-.dictSession .choice input { margin-top: 5px; }
-
-.dictSession .choice.selected {
-  border-color: var(--ink);
-  background: var(--paper);
-}
-
-.dictSession .feedback { margin: 12px 0 0; font-weight: 700; }
-
-.dictSession .script {
-  white-space: pre-wrap;
+/* ---- 選択肢（大問1の choiceBtn と同じ見た目。選択→確認の2段操作は維持） ---- */
+.dictChoices { display: grid; gap: 12px; margin-bottom: 16px; }
+.dictChoice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
   border: 1px solid var(--ink);
   background: var(--paper);
-  padding: 16px;
-  line-height: 1.8;
+  color: var(--ink);
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.dictChoice:hover,
+.dictChoice.selected { background: var(--ink); color: var(--parchment); }
+.dictChoice:has(.srOnly:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.dictSession .srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: auto;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.dictSession .tip-list {
-  display: grid;
-  gap: 8px;
-  padding-left: 0;
-  list-style: none;
+.dictActions .cta { min-width: min(100%, 240px); }
+.dictLink {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  min-height: 44px;
+  padding: 8px 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
+.dictLink:hover { background: transparent; color: var(--ink); }
 
-.dictSession .tip-list li {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-}
+.dictSession .feedback { margin: 0 0 4px; font-weight: 600; }
+.dictSession .feedback:empty { display: none; }
+.dictSession .feedback.ok { border-left-color: var(--ok); }
+.dictSession .feedback.ng { border-left-color: var(--ng); }
 
-.dictSession .answer-line {
-  margin-bottom: 16px;
+/* ---- 答えとスクリプト ---- */
+.dictAnswerLine {
+  margin: 0 0 14px;
+  font-size: 17px;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
+.dictScript {
+  white-space: pre-wrap;
+  border: 1px solid var(--ink);
+  background: var(--parchment);
+  padding: 16px;
+  line-height: 1.8;
+}
+.dictTipsLabel { margin: 16px 0 8px; }
+.dictTips {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding-left: 0;
+  list-style: none;
+}
+.dictTips li { border-bottom: 1px solid var(--line); padding-bottom: 8px; }
 
 @media (max-width: 880px) {
-  .dictSession .layout { grid-template-columns: 1fr; }
-  .dictSession .workbench { order: 1; }
-  .dictSession .sidebar { order: 2; max-height: none; }
-  .dictSession .question-list { grid-template-columns: repeat(10, 1fr); }
+  .dictLayout { grid-template-columns: 1fr; }
+  .dictWorkbench { order: 1; }
+  .dictSidebar { order: 2; max-height: none; }
+  .dictQuestionList { grid-template-columns: repeat(10, 1fr); }
 }
 
 @media (max-width: 560px) {
-  .dictSession .question-list { grid-template-columns: repeat(5, 1fr); }
-
-  .dictSession .panel,
-  .dictSession .audio-panel {
-    margin: 12px;
-    padding: 14px;
-  }
-
-  .dictSession .lesson-head,
-  .dictSession .dict-top-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .dictSession .study-select select { width: 100%; }
-  .dictSession .transport { align-items: stretch; }
-  .dictSession .play-btn { flex: 1 0 100%; }
-
-  .dictSession .back-btn,
-  .dictSession .playback-settings { flex: 1; }
-
-  .dictSession .playback-settings summary { text-align: center; }
-
-  .dictSession .playback-settings-body {
-    left: 0;
-    right: auto;
-    width: min(100%, 320px);
-  }
-
-  .dictSession .choice-actions,
-  .dictSession .review-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .dictSession .choice-actions .primary,
-  .dictSession .review-actions .primary {
-    width: 100%;
-  }
-
-  .dictSession .choice-actions {
+  .dictQuestionList { grid-template-columns: repeat(5, 1fr); }
+  .dictHead { align-items: stretch; flex-direction: column; }
+  .dictHead .roundInfo { align-self: flex-start; }
+  .dictTransport { align-items: stretch; }
+  .dictPlay { flex: 1 0 100%; }
+  .dictActions {
     position: sticky;
-    z-index: 3;
     bottom: 0;
-    margin: 0 -14px -14px;
-    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+    z-index: 5;
+    background: var(--paper);
     border-top: 1px solid var(--ink);
-    background: var(--parchment);
+    margin: 14px -20px -20px;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
   }
-
-  .dictSession .panel { padding-bottom: 104px; }
+  .dictActions .cta { width: 100%; min-width: 0; }
 }
