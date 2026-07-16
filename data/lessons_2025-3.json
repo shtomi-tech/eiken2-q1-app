@@ -1,0 +1,752 @@
+{
+  "title": "英検2級 2025年度 第3回 リスニング",
+  "source": {
+    "scriptPdf": "C:\\Users\\shtom\\dev\\英検\\英検2級\\2025年度第3回\\2025-3-1ji-2kyuscript.pdf",
+    "questionPdf": "C:\\Users\\shtom\\dev\\英検\\英検2級\\2025年度第3回\\2025-3-1ji-2kyu.pdf",
+    "answerPdf": "C:\\Users\\shtom\\dev\\英検\\英検2級\\2025年度第3回\\202503F2kyu.pdf",
+    "segmentation": "ffmpeg silencedetectで約10秒の解答無音を検出し、各設問ごとのMP3クリップを生成。"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-01.mp3",
+      "start": 0,
+      "end": 25.99,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 111.94,
+      "sourceEnd": 137.93,
+      "question": "What is one thing the boy says?",
+      "choices": [
+        "He graduated from Browning College.",
+        "He has never heard of Western College.",
+        "He applied to more than one college.",
+        "He started college last month."
+      ],
+      "answer": 3,
+      "script": "☆Bill! I heard you got into Browning College. Congratulations!\n★Thanks. I'm not sure if I'm going there, though.\n☆Really? Browning College is an excellent school.\n★Well, I really want to go to Western College, so I also applied there. I hope to hear back from\nthem sometime this month.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'm",
+        "want to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 2,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-02.mp3",
+      "start": 0,
+      "end": 42.06,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 148.46,
+      "sourceEnd": 190.52,
+      "question": "What will the woman do next?",
+      "choices": [
+        "Feed the man's dog.",
+        "Shut the man's gate.",
+        "Call the man back.",
+        "Visit the man's office."
+      ],
+      "answer": 2,
+      "script": "☆Hello?\n★Hi, Jill. It's Eddie—your next-door neighbor.\n☆Hi. What's up?\n★I'm on my way to work, and I realized I forgot to close the front gate when I left my house. I'm\nworried my dog may get out. Could you see if he's still there and close the gate?\n☆OK. I can see from my window that your dog's still there. But sure, I'll close it for you right now.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'll, I'm, It's, What's, dog's",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 3,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-03.mp3",
+      "start": 0,
+      "end": 30.25,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 201.04,
+      "sourceEnd": 231.29,
+      "question": "Why is the park busy today?",
+      "choices": [
+        "Adults can use the park for free.",
+        "An outdoor concert is taking place.",
+        "The weather is particularly good.",
+        "The park has a new attraction."
+      ],
+      "answer": 4,
+      "script": "☆There are so many people in the park today. I don't remember ever seeing it so busy.\n★Lots of people started coming here after the new jungle gym was built.\n☆Oh, the one over there? That looks like so much fun. Can adults climb on it, too?\n★Yes. The sign says it's for everyone. Let's try it out. Come on.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: Let's, don't, it's",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 4,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-04.mp3",
+      "start": 0,
+      "end": 30.71,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 241.81,
+      "sourceEnd": 272.52,
+      "question": "What does the girl hope that the man and his family will do?",
+      "choices": [
+        "Let her stay with them again.",
+        "Visit her in Japan.",
+        "Learn Japanese from her.",
+        "Write a letter to her family."
+      ],
+      "answer": 2,
+      "script": "☆Well, goodbye, Mr. Evans. Please thank your family again for being so nice to me during my\nhomestay.\n★I will, Junko. They really liked learning about Japan from you.\n☆I hope you can all come to Japan someday. I'd love to show you around.\n★That would be great. I'm sure we'd enjoy it.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'd, I'm, we'd",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 5,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-05.mp3",
+      "start": 0,
+      "end": 35.15,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 283.07,
+      "sourceEnd": 318.22,
+      "question": "What is one thing we learn about the man?",
+      "choices": [
+        "He can only cook one type of dish.",
+        "He does not have much money.",
+        "He does not enjoy cooking.",
+        "He is busy running a business."
+      ],
+      "answer": 1,
+      "script": "☆This soup is delicious, Don. It's so good you could probably sell it.\n★Do you really think so, Anne? I've always dreamed of opening my own restaurant.\n☆If the rest of the dishes you cook are this good, you might have a successful business on your\nhands.\n★Well, that's the problem. I only know how to make soup. I'd need to learn how to make a variety\nof dishes.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'd, I've, It's, that's",
+        "need to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 6,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-06.mp3",
+      "start": 0,
+      "end": 33.23,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 328.75,
+      "sourceEnd": 361.98,
+      "question": "How will the man help the woman?",
+      "choices": [
+        "By driving her to Riverton.",
+        "By moving some furniture.",
+        "By going shopping for her.",
+        "By selling her his old sofa."
+      ],
+      "answer": 2,
+      "script": "☆Kevin, could you help me out with something this weekend?\n★Well, I'll be busy on Sunday. I'm going home to see my mom in Riverton.\n☆Do you think you could come over and help me rearrange some furniture on Saturday afternoon?\nI just bought a new sofa, and I want to move the table and chairs in my living room.\n★Sure, I'm free then. See you on Saturday.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'll, I'm",
+        "want to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 7,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-07.mp3",
+      "start": 0,
+      "end": 33.97,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 372.53,
+      "sourceEnd": 406.5,
+      "question": "Why does the man need help?",
+      "choices": [
+        "He is having trouble reading a map.",
+        "He is at the wrong apartment building.",
+        "He lost the key to his apartment.",
+        "He cannot find his phone."
+      ],
+      "answer": 1,
+      "script": "☆Excuse me. You look lost. Do you need help?\n★Yes, thank you. I need to go to the Hobson Towers apartment complex, but the map on my phone\nis a bit hard to read.\n☆Oh, that's easy. Keep walking straight down this road for about five minutes, and you'll see the\napartment building on your right.\n★Oh, wonderful. I was worried that I was in the wrong place.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: that's, you'll",
+        "need to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 8,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-08.mp3",
+      "start": 0,
+      "end": 36.98,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 417.04,
+      "sourceEnd": 454.02,
+      "question": "What is one thing we learn about the man?",
+      "choices": [
+        "He is having trouble at work.",
+        "He likes being busy.",
+        "He stopped working last year.",
+        "He works in the garden every day. Listening Test"
+      ],
+      "answer": 2,
+      "script": "☆Dad, you'll be sixty-seven years old next month. Do you ever think about retiring?\n★No, not really. I love my job. And if I stop working, I'll need to find a hobby to keep me active,\nlike gardening. I hate having nothing to do.\n☆Well, it's good that you like your work. I hope I feel that way someday, too.\n★Don't worry, Linda. I'm sure you'll find a job you enjoy.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: Don't, I'll, I'm, it's, you'll",
+        "need to は語の切れ目より、ひとまとまりの音で拾う。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 9,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-09.mp3",
+      "start": 0,
+      "end": 38.81,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 464.56,
+      "sourceEnd": 503.37,
+      "question": "What is Amanda looking forward to doing this weekend?",
+      "choices": [
+        "Going to a theme park.",
+        "Watching cartoons at home.",
+        "Taking a bike ride.",
+        "Meeting her friends."
+      ],
+      "answer": 1,
+      "script": "★What are you so excited about, Amanda?\n☆I'm going to have a great weekend. My dad is taking me to the Cartoon World theme park on\nSaturday.\n★Cartoon World? Wow! I've always wanted to go there. I hear the rides are really fun.\n☆I know. I've been looking forward to it for a long time. I can't wait to meet all my favorite\ncartoon characters.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'm, I've, can't",
+        "going to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 10,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-10.mp3",
+      "start": 0,
+      "end": 36.59,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 513.9,
+      "sourceEnd": 550.49,
+      "question": "What does the man suggest the woman do?",
+      "choices": [
+        "Buy her tickets online.",
+        "Take the express bus.",
+        "Leave for Kyoto tonight.",
+        "Take the train to Stanton."
+      ],
+      "answer": 4,
+      "script": "★Hello. ABC Travel Agency.\n☆Hi. I need to get to Stanton tomorrow morning. Should I buy a train ticket or an express bus\nticket?\n★The train is much faster. It takes about two and a half hours to get there by train, but it takes five\nhours by bus.\n☆I see. Then I'll buy a train ticket.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'll",
+        "need to は語の切れ目より、ひとまとまりの音で拾う。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 11,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-11.mp3",
+      "start": 0,
+      "end": 34.73,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 561.04,
+      "sourceEnd": 595.77,
+      "question": "What does the man tell the woman?",
+      "choices": [
+        "The bus will be late.",
+        "The bus stop is around the corner.",
+        "The bus will be here in five minutes.",
+        "The bus has already left."
+      ],
+      "answer": 4,
+      "script": "★Excuse me, ma'am. You look like you're waiting for the bus. Do you need help?\n☆Yes. I was waiting for Express Bus 12, but it doesn't seem to be coming.\n★It came five minutes ago. I'm sorry, but it won't come again for another thirty minutes.\n☆Oh, no! I told my boss I would be at the office by 9 a.m. I guess I'm going to be late again.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'm, doesn't, won't, you're",
+        "going to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 12,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-12.mp3",
+      "start": 0,
+      "end": 31.84,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 606.31,
+      "sourceEnd": 638.15,
+      "question": "What does the woman say about the Thai restaurant?",
+      "choices": [
+        "The food is excellent.",
+        "The prices are too high.",
+        "It is not easy to find.",
+        "It has a nice atmosphere."
+      ],
+      "answer": 1,
+      "script": "☆Jason, have you been to the new Thai restaurant on Fifth Street? I've been there for lunch twice\nthis week.\n★No, I haven't. Is the food good?\n☆Yes. It's the best Thai food I've had since I went to Thailand last year.\n★That's great. I love Thai food. I'll try the restaurant for lunch today.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'll, I've, It's, That's, haven't",
+        "場所・施設名は内容理解の柱です。前置詞とセットで聞き取る。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 13,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-13.mp3",
+      "start": 0,
+      "end": 36.24,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 648.69,
+      "sourceEnd": 684.93,
+      "question": "What does the man want the woman to do?",
+      "choices": [
+        "Bring two items at the same time.",
+        "Give him the special dessert menu.",
+        "Tell him her recommendation.",
+        "Clear the plates from the table."
+      ],
+      "answer": 1,
+      "script": "★I'd like a plate of fried fish and one chef's salad, please.\n☆Certainly. The fried fish will take about ten minutes to prepare. Shall I bring the salad along with\nit?\n★Yes, I can wait. Please bring them together. I also want to order dessert later, so can you leave the\nmenu with me?\n☆Of course. I'll put your order in right away, then.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'd, I'll, chef's",
+        "want to は語の切れ目より、ひとまとまりの音で拾う。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 14,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-14.mp3",
+      "start": 0,
+      "end": 33.29,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 695.44,
+      "sourceEnd": 728.73,
+      "question": "What does the man want to know?",
+      "choices": [
+        "When the bakery has a sale.",
+        "When the bakery opens.",
+        "When the bakery is hiring.",
+        "When the bakery closes."
+      ],
+      "answer": 2,
+      "script": "☆Hello. Edwards Bakery.\n★Hello. I stopped by your bakery this morning to buy some bread, but it was all sold out. What\ntime does the bakery open?\n☆At 6 a.m. We usually sell out by 8 a.m.\n★I see. I'll be sure to come earlier next time.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'll",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 15,
+      "part": 1,
+      "audio": "assets/clips/2025-3/no-15.mp3",
+      "start": 0,
+      "end": 32.74,
+      "sourceAudio": "assets/audio/2025-3-2q-part1.mp3",
+      "sourceStart": 739.28,
+      "sourceEnd": 772.02,
+      "question": "What does the woman need for her daughter?",
+      "choices": [
+        "A dress that is comfortable.",
+        "A dress that looks like it is new.",
+        "A dress for the school play.",
+        "A dress for everyday wear. Listening Test 第 2部"
+      ],
+      "answer": 3,
+      "script": "☆Hello. I'm looking for a dress for my daughter.\n★What kind of dress? A formal one, or something for everyday wear?\n☆She needs one for the school play. She's acting in it, so she needs a dress that looks like it's from\na hundred years ago.\n★Oh, I see. Well, we have some inexpensive used dresses over there.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: I'm, She's, it's",
+        "第1部は話者の目的と困りごとを先に押さえると、選択肢を絞りやすい。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 16,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-16.mp3",
+      "start": 0,
+      "end": 31.38,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 33.94,
+      "sourceEnd": 65.32,
+      "question": "How can the floating solar panels get sunlight during the day?",
+      "choices": [
+        "By using a great number of panels.",
+        "By catching the light reflected on the water.",
+        "By following where the sun goes.",
+        "By removing any obstacles in the way."
+      ],
+      "answer": 3,
+      "script": "★In the Netherlands, there is something called the floating solar farm. Solar panels are floating on\nthe water, making it easier to change directions and move. Because of these features, they can\nfollow the sun throughout the day. Another benefit of floating on the water is that it can prevent the\nrise in temperature, which is a disadvantage of solar panels.\n☆☆",
+      "tips": [
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 17,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-17.mp3",
+      "start": 0,
+      "end": 41.68,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 75.86,
+      "sourceEnd": 117.54,
+      "question": "How did Emma make sure her sunflowers would grow well?",
+      "choices": [
+        "She kept them indoors.",
+        "She watered them every other day.",
+        "She used old soil from her garden.",
+        "She planted them in a sunny spot."
+      ],
+      "answer": 4,
+      "script": "☆Emma wanted to plant sunflower seeds in her garden. She read a book that says that sunflowers\nneed a lot of sunlight, so she chose a spot that gets a lot of sun during the day. She also made sure\nthat the soil in that spot was not too wet or too dry. She planted her seeds and watered them every\nday. Soon, she had beautiful sunflowers in her garden.\n☆☆",
+      "tips": [
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 18,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-18.mp3",
+      "start": 0,
+      "end": 37.38,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 128.07,
+      "sourceEnd": 165.45,
+      "question": "What is one thing the announcement says?",
+      "choices": [
+        "Staff members are needed on the first floor.",
+        "The TVs on sale are all sold out.",
+        "There are sales on many kinds of products.",
+        "The first floor is closed for renovations."
+      ],
+      "answer": 3,
+      "script": "★Welcome to Brightway Department Store. We have special discounts on many items, including\nTVs and kitchen appliances. There are also some great deals on men's and women's clothing. If you\nneed help finding a specific section of the store, please visit the information desk on the first floor.\nOur staff there will be happy to assist you. Thank you for shopping at Brightway.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: men's, women's",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 19,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-19.mp3",
+      "start": 0,
+      "end": 34.34,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 175.98,
+      "sourceEnd": 210.32,
+      "question": "Why is the train delayed?",
+      "choices": [
+        "It is being repaired.",
+        "The weather was bad in Ashford.",
+        "The platform was blocked.",
+        "It needs to be cleaned."
+      ],
+      "answer": 4,
+      "script": "☆Good afternoon, everyone. Thank you for traveling with us today. We would like to apologize for\nthe delay of the 3:30 train from Ashford to Harrow. It is thirty minutes late because it needs to be\ncleaned after the long trip from Harrow to Ashford. The train will arrive soon, so please wait on the\nplatform. We are sorry for the inconvenience.\n☆☆",
+      "tips": [
+        "would like to は語の切れ目より、ひとまとまりの音で拾う。",
+        "場所・施設名は内容理解の柱です。前置詞とセットで聞き取る。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 20,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-20.mp3",
+      "start": 0,
+      "end": 35.48,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 220.89,
+      "sourceEnd": 256.37,
+      "question": "What is one thing the speaker says?",
+      "choices": [
+        "There is a new book area.",
+        "The new book has sold out.",
+        "Books about cats have sold well.",
+        "The event will be held at Mary's house."
+      ],
+      "answer": 1,
+      "script": "★Welcome to today's Book Talk event. Our guest speaker today is the famous author, Mary Jones.\nShe will read from her new children's book, The Secret of the Missing Cat. Before we start, we\nwould like to remind you that there is a new book section next to the window on the first floor. It\nhas just been opened, so please come and check it out.\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: children's, today's",
+        "would like to は語の切れ目より、ひとまとまりの音で拾う。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 21,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-21.mp3",
+      "start": 0,
+      "end": 33.97,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 266.83,
+      "sourceEnd": 300.8,
+      "question": "What did Emily and Ryan enjoy the most about their trip?",
+      "choices": [
+        "Swimming in the hotel's pool.",
+        "Taking photos of the hotel's garden.",
+        "Looking around the island.",
+        "Eating at the hotel's restaurant."
+      ],
+      "answer": 3,
+      "script": "★Emily and Ryan went on a trip to a tropical island. They stayed at a hotel with a large swimming\npool and a very good restaurant. However, their favorite part of the trip was exploring the beautiful\nisland and watching the sun set over the ocean. They took many photos and made plans to go back\nagain next year.\n☆☆",
+      "tips": [
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 22,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-22.mp3",
+      "start": 0,
+      "end": 40.78,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 311.33,
+      "sourceEnd": 352.11,
+      "question": "What is one benefit of exercising in cold weather?",
+      "choices": [
+        "It helps us make more blood in our bodies.",
+        "It helps us perform better in hot weather.",
+        "It helps us improve our ability to see at night.",
+        "It helps us control our emotions during winter."
+      ],
+      "answer": 2,
+      "script": "☆When it is cold, we do not feel like going outside to do some exercise. However, exercising in\ncold weather has benefits for us. When we move our bodies in cold weather, our hearts work harder\nthan usual to send blood throughout our bodies. As a result, we can burn more calories and exercise\nlonger. By training in cold conditions, we can also improve our performance in hot weather.\n☆☆",
+      "tips": [
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 23,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-23.mp3",
+      "start": 0,
+      "end": 34.43,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 362.68,
+      "sourceEnd": 397.11,
+      "question": "What is one thing the speaker says?",
+      "choices": [
+        "Tickets for the bus cost five dollars.",
+        "Tickets should be purchased from the driver.",
+        "The bus will arrive in five minutes.",
+        "The bus will stop at the airport first. Listening Test"
+      ],
+      "answer": 3,
+      "script": "☆Attention, passengers. The 2:30 p.m. bus to Central City will arrive in five minutes. Please have\nyour tickets ready to show to the driver. Remember that the bus will stop at the Central City\nShopping Mall, the Central City Train Station, and the Central City Airport. If you are going to the\nairport, be sure to get off at the last stop. Thank you.\n☆☆",
+      "tips": [
+        "going to は語の切れ目より、ひとまとまりの音で拾う。",
+        "場所・施設名は内容理解の柱です。前置詞とセットで聞き取る。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 24,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-24.mp3",
+      "start": 0,
+      "end": 38.71,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 407.63,
+      "sourceEnd": 446.34,
+      "question": "What is being announced?",
+      "choices": [
+        "The passengers who must check in.",
+        "The reason for a delay.",
+        "The length of the next flight.",
+        "The departure gate of a flight."
+      ],
+      "answer": 4,
+      "script": "☆Attention, passengers. The 10:30 flight to London will be leaving from Gate 22. Please make\nyour way to the gate now. Passengers with small children and those needing assistance will be\nallowed to board the plane first, followed by business class passengers. Economy class passengers\nwill board the plane after that. Thank you for choosing Bluebird Airlines. We hope you enjoy your\nflight.\n☆☆",
+      "tips": [
+        "場所・施設名は内容理解の柱です。前置詞とセットで聞き取る。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 25,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-25.mp3",
+      "start": 0,
+      "end": 33.8,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 456.88,
+      "sourceEnd": 490.68,
+      "question": "What did Wendy's teacher do for Wendy?",
+      "choices": [
+        "He let her take a printed exam.",
+        "He gave her a week for an online exam.",
+        "He told her to use a school computer.",
+        "He allowed her to skip the test this week."
+      ],
+      "answer": 1,
+      "script": "★Wendy takes an English vocabulary test at school every week. Her teacher posts a test online, and\nstudents access it and take the test. However, her phone broke down this week, and she had to go\nfor one week without a phone. She asked her teacher what she could do and was allowed to take the\ntest on paper this week.\n☆☆",
+      "tips": [
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 26,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-26.mp3",
+      "start": 0,
+      "end": 32.28,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 501.21,
+      "sourceEnd": 533.49,
+      "question": "What is Tom looking for in his next job?",
+      "choices": [
+        "A chance to travel.",
+        "An opportunity to learn new things.",
+        "An easy way to become healthy.",
+        "A job at a school."
+      ],
+      "answer": 2,
+      "script": "★Tom has been working as a nurse for five years. He enjoys helping children become healthy\nagain, but he is thinking about changing his job. Tom loves his work, but he feels that he has not\nbeen learning new things recently. He is looking for a new job at a hospital where he can get\nadditional training.\n☆☆",
+      "tips": [
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 27,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-27.mp3",
+      "start": 0,
+      "end": 34.75,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 544.04,
+      "sourceEnd": 578.79,
+      "question": "What did Alex do before he went to bed?",
+      "choices": [
+        "He worked on his school project.",
+        "He contacted his teacher.",
+        "He turned in his project.",
+        "He studied for a science test."
+      ],
+      "answer": 1,
+      "script": "★Alex had a school project to do about a famous scientist. He started the project very late, and he\nwas not able to finish it before he went to bed. In the morning, he woke up early and worked on it\nfor a few hours. He was very tired when he got to school, but he was happy that he could give his\nproject to his teacher in class.\n☆☆",
+      "tips": [
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 28,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-28.mp3",
+      "start": 0,
+      "end": 34.74,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 589.34,
+      "sourceEnd": 624.08,
+      "question": "What does Tom do now?",
+      "choices": [
+        "He works in a big city.",
+        "He teaches city people about farming.",
+        "He runs his own farm.",
+        "He goes to university classes."
+      ],
+      "answer": 2,
+      "script": "★Tom grew up in a small village, but when he finished university, he moved to the city to work. A\nfew years later, his parents called him and said they were having trouble with their farm. Tom went\nback to the village to help them. He decided to stay and help his parents. Now, he enjoys teaching\npeople from the city about farming.\n☆☆",
+      "tips": [
+        "場所・施設名は内容理解の柱です。前置詞とセットで聞き取る。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 29,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-29.mp3",
+      "start": 0,
+      "end": 36.56,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 634.62,
+      "sourceEnd": 671.18,
+      "question": "What can customers get if they spend over $100?",
+      "choices": [
+        "Discounts on all items.",
+        "A coupon worth $10.",
+        "A special discount of 50 percent.",
+        "A gift worth $10."
+      ],
+      "answer": 2,
+      "script": "☆Thank you for shopping at the Westwood Mall. This weekend, many of our stores are having\nspecial sales. You can get discounts of up to 50 percent on selected items. In addition, if you spend\nmore than $100 at any of our stores, you can get a coupon for $10 off your next purchase. Don't\nmiss out on these great offers!\n☆☆",
+      "tips": [
+        "短縮形は弱く速く出ます: Don't",
+        "場所・施設名は内容理解の柱です。前置詞とセットで聞き取る。",
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    },
+    {
+      "id": 30,
+      "part": 2,
+      "audio": "assets/clips/2025-3/no-30.mp3",
+      "start": 0,
+      "end": 31.73,
+      "sourceAudio": "assets/audio/2025-3-2q-part2.mp3",
+      "sourceStart": 681.71,
+      "sourceEnd": 713.44,
+      "question": "What did John do last week?",
+      "choices": [
+        "He bought a bigger house.",
+        "He moved back to his old house.",
+        "He went traveling with his wife.",
+        "He sold his son's house."
+      ],
+      "answer": 1,
+      "script": "★John bought his house ten years ago. At that time, he was single. Then, he got married and had a\nson. Last year, his wife had twins, and they needed more space. Last week, John sold his house and\nbought a bigger one. It is in the same neighborhood, so his son can still go to the same school.\n☆☆",
+      "tips": [
+        "数字・時制表現は選択肢の根拠になりやすいので、単語だけでなく周辺表現も確認する。",
+        "第2部は1文目で場面、最後の文で結論が出やすい。冒頭と末尾を特に丁寧に聞く。",
+        "Question の疑問詞を確認し、何を答える問題かを先に固定する。"
+      ]
+    }
+  ]
+}

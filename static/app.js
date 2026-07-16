@@ -9,6 +9,7 @@
 const APPS = [
   { id: "q1", tag: "単語を覚える", label: "大問1（語彙）", title: "英検 大問1 単語アプリ", mount: () => EikenQ1App.mount(), handleKey: (e) => EikenQ1App.handleKey(e) },
   { id: "q3", tag: "長文を読む", label: "大問3（長文）", title: "英検 大問3 演習アプリ", mount: () => EikenQ3App.mount(), handleKey: (e) => EikenQ3App.handleKey(e) },
+  { id: "dictation", tag: "聞いて書く", label: "リスニング", title: "英検 リスニング・ディクテーション", mount: () => EikenDictationApp.mount(), handleKey: (e) => EikenDictationApp.handleKey(e) },
 ];
 
 let currentAppId = null;

@@ -69,5 +69,31 @@
       "shortLabel": "準2級",
       "dataUrl": "data/q3_questions_p2_2025-2.json"
     }
+  },
+  "dictation": {
+    "defaultRound": "2026-1",
+    "rounds": [
+      { "id": "2026-1", "label": "2026年度 第1回" },
+      { "id": "2025-3", "label": "2025年度 第3回" },
+      { "id": "2025-2", "label": "2025年度 第2回" }
+    ],
+    "levels": {
+      "g2": {
+        "grade": "EIKEN GRADE 2",
+        "rounds": {
+          "2026-1": "data/lessons.json",
+          "2025-3": "data/lessons_2025-3.json",
+          "2025-2": "data/lessons_2025-2.json"
+        }
+      },
+      "p2": {
+        "grade": "EIKEN GRADE PRE-2",
+        "rounds": {
+          "2026-1": "data/lessons-p2.json",
+          "2025-3": "data/lessons-p2_2025-3.json",
+          "2025-2": "data/lessons-p2_2025-2.json"
+        }
+      }
+    }
   }
 }
