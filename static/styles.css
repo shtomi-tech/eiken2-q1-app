@@ -133,6 +133,28 @@ h2 {
 
 .hint { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
 
+.resumeNotice {
+  border-top: 1px solid var(--clay);
+  margin-top: 16px;
+  padding-top: 12px;
+}
+.resumeNotice .label { color: var(--clay); margin-bottom: 4px; }
+.resumeText { margin: 0; font-weight: 600; }
+.sessionState { color: var(--muted); font-size: 12px; margin: -8px 0 14px; }
+
+.completionCard {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 24px;
+}
+.completionCard h2 { color: var(--parchment); }
+.completionCard .label,
+.completionCard .hint { color: rgba(250, 249, 246, .72); }
+.completionCard .completionScore { font-family: var(--mono); }
+.completionCard .ghost { border-color: var(--parchment); color: var(--parchment); }
+.completionCard .ghost:hover:not(:disabled) { background: var(--parchment); color: var(--ink); }
+
 /* ---- App nav（大問1／大問3のフラットな1段タブ。kobun-vocab と同型） ---- */
 .appNav {
   display: grid;
@@ -169,6 +191,11 @@ h2 {
 }
 .appTab[aria-pressed="true"] span,
 .appTab:hover span { color: rgba(250, 249, 246, .74); }
+
+@media (max-width: 560px) {
+  .appNav { grid-template-columns: 1fr; }
+  .appTab { min-height: 56px; }
+}
 
 .sectionHead {
   display: flex;
@@ -384,7 +411,11 @@ h2 {
 .stagePill {
   flex: 1 1 0;
   min-width: 120px;
+  min-height: 44px;
   padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-family: var(--mono);
   font-size: 11px;
@@ -636,6 +667,19 @@ h2 {
   cursor: pointer;
   transition: background-color .12s ease;
 }
+.textPanel button.sent {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 8px 2px;
+  line-height: 1.65;
+  text-align: left;
+  vertical-align: baseline;
+}
+.textPanel button.sent:hover { background: #efe9d8; }
+.textPanel button.sent[aria-pressed="true"] { background: #f0dfce; }
+.textPanel button.sent:focus-visible { outline-offset: 1px; }
 .sent:hover { background: #efe9d8; }
 .sent.selected { background: #f0dfce; text-decoration: underline; text-decoration-color: var(--clay); text-underline-offset: 3px; }
 .sent.evidenceCorrect { background: #dcecdf; text-decoration: underline; text-decoration-color: var(--ok); text-underline-offset: 3px; }
@@ -699,7 +743,7 @@ h2 {
 .wordBank { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
 .chip {
   background: var(--paper); border: 1px solid var(--ink); color: var(--ink);
-  padding: 8px 12px; min-height: 40px; font-size: 13.5px;
+  padding: 8px 12px; min-height: 44px; font-size: 13.5px;
 }
 .chip:hover:not(:disabled) { background: #f0ece0; }
 .chip.used { opacity: .35; }

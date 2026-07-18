@@ -11,8 +11,17 @@ const APPS = [
   { id: "q3", tag: "長文を読む", label: "大問3（長文）", title: "英検 大問3 演習アプリ", mount: () => EikenQ3App.mount(), handleKey: (e) => EikenQ3App.handleKey(e) },
   { id: "dictation", tag: "聞いて書く", label: "リスニング", title: "英検 リスニング・ディクテーション", mount: () => EikenDictationApp.mount(), handleKey: (e) => EikenDictationApp.handleKey(e) },
 ];
+const ACTIVE_APP_KEY = "eiken_active_app";
 
 let currentAppId = null;
+
+function loadActiveAppId() {
+  try {
+    const saved = localStorage.getItem(ACTIVE_APP_KEY);
+    if (APPS.some((app) => app.id === saved)) return saved;
+  } catch (e) { /* ignore */ }
+  return "q1";
+}
 
 function renderAppNav() {
   const nav = document.getElementById("appNav");
@@ -34,6 +43,7 @@ function renderAppNav() {
 function switchApp(id) {
   if (currentAppId === id) return;
   currentAppId = id;
+  try { localStorage.setItem(ACTIVE_APP_KEY, id); } catch (e) { /* ignore */ }
   const next = APPS.find(a => a.id === id);
   document.getElementById("appTitle").textContent = next.title;
   document.title = next.title;
@@ -49,4 +59,4 @@ document.addEventListener("keydown", (e) => {
   if (app && app.handleKey) app.handleKey(e);
 });
 
-switchApp("q1");
+switchApp(loadActiveAppId());

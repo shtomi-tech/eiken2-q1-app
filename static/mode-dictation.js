@@ -14,6 +14,8 @@ const EikenDictationApp = (function () {
 const APP_ID = "eiken-dictation";
 const MANIFEST_URL = "data/manifest.json";
 const PROGRESS_PREFIX = "eiken_dictation_progress_";
+const DATASET_KEY = "eiken_dictation_dataset";
+const RESUME_KEY = "eiken_dictation_resume";
 
 const homePanel = document.getElementById("homePanel");
 const sessionPanel = document.getElementById("sessionPanel");
@@ -55,6 +57,46 @@ function saveAnswers() {
   }
 }
 
+function loadDatasetPreference() {
+  try {
+    const raw = localStorage.getItem(DATASET_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {
+    /* ignore */
+  }
+  return null;
+}
+function loadResume() {
+  try {
+    const raw = localStorage.getItem(RESUME_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {
+    /* ignore */
+  }
+  return null;
+}
+function saveResume() {
+  if (!state.lessons.length || state.mode === "complete") return;
+  const payload = {
+    level: state.level,
+    round: state.round,
+    index: state.index,
+    mode: state.mode,
+    selected: state.selected,
+    resultShown: Boolean(state.resultShown),
+    lastCorrect: state.lastCorrect,
+  };
+  try {
+    localStorage.setItem(RESUME_KEY, JSON.stringify(payload));
+    localStorage.setItem(DATASET_KEY, JSON.stringify({ level: state.level, round: state.round }));
+  } catch (e) {
+    /* ignore */
+  }
+}
+function clearResume() {
+  try { localStorage.removeItem(RESUME_KEY); } catch (e) { /* ignore */ }
+}
+
 function cloudPayload() {
   const out = {};
   for (let index = 0; index < localStorage.length; index += 1) {
@@ -88,6 +130,8 @@ const state = {
   answers: new Map(),
   segment: { start: 0, end: 0 },
   selected: null,
+  resultShown: false,
+  lastCorrect: null,
   seeking: false,
   playhead: 0,
   loop: false,
@@ -101,7 +145,7 @@ function renderShell() {
   sessionPanel.innerHTML = `
     <div class="dictSession">
       <div class="dictHead">
-        <p class="roundInfo" id="dictGradeLabel">EIKEN GRADE 2</p>
+        <p class="roundInfo" id="dictGradeLabel">英検2級</p>
         <div class="datasetPicker">
           <label class="fieldLabel" for="dictStudySelect">問題セット</label>
           <select id="dictStudySelect" class="datasetSelect"></select>
@@ -117,8 +161,8 @@ function renderShell() {
       <div class="dictLayout">
         <aside class="dictSidebar" aria-label="問題一覧">
           <div class="dictSideHead">
-            <p class="label">Questions</p>
-            <p id="dictScoreLine" class="dictScore">0 / 30</p>
+          <p class="label">問題一覧</p>
+          <p id="dictScoreLine" class="dictScore">正解 0 / 30・書き取り 0</p>
           </div>
           <div id="dictQuestionList" class="dictQuestionList"></div>
         </aside>
@@ -186,6 +230,7 @@ function renderShell() {
           <div id="dictProblemPanel" class="card"></div>
           <div id="dictDictationPanel" class="card hide"></div>
           <div id="dictReviewPanel" class="card hide"></div>
+          <div id="dictCompletionPanel" class="card hide"></div>
         </section>
       </div>
     </div>
@@ -218,6 +263,7 @@ function renderShell() {
     problemPanel: document.getElementById("dictProblemPanel"),
     dictationPanel: document.getElementById("dictDictationPanel"),
     reviewPanel: document.getElementById("dictReviewPanel"),
+    completionPanel: document.getElementById("dictCompletionPanel"),
     tabs: {
       problem: document.getElementById("dictModeProblem"),
       dictation: document.getElementById("dictModeDictation"),
@@ -253,12 +299,25 @@ async function loadLevel(level, round = state.round) {
     state.round = round;
     state.lessons = payload.lessons;
     state.answers = loadAnswers(level, round);
-    const nextUpIndex = state.lessons.findIndex((lesson) => !state.answers.has(lesson.id));
-    state.index = nextUpIndex >= 0 ? nextUpIndex : 0;
-    state.mode = "problem";
-    state.selected = null;
+    const resume = loadResume();
+    const canResume = resume && resume.level === level && resume.round === round
+      && Number.isInteger(Number(resume.index)) && state.lessons[Number(resume.index)];
+    if (canResume) {
+      state.index = Number(resume.index);
+      state.mode = resume.mode || "problem";
+      state.selected = resume.selected || null;
+      state.resultShown = Boolean(resume.resultShown);
+      state.lastCorrect = typeof resume.lastCorrect === "boolean" ? resume.lastCorrect : null;
+    } else {
+      const nextUpIndex = state.lessons.findIndex((lesson) => !state.answers.has(lesson.id));
+      state.index = nextUpIndex >= 0 ? nextUpIndex : 0;
+      state.mode = "problem";
+      state.selected = null;
+      state.resultShown = false;
+      state.lastCorrect = null;
+    }
     renderStudyOptions();
-    els.gradeLabel.textContent = dataset.grade;
+    els.gradeLabel.textContent = level === "g2" ? "英検2級" : "英検準2級";
     renderAll();
   } catch (error) {
     showLoadError(error);
@@ -314,17 +373,18 @@ function bindEvents() {
 function renderAll() {
   const lesson = currentLesson();
   if (!lesson) return;
-  state.selected = null;
   state.segment = { start: lesson.start, end: lesson.end };
   loadAudioForLesson(lesson);
   els.audio.playbackRate = Number(els.speedSelect.value);
-  els.partLabel.textContent = `PART ${lesson.part}`;
+  els.partLabel.textContent = `第${lesson.part}部`;
   els.lessonTitle.textContent = `No. ${lesson.id}`;
   syncSegmentInputs();
   renderQuestionList();
   renderPanels();
   updateScore();
   updateBadge();
+  els.completionPanel.classList.add("hide");
+  saveResume();
 }
 
 async function loadAudioForLesson(lesson) {
@@ -367,7 +427,7 @@ function renderQuestionList() {
     let header = "";
     if (lesson.part !== lastPart) {
       lastPart = lesson.part;
-      header = `<p class="qPartHead">PART ${lesson.part}</p>`;
+      header = `<p class="qPartHead">第${lesson.part}部</p>`;
     }
     return `${header}<button class="${classes.join(" ")}" type="button" data-index="${index}">${lesson.id}</button>`;
   }).join("");
@@ -375,6 +435,9 @@ function renderQuestionList() {
     button.addEventListener("click", () => {
       state.index = Number(button.dataset.index);
       state.mode = "problem";
+      state.selected = null;
+      state.resultShown = false;
+      state.lastCorrect = null;
       els.audio.pause();
       renderAll();
     });
@@ -384,6 +447,18 @@ function renderQuestionList() {
 function renderPanels() {
   const lesson = currentLesson();
   const selected = state.selected;
+  const hasResult = state.resultShown && typeof state.lastCorrect === "boolean";
+  const resultClass = hasResult ? (state.lastCorrect ? "ok" : "ng") : "";
+  const resultText = state.lastCorrect ? "正解です。" : "不正解です。書き取りに進みます。";
+  const resultActions = hasResult
+    ? `<div class="dictActions">
+        <button id="dictAdvanceBtn" class="cta" type="button">${state.lastCorrect ? "次の問題へ" : "書き取りへ進む"}</button>
+        <button id="dictRetryBtn" class="dictLink" type="button">もう一度聞く</button>
+      </div>`
+    : `<div class="dictActions">
+        <button id="dictCheckBtn" class="cta" type="button" ${selected ? "" : "disabled"}>選択した答えを確認する</button>
+        <button id="dictSkipBtn" class="dictLink" type="button">この問題を飛ばす</button>
+      </div>`;
   els.problemPanel.innerHTML = `
     <h3 class="dictStepTitle">2. 答えを選ぶ</h3>
     <div class="dictChoices">
@@ -398,11 +473,8 @@ function renderPanels() {
         </label>`;
       }).join("")}
     </div>
-    <p id="dictFeedback" class="feedback" aria-live="polite"></p>
-    <div class="dictActions">
-      <button id="dictCheckBtn" class="cta" type="button" ${selected ? "" : "disabled"}>選択した答えを確認する</button>
-      <button id="dictSkipBtn" class="dictLink" type="button">この問題を飛ばす</button>
-    </div>
+    ${hasResult ? `<p id="dictFeedback" class="feedback ${resultClass}" aria-live="polite">${resultText}</p>` : ""}
+    ${resultActions}
   `;
 
   els.dictationPanel.innerHTML = `
@@ -418,7 +490,7 @@ function renderPanels() {
     <h3 class="dictStepTitle">3. 答えとスクリプト</h3>
     <p class="dictAnswerLine">正解: ${lesson.answer}. ${escapeHtml(lesson.choices[lesson.answer - 1])}</p>
     <div class="dictScript">${escapeHtml(scriptWithQuestion(lesson))}</div>
-    <p class="label dictTipsLabel">Listening Points</p>
+    <p class="label dictTipsLabel">聞き取りのポイント</p>
     <ul class="dictTips">
       ${lesson.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("")}
     </ul>
@@ -431,12 +503,24 @@ function renderPanels() {
   els.problemPanel.querySelectorAll("input[name='dictChoice']").forEach((input) => {
     input.addEventListener("change", () => {
       state.selected = Number(input.value);
+      state.resultShown = false;
+      state.lastCorrect = null;
+      saveResume();
       renderPanels();
       setMode("problem");
     });
   });
-  document.getElementById("dictCheckBtn").addEventListener("click", checkAnswer);
-  document.getElementById("dictSkipBtn").addEventListener("click", nextLesson);
+  const checkBtn = document.getElementById("dictCheckBtn");
+  if (checkBtn) checkBtn.addEventListener("click", checkAnswer);
+  const skipBtn = document.getElementById("dictSkipBtn");
+  if (skipBtn) skipBtn.addEventListener("click", nextLesson);
+  const advanceBtn = document.getElementById("dictAdvanceBtn");
+  if (advanceBtn) advanceBtn.addEventListener("click", () => {
+    if (state.lastCorrect) nextLesson();
+    else setMode("dictation");
+  });
+  const retryBtn = document.getElementById("dictRetryBtn");
+  if (retryBtn) retryBtn.addEventListener("click", playFromStart);
   document.getElementById("dictShowScriptBtn").addEventListener("click", () => setMode("review"));
   document.getElementById("dictBackProblemBtn").addEventListener("click", () => setMode("problem"));
   document.getElementById("dictNextBtn").addEventListener("click", nextLesson);
@@ -446,25 +530,21 @@ function renderPanels() {
 
 function checkAnswer() {
   const lesson = currentLesson();
-  const feedback = document.getElementById("dictFeedback");
   if (!state.selected) {
-    feedback.textContent = "選択肢を選んでください。";
     return;
   }
   const correct = state.selected === lesson.answer;
   state.answers.set(lesson.id, correct);
+  state.resultShown = true;
+  state.lastCorrect = correct;
+  state.mode = "problem";
   saveAnswers();
   updateScore();
   updateBadge();
   renderQuestionList();
-  feedback.classList.add(correct ? "ok" : "ng");
-  if (correct) {
-    feedback.textContent = "正解です。";
-    window.setTimeout(nextLesson, 650);
-  } else {
-    feedback.textContent = "不正解です。書き取りに進みます。";
-    window.setTimeout(() => setMode("dictation"), 650);
-  }
+  renderPanels();
+  setMode("problem");
+  saveResume();
 }
 
 function setMode(mode) {
@@ -472,18 +552,65 @@ function setMode(mode) {
   els.problemPanel.classList.toggle("hide", mode !== "problem");
   els.dictationPanel.classList.toggle("hide", mode !== "dictation");
   els.reviewPanel.classList.toggle("hide", mode !== "review");
+  els.completionPanel.classList.toggle("hide", mode !== "complete");
   Object.entries(els.tabs).forEach(([name, element]) => {
     element.classList.toggle("active", name === mode);
     if (name === mode) element.setAttribute("aria-current", "step");
     else element.removeAttribute("aria-current");
   });
+  saveResume();
 }
 
 function nextLesson() {
   els.audio.pause();
-  state.index = Math.min(state.lessons.length - 1, state.index + 1);
+  if (state.index >= state.lessons.length - 1) {
+    renderCompletion();
+    return;
+  }
+  state.index += 1;
   state.mode = "problem";
+  state.selected = null;
+  state.resultShown = false;
+  state.lastCorrect = null;
   renderAll();
+}
+
+function renderCompletion() {
+  clearResume();
+  state.mode = "complete";
+  const correct = Array.from(state.answers.values()).filter(Boolean).length;
+  const dictationCount = Array.from(state.answers.values()).filter((value) => value === false).length;
+  const wrongIndex = state.lessons.findIndex((lesson) => state.answers.get(lesson.id) === false);
+  els.problemPanel.classList.add("hide");
+  els.dictationPanel.classList.add("hide");
+  els.reviewPanel.classList.add("hide");
+  els.completionPanel.classList.remove("hide");
+  els.completionPanel.innerHTML = `
+    <p class="label">今回の学習が完了</p>
+    <h2>${state.lessons.length}問を確認しました</h2>
+    <p class="completionScore">正解 ${correct} / ${state.lessons.length}・書き取り ${dictationCount}問</p>
+    <p class="hint">次に行うことを選べます。記録はこの端末に保存されています。</p>
+    <div class="dictActions">
+      ${wrongIndex >= 0 ? '<button id="dictReviewWrongBtn" class="cta" type="button">書き取りになった問題を確認する</button>' : '<button id="dictRestartBtn" class="cta" type="button">最初からもう一度</button>'}
+      ${wrongIndex >= 0 ? '<button id="dictRestartBtn" class="ghost" type="button">最初からもう一度</button>' : ''}
+    </div>`;
+  const reviewWrongBtn = document.getElementById("dictReviewWrongBtn");
+  if (reviewWrongBtn) reviewWrongBtn.addEventListener("click", () => {
+    state.index = wrongIndex;
+    state.mode = "problem";
+    state.selected = null;
+    state.resultShown = false;
+    state.lastCorrect = null;
+    renderAll();
+  });
+  document.getElementById("dictRestartBtn").addEventListener("click", () => {
+    state.index = 0;
+    state.mode = "problem";
+    state.selected = null;
+    state.resultShown = false;
+    state.lastCorrect = null;
+    renderAll();
+  });
 }
 
 function togglePlay() {
@@ -586,7 +713,8 @@ function resetSegment() {
 
 function updateScore() {
   const correct = Array.from(state.answers.values()).filter(Boolean).length;
-  els.scoreLine.textContent = `${correct} / ${state.lessons.length}`;
+  const dictationCount = Array.from(state.answers.values()).filter((value) => value === false).length;
+  els.scoreLine.textContent = `正解 ${correct} / ${state.lessons.length}・書き取り ${dictationCount}`;
 }
 
 function updateBadge() {
@@ -671,7 +799,11 @@ async function boot() {
     applyLoaded: applyCloudPayload,
   });
   await cloud.init();
-  state.round = DEFAULT_ROUND;
+  const resume = loadResume();
+  const preference = loadDatasetPreference();
+  const initial = resume || preference || { level: "g2", round: DEFAULT_ROUND };
+  state.level = datasets[initial.level] ? initial.level : "g2";
+  state.round = datasets[state.level].rounds[initial.round] ? initial.round : DEFAULT_ROUND;
   renderStudyOptions();
   await loadLevel(state.level, state.round);
 }

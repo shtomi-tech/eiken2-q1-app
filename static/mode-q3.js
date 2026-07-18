@@ -80,12 +80,92 @@ function loadLocal(id = datasetId) {
         progress = {
           questions: parsed.questions || {},
           summaries: parsed.summaries || {},
+          resume: parsed.resume || null,
         };
       }
     }
   } catch (e) {
     /* ignore */
   }
+}
+
+function saveResume() {
+  if (!route || route.view === "home" || route.view === "completion") return;
+  const resume = {
+    view: route.view,
+    passageId: route.passageId || route.queue?.[route.idx]?.passageId || null,
+    questionId: route.view === "practice" && route.queue ? route.queue[route.idx]?.qId : null,
+    queue: route.queue || [],
+    idx: route.idx || 0,
+    isReview: Boolean(route.isReview),
+  };
+  if (route.view === "practice") {
+    resume.practiceUiState = { ...practiceUiState, selectedKeys: practiceUiState.selectedKeys.slice() };
+  }
+  if (route.view === "summary") {
+    const draft = summaryDraftCache[route.passageId];
+    if (draft) resume.summaryDraft = { ...draft, filledMap: { ...draft.filledMap } };
+  }
+  progress.resume = resume;
+  saveLocal();
+}
+function clearResume() {
+  if (!progress.resume) return;
+  delete progress.resume;
+  saveLocal();
+}
+function resumeDescription(resume) {
+  if (!resume) return "";
+  if (resume.view === "practice") {
+    const item = resume.queue?.[resume.idx];
+    const passage = findPassage(resume.passageId || item?.passageId);
+    const ui = resume.practiceUiState;
+    const step = ui?.step === "evidence"
+      ? `根拠選択中（${ui.selectedKeys?.length || 0}文）`
+      : ui?.step === "result" ? "結果確認" : "選択肢を選ぶ";
+    return `${passage ? passageLabel(passage) + "「" + passage.title + "」" : "文章"}・${item ? "第" + item.qId + "問" : "設問"}・${step}`;
+  }
+  if (resume.view === "summary") {
+    const passage = findPassage(resume.passageId);
+    return `${passage ? passageLabel(passage) + "「" + passage.title + "」" : "文章"}・内容整理の続き`;
+  }
+  return "長文演習の続き";
+}
+function restoreResume() {
+  const saved = progress.resume;
+  if (!saved || !saved.view) return false;
+  route = {
+    view: saved.view,
+    passageId: saved.passageId || saved.queue?.[saved.idx || 0]?.passageId || null,
+    queue: saved.queue || [],
+    idx: Number(saved.idx || 0),
+    isReview: Boolean(saved.isReview),
+  };
+  if (route.view === "practice") {
+    const item = route.queue[route.idx];
+    if (!item || !findPassage(route.passageId)) {
+      clearResume();
+      return false;
+    }
+    if (saved.practiceUiState) {
+      practiceUiState = { ...saved.practiceUiState, selectedKeys: saved.practiceUiState.selectedKeys || [] };
+    }
+    renderPractice();
+    return true;
+  }
+  if (route.view === "summary") {
+    if (!findPassage(route.passageId)) {
+      clearResume();
+      return false;
+    }
+    if (saved.summaryDraft) {
+      summaryDraftCache[route.passageId] = { ...saved.summaryDraft, filledMap: { ...saved.summaryDraft.filledMap } };
+    }
+    renderSummary();
+    return true;
+  }
+  clearResume();
+  return false;
 }
 
 function findPassage(passageId) {
@@ -164,6 +244,13 @@ function passageLabel(p) {
 // おすすめ（主導線）＝状態に応じて1つだけ決める（Hickの法則：大問1ホームと同じ考え方）。
 // 重要度：復習 → 未完了の文章 → 未実施の内容整理 → 周回。
 function computePrimaryAction(reviewCount) {
+  if (progress.resume) {
+    return {
+      label: "続きから再開する",
+      why: "前回保存した位置から再開します。",
+      onclick: () => { if (!restoreResume()) renderHome(); },
+    };
+  }
   if (reviewCount > 0) {
     return {
       label: `間違えた${reviewCount}件をまとめて復習する`,
@@ -212,7 +299,7 @@ function renderHome() {
   </label>`;
 
   const heroHtml = `<section class="card hero">
-    <p class="label">Reading Comprehension</p>
+    <p class="label">学習の流れ</p>
     <h2>長文を読み、根拠を示しながら解く</h2>
     <p class="hint">4択に解答したら、根拠だと思う文を本文からタップして選ぶ。選択肢が合っていても根拠がずれていれば、それも記録される。内容整理では、本文を見ながら日本語の要約の空所を埋める。</p>
   </section>`;
@@ -223,16 +310,22 @@ function renderHome() {
   const primary = computePrimaryAction(reviewCount);
 
   // 問題セット選択の置き場所を大問1（Today/MissionカードのsectionHead右側）と揃える
+  const resumeHtml = progress.resume ? `<div class="resumeNotice">
+    <p class="label">途中保存</p>
+    <p class="resumeText">${escapeHtml(resumeDescription(progress.resume))}</p>
+    <p class="hint">この端末に保存されています。続きから再開できます。</p>
+  </div>` : "";
   const todayHtml = `<section class="card">
     <div class="sectionHead">
       <div>
-        <p class="label">${reviewCount > 0 ? "Review" : "Today"}</p>
+        <p class="label">${reviewCount > 0 ? "復習" : "今日の学習"}</p>
         <h2>${escapeHtml(currentDataset().shortLabel)} 大問3を進める</h2>
       </div>
       ${datasetPickerHtml}
     </div>
+    ${resumeHtml}
     <div class="recommend">
-      <p class="recEyebrow">▶ まずはここから</p>
+      <p class="recEyebrow">▶ ${progress.resume ? "続きから" : "まずはここから"}</p>
       <button type="button" class="cta startCta" id="primaryActionBtn">${escapeHtml(primary.label)}</button>
       <p class="recWhy">${escapeHtml(primary.why)}</p>
     </div>
@@ -269,7 +362,7 @@ function renderHome() {
   const passagesHtml = `<section class="card">
     <div class="sectionHead">
       <div>
-        <p class="label">Passages</p>
+        <p class="label">文章一覧</p>
         <h2>文章一覧（全${DATA.passages.length}本）</h2>
       </div>
     </div>
@@ -303,7 +396,7 @@ function renderHome() {
   if (resetBtn) {
     resetBtn.addEventListener("click", () => {
       if (!confirm("進捗をすべてリセットします。よろしいですか？")) return;
-      progress = { questions: {}, summaries: {} };
+      progress = { questions: {}, summaries: {}, resume: null };
       saveLocal();
       Object.keys(summaryDraftCache).forEach((k) => delete summaryDraftCache[k]);
       renderHome();
@@ -316,7 +409,8 @@ function openPractice(passageId) {
   const queue = passage.questions.map((q) => ({ passageId, qId: q.q }));
   let idx = queue.findIndex((item) => !progress.questions[item.qId] || !progress.questions[item.qId].answered);
   if (idx < 0) idx = 0;
-  route = { view: "practice", queue, idx, isReview: false };
+  clearResume();
+  route = { view: "practice", passageId, queue, idx, isReview: false };
   renderPractice();
 }
 
@@ -324,7 +418,8 @@ function startReview() {
   const queue = wrongQuestionQueue();
   pendingReviewSummaries = wrongSummaryPassageIds();
   if (queue.length > 0) {
-    route = { view: "practice", queue, idx: 0, isReview: true };
+    clearResume();
+    route = { view: "practice", passageId: queue[0].passageId, queue, idx: 0, isReview: true };
     renderPractice();
   } else if (pendingReviewSummaries.length > 0) {
     const pid = pendingReviewSummaries.shift();
@@ -334,6 +429,7 @@ function startReview() {
 
 function openSummary(passageId, isReview) {
   delete summaryDraftCache[passageId];
+  clearResume();
   route = { view: "summary", passageId, isReview: Boolean(isReview) };
   renderSummary();
 }
@@ -372,8 +468,10 @@ function renderTextPanel(passage, opts) {
       } else if (selectedKeys.includes(key)) {
         classes.push("selected");
       }
-      const lockAttr = interactive ? "" : ' data-locked="1"';
-      return `<span class="${classes.join(" ")}" data-key="${key}"${lockAttr}>${escapeHtml(s)} </span>`;
+      if (interactive) {
+        return `<button type="button" class="${classes.join(" ")}" data-key="${key}" aria-pressed="${selectedKeys.includes(key)}" aria-label="第${pi + 1}段落の${si + 1}文を根拠として${selectedKeys.includes(key) ? "選択解除" : "選択"}">${escapeHtml(s)} </button>`;
+      }
+      return `<span class="${classes.join(" ")}" data-key="${key}" data-locked="1">${escapeHtml(s)} </span>`;
     }).join("");
     const transId = `trans-${pi}-${passage.id}`;
     const shown = transVisible === true;
@@ -415,12 +513,19 @@ function renderPractice() {
   const stored = progress.questions[item.qId];
   // 復習モードでは、以前の記録があっても読み取り専用にせず再挑戦させる。
   const isAnswered = !route.isReview && Boolean(stored && stored.answered);
+  const savedPassageId = progress.resume?.passageId || progress.resume?.queue?.[progress.resume?.idx || 0]?.passageId;
+  const savedResume = progress.resume && progress.resume.view === "practice"
+    && savedPassageId === passage.id
+    && progress.resume.questionId === question.q;
 
-  practiceUiState = isAnswered
+  practiceUiState = savedResume && progress.resume.practiceUiState
+    ? { ...progress.resume.practiceUiState, selectedKeys: progress.resume.practiceUiState.selectedKeys || [] }
+    : isAnswered
     ? { chosenIndex: stored.chosenIndex, step: "result", selectedKeys: stored.chosenEvidence || [], transVisible: false }
     : { chosenIndex: null, step: "choice", selectedKeys: [], transVisible: false };
 
   paintPractice(passage, question, isAnswered, stored);
+  saveResume();
 }
 
 function evidenceKeysOf(question) {
@@ -458,9 +563,9 @@ function paintPractice(passage, question, isAnswered, stored) {
   let stepHtml = "";
   if (practiceUiState.step === "evidence") {
     stepHtml = `<div class="evidenceStep">
-      <p class="evidenceHint">根拠だと思う文を本文からタップして選んでください（複数可）。分からなければスキップできます。</p>
+      <p class="evidenceHint" aria-live="polite">根拠を選ぶ：${practiceUiState.selectedKeys.length}文。本文の文を選択してください（複数可）。</p>
       <div class="navRow">
-        <button class="ghost" type="button" id="skipEvidenceBtn">スキップ</button>
+        <button class="ghost" type="button" id="skipEvidenceBtn">根拠を選ばず採点</button>
         <button type="button" id="submitEvidenceBtn">この根拠で答え合わせ</button>
       </div>
     </div>`;
@@ -503,10 +608,11 @@ function paintPractice(passage, question, isAnswered, stored) {
   if (nextBtn) nextBtn.addEventListener("click", goNextQuestion);
 
   if (practiceUiState.step === "choice") {
-    passagePanel.querySelectorAll(".choiceBtn").forEach((btn) => {
+      passagePanel.querySelectorAll(".choiceBtn").forEach((btn) => {
       btn.addEventListener("click", () => {
         practiceUiState.chosenIndex = Number(btn.dataset.idx);
         practiceUiState.step = "evidence";
+        saveResume();
         paintPractice(passage, question, isAnswered, stored);
       });
     });
@@ -519,6 +625,7 @@ function paintPractice(passage, question, isAnswered, stored) {
         const i = practiceUiState.selectedKeys.indexOf(key);
         if (i >= 0) practiceUiState.selectedKeys.splice(i, 1);
         else practiceUiState.selectedKeys.push(key);
+        saveResume();
         paintPractice(passage, question, isAnswered, stored);
       });
     });
@@ -562,6 +669,7 @@ function finalizeAnswer(passage, question) {
   };
   saveLocal();
   practiceUiState.step = "result";
+  saveResume();
   paintPractice(passage, question, true, progress.questions[question.q]);
 }
 
@@ -577,7 +685,37 @@ function goNextQuestion() {
     openSummary(pid, true);
     return;
   }
-  renderHome();
+  const passage = findPassage(route.queue[route.queue.length - 1].passageId);
+  renderCompletion(passage);
+}
+
+function renderCompletion(passage) {
+  clearResume();
+  route = { view: "completion", passageId: passage.id };
+  passagePanel.classList.remove("hide");
+  passagePanel.classList.add("q3Session");
+  homePanel.classList.add("hide");
+  const stats = passageStats(passage);
+  const nextSummary = !passageSummaryDone(passage);
+  const nextPassage = DATA.passages.find((candidate) => candidate.id !== passage.id && passageIncomplete(candidate));
+  const nextAction = nextSummary
+    ? `<button type="button" class="cta" id="completionNextBtn">内容整理へ進む</button>`
+    : nextPassage
+      ? `<button type="button" class="cta" id="completionNextBtn">次の文章へ進む</button>`
+      : `<button type="button" class="cta" id="completionNextBtn">文章一覧へ戻る</button>`;
+  passagePanel.innerHTML = `<section class="completionCard">
+    <p class="label">文章の学習が完了</p>
+    <h2>${escapeHtml(passageLabel(passage))}「${escapeHtml(passage.title)}」</h2>
+    <p class="completionScore">設問 ${stats.qAnswered}/${stats.qTotal}問・正解 ${stats.qCorrect}問・根拠一致 ${stats.qExact}問</p>
+    <p class="hint">${nextSummary ? "次は本文の内容整理です。" : nextPassage ? "次の文章へ進めます。" : "この回の文章をすべて確認しました。"}</p>
+    <div class="actions">${nextAction}<button type="button" class="ghost" id="completionHomeBtn">一覧へ戻る</button></div>
+  </section>`;
+  document.getElementById("completionNextBtn").addEventListener("click", () => {
+    if (nextSummary) openSummary(passage.id, false);
+    else if (nextPassage) openPractice(nextPassage.id);
+    else renderHome();
+  });
+  document.getElementById("completionHomeBtn").addEventListener("click", renderHome);
 }
 
 /* ---------------- summary (content review) view ---------------- */
@@ -602,6 +740,7 @@ function renderSummary() {
   }
 
   paintSummary(passage, graded, stored);
+  saveResume();
 }
 
 function paintSummary(passage, graded, stored) {
@@ -691,6 +830,7 @@ function paintSummary(passage, graded, stored) {
         } else {
           draft.active = id;
         }
+        saveResume();
         paintSummary(passage, graded, stored);
       });
     });
@@ -699,6 +839,7 @@ function paintSummary(passage, graded, stored) {
         if (draft.active == null) return;
         draft.filledMap[draft.active] = el.dataset.word;
         draft.active = null;
+        saveResume();
         paintSummary(passage, graded, stored);
       });
     });
@@ -740,6 +881,7 @@ function gradeSummary(passage) {
     total: passage.summary.blanks.length,
   };
   saveLocal();
+  clearResume();
   paintSummary(passage, true, progress.summaries[passage.id]);
 }
 
