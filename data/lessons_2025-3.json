@@ -1,9 +1,9 @@
 {
   "title": "英検2級 2025年度 第3回 リスニング",
   "source": {
-    "scriptPdf": "C:\\Users\\shtom\\dev\\英検\\英検2級\\2025年度第3回\\2025-3-1ji-2kyuscript.pdf",
-    "questionPdf": "C:\\Users\\shtom\\dev\\英検\\英検2級\\2025年度第3回\\2025-3-1ji-2kyu.pdf",
-    "answerPdf": "C:\\Users\\shtom\\dev\\英検\\英検2級\\2025年度第3回\\202503F2kyu.pdf",
+    "scriptPdf": "C:\\Users\\shtom\\dev\\eiken-materials\\英検2級\\2025年度第3回\\2025-3-1ji-2kyuscript.pdf",
+    "questionPdf": "C:\\Users\\shtom\\dev\\eiken-materials\\英検2級\\2025年度第3回\\2025-3-1ji-2kyu.pdf",
+    "answerPdf": "C:\\Users\\shtom\\dev\\eiken-materials\\英検2級\\2025年度第3回\\202503F2kyu.pdf",
     "segmentation": "ffmpeg silencedetectで約10秒の解答無音を検出し、各設問ごとのMP3クリップを生成。"
   },
   "lessons": [

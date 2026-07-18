@@ -19,7 +19,7 @@
 ## 起動
 
 ```powershell
-cd C:\Users\shtom\dev\eiken2-q1
+cd C:\Users\shtom\dev\eiken-practice
 py -3 -m http.server 8061 --bind 127.0.0.1
 ```
 
@@ -39,10 +39,10 @@ py -3 -m http.server 8061 --bind 127.0.0.1
 - 画面・アプリ固有ロジック: `static/mode-q1.js`（大問1）・`static/mode-q3.js`（大問3）・`static/mode-dictation.js`（リスニング）・`static/app.js`（タブ切替の薄いシェル）
 - 共通クラウド同期層: `static/vendor/harness/`
 
-`static/vendor/harness/` は `C:\Users\shtom\dev\harness` から配布される生成物です。直接編集せず、更新後は次で確認します。
+`static/vendor/harness/` は `C:\Users\shtom\dev\learning-engine` から配布される生成物です。直接編集せず、更新後は次で確認します。
 
 ```powershell
-cd C:\Users\shtom\dev\harness
+cd C:\Users\shtom\dev\learning-engine
 node scripts/sync.mjs --check
 ```
 

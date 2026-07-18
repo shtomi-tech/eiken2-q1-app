@@ -1,6 +1,6 @@
 # MVP_SCOPE — 英検アプリ統合（eiken2-q3 を eiken2-q1 に吸収・kobun-vocab 方式）
 
-作成日: 2026-07-10 / 対象リポ: `C:\Users\shtom\dev\eiken2-q1`（公開: `shtomi-tech/eiken2-q1-app` → GitHub Pages）
+作成日: 2026-07-10 / 対象リポ: `C:\Users\shtom\dev\eiken-practice`（公開: `shtomi-tech/eiken2-q1-app` → GitHub Pages）
 
 ## 目的
 

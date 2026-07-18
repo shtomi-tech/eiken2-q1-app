@@ -353,7 +353,7 @@ function renderHome() {
           </div>
         </div>
         <div class="actionRow">
-          <button type="button" data-action="practice" data-passage="${p.id}">設問を解く（${practiceLabel}）</button>
+          <button class="cta" type="button" data-action="practice" data-passage="${p.id}">設問を解く（${practiceLabel}）</button>
           <button class="ghost" type="button" data-action="summary" data-passage="${p.id}">内容整理（${summaryLabel}）</button>
         </div>
       </div>`;
@@ -556,7 +556,7 @@ function paintPractice(passage, question, isAnswered, stored) {
       else if (i === practiceUiState.chosenIndex) cls += " wrong";
     }
     return `<button type="button" class="${cls}" data-idx="${i}" ${disabled}>
-      <span class="num">${i + 1}</span><span>${escapeHtml(c)}</span>
+      <span class="key">${i + 1}</span><span>${escapeHtml(c)}</span>
     </button>`;
   }).join("");
 

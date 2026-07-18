@@ -1,6 +1,6 @@
 # MVP_SCOPE — 英検2級大問1 生徒別クラウド同期（パイロット）
 
-作成日: 2026-07-06 / 対象リポ: `C:\Users\shtom\dev\eiken2-q1`（公開: `shtomi-tech/eiken2-q1-app` → GitHub Pages）
+作成日: 2026-07-06 / 対象リポ: `C:\Users\shtom\dev\eiken-practice`（公開: `shtomi-tech/eiken2-q1-app` → GitHub Pages）
 
 ## 目的
 

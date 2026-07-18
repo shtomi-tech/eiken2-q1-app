@@ -1,16 +1,26 @@
+/* eiken-practice — Claude design language（正本: リポ直下の DESIGN.md）
+   トークン名は旧デザインとの互換のため維持（JSが var(--parchment) 等を参照）。
+   --ok/--ng/--warn は Claude原典の生トークンだと暖色背景でAAコントラスト未達のため実測値で据え置き。 */
 :root {
   --ink: #141413;
-  --parchment: #faf9f6;
-  --paper: #fffefa;
-  --line: #ddd8cc;
-  --muted: #6f6a5f;
-  --clay: #b5532e;
+  --parchment: #faf9f5;
+  --paper: #efe9de;
+  --surface-soft: #f5f0e8;
+  --surface-strong: #e8e0d2;
+  --line: #e6dfd8;
+  --muted: #615c54;
+  --clay: #a9583e;
+  --clay-hover: #8a4732;
   --ok: #16803a;
   --ng: #b42318;
   --warn: #a16207;
-  --sans: "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  --serif: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --sans: "Inter", "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  --serif: "Cormorant Garamond", Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
   --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-pill: 9999px;
 }
 
 * { box-sizing: border-box; }
@@ -35,8 +45,8 @@ button, select, input, textarea { font: inherit; }
 
 button {
   min-height: 44px;
-  border: 1px solid var(--ink);
-  border-radius: 0;
+  border: none;
+  border-radius: var(--r-md);
   background: var(--ink);
   color: var(--parchment);
   padding: 9px 16px;
@@ -46,15 +56,15 @@ button {
 button:hover { background: #000; }
 button:disabled { opacity: .45; cursor: default; }
 
-button.ghost { background: transparent; color: var(--ink); }
-button.ghost:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
+button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+button.ghost:hover:not(:disabled) { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
 .smallGhost { min-height: 44px; padding: 10px 14px; font-size: 12px; }
 
 select, input {
   width: 100%;
   min-height: 44px;
-  border: 1px solid var(--ink);
-  border-radius: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
   background: var(--paper);
   color: var(--ink);
   padding: 8px 10px;
@@ -90,17 +100,18 @@ h1 {
   background: var(--ink);
   color: var(--parchment);
   font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 500;
-  padding: 6px 12px;
+  font-size: 21px;
+  font-weight: 600;
+  border-radius: var(--r-md);
+  padding: 6px 14px;
 }
 
 h2 {
   margin: 0 0 6px;
   font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.45;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .topActions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -108,12 +119,12 @@ h2 {
 .shareStatus { margin: 2px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--muted); }
 .shareStatus:empty { display: none; }
 .shareStatus.ok { color: var(--ink); }
-.shareStatus.ng { color: #b5532e; }
+.shareStatus.ng { color: var(--clay); }
 .shareStatus.syncing { color: var(--muted); }
 
 .card {
   background: var(--paper);
-  border: 1px solid var(--ink);
+  border-radius: var(--r-lg);
   margin-bottom: 16px;
   padding: 20px;
 }
@@ -143,9 +154,9 @@ h2 {
 .sessionState { color: var(--muted); font-size: 12px; margin: -8px 0 14px; }
 
 .completionCard {
-  border: 1px solid var(--ink);
   background: var(--ink);
   color: var(--parchment);
+  border-radius: var(--r-lg);
   padding: 24px;
 }
 .completionCard h2 { color: var(--parchment); }
@@ -159,14 +170,12 @@ h2 {
 .appNav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
+  gap: 8px;
   margin-bottom: 16px;
 }
 .appTab {
-  border: 0;
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border: none;
+  border-radius: var(--r-md);
   background: var(--paper);
   color: var(--ink);
   display: flex;
@@ -221,14 +230,13 @@ h2 {
 .dailyGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
+  gap: 8px;
   margin: 14px 0 16px;
 }
 .dailyGrid.cols4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .dailyCell {
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  background: var(--parchment);
+  border-radius: var(--r-md);
   padding: 14px;
 }
 .dailyNum {
@@ -246,12 +254,12 @@ h2 {
   margin-top: 4px;
 }
 
-.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
 .answerActions {
   scroll-margin: 32px;
 }
 .answerActions .cta { min-width: min(100%, 260px); }
-.cta { border-radius: 0; font-weight: 600; }
+.cta { border-radius: var(--r-md); font-weight: 600; }
 
 /* 前へ/次への誤タップ防止：両端に離し、主操作（次へ）を優先して大きくする */
 .flashNav { justify-content: space-between; gap: 24px; }
@@ -279,12 +287,12 @@ h2 {
   background: var(--clay);
   border-color: var(--clay);
 }
-.reviewCta:hover { background: #8f3e22; }
+.reviewCta:hover { background: var(--clay-hover); }
 .finalCta {
   background: var(--clay);
   border-color: var(--clay);
 }
-.finalCta:hover { background: #8f3e22; }
+.finalCta:hover { background: var(--clay-hover); }
 .meaningCta {
   background: var(--ink);
   border-color: var(--ink);
@@ -292,7 +300,7 @@ h2 {
 
 /* おすすめ（主導線）＝1つだけ大きく。従属メニューはアウトラインで重量を下げる */
 .recommend {
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--line);
   margin-top: 16px;
   padding-top: 14px;
 }
@@ -319,8 +327,8 @@ h2 {
 .secondaryCta {
   background: transparent;
   color: var(--ink);
-  border: 1px solid var(--ink);
-  border-radius: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
   font-weight: 500;
 }
 .secondaryCta:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
@@ -358,14 +366,12 @@ h2 {
 .itemList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
+  gap: 8px;
   margin-top: 14px;
 }
 .qCard {
   min-height: 120px;
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-radius: var(--r-md);
   background: var(--paper);
   color: var(--ink);
   padding: 12px;
@@ -374,12 +380,12 @@ h2 {
   flex-direction: column;
   gap: 8px;
 }
-.qCard:hover { background: var(--parchment); }
+.qCard:hover { background: var(--surface-soft); }
 .qCard.done { border-left: 4px solid var(--ok); }
 .qCard.due { border-left: 4px solid var(--clay); }
 .qCard.review {
   border-left: 4px solid var(--clay);
-  background: #fff7f1;
+  background: var(--surface-strong);
 }
 .qCard .qno {
   font-family: var(--mono);
@@ -405,7 +411,9 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
-  border: 1px solid var(--ink);
+  background: var(--paper);
+  border-radius: var(--r-md);
+  overflow: hidden;
   margin-bottom: 16px;
 }
 .stagePill {
@@ -431,21 +439,22 @@ h2 {
 .meaningBar .stagePill { flex-basis: 50%; }
 
 .roundInfo {
-  border: 1px solid var(--ink);
   background: var(--paper);
+  border-radius: var(--r-pill);
   display: inline-flex;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .06em;
   margin: 0 0 14px;
-  padding: 3px 8px;
+  padding: 3px 10px;
   text-transform: uppercase;
 }
 
 /* ---- Flashcard (learn) ---- */
 .flash {
-  border: 1px solid var(--ink);
   background: var(--parchment);
+  border-radius: var(--r-lg);
+  overflow: hidden;
 }
 .flashHead {
   background: var(--ink);
@@ -506,13 +515,13 @@ h2 {
 }
 
 /* ---- Quiz (check + practice) ---- */
-.quizBox { border: 1px solid var(--ink); background: var(--parchment); padding: 16px; }
+.quizBox { background: var(--parchment); border-radius: var(--r-lg); padding: 16px; }
 .quizTop {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
   margin-bottom: 14px;
   padding-bottom: 8px;
 }
@@ -526,17 +535,19 @@ h2 {
 .choiceBtn {
   background: var(--paper);
   color: var(--ink);
+  border: 1px solid var(--line);
   display: flex;
   align-items: center;
   gap: 12px;
   min-height: 52px;
   text-align: left;
 }
-.choiceBtn:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
+.choiceBtn:hover:not(:disabled) { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
 .choiceBtn.correct { border-color: var(--ok); border-width: 2px; }
 .choiceBtn.wrong { border-color: var(--ng); border-width: 2px; }
 .key {
   border: 1px solid currentColor;
+  border-radius: var(--r-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -547,9 +558,9 @@ h2 {
 }
 
 .feedback {
-  border: 1px solid var(--ink);
   border-left: 4px solid var(--ink);
   background: var(--paper);
+  border-radius: var(--r-md);
   margin-top: 14px;
   padding: 12px 14px;
 }
@@ -561,6 +572,7 @@ h2 {
 
 .empty {
   border: 1px dashed var(--line);
+  border-radius: var(--r-md);
   color: var(--muted);
   padding: 18px;
   text-align: center;
@@ -578,6 +590,7 @@ h2 {
 .doneBanner {
   background: var(--ink);
   color: var(--parchment);
+  border-radius: var(--r-lg);
   padding: 20px;
   text-align: center;
 }
@@ -612,7 +625,7 @@ h2 {
 /* ---- passage list (home) ---- */
 .passageList { display: flex; flex-direction: column; gap: 16px; }
 
-.passageCard { background: var(--paper); border: 1px solid var(--ink); padding: 18px; }
+.passageCard { background: var(--paper); border-radius: var(--r-lg); padding: 18px; }
 
 .passageCard .ptitle { font-family: var(--serif); font-size: 18px; font-weight: 500; margin: 0 0 4px; }
 .passageCard .psub { margin: 0 0 12px; color: var(--muted); font-size: 13px; font-family: var(--mono); letter-spacing: .03em; }
@@ -646,7 +659,7 @@ h2 {
   .textPanel { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; }
 }
 
-.textPanel, .taskPanel { background: var(--paper); border: 1px solid var(--ink); padding: 20px; }
+.textPanel, .taskPanel { background: var(--paper); border-radius: var(--r-lg); padding: 20px; }
 
 .emailHeader {
   border: 1px solid var(--line);
@@ -677,11 +690,11 @@ h2 {
   text-align: left;
   vertical-align: baseline;
 }
-.textPanel button.sent:hover { background: #efe9d8; }
-.textPanel button.sent[aria-pressed="true"] { background: #f0dfce; }
+.textPanel button.sent:hover { background: var(--surface-soft); }
+.textPanel button.sent[aria-pressed="true"] { background: var(--surface-strong); }
 .textPanel button.sent:focus-visible { outline-offset: 1px; }
-.sent:hover { background: #efe9d8; }
-.sent.selected { background: #f0dfce; text-decoration: underline; text-decoration-color: var(--clay); text-underline-offset: 3px; }
+.sent:hover { background: var(--surface-soft); }
+.sent.selected { background: var(--surface-strong); text-decoration: underline; text-decoration-color: var(--clay); text-underline-offset: 3px; }
 .sent.evidenceCorrect { background: #dcecdf; text-decoration: underline; text-decoration-color: var(--ok); text-underline-offset: 3px; }
 .sent.evidenceMissed { background: #f6e2df; text-decoration: underline; text-decoration-color: var(--ng); text-underline-offset: 3px; text-decoration-style: dashed; }
 .sent[data-locked="1"] { cursor: default; }
@@ -712,18 +725,18 @@ h2 {
 .evidenceStep { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 4px; }
 .evidenceHint { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
 
-/* 大問1の .feedback と同じ「罫線カード＋左太罫」の書式に統一（ゲシュタルト：類同） */
+/* 大問1の .feedback と同じ「カード＋左太罫」の書式に統一（ゲシュタルト：類同） */
 .resultBox {
-  border: 1px solid var(--ink);
   border-left: 4px solid var(--ink);
   background: var(--paper);
+  border-radius: var(--r-md);
   margin-top: 14px;
   padding: 12px 14px;
 }
 .resultBox.ok { border-left-color: var(--ok); }
 .resultBox.ng { border-left-color: var(--ng); }
 .resultLine { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; margin-bottom: 4px; }
-.tag { display: inline-block; padding: 2px 8px; font-size: 11px; font-family: var(--mono); letter-spacing: .04em; border: 1px solid currentColor; }
+.tag { display: inline-block; padding: 2px 8px; font-size: 11px; font-family: var(--mono); letter-spacing: .04em; border: 1px solid currentColor; border-radius: var(--r-pill); }
 .tag.ok { color: var(--ok); }
 .tag.ng { color: var(--ng); }
 .tag.exact { color: var(--ok); }
@@ -742,10 +755,11 @@ h2 {
 
 .wordBank { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
 .chip {
-  background: var(--paper); border: 1px solid var(--ink); color: var(--ink);
-  padding: 8px 12px; min-height: 44px; font-size: 13.5px;
+  background: var(--paper); border: 1px solid var(--line); color: var(--ink);
+  border-radius: var(--r-pill);
+  padding: 8px 14px; min-height: 44px; font-size: 13.5px;
 }
-.chip:hover:not(:disabled) { background: #f0ece0; }
+.chip:hover:not(:disabled) { background: var(--surface-soft); }
 .chip.used { opacity: .35; }
 
 .answerReveal { font-size: 13px; color: var(--muted); margin-top: 4px; }
@@ -756,13 +770,7 @@ h2 {
 .q3Session .choiceBtn {
   display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%;
 }
-.q3Session .choiceBtn:hover:not(:disabled) { background: var(--ink); color: var(--parchment); }
-.q3Session .choiceBtn .num {
-  border: 1px solid currentColor;
-  display: inline-flex; align-items: center; justify-content: center;
-  flex: 0 0 24px; height: 24px;
-  font-family: var(--mono); font-size: 12px;
-}
+.q3Session .choiceBtn:hover:not(:disabled) { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
 .q3Session .choiceBtn.correct { border-color: var(--ok); border-width: 2px; }
 .q3Session .choiceBtn.wrong { border-color: var(--ng); border-width: 2px; }
 .q3Session .choiceBtn:disabled { opacity: 1; cursor: default; }
@@ -781,7 +789,7 @@ h2 {
   font-size: 13px;
 }
 .q3Session .blank.empty { color: var(--muted); }
-.q3Session .blank.active { background: #f0dfce; }
+.q3Session .blank.active { background: var(--surface-strong); }
 .q3Session .blank.filled { color: var(--ink); }
 .q3Session .blank.correct { border-color: var(--ok); color: var(--ok); }
 .q3Session .blank.wrong { border-color: var(--ng); color: var(--ng); }
@@ -819,8 +827,8 @@ h2 {
 
 /* ---- 問題一覧（サイドバー） ---- */
 .dictSidebar {
-  border: 1px solid var(--ink);
   background: var(--paper);
+  border-radius: var(--r-lg);
   align-self: start;
   max-height: calc(100vh - 120px);
   overflow: auto;
@@ -830,7 +838,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
   padding: 12px 14px;
 }
 .dictSideHead .label { margin: 0; }
@@ -839,9 +847,8 @@ h2 {
 .dictQuestionList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border-top: 1px solid var(--ink);
+  gap: 4px;
+  padding: 4px;
 }
 .dictQuestionList .qPartHead {
   grid-column: 1 / -1;
@@ -849,6 +856,7 @@ h2 {
   padding: 5px 8px;
   background: var(--ink);
   color: var(--parchment);
+  border-radius: var(--r-sm);
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .12em;
@@ -857,13 +865,14 @@ h2 {
 .dictQuestionList .qBtn {
   min-height: 48px;
   border: 0;
-  background: var(--paper);
+  border-radius: var(--r-sm);
+  background: var(--parchment);
   color: var(--ink);
   padding: 4px;
   font-family: var(--mono);
   font-size: 13px;
 }
-.dictQuestionList .qBtn:hover { background: var(--parchment); }
+.dictQuestionList .qBtn:hover { background: var(--surface-soft); }
 .dictQuestionList .qBtn.active { background: var(--ink); color: var(--parchment); }
 .dictQuestionList .qBtn.correct { box-shadow: inset 0 -4px 0 var(--ok); }
 .dictQuestionList .qBtn.wrong { box-shadow: inset 0 -4px 0 var(--ng); }
@@ -892,13 +901,14 @@ h2 {
 .dictLessonHead .label { margin-bottom: 4px; }
 .dictLessonHead h2 { margin: 0; }
 .dictBadge {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line);
   background: var(--paper);
+  border-radius: var(--r-pill);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  padding: 4px 8px;
+  padding: 4px 10px;
 }
 .dictBadge.correct { border-color: var(--ok); color: var(--ok); }
 .dictBadge.wrong { border-color: var(--ng); color: var(--ng); }
@@ -944,12 +954,13 @@ h2 {
 .dictSettings { position: relative; }
 .dictSettings summary {
   min-height: 44px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
   padding: 10px 12px;
   cursor: pointer;
   list-style-position: inside;
 }
-.dictSettings summary:hover { background: var(--ink); color: var(--parchment); }
+.dictSettings summary:hover { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
 .dictSession summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .dictSettingsBody {
   position: absolute;
@@ -959,8 +970,9 @@ h2 {
   display: grid;
   gap: 12px;
   min-width: 240px;
-  border: 1px solid var(--ink);
   background: var(--paper);
+  border-radius: var(--r-lg);
+  box-shadow: 0 4px 16px rgba(20, 20, 19, .14);
   padding: 12px;
 }
 .dictSpeed { display: grid; gap: 4px; }
@@ -993,14 +1005,15 @@ h2 {
   align-items: center;
   gap: 12px;
   min-height: 52px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
   background: var(--paper);
   color: var(--ink);
   padding: 10px 12px;
   cursor: pointer;
 }
 .dictChoice:hover,
-.dictChoice.selected { background: var(--ink); color: var(--parchment); }
+.dictChoice.selected { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
 .dictChoice:has(.srOnly:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 .dictSession .srOnly {
@@ -1044,8 +1057,8 @@ h2 {
 }
 .dictScript {
   white-space: pre-wrap;
-  border: 1px solid var(--ink);
   background: var(--parchment);
+  border-radius: var(--r-lg);
   padding: 16px;
   line-height: 1.8;
 }
