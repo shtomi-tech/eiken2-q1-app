@@ -1149,7 +1149,27 @@ async function mount() {
   await boot();
 }
 
+function startSerial() {
+  if (state.progress.resume && restoreSession()) return;
+  const nextQ = state.qList.find((q) => !unit(q).learned);
+  if (nextQ) {
+    startLearn(nextQ);
+    return;
+  }
+  const reviewQs = reviewQueue();
+  if (reviewQs.length) {
+    startReview();
+    return;
+  }
+  const final = finalProgress(allVocabularyItems().length);
+  if (finalUnlocked() && !final.cleared) {
+    startFinalCheck();
+    return;
+  }
+  renderHome();
+}
+
 function handleKey() { /* 大問1モードはキーボード操作なし */ }
 
-return { mount, handleKey };
+return { mount, handleKey, startSerial };
 })();

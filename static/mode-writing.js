@@ -342,6 +342,26 @@ const EikenWritingApp = (function () {
     }));
   }
 
+  function startSerial() {
+    const serialProfile = window.EikenSerialProfile;
+    if (serialProfile && (serialProfile.writingGrade === "2kyu" || serialProfile.writingGrade === "pre2")) {
+      state.grade = serialProfile.writingGrade;
+      state.round = "all";
+    }
+    const questions = visibleQuestions();
+    if (!questions.length) {
+      renderHome();
+      return;
+    }
+    const nextIndex = questions.findIndex((question) => !state.completed[question.id]);
+    state.index = nextIndex >= 0 ? nextIndex : 0;
+    const question = currentQuestion();
+    state.step = resumeStep(getDraft(question));
+    homePanel.className = "hide";
+    sessionPanel.className = "writingSession";
+    renderSession();
+  }
+
   async function mount() {
     if (state.loaded) { renderHome(); return; }
     if (state.loading) return;
@@ -371,5 +391,5 @@ const EikenWritingApp = (function () {
     }
   }
 
-  return { mount, handleKey };
+  return { mount, handleKey, startSerial };
 })();

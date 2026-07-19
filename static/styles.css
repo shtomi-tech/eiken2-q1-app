@@ -200,10 +200,49 @@ h2 {
 }
 .appTab[aria-pressed="true"] span,
 .appTab:hover span { color: rgba(250, 249, 246, .74); }
+.appTab.serialTab { border: 2px solid var(--ink); }
+.appTab:disabled { background: var(--surface-soft); color: var(--muted); }
+.appTab:disabled span { color: var(--muted); }
 
 @media (max-width: 560px) {
   .appNav { grid-template-columns: 1fr; }
   .appTab { min-height: 56px; }
+}
+
+/* ---- Serial course ---- */
+.serialHome { max-width: 960px; margin: 0 auto; }
+.serialHero { padding: 28px 24px; }
+.serialHero h2 { color: var(--parchment); font-size: clamp(30px, 5vw, 44px); }
+.serialHero .label, .serialHero .serialLead { color: rgba(250, 249, 246, .72); }
+.serialLead { max-width: 680px; margin: 0 0 20px; }
+.serialCurrent { display: grid; gap: 3px; margin-top: 20px; border-top: 1px solid rgba(250, 249, 246, .32); padding-top: 16px; }
+.serialCurrent .label { margin: 0; }
+.serialCurrent strong { font-family: var(--serif); font-size: 28px; line-height: 1.25; }
+.serialCurrent > span:last-child { color: rgba(250, 249, 246, .72); font-size: 13px; }
+.serialPrimary { margin-top: 18px; background: var(--parchment); color: var(--ink); }
+.serialPrimary:hover:not(:disabled) { background: var(--surface-strong); }
+.serialStepList { display: grid; gap: 12px; }
+.serialStepCard { border-radius: var(--r-md); background: var(--surface-soft); padding: 16px; }
+.serialStepCard.isCurrent { border-left: 4px solid var(--clay); background: var(--surface-strong); padding-left: 12px; }
+.serialStepCard.isDone { border-left: 4px solid var(--ok); padding-left: 12px; }
+.serialStepCard.isLocked { opacity: .72; }
+.serialStepTop { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.serialStepNo { display: inline-grid; place-items: center; width: 28px; height: 28px; border: 1px solid currentColor; border-radius: var(--r-pill); font-family: var(--mono); font-size: 11px; }
+.serialStepTag, .serialStepStatus { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.serialStepStatus { margin-left: auto; }
+.serialStepCard h3 { margin: 10px 0 2px; font-family: var(--serif); font-size: 25px; }
+.serialStepCard p { margin: 0; color: var(--muted); font-size: 13px; }
+.serialStepProgress { display: flex; align-items: baseline; gap: 10px; margin-top: 12px; }
+.serialStepProgress strong { font-family: var(--serif); font-size: 25px; line-height: 1; }
+.serialStepProgress span { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.serialLock { margin-top: 10px !important; color: var(--clay) !important; }
+.serialNote { border-left: 4px solid var(--line); }
+.serialNote p:last-child { margin: 0; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 560px) {
+  .serialHero { padding: 18px; }
+  .serialStepStatus { width: 100%; margin-left: 36px; }
+  .serialStepCard h3 { font-size: 22px; }
 }
 
 .sectionHead {

@@ -302,6 +302,15 @@ const EikenParaphraseApp = (function () {
     }
   }
 
+  function startSerial() {
+    const recommended = recommendedQuestion();
+    if (!recommended) {
+      renderHome();
+      return;
+    }
+    startSession(recommended.id, Boolean(state.resume && state.resume.id === recommended.id));
+  }
+
   function handleKey(event) {
     if (state.view === "tutorial" && event.key === "Escape") { returnFromTutorial(); return true; }
     if (state.view !== "session") return false;
@@ -310,5 +319,5 @@ const EikenParaphraseApp = (function () {
     return false;
   }
 
-  return { mount, handleKey };
+  return { mount, handleKey, startSerial };
 })();

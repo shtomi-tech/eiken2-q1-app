@@ -957,7 +957,22 @@ async function mount() {
   await boot();
 }
 
+function startSerial() {
+  const resume = resumeForCurrentDataset();
+  if (resume) {
+    openSession();
+    return;
+  }
+  const nextIndex = state.lessons.findIndex((lesson) => !state.answers.has(lesson.id));
+  state.index = nextIndex >= 0 ? nextIndex : 0;
+  state.mode = "problem";
+  state.selected = null;
+  state.resultShown = false;
+  state.lastCorrect = null;
+  openSession();
+}
+
 function handleKey() { /* リスニングモードはキーボード操作なし */ }
 
-return { mount, handleKey };
+return { mount, handleKey, startSerial };
 })();

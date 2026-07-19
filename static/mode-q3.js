@@ -977,7 +977,18 @@ async function mount() {
   await boot();
 }
 
+function startSerial() {
+  if (progress.resume && restoreResume()) return;
+  const passage = DATA.passages.find(passageIncomplete) || DATA.passages[0];
+  if (!passage) {
+    renderHome();
+    return;
+  }
+  if (passageIncomplete(passage)) openPractice(passage.id);
+  else openSummary(passage.id);
+}
+
 function handleKey() { /* 大問3モードはキーボード操作なし */ }
 
-return { mount, handleKey };
+return { mount, handleKey, startSerial };
 })();
