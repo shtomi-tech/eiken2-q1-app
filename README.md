@@ -1,13 +1,14 @@
-# 英検2級 演習（大問1・大問3・リスニング）
+# 英検 演習（大問1・大問3・リスニング・英作文）
 
-英検2級・準2級のリーディング大問1（語彙）・大問3（長文読解）・リスニングディクテーションを1つの静的Webアプリにまとめたものです。
+英検2級・準2級のリーディング大問1（語彙）・大問3（長文読解）・リスニングディクテーション・英作文を1つの静的Webアプリにまとめたものです。
 
 - **大問1（語彙）**タブ：英検2級・準2級の各回を切り替え、選択肢の意味・語源・例文を確認 → 意味チェック → 本番形式の4択、の3ステップで演習。誤答復習・最終チェックあり。
 - **大問3（長文）**タブ：4択解答 → 根拠だと思う文を本文からタップ選択 → 判定（選択肢正誤＋根拠一致度）。内容整理（要約穴埋め）と誤答・根拠不一致の復習モードあり。
 - **リスニング**タブ：級・回セレクタで設問ごとの音声を再生 → 4択回答 → 誤答のみ書き取り・スクリプト確認、の3ステップで演習。
 - **言い換え練習**タブ：英単語を思い出せないとき、もの・人・場所を関係詞で説明する練習。英検準2級レベルを意識した基本語の例答・日本語解説・チュートリアルを収録。
+- **英作文**タブ：テーマの英文を訳す → HEADでYes / Noを選ぶ → BODY 1・2の理由を日本語で考えて平易にする → CONCLUSIONを書く → 全体をレビューする、の6段階で演習。2級は80–100語、準2級は50–60語を全体の目安として表示します（文字数ではなく英語の語数）。
 
-各モードは `static/mode-q1.js` / `static/mode-q3.js` / `static/mode-dictation.js` に IIFE で分離されており、`static/app.js` が上部タブでどれを表示するかだけを切り替えます（kobun-vocab と同じ方式）。進捗の保存キー（localStorage）・クラウド同期のappId（`eiken2-q1` / `eiken2-q3` / `eiken-dictation`）は従来どおり別々のため、統合前の進捗もそのまま引き継がれます。
+各モードは `static/mode-*.js` に IIFE で分離されており、`static/app.js` が上部タブでどれを表示するかだけを切り替えます（kobun-vocab と同じ方式）。進捗の保存キー（localStorage）はモードごとに別々のため、統合前の進捗もそのまま引き継がれます。
 
 ## 学習の流れ（大問1）
 
@@ -37,8 +38,9 @@ py -3 -m http.server 8061 --bind 127.0.0.1
 - 大問1のデータ: `data/questions_*.json` と `data/vocab_*.json`
 - 大問3のデータ: `data/q3_questions_2026-1.json`
 - リスニングのデータ: `data/lessons*.json`（設問データ）と `assets/clips/` `assets/audio/`（音声。約240MB）
-- 画面・アプリ固有ロジック: `static/mode-q1.js`（大問1）・`static/mode-q3.js`（大問3）・`static/mode-dictation.js`（リスニング）・`static/mode-paraphrase.js`（言い換え練習）・`static/app.js`（タブ切替の薄いシェル）
+- 画面・アプリ固有ロジック: `static/mode-q1.js`（大問1）・`static/mode-q3.js`（大問3）・`static/mode-dictation.js`（リスニング）・`static/mode-paraphrase.js`（言い換え練習）・`static/mode-writing.js`（英作文）・`static/app.js`（タブ切替の薄いシェル）
 - 言い換え練習データ: `data/paraphrase_questions.json`（既存の大問データ・進捗キーとは分離）
+- 英作文データ: `data/writing_questions.json`（下書き・レビュー済み状態も既存モードとは分離）
 - 共通クラウド同期層: `static/vendor/harness/`
 
 `static/vendor/harness/` は `C:\Users\shtom\dev\learning-engine` から配布される生成物です。直接編集せず、更新後は次で確認します。

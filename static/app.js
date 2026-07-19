@@ -11,6 +11,7 @@ const APPS = [
   { id: "q3", tag: "長文を読む", label: "大問3（長文）", title: "英検 大問3 演習アプリ", mount: () => EikenQ3App.mount(), handleKey: (e) => EikenQ3App.handleKey(e) },
   { id: "dictation", tag: "聞いて書く", label: "リスニング", title: "英検 リスニング・ディクテーション", mount: () => EikenDictationApp.mount(), handleKey: (e) => EikenDictationApp.handleKey(e) },
   { id: "paraphrase", tag: "英作文で使う", label: "言い換え練習", title: "英作文 言い換え練習", mount: () => EikenParaphraseApp.mount(), handleKey: (e) => EikenParaphraseApp.handleKey(e) },
+  { id: "writing", tag: "構成から書く", label: "英作文", title: "英検 英作文アプリ", mount: () => EikenWritingApp.mount(), handleKey: (e) => EikenWritingApp.handleKey(e) },
 ];
 const ACTIVE_APP_KEY = "eiken_active_app";
 

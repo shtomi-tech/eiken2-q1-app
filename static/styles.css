@@ -1263,3 +1263,142 @@ h2 {
   }
   .dictActions .cta { width: 100%; min-width: 0; }
 }
+
+/* ---- 英作文：構成を一段ずつ組み立てるフロー ---- */
+.writingHome .hero { padding: 28px 24px; }
+.writingHome .hero h2 { max-width: 760px; color: var(--parchment); font-size: clamp(30px, 5vw, 44px); }
+.writingLead { max-width: 780px; margin: 0 0 18px; font-size: 15px; }
+.writingHeroRule { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border-top: 1px solid rgba(250, 249, 245, .3); padding-top: 16px; }
+.writingHeroRule strong { font-family: var(--serif); font-size: 24px; }
+.writingHeroRule span { color: rgba(250, 249, 245, .72); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; }
+.writingHome .hero .ghost { border-color: rgba(250, 249, 245, .42); color: var(--parchment); }
+.writingHome .hero .ghost:hover:not(:disabled) { border-color: var(--parchment); background: var(--parchment); color: var(--ink); }
+.writingHomeHeader { display: flex; align-items: start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.writingGradeButtons { display: flex; gap: 8px; }
+.writingGradeButtons .ghost[aria-pressed="true"] { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
+.writingStats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 16px 0; }
+.writingStats > div { min-height: 88px; border-radius: var(--r-md); background: var(--parchment); padding: 14px; }
+.writingStats strong { display: block; font-family: var(--serif); font-size: 27px; line-height: 1.2; }
+.writingStats span { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.writingFilters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.writingFilter { min-height: 44px; border: 1px solid var(--line); background: transparent; color: var(--ink); padding: 8px 12px; }
+.writingFilter[aria-pressed="true"], .writingFilter:hover { border-color: var(--ink); background: var(--ink); color: var(--parchment); }
+.writingQuestionList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.writingQuestionCard { display: flex; flex-direction: column; gap: 8px; min-height: 258px; border-radius: var(--r-lg); background: var(--parchment); padding: 16px; }
+.writingQuestionCard.progress { border-left: 4px solid var(--clay); padding-left: 12px; }
+.writingQuestionCard.done { border-left: 4px solid var(--ok); padding-left: 12px; }
+.writingQuestionMeta, .writingPromptMeta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.writingQuestionMeta span:first-child, .writingPromptMeta span:first-child { color: var(--clay); }
+.writingQuestionCard h3 { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.35; }
+.writingQuestionCard > p { margin: 0; color: var(--muted); font-size: 13px; }
+.writingQuestionFooter { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.writingQuestionFooter button { min-width: 108px; }
+.writingGuide h2 { margin-bottom: 14px; }
+.writingGuide ol { display: grid; gap: 8px; margin: 0; padding-left: 22px; }
+.writingGuide li { padding-left: 4px; }
+.writingGuide li strong { display: inline-block; min-width: 154px; }
+.writingGuide li span { color: var(--muted); font-size: 13px; }
+
+.writingSession { max-width: 960px; margin: 0 auto; }
+.writingSessionHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.writingSessionHead p { margin: 0; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.writingPromptCard { padding: 24px; }
+.writingPromptCard h2 { margin: 12px 0 8px; font-size: clamp(25px, 4vw, 34px); }
+.writingPromptCard > p { margin: 0; color: var(--muted); }
+.writingPromptMeta span:not(:last-child)::after { content: " /"; margin-left: 8px; color: var(--line); }
+.writingTarget { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 0 0; border-left: 4px solid var(--clay); border-radius: var(--r-md); background: var(--surface-soft); padding: 13px 14px; }
+.writingTarget strong { display: block; font-family: var(--serif); font-size: 24px; line-height: 1.25; }
+.writingTarget small { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.writingTarget > span { color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
+.writingTargetKicker { margin: 0 0 3px; color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; }
+.writingPoints { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+.writingPoints > span { border: 1px solid var(--line); border-radius: var(--r-pill); padding: 4px 9px; font-family: var(--mono); font-size: 10px; }
+.writingPoints > span:first-child { border-color: transparent; padding-left: 0; color: var(--muted); letter-spacing: .1em; }
+.writingFlow { padding: 24px; }
+.writingFlowHeader { display: flex; align-items: start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.writingFlowHeader h2 { font-size: clamp(26px, 4vw, 36px); }
+.writingKicker { margin: 0 0 4px; color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; }
+.writingFlowProgress { min-width: 124px; border-left: 2px solid var(--ink); padding-left: 12px; }
+.writingFlowProgress strong, .writingFlowProgress span { display: block; font-family: var(--mono); font-size: 11px; }
+.writingFlowProgress span { margin-top: 3px; color: var(--muted); }
+.writingStepper { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin: 20px 0 14px; }
+.writingStepButton { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 72px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--parchment); color: var(--ink); padding: 9px 10px; text-align: left; }
+.writingStepButton:hover:not(:disabled), .writingStepButton[aria-selected="true"] { border-color: var(--ink); background: var(--ink); color: var(--parchment); }
+.writingStepButton:disabled { opacity: .5; cursor: default; }
+.writingStepButton span { font-family: var(--serif); font-size: 21px; line-height: 1; }
+.writingStepButton small { color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .07em; }
+.writingStepButton[aria-selected="true"] small, .writingStepButton:hover:not(:disabled) small { color: rgba(250, 249, 245, .72); }
+.writingFlowStatus { min-height: 24px; margin: 0; color: var(--clay); font-size: 13px; }
+.writingPanel { margin-top: 2px; border-top: 2px solid var(--ink); padding-top: 18px; }
+.writingPanel h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 25px; }
+.writingHelp { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+.writingSectionTarget { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 18px; border-radius: var(--r-md); background: var(--surface-soft); padding: 10px 12px; }
+.writingSectionTarget span, .writingSectionTarget small { display: block; }
+.writingSectionTarget span { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; }
+.writingSectionTarget small { margin-top: 2px; color: var(--muted); font-size: 12px; }
+.writingSectionTarget strong { white-space: nowrap; font-family: var(--serif); font-size: 22px; }
+.writingField { display: grid; gap: 6px; margin-top: 14px; }
+.writingField > span, .writingStance legend { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.writingField textarea { width: 100%; min-height: 132px; resize: vertical; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--parchment); color: var(--ink); padding: 12px 14px; line-height: 1.7; }
+.writingStance { margin: 0; border: 0; padding: 0; }
+.writingStance p { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+.writingStanceOptions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.writingStanceOption { position: relative; display: flex; align-items: center; min-height: 64px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--parchment); padding: 10px 14px; cursor: pointer; }
+.writingStanceOption:has(input:checked) { border: 2px solid var(--ink); background: var(--surface-strong); padding: 9px 13px; }
+.writingStanceOption input { width: 18px; min-height: 18px; margin: 0 10px 0 0; accent-color: var(--ink); }
+.writingStanceOption strong, .writingStanceOption small { display: block; }
+.writingStanceOption strong { font-family: var(--serif); font-size: 20px; }
+.writingStanceOption small { color: var(--muted); font-size: 12px; }
+.writingTemplate { margin: 16px 0 4px; border-radius: var(--r-md); background: var(--ink); color: var(--parchment); padding: 14px 16px; }
+.writingTemplate > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.writingTemplate > div > span { color: rgba(250, 249, 245, .72); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
+.writingTemplate p { margin: 8px 0 0; font-family: var(--mono); font-size: 14px; line-height: 1.65; }
+.writingTextButton { min-height: 36px; border: 1px solid rgba(250, 249, 245, .45); border-radius: var(--r-md); background: transparent; color: var(--parchment); padding: 6px 10px; font-size: 12px; }
+.writingTextButton:hover { border-color: var(--parchment); background: var(--parchment); color: var(--ink); }
+.writingBodyGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.writingBodySubstep { border-radius: var(--r-md); background: var(--surface-soft); padding: 14px; }
+.writingBodySubstep > p { margin: 0; color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
+.writingBodySubstep .writingField { margin-top: 10px; }
+.writingReviewActions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.writingReviewActions > span { margin-right: auto; }
+.writingWordCount { display: flex; align-items: baseline; gap: 10px; margin-top: 10px; border-left: 4px solid var(--line); border-radius: var(--r-md); background: var(--surface-soft); padding: 9px 12px; }
+.writingWordCount strong { font-family: var(--serif); font-size: 27px; line-height: 1; }
+.writingWordCount span { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.writingWordCount[data-status="ok"] { border-left-color: var(--ok); }
+.writingWordCount[data-status="low"], .writingWordCount[data-status="high"] { border-left-color: var(--clay); }
+.writingChecks { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 14px; }
+.writingChecks h4 { margin: 0 0 8px; font-family: var(--serif); font-size: 20px; }
+.writingChecks label { display: block; padding: 7px 0; font-size: 13px; }
+.writingChecks input { width: 18px; min-height: 18px; margin: 0 8px 0 0; vertical-align: -3px; accent-color: var(--ink); }
+.writingReference { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; }
+.writingReference summary { cursor: pointer; font-weight: 600; }
+.writingReference p { color: var(--muted); font-size: 13px; }
+.writingReference p:nth-of-type(2) { color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.8; }
+.writingSourceNote { border-left: 3px solid var(--line); padding-left: 10px; }
+.writingNavigation, .writingQuestionNav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.writingNavigation > span { color: var(--muted); font-size: 13px; }
+.writingQuestionNav { margin-top: 0; }
+
+@media (max-width: 760px) {
+  .writingStepper { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .writingBodyGrid, .writingQuestionList { grid-template-columns: 1fr; }
+  .writingQuestionCard { min-height: 0; }
+}
+
+@media (max-width: 560px) {
+  .writingHome .hero, .writingPromptCard, .writingFlow { padding: 18px; }
+  .writingStats { gap: 6px; }
+  .writingStats > div { min-height: 78px; padding: 10px; }
+  .writingStats strong { font-size: 22px; }
+  .writingStats span { font-size: 9px; }
+  .writingGuide li strong { display: block; min-width: 0; }
+  .writingStepButton { min-height: 64px; padding: 8px; }
+  .writingStepButton span { font-size: 18px; }
+  .writingStepButton small { font-size: 8px; }
+  .writingStanceOptions { gap: 8px; }
+  .writingReviewActions { align-items: stretch; flex-direction: column; }
+  .writingReviewActions > span { margin-right: 0; }
+  .writingReviewActions button { width: 100%; }
+  .writingNavigation { position: sticky; bottom: 0; z-index: 5; margin: 18px -18px -18px; border-top: 1px solid var(--ink); background: var(--paper); padding: 12px 16px; }
+  .writingNavigation button { flex: 1; }
+}
