@@ -282,6 +282,7 @@ async function loadData(datasetId = state.datasetId) {
 async function switchDataset(datasetId) {
   if (!DATASETS[datasetId] || datasetId === state.datasetId) return;
   await loadData(datasetId);
+  if (window.EikenActiveAppId !== "q1") return;
   session = null;
   renderHome();
 }
@@ -1131,8 +1132,10 @@ async function boot() {
     applySharedUi();
 
     await loadData();
+    if (window.EikenActiveAppId !== "q1") return;
     renderHome();
   } catch (e) {
+    if (window.EikenActiveAppId !== "q1") return;
     $("#homePanel").innerHTML = "";
     $("#homePanel").appendChild(el("div", { class: "empty" },
       "データの読み込みに失敗しました。ローカルサーバー経由で開いているか確認してください。"));

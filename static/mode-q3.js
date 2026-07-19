@@ -916,6 +916,7 @@ async function loadData(id) {
 async function switchDataset(id) {
   if (!DATASETS[id] || id === datasetId) return;
   await loadData(id);
+  if (window.EikenActiveAppId !== "q3") return;
   Object.keys(summaryDraftCache).forEach((k) => delete summaryDraftCache[k]);
   Object.keys(wordOrderCache).forEach((k) => delete wordOrderCache[k]);
   renderHome();
@@ -959,14 +960,14 @@ async function boot() {
       applyLoaded: (loaded) => {
         applyCloudProgress(loaded);
         loadLocal(datasetId);
-        if (route.view === "home") renderHome();
+        if (window.EikenActiveAppId === "q3" && route.view === "home") renderHome();
       },
       onStatus: setShareStatus,
     });
     await cloud.init();
   }
 
-  renderHome();
+  if (window.EikenActiveAppId === "q3") renderHome();
 }
 
 let booted = false;

@@ -448,7 +448,7 @@ function renderHome() {
     els.audio.pause();
     const [level, round] = homeSelect.value.split("::");
     void loadLevel(level, round, { render: false }).then((loaded) => {
-      if (loaded) renderHome();
+      if (loaded && window.EikenActiveAppId === "dictation") renderHome();
     });
   });
   document.getElementById("dictHomePrimaryBtn").addEventListener("click", () => {
@@ -942,7 +942,7 @@ async function boot() {
   state.round = datasets[state.level].rounds[initial.round] ? initial.round : DEFAULT_ROUND;
   renderStudyOptions();
   const loaded = await loadLevel(state.level, state.round, { render: false });
-  if (loaded) renderHome();
+  if (loaded && window.EikenActiveAppId === "dictation") renderHome();
 }
 
 async function mount() {

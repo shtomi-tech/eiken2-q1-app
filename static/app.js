@@ -15,6 +15,7 @@ const APPS = [
 const ACTIVE_APP_KEY = "eiken_active_app";
 
 let currentAppId = null;
+window.EikenActiveAppId = null;
 
 function loadActiveAppId() {
   try {
@@ -44,6 +45,7 @@ function renderAppNav() {
 function switchApp(id) {
   if (currentAppId === id) return;
   currentAppId = id;
+  window.EikenActiveAppId = id;
   try { localStorage.setItem(ACTIVE_APP_KEY, id); } catch (e) { /* ignore */ }
   const next = APPS.find(a => a.id === id);
   document.getElementById("appTitle").textContent = next.title;
