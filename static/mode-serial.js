@@ -16,11 +16,11 @@ const EikenSerialApp = (function () {
   const sessionPanel = document.getElementById("sessionPanel");
 
   const STEPS = [
-    { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", reason: "語彙をすべて学習し、最終チェックをCLEARします。" },
-    { id: "paraphrase", label: "言い換え", tag: "PARAPHRASE", reason: "全問題を回答し、自己判定を登録します。" },
-    { id: "writing", label: "英作文", tag: "WRITING", reason: "各題を最後まで書き、参考解答とレビューします。" },
-    { id: "dictation", label: "リスニング", tag: "LISTENING", reason: "全設問を聞き、解答と書き取りを確認します。" },
-    { id: "q3", label: "大問3（長文）", tag: "READING", reason: "全本文の設問と内容整理を完了します。" },
+    { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", reason: "過去問3回分の語彙を学習し、各回の最終チェックをCLEARします。" },
+    { id: "paraphrase", label: "言い換え", tag: "PARAPHRASE / SUB", reason: "補助練習8問を回答し、自己判定を登録します。過去問3回分の判定対象外です。" },
+    { id: "writing", label: "英作文", tag: "WRITING", reason: "過去問3回分を書き、各題の参考解答とレビューを確認します。" },
+    { id: "dictation", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の全設問を聞き、解答と書き取りを確認します。" },
+    { id: "q3", label: "大問3（長文）", tag: "READING", reason: "過去問3回分の本文・設問・内容整理を完了します。" },
   ];
 
   let manifest = null;
@@ -51,6 +51,40 @@ const EikenSerialApp = (function () {
     }
   }
 
+  function orderedIds(ids, activeId) {
+    const unique = [...new Set(ids)].filter(Boolean);
+    if (!activeId || !unique.includes(activeId)) return unique;
+    return [activeId, ...unique.filter((id) => id !== activeId)];
+  }
+
+  function roundSuffix(id) {
+    const match = String(id || "").match(/(\d{4}-\d+)$/);
+    return match ? match[1] : "";
+  }
+
+  function profileRounds(q1Id, dictationRound) {
+    const gradePrefix = q1Id.startsWith("eikenp2-") ? "eikenp2-" : "eiken2-";
+    const q1Ids = orderedIds(
+      Object.keys(manifest.q1).filter((id) => id.startsWith(gradePrefix)),
+      q1Id,
+    );
+    const q3Ids = q1Ids.filter((id) => manifest.q3[id]);
+    const dictationIds = orderedIds(
+      manifest.dictation.rounds.map((round) => round.id),
+      dictationRound,
+    );
+    return { q1: q1Ids, q3: q3Ids, dictation: dictationIds };
+  }
+
+  function roundLabel(type, id) {
+    if (type === "dictation") {
+      const round = manifest.dictation.rounds.find((item) => item.id === id);
+      return round ? round.label : id;
+    }
+    const dataset = manifest[type] && manifest[type][id];
+    return dataset ? dataset.label : id;
+  }
+
   function selectedQ1Id() {
     const savedProfile = readJson(PROFILE_KEY, null);
     if (savedProfile && manifest.q1[savedProfile.q1Id]) return savedProfile.q1Id;
@@ -78,6 +112,7 @@ const EikenSerialApp = (function () {
       q3Id,
       dictation: { level, round },
       writingGrade: grade,
+      rounds: profileRounds(q1Id, round),
     };
   }
 
@@ -89,22 +124,35 @@ const EikenSerialApp = (function () {
 
   async function loadAssets() {
     profile = selectedProfile();
-    const q1Data = manifest.q1[profile.q1Id];
-    const q3Data = manifest.q3[profile.q3Id];
-    const dictData = manifest.dictation.levels[profile.dictation.level];
-    const [q1, q3, paraphrase, writing, dictation] = await Promise.all([
-      getJson(q1Data.questionsUrl),
-      getJson(q3Data.dataUrl),
+    const q1Entries = await Promise.all(profile.rounds.q1.map(async (id) => [
+      id,
+      await getJson(manifest.q1[id].questionsUrl),
+    ]));
+    const q3Entries = await Promise.all(profile.rounds.q3.map(async (id) => [
+      id,
+      await getJson(manifest.q3[id].dataUrl),
+    ]));
+    const dictationEntries = await Promise.all(profile.rounds.dictation.map(async (round) => [
+      round,
+      await getJson(manifest.dictation.levels[profile.dictation.level].rounds[round]),
+    ]));
+    const [paraphrase, writing] = await Promise.all([
       getJson(PARAPHRASE_URL),
       getJson(WRITING_URL),
-      getJson(dictData.rounds[profile.dictation.round]),
     ]);
-    assets = { q1, q3, paraphrase, writing, dictation };
+    assets = {
+      q1: Object.fromEntries(q1Entries),
+      q3: Object.fromEntries(q3Entries),
+      paraphrase,
+      writing,
+      dictation: Object.fromEntries(dictationEntries),
+    };
     loaded = true;
   }
 
   async function ensureLoaded() {
-    if (loaded && profile && profile.id === selectedProfile().id) return;
+    const nextProfile = manifest ? selectedProfile() : null;
+    if (loaded && profile && nextProfile && profile.id === nextProfile.id && profile.dictation.round === nextProfile.dictation.round) return;
     if (loading) return loading;
     loading = (async () => {
       manifest = await getJson(MANIFEST_URL);
@@ -128,21 +176,36 @@ const EikenSerialApp = (function () {
   }
 
   function q1Summary() {
-    const data = assets.q1 || {};
-    const questions = Array.isArray(data.questions) ? data.questions : [];
-    const saved = readJson(`eiken_q1_progress_${profile.q1Id}`, null)
-      || (profile.q1Id === manifest.defaultDatasetId ? readJson("eiken2_q1_v1", {}) : {});
-    const units = saved.units && typeof saved.units === "object" ? saved.units : {};
-    const learned = questions.filter((question) => units[question.q] && units[question.q].learned).length;
-    const clear = Boolean(saved.finalCheck && saved.finalCheck.cleared);
-    const next = questions.find((question) => !(units[question.q] && units[question.q].learned));
+    const roundIds = profile.rounds.q1;
+    const roundSummaries = roundIds.map((id) => {
+      const data = assets.q1[id] || {};
+      const questions = Array.isArray(data.questions) ? data.questions : [];
+      const saved = readJson(`eiken_q1_progress_${id}`, null)
+        || (id === manifest.defaultDatasetId ? readJson("eiken2_q1_v1", {}) : {});
+      const units = saved.units && typeof saved.units === "object" ? saved.units : {};
+      const learned = questions.filter((question) => units[question.q] && units[question.q].learned).length;
+      const clear = Boolean(saved.finalCheck && saved.finalCheck.cleared);
+      return { id, questions, saved, learned, clear };
+    });
+    const completedRounds = roundSummaries.filter((round) => round.clear).length;
+    const learnedQuestions = roundSummaries.reduce((sum, round) => sum + round.learned, 0);
+    const totalQuestions = roundSummaries.reduce((sum, round) => sum + round.questions.length, 0);
+    const nextRound = roundSummaries.find((round) => !round.clear);
+    const next = nextRound && nextRound.questions.find((question) => !(nextRound.saved.units && nextRound.saved.units[question.q] && nextRound.saved.units[question.q].learned));
+    const inProgress = learnedQuestions > 0 || completedRounds > 0;
+    const nextLabel = !nextRound
+      ? "3回分CLEAR済み"
+      : next
+        ? `${roundLabel("q1", nextRound.id)}・第${next.q}問を学習`
+        : `${roundLabel("q1", nextRound.id)}・最終チェックに挑戦`;
     return {
-      complete: clear,
-      completed: clear ? questions.length : learned,
-      total: questions.length,
-      status: clear ? "done" : learned ? "progress" : "ready",
-      nextLabel: clear ? "CLEAR済み" : next ? `第${next.q}問を学習` : "最終チェックに挑戦",
-      detail: clear ? "最終チェックCLEAR" : `${learned} / ${questions.length}問・${saved.resume ? "途中保存あり" : "未完了"}`,
+      complete: completedRounds === roundIds.length && roundIds.length > 0,
+      completed: completedRounds,
+      total: roundIds.length,
+      status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : inProgress ? "progress" : "ready",
+      nextId: nextRound ? nextRound.id : null,
+      nextLabel,
+      detail: `${completedRounds} / ${roundIds.length}回・${learnedQuestions} / ${totalQuestions}問${completedRounds === roundIds.length ? "・各回CLEAR" : ""}`,
     };
   }
 
@@ -158,7 +221,7 @@ const EikenSerialApp = (function () {
       total: questions.length,
       status: completed === questions.length && questions.length > 0 ? "done" : completed ? "progress" : "ready",
       nextLabel: next ? `${next.targetJa}を練習` : "全問題を確認済み",
-      detail: `${completed} / ${questions.length}問・${saved.resume ? "途中保存あり" : ""}`,
+      detail: `${completed} / ${questions.length}問・補助練習（過去問3回分の判定対象外）${saved.resume ? "・途中保存あり" : ""}`,
     };
   }
 
@@ -166,59 +229,88 @@ const EikenSerialApp = (function () {
     const questions = (Array.isArray(assets.writing) ? assets.writing : [])
       .filter((question) => question.grade === profile.writingGrade);
     const saved = readJson("eiken_writing_progress_v1", {});
-    const completed = questions.filter((question) => saved[question.id]).length;
+    const roundIds = [...new Set(questions.map((question) => question.round))].filter(Boolean);
+    const completedQuestions = questions.filter((question) => saved[question.id]).length;
+    const completedRounds = roundIds.filter((round) => {
+      const roundQuestions = questions.filter((question) => question.round === round);
+      return roundQuestions.length > 0 && roundQuestions.every((question) => saved[question.id]);
+    }).length;
     const next = questions.find((question) => !saved[question.id]);
     return {
-      complete: completed === questions.length && questions.length > 0,
-      completed,
-      total: questions.length,
-      status: completed === questions.length && questions.length > 0 ? "done" : completed ? "progress" : "ready",
+      complete: completedRounds === roundIds.length && roundIds.length > 0,
+      completed: completedRounds,
+      total: roundIds.length,
+      status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : completedQuestions ? "progress" : "ready",
       nextLabel: next ? `${next.round}の英作文` : "全問題をレビュー済み",
-      detail: `${completed} / ${questions.length}題・${saved ? "下書きは自動保存" : ""}`,
+      detail: `${completedRounds} / ${roundIds.length}回・${completedQuestions} / ${questions.length}題・下書きは自動保存`,
     };
   }
 
   function dictationSummary() {
-    const lessons = Array.isArray(assets.dictation.lessons) ? assets.dictation.lessons : [];
-    const key = `eiken_dictation_progress_${profile.dictation.level}_${profile.dictation.round}`;
-    const saved = readJson(key, {});
-    const answered = lessons.filter((lesson) => Object.prototype.hasOwnProperty.call(saved, String(lesson.id))).length;
-    const next = lessons.find((lesson) => !Object.prototype.hasOwnProperty.call(saved, String(lesson.id)));
+    const roundIds = profile.rounds.dictation;
+    const roundSummaries = roundIds.map((round) => {
+      const lessons = Array.isArray(assets.dictation[round] && assets.dictation[round].lessons)
+        ? assets.dictation[round].lessons
+        : [];
+      const saved = readJson(`eiken_dictation_progress_${profile.dictation.level}_${round}`, {});
+      const answered = lessons.filter((lesson) => Object.prototype.hasOwnProperty.call(saved, String(lesson.id))).length;
+      return { round, lessons, saved, answered };
+    });
+    const completedRounds = roundSummaries.filter((item) => item.lessons.length > 0 && item.answered === item.lessons.length).length;
+    const answered = roundSummaries.reduce((sum, item) => sum + item.answered, 0);
+    const totalLessons = roundSummaries.reduce((sum, item) => sum + item.lessons.length, 0);
+    const nextRound = roundSummaries.find((item) => item.answered < item.lessons.length);
+    const next = nextRound && nextRound.lessons.find((lesson) => !Object.prototype.hasOwnProperty.call(nextRound.saved, String(lesson.id)));
     return {
-      complete: answered === lessons.length && lessons.length > 0,
-      completed: answered,
-      total: lessons.length,
-      status: answered === lessons.length && lessons.length > 0 ? "done" : answered ? "progress" : "ready",
-      nextLabel: next ? `No. ${next.id}を聞く` : "全設問を確認済み",
-      detail: `${answered} / ${lessons.length}問・${profile.dictation.level === "g2" ? "2級" : "準2級"}`,
+      complete: completedRounds === roundIds.length && roundIds.length > 0,
+      completed: completedRounds,
+      total: roundIds.length,
+      status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : answered ? "progress" : "ready",
+      nextId: nextRound ? nextRound.round : null,
+      nextLabel: nextRound ? `${roundLabel("dictation", nextRound.round)}・No. ${next ? next.id : "確認"}を聞く` : "3回分確認済み",
+      detail: `${completedRounds} / ${roundIds.length}回・${answered} / ${totalLessons}問・${profile.dictation.level === "g2" ? "2級" : "準2級"}`,
     };
   }
 
   function q3Summary() {
-    const passages = Array.isArray(assets.q3.passages) ? assets.q3.passages : [];
-    const saved = readJson(`eiken2q3.progress.${profile.q3Id}`, {});
-    const questions = saved.questions && typeof saved.questions === "object" ? saved.questions : {};
-    const summaries = saved.summaries && typeof saved.summaries === "object" ? saved.summaries : {};
-    const completePassages = passages.filter((passage) => {
-      const questionsDone = passage.questions.every((question) => questions[question.q] && questions[question.q].answered);
-      return questionsDone && summaries[passage.id] && summaries[passage.id].graded;
-    }).length;
-    const next = passages.find((passage) => {
-      const questionsDone = passage.questions.every((question) => questions[question.q] && questions[question.q].answered);
-      return !(questionsDone && summaries[passage.id] && summaries[passage.id].graded);
+    const roundIds = profile.rounds.q3;
+    const roundSummaries = roundIds.map((id) => {
+      const data = assets.q3[id] || {};
+      const passages = Array.isArray(data.passages) ? data.passages : [];
+      const saved = readJson(`eiken2q3.progress.${id}`, {});
+      const questions = saved.questions && typeof saved.questions === "object" ? saved.questions : {};
+      const summaries = saved.summaries && typeof saved.summaries === "object" ? saved.summaries : {};
+      const completePassages = passages.filter((passage) => {
+        const questionsDone = passage.questions.every((question) => questions[question.q] && questions[question.q].answered);
+        return questionsDone && summaries[passage.id] && summaries[passage.id].graded;
+      }).length;
+      const answeredQuestions = passages.reduce((sum, passage) => sum + passage.questions.filter((question) => questions[question.q] && questions[question.q].answered).length, 0);
+      const totalQuestions = passages.reduce((sum, passage) => sum + passage.questions.length, 0);
+      return { id, passages, saved, questions, summaries, completePassages, answeredQuestions, totalQuestions };
     });
-    let nextLabel = "全本文を完了";
-    if (next) {
-      const questionsDone = next.questions.every((question) => questions[question.q] && questions[question.q].answered);
-      nextLabel = questionsDone ? `${next.title}の内容整理` : `${next.title}の設問`;
+    const completedRounds = roundSummaries.filter((round) => round.passages.length > 0 && round.completePassages === round.passages.length).length;
+    const completedPassages = roundSummaries.reduce((sum, round) => sum + round.completePassages, 0);
+    const totalPassages = roundSummaries.reduce((sum, round) => sum + round.passages.length, 0);
+    const answeredQuestions = roundSummaries.reduce((sum, round) => sum + round.answeredQuestions, 0);
+    const totalQuestions = roundSummaries.reduce((sum, round) => sum + round.totalQuestions, 0);
+    const nextRound = roundSummaries.find((round) => round.completePassages < round.passages.length);
+    const next = nextRound && nextRound.passages.find((passage) => {
+      const questionsDone = passage.questions.every((question) => nextRound.questions[question.q] && nextRound.questions[question.q].answered);
+      return !(questionsDone && nextRound.summaries[passage.id] && nextRound.summaries[passage.id].graded);
+    });
+    let nextLabel = "3回分完了";
+    if (nextRound && next) {
+      const questionsDone = next.questions.every((question) => nextRound.questions[question.q] && nextRound.questions[question.q].answered);
+      nextLabel = `${roundLabel("q3", nextRound.id)}・${questionsDone ? `${next.title}の内容整理` : `${next.title}の設問`}`;
     }
     return {
-      complete: completePassages === passages.length && passages.length > 0,
-      completed: completePassages,
-      total: passages.length,
-      status: completePassages === passages.length && passages.length > 0 ? "done" : completePassages ? "progress" : "ready",
+      complete: completedRounds === roundIds.length && roundIds.length > 0,
+      completed: completedRounds,
+      total: roundIds.length,
+      status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : answeredQuestions ? "progress" : "ready",
+      nextId: nextRound ? nextRound.id : null,
       nextLabel,
-      detail: `${completePassages} / ${passages.length}本文・${saved.resume ? "途中保存あり" : ""}`,
+      detail: `${completedRounds} / ${roundIds.length}回・${completedPassages} / ${totalPassages}本文・${answeredQuestions} / ${totalQuestions}設問`,
     };
   }
 
@@ -242,19 +334,43 @@ const EikenSerialApp = (function () {
     return "復習する";
   }
 
-  function setSerialPreferences() {
+  function q1IdForRound(round) {
+    return profile.rounds.q1.find((id) => roundSuffix(id) === round) || profile.q1Id;
+  }
+
+  function q3IdForRound(round) {
+    return profile.rounds.q3.find((id) => roundSuffix(id) === round) || profile.q3Id;
+  }
+
+  function setSerialPreferences(step, summary) {
+    const activeProfile = {
+      ...profile,
+      dictation: { ...profile.dictation },
+    };
+    let activeRound = "";
+    if (step.id === "q1" || step.id === "q3") activeRound = roundSuffix(summary.nextId);
+    if (step.id === "dictation") activeRound = summary.nextId || "";
+    if (activeRound) {
+      activeProfile.q1Id = q1IdForRound(activeRound);
+      activeProfile.q3Id = q3IdForRound(activeRound);
+      activeProfile.dictation.round = profile.rounds.dictation.includes(activeRound)
+        ? activeRound
+        : activeProfile.dictation.round;
+    }
     try {
-      localStorage.setItem("eiken_q1_dataset", profile.q1Id);
-      localStorage.setItem("eiken_q3_dataset", profile.q3Id);
-      localStorage.setItem("eiken_dictation_dataset", JSON.stringify(profile.dictation));
+      localStorage.setItem("eiken_q1_dataset", activeProfile.q1Id);
+      localStorage.setItem("eiken_q3_dataset", activeProfile.q3Id);
+      localStorage.setItem("eiken_dictation_dataset", JSON.stringify(activeProfile.dictation));
     } catch (error) { /* 各モード側の既存設定を優先しても演習は続ける */ }
-    window.EikenSerialProfile = profile;
+    window.EikenSerialProfile = activeProfile;
+    return activeProfile;
   }
 
   function startCurrent() {
     const step = STEPS[currentStepIndex];
     if (!step) return;
-    setSerialPreferences();
+    const summary = summaries[currentStepIndex];
+    setSerialPreferences(step, summary);
     window.EikenSerialContext = { active: true, stepId: step.id, profileId: profile.id };
     if (window.EikenAppRouter) window.EikenAppRouter.open(step.id, { serial: true });
   }
@@ -283,13 +399,13 @@ const EikenSerialApp = (function () {
     homePanel.innerHTML = `<section class="card hero serialHero">
       <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
       <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
-      <p class="serialLead">大問1 → 言い換え → 英作文 → リスニング → 大問3の順に、一つずつ進みます。</p>
+      <p class="serialLead">大問1（3回分） → 言い換え（補助） → 英作文（3回分） → リスニング（3回分） → 大問3（3回分）の順に進みます。</p>
       <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span></div>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
       <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
     </section>
-    <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>5段階のコース</h2></div><p class="hint">完了した段階は復習できます。</p></div><div class="serialStepList">${cards}</div></section>
-    <section class="card serialNote"><p class="label">保存について</p><p>各モードの回答・下書き・途中位置は、これまでどおり各モードの保存領域に記録されます。この画面は次に進む段階だけを管理します。</p></section>`;
+    <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>5段階のコース</h2></div><p class="hint">主要4パートは過去問3回分。言い換えは補助練習です。</p></div><div class="serialStepList">${cards}</div></section>
+    <section class="card serialNote"><p class="label">保存について</p><p>各回の回答・下書き・途中位置は、これまでどおり回ごとの保存領域に記録されます。主要4パートは3回分が完了するまで次の段階へ進みません。</p></section>`;
 
     document.getElementById("serialStartBtn").addEventListener("click", () => {
       if (allComplete) currentStepIndex = 0;
