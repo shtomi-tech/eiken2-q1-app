@@ -177,16 +177,35 @@ function unit(q) {
   if (typeof u.wrongCount !== "number") u.wrongCount = 0;
   return state.progress.units[q];
 }
+const FINAL_PASS_RATE = 0.8;
+
+function finalPassScore(finalTotal) {
+  return Math.ceil(finalTotal * FINAL_PASS_RATE);
+}
+
 function finalProgress(finalTotal) {
   if (!state.progress.finalCheck) state.progress.finalCheck = {};
   const f = state.progress.finalCheck;
   if (typeof f.bestScore !== "number") f.bestScore = 0;
   if (typeof f.lastScore !== "number") f.lastScore = 0;
   if (typeof f.cleared !== "boolean") f.cleared = false;
-  // 語彙データが後から増減すると、以前のCLEAR判定（当時の総数基準）が
-  // 現在の総数と食い違い、最終チェックが解放されないまま隠れてしまう。
-  if (f.cleared && typeof finalTotal === "number" && f.bestScore < finalTotal) {
+  let changed = false;
+  if (typeof finalTotal === "number" && typeof f.bestTotal !== "number") {
+    f.bestTotal = f.cleared ? f.bestScore : finalTotal;
+    changed = true;
+  }
+  // 語彙データが後から増減した場合、以前のCLEAR判定をそのまま引き継がない。
+  if (f.cleared && typeof finalTotal === "number" && f.bestTotal !== finalTotal) {
     f.cleared = false;
+    changed = true;
+  }
+  if (!f.cleared && typeof finalTotal === "number"
+    && f.bestTotal === finalTotal && f.bestScore >= finalPassScore(finalTotal)) {
+    f.cleared = true;
+    f.clearedAt = f.clearedAt || new Date().toISOString();
+    changed = true;
+  }
+  if (changed) {
     saveProgress();
   }
   return f;
@@ -400,7 +419,7 @@ function renderHome() {
   } else if (canStartFinal && !final.cleared) {
     primary = {
       label: `最終チェック${finalTotal}問に挑戦する`,
-      why: `全${finalTotal}語の意味を通しで確認。${finalTotal}問正解でCLEARです。`,
+      why: `全${finalTotal}語の意味を通しで確認。${finalPassScore(finalTotal)}/${finalTotal}問以上（正答率80%以上）でCLEARです。`,
       onclick: startFinalCheck,
     };
   } else {
@@ -429,7 +448,7 @@ function renderHome() {
       disabled: !reviewQs.length || primary.onclick === startReview,
     },
     final.cleared
-      ? { cls: "secondaryCta finalCta", label: `最終チェックCLEAR済み（BEST ${final.bestScore}/${finalTotal}）`, disabled: true }
+      ? { cls: "secondaryCta finalCta", label: `最終チェックCLEAR済み（BEST ${final.bestScore}/${finalTotal}・正答率80%以上）`, disabled: true }
       : canStartFinal
         ? { cls: "secondaryCta finalCta", label: `最終チェック${finalTotal}問に挑戦`, onclick: startFinalCheck, disabled: primary.onclick === startFinalCheck }
         : { cls: "secondaryCta", label: `最終チェック（あと${remain}問で解放）`, disabled: true },
@@ -545,7 +564,8 @@ function finalUnlocked() {
 }
 
 function finalMessage(solved, total, reviewCount, final, finalTotal) {
-  if (final.cleared) return `最終チェックを${final.lastScore}/${finalTotal}で突破済みです。`;
+  const passScore = finalPassScore(finalTotal);
+  if (final.cleared) return `最終チェックを${final.lastScore}/${finalTotal}で突破済みです（${passScore}/${finalTotal}問以上でCLEAR）。`;
   if (!finalUnlocked()) {
     const needs = [];
     if (solved < total) needs.push(`通常ステージをあと${total - solved}問`);
@@ -553,8 +573,8 @@ function finalMessage(solved, total, reviewCount, final, finalTotal) {
     return `最終チェック解放まで：${needs.join(" / ")}`;
   }
   return final.bestScore
-    ? `最終チェック解放中。過去最高は${final.bestScore}/${finalTotal}です。${finalTotal}/${finalTotal}でCLEAR。`
-    : `最終チェック解放中。${finalTotal}問の意味チェックで${finalTotal}/${finalTotal}を取るとCLEAR。`;
+    ? `最終チェック解放中。過去最高は${final.bestScore}/${finalTotal}です。${passScore}/${finalTotal}問以上（正答率80%以上）でCLEAR。`
+    : `最終チェック解放中。${finalTotal}問の意味チェックで${passScore}/${finalTotal}問以上（正答率80%以上）を取るとCLEAR。`;
 }
 
 /* ============================================================
@@ -1001,11 +1021,13 @@ function renderWrongReview(body) {
 }
 
 function saveFinalResult() {
-  const f = finalProgress();
+  const finalTotal = session.checkOrder.length;
+  const f = finalProgress(finalTotal);
   f.lastScore = session.finalCorrect;
   f.bestScore = Math.max(f.bestScore, session.finalCorrect);
+  f.bestTotal = finalTotal;
   f.lastTriedAt = new Date().toISOString();
-  if (session.finalCorrect === session.checkOrder.length) {
+  if (session.finalCorrect >= finalPassScore(finalTotal)) {
     f.cleared = true;
     f.clearedAt = new Date().toISOString();
   }
@@ -1093,10 +1115,13 @@ function renderDone(body) {
   const banner = el("div", { class: "doneBanner" });
   banner.appendChild(el("p", { class: "label", style: "color:rgba(250,249,246,.72)" }, "Step Complete"));
   if (isFinal) {
+    const finalTotal = session.checkOrder.length;
+    const passed = session.finalCorrect >= finalPassScore(finalTotal);
     banner.appendChild(el("div", { class: "big" }, `${session.finalCorrect} / ${session.checkOrder.length}`));
-    banner.appendChild(el("h2", {}, session.finalCorrect === session.checkOrder.length
+    banner.appendChild(el("h2", {}, passed
       ? `${dataset().shortLabel} 大問1 CLEAR`
       : `最終チェック完了。${session.finalCorrect}/${session.checkOrder.length}でした`));
+    banner.appendChild(el("p", { class: "hint" }, `${finalPassScore(finalTotal)}/${finalTotal}問以上（正答率80%以上）でCLEAR`));
   } else if (isMeaning) {
     banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
     banner.appendChild(el("h2", {}, "全語句の意味チェックが完了しました"));
@@ -1112,7 +1137,7 @@ function renderDone(body) {
 
   const actions = el("div", { class: "actions" });
   if (isFinal) {
-    if (session.finalCorrect !== session.checkOrder.length) {
+    if (session.finalCorrect < finalPassScore(session.checkOrder.length)) {
       actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, `もう一度${session.checkOrder.length}問に挑戦する`));
     }
   } else if (isMeaning) {
