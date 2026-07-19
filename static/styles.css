@@ -616,6 +616,150 @@ h2 {
 }
 
 /* ============================================================
+   言い換え練習モード
+   共有シェルのカード・ボタンを使いながら、問題画面だけをスコープする。
+   ============================================================ */
+.paraphraseHome .hero { padding: 28px 24px; }
+.paraphraseHome .hero h2 { max-width: 720px; color: var(--parchment); font-size: clamp(28px, 5vw, 42px); }
+.paraphraseHome .heroLead { max-width: 700px; margin: 0 0 16px; font-size: 15px; }
+.paraphraseHome .heroRule { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 20px 0 4px; border-top: 1px solid rgba(250, 249, 245, .3); padding-top: 16px; }
+.paraphraseHome .heroRule code { color: var(--parchment); font-family: var(--mono); font-size: 14px; }
+.paraphraseHome .heroRule span { color: rgba(250, 249, 245, .68); font-size: 13px; }
+.paraphraseHome .hero .ghost { border-color: rgba(250, 249, 245, .42); color: var(--parchment); }
+.paraphraseHome .hero .ghost:hover:not(:disabled) { border-color: var(--parchment); background: var(--parchment); color: var(--ink); }
+.paraphraseHome .actions .primary { min-width: min(100%, 260px); }
+.paraphraseHome .resumeCard { border-left: 4px solid var(--clay); }
+.paraphraseHome .resumeCard h2 { font-size: 23px; }
+.paraphraseHome .statsGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 14px 0 18px; }
+.paraphraseHome .stat { min-height: 92px; padding: 14px; border-radius: var(--r-md); background: var(--parchment); }
+.paraphraseHome .statValue { display: block; font-family: var(--serif); font-size: 31px; line-height: 1.1; }
+.paraphraseHome .statLabel { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.paraphraseHome .filterBar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.paraphraseHome .filterBtn { min-height: 44px; border: 1px solid var(--line); background: transparent; color: var(--ink); padding: 8px 12px; }
+.paraphraseHome .filterBtn[aria-pressed="true"], .paraphraseHome .filterBtn:hover:not(:disabled) { border-color: var(--ink); background: var(--ink); color: var(--parchment); }
+.paraphraseHome .questionList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.paraphraseHome .questionCard { display: flex; flex-direction: column; gap: 8px; min-height: 192px; padding: 16px; border-radius: var(--r-lg); background: var(--parchment); }
+.paraphraseHome .questionCard.isDue { border-left: 4px solid var(--clay); padding-left: 12px; }
+.paraphraseHome .qMeta { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.paraphraseHome .qTarget { margin: 0; font-family: var(--serif); font-size: 24px; line-height: 1.25; }
+.paraphraseHome .qMeaning { margin: 0; color: var(--muted); font-size: 13px; }
+.paraphraseHome .qStatus { margin-top: auto; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.paraphraseHome .qStatus.done { color: var(--ok); }
+.paraphraseHome .qStatus.due { color: var(--clay); }
+.paraphraseHome .qAction { width: 100%; margin-top: 2px; }
+
+.paraphraseSession { max-width: 960px; margin: 0 auto; }
+.paraphraseSession .sessionHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.paraphraseSession .sessionMeta { margin: 0; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.paraphraseSession .sessionTools { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.paraphraseSession .helpButton { min-height: 40px; padding: 7px 12px; font-size: 13px; }
+.paraphraseSession .stageBar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; background: transparent; overflow: visible; }
+.paraphraseSession .stagePill { min-width: 0; border: 0; border-radius: var(--r-md); background: var(--paper); }
+.paraphraseSession .promptCard { padding: 24px; }
+.paraphraseSession .promptTop { display: flex; align-items: start; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.paraphraseSession .promptTop h2 { margin: 0; font-size: 32px; }
+.paraphraseSession .promptMeaning { margin: 12px 0 0; font-family: var(--serif); font-size: 21px; }
+.paraphraseSession .situation { margin: 18px 0 0; border-left: 3px solid var(--clay); background: var(--parchment); padding: 12px 14px; }
+.paraphraseSession .situation .label { margin-bottom: 3px; color: var(--clay); }
+.paraphraseSession .situation p { margin: 0; }
+.paraphraseSession .frameBox { margin: 18px 0 14px; border-radius: var(--r-md); background: var(--ink); color: var(--parchment); padding: 14px; }
+.paraphraseSession .frameBox .label { color: rgba(250, 249, 245, .68); }
+.paraphraseSession .frameText { display: block; font-family: var(--mono); font-size: 15px; line-height: 1.7; }
+.paraphraseSession .answerLabel { display: block; margin-bottom: 6px; font-weight: 600; }
+.paraphraseSession textarea { width: 100%; min-height: 132px; resize: vertical; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--parchment); color: var(--ink); padding: 12px 14px; line-height: 1.7; }
+.paraphraseSession .inputMeta { display: flex; align-items: start; justify-content: space-between; gap: 12px; margin-top: 6px; }
+.paraphraseSession .inputMeta .hint { margin: 0; }
+.paraphraseSession .charCount { color: var(--muted); font-family: var(--mono); font-size: 11px; white-space: nowrap; }
+.paraphraseSession .submitRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.paraphraseSession .submitRow .primary { min-width: min(100%, 260px); }
+.paraphraseSession .feedback { margin-top: 16px; border-left: 4px solid var(--ink); border-radius: var(--r-md); background: var(--parchment); padding: 14px 16px; }
+.paraphraseSession .feedback h3 { margin: 0 0 4px; font-family: var(--serif); font-size: 20px; }
+.paraphraseSession .feedback p { margin: 4px 0 0; }
+.paraphraseSession .feedback.ok { border-left-color: var(--ok); }
+.paraphraseSession .feedback.ok h3 { color: var(--ok); }
+.paraphraseSession .feedback.near { border-left-color: var(--warn); }
+.paraphraseSession .feedback.near h3 { color: var(--warn); }
+.paraphraseSession .feedback.needsReview { border-left-color: var(--ng); }
+.paraphraseSession .feedback.needsReview h3 { color: var(--ng); }
+.paraphraseSession .checkList { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.paraphraseSession .checkList li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; }
+.paraphraseSession .checkList .mark { width: 18px; font-family: var(--mono); font-weight: 700; text-align: center; }
+.paraphraseSession .checkList .yes .mark { color: var(--ok); }
+.paraphraseSession .checkList .no .mark { color: var(--ng); }
+.paraphraseSession .modelAnswer { margin-top: 16px; border-radius: var(--r-md); background: var(--surface-soft); padding: 16px; }
+.paraphraseSession .modelAnswer .answerLabel { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .1em; }
+.paraphraseSession .answerMeaning { margin: 0 0 10px; border-left: 3px solid var(--line); padding-left: 10px; }
+.paraphraseSession .answerMeaning .label { margin-bottom: 2px; }
+.paraphraseSession .answerMeaning p { margin: 0; color: var(--muted); font-size: 13px; }
+.paraphraseSession .answerPhrase { display: block; margin-bottom: 8px; font-family: var(--serif); font-size: 22px; line-height: 1.4; }
+.paraphraseSession .answerPhrase code { font-family: var(--mono); font-size: 15px; overflow-wrap: anywhere; }
+.paraphraseSession .explanation { margin: 0; color: var(--muted); font-size: 13px; }
+.paraphraseSession .patternNote { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+.paraphraseSession .patternNote strong { font-family: var(--mono); font-size: 12px; }
+.paraphraseSession .selfCheck { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+.paraphraseSession .selfCheck p { margin-bottom: 8px; font-weight: 600; }
+.paraphraseSession .selfCheck .actions { margin-top: 0; }
+.paraphraseSession .nextRow { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.paraphraseSession .nextRow .next { min-width: min(100%, 240px); }
+
+.paraphraseHome .tutorialCard, .paraphraseSession .tutorialCard { padding: 24px; }
+.paraphraseHome .tutorialCard > h2, .paraphraseSession .tutorialCard > h2 { max-width: 740px; font-size: clamp(28px, 5vw, 40px); }
+.paraphraseHome .tutorialLead, .paraphraseSession .tutorialLead { max-width: 760px; margin-bottom: 20px; color: var(--muted); font-size: 15px; }
+.paraphraseHome .tutorialExample, .paraphraseSession .tutorialExample { margin-top: 18px; border-radius: var(--r-lg); background: var(--parchment); padding: 18px; }
+.paraphraseHome .tutorialExampleHead, .paraphraseSession .tutorialExampleHead { align-items: center; margin-bottom: 12px; }
+.paraphraseHome .tutorialExampleHead h3, .paraphraseSession .tutorialExampleHead h3 { margin: 0; }
+.paraphraseHome .meaningSplit, .paraphraseSession .meaningSplit { display: grid; grid-template-columns: minmax(0, .9fr) auto minmax(0, 1.1fr); align-items: center; gap: 14px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.paraphraseHome .meaningSplit strong, .paraphraseSession .meaningSplit strong { display: block; font-family: var(--serif); font-size: 30px; line-height: 1.2; }
+.paraphraseHome .meaningSplit p, .paraphraseSession .meaningSplit p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.paraphraseHome .meaningArrow, .paraphraseSession .meaningArrow { color: var(--clay); font-family: var(--serif); font-size: 30px; }
+.paraphraseHome .tutorialSteps, .paraphraseSession .tutorialSteps { display: grid; gap: 10px; margin: 16px 0 0; padding: 0; list-style: none; }
+.paraphraseHome .tutorialSteps li, .paraphraseSession .tutorialSteps li { display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: start; }
+.paraphraseHome .tutorialStepNo, .paraphraseSession .tutorialStepNo { display: grid; place-items: center; min-height: 32px; border-radius: var(--r-sm); background: var(--ink); color: var(--parchment); font-family: var(--mono); font-size: 11px; }
+.paraphraseHome .tutorialSteps strong, .paraphraseSession .tutorialSteps strong { display: block; margin-bottom: 1px; }
+.paraphraseHome .tutorialSteps p, .paraphraseSession .tutorialSteps p { margin: 0; color: var(--muted); font-size: 13px; }
+.paraphraseHome .tutorialSteps code, .paraphraseSession .tutorialSteps code, .paraphraseHome .patternCard code, .paraphraseSession .patternCard code, .paraphraseHome .construction code, .paraphraseSession .construction code, .paraphraseHome .tutorialAnswer code, .paraphraseSession .tutorialAnswer code { font-family: var(--mono); }
+.paraphraseHome .construction, .paraphraseSession .construction { display: flex; align-items: stretch; justify-content: center; gap: 8px; margin-top: 18px; }
+.paraphraseHome .constructionPart, .paraphraseSession .constructionPart { display: flex; min-width: 0; flex: 1 1 0; flex-direction: column; justify-content: center; gap: 5px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-soft); padding: 12px; }
+.paraphraseHome .constructionPart code, .paraphraseSession .constructionPart code { overflow-wrap: anywhere; font-size: 13px; line-height: 1.5; }
+.paraphraseHome .constructionPart span, .paraphraseSession .constructionPart span { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .05em; }
+.paraphraseHome .constructionJoin, .paraphraseSession .constructionJoin { align-self: center; color: var(--clay); font-family: var(--serif); font-size: 24px; }
+.paraphraseHome .tutorialAnswer, .paraphraseSession .tutorialAnswer { margin-top: 14px; border-left: 4px solid var(--ok); border-radius: var(--r-md); background: var(--surface-soft); padding: 14px 16px; }
+.paraphraseHome .tutorialAnswer .label, .paraphraseSession .tutorialAnswer .label { color: var(--ok); }
+.paraphraseHome .tutorialAnswer code, .paraphraseSession .tutorialAnswer code { display: block; overflow-wrap: anywhere; font-size: 15px; line-height: 1.6; }
+.paraphraseHome .tutorialAnswer p, .paraphraseSession .tutorialAnswer p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.paraphraseHome .patternGuide, .paraphraseSession .patternGuide { margin-top: 24px; }
+.paraphraseHome .patternGuide h3, .paraphraseSession .patternGuide h3 { margin-bottom: 12px; }
+.paraphraseHome .patternGrid, .paraphraseSession .patternGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.paraphraseHome .patternCard, .paraphraseSession .patternCard { display: flex; flex-direction: column; gap: 5px; min-height: 132px; border-radius: var(--r-md); background: var(--parchment); padding: 14px; }
+.paraphraseHome .patternCard code, .paraphraseSession .patternCard code { min-height: 42px; font-size: 12px; line-height: 1.5; }
+.paraphraseHome .patternCard strong, .paraphraseSession .patternCard strong { font-family: var(--serif); font-size: 20px; }
+.paraphraseHome .patternCard p, .paraphraseSession .patternCard p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.paraphraseHome .stuckBox, .paraphraseSession .stuckBox { margin-top: 24px; border-left: 3px solid var(--clay); background: var(--parchment); padding: 16px 18px; }
+.paraphraseHome .stuckBox h3, .paraphraseSession .stuckBox h3 { margin-bottom: 8px; }
+.paraphraseHome .stuckBox ol, .paraphraseSession .stuckBox ol { display: grid; gap: 5px; margin: 0; padding-left: 20px; }
+.paraphraseHome .stuckBox li, .paraphraseSession .stuckBox li { padding-left: 3px; font-size: 13px; }
+.paraphraseHome .stuckBox .hint, .paraphraseSession .stuckBox .hint { margin-top: 12px; }
+.paraphraseHome .tutorialActions, .paraphraseSession .tutorialActions { align-items: center; }
+.paraphraseHome .tutorialNextHint, .paraphraseSession .tutorialNextHint { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+
+@media (max-width: 720px) {
+  .paraphraseHome .questionList, .paraphraseHome .patternGrid, .paraphraseSession .patternGrid { grid-template-columns: 1fr; }
+  .paraphraseHome .stat { min-height: 80px; padding: 10px; }
+  .paraphraseHome .statValue { font-size: 26px; }
+}
+
+@media (max-width: 440px) {
+  .paraphraseHome .hero, .paraphraseSession .promptCard, .paraphraseHome .tutorialCard, .paraphraseSession .tutorialCard { padding: 18px; }
+  .paraphraseSession .promptTop h2 { font-size: 28px; }
+  .paraphraseHome .meaningSplit, .paraphraseSession .meaningSplit { grid-template-columns: 1fr; gap: 8px; }
+  .paraphraseHome .meaningArrow, .paraphraseSession .meaningArrow { display: none; }
+  .paraphraseHome .construction, .paraphraseSession .construction { align-items: stretch; flex-direction: column; }
+  .paraphraseHome .constructionJoin, .paraphraseSession .constructionJoin { line-height: 1; text-align: center; }
+  .paraphraseSession .sessionTools { width: 100%; justify-content: space-between; }
+  .paraphraseSession .submitRow .primary, .paraphraseSession .nextRow .next { width: 100%; }
+}
+
+/* ============================================================
    大問3（長文読解）モード固有スタイル
    由来: eiken2-q3/static/styles.css。.choices / .choiceBtn / .blank は
    大問1モードと定義が異なるため、.q3Session 配下にスコープして上書きする

@@ -1,0 +1,165 @@
+{
+  "version": 2,
+  "questions": [
+    {
+      "id": "common-sense",
+      "category": "abstract",
+      "categoryLabel": "抽象概念",
+      "targetJa": "常識",
+      "meaningJa": "多くの人が正しいと思っていること",
+      "situationJa": "「彼には常識がない」と言いたい。",
+      "frame": "He does not understand ____.",
+      "structure": "something that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "something that many people think is right",
+        "something many people think is right",
+        "what many people think is right"
+      ],
+      "answer": "something that many people think is right",
+      "answerMeaning": "多くの人が正しいと思うもの",
+      "signals": ["something", "many", "people", "think", "right"],
+      "explanation": "「常識」という単語を使わずに、「多くの人が正しいと思うもの」と言っています。something は「もの・こと」、that の後ろに many people think を置きます。"
+    },
+    {
+      "id": "rule",
+      "category": "abstract",
+      "categoryLabel": "抽象概念",
+      "targetJa": "規則",
+      "meaningJa": "人々が守らなければならない決まり",
+      "situationJa": "「その学校には守るべき規則がある」と言いたい。",
+      "frame": "The school has ____.",
+      "structure": "something that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "something that everyone must follow",
+        "something everyone must follow",
+        "something that everyone has to follow"
+      ],
+      "answer": "something that everyone must follow",
+      "answerMeaning": "みんなが守らなければならないもの",
+      "signals": ["something", "everyone", "must", "follow"],
+      "explanation": "rule という単語を使わずに、「みんなが守らなければならないもの」と言っています。must は「〜しなければならない」です。"
+    },
+    {
+      "id": "kind-person",
+      "category": "person",
+      "categoryLabel": "人",
+      "targetJa": "親切な人",
+      "meaningJa": "困っている人を助ける人",
+      "situationJa": "「彼女は親切な人だ」と言いたい。",
+      "frame": "She is ____.",
+      "structure": "a person who + V",
+      "relation": "who",
+      "acceptedAnswers": [
+        "someone who helps other people",
+        "a person who helps other people",
+        "a person that helps other people"
+      ],
+      "answer": "a person who helps other people",
+      "answerMeaning": "他の人を助ける人",
+      "signals": ["person", "helps", "people"],
+      "explanation": "人を説明するときは who を使います。a person who helps other people は「他の人を助ける人」です。who の後ろには動詞 helps が来ます。"
+    },
+    {
+      "id": "tourist-attraction",
+      "category": "place",
+      "categoryLabel": "場所",
+      "targetJa": "観光地",
+      "meaningJa": "多くの人が訪れる場所",
+      "situationJa": "「京都には多くの観光地がある」と言いたい。",
+      "frame": "Kyoto has many ____.",
+      "structure": "places that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "places that many people visit",
+        "places many people visit",
+        "a place that many people visit"
+      ],
+      "answer": "places that many people visit",
+      "answerMeaning": "多くの人が訪れる場所",
+      "signals": ["place", "many", "people", "visit"],
+      "explanation": "観光地という単語を使わずに、「多くの人が訪れる場所」と言っています。places that の後ろに、だれが訪れるかを書きます。"
+    },
+    {
+      "id": "excuse",
+      "category": "thing",
+      "categoryLabel": "もの・こと",
+      "targetJa": "言い訳",
+      "meaningJa": "失敗したあとに人が言うこと",
+      "situationJa": "「彼はいつも言い訳をする」と言いたい。",
+      "frame": "He always gives ____.",
+      "structure": "something that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "something that people say after a mistake",
+        "something people say after a mistake",
+        "something that people say when they make a mistake"
+      ],
+      "answer": "something that people say after a mistake",
+      "answerMeaning": "失敗のあとに人が言うこと",
+      "signals": ["something", "people", "say", "after", "mistake"],
+      "explanation": "言い訳という単語を使わずに、「失敗のあとに人が言うこと」と言っています。まず people say まで作り、after a mistake を足します。"
+    },
+    {
+      "id": "rumor",
+      "category": "thing",
+      "categoryLabel": "もの・こと",
+      "targetJa": "うわさ",
+      "meaningJa": "人々が言っているが、本当とは限らないこと",
+      "situationJa": "「それは本当とは限らない、ただのうわさだ」と言いたい。",
+      "frame": "That is just ____.",
+      "structure": "something that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "something that people say but that may not be true",
+        "something people say that may not be true",
+        "something that people say but may not be true"
+      ],
+      "answer": "something that people say but that may not be true",
+      "answerMeaning": "人々が言うが、本当とは限らないこと",
+      "signals": ["people", "say", "may", "true"],
+      "explanation": "うわさという単語を使わずに、「人々が言うが、本当とは限らないこと」と言っています。人々が言うことと、本当かどうかを but でつなぎます。"
+    },
+    {
+      "id": "tradition",
+      "category": "abstract",
+      "categoryLabel": "抽象概念",
+      "targetJa": "伝統",
+      "meaningJa": "人々が何年も続けてきたこと",
+      "situationJa": "「これは何年も続いてきた伝統だ」と言いたい。",
+      "frame": "This is ____.",
+      "structure": "something that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "something that people have done for many years",
+        "something people have done for many years",
+        "something that people do in the same way for many years"
+      ],
+      "answer": "something that people have done for many years",
+      "answerMeaning": "人々が何年も続けてきたこと",
+      "signals": ["something", "people", "done", "many", "years"],
+      "explanation": "伝統という単語を使わずに、「人々が何年も続けてきたこと」と言っています。have done は「してきた」という意味です。"
+    },
+    {
+      "id": "tool",
+      "category": "thing",
+      "categoryLabel": "もの・こと",
+      "targetJa": "道具",
+      "meaningJa": "仕事をするために使うもの",
+      "situationJa": "「これは仕事をするために使う道具だ」と言いたい。",
+      "frame": "This is ____.",
+      "structure": "something that + S + V",
+      "relation": "that",
+      "acceptedAnswers": [
+        "something that we use to do a job",
+        "something we use to do a job",
+        "something that people use for work"
+      ],
+      "answer": "something that we use to do a job",
+      "answerMeaning": "仕事をするために使うもの",
+      "signals": ["something", "use", "job"],
+      "explanation": "道具という単語を使わずに、「仕事をするために使うもの」と言っています。something that は、ものを説明するときに使いやすい型です。"
+    }
+  ]
+}
