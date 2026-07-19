@@ -972,7 +972,16 @@ async function boot() {
 
 let booted = false;
 async function mount() {
-  if (booted) { renderHome(); return; }
+  if (booted) {
+    const preferredDatasetId = loadDatasetId();
+    if (preferredDatasetId !== datasetId) {
+      await loadData(preferredDatasetId);
+      Object.keys(summaryDraftCache).forEach((k) => delete summaryDraftCache[k]);
+      Object.keys(wordOrderCache).forEach((k) => delete wordOrderCache[k]);
+    }
+    renderHome();
+    return;
+  }
   booted = true;
   await boot();
 }

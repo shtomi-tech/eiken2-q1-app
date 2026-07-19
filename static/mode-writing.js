@@ -77,6 +77,14 @@ const EikenWritingApp = (function () {
     return state.questions.filter((question) => question.grade === state.grade && (state.round === "all" || question.round === state.round));
   }
 
+  function applyGradeProfile() {
+    const profile = window.EikenSerialProfile;
+    if (profile && (profile.writingGrade === "2kyu" || profile.writingGrade === "pre2")) {
+      state.grade = profile.writingGrade;
+      state.round = "all";
+    }
+  }
+
   function currentQuestion() {
     const questions = visibleQuestions();
     if (!questions.length) return null;
@@ -343,11 +351,7 @@ const EikenWritingApp = (function () {
   }
 
   function startSerial() {
-    const serialProfile = window.EikenSerialProfile;
-    if (serialProfile && (serialProfile.writingGrade === "2kyu" || serialProfile.writingGrade === "pre2")) {
-      state.grade = serialProfile.writingGrade;
-      state.round = "all";
-    }
+    applyGradeProfile();
     const questions = visibleQuestions();
     if (!questions.length) {
       renderHome();
@@ -363,6 +367,7 @@ const EikenWritingApp = (function () {
   }
 
   async function mount() {
+    applyGradeProfile();
     if (state.loaded) { renderHome(); return; }
     if (state.loading) return;
     state.loading = true;

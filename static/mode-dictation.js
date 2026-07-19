@@ -949,6 +949,14 @@ async function mount() {
   renderShell();
   bindEvents();
   if (booted) {
+    const preference = loadDatasetPreference();
+    const preferredLevel = preference && datasets[preference.level] ? preference.level : state.level;
+    const preferredRound = preference && datasets[preferredLevel].rounds[preference.round]
+      ? preference.round
+      : state.round;
+    if (preferredLevel !== state.level || preferredRound !== state.round) {
+      await loadLevel(preferredLevel, preferredRound, { render: false });
+    }
     renderStudyOptions();
     renderHome();
     return;

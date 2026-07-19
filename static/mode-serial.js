@@ -11,6 +11,7 @@ const EikenSerialApp = (function () {
   const PARAPHRASE_URL = "data/paraphrase_questions.json";
   const WRITING_URL = "data/writing_questions.json";
   const ROUTE_KEY = "eiken_serial_progress_v1";
+  const PROFILE_KEY = "eiken_grade_profile_v1";
   const homePanel = document.getElementById("homePanel");
   const sessionPanel = document.getElementById("sessionPanel");
 
@@ -51,6 +52,8 @@ const EikenSerialApp = (function () {
   }
 
   function selectedQ1Id() {
+    const savedProfile = readJson(PROFILE_KEY, null);
+    if (savedProfile && manifest.q1[savedProfile.q1Id]) return savedProfile.q1Id;
     const saved = localStorage.getItem("eiken_q1_dataset");
     if (manifest.q1[saved]) return saved;
     return manifest.defaultDatasetId;
@@ -283,6 +286,7 @@ const EikenSerialApp = (function () {
       <p class="serialLead">大問1 → 言い換え → 英作文 → リスニング → 大問3の順に、一つずつ進みます。</p>
       <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span></div>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
+      <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
     </section>
     <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>5段階のコース</h2></div><p class="hint">完了した段階は復習できます。</p></div><div class="serialStepList">${cards}</div></section>
     <section class="card serialNote"><p class="label">保存について</p><p>各モードの回答・下書き・途中位置は、これまでどおり各モードの保存領域に記録されます。この画面は次に進む段階だけを管理します。</p></section>`;
@@ -290,6 +294,12 @@ const EikenSerialApp = (function () {
     document.getElementById("serialStartBtn").addEventListener("click", () => {
       if (allComplete) currentStepIndex = 0;
       startCurrent();
+    });
+    document.getElementById("serialFreeBtn").addEventListener("click", () => {
+      if (window.EikenAppRouter) window.EikenAppRouter.open("free");
+    });
+    document.getElementById("serialGradeBtn").addEventListener("click", () => {
+      if (window.EikenAppRouter) window.EikenAppRouter.open("entry");
     });
     if (window.EikenAppRouter) window.EikenAppRouter.refreshNav();
   }

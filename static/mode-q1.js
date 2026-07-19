@@ -1144,7 +1144,15 @@ async function boot() {
 }
 
 async function mount() {
-  if (booted) { renderHome(); return; }
+  if (booted) {
+    const preferredDatasetId = loadDatasetId();
+    if (preferredDatasetId !== state.datasetId) {
+      await loadData(preferredDatasetId);
+      session = null;
+    }
+    renderHome();
+    return;
+  }
   booted = true;
   await boot();
 }
