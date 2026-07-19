@@ -22,6 +22,29 @@ async function loadManifest() {
   DATASETS = manifest.q1;
   DEFAULT_DATASET_ID = manifest.defaultDatasetId;
 }
+
+function activeGrade() {
+  const profile = window.EikenGradeEntryApp && window.EikenGradeEntryApp.getProfile
+    ? window.EikenGradeEntryApp.getProfile()
+    : null;
+  if (profile && profile.grade) return profile.grade;
+  try {
+    return String(localStorage.getItem(DATASET_KEY) || "").startsWith("eikenp2-") ? "pre2" : "2kyu";
+  } catch (e) {
+    return "2kyu";
+  }
+}
+function matchesActiveGrade(id) {
+  return activeGrade() === "pre2" ? String(id).startsWith("eikenp2-") : String(id).startsWith("eiken2-");
+}
+function availableDatasets() {
+  return Object.entries(DATASETS).filter(([id]) => matchesActiveGrade(id));
+}
+function defaultDatasetIdForActiveGrade() {
+  const entries = availableDatasets();
+  const defaultSuffix = String(DEFAULT_DATASET_ID || "").replace(/^eiken(?:p2|2)-/, "");
+  return entries.find(([id]) => id.endsWith(defaultSuffix))?.[0] || entries[0]?.[0] || DEFAULT_DATASET_ID;
+}
 // 選択肢を描画した直後、この時間だけクリックを無視する（誤ダブルクリック防止）
 const CHOICE_GUARD_MS = 400;
 const FLASH_NAV_GUARD_MS = 450;
@@ -39,12 +62,16 @@ const state = {
 function loadDatasetId() {
   try {
     const id = localStorage.getItem(DATASET_KEY);
-    if (id && DATASETS[id]) return id;
+    if (id && DATASETS[id] && matchesActiveGrade(id)) return id;
   } catch (e) { /* ignore */ }
-  return DEFAULT_DATASET_ID;
+  return defaultDatasetIdForActiveGrade();
 }
 function dataset() {
-  return DATASETS[state.datasetId] || DATASETS[DEFAULT_DATASET_ID];
+  return DATASETS[state.datasetId] || DATASETS[defaultDatasetIdForActiveGrade()];
+}
+function datasetCleared(datasetId) {
+  const saved = datasetId === state.datasetId ? state.progress : loadProgress(datasetId);
+  return Boolean(saved && saved.finalCheck && saved.finalCheck.cleared);
 }
 function progressKey(datasetId = state.datasetId) {
   return STORE_PREFIX + datasetId;
@@ -280,7 +307,7 @@ async function loadData(datasetId = state.datasetId) {
 }
 
 async function switchDataset(datasetId) {
-  if (!DATASETS[datasetId] || datasetId === state.datasetId) return;
+  if (!DATASETS[datasetId] || !matchesActiveGrade(datasetId) || datasetId === state.datasetId) return;
   await loadData(datasetId);
   if (window.EikenActiveAppId !== "q1") return;
   session = null;
@@ -484,8 +511,8 @@ function datasetPicker() {
     el("span", { class: "fieldLabel" }, "問題セット"),
   );
   const select = el("select", { class: "datasetSelect", onchange: (e) => switchDataset(e.target.value) });
-  Object.entries(DATASETS).forEach(([id, data]) => {
-    const opt = el("option", { value: id }, data.label);
+  availableDatasets().forEach(([id, data]) => {
+    const opt = el("option", { value: id }, `${data.label}${datasetCleared(id) ? " ✅" : ""}`);
     if (id === state.datasetId) opt.selected = true;
     select.appendChild(opt);
   });

@@ -23,6 +23,8 @@ const sessionPanel = document.getElementById("sessionPanel");
 let ROUNDS = [];
 let DEFAULT_ROUND = "2026-1";
 let datasets = {};
+const roundDataCache = {};
+const roundClearStatus = {};
 let cloud = null;
 let booted = false;
 
@@ -38,6 +40,21 @@ function progressKey(level, round) {
   return `${PROGRESS_PREFIX}${level}_${round}`;
 }
 
+function roundStatusKey(level, round) {
+  return `${level}::${round}`;
+}
+
+async function loadRoundData(level, round) {
+  const key = roundStatusKey(level, round);
+  if (roundDataCache[key]) return roundDataCache[key];
+  const response = await fetch(datasets[level].rounds[round], { cache: "no-store" });
+  if (!response.ok) throw new Error(`lessons load failed: ${response.status}`);
+  const payload = await response.json();
+  if (!payload.lessons || payload.lessons.length === 0) throw new Error("lessons empty");
+  roundDataCache[key] = payload;
+  return payload;
+}
+
 function loadAnswers(level, round) {
   try {
     const raw = localStorage.getItem(progressKey(level, round));
@@ -51,6 +68,7 @@ function loadAnswers(level, round) {
 function saveAnswers() {
   try {
     localStorage.setItem(progressKey(state.level, state.round), JSON.stringify(Object.fromEntries(state.answers)));
+    updateCurrentRoundClearStatus();
     if (cloud) cloud.queueSave();
   } catch (e) {
     /* ignore */
@@ -66,6 +84,33 @@ function loadDatasetPreference() {
   }
   return null;
 }
+function profileLevel() {
+  const profile = window.EikenGradeEntryApp && window.EikenGradeEntryApp.getProfile
+    ? window.EikenGradeEntryApp.getProfile()
+    : null;
+  return profile && profile.grade ? (profile.grade === "pre2" ? "p2" : "g2") : null;
+}
+
+function updateCurrentRoundClearStatus() {
+  if (!state.lessons.length) return;
+  roundClearStatus[roundStatusKey(state.level, state.round)] = state.lessons.every((lesson) => state.answers.has(lesson.id));
+}
+
+async function refreshRoundClearStatus(level) {
+  const dataset = datasets[level];
+  if (!dataset) return;
+  const entries = await Promise.all(ROUNDS.filter((round) => dataset.rounds[round.id]).map(async (round) => {
+    try {
+      const payload = await loadRoundData(level, round.id);
+      const answers = loadAnswers(level, round.id);
+      return [roundStatusKey(level, round.id), payload.lessons.length > 0 && payload.lessons.every((lesson) => answers.has(lesson.id))];
+    } catch (e) {
+      return [roundStatusKey(level, round.id), false];
+    }
+  }));
+  entries.forEach(([key, cleared]) => { roundClearStatus[key] = cleared; });
+}
+
 function loadResume() {
   try {
     const raw = localStorage.getItem(RESUME_KEY);
@@ -273,12 +318,13 @@ function renderShell() {
 }
 
 function datasetOptions() {
-  return Object.entries(datasets).flatMap(([level, dataset]) =>
-    ROUNDS.filter((round) => dataset.rounds[round.id]).map((round) => ({
-      value: `${level}::${round.id}`,
-      label: `${level === "g2" ? "2級" : "準2級"}・${round.label}`,
-    })),
-  );
+  const level = profileLevel() || state.level;
+  const dataset = datasets[level];
+  if (!dataset) return [];
+  return ROUNDS.filter((round) => dataset.rounds[round.id]).map((round) => ({
+    value: `${level}::${round.id}`,
+    label: `${level === "g2" ? "2級" : "準2級"}・${round.label}${roundClearStatus[roundStatusKey(level, round.id)] ? " ✅" : ""}`,
+  }));
 }
 
 function fillStudySelect(select) {
@@ -294,19 +340,19 @@ function renderStudyOptions() {
 }
 
 async function loadLevel(level, round = state.round, { render = true } = {}) {
+  const selectedLevel = profileLevel();
+  if (selectedLevel && level !== selectedLevel) return false;
   const dataset = datasets[level];
   if (!dataset) return;
   const file = dataset.rounds[round];
   if (!file) return;
   try {
-    const response = await fetch(file, { cache: "no-store" });
-    if (!response.ok) throw new Error(`lessons load failed: ${response.status}`);
-    const payload = await response.json();
-    if (!payload.lessons || payload.lessons.length === 0) throw new Error("lessons empty");
+    const payload = await loadRoundData(level, round);
     state.level = level;
     state.round = round;
     state.lessons = payload.lessons;
     state.answers = loadAnswers(level, round);
+    updateCurrentRoundClearStatus();
     const resume = loadResume();
     const canResume = resume && resume.level === level && resume.round === round
       && Number.isInteger(Number(resume.index)) && state.lessons[Number(resume.index)];
@@ -937,11 +983,16 @@ async function boot() {
   await cloud.init();
   const resume = loadResume();
   const preference = loadDatasetPreference();
-  const initial = resume || preference || { level: "g2", round: DEFAULT_ROUND };
+  const selectedLevel = profileLevel();
+  const initial = selectedLevel
+    ? { level: selectedLevel, round: preference && preference.round ? preference.round : DEFAULT_ROUND }
+    : resume || preference || { level: "g2", round: DEFAULT_ROUND };
   state.level = datasets[initial.level] ? initial.level : "g2";
   state.round = datasets[state.level].rounds[initial.round] ? initial.round : DEFAULT_ROUND;
   renderStudyOptions();
   const loaded = await loadLevel(state.level, state.round, { render: false });
+  await refreshRoundClearStatus(state.level);
+  renderStudyOptions();
   if (loaded && window.EikenActiveAppId === "dictation") renderHome();
 }
 
@@ -950,13 +1001,14 @@ async function mount() {
   bindEvents();
   if (booted) {
     const preference = loadDatasetPreference();
-    const preferredLevel = preference && datasets[preference.level] ? preference.level : state.level;
+    const preferredLevel = profileLevel() || (preference && datasets[preference.level] ? preference.level : state.level);
     const preferredRound = preference && datasets[preferredLevel].rounds[preference.round]
       ? preference.round
       : state.round;
     if (preferredLevel !== state.level || preferredRound !== state.round) {
       await loadLevel(preferredLevel, preferredRound, { render: false });
     }
+    await refreshRoundClearStatus(preferredLevel);
     renderStudyOptions();
     renderHome();
     return;

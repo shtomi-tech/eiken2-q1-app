@@ -23,12 +23,37 @@ async function loadManifest() {
   DEFAULT_DATASET_ID = manifest.defaultDatasetId;
 }
 
+function activeGrade() {
+  const profile = window.EikenGradeEntryApp && window.EikenGradeEntryApp.getProfile
+    ? window.EikenGradeEntryApp.getProfile()
+    : null;
+  if (profile && profile.grade) return profile.grade;
+  try {
+    return String(localStorage.getItem("eiken_q1_dataset") || "").startsWith("eikenp2-") ? "pre2" : "2kyu";
+  } catch (e) {
+    return "2kyu";
+  }
+}
+function matchesActiveGrade(id) {
+  return activeGrade() === "pre2" ? String(id).startsWith("eikenp2-") : String(id).startsWith("eiken2-");
+}
+function availableDatasets() {
+  return Object.entries(DATASETS).filter(([id]) => matchesActiveGrade(id));
+}
+function defaultDatasetIdForActiveGrade() {
+  const entries = availableDatasets();
+  const defaultSuffix = String(DEFAULT_DATASET_ID || "").replace(/^eiken(?:p2|2)-/, "");
+  return entries.find(([id]) => id.endsWith(defaultSuffix))?.[0] || entries[0]?.[0] || DEFAULT_DATASET_ID;
+}
+
 const homePanel = document.getElementById("homePanel");
 const passagePanel = document.getElementById("sessionPanel");
 const shareStatusEl = document.getElementById("shareStatus");
 
 let datasetId = null; // loadManifest() 完了後、boot() 内で loadDatasetId() により確定する
 let DATA = null;
+const datasetDataCache = {};
+const datasetClearStatus = {};
 let progress = { questions: {}, summaries: {} };
 let route = { view: "home" };
 let pendingReviewSummaries = [];
@@ -40,15 +65,36 @@ let cloud = null;
 function loadDatasetId() {
   try {
     const id = localStorage.getItem(DATASET_KEY);
-    if (id && DATASETS[id]) return id;
+    if (id && DATASETS[id] && matchesActiveGrade(id)) return id;
   } catch (e) { /* ignore */ }
-  return DEFAULT_DATASET_ID;
+  return defaultDatasetIdForActiveGrade();
 }
 function currentDataset() {
-  return DATASETS[datasetId] || DATASETS[DEFAULT_DATASET_ID];
+  return DATASETS[datasetId] || DATASETS[defaultDatasetIdForActiveGrade()];
 }
 function progressKey(id = datasetId) {
   return STORE_PREFIX + id;
+}
+
+function readLocal(id = datasetId) {
+  let saved = { questions: {}, summaries: {} };
+  try {
+    let raw = localStorage.getItem(progressKey(id));
+    if (!raw && id === DEFAULT_DATASET_ID) raw = localStorage.getItem(LEGACY_LOCAL_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") {
+        saved = {
+          questions: parsed.questions || {},
+          summaries: parsed.summaries || {},
+          resume: parsed.resume || null,
+        };
+      }
+    }
+  } catch (e) {
+    /* ignore */
+  }
+  return saved;
 }
 
 function shuffle(arr) {
@@ -66,27 +112,48 @@ function saveLocal() {
   } catch (e) {
     /* ignore */
   }
+  updateCurrentDatasetClearStatus();
   if (cloud) cloud.queueSave();
 }
 
 function loadLocal(id = datasetId) {
-  progress = { questions: {}, summaries: {} };
-  try {
-    let raw = localStorage.getItem(progressKey(id));
-    if (!raw && id === DEFAULT_DATASET_ID) raw = localStorage.getItem(LEGACY_LOCAL_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") {
-        progress = {
-          questions: parsed.questions || {},
-          summaries: parsed.summaries || {},
-          resume: parsed.resume || null,
-        };
-      }
+  progress = readLocal(id);
+}
+
+function datasetRoundCleared(data, saved) {
+  const passages = Array.isArray(data && data.passages) ? data.passages : [];
+  const questions = saved && saved.questions && typeof saved.questions === "object" ? saved.questions : {};
+  const summaries = saved && saved.summaries && typeof saved.summaries === "object" ? saved.summaries : {};
+  return passages.length > 0 && passages.every((passage) => {
+    const questionsDone = passage.questions.every((question) => questions[question.q] && questions[question.q].answered);
+    return questionsDone && summaries[passage.id] && summaries[passage.id].graded;
+  });
+}
+
+function updateCurrentDatasetClearStatus() {
+  if (datasetId && DATA) datasetClearStatus[datasetId] = datasetRoundCleared(DATA, progress);
+}
+
+async function loadDatasetData(id) {
+  if (datasetDataCache[id]) return datasetDataCache[id];
+  const response = await fetch(DATASETS[id].dataUrl, { cache: "no-store" });
+  if (!response.ok) throw new Error(`q3 dataset load failed: ${response.status}`);
+  const data = await response.json();
+  datasetDataCache[id] = data;
+  return data;
+}
+
+async function refreshDatasetClearStatus() {
+  const entries = await Promise.all(availableDatasets().map(async ([id]) => {
+    try {
+      const data = id === datasetId ? DATA : await loadDatasetData(id);
+      const saved = id === datasetId ? progress : readLocal(id);
+      return [id, datasetRoundCleared(data, saved)];
+    } catch (e) {
+      return [id, false];
     }
-  } catch (e) {
-    /* ignore */
-  }
+  }));
+  entries.forEach(([id, cleared]) => { datasetClearStatus[id] = cleared; });
 }
 
 function saveResume() {
@@ -299,8 +366,8 @@ function renderHome() {
   passagePanel.innerHTML = "";
   homePanel.classList.remove("hide");
 
-  const datasetOptions = Object.entries(DATASETS).map(([id, d]) =>
-    `<option value="${id}"${id === datasetId ? " selected" : ""}>${escapeHtml(d.label)}</option>`
+  const datasetOptions = availableDatasets().map(([id, d]) =>
+    `<option value="${id}"${id === datasetId ? " selected" : ""}>${escapeHtml(d.label)}${datasetClearStatus[id] ? " ✅" : ""}</option>`
   ).join("");
   const datasetPickerHtml = `<label class="datasetPicker">
     <span class="fieldLabel">問題セット</span>
@@ -909,12 +976,12 @@ async function loadData(id) {
   datasetId = id;
   try { localStorage.setItem(DATASET_KEY, id); } catch (e) { /* ignore */ }
   loadLocal(id);
-  const res = await fetch(currentDataset().dataUrl, { cache: "no-store" });
-  DATA = await res.json();
+  DATA = await loadDatasetData(id);
+  updateCurrentDatasetClearStatus();
 }
 
 async function switchDataset(id) {
-  if (!DATASETS[id] || id === datasetId) return;
+  if (!DATASETS[id] || !matchesActiveGrade(id) || id === datasetId) return;
   await loadData(id);
   if (window.EikenActiveAppId !== "q3") return;
   Object.keys(summaryDraftCache).forEach((k) => delete summaryDraftCache[k]);
@@ -960,13 +1027,16 @@ async function boot() {
       applyLoaded: (loaded) => {
         applyCloudProgress(loaded);
         loadLocal(datasetId);
-        if (window.EikenActiveAppId === "q3" && route.view === "home") renderHome();
+        if (window.EikenActiveAppId === "q3" && route.view === "home") {
+          void refreshDatasetClearStatus().then(() => renderHome());
+        }
       },
       onStatus: setShareStatus,
     });
     await cloud.init();
   }
 
+  await refreshDatasetClearStatus();
   if (window.EikenActiveAppId === "q3") renderHome();
 }
 
@@ -979,6 +1049,7 @@ async function mount() {
       Object.keys(summaryDraftCache).forEach((k) => delete summaryDraftCache[k]);
       Object.keys(wordOrderCache).forEach((k) => delete wordOrderCache[k]);
     }
+    await refreshDatasetClearStatus();
     renderHome();
     return;
   }
