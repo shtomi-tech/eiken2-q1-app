@@ -105,6 +105,9 @@ function saveResume() {
   if (route.view === "summary") {
     const draft = summaryDraftCache[route.passageId];
     if (draft) resume.summaryDraft = { ...draft, filledMap: { ...draft.filledMap } };
+    if (wordOrderCache[route.passageId]) {
+      resume.wordOrder = [...wordOrderCache[route.passageId]];
+    }
   }
   progress.resume = resume;
   saveLocal();
@@ -160,6 +163,9 @@ function restoreResume() {
     }
     if (saved.summaryDraft) {
       summaryDraftCache[route.passageId] = { ...saved.summaryDraft, filledMap: { ...saved.summaryDraft.filledMap } };
+    }
+    if (Array.isArray(saved.wordOrder)) {
+      wordOrderCache[route.passageId] = [...saved.wordOrder];
     }
     renderSummary();
     return true;
@@ -261,8 +267,11 @@ function computePrimaryAction(reviewCount) {
   const incomplete = DATA.passages.find(passageIncomplete);
   if (incomplete) {
     const s = passageStats(incomplete);
+    const answeredLabel = s.qAnswered > 0
+      ? `続きから解く（${s.qAnswered}/${s.qTotal}問）`
+      : `解く（全${s.qTotal}問）`;
     return {
-      label: `${passageLabel(incomplete)}「${incomplete.title}」の続きから解く（${s.qAnswered}/${s.qTotal}問）`,
+      label: `${passageLabel(incomplete)}「${incomplete.title}」を${answeredLabel}`,
       why: "4択に解答し、根拠だと思う文を本文からタップして選びます。",
       onclick: () => openPractice(incomplete.id),
     };
@@ -564,7 +573,7 @@ function paintPractice(passage, question, isAnswered, stored) {
   if (practiceUiState.step === "evidence") {
     stepHtml = `<div class="evidenceStep">
       <p class="evidenceHint" aria-live="polite">根拠を選ぶ：${practiceUiState.selectedKeys.length}文。本文の文を選択してください（複数可）。</p>
-      <div class="navRow">
+      <div class="navRow evidenceNavRow">
         <button class="ghost" type="button" id="skipEvidenceBtn">根拠を選ばず採点</button>
         <button type="button" id="submitEvidenceBtn">この根拠で答え合わせ</button>
       </div>
@@ -733,10 +742,10 @@ function renderSummary() {
     const filledMap = {};
     if (stored && stored.filled) Object.assign(filledMap, stored.filled);
     summaryDraftCache[passage.id] = { filledMap, active: null, transVisible: false };
-    if (!wordOrderCache[passage.id]) {
-      const words = passage.summary.blanks.map((b) => b.answer).concat(passage.summary.distractors);
-      wordOrderCache[passage.id] = shuffle(words);
-    }
+  }
+  if (!wordOrderCache[passage.id]) {
+    const words = passage.summary.blanks.map((b) => b.answer).concat(passage.summary.distractors);
+    wordOrderCache[passage.id] = shuffle(words);
   }
 
   paintSummary(passage, graded, stored);
@@ -768,7 +777,11 @@ function paintSummary(passage, graded, stored) {
         if (draft.active === id) cls += " active";
         const lockAttr = graded ? ' data-locked="1"' : "";
         const label = filledText ? escapeHtml(filledText) : `( ${id} )`;
-        return `<span class="${cls}" data-blank="${id}"${lockAttr}>${label}</span>`;
+        const ariaLabel = filledText ? `空欄${id}: ${filledText}` : `空欄${id}を選ぶ`;
+        const pressedAttr = draft.active === id ? ' aria-pressed="true"' : ' aria-pressed="false"';
+        const tag = graded ? "span" : "button";
+        const typeAttr = graded ? "" : ' type="button"';
+        return `<${tag} class="${cls}" data-blank="${id}"${lockAttr}${typeAttr} aria-label="${escapeHtml(ariaLabel)}"${pressedAttr}>${label}</${tag}>`;
       }).join("");
       return `<p class="sLine">${parts}</p>`;
     }).join("");

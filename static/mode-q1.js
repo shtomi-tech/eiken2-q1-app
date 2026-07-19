@@ -546,6 +546,7 @@ function startLearn(q) {
     checkOrder: shuffle(items),
     checkIdx: 0,
     checkAnswered: false,
+    meaningCorrect: 0,
     wrongLog: [],
     wrongChecked: [],
     wrongReviewed: false,
@@ -851,7 +852,7 @@ function renderCheck(body) {
         if (txt === correct) c.classList.add("correct");
         else if (txt === m && !isCorrect) c.classList.add("wrong");
       });
-      if (session.mode === "meaning" && isCorrect) session.meaningCorrect += 1;
+      if ((session.mode === "meaning" || session.mode === "learn") && isCorrect) session.meaningCorrect += 1;
       if (session.mode === "final" && isCorrect) session.finalCorrect += 1;
       if (!isCorrect && session.wrongLog) session.wrongLog.push({ item, picked: m });
       if (last && session.mode === "final") saveFinalResult();
@@ -1074,6 +1075,10 @@ function renderDone(body) {
   } else {
     banner.appendChild(el("div", { class: "big" }, session.practiceResult ? "正解！" : "復習リストに残しました"));
     banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
+    if (!isReview) {
+      banner.appendChild(el("p", { class: "hint" },
+        `意味チェック ${session.meaningCorrect}/${session.checkOrder.length}・誤答 ${session.wrongLog.length}語`));
+    }
   }
   body.appendChild(banner);
 

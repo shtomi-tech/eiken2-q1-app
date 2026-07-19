@@ -272,20 +272,28 @@ function renderShell() {
   };
 }
 
-function renderStudyOptions() {
-  const options = Object.entries(datasets).flatMap(([level, dataset]) =>
+function datasetOptions() {
+  return Object.entries(datasets).flatMap(([level, dataset]) =>
     ROUNDS.filter((round) => dataset.rounds[round.id]).map((round) => ({
       value: `${level}::${round.id}`,
       label: `${level === "g2" ? "2級" : "準2級"}・${round.label}`,
     })),
   );
-  els.studySelect.innerHTML = options
-    .map((option) => `<option value="${option.value}">${option.label}</option>`)
-    .join("");
-  els.studySelect.value = `${state.level}::${state.round}`;
 }
 
-async function loadLevel(level, round = state.round) {
+function fillStudySelect(select) {
+  if (!select) return;
+  select.innerHTML = datasetOptions()
+    .map((option) => `<option value="${option.value}">${option.label}</option>`)
+    .join("");
+  select.value = `${state.level}::${state.round}`;
+}
+
+function renderStudyOptions() {
+  fillStudySelect(els.studySelect);
+}
+
+async function loadLevel(level, round = state.round, { render = true } = {}) {
   const dataset = datasets[level];
   if (!dataset) return;
   const file = dataset.rounds[round];
@@ -318,14 +326,142 @@ async function loadLevel(level, round = state.round) {
     }
     renderStudyOptions();
     els.gradeLabel.textContent = level === "g2" ? "英検2級" : "英検準2級";
-    renderAll();
+    if (render) renderAll();
+    return true;
   } catch (error) {
     showLoadError(error);
+    return false;
   }
+}
+
+function resumeForCurrentDataset() {
+  const resume = loadResume();
+  const index = Number(resume && resume.index);
+  if (!resume || resume.level !== state.level || resume.round !== state.round) return null;
+  if (!Number.isInteger(index) || !state.lessons[index]) return null;
+  return resume;
+}
+
+function progressSummary() {
+  const results = state.lessons.map((lesson) => state.answers.get(lesson.id));
+  return {
+    total: state.lessons.length,
+    answered: results.filter((result) => typeof result === "boolean").length,
+    correct: results.filter((result) => result === true).length,
+    dictation: results.filter((result) => result === false).length,
+  };
+}
+
+function dictationModeLabel(mode) {
+  return {
+    problem: "問題",
+    dictation: "書き取り",
+    review: "答えとスクリプト",
+  }[mode] || "学習";
+}
+
+function resumeDescription(resume) {
+  const lesson = state.lessons[Number(resume.index)];
+  return `${lesson ? `No. ${lesson.id}` : "このセット"}・${dictationModeLabel(resume.mode)}の途中`;
+}
+
+function openSession() {
+  homePanel.classList.add("hide");
+  sessionPanel.classList.remove("hide");
+  renderAll();
+}
+
+function restartFromHome() {
+  clearResume();
+  state.index = 0;
+  state.mode = "problem";
+  state.selected = null;
+  state.resultShown = false;
+  state.lastCorrect = null;
+  openSession();
+}
+
+function renderHome() {
+  els.audio.pause();
+  homePanel.classList.remove("hide");
+  sessionPanel.classList.add("hide");
+
+  const summary = progressSummary();
+  const resume = resumeForCurrentDataset();
+  const nextIndex = state.lessons.findIndex((lesson) => !state.answers.has(lesson.id));
+  const nextLesson = nextIndex >= 0 ? state.lessons[nextIndex] : null;
+  const complete = summary.total > 0 && summary.answered === summary.total;
+  const grade = state.level === "g2" ? "英検2級" : "英検準2級";
+  const primaryLabel = resume
+    ? "続きから再開する"
+    : complete
+      ? "最初からもう一度"
+      : `${nextLesson ? `No. ${nextLesson.id}` : "学習"}から${summary.answered ? "続ける" : "始める"}`;
+  const primaryWhy = resume
+    ? `${resumeDescription(resume)}。前回の位置から再開します。`
+    : complete
+      ? "このセットを最初から確認し直します。記録は残ります。"
+      : "音声を聞き、選択問題に答えたあと、英文を書き取って確認します。";
+  const resumeHtml = resume ? `<div class="resumeNotice">
+    <p class="label">途中保存</p>
+    <p class="resumeText">${escapeHtml(resumeDescription(resume))}</p>
+    <p class="hint">この端末に保存されています。続きから再開できます。</p>
+  </div>` : "";
+
+  homePanel.innerHTML = `
+    <section class="hero card dictHomeHero">
+      <p class="label">Listening / Dictation</p>
+      <h2>聞いて、選んで、書き取る</h2>
+      <p class="hint">音声問題を解いたあと、聞き取った英文を目視で書き取り確認します。</p>
+    </section>
+    <section class="card dictHomeCard">
+      <div class="sectionHead">
+        <div>
+          <p class="label">学習セット</p>
+          <h2>${grade}</h2>
+        </div>
+        <div class="datasetPicker">
+          <label class="fieldLabel" for="dictHomeStudySelect">問題セット</label>
+          <select id="dictHomeStudySelect" class="datasetSelect"></select>
+        </div>
+      </div>
+      <div class="dailyGrid cols4">
+        <div class="dailyCell"><div class="dailyNum">${summary.answered}<small>/${summary.total}</small></div><div class="dailyCaption">確認済み</div></div>
+        <div class="dailyCell"><div class="dailyNum">${summary.correct}<small>問</small></div><div class="dailyCaption">正解</div></div>
+        <div class="dailyCell"><div class="dailyNum">${summary.dictation}<small>問</small></div><div class="dailyCaption">書き取り</div></div>
+        <div class="dailyCell"><div class="dailyNum">${Math.max(0, summary.total - summary.answered)}<small>問</small></div><div class="dailyCaption">未確認</div></div>
+      </div>
+      ${resumeHtml}
+      <div class="recommend">
+        <span class="recEyebrow">次にやること</span>
+        <button id="dictHomePrimaryBtn" class="cta startCta" type="button">${primaryLabel}</button>
+        <p class="recWhy">${primaryWhy}</p>
+      </div>
+      <div class="missionNote">
+        <p class="hint">1問の流れ：音声を聞く → 4択に答える → 書き取りを確認する。</p>
+      </div>
+    </section>`;
+
+  const homeSelect = document.getElementById("dictHomeStudySelect");
+  fillStudySelect(homeSelect);
+  homeSelect.addEventListener("change", () => {
+    els.audio.pause();
+    const [level, round] = homeSelect.value.split("::");
+    void loadLevel(level, round, { render: false }).then((loaded) => {
+      if (loaded) renderHome();
+    });
+  });
+  document.getElementById("dictHomePrimaryBtn").addEventListener("click", () => {
+    if (resume) openSession();
+    else if (complete) restartFromHome();
+    else openSession();
+  });
 }
 
 function showLoadError(error) {
   console.error(error);
+  homePanel.classList.add("hide");
+  sessionPanel.classList.remove("hide");
   els.lessonTitle.textContent = "読み込みに失敗しました";
   els.playBtn.disabled = true;
   els.problemPanel.classList.remove("hide");
@@ -805,17 +941,16 @@ async function boot() {
   state.level = datasets[initial.level] ? initial.level : "g2";
   state.round = datasets[state.level].rounds[initial.round] ? initial.round : DEFAULT_ROUND;
   renderStudyOptions();
-  await loadLevel(state.level, state.round);
+  const loaded = await loadLevel(state.level, state.round, { render: false });
+  if (loaded) renderHome();
 }
 
 async function mount() {
-  homePanel.classList.add("hide");
-  sessionPanel.classList.remove("hide");
   renderShell();
   bindEvents();
   if (booted) {
     renderStudyOptions();
-    renderAll();
+    renderHome();
     return;
   }
   booted = true;

@@ -724,6 +724,13 @@ h2 {
 
 .evidenceStep { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 4px; }
 .evidenceHint { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+.evidenceNavRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.evidenceNavRow button { width: 100%; }
 
 /* 大問1の .feedback と同じ「カード＋左太罫」の書式に統一（ゲシュタルト：類同） */
 .resultBox {
@@ -776,18 +783,29 @@ h2 {
 .q3Session .choiceBtn:disabled { opacity: 1; cursor: default; }
 
 .q3Session .blank {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 90px;
-  min-height: 32px;
-  line-height: 24px;
+  min-height: 44px;
+  line-height: 1.4;
   border-bottom: 2px solid var(--ink);
-  padding: 4px;
+  padding: 4px 8px;
   margin: 0 2px;
   text-align: center;
   cursor: pointer;
   font-family: var(--mono);
   font-size: 13px;
+  border-radius: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background: transparent;
+  color: inherit;
+  vertical-align: middle;
 }
+.q3Session button.blank:hover:not(:disabled) { background: var(--surface-soft); }
+.q3Session button.blank:focus-visible { outline: 3px solid var(--clay); outline-offset: 2px; }
 .q3Session .blank.empty { color: var(--muted); }
 .q3Session .blank.active { background: var(--surface-strong); }
 .q3Session .blank.filled { color: var(--ink); }
@@ -797,6 +815,9 @@ h2 {
 
 @media (max-width: 720px) {
   .passageStatsGrid, .actionRow { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .evidenceNavRow { grid-template-columns: 1fr; gap: 12px; }
 }
 
 /* ============================================================
