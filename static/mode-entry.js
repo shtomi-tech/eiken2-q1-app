@@ -158,16 +158,16 @@ const EikenGradeEntryApp = (function () {
 
     const grades = [
       {
-        id: "2kyu",
-        label: "2級",
-        eyebrow: "EIKEN GRADE 2",
-        description: "高校卒業程度。語彙・英作文・長文をまとまりで進めます。",
-      },
-      {
         id: "pre2",
         label: "準2級",
         eyebrow: "EIKEN GRADE PRE-2",
         description: "高校中級程度。準2級用の語彙・長文・音声に切り替わります。",
+      },
+      {
+        id: "2kyu",
+        label: "2級",
+        eyebrow: "EIKEN GRADE 2",
+        description: "高校卒業程度。語彙・英作文・長文をまとまりで進めます。",
       },
       {
         id: "pre1",
