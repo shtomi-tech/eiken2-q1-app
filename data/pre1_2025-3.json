@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2025-3",
+    "label": "英検準1級 2025年度第3回",
+    "source": "英検公式の過去問をローカル学習用に構造化"
+  },
+  "reading": {
+    "part1": [
+      {
+        "q": 1,
+        "stem": "The men who escaped from prison ( ) the police for three weeks, but they were finally caught and brought back.",
+        "choices": [
+          "evaded",
+          "sterilized",
+          "wrecked",
+          "commuted"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 2,
+        "stem": "The novel was fascinating because it told the same story from several different ( ). Each character saw the events in a very different way.",
+        "choices": [
+          "reductions",
+          "nominations",
+          "maneuvers",
+          "perspectives"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 3,
+        "stem": "Although the bedrooms in the apartment were quite ( ), the kitchen and dining room were small, so the couple decided not to rent it.",
+        "choices": [
+          "supernatural",
+          "cowardly",
+          "spacious",
+          "compliant"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 4,
+        "stem": "The university will hold an event next month for graduating high school students who are thinking of ( ) there next semester.",
+        "choices": [
+          "enrolling",
+          "rebelling",
+          "radiating",
+          "solidifying"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 5,
+        "stem": "Although the actual battle lasted for almost a week, the writer decided to ( ) all the events into one day in his novel to make it more dramatic.",
+        "choices": [
+          "inhale",
+          "haunt",
+          "obstruct",
+          "compress"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 6,
+        "stem": "The ( ) between the two neighboring teams is very strong. Sometimes, the players have even fought during games.",
+        "choices": [
+          "forgery",
+          "candidacy",
+          "leniency",
+          "rivalry"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 7,
+        "stem": "A: Are you going anywhere for spring vacation, George? B: I have ( ) plans to visit Spain, but I haven't booked anything yet.",
+        "choices": [
+          "nutritious",
+          "righteous",
+          "tentative",
+          "universal"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 8,
+        "stem": "Medical students spend a lot of time studying human ( ). They must memorize the terms for even the smallest parts of the body.",
+        "choices": [
+          "reprimand",
+          "anatomy",
+          "esteem",
+          "distress To complete each item, choose the best word or phrase from among the four choices. Then, on your answer sheet, find the number of the question and mark your answer."
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 9,
+        "stem": "While the ( ) of the mountain took them two days, the climbers were able to come down in less than twelve hours.",
+        "choices": [
+          "warranty",
+          "fracture",
+          "hazard",
+          "ascent"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 10,
+        "stem": "The two fighter jets were flying so close to one another that the pilot of one of them was afraid they would ( ).",
+        "choices": [
+          "abide",
+          "collide",
+          "subside",
+          "preside"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 11,
+        "stem": "After carefully removing the screws, the technician was able to ( ) the power supply from the computer and replace it with a newer model.",
+        "choices": [
+          "detach",
+          "tame",
+          "unfold",
+          "bundle"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 12,
+        "stem": "The company gave its salespeople ( ) over their daily work. They are now free to make their own decisions without having to get approval from management.",
+        "choices": [
+          "ransom",
+          "precaution",
+          "autonomy",
+          "conservation"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 13,
+        "stem": "New Croix City is known for its ( ) culture. People from all over the world come to live in the city, and it is famous for its diverse restaurants and neighborhoods.",
+        "choices": [
+          "gloomy",
+          "tender",
+          "cosmopolitan",
+          "menacing"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 14,
+        "stem": "The little girl had a ( ) in her eye as she told her grandmother about the new puppy her mother had given her. It was clear she was very happy.",
+        "choices": [
+          "perch",
+          "breeze",
+          "gleam",
+          "sizzle"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 15,
+        "stem": "The children were hungry, so the couple decided to ( ) the nearest town. They thought they could find a restaurant there.",
+        "choices": [
+          "live off",
+          "make for",
+          "pass on",
+          "wipe out"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 16,
+        "stem": "Julia has decided her son, Rob, is old enough to ( ) more responsibilities at home, so she will give him two additional jobs to do on weekends.",
+        "choices": [
+          "iron out",
+          "toss in",
+          "take on",
+          "size up"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 17,
+        "stem": "The company wants to try all other options first, but it cannot ( ) reducing its staff if its poor sales continue.",
+        "choices": [
+          "sound off",
+          "draw back",
+          "turn up",
+          "rule out"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 18,
+        "stem": "The movie star asked the journalist to ( ) after the interview. She promised to give him an exclusive story if he did.",
+        "choices": [
+          "chip in",
+          "pull off",
+          "stick around",
+          "bear up"
+        ],
+        "answerIndex": 2
+      }
+    ],
+    "part2": [
+      {
+        "q": 19,
+        "stem": "空所（19）に入る語句を選んでください。",
+        "choices": [
+          "Similarly",
+          "Nevertheless",
+          "Consequently",
+          "Unexpectedly"
+        ],
+        "answerIndex": 2,
+        "context": "Early Education for LowIncome Children It is often said that early childhood education, such as preschool, provides important benefits to children in later life. In particular, many educators believe that providing children from lowincome families with the basic skills that they need to avoid falling behind their wealthier peers or even dropping out of school altogether is essential. ( 19 ), many US states have implemented preschool programs that offer such families access to early education. One such program was started in the state of Tennessee, and researchers were optimistic that it would help to prepare lowincome children there for longterm success in school. However, it was discovered that the program ( 20 ). Early on, the program's students appeared to be better prepared for school. When the researchers examined their results in the third grade, though, the students' academic results were poorer than the results of those who had not attended the program. By the sixth grade, they had declined even further. According to some researchers, the problem with earlyeducation programs for lowincome children, like the one in Tennessee, lies in ( 21 ). It had qualified educators who focused on developing the children's basic skills, such as writing letters and numbers. In theory, such methods sound appropriate, but researchers point out that early education programs that are often chosen by wealthier parents emphasize play activities in which children learn to express themselves, develop social skills, and concentrate. There is growing evidence that this would be a more effective approach for programs for lowincome students as well."
+      },
+      {
+        "q": 20,
+        "stem": "空所（20）に入る語句を選んでください。",
+        "choices": [
+          "actually did more than that",
+          "took time to have an effect",
+          "helped only wealthier students",
+          "had the opposite effect"
+        ],
+        "answerIndex": 3,
+        "context": "Early Education for LowIncome Children It is often said that early childhood education, such as preschool, provides important benefits to children in later life. In particular, many educators believe that providing children from lowincome families with the basic skills that they need to avoid falling behind their wealthier peers or even dropping out of school altogether is essential. ( 19 ), many US states have implemented preschool programs that offer such families access to early education. One such program was started in the state of Tennessee, and researchers were optimistic that it would help to prepare lowincome children there for longterm success in school. However, it was discovered that the program ( 20 ). Early on, the program's students appeared to be better prepared for school. When the researchers examined their results in the third grade, though, the students' academic results were poorer than the results of those who had not attended the program. By the sixth grade, they had declined even further. According to some researchers, the problem with earlyeducation programs for lowincome children, like the one in Tennessee, lies in ( 21 ). It had qualified educators who focused on developing the children's basic skills, such as writing letters and numbers. In theory, such methods sound appropriate, but researchers point out that early education programs that are often chosen by wealthier parents emphasize play activities in which children learn to express themselves, develop social skills, and concentrate. There is growing evidence that this would be a more effective approach for programs for lowincome students as well."
+      },
+      {
+        "q": 21,
+        "stem": "空所（21）に入る語句を選んでください。",
+        "choices": [
+          "an insufficient number of teachers",
+          "how the children were taught",
+          "the length of the program",
+          "how the schools were chosen"
+        ],
+        "answerIndex": 1,
+        "context": "Early Education for LowIncome Children It is often said that early childhood education, such as preschool, provides important benefits to children in later life. In particular, many educators believe that providing children from lowincome families with the basic skills that they need to avoid falling behind their wealthier peers or even dropping out of school altogether is essential. ( 19 ), many US states have implemented preschool programs that offer such families access to early education. One such program was started in the state of Tennessee, and researchers were optimistic that it would help to prepare lowincome children there for longterm success in school. However, it was discovered that the program ( 20 ). Early on, the program's students appeared to be better prepared for school. When the researchers examined their results in the third grade, though, the students' academic results were poorer than the results of those who had not attended the program. By the sixth grade, they had declined even further. According to some researchers, the problem with earlyeducation programs for lowincome children, like the one in Tennessee, lies in ( 21 ). It had qualified educators who focused on developing the children's basic skills, such as writing letters and numbers. In theory, such methods sound appropriate, but researchers point out that early education programs that are often chosen by wealthier parents emphasize play activities in which children learn to express themselves, develop social skills, and concentrate. There is growing evidence that this would be a more effective approach for programs for lowincome students as well."
+      },
+      {
+        "q": 22,
+        "stem": "空所（22）に入る語句を選んでください。",
+        "choices": [
+          "benefited from legal protection",
+          "supported government policies",
+          "faced economic hardship",
+          "did not have to pay taxes"
+        ],
+        "answerIndex": 2,
+        "context": "Smuggling in Cornwall Like people in some other areas of England in the eighteenth century, residents of coastal communities in Cornwall ( 22 ). Fishing, farming, and mining were important industries in Cornwall, but many workers struggled to take enough money home to feed their families. As a result, some turned to smuggling an illegal trade in goods such as wool, tea, and alcohol. The trade was a way for people to try to avoid paying duties a kind of tax on daily items that the government had introduced. Some poor people felt the duties were unfair, and so they became willing participants in the smuggling trade. Smuggling throughout England caused enormous financial losses for the government. ( 23 ), however. Despite government efforts to prevent them, smuggling operations along the coast had existed since at least the previous century. In Cornwall, they became well organized, which helped them avoid officials who were trying to enforce antismuggling laws. The large number of landing places, often small beaches, along with the support of local communities, made law enforcement a challenging task. It could also be dangerous. When officials confronted smugglers, violence was not unusual, and there were instances of officials being killed. Over time, the government took more decisive action to defeat smuggling. This included patrols by soldiers and greater use of patrol boats. ( 24 ), the government reviewed the duties on some imports, such as tea. These were reduced significantly from the late eighteenth century. Although smuggling was not completely eliminated, such developments made the trade much less appealing."
+      },
+      {
+        "q": 23,
+        "stem": "空所（23）に入る語句を選んでください。",
+        "choices": [
+          "Some officials were very effective",
+          "The problem was not new",
+          "Community leaders opposed the smugglers",
+          "The money was usually recovered"
+        ],
+        "answerIndex": 1,
+        "context": "Smuggling in Cornwall Like people in some other areas of England in the eighteenth century, residents of coastal communities in Cornwall ( 22 ). Fishing, farming, and mining were important industries in Cornwall, but many workers struggled to take enough money home to feed their families. As a result, some turned to smuggling an illegal trade in goods such as wool, tea, and alcohol. The trade was a way for people to try to avoid paying duties a kind of tax on daily items that the government had introduced. Some poor people felt the duties were unfair, and so they became willing participants in the smuggling trade. Smuggling throughout England caused enormous financial losses for the government. ( 23 ), however. Despite government efforts to prevent them, smuggling operations along the coast had existed since at least the previous century. In Cornwall, they became well organized, which helped them avoid officials who were trying to enforce antismuggling laws. The large number of landing places, often small beaches, along with the support of local communities, made law enforcement a challenging task. It could also be dangerous. When officials confronted smugglers, violence was not unusual, and there were instances of officials being killed. Over time, the government took more decisive action to defeat smuggling. This included patrols by soldiers and greater use of patrol boats. ( 24 ), the government reviewed the duties on some imports, such as tea. These were reduced significantly from the late eighteenth century. Although smuggling was not completely eliminated, such developments made the trade much less appealing."
+      },
+      {
+        "q": 24,
+        "stem": "空所（24）に入る語句を選んでください。",
+        "choices": [
+          "In contrast",
+          "Moreover",
+          "Even so",
+          "In other words"
+        ],
+        "answerIndex": 1,
+        "context": "Smuggling in Cornwall Like people in some other areas of England in the eighteenth century, residents of coastal communities in Cornwall ( 22 ). Fishing, farming, and mining were important industries in Cornwall, but many workers struggled to take enough money home to feed their families. As a result, some turned to smuggling an illegal trade in goods such as wool, tea, and alcohol. The trade was a way for people to try to avoid paying duties a kind of tax on daily items that the government had introduced. Some poor people felt the duties were unfair, and so they became willing participants in the smuggling trade. Smuggling throughout England caused enormous financial losses for the government. ( 23 ), however. Despite government efforts to prevent them, smuggling operations along the coast had existed since at least the previous century. In Cornwall, they became well organized, which helped them avoid officials who were trying to enforce antismuggling laws. The large number of landing places, often small beaches, along with the support of local communities, made law enforcement a challenging task. It could also be dangerous. When officials confronted smugglers, violence was not unusual, and there were instances of officials being killed. Over time, the government took more decisive action to defeat smuggling. This included patrols by soldiers and greater use of patrol boats. ( 24 ), the government reviewed the duties on some imports, such as tea. These were reduced significantly from the late eighteenth century. Although smuggling was not completely eliminated, such developments made the trade much less appealing."
+      }
+    ],
+    "part3": [
+      {
+        "id": "1",
+        "title": "Protecting Plants",
+        "text": "In order to satisfy global food demand, hundreds of millions of tons of wheat, corn, and other crops are produced annually worldwide. This level of production has only been achieved through modern agriculture's increasing reliance on chemical pesticides to protect crops from insects that feed on plants and microbial pathogens such as bacteria and fungi. These pests can impair plant growth and lead to significantly reduced crop yields. Pesticides have made largescale crop production possible, but some are also known to harm the environment or pose risks to human health. Pests also develop resistance to pesticides, especially when the pesticides are used in large amounts, so researchers are constantly looking for alternative cropprotection methods. A promising new approach to crop protection is the concept of induced resistance. This works by activating plants' natural defenses, which range from destroying pathogen infected cells to releasing toxins to kill insects. Induced resistance can be achieved through a process known as defense priming, which involves applying stress to plants to stimulate a weak defense response. This prepares the plants to recognize and react strongly to threats in the future. Essentially, this \"vaccinates\" plants against pests in much the same way as human vaccines protect people against diseases such as influenza. Unlike most human vaccines, however, this method can protect plants against several pests at the same time. Furthermore, researchers have found that the protection can even be carried into the next generation, although the genetic mechanism by which this occurs has yet to be determined. Induced resistance is considered to be very promising, but researchers caution that it has limitations. One is that diverting plants' resources toward defense can lead to reduced growth, which affects crop yields. Also, while induced resistance provides broader protection than most human vaccines, it cannot totally protect the plants. According to one biologist, \"Induced resistance is the result of a complex network of developmental and environmental pathways in the plant.\" She pointed out that using induced resistance effectively was not as simple as introducing a gene for a specific characteristic or using a pesticide with a particular action. She added that many aspects needed to be just right for this method to work, including the growing conditions and agricultural methods used. However, there is hope that when combined with other forms of natural crop protection, induced resistance can help minimize the need for pesticides and make agriculture more sustainable.",
+        "questions": [
+          {
+            "q": 25,
+            "stem": "Which of the following is true based on the first paragraph?",
+            "choices": [
+              "Despite the widespread use of chemical pesticides, modern agriculture is unable to produce enough crops to feed the world's population.",
+              "Although pesticides have been shown by research to be safe for humans, their negative reputation has led to their use being restricted.",
+              "Despite the positive role of pesticides in food production, scientists are attempting to find different ways to protect crops.",
+              "Although pesticides are an effective way to reduce damage caused by pests, they can also lead to reduced crop yields."
+            ],
+            "answerIndex": 2
+          },
+          {
+            "q": 26,
+            "stem": "According to the author of the passage, induced resistance",
+            "choices": [
+              "has proved effective at killing pathogens that enter plant cells but is unable to protect plants against insects and other external pests.",
+              "helps plants defend themselves against pests in a similar way to how human vaccines work but has a broader effect.",
+              "works for the lifetime of a plant just as vaccines do for humans but is not passed on to the plant's offspring because it has no genetic basis.",
+              "works well in most cases but can sometimes cause damage to plants because of the stress it causes them."
+            ],
+            "answerIndex": 1
+          },
+          {
+            "q": 27,
+            "stem": "What did one biologist say about induced resistance?",
+            "choices": [
+              "There is a need for further research into it because researchers have yet to prove that it works in the field.",
+              "There is a reluctance to use it because attempts to switch to other kinds of natural cropprotection methods have been unsuccessful.",
+              "It is a complicated process, so many factors have to be carefully balanced for it to be used successfully.",
+              "It will only work if it is combined with the use of pesticides, so it will fail to make agriculture sustainable in the long term."
+            ],
+            "answerIndex": 2
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "The Haymarket Affair",
+        "text": "On May 3, 1886, at least two striking workers were killed by the police at a demonstration in Chicago. Angered by the deaths, labor rights activists organized a gathering for the next day at Haymarket Square. Many thousands of flyers printed not only in English but also in German for Germanspeaking immigrant workers were distributed. On May 4, a few thousand people attended, one of them being the Chicago mayor there to ensure the protest passed peacefully. For the most part, it did just that. Convinced that all was in order, he left early. However, as the event came to a close with passionate speeches, violence erupted when the police tried to break it up. Someone threw a homemade dynamite bomb, and in the following chaos, guns were fired. A number of police officers and attendees were killed. The Haymarket Affair, as the incident and its aftermath are often called, did not occur in a vacuum. Industrialization had increased in the nineteenth century. Chicago became a center for activists concerned about workers' rights in factories, shipyards, and mills. Some proworker groups were radical, some were socialist, while others were less politically oriented. They all, however, wanted protection for workers against what they saw as profitseeking employers intent on exploiting workers. While issues such as child labor and low wages were all worthy of attention, the movement's main rallying cry was a demand to limit working hours to eight a day. The state of Illinois had introduced legislation in the 1860s that was intended to do that. However, according to Professor William J. Adelman, one obstacle to its success was a lack of strict enforcement. This gave employers room to force employees often poor immigrants to sign contracts agreeing to longer working days. The May 4 incident provoked a strong response from some newspapers, which whipped up public anger and claimed further bombings were planned. The authorities, who felt compelled to act, detained wellknown radicals. Eight men were charged in connection with the bombing, and in August, the jury returned with its verdict: guilty. Even though there were concerns about jury bias, a lack of evidence, and the fact that some of the defendants had not even attended the Haymarket gathering, most of the men were given the death penalty. Four of them were hanged the following year. According to Adelman, the trial ranked as \"one of the most notorious in American history.\" In the early 1890s, the governor of Illinois reviewed the court proceedings and documents, and he concluded that the trial had been unfair. The surviving men were pardoned and released from prison, a decision that was condemned by some industrialists and sections of the media. Although the governor's ruling came too late for those men who had lost their lives, the Haymarket Affair exposed the social and economic divisions that were commonplace at the time and became a symbol for many modernday labor leaders and activists. Change did not come quickly, but the incident and its aftermath contributed to important labor reforms and greater recognition of workers' rights. 3",
+        "questions": [
+          {
+            "q": 28,
+            "stem": "According to the passage, the mayor of Chicago",
+            "choices": [
+              "made sure that police officers who had been at the previous day's demonstration would not be on duty for the gathering in Haymarket Square.",
+              "hoped that the number of participants for such an important event would be greater than the actual number of people who attended on May 4.",
+              "realized that as the final speeches became more passionate, he had no choice but to give the police permission to end the gathering using force.",
+              "believed that because the proceedings had generally passed without incident, there were unlikely to be any major problems for the remainder of the protest."
+            ],
+            "answerIndex": 3
+          },
+          {
+            "q": 29,
+            "stem": "Which of the following statements best describes the opinion given by Professor William J. Adelman in the second paragraph?",
+            "choices": [
+              "Because employers were focused on profit, it was unreasonable to expect them to support labor rights groups, especially those with socialist tendencies.",
+              "Legislative efforts would have been more successful had the state focused on preventing child labor rather than limiting working hours.",
+              "Because immigrant workers were willing to work longer hours than other workers, they were being blamed for the failure to get legislation passed.",
+              "The law that the state of Illinois had put in place to restrict working hours failed because companies were not being forced to adhere to it."
+            ],
+            "answerIndex": 3
+          },
+          {
+            "q": 30,
+            "stem": "What does the author of the passage suggest about the events surrounding the trial?",
+            "choices": [
+              "There was considerable pressure to arrest people and conclude the trial, even though doubts emerged about the defendants' direct involvement in the bombing.",
+              "Adelman's criticism of the trial proceedings does not take into account the fact that the defendants were planning bomb attacks at other demonstrations.",
+              "Although the arrested men were probably innocent, the actions of the police were justified because of the number of people who had been killed on May 4.",
+              "Some of the defendants were more directly involved in the bombing than others, so the court was correct to make such a distinction when it sentenced them."
+            ],
+            "answerIndex": 0
+          },
+          {
+            "q": 31,
+            "stem": "What is one reason the Haymarket Affair is considered significant?",
+            "choices": [
+              "It is a reminder that powerful industrialists should not be allowed to influence courts to decrease the punishment for companies that break labor laws.",
+              "It is used to show that while media articles sometimes portray labor disputes inaccurately, the media also has the power to correct its mistakes.",
+              "It is viewed as a turning point in the history of the labor movement because it ultimately helped improve the situation for those who lacked rights.",
+              "It proved that most social and economic divisions would always remain despite the efforts of many activists to bring about equality for all people."
+            ],
+            "answerIndex": 2
+          }
+        ]
+      }
+    ]
+  },
+  "writing": [
+    {
+      "id": "writing-4",
+      "number": 4,
+      "type": "SUMMARY",
+      "label": "英文要約",
+      "prompt": "There are many scientists around the world who study animals. One way that they do this is by attaching electronic devices called biologgers to animals. These help scientists gather a variety of data about the animals. Some of this data is related to the animals' body temperature or heart rate. Other important data includes the pollution levels and sounds of the animals' environments. Supporters say biologgers are beneficial. This is because a wider range of animals can be studied. Some animals live in places that are hard for humans to work in. Other animals are scared of humans and may run away if humans come too close. Biologgers, however, can be used to get data about such animals. Nevertheless, critics have concerns. They believe that data from biologgers cannot always be trusted. For instance, if animals have something attached to them, they might feel stressed, which could change how they act. In such cases, the data may not be useful to scientists. There is a second problem with biologgers. Some researchers have found that the size and weight of devices can make it more difficult for animals to do important things. These include finding food or escaping from enemies. This difficulty could result in the animals' early deaths.",
+      "targetMin": 60,
+      "targetMax": 70
+    },
+    {
+      "id": "writing-5",
+      "number": 5,
+      "type": "ESSAY",
+      "label": "英作文",
+      "prompt": "Should self-driving cars be allowed to drive on public roads?",
+      "points": [
+        "Convenience",
+        "Jobs",
+        "Responsibility",
+        "Safety"
+      ],
+      "targetMin": 120,
+      "targetMax": 150
+    }
+  ],
+  "listening": [
+    {
+      "q": 1,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The 400meter race is her best event.",
+        "All her events have finished.",
+        "She competes in various events.",
+        "She is better than Jamelia at running events."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 2,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The man should not take more medicine.",
+        "She cannot help the man with the report.",
+        "The man should ask the boss for more time.",
+        "She wishes she could take a rest."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 3,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "She did not get a promotion.",
+        "She made a mistake with the budget.",
+        "She has to fire some staff members.",
+        "She had an argument with a team member."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 4,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He is doing poorly in Eastwood.",
+        "He needs to change his message.",
+        "His support is growing.",
+        "His campaign lacks funds. Part 1 Dialogues: 1 question each Multiple-choice Part 2 Passages: 2 questions each Multiple-choice Part 3 Real-Life: 1 question each Multiple-choice There are three parts to this listening test. ※ Listen carefully to the instructions."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 5,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "His smartphone could not be repaired.",
+        "He could not return his smartphone case.",
+        "The store clerk gave him incorrect information.",
+        "The store clerk didn't follow the refund policy."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 6,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The ideas were not original enough.",
+        "The illustrations were not well done.",
+        "The information was not detailed enough.",
+        "The presentation was too long."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 7,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Recruit some new members to her team.",
+        "Ask her manager to reduce her workload.",
+        "Give some of her work to other people.",
+        "Ask her company for a promotion."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 8,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He is not free when the group meets.",
+        "He takes a night class on Thursdays.",
+        "He does not have a guitar.",
+        "He cannot play the guitar well enough."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 9,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Pick the man up from work.",
+        "Stay up until the man calls her.",
+        "Help the man with his work.",
+        "Lend the man her car."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 10,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "She lost the earphones he lent her.",
+        "She missed a meeting this morning.",
+        "She used his earphones without permission.",
+        "She forgot his birthday."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 11,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The man thinks Beverly will do well.",
+        "Jun recommended Beverly for the campaign.",
+        "Beverly was her boss's first choice.",
+        "The campaign will be postponed for a month."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 12,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He was once the woman's boss.",
+        "He dislikes his current job.",
+        "He used to run his own company.",
+        "He is one of the woman's clients. Listening Test"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part1.mp3"
+    },
+    {
+      "q": 13,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It is not known when it was completed.",
+        "It is not known who constructed it.",
+        "It is not known what it was used for.",
+        "It is not known where its stones came from."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 14,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It was used by all members of the community.",
+        "It was once part of a larger monument.",
+        "It was never used for its intended purpose.",
+        "It was designed to stop sound from escaping. (B)"
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 15,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "They use waves to spread across large areas.",
+        "They prevent waves from causing rough conditions.",
+        "They are becoming less suitable as fish habitats.",
+        "They compete with other algae for nutrients."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 16,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Eating kelp enables them to grow quickly.",
+        "Other fish often prevent them from using kelp.",
+        "Kelp forests help them prey on other fish.",
+        "They are often unable to enter kelp forests. Part 2"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 17,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "He was defeated by a world chess champion.",
+        "A famous chess tournament invited him to play.",
+        "Many top players refused to play against him.",
+        "He had great success in Europe."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 18,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "The players were blindfolded.",
+        "It highlighted Morphy's play style.",
+        "Morphy was distracted by the opera.",
+        "It became famous for how quickly it ended. (D)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 19,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It planted seeds less deeply.",
+        "It required less soil.",
+        "It reduced the number of wasted seeds.",
+        "It was less damaging to the seeds."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 20,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "He thought that plants took in soil.",
+        "He thought soil should not be broken up.",
+        "He thought moisture was bad for plants.",
+        "He thought plants should have had short roots. Listening Test"
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 21,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "The food they usually consume.",
+        "The way they search for mates.",
+        "Their tendency to remain in one place.",
+        "Their method of breathing."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 22,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "They can help hellbenders in certain areas.",
+        "Their use in agriculture has been decreasing.",
+        "Their removal benefits hellbenders immediately.",
+        "They are often constructed on polluted rivers. (F)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 23,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It has led to the destruction of spiritually important sites.",
+        "It has resulted in people inhabiting underground caves.",
+        "It has extended into areas that are unsafe.",
+        "It has been opposed by government officials."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 24,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "People used them for protection during volcanic eruptions.",
+        "Some of them were not caused by lava flows.",
+        "Knowledge about them could increase public safety.",
+        "Their locations have been incorrectly documented."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part2.mp3"
+    },
+    {
+      "q": 25,
+      "part": 3,
+      "stem": "Situation: You are shopping for a new refrigerator. Your main priority is saving energy to keep your electricity bill low. A salesperson tells you the following. Question: Which refrigerator should you choose?",
+      "choices": [
+        "The Glacier Pro.",
+        "The NeoChill 5000.",
+        "The CoolGuard Elite.",
+        "The Slimline 300. (H)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part3.mp3"
+    },
+    {
+      "q": 26,
+      "part": 3,
+      "stem": "Situation: It is taking a long time for the tap water in your house to heat up. You want to pay as little as possible for repairs. A repair person is talking to you. Question: What should you do?",
+      "choices": [
+        "Pay for a new valve.",
+        "Join the plumbing plan.",
+        "Change to a monthly rental.",
+        "Replace the water heater. Listening Test Part 3"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part3.mp3"
+    },
+    {
+      "q": 27,
+      "part": 3,
+      "stem": "Situation: You are attending a conference for human resource managers. You are interested in learning how to improve your recruitment strategies. You hear an announcement. Question: Whose lecture should you attend?",
+      "choices": [
+        "Winston Brown's.",
+        "Joanne Jarrold's.",
+        "Eddie Aitken's.",
+        "Louise Cansler's. (J)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-3/audio-part3.mp3"
+    },
+    {
+      "q": 28,
+      "part": 3,
+      "stem": "Situation: You want to go on a gentle hike today with your grandfather, who has a bad knee and poor stamina. A staff member in a state park tells you the following. Question: Which trail should you take?",
+      "choices": [
+        "The Schmidt Trail.",
+        "The Wilson Trail.",
+        "The Redford Trail.",
+        "The Borne Trail. (K)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-3/audio-part3.mp3"
+    },
+    {
+      "q": 29,
+      "part": 3,
+      "stem": "Situation: You are in the departure lounge at the airport and you hear the following announcement. Your flight is the AM306 to Amsterdam. Question: What should you do?",
+      "choices": [
+        "Take the airport shuttle to your gate.",
+        "Walk to your gate.",
+        "Wait until your flight is called.",
+        "Change your flight."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-3/audio-part3.mp3"
+    }
+  ]
+}

@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2025-2",
+    "label": "英検準1級 2025年度第2回",
+    "source": "英検公式の過去問をローカル学習用に構造化"
+  },
+  "reading": {
+    "part1": [
+      {
+        "q": 1,
+        "stem": "The couple decided not to buy the house in the countryside because it was so ( ). The nearest town was over two hours away by car.",
+        "choices": [
+          "stocky",
+          "cheery",
+          "ambitious",
+          "remote"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 2,
+        "stem": "Dogs have excellent hearing compared with humans. There are many sounds that cannot be heard by people but are ( ) to dogs.",
+        "choices": [
+          "commendable",
+          "impressionable",
+          "audible",
+          "eligible"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 3,
+        "stem": "The new highway should be good for ( ) who drive to work from the suburbs. The amount of time needed to drive into the city is expected to drop by 10 percent.",
+        "choices": [
+          "invaders",
+          "commuters",
+          "composers",
+          "installers"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 4,
+        "stem": "Roger was eager to sell as many cars as possible because he earned a 20 percent ( ) on every sale. He planned to use the extra money to travel around the world.",
+        "choices": [
+          "commission",
+          "script",
+          "fragment",
+          "molecule"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 5,
+        "stem": "The doctor told Emma she was suffering from ( ) due to overwork. He said that with a break and plenty of rest, however, she would recover quickly.",
+        "choices": [
+          "virtue",
+          "fatigue",
+          "oversight",
+          "perception"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 6,
+        "stem": "Kevin nearly drove into the truck in front of him when it stopped ( ). He stepped hard on the brakes and just managed to avoid crashing into it.",
+        "choices": [
+          "indifferently",
+          "appealingly",
+          "abruptly",
+          "timidly"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 7,
+        "stem": "The professor told the class that she would not ( ) lateness. She said that any papers not turned in on time would receive a failing grade.",
+        "choices": [
+          "clarify",
+          "implement",
+          "tolerate",
+          "humiliate"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 8,
+        "stem": "While the sun may look small from Earth, it is ( ). In fact, it is many times bigger than any planet in the solar system.",
+        "choices": [
+          "massive",
+          "amusing",
+          "graceful",
+          "hesitant To complete each item, choose the best word or phrase from among the four choices. Then, on your answer sheet, find the number of the question and mark your answer."
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 9,
+        "stem": "A: Majid, remind me how many people we can ( ) in Conference Room B. B: Fifteen, so it should be fine for today's meeting.",
+        "choices": [
+          "outlaw",
+          "elevate",
+          "plead",
+          "accommodate"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 10,
+        "stem": "The company president was not ( ) about the reasons for the layoffs. When asked, he gave only vague answers and avoided any direct comments.",
+        "choices": [
+          "alleged",
+          "forthcoming",
+          "blissful",
+          "fainthearted"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 11,
+        "stem": "The politician claimed he was ( ) to no one, but everyone knew he had received donations from many companies to help his campaign.",
+        "choices": [
+          "sinister",
+          "indebted",
+          "perilous",
+          "doomed"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 12,
+        "stem": "Parents were asked to ( ) their children to and from the school dance. Since the event would be held in the evening, school officials did not want children going on their own.",
+        "choices": [
+          "appoint",
+          "import",
+          "acquaint",
+          "escort"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 13,
+        "stem": "The cookie factory made one ( ) of cookies with salt instead of sugar. They had to throw the entire lot away.",
+        "choices": [
+          "aggression",
+          "substitute",
+          "relegation",
+          "batch"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 14,
+        "stem": "The documentary on the war was so powerful that it ( ) strong feelings of sadness and anger in the viewers.",
+        "choices": [
+          "dehydrated",
+          "evoked",
+          "acquired",
+          "posed"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 15,
+        "stem": "The travel agent warned the couple not to ( ) the discount airline's flights being on time. They were often delayed or canceled.",
+        "choices": [
+          "take in",
+          "even out",
+          "figure on",
+          "make do"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 16,
+        "stem": "The country's military was able to ( ) the enemy's spy drone before it could gather any information about the country's defenses.",
+        "choices": [
+          "hold out",
+          "shoot down",
+          "get over",
+          "snap up"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 17,
+        "stem": "The city plans to ( ) the old theater and build a new one in the same place, but many residents are unhappy about the plan.",
+        "choices": [
+          "tune up",
+          "touch on",
+          "tear down",
+          "free up"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 18,
+        "stem": "A: How long will it take to ( ) from the mountaintop, Jane? B: About three hours, but it will take longer if we walk at a slow pace.",
+        "choices": [
+          "get down",
+          "round out",
+          "die away",
+          "lay out"
+        ],
+        "answerIndex": 0
+      }
+    ],
+    "part2": [
+      {
+        "q": 19,
+        "stem": "空所（19）に入る語句を選んでください。",
+        "choices": [
+          "In contrast",
+          "As a result",
+          "Despite this",
+          "For instance"
+        ],
+        "answerIndex": 1,
+        "context": "Striking Schoolchildren In 1911, a group of schoolchildren in Wales walked out of their school in protest. They then proceeded to march through the streets of their town, encouraging students from other schools to join them along the way. The strike ended peacefully on the same day, but news of the incident spread to other towns and cities across the country. ( 19 ), a series of school strikes occurred across the United Kingdom. In the end, schoolchildren from around sixty schools are thought to have participated in similar protests. Reports of the initial strike state that it began because of the unfair punishment of a student at the school. However, some historians suggest the reason ( 20 ). The strike followed many months of public unrest in the United Kingdom, during which workers called for improved labor conditions and many industrial strikes occurred. The schoolchildren would have seen members of their families participate in these protests, which historians believe inspired them to stand up for their own rights as well. School authorities attempted to play down the importance of the school strikes by pointing out that only a small percentage of the national school population participated. While this was true, it ( 21 ) the protests. For one thing, they represented one of the first times that schoolchildren in the United Kingdom had felt sufficiently empowered to stand up for their rights. The strikes also provided the stimulus for societal reforms that would end up improving child welfare in the United Kingdom."
+      },
+      {
+        "q": 20,
+        "stem": "空所（20）に入る語句を選んでください。",
+        "choices": [
+          "made little sense",
+          "remains a mystery",
+          "differed between schools",
+          "was more complex"
+        ],
+        "answerIndex": 3,
+        "context": "Striking Schoolchildren In 1911, a group of schoolchildren in Wales walked out of their school in protest. They then proceeded to march through the streets of their town, encouraging students from other schools to join them along the way. The strike ended peacefully on the same day, but news of the incident spread to other towns and cities across the country. ( 19 ), a series of school strikes occurred across the United Kingdom. In the end, schoolchildren from around sixty schools are thought to have participated in similar protests. Reports of the initial strike state that it began because of the unfair punishment of a student at the school. However, some historians suggest the reason ( 20 ). The strike followed many months of public unrest in the United Kingdom, during which workers called for improved labor conditions and many industrial strikes occurred. The schoolchildren would have seen members of their families participate in these protests, which historians believe inspired them to stand up for their own rights as well. School authorities attempted to play down the importance of the school strikes by pointing out that only a small percentage of the national school population participated. While this was true, it ( 21 ) the protests. For one thing, they represented one of the first times that schoolchildren in the United Kingdom had felt sufficiently empowered to stand up for their rights. The strikes also provided the stimulus for societal reforms that would end up improving child welfare in the United Kingdom."
+      },
+      {
+        "q": 21,
+        "stem": "空所（21）に入る語句を選んでください。",
+        "choices": [
+          "did not lessen the significance of",
+          "was not a good reason to support",
+          "made people suspicious of",
+          "discouraged schoolchildren from joining"
+        ],
+        "answerIndex": 0,
+        "context": "Striking Schoolchildren In 1911, a group of schoolchildren in Wales walked out of their school in protest. They then proceeded to march through the streets of their town, encouraging students from other schools to join them along the way. The strike ended peacefully on the same day, but news of the incident spread to other towns and cities across the country. ( 19 ), a series of school strikes occurred across the United Kingdom. In the end, schoolchildren from around sixty schools are thought to have participated in similar protests. Reports of the initial strike state that it began because of the unfair punishment of a student at the school. However, some historians suggest the reason ( 20 ). The strike followed many months of public unrest in the United Kingdom, during which workers called for improved labor conditions and many industrial strikes occurred. The schoolchildren would have seen members of their families participate in these protests, which historians believe inspired them to stand up for their own rights as well. School authorities attempted to play down the importance of the school strikes by pointing out that only a small percentage of the national school population participated. While this was true, it ( 21 ) the protests. For one thing, they represented one of the first times that schoolchildren in the United Kingdom had felt sufficiently empowered to stand up for their rights. The strikes also provided the stimulus for societal reforms that would end up improving child welfare in the United Kingdom."
+      },
+      {
+        "q": 22,
+        "stem": "空所（22）に入る語句を選んでください。",
+        "choices": [
+          "were the most imitated",
+          "had the biggest hits",
+          "proved this was true",
+          "were able to avoid this"
+        ],
+        "answerIndex": 3,
+        "context": "OneHit Wonders It is said that nearly half of musicians with songs in America's top one hundred pop song rankings become what are known as \"onehit wonders,\" or artists who never achieve a second musical success. When researcher Justin Berg looked into which bands ( 22 ), he discovered two key factors. The first was novelty, or how different songs are from other current music. The second key factor for career longevity was diversity, or the degree of variety among an artist's own songs. Berg found that artists whose songs had both these qualities early in their careers were far less likely to be onehit wonders. This seems logical since novelty and diversity should allow artists to produce work that is entertaining to fans over the long term. ( 23 ), too much of these things is not always ideal. According to Berg, songs that are too different from what is currently fashionable have a lower probability of climbing the music rankings in the first place. Berg also claims that \"once artists reach that first hit, then the ( 24 ).\" Of course, artists who prioritize innovation over fame and fortune can continue producing work that is new and unique. However, artists who desire multiple hits benefit from producing work that is similar to their first success, with only small changes to adapt to new trends. Berg believes that the balance between producing work that reminds listeners of the artist's initial hits while still sounding uptodate is the true recipe for continued success."
+      },
+      {
+        "q": 23,
+        "stem": "空所（23）に入る語句を選んでください。",
+        "choices": [
+          "Therefore",
+          "In other words",
+          "On the other hand",
+          "In return"
+        ],
+        "answerIndex": 2,
+        "context": "OneHit Wonders It is said that nearly half of musicians with songs in America's top one hundred pop song rankings become what are known as \"onehit wonders,\" or artists who never achieve a second musical success. When researcher Justin Berg looked into which bands ( 22 ), he discovered two key factors. The first was novelty, or how different songs are from other current music. The second key factor for career longevity was diversity, or the degree of variety among an artist's own songs. Berg found that artists whose songs had both these qualities early in their careers were far less likely to be onehit wonders. This seems logical since novelty and diversity should allow artists to produce work that is entertaining to fans over the long term. ( 23 ), too much of these things is not always ideal. According to Berg, songs that are too different from what is currently fashionable have a lower probability of climbing the music rankings in the first place. Berg also claims that \"once artists reach that first hit, then the ( 24 ).\" Of course, artists who prioritize innovation over fame and fortune can continue producing work that is new and unique. However, artists who desire multiple hits benefit from producing work that is similar to their first success, with only small changes to adapt to new trends. Berg believes that the balance between producing work that reminds listeners of the artist's initial hits while still sounding uptodate is the true recipe for continued success."
+      },
+      {
+        "q": 24,
+        "stem": "空所（24）に入る語句を選んでください。",
+        "choices": [
+          "time for creativity is over",
+          "situation gets even worse",
+          "profits increase greatly",
+          "audiences tend to reject them"
+        ],
+        "answerIndex": 0,
+        "context": "OneHit Wonders It is said that nearly half of musicians with songs in America's top one hundred pop song rankings become what are known as \"onehit wonders,\" or artists who never achieve a second musical success. When researcher Justin Berg looked into which bands ( 22 ), he discovered two key factors. The first was novelty, or how different songs are from other current music. The second key factor for career longevity was diversity, or the degree of variety among an artist's own songs. Berg found that artists whose songs had both these qualities early in their careers were far less likely to be onehit wonders. This seems logical since novelty and diversity should allow artists to produce work that is entertaining to fans over the long term. ( 23 ), too much of these things is not always ideal. According to Berg, songs that are too different from what is currently fashionable have a lower probability of climbing the music rankings in the first place. Berg also claims that \"once artists reach that first hit, then the ( 24 ).\" Of course, artists who prioritize innovation over fame and fortune can continue producing work that is new and unique. However, artists who desire multiple hits benefit from producing work that is similar to their first success, with only small changes to adapt to new trends. Berg believes that the balance between producing work that reminds listeners of the artist's initial hits while still sounding uptodate is the true recipe for continued success."
+      }
+    ],
+    "part3": [
+      {
+        "id": "1",
+        "title": "Rocket Science",
+        "text": "Some US astronauts became household names in the 1950s and '60s, partly due to the media coverage of their achievements. Behind the scenes, however, others played a crucial role in making US space missions, including the moon landing, successful. Unlike the astronauts, many of these unsung heroes were female. These women, who came to be called human computers, conducted complex calculations in areas such as spacecraft navigation, rocket aerodynamics, and orbital physics. The human computers' calculations mostly done by hand were mentally and physically demanding, sometimes each taking a week to complete. Without them, it would have been impossible to launch spacecraft, and any inaccuracies could have had lifethreatening consequences for the astronauts. The women were standing on the shoulders of others who had gone before them. As fields such as astronomy, navigation, and surveying expanded in the nineteenth century, so did the need for mathematical computation. This need only skyrocketed in World War I and World War II. Early computation work had been mainly undertaken by men. However, partly due to the discriminatory nature of contemporary societal norms, employing women meant that salaries and therefore overall costs could be dramatically reduced. Gradually, these jobs came to be seen by some as \"women's work.\" Historian Mar Hicks believes that one reason these \"preelectronic computation jobs were feminized is they were seen as rote and deskilled.\" Although humancomputer work was sometimes repetitive, Hicks points out that it often required advanced math skills. Around the midtwentieth century, when Cold War tensions with the Soviet Union escalated, the United States turned more of its attention to space. NASA's predecessor, NACA, employed many women to conduct calculations. The agency was seen as progressive in a few respects women's pay was relatively high, some women were supervisors, and married women with children were employed. Nevertheless, women were not treated as equals. African American women faced an additional layer of discrimination as they were forced to conduct much of their work in segregated facilities. When NASA was established in 1958, it abolished that policy and also improved other conditions for women. Time, however, was not on the human computers' side. Space missions became more complex, and the transition to electronic computation negated the need for most human computers. Nonetheless, it was a while before electronic data would be wholly trusted: In the early 1960s, for example, astronaut John Glenn asked Katherine Johnson, an African American human computer, to personally verify computercalculated orbital equations before he would fly.",
+        "questions": [
+          {
+            "q": 25,
+            "stem": "What does the author of the passage say about US space missions in the 1950s and '60s?",
+            "choices": [
+              "Given the physical demands of space travel, it was understandable that men rather than women were being sent into space.",
+              "The missions were considered too important to rely on the calculations of human computers.",
+              "The astronauts at the time felt the media should have given women working on the missions more credit.",
+              "The missions could only be effectively completed thanks to the precision of the calculations made by human computers."
+            ],
+            "answerIndex": 3
+          },
+          {
+            "q": 26,
+            "stem": "Which of the following statements would Mar Hicks most likely agree with?",
+            "choices": [
+              "The view that computation work was for women stemmed partly from a misunderstanding of the nature of the work.",
+              "Male mathematicians still played a vital role in the interwar period as the women employed sometimes lacked the necessary math skills.",
+              "Reducing costs by paying low wages to women ultimately had a negative effect on overall data reliability.",
+              "The two world wars brought about significant societal changes that benefited women much more than men."
+            ],
+            "answerIndex": 0
+          },
+          {
+            "q": 27,
+            "stem": "The author of the passage points out that after NASA was established,",
+            "choices": [
+              "the focus of the Cold War began to turn away from conducting spacerelated missions.",
+              "it made efforts to address some of the inequities that certain human computers had experienced.",
+              "female supervisors were awarded additional compensation to make up for their historically low wages.",
+              "it realized that winning the space race would only be possible if it recruited some of the Soviet Union's human computers."
+            ],
+            "answerIndex": 1
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Relying on Nature",
+        "text": "It was once thought that the use of medicine was a uniquely human trait, but over the past fifty years or so, scientists have reported many cases of animals using natural remedies to selfmedicate. Plants produce many chemical substances to protect themselves against disease or prevent themselves from being eaten by animals and insects, and some of these chemicals have medicinal properties. A growing body of research shows that animals have learned to recognize and consume these substances to treat and prevent illnesses. Selfmedication by animals was first recorded in the 1970s by researchers studying a group of chimpanzees in Tanzania. They observed some chimpanzees in the group swallowing the leaves of plants that were not a part of their regular diet. Since the chimpanzees were swallowing the leaves whole without chewing them, they were obviously not consuming them for nutritional purposes, and further observations revealed that the behavior occurred more frequently when stomach parasites were common among the group. The researchers hypothesized that the leaves were being used to remove the parasites, and they used the term \"zoopharmacognosy\" to refer to this selfmedicating behavior. For many years, it was believed by most scientists that this behavior was limited to animals with advanced intellectual ability. This belief originated mainly from the initial observations of chimpanzees, which suggested that the behavior had to be learned and passed on from generation to generation. However, a recent review of research has shown that selfmedication is much more common than was previously thought and is even demonstrated by some insects. This suggests that selfmedication must also occur by instinct, and many scientists now believe that it can be both innate and learned, even in more intelligent animals. One of the beststudied examples of selfmedication in insects is that of fruit flies. These tiny flies are often targeted by a type of parasitic wasp that lays its eggs inside the flies' bodies. Research has shown that fruit flies infected by parasitic wasps deliberately consume food containing alcohol, such as rotting fruit. The alcohol prevents the development of the wasp larvae and protects the flies. Consuming food with high alcohol content is normally harmful to the flies, so they avoid doing so when they are healthy. This implies that something triggers them to seek out such food only when they have wasp larvae inside them, and scientists seem to have determined the chemical compound that causes it. In other studies, it has also been found that the use of natural medication by some social insects goes beyond selfmedication. When bacterial and fungal infections occur within an ant colony, for example, the insects collect resin from nearby trees and take it back to the colony. The resin has antibacterial and antifungal properties, so by doing this, the ants are performing a form of \"social medication.\" Many scientists believe it is likely that our human ancestors gained knowledge of medicinal plants by observing the behavior of animals. They also hope that further research into zoopharmacognosy will help to improve human health care by providing clues to new sources of medicines. 3",
+        "questions": [
+          {
+            "q": 28,
+            "stem": "What did a group of researchers in the 1970s conclude?",
+            "choices": [
+              "Most of the reported cases of animals using natural substances for medicinal purposes were false.",
+              "Most chemical substances produced by plants were harmful to animals even when only consumed in small amounts.",
+              "Chimpanzees supplemented their diets with leaves when they could not get adequate nutrition from their usual food sources.",
+              "Chimpanzees deliberately ate the leaves of certain plants when they were suffering from parasitic infections."
+            ],
+            "answerIndex": 3
+          },
+          {
+            "q": 29,
+            "stem": "What did most scientists believe for many years?",
+            "choices": [
+              "Animals did not selfmedicate because consuming unknown substances went against their natural instincts.",
+              "The kinds of plants that animals used for medicinal purposes changed from one generation to the next.",
+              "Animals with low intelligence could not selfmedicate because they lacked the ability to learn how to do so.",
+              "All animals were born with the ability to recognize natural substances that have medicinal properties."
+            ],
+            "answerIndex": 2
+          },
+          {
+            "q": 30,
+            "stem": "What is one thing the author of the passage says about fruit flies?",
+            "choices": [
+              "Consuming alcohol is damaging to their health but overall beneficial when they are infected by parasitic wasps.",
+              "The consumption of food containing alcohol weakens them and makes them more vulnerable to parasitic wasps.",
+              "They intentionally become infected by parasitic wasps in order to reduce the harmful effects of alcohol.",
+              "They have developed a strategy to prevent parasitic wasps from being able to lay eggs inside them."
+            ],
+            "answerIndex": 0
+          },
+          {
+            "q": 31,
+            "stem": "Research has shown that some social insects",
+            "choices": [
+              "produce a substance that can protect themselves and their colony from bacterial and fungal infections.",
+              "leave their colony when they are suffering from infectious diseases to prevent the disease from spreading.",
+              "use natural medication in a way that benefits their whole colony rather than just themselves.",
+              "have the ability to teach other members of their colony how to deal with bacterial and fungal infections."
+            ],
+            "answerIndex": 2
+          }
+        ]
+      }
+    ]
+  },
+  "writing": [
+    {
+      "id": "writing-4",
+      "number": 4,
+      "type": "SUMMARY",
+      "label": "英文要約",
+      "prompt": "Some crops, such as rice and wheat, are harvested by cutting off the top of the plant. When farmers gather such crops, they leave the bottom part in the ground. This part is called stubble. Farmers need space to plant their next crops, so some of them burn the stubble. Now, some countries want to make a law that stops farmers from doing this. Supporters of the law believe it is important. People's health will be protected. This is because when stubble is burned, smoke containing harmful chemicals is released. It can travel long distances, so the law would benefit the health of both rural and urban populations. There is another advantage to stopping stubble burning. The quality of soil on farms can be maintained. There are small organisms, such as bacteria, in the soil that make crops grow more easily. When stubble is burned, the ground becomes extremely hot, which kills these organisms. This will not happen if stubble burning is banned. However, opponents of the law are worried. Removing stubble from fields can be very difficult. Without fire, farmers need to buy specialized mechanical equipment to get rid of it. This equipment often costs a lot, so it is impossible for many farmers to afford.",
+      "targetMin": 60,
+      "targetMax": 70
+    },
+    {
+      "id": "writing-5",
+      "number": 5,
+      "type": "ESSAY",
+      "label": "英作文",
+      "prompt": "Should people who live in cities be required to use public transportation?",
+      "points": [
+        "Convenience",
+        "Costs",
+        "Pollution",
+        "Safety"
+      ],
+      "targetMin": 120,
+      "targetMax": 150
+    }
+  ],
+  "listening": [
+    {
+      "q": 1,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "It is useful for staying connected with her friends.",
+        "He does not want her to communicate with strangers.",
+        "It can negatively affect communication skills.",
+        "He agrees with her about its effects."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 2,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He does not enjoy his program.",
+        "He may be taking on too much.",
+        "He may not graduate on time.",
+        "He wants to graduate early."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 3,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Take away Jared's tablet computer.",
+        "Get the screen of Jared's tablet computer fixed.",
+        "Buy Jared a new tablet computer.",
+        "Control Jared's use of his tablet computer."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 4,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The repairs will take a long time.",
+        "The manufacturer has gone out of business.",
+        "She will not have to pay for the repairs.",
+        "She lost it last month. Part 1 Dialogues: 1 question each Multiple-choice Part 2 Passages: 2 questions each Multiple-choice Part 3 Real-Life: 1 question each Multiple-choice There are three parts to this listening test. ※ Listen carefully to the instructions."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 5,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Try a different recruiting method.",
+        "Take classes at the business school.",
+        "Use an employment agency.",
+        "Add work experience to her résumé."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 6,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He does not like any of the houses.",
+        "He would prefer a house with fewer stairs.",
+        "He has decided not to buy a house.",
+        "He wants to live close to a station."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 7,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Go to bed early.",
+        "Go out for dinner.",
+        "Take turns washing the dishes.",
+        "Buy a dishwasher."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 8,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Their nextdoor neighbor had something stolen.",
+        "Neighborhood traffic problems are getting worse.",
+        "One of their neighbors has been acting strangely.",
+        "Their house may be robbed."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 9,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Whether or not to lower the price.",
+        "Ways to increase the battery life.",
+        "The wording of the advertisements.",
+        "Adding more features to the product."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 10,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He was bothering the other children.",
+        "He was not concentrating on the lessons.",
+        "He damaged the classroom's window.",
+        "He was rude to the teacher."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 11,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The woman should choose a different recipe.",
+        "It will be difficult to get the ingredients.",
+        "The woman should follow the recipe.",
+        "Creativity is the most important part of cooking."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 12,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He is planning to sell it.",
+        "It may be worth a lot of money.",
+        "It does not work well anymore.",
+        "He does not like the design on the back. Listening Test"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+    },
+    {
+      "q": 13,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It fed on the fish that followed it around.",
+        "It could bring benefits for fishermen.",
+        "It protected Norway from attack by ships.",
+        "It killed a powerful Norwegian king."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 14,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Their natural habitat is declining.",
+        "They are smaller than people think.",
+        "There has been little research into them.",
+        "They were not described scientifically until the 2000s. (B)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 15,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It worked together with police officers.",
+        "Its staff had more medical training.",
+        "It operated all over the city.",
+        "Its ambulances drove faster."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 16,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Some of the patients were prejudiced.",
+        "They were unable to save patients.",
+        "They could not help people in their own area.",
+        "Some doctors did not trust their skills. Part 2"
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 17,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It made much larger stitches.",
+        "It was much less expensive.",
+        "It could produce lines that were straighter.",
+        "It could do more types of sewing patterns."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 18,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "He could not meet the demand for his machines.",
+        "People did not like to use payment plans.",
+        "Men thought women could not use his machines.",
+        "Most people preferred sewing by hand. (D)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 19,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Its soldiers were sent to fight in Belgium.",
+        "Few of its soldiers were Muslims.",
+        "None of its soldiers returned to Britain.",
+        "Its soldiers were not allowed in hospitals in Britain."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 20,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "British Indian Army soldiers did not deserve their awards.",
+        "The stories of British Indian Army soldiers need to be told.",
+        "Khan probably died in battle in World War I.",
+        "The king initially refused to visit Khan. Listening Test"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 21,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "She had to do chores instead of her mother.",
+        "She was more interested in aviation than her brothers.",
+        "She had to give up her education.",
+        "Her brothers found her a teaching job."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 22,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "She decided to care for her injured brother.",
+        "She wanted to focus on improving women's rights.",
+        "She wanted to travel abroad to support her brothers.",
+        "She was better at business than at teaching. (F)"
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 23,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It causes infected trees' branches to fall off.",
+        "It has spread throughout the United Kingdom.",
+        "It is most common in parks.",
+        "It is not known what causes it."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 24,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It can affect many kinds of trees.",
+        "There is no way to protect trees from it.",
+        "Some trees can survive being infected by it.",
+        "It will probably disappear naturally."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+    },
+    {
+      "q": 25,
+      "part": 3,
+      "stem": "Situation: You want a parttime job with the best hourly pay rate possible. You take a computer class on Tuesday evenings. You call a job agency and are told the following. Question: Which store should you choose?",
+      "choices": [
+        "Snow's Supermarket.",
+        "Heely Good Shoe Plaza.",
+        "HCE.",
+        "MegaZ Music. (H)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+    },
+    {
+      "q": 26,
+      "part": 3,
+      "stem": "Situation: You are in a meeting at work when you hear the following announcement. The meeting room is on the second floor of Building B. Question: Where should you go?",
+      "choices": [
+        "To the main lobby.",
+        "To the north wing.",
+        "To the atrium.",
+        "To Stetson Hall. Listening Test Part 3"
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+    },
+    {
+      "q": 27,
+      "part": 3,
+      "stem": "Situation: You need a supplier of sensors for your company's automatic doors. Your budget is $180 per unit, and you need eight hundred of them. You hear the following message from a coworker. Question: Which company should you contact?",
+      "choices": [
+        "NexusFlow.",
+        "OmniSensor.",
+        "Briarson Technologies.",
+        "Winchester Electronics. (J)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+    },
+    {
+      "q": 28,
+      "part": 3,
+      "stem": "Situation: Your son Carlos wants to join the band at his school. Your budget for instrument rental is $150 per school term. The band instructor tells you the following. Question: Which instrument should Carlos choose?",
+      "choices": [
+        "The flute.",
+        "The trumpet.",
+        "The clarinet.",
+        "The drums. (K)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+    },
+    {
+      "q": 29,
+      "part": 3,
+      "stem": "Situation: You want to adopt a dog that is already trained and will get along with your sixyearold daughter. You call a local animal shelter and hear the following recorded message. Question: Which dog should you inquire about?",
+      "choices": [
+        "Tiffy, the black Labrador.",
+        "Roger, the honeycolored Labrador.",
+        "Fluffy, the spaniel.",
+        "Wildy, the poodle."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+    }
+  ]
+}

@@ -51,6 +51,20 @@ const EikenFreeApp = (function () {
       return;
     }
 
+    if (profile.grade === "pre1") {
+      homePanel.innerHTML = `<section class="card hero freeHero">
+        <p class="label">FREE PRACTICE / EIKEN PRE-1</p>
+        <h2>準1級モードを開きます</h2>
+        <p>準1級は、過去問の出題構成に合わせた専用モードで演習します。</p>
+        <div class="actions"><button class="cta" type="button" id="freePre1Btn">準1級モードへ</button><button class="ghost" type="button" id="freePre1GradeBtn">級を変更</button></div>
+      </section>`;
+      document.getElementById("freePre1Btn").addEventListener("click", () => openSkill("pre1"));
+      document.getElementById("freePre1GradeBtn").addEventListener("click", () => {
+        if (window.EikenAppRouter) window.EikenAppRouter.open("entry");
+      });
+      return;
+    }
+
     if (window.EikenGradeEntryApp) window.EikenGradeEntryApp.applyProfile(profile);
     const cards = SKILLS.map((skill) => `<article class="freeSkillCard">
       <div class="freeSkillTop"><span class="freeSkillNo">${String(SKILLS.indexOf(skill) + 1).padStart(2, "0")}</span><span class="freeSkillTag">${skill.tag}</span></div>

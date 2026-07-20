@@ -210,6 +210,81 @@ h2 {
   .appTab { min-height: 56px; }
 }
 
+/* ---- 準1級：過去問モード ---- */
+.pre1Home,
+.pre1Session { max-width: 1080px; margin: 0 auto; }
+.pre1Hero { padding: 24px; }
+.pre1Hero .ghost { border-color: rgba(250, 249, 245, .42); color: var(--parchment); }
+.pre1Hero .ghost:hover:not(:disabled) { border-color: var(--parchment); background: var(--parchment); color: var(--ink); }
+.pre1HomeHead,
+.pre1SessionHead { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.pre1HomeHead h2,
+.pre1SessionHead h2 { margin: 6px 0 0; }
+.pre1Lead { max-width: 760px; margin: 18px 0; }
+.pre1Overall { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(250, 249, 245, .28); padding-top: 16px; color: rgba(250, 249, 245, .72); }
+.pre1Overall strong { color: var(--parchment); font-family: var(--serif); font-size: 30px; }
+.pre1Overall b { margin-left: auto; color: var(--parchment); font-family: var(--mono); font-size: 11px; }
+.pre1SectionArea { margin-top: 16px; }
+.pre1SectionGrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.pre1SectionCard { display: flex; flex-direction: column; gap: 9px; min-height: 210px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--parchment); padding: 15px; }
+.pre1SectionCard.isDone { border-left: 4px solid var(--ok); padding-left: 12px; }
+.pre1SectionTop { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .07em; }
+.pre1SectionTag { color: var(--clay); }
+.pre1SectionStatus { white-space: nowrap; }
+.pre1SectionCard h3 { margin: 0; font-family: var(--serif); font-size: 21px; }
+.pre1SectionCard p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.pre1SectionCard .cta { width: 100%; min-height: 44px; margin-top: auto; }
+.pre1Note { margin-top: 16px; }
+.pre1Note p:last-child { margin: 0; color: var(--muted); font-size: 13px; }
+.pre1Session { padding-bottom: 28px; }
+.pre1SessionHead { margin-bottom: 16px; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+.pre1SessionHead .label { margin-bottom: 0; }
+.pre1SessionHead .hint { margin: 5px 0 0; }
+.pre1SessionActions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.pre1QuestionCard,
+.pre1WritingCard { padding: 24px; }
+.pre1QuestionMeta { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--clay); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.pre1QuestionMeta span + span::before { content: "/"; margin-right: 8px; color: var(--line); }
+.pre1QuestionStem { margin: 12px 0 16px; font-family: var(--serif); font-size: 22px; line-height: 1.55; }
+.pre1Prompt { margin: 12px 0; color: var(--muted); }
+.pre1Passage { margin: 18px 0; border-left: 4px solid var(--clay); border-radius: var(--r-md); background: var(--parchment); padding: 16px; }
+.pre1Passage h3 { margin: 3px 0 10px; font-family: var(--serif); font-size: 25px; }
+.pre1Passage p:last-child { margin: 0; line-height: 1.85; }
+.pre1Audio { display: grid; gap: 8px; margin: 16px 0; border-radius: var(--r-md); background: var(--surface-soft); padding: 14px; }
+.pre1Audio .label { margin: 0; }
+.pre1Audio audio { width: 100%; }
+.pre1Audio .hint { margin: 0; font-size: 12px; }
+.pre1QuestionNav { margin-top: 20px; }
+.pre1QuestionNav .cta { min-width: 180px; }
+.pre1WritingMeta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0; border-left: 4px solid var(--clay); border-radius: var(--r-md); background: var(--surface-soft); padding: 12px 14px; }
+.pre1WritingMeta span { color: var(--clay); font-family: var(--mono); font-size: 11px; letter-spacing: .1em; }
+.pre1WritingMeta strong { font-family: var(--serif); font-size: 22px; }
+.pre1WritingCard h3 { margin: 0 0 10px; font-family: var(--serif); font-size: 26px; }
+.pre1WritingPrompt { white-space: pre-wrap; margin: 0 0 14px; line-height: 1.85; }
+.pre1Points { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.pre1Points span { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.pre1Points b { border: 1px solid var(--line); border-radius: var(--r-pill); padding: 5px 9px; font-family: var(--mono); font-size: 11px; font-weight: 500; }
+.pre1WritingField { display: grid; gap: 6px; margin-top: 18px; }
+.pre1WritingField > span { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.pre1WritingField textarea { width: 100%; min-height: 240px; resize: vertical; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--parchment); color: var(--ink); padding: 13px 14px; line-height: 1.75; }
+.pre1WordCount { margin: 9px 0 16px; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+
+@media (max-width: 900px) {
+  .pre1SectionGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .pre1Hero,
+  .pre1QuestionCard,
+  .pre1WritingCard { padding: 18px; }
+  .pre1SectionGrid { grid-template-columns: 1fr; }
+  .pre1SectionCard { min-height: 0; }
+  .pre1Overall b { margin-left: 0; width: 100%; }
+  .pre1QuestionStem { font-size: 19px; }
+  .pre1QuestionNav { position: sticky; bottom: 0; z-index: 5; margin: 18px -18px -18px; border-top: 1px solid var(--ink); background: var(--paper); padding: 12px 16px; }
+  .pre1QuestionNav button { flex: 1; }
+}
+
 /* ---- Grade entry / free practice ---- */
 .gradeEntryHome, .freeHome { max-width: 960px; margin: 0 auto; }
 .gradeEntryHero, .freeHero { padding: 28px 24px; }

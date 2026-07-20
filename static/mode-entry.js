@@ -52,11 +52,28 @@ const EikenGradeEntryApp = (function () {
   }
 
   function gradeFromQ1Id(q1Id) {
-    return String(q1Id).startsWith("eikenp2-") ? "pre2" : "2kyu";
+    const id = String(q1Id);
+    if (id.startsWith("eikenp1-")) return "pre1";
+    if (id.startsWith("eikenp2-")) return "pre2";
+    return "2kyu";
   }
 
   function makeProfile(q1Id) {
-    if (!manifest || !manifest.q1 || !manifest.q1[q1Id]) return null;
+    if (!manifest) return null;
+    if (manifest.pre1 && manifest.pre1.rounds && q1Id && q1Id.startsWith("eikenp1-")) {
+      const round = manifest.pre1.rounds.find((item) => item.id === q1Id.replace("eikenp1-", "")) || manifest.pre1.rounds[0];
+      return {
+        id: q1Id,
+        grade: "pre1",
+        label: `英検準1級 ${round.label.replace("年度 ", "年度")}`,
+        q1Id: null,
+        q3Id: null,
+        pre1Id: q1Id,
+        dictation: null,
+        writingGrade: "pre1",
+      };
+    }
+    if (!manifest.q1 || !manifest.q1[q1Id]) return null;
     const grade = gradeFromQ1Id(q1Id);
     const q3Id = manifest.q3 && manifest.q3[q1Id] ? q1Id : manifest.defaultDatasetId;
     const level = grade === "pre2" ? "p2" : "g2";
@@ -76,9 +93,10 @@ const EikenGradeEntryApp = (function () {
 
   function currentQ1Id() {
     const savedProfile = readJson(PROFILE_KEY, null);
-    if (savedProfile && manifest.q1[savedProfile.q1Id]) return savedProfile.q1Id;
+    if (savedProfile && manifest.q1 && manifest.q1[savedProfile.q1Id]) return savedProfile.q1Id;
+    if (savedProfile && manifest.pre1 && savedProfile.pre1Id && manifest.pre1.rounds.some((round) => `eikenp1-${round.id}` === savedProfile.pre1Id)) return savedProfile.pre1Id;
     const savedDataset = localStorage.getItem("eiken_q1_dataset");
-    if (manifest.q1[savedDataset]) return savedDataset;
+    if (manifest.q1 && manifest.q1[savedDataset]) return savedDataset;
     return null;
   }
 
@@ -91,8 +109,12 @@ const EikenGradeEntryApp = (function () {
   function preferredQ1Id(grade) {
     const current = currentQ1Id();
     if (current && gradeFromQ1Id(current) === grade) return current;
+    if (grade === "pre1") {
+      const preferred = manifest.pre1.rounds.find((round) => round.id === "2026-1") || manifest.pre1.rounds[0];
+      return `eikenp1-${preferred.id}`;
+    }
     const prefix = grade === "pre2" ? "eikenp2-" : "eiken2-";
-    const ids = Object.keys(manifest.q1).filter((id) => id.startsWith(prefix));
+    const ids = Object.keys(manifest.q1 || {}).filter((id) => id.startsWith(prefix));
     return ids.find((id) => id.endsWith("2026-1")) || ids[0] || manifest.defaultDatasetId;
   }
 
@@ -100,9 +122,10 @@ const EikenGradeEntryApp = (function () {
     if (!nextProfile) return null;
     try {
       localStorage.setItem(PROFILE_KEY, JSON.stringify(nextProfile));
-      localStorage.setItem("eiken_q1_dataset", nextProfile.q1Id);
-      localStorage.setItem("eiken_q3_dataset", nextProfile.q3Id);
-      localStorage.setItem("eiken_dictation_dataset", JSON.stringify(nextProfile.dictation));
+      if (nextProfile.q1Id) localStorage.setItem("eiken_q1_dataset", nextProfile.q1Id);
+      if (nextProfile.q3Id) localStorage.setItem("eiken_q3_dataset", nextProfile.q3Id);
+      if (nextProfile.dictation) localStorage.setItem("eiken_dictation_dataset", JSON.stringify(nextProfile.dictation));
+      if (nextProfile.pre1Id) localStorage.setItem("eiken_pre1_round", nextProfile.pre1Id.replace("eikenp1-", ""));
     } catch (error) {
       /* 保存できなくても、その場の演習は続けられる */
     }
@@ -118,6 +141,10 @@ const EikenGradeEntryApp = (function () {
   function startPath(grade, path) {
     const nextProfile = setGrade(grade);
     if (!nextProfile || !window.EikenAppRouter) return;
+    if (nextProfile.grade === "pre1") {
+      window.EikenAppRouter.open("pre1", { free: true });
+      return;
+    }
     window.EikenAppRouter.open(path === "free" ? "free" : "serial");
   }
 
@@ -141,6 +168,12 @@ const EikenGradeEntryApp = (function () {
         label: "準2級",
         eyebrow: "EIKEN GRADE PRE-2",
         description: "高校中級程度。準2級用の語彙・長文・音声に切り替わります。",
+      },
+      {
+        id: "pre1",
+        label: "準1級",
+        eyebrow: "EIKEN GRADE PRE-1",
+        description: "大学中級程度。準1級の過去問3回分を、セクションごとに演習します。",
       },
     ];
     const cards = grades.map((grade) => `<article class="gradeChoiceCard ${profile && profile.grade === grade.id ? "isSelected" : ""}">

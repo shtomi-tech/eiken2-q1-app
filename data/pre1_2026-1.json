@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2026-1",
+    "label": "英検準1級 2026年度第1回",
+    "source": "英検公式の過去問をローカル学習用に構造化"
+  },
+  "reading": {
+    "part1": [
+      {
+        "q": 1,
+        "stem": "In order to illustrate how a cell functions, the biology teacher drew a detailed ( ) on the board showing all of its parts.",
+        "choices": [
+          "cemetery",
+          "diagram",
+          "equation",
+          "forecast"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 2,
+        "stem": "A: I think this sentence in your essay is ( ). B: Oh, you're right. It's almost the same as what I said in the previous paragraph.",
+        "choices": [
+          "possessive",
+          "horizontal",
+          "redundant",
+          "drastic"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 3,
+        "stem": "In some countries, governments ( ) the media in order to prevent criticism of them from being published.",
+        "choices": [
+          "haul",
+          "envy",
+          "subtract",
+          "censor"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 4,
+        "stem": "The scholarship is only available to students who meet its requirements. A ( ) must have excellent grades and be from a lowincome background.",
+        "choices": [
+          "referral",
+          "recipient",
+          "bouncer",
+          "successor"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 5,
+        "stem": "The scientist was accused of ( ) his data after experts attempted to copy his experiments but were unable to produce the same results.",
+        "choices": [
+          "triggering",
+          "fabricating",
+          "conserving",
+          "renouncing"
+        ],
+        "answerIndex": 1
+      },
+      {
+        "q": 6,
+        "stem": "Last week, a police officer stopped Javier and gave him a traffic ( ) for driving faster than the speed limit.",
+        "choices": [
+          "ransom",
+          "specimen",
+          "cavity",
+          "citation"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 7,
+        "stem": "Because some ( ) was expected, the captain turned on the seat belt sign and asked all the passengers to return to their seats.",
+        "choices": [
+          "distortion",
+          "generosity",
+          "turbulence",
+          "conjecture"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 8,
+        "stem": "After several years with almost no rain, the area became a ( ) wasteland where no trees or other plants could survive.",
+        "choices": [
+          "nutritious",
+          "diverse",
+          "barren",
+          "coincidental To complete each item, choose the best word or phrase from among the four choices. Then, on your answer sheet, find the number of the question and mark your answer."
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 9,
+        "stem": "When Simon pulled on the rope, it suddenly became ( ). He realized that it must have come untied at the other end.",
+        "choices": [
+          "slack",
+          "sparse",
+          "vast",
+          "vital"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 10,
+        "stem": "The patient was diagnosed with a vitamin ( ). The doctor said she would need to take supplements until her vitamin levels were normal again.",
+        "choices": [
+          "descendant",
+          "triumph",
+          "emission",
+          "deficiency"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 11,
+        "stem": "Tanya seemed shy and nervous when she entered her new school, but she is now ( ) socially and has made a lot of friends.",
+        "choices": [
+          "flourishing",
+          "pledging",
+          "scattering",
+          "drooping"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 12,
+        "stem": "The art student showed her ( ) to the gallery owner. It contained samples of her paintings, drawings, and photographs.",
+        "choices": [
+          "reptile",
+          "glacier",
+          "blockade",
+          "portfolio"
+        ],
+        "answerIndex": 3
+      },
+      {
+        "q": 13,
+        "stem": "The teacher asked the student to ( ) his essay. She said it should be about half the length it was.",
+        "choices": [
+          "abbreviate",
+          "attest",
+          "carve",
+          "yield"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 14,
+        "stem": "The patient was in so much pain that the dentist had no choice but to ( ) the patient's damaged tooth.",
+        "choices": [
+          "radiate",
+          "magnify",
+          "extract",
+          "impart"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 15,
+        "stem": "The company was badly affected by the financial crisis and nearly ( ), but it has now recovered and is making a profit again.",
+        "choices": [
+          "sank in",
+          "let out",
+          "went under",
+          "lived off"
+        ],
+        "answerIndex": 2
+      },
+      {
+        "q": 16,
+        "stem": "The police officer became suspicious of the man because his story did not ( ). He was later found to have lied to the police.",
+        "choices": [
+          "add up",
+          "read into",
+          "take off",
+          "fall out"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 17,
+        "stem": "The patient tried to ( ) from the hospital without anyone noticing, but the nurse saw him and stopped him.",
+        "choices": [
+          "slip away",
+          "tear up",
+          "drop out",
+          "follow up"
+        ],
+        "answerIndex": 0
+      },
+      {
+        "q": 18,
+        "stem": "A: Our meeting prep took longer than expected. B: Yeah, the budget review really ( ) most of our afternoon.",
+        "choices": [
+          "fed off",
+          "burnt out",
+          "fell through",
+          "ate up"
+        ],
+        "answerIndex": 3
+      }
+    ],
+    "part2": [
+      {
+        "q": 19,
+        "stem": "空所（19）に入る語句を選んでください。",
+        "choices": [
+          "Consequently",
+          "Specifically",
+          "Nonetheless",
+          "Otherwise"
+        ],
+        "answerIndex": 1,
+        "context": "Birth Order The idea that the order in which children are born can have a lasting and dramatic effect on their personalities was developed by the Austrian psychologist Alfred Adler more than a century ago. ( 19 ), Adler believed that firstborns tended to be responsible yet anxious, that middle children were more diplomatic, and that youngest siblings were more rebellious. Today, the theory is featured in many parenting books. Extensive research has been conducted on birth order. One notable study, for example, examined thousands of teenagers and found that it did lead to some measurable differences. Eldest siblings, for instance, differed from others in terms of things like responsibility and anxiety. However, while firstborns were, as expected, found to be more responsible, they tended to be less anxious, which did not fit the stereotype. In addition to such contradictions, the differences for every birth position were extremely slight. According to the researchers, associations between birth order and a person's character ( 20 ). As children grow, there are obvious differences in everything from maturity to rebelliousness. Parents often observe that younger children have less self control and disobey them more than older children. However, it is also true that this ( 21 ). It therefore seems that what many people take to be birth order affecting personality is really just the temporary stages of development their children are going through. Personality, experts tell us, is determined more by things like genetics and one's living environment than it is by the order in which children were born."
+      },
+      {
+        "q": 20,
+        "stem": "空所（20）に入る語句を選んでください。",
+        "choices": [
+          "have less effect on youngest siblings",
+          "become stronger as children age",
+          "are mostly meaningless",
+          "should be more widely accepted"
+        ],
+        "answerIndex": 2,
+        "context": "Birth Order The idea that the order in which children are born can have a lasting and dramatic effect on their personalities was developed by the Austrian psychologist Alfred Adler more than a century ago. ( 19 ), Adler believed that firstborns tended to be responsible yet anxious, that middle children were more diplomatic, and that youngest siblings were more rebellious. Today, the theory is featured in many parenting books. Extensive research has been conducted on birth order. One notable study, for example, examined thousands of teenagers and found that it did lead to some measurable differences. Eldest siblings, for instance, differed from others in terms of things like responsibility and anxiety. However, while firstborns were, as expected, found to be more responsible, they tended to be less anxious, which did not fit the stereotype. In addition to such contradictions, the differences for every birth position were extremely slight. According to the researchers, associations between birth order and a person's character ( 20 ). As children grow, there are obvious differences in everything from maturity to rebelliousness. Parents often observe that younger children have less self control and disobey them more than older children. However, it is also true that this ( 21 ). It therefore seems that what many people take to be birth order affecting personality is really just the temporary stages of development their children are going through. Personality, experts tell us, is determined more by things like genetics and one's living environment than it is by the order in which children were born."
+      },
+      {
+        "q": 21,
+        "stem": "空所（21）に入る語句を選んでください。",
+        "choices": [
+          "tends to fade with time",
+          "is related mainly to intelligence",
+          "affects their success as adults",
+          "is due to parenting styles"
+        ],
+        "answerIndex": 0,
+        "context": "Birth Order The idea that the order in which children are born can have a lasting and dramatic effect on their personalities was developed by the Austrian psychologist Alfred Adler more than a century ago. ( 19 ), Adler believed that firstborns tended to be responsible yet anxious, that middle children were more diplomatic, and that youngest siblings were more rebellious. Today, the theory is featured in many parenting books. Extensive research has been conducted on birth order. One notable study, for example, examined thousands of teenagers and found that it did lead to some measurable differences. Eldest siblings, for instance, differed from others in terms of things like responsibility and anxiety. However, while firstborns were, as expected, found to be more responsible, they tended to be less anxious, which did not fit the stereotype. In addition to such contradictions, the differences for every birth position were extremely slight. According to the researchers, associations between birth order and a person's character ( 20 ). As children grow, there are obvious differences in everything from maturity to rebelliousness. Parents often observe that younger children have less self control and disobey them more than older children. However, it is also true that this ( 21 ). It therefore seems that what many people take to be birth order affecting personality is really just the temporary stages of development their children are going through. Personality, experts tell us, is determined more by things like genetics and one's living environment than it is by the order in which children were born."
+      },
+      {
+        "q": 22,
+        "stem": "空所（22）に入る語句を選んでください。",
+        "choices": [
+          "On the contrary",
+          "Despite this",
+          "Similarly",
+          "In fact"
+        ],
+        "answerIndex": 3,
+        "context": "Digital Nations The small Polynesian island nation of Tuvalu is in danger of disappearing forever. Scientists have predicted that, decades from now, living in Tuvalu will become impossible due to rising sea levels caused by climate change. When that happens, the only option for Tuvaluans will be to move elsewhere. ( 22 ), the preparations for doing this are already in place. Tuvalu has negotiated an agreement with Australia that allows a certain number of its people to emigrate there every year. Tuvalu's government is doing what it can to save its nation. Sea barriers have been built, and work is underway to create an area of raised land that will provide a habitable area for residents. However, the government knows these measures may be useless in the long term. So, it ( 23 ). A few years ago, it set up the Future Now Project. Part of this project involves creating a virtual reconstruction of the nation. Along with preserving geographical features, the project aims to create a digital record of Tuvalu's people and customs. Some critics claim the resources required for the project could be better used to tackle climate change. In response, Tuvalu's government points out that the project ( 24 ). The current international treaty states that sovereign nations must have a \"defined territory\" and a \"permanent population.\" Tuvalu's government hopes to pioneer a new form of statehood that allows it to continue to exist by meeting these criteria in a virtual form. This could also help to ensure the survival of other island nations facing similar threats from the sea."
+      },
+      {
+        "q": 23,
+        "stem": "空所（23）に入る語句を選んでください。",
+        "choices": [
+          "is turning to technology instead",
+          "is planning to construct stronger defenses",
+          "has stopped all current projects",
+          "has requested help from other nations"
+        ],
+        "answerIndex": 0,
+        "context": "Digital Nations The small Polynesian island nation of Tuvalu is in danger of disappearing forever. Scientists have predicted that, decades from now, living in Tuvalu will become impossible due to rising sea levels caused by climate change. When that happens, the only option for Tuvaluans will be to move elsewhere. ( 22 ), the preparations for doing this are already in place. Tuvalu has negotiated an agreement with Australia that allows a certain number of its people to emigrate there every year. Tuvalu's government is doing what it can to save its nation. Sea barriers have been built, and work is underway to create an area of raised land that will provide a habitable area for residents. However, the government knows these measures may be useless in the long term. So, it ( 23 ). A few years ago, it set up the Future Now Project. Part of this project involves creating a virtual reconstruction of the nation. Along with preserving geographical features, the project aims to create a digital record of Tuvalu's people and customs. Some critics claim the resources required for the project could be better used to tackle climate change. In response, Tuvalu's government points out that the project ( 24 ). The current international treaty states that sovereign nations must have a \"defined territory\" and a \"permanent population.\" Tuvalu's government hopes to pioneer a new form of statehood that allows it to continue to exist by meeting these criteria in a virtual form. This could also help to ensure the survival of other island nations facing similar threats from the sea."
+      },
+      {
+        "q": 24,
+        "stem": "空所（24）に入る語句を選んでください。",
+        "choices": [
+          "is no longer necessary",
+          "should not take long to complete",
+          "will not only benefit Tuvalu",
+          "has no clear purpose"
+        ],
+        "answerIndex": 2,
+        "context": "Digital Nations The small Polynesian island nation of Tuvalu is in danger of disappearing forever. Scientists have predicted that, decades from now, living in Tuvalu will become impossible due to rising sea levels caused by climate change. When that happens, the only option for Tuvaluans will be to move elsewhere. ( 22 ), the preparations for doing this are already in place. Tuvalu has negotiated an agreement with Australia that allows a certain number of its people to emigrate there every year. Tuvalu's government is doing what it can to save its nation. Sea barriers have been built, and work is underway to create an area of raised land that will provide a habitable area for residents. However, the government knows these measures may be useless in the long term. So, it ( 23 ). A few years ago, it set up the Future Now Project. Part of this project involves creating a virtual reconstruction of the nation. Along with preserving geographical features, the project aims to create a digital record of Tuvalu's people and customs. Some critics claim the resources required for the project could be better used to tackle climate change. In response, Tuvalu's government points out that the project ( 24 ). The current international treaty states that sovereign nations must have a \"defined territory\" and a \"permanent population.\" Tuvalu's government hopes to pioneer a new form of statehood that allows it to continue to exist by meeting these criteria in a virtual form. This could also help to ensure the survival of other island nations facing similar threats from the sea."
+      }
+    ],
+    "part3": [
+      {
+        "id": "1",
+        "title": "Uruk",
+        "text": "The ancient settlement of Uruk was located in a fertile delta between the Tigris and Euphrates rivers in the region of Sumer, in what is now southern Iraq. Uruk began life as a village. However, toward the end of the fourth millennium BC, it had developed to such an extent that some historians consider it the world's first city. Behind this remarkable growth were several factors, including technological advancements that increased agricultural efficiency, such as the construction of irrigation canals to funnel water to fields and orchards. These advances not only allowed Uruk to support a growing population but also to create a surplus, which could then be traded. Expansion continued, and by the third millennium BC, Uruk was thriving as a Sumerian cultural and religious center, a military power, and the hub of a trade network. As Uruk grew, it helped shape the political and cultural landscape of the Sumer region, influencing other cities that developed around the same period. Various other developments helped Uruk evolve into the sophisticated city it became, including its early use of cuneiform script. The script was mainly written on clay tablets, many of which survive to this day. In its early form, it was relatively simple, with pictures representing goods, but it allowed for rudimentary recordkeeping. The writing system gradually became more sophisticated and was used for accounting and general administrative matters, which helped facilitate the governance of the increasingly complex city. Over time, the script was used in the Sumer region to keep records in fields such as economics, politics, and religion. However, Uruk's dominant position was not to last forever. Uruk had competed with neighboring Sumerian cities for hundreds of years, leaving them all vulnerable to forces from other regions. In the latter half of the third millennium BC, the Akkadians conquered much of Sumer. Despite this conquest, Uruk's religious districts were respected and protected, and after Akkadian rule came to an end, a renaissance of Sumerian culture occurred. Although later conflicts and invasions meant that Uruk would not return to its earlier heights, it remained an important city for many centuries to come. Archaeological excavations have revealed an immense city wall, sculptures, artworks, large stone buildings decorated with mosaics, and numerous pyramidlike structures called ziggurats that were topped with temples all of which point to the historical significance of Uruk.",
+        "questions": [
+          {
+            "q": 25,
+            "stem": "What does the author of the passage say about Uruk's development?",
+            "choices": [
+              "Rapid progress would have been possible even without the technological advances that increased agricultural efficiency.",
+              "One important characteristic was its ability to produce more food than it needed, which allowed for more rapid change to occur.",
+              "The construction of canals for agricultural use could not keep up with the needs of a growing population.",
+              "It lost out on the most profitable trade deals because it reserved too much of its crop harvests for its own population."
+            ],
+            "answerIndex": 1
+          },
+          {
+            "q": 26,
+            "stem": "What is one thing we learn about the cuneiform script?",
+            "choices": [
+              "The benefits its use provided were not enough to enable Uruk to stay ahead of rival cities.",
+              "Although it had uses that aided development in Uruk, it was less suited to complex bureaucratic tasks.",
+              "It was first developed for religious purposes but was later adopted for use in commerce and government.",
+              "It provided Uruk with a means to help manage the administration of its increasingly complex society."
+            ],
+            "answerIndex": 3
+          },
+          {
+            "q": 27,
+            "stem": "Which of the following statements is true, based on the final paragraph?",
+            "choices": [
+              "Even though the Sumer region was attacked and defeated by outside forces, the religious heritage of Uruk was not destroyed.",
+              "Uruk borrowed some of its religious architecture and artistic techniques from neighboring cities in Sumer.",
+              "The Akkadians had to destroy much of the wall and stone buildings in order to defeat Uruk.",
+              "Uruk's decline can be attributed to the fact that neighboring Sumerian cities created alliances with the Akkadians."
+            ],
+            "answerIndex": 0
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Animal Uplift",
+        "text": "While the concept of artificially increasing animal intelligence through technology once seemed like science fiction, recent advances suggest it may be achievable. One promising approach for doing so is genetic manipulation. For instance, in 2014, researchers discovered that a human gene called FOXP2 was related to acquiring language skills in humans. When mice were genetically altered to produce it, they were able to learn a route through a maze much more rapidly than their unmodified counterparts, indicating that the gene had significantly enhanced their memory, which is an essential component of intelligence. This research is preliminary, however, and intelligence depends on a multitude of genes, so significant technical and ethical hurdles must be overcome before such advancements can be responsibly applied. An aspect of animal uplift that needs to be considered is the possibility of unintended outcomes. One experiment compared fish with larger brains that were bred together to fish with smaller brains that were bred together. The young of the larger brained fish tended to have even bigger brains, and the babies' performance on cognitive tests was superior to that of fish with smaller brains. However, the researchers also observed that these fish produced young that had smaller digestive systems, and this in turn seems to have led them to produce fewer offspring. This is likely due to the fact that larger brains require substantially more energy. As this experiment indicates, trying to boost intelligence may disrupt other physical attributes, leading to consequences that extend beyond the individual animals to entire populations. Furthermore, opponents of animal uplift point out that the process would likely involve surgical procedures on healthy animals. There would almost certainly be psychological consequences as well, and an uplifted animal's existence might well be completely transformed. A mouse, whose life would normally be a simple matter of survival, could instead be thrust into a confusing, possibly terrifying awareness of how brief its lifespan is and how little control it has over its environment. There is also the issue of whether making such radical alterations to an animal's biology could ever be considered ethical, since it would be impossible for the creature to give consent beforehand, especially since the procedures would probably not be reversible. George Dvorsky, chairperson of the Institute for Ethics and Emerging Technologies, however, argues that withholding animal uplift is itself unethical. Animals have long been sacrificed as test subjects during the creation of new surgical procedures or the development of medicines that have increased human life expectancy, and if humans artificially increase our own intelligence, animals will likely be sacrificed for that as well. According to Dvorsky, in light of increased awareness of animal rights and given the tremendous role that animals have played in improving human existence, withholding advances that could improve their intelligence would be just as unethical as withholding them from a group of humans who lack sufficient wealth to afford them. While the ability to uplift animals would have undeniable benefits, it is also true that we face an ethical dilemma when altering another species. Clearly, there are difficult decisions about animal uplift that need to be made. 3",
+        "questions": [
+          {
+            "q": 28,
+            "stem": "What is one thing that we learn about the research into the FOXP2 gene?",
+            "choices": [
+              "Since it only had a minor effect on the mice's memory, it cannot really be said to have improved their overall intelligence.",
+              "Although it affected one element of the mice's intelligence, it is just an early step in what will most likely be a complicated process.",
+              "It demonstrated that the way that mice communicated with each other was more sophisticated than had previously been believed.",
+              "It indicates that mice may actually have a form of intelligence that researchers were not aware of in the past."
+            ],
+            "answerIndex": 1
+          },
+          {
+            "q": 29,
+            "stem": "What does the fish experiment indicate about attempts at animal uplift?",
+            "choices": [
+              "There are limits to how intelligent animals can become, and no amount of breeding will ever be able to overcome them.",
+              "It is possible that an attempt to increase animal intelligence will actually have the opposite of its intended effect.",
+              "Attempts to increase an animal's intelligence could interfere with other important aspects of the animal's biology.",
+              "While it is possible to slightly increase animal intelligence, it is not likely that it will be inherited by an animal's offspring."
+            ],
+            "answerIndex": 2
+          },
+          {
+            "q": 30,
+            "stem": "One argument against animal uplift that is presented in the third paragraph is that",
+            "choices": [
+              "it should not be carried out because it is impossible for animals to agree to what is going to happen to them.",
+              "it could bring about significant changes in animal behavior that could, in turn, have negative effects on the environment.",
+              "there are likely to be more risks in performing operations on animals' brains due to our lack of knowledge about how they function.",
+              "there is a significant risk that the effects of the procedure could reduce the survival instincts of animals that receive it."
+            ],
+            "answerIndex": 0
+          },
+          {
+            "q": 31,
+            "stem": "What does George Dvorsky believe about animal uplift?",
+            "choices": [
+              "Humans need to develop better types of surgical procedures so that we do not harm animals when trying to uplift them.",
+              "It is likely that the same medical advances that are used to uplift animals will also help them to live longer, healthier lives.",
+              "Humans should develop the technology necessary for uplifting animals before we consider whether it is right to do so or not.",
+              "If humans use animals in the process of increasing our own intelligence, that would increase our obligation to uplift them. This is the end of the Reading Test. Please continue to the next page and complete the Writing Test."
+            ],
+            "answerIndex": 3
+          }
+        ]
+      }
+    ]
+  },
+  "writing": [
+    {
+      "id": "writing-4",
+      "number": 4,
+      "type": "SUMMARY",
+      "label": "英文要約",
+      "prompt": "Fluoride is a naturally occurring mineral found in water and soil. In the early twentieth century, researchers observed that people in certain regions had fewer dental problems after drinking water containing fluoride. Based on these findings, governments in several countries introduced water fluoridation as a public health policy, and it is now practiced in many urban areas. Supporters believe that adding fluoride to water improves dental health in practical ways. In communities where dental clinics are limited, residents may only visit a dentist once every few years due to cost or travel distance. By including fluoride in tap water, protection is provided daily without requiring clinic visits. In addition, fluoride reaches children at school, office workers, and elderly people at home equally, regardless of income or personal routines. However, critics express concerns about possible negative effects. One issue is that individuals consume different amounts of water depending on factors such as age, physical activity, or climate. For example, people working outdoors may drink much more water than others. This makes it difficult to control individual intake. Another concern is that some people may rely too much on fluoride and reduce personal dental care, which can result in undetected problems.",
+      "targetMin": 60,
+      "targetMax": 70
+    },
+    {
+      "id": "writing-5",
+      "number": 5,
+      "type": "ESSAY",
+      "label": "英作文",
+      "prompt": "Does advertising have too much influence on the way people spend money?",
+      "points": [
+        "Economy",
+        "Freedom",
+        "Reliable information",
+        "Technology"
+      ],
+      "targetMin": 120,
+      "targetMax": 150
+    }
+  ],
+  "listening": [
+    {
+      "q": 1,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "The man will likely be promoted.",
+        "The man's work performance is not good.",
+        "The man has been working too hard.",
+        "The man is not suited to his job."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 2,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Most of the employees are overworked.",
+        "Her team members do not work hard.",
+        "The managers are treating her poorly.",
+        "The teams do not get along well."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 3,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "She did not read the training manual.",
+        "She is not doing her work efficiently.",
+        "She needs to check her work more carefully.",
+        "She sometimes refuses to work overtime."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 4,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "She needs to prioritize her studies.",
+        "She should quit her parttime job.",
+        "She needs to talk with her sociology professor.",
+        "She should have explained her situation sooner. Part 1 Dialogues: 1 question each Multiple-choice Part 2 Passages: 2 questions each Multiple-choice Part 3 Real-Life: 1 question each Multiple-choice There are three parts to this listening test. ※ Listen carefully to the instructions."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 5,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "She ignored his suggestion.",
+        "She lost some makeup.",
+        "She made a complaint about him.",
+        "She was rude to some customers."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 6,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Her project is not going well.",
+        "Her manager criticized her.",
+        "She will miss the teambuilding trip.",
+        "She is currently very busy."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 7,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "She thinks a lot of people will apply.",
+        "She is not interested in accounting.",
+        "She does not have all the skills required.",
+        "She has never heard of the company."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 8,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Buy a jacket filled with real feathers.",
+        "Look for another dry cleaner.",
+        "Contact the jacket's manufacturer.",
+        "Wash the jacket himself."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 9,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "It needs a new tire.",
+        "It has a fuel leak.",
+        "It needs a new battery.",
+        "It has broken lights."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 10,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "He did not find the interviewers professional.",
+        "He would rather not have a fulltime position.",
+        "He will stop working for the finance companies.",
+        "He did not have the required experience."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 11,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Offer to teach people how to paint.",
+        "Go back to work.",
+        "Do volunteer work abroad.",
+        "Work at the community center."
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 12,
+      "part": 1,
+      "stem": "",
+      "choices": [
+        "Being in a home for seniors benefited him.",
+        "He will likely attend Tomoko's Christmas party.",
+        "Seeing Irvin at Christmas will make him happy.",
+        "He finds flying too tiring these days. Listening Test"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+    },
+    {
+      "q": 13,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "He could already read raised letters as a child.",
+        "He refused to attend a school for blind students.",
+        "He was born blind and treated inferiorly.",
+        "He was dedicated to getting a good education."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 14,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It helped students to write in the dark.",
+        "It relied mainly on large raisedletter books.",
+        "It was based on a military code.",
+        "It made blind people more respected. (B)"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 15,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Companies will be reluctant to use the new technology.",
+        "It must be used alongside other stress surveys.",
+        "Its data is more objective than employee surveys.",
+        "Companies may misuse the data they receive."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 16,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "The amount of activity it can monitor is limited.",
+        "Subjects find it uncomfortable to wear.",
+        "It requires more electricity than other head devices.",
+        "It is difficult to produce in high quantities. Part 2"
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 17,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "They use light to find food.",
+        "They avoid swimming in open water.",
+        "They use light to disguise themselves.",
+        "They swim deeper to escape predators."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 18,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Great white sharks are attracted to LED lights.",
+        "Copying nature could reduce shark attacks on people.",
+        "Seals have learned how to avoid shark attacks.",
+        "Great white sharks rarely attack humans. (D)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 19,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "To join Captain James Cook's expedition.",
+        "To learn how to navigate.",
+        "To escape from attackers.",
+        "To become a priest."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 20,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "Modern charts of the region were based on it.",
+        "Many scholars have changed it over time.",
+        "People Tupaia met on his voyage created it.",
+        "Historians have been reading it incorrectly. Listening Test"
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 21,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It was made before the Romans reached London.",
+        "It was made elsewhere and taken to London.",
+        "It came from several different buildings.",
+        "It came from a building that was intentionally destroyed."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 22,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "The artists deliberately used colors popular with travelers.",
+        "The owner of the building was very wealthy.",
+        "The same designs were later copied in Rome.",
+        "The building's owner could not have been Roman. (F)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 23,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "It was younger than it really was.",
+        "It had a very strange orbit.",
+        "It might never be seen.",
+        "It was larger than Betelgeuse."
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 24,
+      "part": 2,
+      "stem": "",
+      "choices": [
+        "The companion star will also become red.",
+        "Both Betelgeuse and the companion star will die.",
+        "The companion star's orbit will expand.",
+        "Betelgeuse will become hotter than the companion star."
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+    },
+    {
+      "q": 25,
+      "part": 3,
+      "stem": "Situation: You are buying a backpack for your teenage son. He travels forty minutes to school each day and carries several heavy textbooks. A salesperson tells you the following. Question: Which backpack should you buy?",
+      "choices": [
+        "The Kooster 360.",
+        "The CampusPack.",
+        "The FitTrek.",
+        "The TC Pack. (H)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+    },
+    {
+      "q": 26,
+      "part": 3,
+      "stem": "Situation: You are planning a cooking class for fifteen people. You call a community center to ask about renting a room, and you are told the following. Question: Which room should you rent?",
+      "choices": [
+        "The Green Galley.",
+        "The Round Table.",
+        "The Royal Hall.",
+        "The Craft Kitchen. Listening Test Part 3"
+      ],
+      "answerIndex": 2,
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+    },
+    {
+      "q": 27,
+      "part": 3,
+      "stem": "Situation: You want a parttime job working directly with animals. You do not have a car and can only work on weekends. You call the local job center. Question: Which job should you apply for?",
+      "choices": [
+        "Dog walker.",
+        "Pet shop assistant.",
+        "Animal shelter volunteer.",
+        "Zoo café staff. (J)"
+      ],
+      "answerIndex": 1,
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+    },
+    {
+      "q": 28,
+      "part": 3,
+      "stem": "Situation: You call a restaurant to make a dinner reservation for next Friday. You want three courses at a maximum cost of fifty dollars per person. You are told the following. Question: What should you do?",
+      "choices": [
+        "Reserve a table for 6:30 p.m.",
+        "Reserve a table for 8:00 p.m.",
+        "Choose the standard set menu.",
+        "Choose the à la carte menu. (K)"
+      ],
+      "answerIndex": 0,
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+    },
+    {
+      "q": 29,
+      "part": 3,
+      "stem": "Situation: You are at the airport waiting for your connecting flight to Seattle. You hear the following announcement. Question: What should you do?",
+      "choices": [
+        "Check weather updates on your phone.",
+        "Rebook your flight.",
+        "Go to the customer service desk.",
+        "Go to Gate D7."
+      ],
+      "answerIndex": 3,
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+    }
+  ]
+}
