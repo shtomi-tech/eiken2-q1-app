@@ -166,13 +166,22 @@ h2 {
 .completionCard .ghost { border-color: var(--parchment); color: var(--parchment); }
 .completionCard .ghost:hover:not(:disabled) { background: var(--parchment); color: var(--ink); }
 
-/* ---- App nav（大問1／大問3のフラットな1段タブ。kobun-vocab と同型） ---- */
+/* ---- App nav（進み方／技能の2グループ。kobun-vocab と同型のタブ） ---- */
 .appNav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 8px;
   margin-bottom: 16px;
 }
+.appNavGroup {
+  display: grid;
+  gap: 8px;
+}
+.appNavGroup + .appNavGroup {
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+.appNavRoutes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.appNavSkills { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .appTab {
   border: none;
   border-radius: var(--r-md);
@@ -206,7 +215,7 @@ h2 {
 .appTab:disabled span { color: var(--muted); }
 
 @media (max-width: 560px) {
-  .appNav { grid-template-columns: 1fr; }
+  .appNavRoutes, .appNavSkills { grid-template-columns: 1fr; }
   .appTab { min-height: 56px; }
 }
 

@@ -68,7 +68,7 @@
 - **強調タイル（`.hero` `.doneBanner` `.completionCard`）**: Ink地＋Parchment文字の反転表示、角丸lg。「学習フローの始まり」と「締めくくり」を示す
 - **選択肢（`.choiceBtn` `.dictChoice`）**: Paper地＋Ink文字＋hairline枠、角丸md。ホバー/選択でInk反転。正解＝OK色の2px枠、不正解＝NG色の2px枠（coral化しない。主要CTAとの混同を避けるため中立表現を維持）
 - **番号バッジ（`.key`）**: 24×24pxの円形（角丸pill）、currentColor枠
-- **タブ／グリッドタイル（`.appTab` `.qCard` `.dictQuestionList .qBtn`）**: 罫線結合ではなくgapベースのグリッド。各セルはPaper/Parchment地＋角丸md/sm
+- **タブ／グリッドタイル（`.appTab` `.qCard` `.dictQuestionList .qBtn`）**: 罫線結合ではなくgapベースのグリッド。各セルはPaper/Parchment地＋角丸md/sm。アプリ移動は「進み方」と「技能」の2グループに分け、主目的の異なるタブを同じ段に混在させない
 - **バッジ・チップ（`.tag` `.dictBadge` `.chip`）**: 角丸pill、hairline枠
 - **フィードバックカード（`.feedback` `.resultBox`）**: 左4px太罫（Ink既定、OK/NGで色変化）＋Paper地、角丸md、外枠なし
 - **入力欄（select/input）**: Paper地＋hairline枠、角丸md、min-height 44px

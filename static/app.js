@@ -39,26 +39,40 @@ function renderAppNav() {
     if (!app.skill) return true;
     return currentPath === "free" && (isPre1 ? app.id === "pre1" : app.id !== "pre1");
   });
-  visibleApps.forEach(a => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "appTab";
-    if (a.id === "serial") btn.classList.add("serialTab");
-    if (a.id === "free") btn.classList.add("freeTab");
-    btn.setAttribute("aria-pressed", a.id === currentAppId ? "true" : "false");
-    const locked = currentPath !== "free" && a.skill && window.EikenSerialApp && !window.EikenSerialApp.isUnlocked(a.id);
-    if (locked) {
-      btn.disabled = true;
-      btn.setAttribute("aria-label", `${a.label}。前の段階を完了すると解放されます`);
-      btn.title = "前の段階を完了すると解放されます";
-    }
-    const tag = document.createElement("span");
-    tag.textContent = a.tag;
-    btn.appendChild(tag);
-    btn.appendChild(document.createTextNode(a.label));
-    btn.addEventListener("click", () => switchApp(a.id));
-    nav.appendChild(btn);
-  });
+  const routeApps = visibleApps.filter((app) => !app.skill);
+  const skillApps = visibleApps.filter((app) => app.skill);
+
+  function renderGroup(apps, className, label) {
+    if (!apps.length) return;
+    const group = document.createElement("div");
+    group.className = `appNavGroup ${className}`;
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", label);
+    apps.forEach(a => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "appTab";
+      if (a.id === "serial") btn.classList.add("serialTab");
+      if (a.id === "free") btn.classList.add("freeTab");
+      btn.setAttribute("aria-pressed", a.id === currentAppId ? "true" : "false");
+      const locked = currentPath !== "free" && a.skill && window.EikenSerialApp && !window.EikenSerialApp.isUnlocked(a.id);
+      if (locked) {
+        btn.disabled = true;
+        btn.setAttribute("aria-label", `${a.label}。前の段階を完了すると解放されます`);
+        btn.title = "前の段階を完了すると解放されます";
+      }
+      const tag = document.createElement("span");
+      tag.textContent = a.tag;
+      btn.appendChild(tag);
+      btn.appendChild(document.createTextNode(a.label));
+      btn.addEventListener("click", () => switchApp(a.id));
+      group.appendChild(btn);
+    });
+    nav.appendChild(group);
+  }
+
+  renderGroup(routeApps, "appNavRoutes", "進み方");
+  renderGroup(skillApps, "appNavSkills", "技能");
 }
 
 function switchApp(id, options = {}) {
