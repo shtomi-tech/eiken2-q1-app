@@ -3,7 +3,10 @@
     "grade": "準1級",
     "round": "2025-2",
     "label": "英検準1級 2025年度第2回",
-    "source": "英検公式の過去問をローカル学習用に構造化"
+    "source": "英検公式の過去問をローカル学習用に構造化",
+    "note": "writing[].referenceAnswerはエージェントが新規作成した参考解答(公式模範解答ではない)。要約は本文の記述のみを根拠にパラフレーズし、英作文は理由2点の意見文として作成。",
+    "listeningNote": "listening[].script/question/tipsはlistening-script.pdfから抽出・エージェントが整形したもの(公式配布物そのものではない)。start/endはPart1・2のみ音声の無音区間から算出(Part3は解答時間と読解時間の無音が入り組み精度を確認できなかったため未設定、Part単位の音声をそのまま再生する)。",
+    "q3Note": "reading.part3[].paragraphs/questions[].evidence,explanation,translation/summaryはエージェントが新規作成したもの(英検公式の解答・和訳ではない)。paragraphsの英文自体は公式過去問の本文をそのまま文単位に分割しただけで、書き換えていない。和訳・解説・要約はエージェントによる翻訳・要約であり、内容の解釈には確認の余地がありうる。"
   },
   "reading": {
     "part1": [
@@ -91,7 +94,7 @@
           "massive",
           "amusing",
           "graceful",
-          "hesitant To complete each item, choose the best word or phrase from among the four choices. Then, on your answer sheet, find the number of the question and mark your answer."
+          "hesitant"
         ],
         "answerIndex": 0
       },
@@ -295,7 +298,16 @@
               "The astronauts at the time felt the media should have given women working on the missions more credit.",
               "The missions could only be effectively completed thanks to the precision of the calculations made by human computers."
             ],
-            "answerIndex": 3
+            "answerIndex": 3,
+            "evidence": {
+              "paragraph": 0,
+              "sentences": [
+                4,
+                5
+              ]
+            },
+            "explanation": "第1段落では、ヒューマン・コンピューターの計算が非常に過酷な作業であり、彼女たちがいなければ宇宙船の打ち上げは不可能で、誤りは命に関わりかねなかったと述べられている。選択肢4はこの内容と一致する。",
+            "translation": "この文章の著者は、1950年代・60年代のアメリカの宇宙ミッションについて何と述べているか。\n1 宇宙飛行の身体的な負担を考えると、女性ではなく男性が宇宙に送られたのは理解できることだった。\n2 ミッションは、ヒューマン・コンピューターの計算に頼るには重要すぎるとみなされていた。\n3 当時の宇宙飛行士たちは、ミッションに携わった女性たちの働きにメディアがもっと光を当てるべきだと感じていた。\n4 ミッションは、ヒューマン・コンピューターによる正確な計算があったからこそ、有効に成し遂げることができた。"
           },
           {
             "q": 26,
@@ -306,7 +318,16 @@
               "Reducing costs by paying low wages to women ultimately had a negative effect on overall data reliability.",
               "The two world wars brought about significant societal changes that benefited women much more than men."
             ],
-            "answerIndex": 0
+            "answerIndex": 0,
+            "evidence": {
+              "paragraph": 1,
+              "sentences": [
+                6,
+                7
+              ]
+            },
+            "explanation": "第2段落では、計算業務が単調で技能を要しない仕事とみなされていた一方、実際には高度な数学の技能を要することが多かったとヒックスが指摘している。これは、計算業務が女性向きだという見方がその仕事の実態への誤解に基づいていたことを示しており、選択肢1と一致する。",
+            "translation": "マー・ヒックスが最も同意しそうなのは、次のうちどの記述か。\n1 計算業務が女性のためのものだという見方は、その仕事の実態に対する誤解に一部起因していた。\n2 戦間期には、雇用された女性たちが必要な数学の技能を欠いていることもあったため、男性数学者が依然として重要な役割を果たしていた。\n3 女性に低賃金を払うことでコストを削減したことは、最終的にデータの信頼性全体に悪影響を及ぼした。\n4 二度の世界大戦は、男性よりも女性にはるかに大きな恩恵をもたらす社会変化を引き起こした。"
           },
           {
             "q": 27,
@@ -317,9 +338,190 @@
               "female supervisors were awarded additional compensation to make up for their historically low wages.",
               "it realized that winning the space race would only be possible if it recruited some of the Soviet Union's human computers."
             ],
-            "answerIndex": 1
+            "answerIndex": 1,
+            "evidence": {
+              "paragraph": 2,
+              "sentences": [
+                4,
+                5
+              ]
+            },
+            "explanation": "第3段落では、アフリカ系アメリカ人の女性が隔離施設での勤務を強いられるなど一層の差別に直面していたが、NASA設立後にはその方針が廃止され、女性の労働条件が改善されたと述べられている。選択肢2がこの内容と一致する。",
+            "translation": "この文章の著者は、NASAが設立された後、\n1 冷戦の焦点は宇宙関連のミッションを行うことから徐々に離れていったと指摘している。\n2 一部のヒューマン・コンピューターが経験していた不公平のいくつかに対処する取り組みを行ったと指摘している。\n3 女性の管理職には、これまでの低い給与を埋め合わせるための追加の報酬が与えられたと指摘している。\n4 宇宙開発競争に勝つには、ソ連のヒューマン・コンピューターの一部を採用する必要があると悟ったと指摘している。"
           }
-        ]
+        ],
+        "paragraphs": [
+          {
+            "sentences": [
+              "Some US astronauts became household names in the 1950s and '60s, partly due to the media coverage of their achievements.",
+              "Behind the scenes, however, others played a crucial role in making US space missions, including the moon landing, successful.",
+              "Unlike the astronauts, many of these unsung heroes were female.",
+              "These women, who came to be called human computers, conducted complex calculations in areas such as spacecraft navigation, rocket aerodynamics, and orbital physics.",
+              "The human computers' calculations, mostly done by hand, were mentally and physically demanding, sometimes each taking a week to complete.",
+              "Without them, it would have been impossible to launch spacecraft, and any inaccuracies could have had life-threatening consequences for the astronauts."
+            ],
+            "translation": "一部のアメリカ人宇宙飛行士は、その功績がメディアで報じられたこともあって、1950年代から60年代にかけて誰もが知る名前になった。しかし舞台裏では、月面着陸を含むアメリカの宇宙ミッションを成功させるうえで、他の人々が重要な役割を果たしていた。宇宙飛行士とは異なり、こうした陰の立役者の多くは女性だった。「ヒューマン・コンピューター」と呼ばれるようになったこれらの女性たちは、宇宙船の航法、ロケットの空気力学、軌道力学といった分野で複雑な計算を行っていた。ヒューマン・コンピューターたちの計算は、その大半が手作業で行われ、精神的にも肉体的にも過酷なもので、1件につき1週間かかることもあった。彼女たちがいなければ、宇宙船の打ち上げは不可能だっただろうし、わずかな誤りが宇宙飛行士の命に関わる結果を招きかねなかった。"
+          },
+          {
+            "sentences": [
+              "The women were standing on the shoulders of others who had gone before them.",
+              "As fields such as astronomy, navigation, and surveying expanded in the nineteenth century, so did the need for mathematical computation.",
+              "This need only skyrocketed in World War I and World War II.",
+              "Early computation work had been mainly undertaken by men.",
+              "However, partly due to the discriminatory nature of contemporary societal norms, employing women meant that salaries and therefore overall costs could be dramatically reduced.",
+              "Gradually, these jobs came to be seen by some as \"women's work.\"",
+              "Historian Mar Hicks believes that one reason these \"pre-electronic computation jobs were feminized is they were seen as rote and de-skilled.\"",
+              "Although human-computer work was sometimes repetitive, Hicks points out that it often required advanced math skills."
+            ],
+            "translation": "こうした女性たちは、先人たちの築いた土台の上に立っていた。19世紀に天文学、航法、測量といった分野が発展するにつれ、数学的な計算に対する需要も高まっていった。この需要は第一次世界大戦と第二次世界大戦で急激に高まった。初期の計算業務は主に男性が担っていた。しかし、当時の社会規範が持つ差別的な性質もあって、女性を雇うことで給与、ひいては全体のコストを大幅に削減できた。次第に、こうした仕事は一部の人々から「女性の仕事」とみなされるようになった。歴史家のマー・ヒックスは、こうした「電子化以前の計算業務が女性の仕事とされた理由の一つは、それが単調で技能を要しない仕事とみなされたからだ」と考えている。ヒューマン・コンピューターの仕事は反復的なこともあったが、実際には高度な数学の技能を要することが多かったとヒックスは指摘する。"
+          },
+          {
+            "sentences": [
+              "Around the mid-twentieth century, when Cold War tensions with the Soviet Union escalated, the United States turned more of its attention to space.",
+              "NASA's predecessor, NACA, employed many women to conduct calculations.",
+              "The agency was seen as progressive in a few respects: women's pay was relatively high, some women were supervisors, and married women with children were employed.",
+              "Nevertheless, women were not treated as equals.",
+              "African American women faced an additional layer of discrimination as they were forced to conduct much of their work in segregated facilities.",
+              "When NASA was established in 1958, it abolished that policy and also improved other conditions for women."
+            ],
+            "translation": "20世紀半ば頃、ソ連との冷戦の緊張が高まる中、アメリカはより多くの関心を宇宙に向けるようになった。NASAの前身であるNACAは、計算業務を行うために多くの女性を雇用した。この機関はいくつかの点で進歩的だとみなされていた。女性の給与は比較的高く、女性の中には管理職に就く者もおり、子どものいる既婚女性も雇用されていた。それでも、女性が対等に扱われていたわけではなかった。アフリカ系アメリカ人の女性は、業務の多くを人種隔離された施設で行うことを強いられ、さらに一層の差別に直面していた。1958年にNASAが設立されると、この方針は廃止され、女性のための他の労働条件も改善された。"
+          },
+          {
+            "sentences": [
+              "Time, however, was not on the human computers' side.",
+              "Space missions became more complex, and the transition to electronic computation negated the need for most human computers.",
+              "Nonetheless, it was a while before electronic data would be wholly trusted: In the early 1960s, for example, astronaut John Glenn asked Katherine Johnson, an African American human computer, to personally verify computer-calculated orbital equations before he would fly."
+            ],
+            "translation": "しかし、時間はヒューマン・コンピューターたちの味方ではなかった。宇宙ミッションはより複雑になり、電子計算への移行によって、ほとんどのヒューマン・コンピューターは不要になっていった。とはいえ、電子データが完全に信頼されるようになるまでにはしばらく時間がかかった。例えば1960年代初頭、宇宙飛行士ジョン・グレンは、飛行の前に、アフリカ系アメリカ人のヒューマン・コンピューターであるキャサリン・ジョンソンに、コンピューターが計算した軌道方程式を自分で検算するよう依頼している。"
+          }
+        ],
+        "summary": {
+          "sections": [
+            {
+              "label": "¶1 ヒューマン・コンピューターの役割",
+              "lines": [
+                [
+                  "女性たちは",
+                  {
+                    "blank": 1
+                  },
+                  "で複雑な計算を行い、",
+                  {
+                    "blank": 2
+                  },
+                  "を支えた。"
+                ]
+              ]
+            },
+            {
+              "label": "¶2 女性が計算業務を担った背景",
+              "lines": [
+                [
+                  "女性を雇うことで",
+                  {
+                    "blank": 3
+                  },
+                  "でき、「女性の仕事」とみなされた。"
+                ],
+                [
+                  "しかし実際には",
+                  {
+                    "blank": 4
+                  },
+                  "を要する仕事だった。"
+                ]
+              ]
+            },
+            {
+              "label": "¶3-4 NASAでの扱いとその後",
+              "lines": [
+                [
+                  "アフリカ系アメリカ人女性は",
+                  {
+                    "blank": 5
+                  },
+                  "での勤務を強いられていたが、NASA設立後に",
+                  {
+                    "blank": 6
+                  },
+                  "された。"
+                ],
+                [
+                  "その後、",
+                  {
+                    "blank": 7
+                  },
+                  "への移行で人間による計算の必要性は薄れていった。"
+                ]
+              ]
+            }
+          ],
+          "blanks": [
+            {
+              "id": 1,
+              "answer": "手作業",
+              "accepted": [
+                "手作業",
+                "手計算"
+              ]
+            },
+            {
+              "id": 2,
+              "answer": "宇宙ミッション",
+              "accepted": [
+                "宇宙ミッション",
+                "宇宙船の打ち上げ"
+              ]
+            },
+            {
+              "id": 3,
+              "answer": "コストを削減",
+              "accepted": [
+                "コストを削減",
+                "全体のコストを大幅に削減"
+              ]
+            },
+            {
+              "id": 4,
+              "answer": "高度な数学の技能",
+              "accepted": [
+                "高度な数学の技能",
+                "高度な数学力"
+              ]
+            },
+            {
+              "id": 5,
+              "answer": "人種隔離された施設",
+              "accepted": [
+                "人種隔離された施設",
+                "隔離された施設"
+              ]
+            },
+            {
+              "id": 6,
+              "answer": "その方針が廃止",
+              "accepted": [
+                "その方針が廃止",
+                "方針が撤廃"
+              ]
+            },
+            {
+              "id": 7,
+              "answer": "電子計算",
+              "accepted": [
+                "電子計算",
+                "コンピューターによる計算"
+              ]
+            }
+          ],
+          "distractors": [
+            "昇進試験",
+            "無償労働",
+            "国外への移住",
+            "男女の給与格差の拡大",
+            "労働組合の結成"
+          ]
+        }
       },
       {
         "id": "2",
@@ -335,7 +537,16 @@
               "Chimpanzees supplemented their diets with leaves when they could not get adequate nutrition from their usual food sources.",
               "Chimpanzees deliberately ate the leaves of certain plants when they were suffering from parasitic infections."
             ],
-            "answerIndex": 3
+            "answerIndex": 3,
+            "evidence": {
+              "paragraph": 1,
+              "sentences": [
+                2,
+                3
+              ]
+            },
+            "explanation": "第2段落では、群れの中で胃の寄生虫が多い時期にチンパンジーが葉を飲み込む行動がより頻繁に見られ、研究者たちはこの葉が寄生虫を排除するために使われているのではないかと仮説を立てたと述べられている。選択肢4がこの内容と一致する。",
+            "translation": "1970年代のある研究者グループはどのような結論に達したか。\n1 動物が薬効のある天然物質を利用しているという報告例の大半は誤りだった。\n2 植物が作り出す化学物質のほとんどは、少量摂取しただけでも動物にとって有害だった。\n3 チンパンジーは、通常の食物源から十分な栄養を得られないとき、葉を食事に補助的に取り入れていた。\n4 チンパンジーは、寄生虫感染に苦しんでいるとき、特定の植物の葉を意図的に食べていた。"
           },
           {
             "q": 29,
@@ -346,7 +557,16 @@
               "Animals with low intelligence could not selfmedicate because they lacked the ability to learn how to do so.",
               "All animals were born with the ability to recognize natural substances that have medicinal properties."
             ],
-            "answerIndex": 2
+            "answerIndex": 2,
+            "evidence": {
+              "paragraph": 2,
+              "sentences": [
+                0,
+                1
+              ]
+            },
+            "explanation": "第3段落では、この行動は学習され世代を超えて受け継がれなければならないと考えられていたことから、高度な知的能力を持つ動物に限られると長年信じられていたと述べられている。選択肢3がこの内容と一致する。",
+            "translation": "ほとんどの科学者が長年信じていたことは何か。\n1 未知の物質を摂取することは動物本来の本能に反するため、動物はセルフメディケーションを行わない。\n2 動物が薬効目的で利用する植物の種類は、世代ごとに変化していく。\n3 知能の低い動物は、その方法を学ぶ能力を欠いているため、セルフメディケーションを行うことができない。\n4 すべての動物は、薬効を持つ天然物質を認識する能力を生まれながらに備えている。"
           },
           {
             "q": 30,
@@ -357,7 +577,16 @@
               "They intentionally become infected by parasitic wasps in order to reduce the harmful effects of alcohol.",
               "They have developed a strategy to prevent parasitic wasps from being able to lay eggs inside them."
             ],
-            "answerIndex": 0
+            "answerIndex": 0,
+            "evidence": {
+              "paragraph": 3,
+              "sentences": [
+                3,
+                4
+              ]
+            },
+            "explanation": "第4段落では、アルコールを含む食物の摂取は通常ハエにとって有害だが、寄生バチに感染した場合には幼虫の発育を妨げ、ハエを守る効果があると述べられている。選択肢1がこの内容と一致する。",
+            "translation": "この文章の著者がショウジョウバエについて述べていることの一つは何か。\n1 アルコールの摂取は健康には害を与えるが、寄生バチに感染しているときには全体として有益に働く。\n2 アルコールを含む食物の摂取はハエを弱らせ、寄生バチに対してより無防備にする。\n3 ハエは、アルコールの有害な影響を減らすために、意図的に寄生バチに感染する。\n4 ハエは、寄生バチが体内に卵を産みつけるのを防ぐ方法を発達させてきた。"
           },
           {
             "q": 31,
@@ -368,9 +597,185 @@
               "use natural medication in a way that benefits their whole colony rather than just themselves.",
               "have the ability to teach other members of their colony how to deal with bacterial and fungal infections."
             ],
-            "answerIndex": 2
+            "answerIndex": 2,
+            "evidence": {
+              "paragraph": 3,
+              "sentences": [
+                6,
+                8
+              ]
+            },
+            "explanation": "第4段落後半では、一部の社会性昆虫による自然の薬の利用が自己治療の域を超えており、アリがコロニー全体のために抗菌・抗真菌性のある樹脂を集める「社会的な薬の利用」を行っていると述べられている。選択肢3がこの内容と一致する。",
+            "translation": "研究により、一部の社会性昆虫は\n1 細菌感染や真菌感染から自分自身とコロニーを守る物質を作り出すことが示されている。\n2 感染症にかかったとき、感染が広がるのを防ぐためにコロニーを離れることが示されている。\n3 自分自身のためだけでなく、コロニー全体に利益をもたらす形で天然の薬を利用することが示されている。\n4 コロニーの他のメンバーに、細菌感染や真菌感染への対処法を教える能力を持つことが示されている。"
           }
-        ]
+        ],
+        "paragraphs": [
+          {
+            "sentences": [
+              "It was once thought that the use of medicine was a uniquely human trait, but over the past fifty years or so, scientists have reported many cases of animals using natural remedies to self-medicate.",
+              "Plants produce many chemical substances to protect themselves against disease or prevent themselves from being eaten by animals and insects, and some of these chemicals have medicinal properties.",
+              "A growing body of research shows that animals have learned to recognize and consume these substances to treat and prevent illnesses."
+            ],
+            "translation": "かつて、薬を使うことは人間だけに見られる特性だと考えられていたが、この50年ほどの間に、科学者たちは動物が自然の治療法を用いて自己治療(セルフメディケーション)を行う事例を数多く報告してきた。植物は、病気から身を守ったり、動物や昆虫に食べられるのを防いだりするために多くの化学物質を作り出しており、こうした化学物質の一部には薬効がある。研究の蓄積が増えるにつれ、動物がこうした物質を認識し摂取することを学び、病気の治療や予防に役立ててきたことが明らかになりつつある。"
+          },
+          {
+            "sentences": [
+              "Self-medication by animals was first recorded in the 1970s by researchers studying a group of chimpanzees in Tanzania.",
+              "They observed some chimpanzees in the group swallowing the leaves of plants that were not a part of their regular diet.",
+              "Since the chimpanzees were swallowing the leaves whole without chewing them, they were obviously not consuming them for nutritional purposes, and further observations revealed that the behavior occurred more frequently when stomach parasites were common among the group.",
+              "The researchers hypothesized that the leaves were being used to remove the parasites, and they used the term \"zoopharmacognosy\" to refer to this self-medicating behavior."
+            ],
+            "translation": "動物によるセルフメディケーションが初めて記録されたのは1970年代、タンザニアのチンパンジーの群れを研究していた研究者たちによってであった。彼らは、群れの中の一部のチンパンジーが、普段の食事には含まれない植物の葉を飲み込んでいるのを観察した。チンパンジーはその葉を噛まずに丸のみしていたため、明らかに栄養目的で摂取しているのではなく、さらなる観察により、群れの中で胃の寄生虫が多く見られる時期にこの行動がより頻繁に起こることが分かった。研究者たちは、その葉が寄生虫を排除するために使われているのではないかと仮説を立て、このようなセルフメディケーション行動を指して「動物薬理学(zoopharmacognosy)」という語を用いた。"
+          },
+          {
+            "sentences": [
+              "For many years, it was believed by most scientists that this behavior was limited to animals with advanced intellectual ability.",
+              "This belief originated mainly from the initial observations of chimpanzees, which suggested that the behavior had to be learned and passed on from generation to generation.",
+              "However, a recent review of research has shown that self-medication is much more common than was previously thought and is even demonstrated by some insects.",
+              "This suggests that self-medication must also occur by instinct, and many scientists now believe that it can be both innate and learned, even in more intelligent animals."
+            ],
+            "translation": "長年にわたり、ほとんどの科学者は、この行動は高度な知的能力を持つ動物に限られると考えていた。この考えは主に、チンパンジーに関する初期の観察に由来しており、その行動は学習され世代を超えて受け継がれなければならないことを示唆していた。しかし近年の研究の見直しにより、セルフメディケーションはこれまで考えられていたよりもはるかに一般的で、一部の昆虫にも見られることが明らかになった。これは、セルフメディケーションが本能によっても起こりうることを示唆しており、多くの科学者は今では、より知能の高い動物においてさえ、それが本能的なものと学習によるものの両方でありうると考えている。"
+          },
+          {
+            "sentences": [
+              "One of the best-studied examples of self-medication in insects is that of fruit flies.",
+              "These tiny flies are often targeted by a type of parasitic wasp that lays its eggs inside the flies' bodies.",
+              "Research has shown that fruit flies infected by parasitic wasps deliberately consume food containing alcohol, such as rotting fruit.",
+              "The alcohol prevents the development of the wasp larvae and protects the flies.",
+              "Consuming food with high alcohol content is normally harmful to the flies, so they avoid doing so when they are healthy.",
+              "This implies that something triggers them to seek out such food only when they have wasp larvae inside them, and scientists seem to have determined the chemical compound that causes it.",
+              "In other studies, it has also been found that the use of natural medication by some social insects goes beyond self-medication.",
+              "When bacterial and fungal infections occur within an ant colony, for example, the insects collect resin from nearby trees and take it back to the colony.",
+              "The resin has antibacterial and antifungal properties, so by doing this, the ants are performing a form of \"social medication.\""
+            ],
+            "translation": "昆虫のセルフメディケーションの中で最もよく研究されている例の一つが、ショウジョウバエのものである。この小さなハエは、体内に卵を産みつける一種の寄生バチにしばしば狙われる。研究により、寄生バチに感染したショウジョウバエは、腐った果実などアルコールを含む食物を意図的に摂取することが示されている。アルコールは寄生バチの幼虫の発育を妨げ、ハエを守る。アルコール含有量の高い食物を摂取することは通常ハエにとって有害であるため、健康なときにはそれを避ける。このことは、体内に寄生バチの幼虫がいるときにだけ、何かがハエにそうした食物を求めるよう仕向けていることを示唆しており、科学者たちはその引き金となる化学物質を突き止めたようである。また別の研究では、一部の社会性昆虫による自然の薬の利用が、自己治療の域を超えていることも分かっている。例えば、アリのコロニー内で細菌感染や真菌感染が発生すると、アリは近くの木から樹脂を集めてコロニーに持ち帰る。この樹脂には抗菌・抗真菌性があるため、こうすることでアリは一種の「社会的な薬の利用」を行っていることになる。"
+          },
+          {
+            "sentences": [
+              "Many scientists believe it is likely that our human ancestors gained knowledge of medicinal plants by observing the behavior of animals.",
+              "They also hope that further research into zoopharmacognosy will help to improve human health care by providing clues to new sources of medicines."
+            ],
+            "translation": "多くの科学者は、私たちヒトの祖先も動物の行動を観察することで薬効のある植物についての知識を得た可能性が高いと考えている。また彼らは、動物薬理学のさらなる研究が、新たな薬の源についての手がかりを提供することで、人間の医療の向上に役立つことを期待している。"
+          }
+        ],
+        "summary": {
+          "sections": [
+            {
+              "label": "¶1-2 発見の経緯",
+              "lines": [
+                [
+                  "動物による",
+                  {
+                    "blank": 1
+                  },
+                  "は、タンザニアのチンパンジーの観察から発見された。"
+                ],
+                [
+                  "群れの中で",
+                  {
+                    "blank": 2
+                  },
+                  "が多い時期に、葉を飲み込む行動が増えた。"
+                ]
+              ]
+            },
+            {
+              "label": "¶3 知能との関係",
+              "lines": [
+                [
+                  "長年、この行動には",
+                  {
+                    "blank": 3
+                  },
+                  "が必要だと考えられていた。"
+                ],
+                [
+                  "しかし近年、昆虫にも見られることから",
+                  {
+                    "blank": 4
+                  },
+                  "の要素もあると分かってきた。"
+                ]
+              ]
+            },
+            {
+              "label": "¶4 ショウジョウバエとアリ",
+              "lines": [
+                [
+                  "ショウジョウバエは、",
+                  {
+                    "blank": 5
+                  },
+                  "に感染すると、あえてアルコールを含む食物を食べる。"
+                ],
+                [
+                  "アリは樹脂を集め、",
+                  {
+                    "blank": 6
+                  },
+                  "のために利用する。"
+                ]
+              ]
+            }
+          ],
+          "blanks": [
+            {
+              "id": 1,
+              "answer": "自己治療(セルフメディケーション)",
+              "accepted": [
+                "自己治療",
+                "セルフメディケーション"
+              ]
+            },
+            {
+              "id": 2,
+              "answer": "胃の寄生虫",
+              "accepted": [
+                "胃の寄生虫",
+                "寄生虫"
+              ]
+            },
+            {
+              "id": 3,
+              "answer": "高度な知的能力",
+              "accepted": [
+                "高度な知的能力",
+                "高い知能"
+              ]
+            },
+            {
+              "id": 4,
+              "answer": "本能",
+              "accepted": [
+                "本能",
+                "本能的なもの"
+              ]
+            },
+            {
+              "id": 5,
+              "answer": "寄生バチ",
+              "accepted": [
+                "寄生バチ",
+                "寄生バチの幼虫"
+              ]
+            },
+            {
+              "id": 6,
+              "answer": "コロニー全体",
+              "accepted": [
+                "コロニー全体",
+                "コロニー全体の防御"
+              ]
+            }
+          ],
+          "distractors": [
+            "渡り鳥のルート",
+            "冬眠",
+            "巣の建材",
+            "求愛行動",
+            "気温の調節"
+          ]
+        }
       }
     ]
   },
@@ -382,7 +787,8 @@
       "label": "英文要約",
       "prompt": "Some crops, such as rice and wheat, are harvested by cutting off the top of the plant. When farmers gather such crops, they leave the bottom part in the ground. This part is called stubble. Farmers need space to plant their next crops, so some of them burn the stubble. Now, some countries want to make a law that stops farmers from doing this. Supporters of the law believe it is important. People's health will be protected. This is because when stubble is burned, smoke containing harmful chemicals is released. It can travel long distances, so the law would benefit the health of both rural and urban populations. There is another advantage to stopping stubble burning. The quality of soil on farms can be maintained. There are small organisms, such as bacteria, in the soil that make crops grow more easily. When stubble is burned, the ground becomes extremely hot, which kills these organisms. This will not happen if stubble burning is banned. However, opponents of the law are worried. Removing stubble from fields can be very difficult. Without fire, farmers need to buy specialized mechanical equipment to get rid of it. This equipment often costs a lot, so it is impossible for many farmers to afford.",
       "targetMin": 60,
-      "targetMax": 70
+      "targetMax": 70,
+      "referenceAnswer": "Supporters of a law banning stubble burning say it would protect public health, since burning releases harmful smoke that can travel long distances and affect rural and urban residents alike. It would also preserve soil quality, since intense heat from burning kills organisms that help crops grow. However, opponents worry that removing stubble without fire requires costly equipment many farmers cannot afford."
     },
     {
       "id": "writing-5",
@@ -397,7 +803,8 @@
         "Safety"
       ],
       "targetMin": 120,
-      "targetMax": 150
+      "targetMax": 150,
+      "referenceAnswer": "I think people who live in cities should be required to use public transportation. I have two reasons for this. First, this requirement would help reduce pollution in cities. If fewer private cars are driven on city streets, less exhaust gas will be released into the air, which would improve the health of people living and working there. Second, using public transportation can lower costs for individuals and for society as a whole. People would not need to spend large amounts of money on fuel, parking, and vehicle maintenance, and the money they save could be used for other important purposes, such as education or savings. For these reasons, I believe city residents should be required to use public transportation."
     }
   ],
   "listening": [
@@ -412,7 +819,16 @@
         "He agrees with her about its effects."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "★★Christy, you know the rule. No social media after 6 p.m.\n☆Sorry, Dad. I just need to post an update to one account.\n★★Look, there are reasons your mother and I set these limits. For one, spending too much time on social media makes people forget how to relate to each other in the real world.\n☆But I only really use it to share things with my close friends.\n★★Well, if they're your close friends, you can communicate when you see them in person!",
+      "question": "What does the man tell his daughter about social media?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には they're が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 0.0,
+      "end": 180.15
     },
     {
       "q": 2,
@@ -425,7 +841,16 @@
         "He wants to graduate early."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆You must be looking forward to summer vacation, Rick.\n★★I'm actually planning to take a few classes, Mom.\n☆Shouldn't you take a break? Your engineering program is so demanding.\n★★Well, I'm hoping to graduate ahead of schedule and start on my master's degree.\n☆It might not be a bad idea to get some work experience first.\n★★I'd rather get my studies over with while I'm motivated.\n☆If you say so, but you should give it some thought.",
+      "question": "What does the man say?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'd, I'm, master's, Shouldn't が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 190.28,
+      "end": 225.67
     },
     {
       "q": 3,
@@ -438,7 +863,16 @@
         "Control Jared's use of his tablet computer."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆We need to talk about Jared. He doesn't play sports with his friends anymore, and he hasn't read a book in weeks.\n★I know. And he used to love those things.\n☆This has all happened since we purchased that tablet computer for him. He reaches for it as soon as he wakes up.\n★Yeah. We bought it to help him with his school reports, not for him to waste time watching online videos.\n☆Maybe we should set a limit on his daily screen time.\n★I agree.",
+      "question": "What has the couple decided to do?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には doesn't, hasn't が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 235.8,
+      "end": 274.99
     },
     {
       "q": 4,
@@ -451,7 +885,16 @@
         "She lost it last month. Part 1 Dialogues: 1 question each Multiple-choice Part 2 Passages: 2 questions each Multiple-choice Part 3 Real-Life: 1 question each Multiple-choice There are three parts to this listening test. ※ Listen carefully to the instructions."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "★★Did you find out what's wrong with your watch, Cindy?\n☆☆Not yet. It's strange that it keeps running fast. It's off by almost ten minutes every day.\n★★I thought you just bought it last month.\n☆☆I did, but it was used, so I guess it can't be helped.\n★★I hope it has a warranty, though. Repairs aren't cheap.\n☆☆The manufacturer's warranty has expired, but I know the store's warranty will cover it.\n★★That's good.",
+      "question": "What do we learn about the woman's watch?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には aren't, can't, It's, manufacturer's, store's, That's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 285.15,
+      "end": 322.55
     },
     {
       "q": 5,
@@ -464,7 +907,16 @@
         "Add work experience to her résumé."
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "★★We need to hire more staff for the accounting department.\n☆We've been trying, but no suitable candidates have applied. We tried an employment agency, which was a waste of time! The candidates they introduced didn't even have the necessary qualifications.\n★★How about posting something at the business school? This year's graduates may not have much experience, but they should have the qualifications you need.\n☆It's worth a try. I'll ask if I can post something on the school's career board.",
+      "question": "What does the man suggest the woman do?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には didn't, I'll, It's, school's, We've, year's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 332.69,
+      "end": 373.49
     },
     {
       "q": 6,
@@ -477,7 +929,16 @@
         "He wants to live close to a station."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆This is Melanie from Rydale Real Estate. Did you look over the floor plans I emailed?\n★★Yes, but I can't decide whether to go for a two- or three-story house.\n☆It's more about how close you want to be to a train station.\n★★That's definitely my priority.\n☆Most homes closer to stations are on smaller pieces of land, so they tend to have three floors. If you don't mind climbing stairs, you get more space.\n★★Stairs don't bother me.",
+      "question": "What is one thing the man says?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には can't, don't, It's, That's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 383.74,
+      "end": 422.53
     },
     {
       "q": 7,
@@ -490,7 +951,16 @@
         "Buy a dishwasher."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆☆Phil, it's your turn to do the dishes tonight.\n★★I'm exhausted, Kim. Can you do it? I promise I'll take your turn tomorrow.\n☆☆Look, I know you don't like doing it, but you agreed we'd share the housework equally.\n★★I know. I just don't have the energy at night.\n☆☆Well, neither do I. If you don't want to help out, then let's get a dishwasher.\n★★OK. I'm free to go to the store tomorrow.",
+      "question": "What will the couple probably do?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には don't, I'll, I'm, it's, let's, we'd が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 432.66,
+      "end": 468.37
     },
     {
       "q": 8,
@@ -503,7 +973,16 @@
         "Their house may be robbed."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆☆I just got a worrying phone call from Glenda next door.\n★What did she say?\n☆☆Last night, some of the other neighbors saw a suspicious-looking car driving around slowly with its lights out. It disappeared when they went outside.\n★That sounds like burglars looking for a house to break into. I'm glad she let us know.\n☆☆Yes. Thank goodness we have neighbors who are alert.",
+      "question": "Why are the speakers concerned?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'm が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 478.52,
+      "end": 511.13
     },
     {
       "q": 9,
@@ -516,7 +995,16 @@
         "Adding more features to the product."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "★I'm a bit concerned about our marketing campaign for the new model of our smartwatch, Ursula.\n☆☆I am too. I think some of the descriptions of the features are misleading.\n★I know they're trying to justify the price increase, but I'm worried they'll lead to a lot of complaints.\n☆☆Yeah, especially the claims about the battery. Most people won't get that much life out of them.\n★I think we'd better have a meeting about adjusting some of the text in the ads.",
+      "question": "What will probably be discussed at the meeting?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'm, they'll, they're, we'd, won't が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 521.3,
+      "end": 560.47
     },
     {
       "q": 10,
@@ -529,7 +1017,16 @@
         "He was rude to the teacher."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "★Honey, I got a phone call from Michael's teacher today.\n☆Oh, what did she say?\n★It seems that Michael hasn't been paying attention in class. She seemed quite concerned about him.\n☆I hope he's not disturbing the other kids, is he?\n★No, she said he was just staring out the window.\n☆We'll have to talk with him about this when he gets home.",
+      "question": "What did Michael's teacher tell the parents?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には hasn't, he's, Michael's, We'll が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 570.6,
+      "end": 601.37
     },
     {
       "q": 11,
@@ -542,7 +1039,16 @@
         "Creativity is the most important part of cooking."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆Hey, honey, I'm about to experiment with a new recipe.\n★What do you mean by \"experiment\"?\n☆I'm just going to try it out for the first time to see if it's good.\n★Oh, OK. It's just that sometimes you like to play around with the ingredients and amounts.\n☆Well, cooking is all about creativity!\n★Sure, but that's after you've mastered the recipe as it is. You know that old saying: \"You must learn the rules before you can break them.\"",
+      "question": "What does the man imply?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'm, It's, it's, that's, you've が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 611.51,
+      "end": 651.16
     },
     {
       "q": 12,
@@ -555,7 +1061,16 @@
         "He does not like the design on the back. Listening Test"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part1.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part1.mp3",
+      "script": "☆☆That's a beautiful old pocket watch.\n★★It was my great-grandfather's. It's over a century old, but it still tells the time accurately.\n☆☆Wow. It's really fancy-looking too.\n★★Look at the design on the back. It's really artistic.\n☆☆Oh, it's an eagle. Very elegant.\n★★I heard it was designed by a famous watchmaker. It's supposed to be quite valuable.\n☆☆You could sell it to an antique dealer.\n★★I think I'll keep it and pass it down to my children.",
+      "question": "What does the man say about the pocket watch? Here are the directions for Part 2. In this part, you will hear six passages, (A) through (F). Each passage will be followed by two questions, No. 13 through No. 24. For each question, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage and the questions will be given only once. Now, let's begin. ★(A) The Real Kraken In Nordic mythology, the Kraken was a sea monster that attacked ships and consumed their crews. According to legend, large shoals of fish swam alongside the Kraken, so fishermen brave enough to go near it could get large catches. The Kraken was first described in writing by King Sverre of Norway in the twelfth century, and the myth became so accepted that the creature was listed in the first systemized surveys of the natural world written in the eighteenth century. Scientists now believe the myth originated from sightings of giant squid, which can reach a length of around twelve meters. These creatures live deep in the world's oceans and are rarely seen. Although a scientific description of a dead giant squid was carried out in the 1850s, studying them has proved difficult. In fact, it was not until 2004 that one was photographed in its natural habitat. ☆☆Questions ☆☆No. 13 What did legend say about the Kraken? ☆☆No. 14 What does the speaker say about giant squid? ☆(B) Freedom House The Freedom House Ambulance Service was established in the late 1960s in Pittsburgh, Pennsylvania. Before Freedom House, the majority of people being taken to hospitals were transported by the police or funeral homes, and they concentrated more on speedy transport than on providing care on the way. Freedom House was the first American ambulance service to have paramedics, highly trained professionals who provided treatment that could make the difference between life and death. Freedom House began in a Black neighborhood with high unemployment rates. Its Black paramedics were local residents who received education and training from doctors who wanted to improve the health of the community. Although they sometimes encountered hostility from White patients who did not want to be treated by non-White paramedics, they saved many lives and became role models. The Freedom House Ambulance Service ended in the mid-seventies, but it inspired many cities to start their own paramedic programs. ★★Questions ★★No. 15 How was the Freedom House Ambulance Service different from other hospital transportation services? ★★No. 16 What problem did the Freedom House paramedics face? ★★(C) Singer Sewing Machines The Singer sewing machine was one of the nineteenth century's most significant innovations. While sewing machines existed already, they could only produce straight lines, and the number of stitches they could sew at one time was limited. However, the American inventor Isaac Singer designed a machine capable of operating continuously and which could also sew curved lines, permitting users to do a greater variety of tasks than other sewing machines did. Singer's machines often cost several months' salary. Though many women were enthusiastic about a machine that meant they would not have to sew by hand, many men were reluctant to purchase the machines. This was because prejudices of the time made them believe the new inventions were too complicated for women to operate. Therefore, Singer hired women to demonstrate them in public. Along with special payment plans that let people pay a little at a time, these demonstrations made the machines hugely popular. ☆☆Questions ☆☆No. 17 What was one advantage the Singer sewing machine had over other models? ☆☆No. 18 What problem did Isaac Singer have? ☆☆(D) A Soldier's Life In World War I, over one million Indian soldiers fought as part of the British Indian Army. One such soldier was Khudadad Khan, a Muslim born in what is now Pakistan. Khan was sent with his fellow soldiers to fight in Belgium. While he was there, the Germans attacked. Khan's comrades were eventually killed, but Khan kept firing despite being injured. His bravery helped prevent the Germans from succeeding and gave Britain enough time to send extra troops. Khan was sent to a hospital in Britain to recover. The king visited him there, and Khan received the Victoria Cross, an award for outstanding bravery. During the war, other British Indian Army soldiers were also awarded the Victoria Cross. Some people say their stories and those of many British Indian Army soldiers who died in battle have been forgotten. They believe it is time for those stories to be remembered. ★★Questions ★★No. 19 What is one thing the speaker tells us about the British Indian Army? ★★No. 20 According to the speaker, what do some people believe? ★(E) Katharine Wright American aviation pioneers Wilbur and Orville Wright are famous around the world. Perhaps less well-known is the role their sister, Katharine, played in their success. The siblings' mother died when Katharine was a teenager, so she had to take over the household responsibilities. Despite this, Katharine continued her studies and even graduated from college- a rare achievement for a woman in the nineteenth century. As a supporter of women's rights, she would later join an organization that campaigned to secure the vote for women. After graduation, Katharine took a teaching job, but she kept running the Wright family's affairs. This enabled her brothers to focus on their business activities. After Orville was severely hurt in a test flight, however, she left her job to look after him. Over time, she played an increasingly important role in managing the brothers' records and correspondence, and she even traveled abroad to promote their aviation projects. ☆Questions ☆No. 21 What does the speaker say about Katharine Wright as a teenager? ☆No. 22 Why did Katharine stop teaching? ☆(F) Horse Chestnut Trees Horse chestnut trees are common in the United Kingdom, both in parks and in natural areas. In recent years, however, they have been threatened by a disease known as bleeding canker. This damages the bark of the trees and interferes with the transport of nutrients from the roots to the branches. Scientists initially believed the disease was due to a fungus, but recent studies revealed that it was caused by bacterial infection. Thousands of horse chestnut trees across the country have been infected, many of which are expected to die. In an attempt to control the disease, large numbers of trees have been cut down in infected areas. However, some experts believe this could be counterproductive since it also destroys trees that have recovered from the disease or have natural resistance to it. This prevents scientists from studying these trees in order to find ways to protect all horse chestnut trees. ★★Questions ★★No. 23 What does the speaker say about bleeding canker? ★★No. 24 What do some experts believe about bleeding canker? Finally, here are the directions for Part 3. In this part, you will hear five passages, (G) through (K). The passages represent real-life situations and may contain sound effects. Each passage will have one question, No. 25 through No. 29. Before each passage, you will have 10 seconds to read the situation and question written in your test booklet. After you hear the passage, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage will be given only once. Now, let's begin. ★★(G) You have 10 seconds to read the situation and Question No. 25. ☆☆We have some positions at local stores. First up is Snow's Supermarket. Working days are flexible, which is great, but the hourly pay is very low. Then we have Heely Good Shoe Plaza. The hourly pay here is considerably better. It's three evenings, Monday through Wednesday, with one Sunday shift a month. Next is HCE, the clothing retailer. The hourly pay is the best of the bunch. Shifts run from 9:00 a.m. to 1:00 p.m. on Friday, Monday, and Tuesday. Finally, Mega-Z Music. The hourly pay is the same as Snow's, and you work five weekday evenings a week. ★★Now mark your answer on your answer sheet. ☆(H) You have 10 seconds to read the situation and Question No. 26. ★Attention, everyone. Due to a possible gas leak, we must initiate emergency evacuation procedures for Buildings A and B. If you are on the first floor of Building A, make your way to the main lobby exit. If you are on the first floor of Building B, proceed to the exit in the north wing. If you are on the second or third floor of Building A, proceed to the main stairwell in the atrium. If you are on the second or third floor of Building B, proceed to the large stairwell in Stetson Hall. Thank you for your cooperation. ☆Now mark your answer on your answer sheet. ★★(I) You have 10 seconds to read the situation and Question No. 27. ☆This is Natalie. I've done some research and come up with some potential suppliers. First, there's NexusFlow. Their sensors are $175 each. Their minimum order is one thousand units, however. Another company I found was OmniSensor. They're regularly $200 each, but if we order over five hundred, we could get the price down to $170 per item. Briarson Technologies has sensors for $160, with no minimum order. Oh, wait. Their sensors aren't compatible with our doors. Finally, there's Winchester Electronics. Their price was $190 for five hundred or more and $170 for orders over one thousand units. Let me know if you have any questions. ★★Now mark your answer on your answer sheet. ★(J) You have 10 seconds to read the situation and Question No. 28. ☆☆First, Carlos needs to choose an instrument. There's the flute, which is a fun instrument once students start making progress. Rentals are $175 per term. Next is the trumpet, which is also a lot of fun. Rentals are priced the same as for the flute. The clarinet is also popular. It's relatively easy to learn but difficult to master. Rentals are $140 per term. Finally, we have the drums. The $125 term fee allows in-school use of a band drum set. You mentioned you didn't have one at home, which makes practice difficult, so I'd consider a wind instrument for now. ★Now mark your answer on your answer sheet. ☆☆(K) You have 10 seconds to read the situation and Question No. 29. ★Thanks for calling Doggy Lives. We have four dogs that are ready for a new home. Tiffy is a black Labrador with a sweet personality. She's house-trained and well-behaved around kids. Roger is a fun, outgoing, honey-colored Labrador. Unlike Tiffy, though, he will require further training. Fluffy is a cute spaniel. She's only one, so she still needs some training and attention. Finally, Wildy is a charming poodle. He's a bit naughty, though, and likes to be the center of attention, so he's best suited to a couple or family with children high-school-age or older. Stay on the line to speak to a shelter volunteer. ☆☆Now mark your answer on your answer sheet. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には grandfather's, I'll, It's, it's, That's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 661.3,
+      "end": 700.69
     },
     {
       "q": 13,
@@ -568,7 +1083,16 @@
         "It killed a powerful Norwegian king."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "In Nordic mythology, the Kraken was a sea monster that attacked ships and consumed their crews. According to legend, large shoals of fish swam alongside the Kraken, so fishermen brave enough to go near it could get large catches. The Kraken was first described in writing by King Sverre of Norway in the twelfth century, and the myth became so accepted that the creature was listed in the first systemized surveys of the natural world written in the eighteenth century. Scientists now believe the myth originated from sightings of giant squid, which can reach a length of around twelve meters. These creatures live deep in the world's oceans and are rarely seen. Although a scientific description of a dead giant squid was carried out in the 1850s, studying them has proved difficult. In fact, it was not until 2004 that one was photographed in its natural habitat.",
+      "question": "What did legend say about the Kraken?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には world's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 0.0,
+      "end": 125.62
     },
     {
       "q": 14,
@@ -581,7 +1105,16 @@
         "They were not described scientifically until the 2000s. (B)"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "In Nordic mythology, the Kraken was a sea monster that attacked ships and consumed their crews. According to legend, large shoals of fish swam alongside the Kraken, so fishermen brave enough to go near it could get large catches. The Kraken was first described in writing by King Sverre of Norway in the twelfth century, and the myth became so accepted that the creature was listed in the first systemized surveys of the natural world written in the eighteenth century. Scientists now believe the myth originated from sightings of giant squid, which can reach a length of around twelve meters. These creatures live deep in the world's oceans and are rarely seen. Although a scientific description of a dead giant squid was carried out in the 1850s, studying them has proved difficult. In fact, it was not until 2004 that one was photographed in its natural habitat.",
+      "question": "What does the speaker say about giant squid?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には world's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 0.0,
+      "end": 125.62
     },
     {
       "q": 15,
@@ -594,7 +1127,15 @@
         "Its ambulances drove faster."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "The Freedom House Ambulance Service was established in the late 1960s in Pittsburgh, Pennsylvania. Before Freedom House, the majority of people being taken to hospitals were transported by the police or funeral homes, and they concentrated more on speedy transport than on providing care on the way. Freedom House was the first American ambulance service to have paramedics, highly trained professionals who provided treatment that could make the difference between life and death. Freedom House began in a Black neighborhood with high unemployment rates. Its Black paramedics were local residents who received education and training from doctors who wanted to improve the health of the community. Although they sometimes encountered hostility from White patients who did not want to be treated by non-White paramedics, they saved many lives and became role models. The Freedom House Ambulance Service ended in the mid-seventies, but it inspired many cities to start their own paramedic programs. transportation services?",
+      "question": "How was the Freedom House Ambulance Service different from other hospital",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 135.75,
+      "end": 240.53
     },
     {
       "q": 16,
@@ -607,7 +1148,15 @@
         "Some doctors did not trust their skills. Part 2"
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "The Freedom House Ambulance Service was established in the late 1960s in Pittsburgh, Pennsylvania. Before Freedom House, the majority of people being taken to hospitals were transported by the police or funeral homes, and they concentrated more on speedy transport than on providing care on the way. Freedom House was the first American ambulance service to have paramedics, highly trained professionals who provided treatment that could make the difference between life and death. Freedom House began in a Black neighborhood with high unemployment rates. Its Black paramedics were local residents who received education and training from doctors who wanted to improve the health of the community. Although they sometimes encountered hostility from White patients who did not want to be treated by non-White paramedics, they saved many lives and became role models. The Freedom House Ambulance Service ended in the mid-seventies, but it inspired many cities to start their own paramedic programs. transportation services?",
+      "question": "What problem did the Freedom House paramedics face?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 135.75,
+      "end": 240.53
     },
     {
       "q": 17,
@@ -620,7 +1169,16 @@
         "It could do more types of sewing patterns."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "The Singer sewing machine was one of the nineteenth century's most significant innovations. While sewing machines existed already, they could only produce straight lines, and the number of stitches they could sew at one time was limited. However, the American inventor Isaac Singer designed a machine capable of operating continuously and which could also sew curved lines, permitting users to do a greater variety of tasks than other sewing machines did. Singer's machines often cost several months' salary. Though many women were enthusiastic about a machine that meant they would not have to sew by hand, many men were reluctant to purchase the machines. This was because prejudices of the time made them believe the new inventions were too complicated for women to operate. Therefore, Singer hired women to demonstrate them in public. Along with special payment plans that let people pay a little at a time, these demonstrations made the machines hugely popular.",
+      "question": "What was one advantage the Singer sewing machine had over other models?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には century's, Singer's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 250.67,
+      "end": 350.35
     },
     {
       "q": 18,
@@ -633,7 +1191,16 @@
         "Most people preferred sewing by hand. (D)"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "The Singer sewing machine was one of the nineteenth century's most significant innovations. While sewing machines existed already, they could only produce straight lines, and the number of stitches they could sew at one time was limited. However, the American inventor Isaac Singer designed a machine capable of operating continuously and which could also sew curved lines, permitting users to do a greater variety of tasks than other sewing machines did. Singer's machines often cost several months' salary. Though many women were enthusiastic about a machine that meant they would not have to sew by hand, many men were reluctant to purchase the machines. This was because prejudices of the time made them believe the new inventions were too complicated for women to operate. Therefore, Singer hired women to demonstrate them in public. Along with special payment plans that let people pay a little at a time, these demonstrations made the machines hugely popular.",
+      "question": "What problem did Isaac Singer have?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には century's, Singer's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 250.67,
+      "end": 350.35
     },
     {
       "q": 19,
@@ -646,7 +1213,16 @@
         "Its soldiers were not allowed in hospitals in Britain."
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "In World War I, over one million Indian soldiers fought as part of the British Indian Army. One such soldier was Khudadad Khan, a Muslim born in what is now Pakistan. Khan was sent with his fellow soldiers to fight in Belgium. While he was there, the Germans attacked. Khan's comrades were eventually killed, but Khan kept firing despite being injured. His bravery helped prevent the Germans from succeeding and gave Britain enough time to send extra troops. Khan was sent to a hospital in Britain to recover. The king visited him there, and Khan received the Victoria Cross, an award for outstanding bravery. During the war, other British Indian Army soldiers were also awarded the Victoria Cross. Some people say their stories and those of many British Indian Army soldiers who died in battle have been forgotten. They believe it is time for those stories to be remembered.",
+      "question": "What is one thing the speaker tells us about the British Indian Army?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には Khan's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 360.52,
+      "end": 459.74
     },
     {
       "q": 20,
@@ -659,7 +1235,16 @@
         "The king initially refused to visit Khan. Listening Test"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "In World War I, over one million Indian soldiers fought as part of the British Indian Army. One such soldier was Khudadad Khan, a Muslim born in what is now Pakistan. Khan was sent with his fellow soldiers to fight in Belgium. While he was there, the Germans attacked. Khan's comrades were eventually killed, but Khan kept firing despite being injured. His bravery helped prevent the Germans from succeeding and gave Britain enough time to send extra troops. Khan was sent to a hospital in Britain to recover. The king visited him there, and Khan received the Victoria Cross, an award for outstanding bravery. During the war, other British Indian Army soldiers were also awarded the Victoria Cross. Some people say their stories and those of many British Indian Army soldiers who died in battle have been forgotten. They believe it is time for those stories to be remembered.",
+      "question": "According to the speaker, what do some people believe?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には Khan's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 360.52,
+      "end": 459.74
     },
     {
       "q": 21,
@@ -672,7 +1257,16 @@
         "Her brothers found her a teaching job."
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "American aviation pioneers Wilbur and Orville Wright are famous around the world. Perhaps less well-known is the role their sister, Katharine, played in their success. The siblings' mother died when Katharine was a teenager, so she had to take over the household responsibilities. Despite this, Katharine continued her studies and even graduated from college- a rare achievement for a woman in the nineteenth century. As a supporter of women's rights, she would later join an organization that campaigned to secure the vote for women. After graduation, Katharine took a teaching job, but she kept running the Wright family's affairs. This enabled her brothers to focus on their business activities. After Orville was severely hurt in a test flight, however, she left her job to look after him. Over time, she played an increasingly important role in managing the brothers' records and correspondence, and she even traveled abroad to promote their aviation projects.",
+      "question": "What does the speaker say about Katharine Wright as a teenager?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には family's, women's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 469.87,
+      "end": 572.13
     },
     {
       "q": 22,
@@ -685,7 +1279,16 @@
         "She was better at business than at teaching. (F)"
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "American aviation pioneers Wilbur and Orville Wright are famous around the world. Perhaps less well-known is the role their sister, Katharine, played in their success. The siblings' mother died when Katharine was a teenager, so she had to take over the household responsibilities. Despite this, Katharine continued her studies and even graduated from college- a rare achievement for a woman in the nineteenth century. As a supporter of women's rights, she would later join an organization that campaigned to secure the vote for women. After graduation, Katharine took a teaching job, but she kept running the Wright family's affairs. This enabled her brothers to focus on their business activities. After Orville was severely hurt in a test flight, however, she left her job to look after him. Over time, she played an increasingly important role in managing the brothers' records and correspondence, and she even traveled abroad to promote their aviation projects.",
+      "question": "Why did Katharine stop teaching?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には family's, women's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 469.87,
+      "end": 572.13
     },
     {
       "q": 23,
@@ -698,7 +1301,16 @@
         "It is not known what causes it."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "Horse chestnut trees are common in the United Kingdom, both in parks and in natural areas. In recent years, however, they have been threatened by a disease known as bleeding canker. This damages the bark of the trees and interferes with the transport of nutrients from the roots to the branches. Scientists initially believed the disease was due to a fungus, but recent studies revealed that it was caused by bacterial infection. Thousands of horse chestnut trees across the country have been infected, many of which are expected to die. In an attempt to control the disease, large numbers of trees have been cut down in infected areas. However, some experts believe this could be counterproductive since it also destroys trees that have recovered from the disease or have natural resistance to it. This prevents scientists from studying these trees in order to find ways to protect all horse chestnut trees. Finally, here are the directions for Part 3. In this part, you will hear five passages, (G) through (K). The passages represent real-life situations and may contain sound effects. Each passage will have one question, No. 25 through No. 29. Before each passage, you will have 10 seconds to read the situation and question written in your test booklet. After you hear the passage, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage will be given only once. Now, let's begin. ★★(G) You have 10 seconds to read the situation and Question No. 25. ☆☆We have some positions at local stores. First up is Snow's Supermarket. Working days are flexible, which is great, but the hourly pay is very low. Then we have Heely Good Shoe Plaza. The hourly pay here is considerably better. It's three evenings, Monday through Wednesday, with one Sunday shift a month. Next is HCE, the clothing retailer. The hourly pay is the best of the bunch. Shifts run from 9:00 a.m. to 1:00 p.m. on Friday, Monday, and Tuesday. Finally, Mega-Z Music. The hourly pay is the same as Snow's, and you work five weekday evenings a week. ★★Now mark your answer on your answer sheet. ☆(H) You have 10 seconds to read the situation and Question No. 26. ★Attention, everyone. Due to a possible gas leak, we must initiate emergency evacuation procedures for Buildings A and B. If you are on the first floor of Building A, make your way to the main lobby exit. If you are on the first floor of Building B, proceed to the exit in the north wing. If you are on the second or third floor of Building A, proceed to the main stairwell in the atrium. If you are on the second or third floor of Building B, proceed to the large stairwell in Stetson Hall. Thank you for your cooperation. ☆Now mark your answer on your answer sheet. ★★(I) You have 10 seconds to read the situation and Question No. 27. ☆This is Natalie. I've done some research and come up with some potential suppliers. First, there's NexusFlow. Their sensors are $175 each. Their minimum order is one thousand units, however. Another company I found was OmniSensor. They're regularly $200 each, but if we order over five hundred, we could get the price down to $170 per item. Briarson Technologies has sensors for $160, with no minimum order. Oh, wait. Their sensors aren't compatible with our doors. Finally, there's Winchester Electronics. Their price was $190 for five hundred or more and $170 for orders over one thousand units. Let me know if you have any questions. ★★Now mark your answer on your answer sheet. ★(J) You have 10 seconds to read the situation and Question No. 28. ☆☆First, Carlos needs to choose an instrument. There's the flute, which is a fun instrument once students start making progress. Rentals are $175 per term. Next is the trumpet, which is also a lot of fun. Rentals are priced the same as for the flute. The clarinet is also popular. It's relatively easy to learn but difficult to master. Rentals are $140 per term. Finally, we have the drums. The $125 term fee allows in-school use of a band drum set. You mentioned you didn't have one at home, which makes practice difficult, so I'd consider a wind instrument for now. ★Now mark your answer on your answer sheet. ☆☆(K) You have 10 seconds to read the situation and Question No. 29. ★Thanks for calling Doggy Lives. We have four dogs that are ready for a new home. Tiffy is a black Labrador with a sweet personality. She's house-trained and well-behaved around kids. Roger is a fun, outgoing, honey-colored Labrador. Unlike Tiffy, though, he will require further training. Fluffy is a cute spaniel. She's only one, so she still needs some training and attention. Finally, Wildy is a charming poodle. He's a bit naughty, though, and likes to be the center of attention, so he's best suited to a couple or family with children high-school-age or older. Stay on the line to speak to a shelter volunteer. ☆☆Now mark your answer on your answer sheet. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "question": "What does the speaker say about bleeding canker?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には aren't, didn't, He's, he's, I'd, I've が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 582.25,
+      "end": 680.7
     },
     {
       "q": 24,
@@ -711,7 +1323,16 @@
         "It will probably disappear naturally."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part2.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part2.mp3",
+      "script": "Horse chestnut trees are common in the United Kingdom, both in parks and in natural areas. In recent years, however, they have been threatened by a disease known as bleeding canker. This damages the bark of the trees and interferes with the transport of nutrients from the roots to the branches. Scientists initially believed the disease was due to a fungus, but recent studies revealed that it was caused by bacterial infection. Thousands of horse chestnut trees across the country have been infected, many of which are expected to die. In an attempt to control the disease, large numbers of trees have been cut down in infected areas. However, some experts believe this could be counterproductive since it also destroys trees that have recovered from the disease or have natural resistance to it. This prevents scientists from studying these trees in order to find ways to protect all horse chestnut trees. Finally, here are the directions for Part 3. In this part, you will hear five passages, (G) through (K). The passages represent real-life situations and may contain sound effects. Each passage will have one question, No. 25 through No. 29. Before each passage, you will have 10 seconds to read the situation and question written in your test booklet. After you hear the passage, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage will be given only once. Now, let's begin. ★★(G) You have 10 seconds to read the situation and Question No. 25. ☆☆We have some positions at local stores. First up is Snow's Supermarket. Working days are flexible, which is great, but the hourly pay is very low. Then we have Heely Good Shoe Plaza. The hourly pay here is considerably better. It's three evenings, Monday through Wednesday, with one Sunday shift a month. Next is HCE, the clothing retailer. The hourly pay is the best of the bunch. Shifts run from 9:00 a.m. to 1:00 p.m. on Friday, Monday, and Tuesday. Finally, Mega-Z Music. The hourly pay is the same as Snow's, and you work five weekday evenings a week. ★★Now mark your answer on your answer sheet. ☆(H) You have 10 seconds to read the situation and Question No. 26. ★Attention, everyone. Due to a possible gas leak, we must initiate emergency evacuation procedures for Buildings A and B. If you are on the first floor of Building A, make your way to the main lobby exit. If you are on the first floor of Building B, proceed to the exit in the north wing. If you are on the second or third floor of Building A, proceed to the main stairwell in the atrium. If you are on the second or third floor of Building B, proceed to the large stairwell in Stetson Hall. Thank you for your cooperation. ☆Now mark your answer on your answer sheet. ★★(I) You have 10 seconds to read the situation and Question No. 27. ☆This is Natalie. I've done some research and come up with some potential suppliers. First, there's NexusFlow. Their sensors are $175 each. Their minimum order is one thousand units, however. Another company I found was OmniSensor. They're regularly $200 each, but if we order over five hundred, we could get the price down to $170 per item. Briarson Technologies has sensors for $160, with no minimum order. Oh, wait. Their sensors aren't compatible with our doors. Finally, there's Winchester Electronics. Their price was $190 for five hundred or more and $170 for orders over one thousand units. Let me know if you have any questions. ★★Now mark your answer on your answer sheet. ★(J) You have 10 seconds to read the situation and Question No. 28. ☆☆First, Carlos needs to choose an instrument. There's the flute, which is a fun instrument once students start making progress. Rentals are $175 per term. Next is the trumpet, which is also a lot of fun. Rentals are priced the same as for the flute. The clarinet is also popular. It's relatively easy to learn but difficult to master. Rentals are $140 per term. Finally, we have the drums. The $125 term fee allows in-school use of a band drum set. You mentioned you didn't have one at home, which makes practice difficult, so I'd consider a wind instrument for now. ★Now mark your answer on your answer sheet. ☆☆(K) You have 10 seconds to read the situation and Question No. 29. ★Thanks for calling Doggy Lives. We have four dogs that are ready for a new home. Tiffy is a black Labrador with a sweet personality. She's house-trained and well-behaved around kids. Roger is a fun, outgoing, honey-colored Labrador. Unlike Tiffy, though, he will require further training. Fluffy is a cute spaniel. She's only one, so she still needs some training and attention. Finally, Wildy is a charming poodle. He's a bit naughty, though, and likes to be the center of attention, so he's best suited to a couple or family with children high-school-age or older. Stay on the line to speak to a shelter volunteer. ☆☆Now mark your answer on your answer sheet. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "question": "What do some experts believe about bleeding canker?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には aren't, didn't, He's, he's, I'd, I've が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 582.25,
+      "end": 680.7
     },
     {
       "q": 25,
@@ -724,7 +1345,13 @@
         "MegaZ Music. (H)"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3",
+      "script": "We have some positions at local stores. First up is Snow's Supermarket. Working days are flexible, which is great, but the hourly pay is very low. Then we have Heely Good Shoe Plaza. The hourly pay here is considerably better. It's three evenings, Monday through Wednesday, with one Sunday shift a month. Next is HCE, the clothing retailer. The hourly pay is the best of the bunch. Shifts run from 9:00 a.m. to 1:00 p.m. on Friday, Monday, and Tuesday. Finally, Mega-Z Music. The hourly pay is the same as Snow's, and you work five weekday evenings a week.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "短縮形は弱く速く発音されます。この音声には It's, Snow's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 26,
@@ -737,7 +1364,12 @@
         "To Stetson Hall. Listening Test Part 3"
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3",
+      "script": "Attention, everyone. Due to a possible gas leak, we must initiate emergency evacuation procedures for Buildings A and B. If you are on the first floor of Building A, make your way to the main lobby exit. If you are on the first floor of Building B, proceed to the exit in the north wing. If you are on the second or third floor of Building A, proceed to the main stairwell in the atrium. If you are on the second or third floor of Building B, proceed to the large stairwell in Stetson Hall. Thank you for your cooperation.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 27,
@@ -750,7 +1382,13 @@
         "Winchester Electronics. (J)"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3",
+      "script": "This is Natalie. I've done some research and come up with some potential suppliers. First, there's NexusFlow. Their sensors are $175 each. Their minimum order is one thousand units, however. Another company I found was OmniSensor. They're regularly $200 each, but if we order over five hundred, we could get the price down to $170 per item. Briarson Technologies has sensors for $160, with no minimum order. Oh, wait. Their sensors aren't compatible with our doors. Finally, there's Winchester Electronics. Their price was $190 for five hundred or more and $170 for orders over one thousand units. Let me know if you have any questions.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "短縮形は弱く速く発音されます。この音声には aren't, I've, there's, They're が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 28,
@@ -763,7 +1401,13 @@
         "The drums. (K)"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3",
+      "script": "First, Carlos needs to choose an instrument. There's the flute, which is a fun instrument once students start making progress. Rentals are $175 per term. Next is the trumpet, which is also a lot of fun. Rentals are priced the same as for the flute. The clarinet is also popular. It's relatively easy to learn but difficult to master. Rentals are $140 per term. Finally, we have the drums. The $125 term fee allows in-school use of a band drum set. You mentioned you didn't have one at home, which makes practice difficult, so I'd consider a wind instrument for now.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "短縮形は弱く速く発音されます。この音声には didn't, I'd, It's, There's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 29,
@@ -776,7 +1420,13 @@
         "Wildy, the poodle."
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2025-2/audio-part3.mp3"
+      "audio": "data/eiken_p1/2025-2/audio-part3.mp3",
+      "script": "Thanks for calling Doggy Lives. We have four dogs that are ready for a new home. Tiffy is a black Labrador with a sweet personality. She's house-trained and well-behaved around kids. Roger is a fun, outgoing, honey-colored Labrador. Unlike Tiffy, though, he will require further training. Fluffy is a cute spaniel. She's only one, so she still needs some training and attention. Finally, Wildy is a charming poodle. He's a bit naughty, though, and likes to be the center of attention, so he's best suited to a couple or family with children high-school-age or older. Stay on the line to speak to a shelter volunteer. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "短縮形は弱く速く発音されます。この音声には He's, he's, She's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     }
   ]
 }

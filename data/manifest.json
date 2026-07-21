@@ -99,9 +99,9 @@
   "pre1": {
     "defaultRound": "2026-1",
     "rounds": [
-      { "id": "2026-1", "label": "2026年度 第1回", "dataUrl": "data/pre1_2026-1.json" },
-      { "id": "2025-3", "label": "2025年度 第3回", "dataUrl": "data/pre1_2025-3.json" },
-      { "id": "2025-2", "label": "2025年度 第2回", "dataUrl": "data/pre1_2025-2.json" }
+      { "id": "2026-1", "label": "2026年度 第1回", "dataUrl": "data/pre1_2026-1.json", "vocabUrl": "data/pre1_vocab_2026-1.json" },
+      { "id": "2025-3", "label": "2025年度 第3回", "dataUrl": "data/pre1_2025-3.json", "vocabUrl": "data/pre1_vocab_2025-3.json" },
+      { "id": "2025-2", "label": "2025年度 第2回", "dataUrl": "data/pre1_2025-2.json", "vocabUrl": "data/pre1_vocab_2025-2.json" }
     ]
   }
 }

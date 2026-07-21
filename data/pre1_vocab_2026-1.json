@@ -1,0 +1,628 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2026-1",
+    "note": "大問1(語彙)のフラッシュカード用データ。meaning/etymology/example/pos/collocationはエージェントが新規作成したもので、英検公式の語彙集ではない。語義は入試問題での用法に基づく。語源はLatin/Greek/Old Englishなどの通説を簡略化して記載し、確信が持てないものはetymologyUncertain:trueを付けて要確認としている。発音記号(ipa)は誤記のリスクを避けるため収録していない。"
+  },
+  "part1": {
+    "1": [
+      {
+        "word": "cemetery",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "墓地",
+        "etymology": "ギリシャ語 koimeterion「眠る場所」がラテン語・古フランス語を経て英語に入った。",
+        "example": "The old cemetery on the hill has graves dating back two centuries."
+      },
+      {
+        "word": "diagram",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "図、図表",
+        "etymology": "ギリシャ語 diagramma。dia-「〜を通して」+ graphein「書く・描く」。",
+        "example": "The teacher drew a diagram on the board to show how blood flows through the heart."
+      },
+      {
+        "word": "equation",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "方程式、等式",
+        "etymology": "ラテン語 aequare「等しくする」(aequus「等しい」)から。",
+        "example": "She solved the equation by isolating x on one side."
+      },
+      {
+        "word": "forecast",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "予報、予測",
+        "etymology": "fore-「前もって」+ cast「投げる、見積もる」の複合語。",
+        "example": "According to the forecast, it will rain all weekend.",
+        "collocation": "weather forecast"
+      }
+    ],
+    "2": [
+      {
+        "word": "possessive",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "所有欲の強い、独占欲の強い",
+        "etymology": "ラテン語 possidere「所有する」の派生語 possessivus から。",
+        "example": "He became possessive about his girlfriend and didn't like her spending time with other friends."
+      },
+      {
+        "word": "horizontal",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "水平の",
+        "etymology": "ギリシャ語 horizon「境界を区切る(円)」+ -al。",
+        "example": "Lay the board horizontal before you start cutting it."
+      },
+      {
+        "word": "redundant",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "余分な、冗長な、不要な",
+        "etymology": "ラテン語 redundare「あふれ出る」。red-「再び」+ undare「波立つ」(unda「波」)。",
+        "example": "This sentence in your essay is redundant; you already said the same thing in the previous paragraph."
+      },
+      {
+        "word": "drastic",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "徹底的な、思い切った、過激な",
+        "etymology": "ギリシャ語 drastikos「効果的な、行動的な」(dran「行う」)から。",
+        "example": "The company took drastic measures to cut costs, including laying off a third of its staff."
+      }
+    ],
+    "3": [
+      {
+        "word": "haul",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "引っ張る、(重い物を)運ぶ",
+        "etymology": "「引く」を意味する hale の異形。古フランス語 haler(ゲルマン語起源)経由。",
+        "example": "The fishermen hauled the nets onto the deck."
+      },
+      {
+        "word": "envy",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "うらやむ、ねたむ",
+        "etymology": "ラテン語 invidia(invidere「悪意を持って見る」、in-+videre「見る」)から。",
+        "example": "I envy people who can speak three languages fluently."
+      },
+      {
+        "word": "subtract",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "引く、減じる",
+        "etymology": "ラテン語 subtrahere「下に引く」。sub-「下に」+ trahere「引く」。",
+        "example": "If you subtract 15 from 40, you get 25."
+      },
+      {
+        "word": "censor",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "検閲する",
+        "etymology": "ラテン語 censere「評価する、判定する」。古代ローマの風紀監督官 censor に由来。",
+        "example": "The government censored the film before allowing it to be shown in theaters."
+      }
+    ],
+    "4": [
+      {
+        "word": "referral",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "紹介、(専門医への)委託、照会",
+        "etymology": "refer(ラテン語 referre、re-+ferre「運ぶ」)+ -al。",
+        "example": "My doctor gave me a referral to see a specialist."
+      },
+      {
+        "word": "recipient",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "受取人",
+        "etymology": "ラテン語 recipere「受け取る」(re-+capere「取る」)から。",
+        "example": "She was the recipient of a scholarship for outstanding academic achievement."
+      },
+      {
+        "word": "bouncer",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "(クラブなどの)用心棒",
+        "etymology": "bounce「跳ね返る」+ -er。「用心棒」の意味は20世紀に発達した。",
+        "example": "The bouncer at the club checked everyone's ID before letting them in.",
+        "etymologyUncertain": true
+      },
+      {
+        "word": "successor",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "後継者",
+        "etymology": "ラテン語 succedere「後に続く」(sub-+cedere「行く」)の派生語。",
+        "example": "The CEO announced his successor before retiring."
+      }
+    ],
+    "5": [
+      {
+        "word": "triggering",
+        "isAnswer": false,
+        "pos": "動詞(-ing)",
+        "meaning": "引き起こす(こと)",
+        "etymology": "trigger はオランダ語 trekker(trekken「引く」)から。",
+        "example": "Loud noises can trigger a panic attack in some people."
+      },
+      {
+        "word": "fabricating",
+        "isAnswer": true,
+        "pos": "動詞(-ing)",
+        "meaning": "でっち上げる(こと)、捏造する(こと)",
+        "etymology": "ラテン語 fabricare「作る、組み立てる」(fabrica「工房」)から。",
+        "example": "The witness admitted to fabricating parts of his story."
+      },
+      {
+        "word": "conserving",
+        "isAnswer": false,
+        "pos": "動詞(-ing)",
+        "meaning": "保存する(こと)、節約する(こと)",
+        "etymology": "ラテン語 conservare。com-「共に」+ servare「保つ」。",
+        "example": "We're conserving water during the drought by taking shorter showers."
+      },
+      {
+        "word": "renouncing",
+        "isAnswer": false,
+        "pos": "動詞(-ing)",
+        "meaning": "放棄する(こと)、断念する(こと)",
+        "etymology": "ラテン語 renuntiare「拒否を宣言する」。re-+nuntiare「知らせる」(nuntius「使者」)。",
+        "example": "He renounced his claim to the family business."
+      }
+    ],
+    "6": [
+      {
+        "word": "ransom",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "身代金",
+        "etymology": "古フランス語 raençon。ラテン語 redemptio「買い戻し」と同語源(redemption と同根)。",
+        "example": "The kidnappers demanded a large ransom for the hostage's release."
+      },
+      {
+        "word": "specimen",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "標本、見本",
+        "etymology": "ラテン語 specimen「印、実例」(specere「見る」)から。",
+        "example": "The biologist collected a specimen of the rare plant for study."
+      },
+      {
+        "word": "cavity",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "空洞、虫歯",
+        "etymology": "ラテン語 cavus「空洞の」+ -ity。",
+        "example": "The dentist found a small cavity in one of my back teeth."
+      },
+      {
+        "word": "citation",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "引用、召喚状、表彰",
+        "etymology": "ラテン語 citare「呼び出す、動かす」(ciere「動かす・呼ぶ」の反復形)から。",
+        "example": "The professor asked students to include a proper citation for every source they used."
+      }
+    ],
+    "7": [
+      {
+        "word": "distortion",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "歪み、歪曲",
+        "etymology": "ラテン語 distorquere「あちこちにねじる」。dis-+torquere「ねじる」。",
+        "example": "The old mirror created a strange distortion of my reflection."
+      },
+      {
+        "word": "generosity",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "寛大さ、気前の良さ",
+        "etymology": "ラテン語 generosus「高貴な、寛大な」(genus「生まれ、家柄」)から。",
+        "example": "Her generosity toward the local charity was widely admired."
+      },
+      {
+        "word": "turbulence",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "乱気流、動揺、混乱",
+        "etymology": "ラテン語 turbulentus「騒然とした」(turba「群衆、騒動」)から。",
+        "example": "The plane shook violently as it passed through an area of turbulence."
+      },
+      {
+        "word": "conjecture",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "推測、憶測",
+        "etymology": "ラテン語 conicere「投げ合わせる、推論する」。com-+iacere「投げる」。",
+        "example": "Without any real evidence, his theory is pure conjecture."
+      }
+    ],
+    "8": [
+      {
+        "word": "nutritious",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "栄養のある",
+        "etymology": "ラテン語 nutrire「養う」+ -itious。",
+        "example": "A nutritious breakfast helps you concentrate better in the morning."
+      },
+      {
+        "word": "diverse",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "多様な",
+        "etymology": "ラテン語 diversus「別々の方向を向いた」(divertere の過去分詞)から。",
+        "example": "The city has a diverse population, with residents from over sixty countries."
+      },
+      {
+        "word": "barren",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "不毛の、実を結ばない",
+        "etymology": "古フランス語 braine/baraigne。語源は未詳(ケルト語起源の可能性)。",
+        "example": "Almost nothing grows in this barren stretch of desert.",
+        "etymologyUncertain": true
+      },
+      {
+        "word": "coincidental",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "偶然の、たまたま一致した",
+        "etymology": "coincide(ラテン語 co-+incidere「たまたま起こる」)+ -al。",
+        "example": "It was purely coincidental that we were staying at the same hotel."
+      }
+    ],
+    "9": [
+      {
+        "word": "slack",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "たるんだ、緩い、(商売などが)不振の",
+        "etymology": "古英語 slæc「緩い、怠惰な」。ゲルマン語起源。",
+        "example": "Business has been slack since the new mall opened nearby."
+      },
+      {
+        "word": "sparse",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "まばらな、希薄な",
+        "etymology": "ラテン語 sparsus(spargere「まき散らす」の過去分詞)から。",
+        "example": "The population is quite sparse in this remote mountain region."
+      },
+      {
+        "word": "vast",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "広大な、莫大な",
+        "etymology": "ラテン語 vastus「広大な、荒涼とした」。",
+        "example": "The vast desert stretched as far as the eye could see."
+      },
+      {
+        "word": "vital",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "極めて重要な、生命の",
+        "etymology": "ラテン語 vitalis(vita「生命」)から。",
+        "example": "Clean water is vital for human health."
+      }
+    ],
+    "10": [
+      {
+        "word": "descendant",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "子孫",
+        "etymology": "ラテン語 descendere「下る」(de-+scandere「登る」)の派生語。",
+        "example": "She is a direct descendant of one of the town's founders."
+      },
+      {
+        "word": "triumph",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "勝利、大成功",
+        "etymology": "ラテン語 triumphus。勝利した将軍の凱旋行進を指した。",
+        "example": "Winning the championship was a great triumph for the team."
+      },
+      {
+        "word": "emission",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "排出、放出",
+        "etymology": "ラテン語 emittere「送り出す」(e-+mittere「送る」)から。",
+        "example": "The new law aims to reduce carbon emissions from factories.",
+        "collocation": "carbon emission"
+      },
+      {
+        "word": "deficiency",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "不足、欠乏",
+        "etymology": "ラテン語 deficere「不足する、欠ける」(de-+facere「作る、する」)から。",
+        "example": "A vitamin D deficiency can weaken your bones over time."
+      }
+    ],
+    "11": [
+      {
+        "word": "flourishing",
+        "isAnswer": true,
+        "pos": "動詞(-ing)",
+        "meaning": "繁栄する(こと)、生い茂る(こと)",
+        "etymology": "ラテン語 florere「花咲く」(flos「花」)から。",
+        "example": "The small bakery has been flourishing since it opened last year."
+      },
+      {
+        "word": "pledging",
+        "isAnswer": false,
+        "pos": "動詞(-ing)",
+        "meaning": "誓う(こと)、約束する(こと)",
+        "etymology": "古フランス語 plege「保証、担保」。フランク語起源とされる。",
+        "example": "Every member pledged to attend the meeting.",
+        "etymologyUncertain": true
+      },
+      {
+        "word": "scattering",
+        "isAnswer": false,
+        "pos": "動詞(-ing)",
+        "meaning": "まき散らす(こと)、散らばる(こと)",
+        "etymology": "中英語期の語で、shatter との関連が指摘されるが語源ははっきりしない。",
+        "example": "The wind sent leaves scattering across the yard.",
+        "etymologyUncertain": true
+      },
+      {
+        "word": "drooping",
+        "isAnswer": false,
+        "pos": "動詞(-ing)",
+        "meaning": "うなだれる(こと)、しおれる(こと)",
+        "etymology": "古ノルド語 drupa「沈む、うなだれる」から。",
+        "example": "The flowers were drooping in the summer heat."
+      }
+    ],
+    "12": [
+      {
+        "word": "reptile",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "爬虫類",
+        "etymology": "ラテン語 reptilis「這う」(repere「這う」)から。",
+        "example": "Snakes and lizards are both types of reptile."
+      },
+      {
+        "word": "glacier",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "氷河",
+        "etymology": "フランス語(フランコプロヴァンス語 glacière 経由)、ラテン語 glacies「氷」から。",
+        "example": "The glacier has retreated significantly over the past fifty years due to warming temperatures."
+      },
+      {
+        "word": "blockade",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "封鎖",
+        "etymology": "block に -ade を付けた語(barricade からの類推)。",
+        "example": "The navy set up a blockade to prevent supplies from reaching the port."
+      },
+      {
+        "word": "portfolio",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "作品集、資産構成、書類ばさみ",
+        "etymology": "イタリア語 portafoglio。portare「運ぶ」+ foglio「葉、紙」。",
+        "example": "The artist showed her portfolio to several galleries before finding one willing to display her work.",
+        "collocation": "investment portfolio"
+      }
+    ],
+    "13": [
+      {
+        "word": "abbreviate",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "短縮する、略す",
+        "etymology": "ラテン語 abbreviare。ab-+brevis「短い」。",
+        "example": "'Doctor' is often abbreviated to 'Dr.' in writing."
+      },
+      {
+        "word": "attest",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "証明する、証言する",
+        "etymology": "ラテン語 attestari。ad-+testari「証言する」(testis「証人」)。",
+        "example": "Several colleagues can attest to her honesty."
+      },
+      {
+        "word": "carve",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "彫る、切り分ける",
+        "etymology": "古英語 ceorfan「切る」。ゲルマン語起源。",
+        "example": "He carved a small wooden bird for his daughter."
+      },
+      {
+        "word": "yield",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "産出する、譲る、屈する",
+        "etymology": "古英語 gieldan「支払う、報いる」。ゲルマン語起源。",
+        "example": "The field yielded a record harvest this year."
+      }
+    ],
+    "14": [
+      {
+        "word": "radiate",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "放射する、輝く",
+        "etymology": "ラテン語 radiare(radius「光線、車輪の輻」)から。",
+        "example": "The stove radiated heat throughout the small cabin."
+      },
+      {
+        "word": "magnify",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "拡大する",
+        "etymology": "ラテン語 magnificare。magnus「大きい」+ facere「作る」。",
+        "example": "The microscope can magnify a cell up to a thousand times its actual size."
+      },
+      {
+        "word": "extract",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "抽出する、引き出す",
+        "etymology": "ラテン語 extrahere。ex-「外へ」+ trahere「引く」。",
+        "example": "The dentist had to extract two of his wisdom teeth."
+      },
+      {
+        "word": "impart",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "伝える、分け与える",
+        "etymology": "ラテン語 impartire。in-+pars「部分」。",
+        "example": "The old teacher tried to impart his wisdom to the younger staff."
+      }
+    ],
+    "15": [
+      {
+        "word": "sank in",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "徐々に理解される、しみ込む",
+        "etymology": "sink(古英語 sincan「沈む」)+ in。",
+        "example": "It took a few days for the bad news to sink in."
+      },
+      {
+        "word": "let out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "外に出す、(秘密などを)漏らす、(声を)発する",
+        "etymology": "let「許す」+ out。",
+        "example": "She let out a scream when she saw the spider."
+      },
+      {
+        "word": "went under",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "倒産する、沈む",
+        "etymology": "go「行く」+ under。",
+        "example": "Many small shops went under during the economic downturn."
+      },
+      {
+        "word": "lived off",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "〜に頼って生活する",
+        "etymology": "live「生活する」+ off。",
+        "example": "He lived off his savings for almost a year after losing his job."
+      }
+    ],
+    "16": [
+      {
+        "word": "add up",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "合計する、つじつまが合う",
+        "etymology": "add「加える」+ up。",
+        "example": "His story just doesn't add up; something is missing."
+      },
+      {
+        "word": "read into",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "〜を深読みする、〜に別の意味を見出す",
+        "etymology": "read「読む」+ into。",
+        "example": "Don't read too much into his silence; he's probably just tired."
+      },
+      {
+        "word": "take off",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "離陸する、急成長する、脱ぐ",
+        "etymology": "take「取る」+ off。",
+        "example": "Sales took off after the product was featured on TV."
+      },
+      {
+        "word": "fall out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "仲たがいする、抜け落ちる",
+        "etymology": "fall「落ちる」+ out。",
+        "example": "The two old friends fell out over a business disagreement."
+      }
+    ],
+    "17": [
+      {
+        "word": "slip away",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "こっそり立ち去る、過ぎ去る",
+        "etymology": "slip「滑る、こっそり動く」+ away。",
+        "example": "He slipped away from the party without saying goodbye."
+      },
+      {
+        "word": "tear up",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "引き裂く、(契約などを)破棄する",
+        "etymology": "tear「引き裂く」+ up。",
+        "example": "She tore up the letter without reading it."
+      },
+      {
+        "word": "drop out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "中途退学する、脱落する",
+        "etymology": "drop「落ちる」+ out。",
+        "example": "He dropped out of college to start his own business."
+      },
+      {
+        "word": "follow up",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "追跡調査する、フォローアップする",
+        "etymology": "follow「従う」+ up。",
+        "example": "The doctor asked me to follow up with a blood test in a month."
+      }
+    ],
+    "18": [
+      {
+        "word": "fed off",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "〜を糧にする、〜を食べて生きる",
+        "etymology": "feed「食べさせる、食べる」+ off。",
+        "example": "The rumor fed off people's fear and spread quickly."
+      },
+      {
+        "word": "burnt out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "燃え尽きる、疲れ果てる",
+        "etymology": "burn「燃える」+ out。",
+        "example": "She felt completely burnt out after months of overtime work."
+      },
+      {
+        "word": "fell through",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "(計画などが)だめになる、失敗に終わる",
+        "etymology": "fall「落ちる」+ through。",
+        "example": "Our vacation plans fell through when the flight was canceled."
+      },
+      {
+        "word": "ate up",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "食い尽くす、(時間・お金などを)大量に消費する",
+        "etymology": "eat「食べる」+ up。",
+        "example": "The long commute ate up two hours of his day."
+      }
+    ]
+  }
+}

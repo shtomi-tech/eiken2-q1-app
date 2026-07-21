@@ -1,0 +1,622 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2025-2",
+    "note": "大問1(語彙)のフラッシュカード用データ。meaning/etymology/example/pos/collocationはエージェントが新規作成したもので、英検公式の語彙集ではない。語義は入試問題での用法に基づく。語源はLatin/Greek/Old Englishなどの通説を簡略化して記載し、確信が持てないものはetymologyUncertain:trueを付けて要確認としている。発音記号(ipa)は誤記のリスクを避けるため収録していない。"
+  },
+  "part1": {
+    "1": [
+      {
+        "word": "stocky",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "がっしりした、ずんぐりした",
+        "etymology": "stock(古英語 stocc「木の幹」)+ -y。幹のようにがっしりした体格から。",
+        "example": "He has a stocky build from years of weight training."
+      },
+      {
+        "word": "cheery",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "陽気な、明るい",
+        "etymology": "cheer(古フランス語 chiere「顔つき、表情」)+ -y。",
+        "example": "She greeted everyone with a cheery smile."
+      },
+      {
+        "word": "ambitious",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "野心的な、意欲的な",
+        "etymology": "ラテン語 ambitiosus。ambire「(票を求めて)歩き回る」から。",
+        "example": "He set an ambitious goal of finishing the marathon in under four hours."
+      },
+      {
+        "word": "remote",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "遠隔の、へんぴな",
+        "etymology": "ラテン語 remotus(removere「取り除く」の過去分詞)から。",
+        "example": "They live in a remote village with no paved roads."
+      }
+    ],
+    "2": [
+      {
+        "word": "commendable",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "称賛に値する",
+        "etymology": "ラテン語 commendare「委ねる、推薦する」。com-+mandare「命じる」。",
+        "example": "Her effort to help the new students was commendable."
+      },
+      {
+        "word": "impressionable",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "感化されやすい、影響を受けやすい",
+        "etymology": "impression(ラテン語 imprimere「押し付ける」)+ -able。",
+        "example": "Children are highly impressionable and often copy what they see on TV."
+      },
+      {
+        "word": "audible",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "聞き取れる、可聴の",
+        "etymology": "ラテン語 audire「聞く」+ -ible。",
+        "example": "Her voice was barely audible over the noise of the crowd."
+      },
+      {
+        "word": "eligible",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "資格のある、適格な",
+        "etymology": "ラテン語 eligere「選び出す」。e-+legere「選ぶ、集める」。",
+        "example": "You must be over eighteen to be eligible to vote."
+      }
+    ],
+    "3": [
+      {
+        "word": "invaders",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "侵略者",
+        "etymology": "ラテン語 invadere「侵入する」。in-+vadere「行く」。",
+        "example": "The castle walls were built to keep out invaders."
+      },
+      {
+        "word": "commuters",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "通勤者",
+        "etymology": "commute(ラテン語 commutare「すっかり変える」、運賃をまとめて定額にする意味から発達)+ -er。",
+        "example": "The train was packed with commuters heading into the city."
+      },
+      {
+        "word": "composers",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "作曲家",
+        "etymology": "ラテン語 componere「組み立てる」。com-+ponere「置く」。",
+        "example": "Beethoven is one of the most famous composers in history."
+      },
+      {
+        "word": "installers",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "設置業者",
+        "etymology": "install(中世ラテン語 installare。in-+stallum「席」)+ -er。",
+        "example": "The installers spent the whole day setting up the new kitchen."
+      }
+    ],
+    "4": [
+      {
+        "word": "commission",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "委託、委員会、手数料",
+        "etymology": "ラテン語 commissio「委ねること」。committere「委ねる」から。",
+        "example": "The artist received a commission to paint a mural for the new library."
+      },
+      {
+        "word": "script",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "台本、脚本",
+        "etymology": "ラテン語 scriptum「書かれたもの」(scribere「書く」)から。",
+        "example": "The actors rehearsed the script for weeks before the performance."
+      },
+      {
+        "word": "fragment",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "断片、破片",
+        "etymology": "ラテン語 fragmentum「砕かれた一片」(frangere「壊す」)から。",
+        "example": "Archaeologists found a fragment of ancient pottery at the site."
+      },
+      {
+        "word": "molecule",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "分子",
+        "etymology": "フランス語 molécule。近代ラテン語 molecula(ラテン語 moles「かたまり」の指小形)から。",
+        "example": "A water molecule consists of two hydrogen atoms and one oxygen atom."
+      }
+    ],
+    "5": [
+      {
+        "word": "virtue",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "美徳、長所",
+        "etymology": "ラテン語 virtus「勇敢さ、卓越性」(vir「男」)から。",
+        "example": "Patience is considered a virtue in many cultures."
+      },
+      {
+        "word": "fatigue",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "疲労",
+        "etymology": "フランス語 fatigue。ラテン語 fatigare「疲れさせる」から。",
+        "example": "After the long flight, she was overcome with fatigue."
+      },
+      {
+        "word": "oversight",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "見落とし、監督",
+        "etymology": "over-+sight。「見過ごすこと」と「監督すること」の両方の意味が同じ語から発達した。",
+        "example": "The mistake in the report was a simple oversight, not intentional."
+      },
+      {
+        "word": "perception",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "認識、知覚",
+        "etymology": "ラテン語 percipere「しっかり捉える、理解する」。per-+capere「取る」。",
+        "example": "Public perception of the new policy has changed significantly."
+      }
+    ],
+    "6": [
+      {
+        "word": "indifferently",
+        "isAnswer": false,
+        "pos": "副詞",
+        "meaning": "無関心に",
+        "etymology": "in-「否定」+ different(ラテン語 differre)+ -ly。",
+        "example": "He shrugged indifferently when asked about the results."
+      },
+      {
+        "word": "appealingly",
+        "isAnswer": false,
+        "pos": "副詞",
+        "meaning": "魅力的に",
+        "etymology": "appeal(ラテン語 appellare「呼びかける」)+ -ing + -ly。",
+        "example": "The dessert was arranged appealingly on the plate."
+      },
+      {
+        "word": "abruptly",
+        "isAnswer": true,
+        "pos": "副詞",
+        "meaning": "突然に、ぶっきらぼうに",
+        "etymology": "ラテン語 abruptus「断ち切られた」(abrumpere、ab-+rumpere「破る」)から。",
+        "example": "The meeting ended abruptly when the fire alarm went off."
+      },
+      {
+        "word": "timidly",
+        "isAnswer": false,
+        "pos": "副詞",
+        "meaning": "おずおずと、臆病に",
+        "etymology": "ラテン語 timidus「臆病な」(timere「恐れる」)から。",
+        "example": "The new student timidly raised her hand to answer the question."
+      }
+    ],
+    "7": [
+      {
+        "word": "clarify",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "明確にする",
+        "etymology": "ラテン語 clarificare。clarus「明るい、明確な」+ facere「作る」。",
+        "example": "Could you clarify what you meant by that comment?"
+      },
+      {
+        "word": "implement",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "実行する、実施する",
+        "etymology": "ラテン語 implere「満たす、成し遂げる」。in-+plere「満たす」。",
+        "example": "The school plans to implement a new grading system next year."
+      },
+      {
+        "word": "tolerate",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "我慢する、容認する",
+        "etymology": "ラテン語 tolerare「耐える」から。",
+        "example": "The teacher would not tolerate any form of bullying in her classroom."
+      },
+      {
+        "word": "humiliate",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "屈辱を与える",
+        "etymology": "ラテン語 humiliare「低くする」(humilis「低い、謙虚な」、humus「地面」)から。",
+        "example": "He felt humiliated after tripping in front of the whole class."
+      }
+    ],
+    "8": [
+      {
+        "word": "massive",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "巨大な、大規模な",
+        "etymology": "フランス語 massif。ラテン語 massa「かたまり」から。",
+        "example": "A massive crowd gathered to watch the fireworks."
+      },
+      {
+        "word": "amusing",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "面白い、愉快な",
+        "etymology": "フランス語 amuser「楽しませる、気をそらす」。a-+muser「じっと見つめる」。",
+        "example": "He told an amusing story about his trip to Italy."
+      },
+      {
+        "word": "graceful",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "優雅な",
+        "etymology": "grace(ラテン語 gratia「魅力、恩恵」、gratus「喜ばしい」)+ -ful。",
+        "example": "The dancer moved across the stage with graceful, fluid movements."
+      },
+      {
+        "word": "hesitant",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "ためらいがちな",
+        "etymology": "ラテン語 haesitare「立ち止まる、ためらう」(haerere「くっつく」の反復形)から。",
+        "example": "She was hesitant to share her opinion in front of so many people."
+      }
+    ],
+    "9": [
+      {
+        "word": "outlaw",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "非合法化する、禁止する",
+        "etymology": "古ノルド語 utlagi「法の外にある者」。ut「外」+ lagu「法」。",
+        "example": "The city voted to outlaw single-use plastic bags."
+      },
+      {
+        "word": "elevate",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "高める、昇進させる",
+        "etymology": "ラテン語 elevare。e-「外へ」+ levare「持ち上げる」(levis「軽い」)。",
+        "example": "Regular exercise can elevate your mood."
+      },
+      {
+        "word": "plead",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "懇願する、抗弁する",
+        "etymology": "古フランス語 plaidier「法廷で弁論する」。ラテン語 placitum「決定、合意」から。",
+        "example": "She pleaded with her boss for one more chance."
+      },
+      {
+        "word": "accommodate",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "収容する、対応する、便宜を図る",
+        "etymology": "ラテン語 accommodare。ad-+commodare「適合させる」(commodus「都合の良い」)。",
+        "example": "The hotel can accommodate up to three hundred guests."
+      }
+    ],
+    "10": [
+      {
+        "word": "alleged",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "申し立てられた、疑惑の",
+        "etymology": "アングロフレンチ語 alegier。後にラテン語 allegare「証拠として持ち出す」と混同されて意味が発達した。",
+        "example": "The alleged thief was arrested near the scene.",
+        "etymologyUncertain": true
+      },
+      {
+        "word": "forthcoming",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "今度の、近づいている、協力的な",
+        "etymology": "forth(古英語 forð「前方へ」)+ coming。",
+        "example": "Details about the forthcoming election will be announced next week."
+      },
+      {
+        "word": "blissful",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "この上なく幸せな",
+        "etymology": "bliss(古英語 bliss、blithe「喜ばしい」と関連)+ -ful。",
+        "example": "They spent a blissful week relaxing on the beach."
+      },
+      {
+        "word": "fainthearted",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "臆病な、気弱な",
+        "etymology": "faint(古フランス語 feint「弱った、偽った」、feindre から)+ hearted。",
+        "example": "This roller coaster is not for the fainthearted."
+      }
+    ],
+    "11": [
+      {
+        "word": "sinister",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "不吉な、邪悪な",
+        "etymology": "ラテン語 sinister「左の」。左側は古来不吉とされたことから意味が発展した。",
+        "example": "There was something sinister about the way he smiled."
+      },
+      {
+        "word": "indebted",
+        "isAnswer": true,
+        "pos": "形容詞",
+        "meaning": "恩義がある、借りがある",
+        "etymology": "in-+debt(ラテン語 debitum、debere「借りている」)+ -ed。",
+        "example": "I'm deeply indebted to my mentor for all the guidance she gave me."
+      },
+      {
+        "word": "perilous",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "危険な",
+        "etymology": "ラテン語 periculum「危険、試練」+ -ous。",
+        "example": "The climbers faced a perilous journey up the icy mountain."
+      },
+      {
+        "word": "doomed",
+        "isAnswer": false,
+        "pos": "形容詞",
+        "meaning": "運命づけられた、破滅する運命の",
+        "etymology": "古英語 dom「判断、裁き」+ -ed。",
+        "example": "Critics said the project was doomed to fail from the start."
+      }
+    ],
+    "12": [
+      {
+        "word": "appoint",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "任命する",
+        "etymology": "古フランス語 apointer「取り決める」。a point「ある点に」から。",
+        "example": "The board voted to appoint her as the new director."
+      },
+      {
+        "word": "import",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "輸入する",
+        "etymology": "ラテン語 importare。in-+portare「運ぶ」。",
+        "example": "The country imports most of its oil from abroad."
+      },
+      {
+        "word": "acquaint",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "知らせる、慣れさせる",
+        "etymology": "古フランス語 acointier。ラテン語 accognitare「知らせる」(ad-+cognoscere「知る」)から。",
+        "example": "Let me acquaint you with the new office procedures."
+      },
+      {
+        "word": "escort",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "護衛する、付き添う",
+        "etymology": "フランス語 escorte。イタリア語 scorta(scorgere「導く、見分ける」)から。",
+        "example": "Security guards escorted the celebrity through the crowd."
+      }
+    ],
+    "13": [
+      {
+        "word": "aggression",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "攻撃(性)、侵略",
+        "etymology": "ラテン語 aggredi「近づく、攻撃する」。ad-+gradi「歩く」。",
+        "example": "The country was condemned for its acts of aggression against its neighbor."
+      },
+      {
+        "word": "substitute",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "代用品、代理人",
+        "etymology": "ラテン語 substituere。sub-「下に」+ statuere「立てる」。",
+        "example": "She used a sugar substitute in her coffee."
+      },
+      {
+        "word": "relegation",
+        "isAnswer": false,
+        "pos": "名詞",
+        "meaning": "降格",
+        "etymology": "ラテン語 relegare「追いやる」。re-+legare「委任して送る」。",
+        "example": "The team's poor performance led to their relegation to a lower division."
+      },
+      {
+        "word": "batch",
+        "isAnswer": true,
+        "pos": "名詞",
+        "meaning": "一まとめ、一団、ひと窯分",
+        "etymology": "古英語 bæcce「焼かれたもの」。bake と同系。",
+        "example": "She baked a fresh batch of cookies for the school fair."
+      }
+    ],
+    "14": [
+      {
+        "word": "dehydrated",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "脱水した(dehydrate)",
+        "etymology": "de-「除去」+ hydrate(ギリシャ語 hydor「水」)。",
+        "example": "He felt dehydrated after running in the summer heat without drinking water."
+      },
+      {
+        "word": "evoked",
+        "isAnswer": true,
+        "pos": "動詞",
+        "meaning": "呼び起こした、想起させた(evoke)",
+        "etymology": "ラテン語 evocare。e-「外へ」+ vocare「呼ぶ」。",
+        "example": "The old song evoked memories of her childhood."
+      },
+      {
+        "word": "acquired",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "取得した、身につけた(acquire)",
+        "etymology": "ラテン語 acquirere。ad-+quaerere「求める」。",
+        "example": "She acquired fluency in French after living in Paris for two years."
+      },
+      {
+        "word": "posed",
+        "isAnswer": false,
+        "pos": "動詞",
+        "meaning": "ポーズをとった、(問題を)引き起こした(pose)",
+        "etymology": "フランス語 poser「置く」。ラテン語 pausare「休止する」と ponere「置く」が混ざって発達した。",
+        "example": "The new policy posed a serious challenge for small businesses."
+      }
+    ],
+    "15": [
+      {
+        "word": "take in",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "理解する、取り込む、だます",
+        "etymology": "take「取る」+ in。",
+        "example": "It's a lot of information to take in at once."
+      },
+      {
+        "word": "even out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "均等になる、平らにする",
+        "etymology": "even「平らな」+ out。",
+        "example": "House prices tend to even out over the long term."
+      },
+      {
+        "word": "figure on",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "〜を見込む、当てにする",
+        "etymology": "figure「見積もる」+ on。",
+        "example": "We didn't figure on so many people showing up to the event."
+      },
+      {
+        "word": "make do",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "何とかやりくりする",
+        "etymology": "make「する」+ do。",
+        "example": "We didn't have any butter, so we had to make do with oil instead."
+      }
+    ],
+    "16": [
+      {
+        "word": "hold out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "持ちこたえる、要求を拒み続ける",
+        "etymology": "hold「保つ」+ out。",
+        "example": "The supplies should hold out for another week."
+      },
+      {
+        "word": "shoot down",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "(提案などを)却下する、撃墜する",
+        "etymology": "shoot「撃つ」+ down。",
+        "example": "The committee shot down his proposal almost immediately."
+      },
+      {
+        "word": "get over",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "(病気・ショックなどから)立ち直る",
+        "etymology": "get「至る」+ over。",
+        "example": "It took her months to get over the loss of her job."
+      },
+      {
+        "word": "snap up",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "すぐに買う、素早く手に入れる",
+        "etymology": "snap「ぱっとつかむ」+ up。",
+        "example": "Shoppers snapped up the discounted items within minutes."
+      }
+    ],
+    "17": [
+      {
+        "word": "tune up",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "調整する、調律する",
+        "etymology": "tune「調律する」+ up。",
+        "example": "The mechanic tuned up the engine before the long trip."
+      },
+      {
+        "word": "touch on",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "〜に軽く触れる、言及する",
+        "etymology": "touch「触れる」+ on。",
+        "example": "The lecture briefly touched on the economic effects of the policy."
+      },
+      {
+        "word": "tear down",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "取り壊す",
+        "etymology": "tear「引き裂く」+ down。",
+        "example": "The old stadium was torn down to make way for a new one."
+      },
+      {
+        "word": "free up",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "(時間・資金などを)確保する、空ける",
+        "etymology": "free「自由にする」+ up。",
+        "example": "Automating the process freed up more time for creative work."
+      }
+    ],
+    "18": [
+      {
+        "word": "get down",
+        "isAnswer": true,
+        "pos": "句動詞",
+        "meaning": "取りかかる、(気分を)滅入らせる",
+        "etymology": "get「至る」+ down。",
+        "example": "Let's get down to business and discuss the budget."
+      },
+      {
+        "word": "round out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "完全なものにする、締めくくる",
+        "etymology": "round「丸くする」+ out。",
+        "example": "A dessert would round out the meal nicely."
+      },
+      {
+        "word": "die away",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "次第に消えていく、弱まる",
+        "etymology": "die「消える」+ away。",
+        "example": "The sound of the music slowly died away in the distance."
+      },
+      {
+        "word": "lay out",
+        "isAnswer": false,
+        "pos": "句動詞",
+        "meaning": "配置する、説明する、(お金を)使う",
+        "etymology": "lay「置く」+ out。",
+        "example": "The manager laid out the plan for the next quarter."
+      }
+    ]
+  }
+}

@@ -3,7 +3,10 @@
     "grade": "準1級",
     "round": "2026-1",
     "label": "英検準1級 2026年度第1回",
-    "source": "英検公式の過去問をローカル学習用に構造化"
+    "source": "英検公式の過去問をローカル学習用に構造化",
+    "note": "writing[].referenceAnswerはエージェントが新規作成した参考解答(公式模範解答ではない)。要約は本文の記述のみを根拠にパラフレーズし、英作文は理由2点の意見文として作成。",
+    "listeningNote": "listening[].script/question/tipsはlistening-script.pdfから抽出・エージェントが整形したもの(公式配布物そのものではない)。start/endはPart1・2のみ音声の無音区間から算出(Part3は解答時間と読解時間の無音が入り組み精度を確認できなかったため未設定、Part単位の音声をそのまま再生する)。",
+    "q3Note": "reading.part3[].paragraphs/questions[].evidence,explanation,translation/summaryはエージェントが新規作成したもの(英検公式の解答・和訳ではない)。paragraphsの英文自体は公式過去問の本文をそのまま文単位に分割しただけで、書き換えていない。和訳・解説・要約はエージェントによる翻訳・要約であり、内容の解釈には確認の余地がありうる。"
   },
   "reading": {
     "part1": [
@@ -91,7 +94,7 @@
           "nutritious",
           "diverse",
           "barren",
-          "coincidental To complete each item, choose the best word or phrase from among the four choices. Then, on your answer sheet, find the number of the question and mark your answer."
+          "coincidental"
         ],
         "answerIndex": 2
       },
@@ -295,7 +298,15 @@
               "The construction of canals for agricultural use could not keep up with the needs of a growing population.",
               "It lost out on the most profitable trade deals because it reserved too much of its crop harvests for its own population."
             ],
-            "answerIndex": 1
+            "answerIndex": 1,
+            "evidence": {
+              "paragraph": 0,
+              "sentences": [
+                4
+              ]
+            },
+            "explanation": "第1段落では、灌漑技術によって余剰食料を生み出せたことが、ウルクの急成長を支えた重要な要因として説明されている。選択肢2はこの「必要以上の食料を生産できたこと」を的確に言い換えている。",
+            "translation": "この文章の著者は、ウルクの発展について何と述べているか。\n1 農業効率を高めた技術的進歩がなくても、急速な進歩は可能だっただろう。\n2 重要な特徴の一つは、必要量以上の食料を生産できたことであり、これがより急速な変化を可能にした。\n3 農業用水路の建設は、増加する人口の需要に追いつくことができなかった。\n4 自国の人口のために収穫物を蓄えすぎたため、最も利益の大きい交易の機会を逃した。"
           },
           {
             "q": 26,
@@ -306,7 +317,15 @@
               "It was first developed for religious purposes but was later adopted for use in commerce and government.",
               "It provided Uruk with a means to help manage the administration of its increasingly complex society."
             ],
-            "answerIndex": 3
+            "answerIndex": 3,
+            "evidence": {
+              "paragraph": 1,
+              "sentences": [
+                4
+              ]
+            },
+            "explanation": "第2段落によれば、楔形文字は次第に洗練され、会計や行政事務に使われるようになり、複雑化する都市の統治を助けた。選択肢4はこの「複雑化する社会の統治を助ける手段になった」という点を正しくとらえている。",
+            "translation": "楔形文字について分かることの一つは何か。\n1 その使用がもたらした利点は、ウルクが競合都市に対して優位を保つには十分ではなかった。\n2 ウルクの発展に役立つ用途はあったが、複雑な行政事務にはあまり適していなかった。\n3 最初は宗教目的で発達したが、後に商業や統治の場でも採用された。\n4 増々複雑化する社会の統治を助ける手段を、ウルクにもたらした。"
           },
           {
             "q": 27,
@@ -317,9 +336,159 @@
               "The Akkadians had to destroy much of the wall and stone buildings in order to defeat Uruk.",
               "Uruk's decline can be attributed to the fact that neighboring Sumerian cities created alliances with the Akkadians."
             ],
-            "answerIndex": 0
+            "answerIndex": 0,
+            "evidence": {
+              "paragraph": 2,
+              "sentences": [
+                3
+              ]
+            },
+            "explanation": "最終段落では、アッカド人による征服にもかかわらず、ウルクの宗教地区は尊重・保護されたと述べられている。選択肢1はこの内容と一致する。",
+            "translation": "最終段落に基づくと、次のうちどの記述が正しいか。\n1 シュメール地方は外部勢力に攻撃され打ち破られたが、ウルクの宗教的遺産は破壊されなかった。\n2 ウルクは宗教建築や芸術技法の一部を、シュメールの近隣都市から取り入れた。\n3 アッカド人はウルクを打ち破るために、城壁や石造建築物の多くを破壊しなければならなかった。\n4 ウルクの衰退は、近隣のシュメール諸都市がアッカド人と同盟を結んだことに起因する。"
           }
-        ]
+        ],
+        "paragraphs": [
+          {
+            "sentences": [
+              "The ancient settlement of Uruk was located in a fertile delta between the Tigris and Euphrates rivers in the region of Sumer, in what is now southern Iraq.",
+              "Uruk began life as a village.",
+              "However, toward the end of the fourth millennium BC, it had developed to such an extent that some historians consider it the world's first city.",
+              "Behind this remarkable growth were several factors, including technological advancements that increased agricultural efficiency, such as the construction of irrigation canals to funnel water to fields and orchards.",
+              "These advances not only allowed Uruk to support a growing population but also to create a surplus, which could then be traded.",
+              "Expansion continued, and by the third millennium BC, Uruk was thriving as a Sumerian cultural and religious center, a military power, and the hub of a trade network."
+            ],
+            "translation": "古代の集落ウルクは、現在のイラク南部にあたるシュメール地方、ティグリス川とユーフラテス川の間の肥沃なデルタ地帯に位置していた。ウルクは一つの村として始まった。しかし、紀元前4千年紀の終わりごろまでには、一部の歴史家が世界最初の都市とみなすほどに発展していた。この著しい成長の背景には、灌漑用水路を建設して畑や果樹園に水を引くなど、農業効率を高めた技術的進歩を含むいくつかの要因があった。こうした進歩により、ウルクは増加する人口を支えられただけでなく、交易に回せる余剰も生み出せるようになった。拡大は続き、紀元前3千年紀までには、ウルクはシュメールの文化・宗教の中心地、軍事大国、そして交易網の中心として繁栄していた。"
+          },
+          {
+            "sentences": [
+              "As Uruk grew, it helped shape the political and cultural landscape of the Sumer region, influencing other cities that developed around the same period.",
+              "Various other developments helped Uruk evolve into the sophisticated city it became, including its early use of cuneiform script.",
+              "The script was mainly written on clay tablets, many of which survive to this day.",
+              "In its early form, it was relatively simple, with pictures representing goods, but it allowed for rudimentary recordkeeping.",
+              "The writing system gradually became more sophisticated and was used for accounting and general administrative matters, which helped facilitate the governance of the increasingly complex city.",
+              "Over time, the script was used in the Sumer region to keep records in fields such as economics, politics, and religion."
+            ],
+            "translation": "ウルクは成長するにつれて、シュメール地方の政治・文化の枠組みを形作る一助となり、同時期に発展した他の都市にも影響を与えた。楔形文字の早期使用を含む、他のさまざまな発展がウルクを洗練された都市へと進化させた。この文字は主に粘土板に書かれ、その多くが現在まで残っている。初期の形態では、品物を表す絵を用いた比較的単純なものだったが、簡単な記録を残すことはできた。この書記体系は次第に洗練され、会計や一般的な行政事務に用いられるようになり、複雑化する都市の統治を助けた。やがて、この文字はシュメール地方で経済・政治・宗教といった分野の記録を残すためにも使われるようになった。"
+          },
+          {
+            "sentences": [
+              "However, Uruk's dominant position was not to last forever.",
+              "Uruk had competed with neighboring Sumerian cities for hundreds of years, leaving them all vulnerable to forces from other regions.",
+              "In the latter half of the third millennium BC, the Akkadians conquered much of Sumer.",
+              "Despite this conquest, Uruk's religious districts were respected and protected, and after Akkadian rule came to an end, a renaissance of Sumerian culture occurred.",
+              "Although later conflicts and invasions meant that Uruk would not return to its earlier heights, it remained an important city for many centuries to come.",
+              "Archaeological excavations have revealed an immense city wall, sculptures, artworks, large stone buildings decorated with mosaics, and numerous pyramidlike structures called ziggurats that were topped with temples all of which point to the historical significance of Uruk."
+            ],
+            "translation": "しかし、ウルクの優位な立場は永遠には続かなかった。ウルクは近隣のシュメール諸都市と何百年にもわたって競い合っており、そのためどの都市も他地域からの勢力に対して脆弱になっていた。紀元前3千年紀の後半、アッカド人がシュメールの大部分を征服した。この征服にもかかわらず、ウルクの宗教地区は尊重され保護され、アッカドの支配が終わった後にはシュメール文化の復興が起こった。その後の紛争や侵略により、ウルクがかつての高みに戻ることはなかったものの、その後も長きにわたって重要な都市であり続けた。考古学的発掘により、巨大な市壁、彫刻、美術品、モザイクで装飾された大きな石造建築物、そして神殿を頂く数多くのジッグラト(階段状の塔)が発見されており、これらすべてがウルクの歴史的重要性を物語っている。"
+          }
+        ],
+        "summary": {
+          "sections": [
+            {
+              "label": "¶1 ウルクの成長",
+              "lines": [
+                [
+                  "ウルクは、シュメール地方の肥沃なデルタ地帯に位置する村として始まった。"
+                ],
+                [
+                  "灌漑技術による農業効率の向上で、人口を支えるだけでなく",
+                  {
+                    "blank": 1
+                  },
+                  "も生み出せるようになった。"
+                ]
+              ]
+            },
+            {
+              "label": "¶2 楔形文字",
+              "lines": [
+                [
+                  "楔形文字は当初、",
+                  {
+                    "blank": 2
+                  },
+                  "単純な記録手段だった。"
+                ],
+                [
+                  "次第に洗練され、",
+                  {
+                    "blank": 3
+                  },
+                  "にも使われるようになった。"
+                ]
+              ]
+            },
+            {
+              "label": "¶3 衰退と遺産",
+              "lines": [
+                [
+                  "アッカド人による征服後も、ウルクの",
+                  {
+                    "blank": 4
+                  },
+                  "は保護された。"
+                ],
+                [
+                  "考古学的発掘により、市壁や",
+                  {
+                    "blank": 5
+                  },
+                  "などが発見され、歴史的重要性を示している。"
+                ]
+              ]
+            }
+          ],
+          "blanks": [
+            {
+              "id": 1,
+              "answer": "交易に回せる余剰食料",
+              "accepted": [
+                "交易に回せる余剰食料",
+                "余剰食料",
+                "交易できる余剰"
+              ]
+            },
+            {
+              "id": 2,
+              "answer": "品物を表す絵を使った",
+              "accepted": [
+                "品物を表す絵を使った",
+                "絵を使った単純な記録"
+              ]
+            },
+            {
+              "id": 3,
+              "answer": "会計や行政事務",
+              "accepted": [
+                "会計や行政事務",
+                "会計や統治の記録"
+              ]
+            },
+            {
+              "id": 4,
+              "answer": "宗教地区",
+              "accepted": [
+                "宗教地区",
+                "宗教施設"
+              ]
+            },
+            {
+              "id": 5,
+              "answer": "ジッグラト",
+              "accepted": [
+                "ジッグラト",
+                "階段状の塔"
+              ]
+            }
+          ],
+          "distractors": [
+            "軍事同盟",
+            "文字が読めない住民",
+            "近隣都市との合併",
+            "水不足",
+            "貨幣経済の導入"
+          ]
+        }
       },
       {
         "id": "2",
@@ -335,7 +504,16 @@
               "It demonstrated that the way that mice communicated with each other was more sophisticated than had previously been believed.",
               "It indicates that mice may actually have a form of intelligence that researchers were not aware of in the past."
             ],
-            "answerIndex": 1
+            "answerIndex": 1,
+            "evidence": {
+              "paragraph": 0,
+              "sentences": [
+                3,
+                4
+              ]
+            },
+            "explanation": "第1段落では、FOXP2遺伝子を持つマウスは記憶力という知能の一要素が向上した一方、この研究はまだ初歩的な段階であり、知能には多数の遺伝子が関わるため克服すべき課題が多いと述べられている。選択肢2はこの内容と一致する。",
+            "translation": "FOXP2遺伝子に関する研究について分かることの一つは何か。\n1 マウスの記憶力への影響はわずかだったため、マウスの知能全体が向上したとは言えない。\n2 マウスの知能の一要素には影響を与えたが、これはおそらく複雑な過程の初期の一歩に過ぎない。\n3 マウスどうしのコミュニケーションの方法が、以前考えられていたより高度であることを示した。\n4 マウスが、研究者がこれまで気づいていなかった種類の知能を実際に持っている可能性を示している。"
           },
           {
             "q": 29,
@@ -346,7 +524,16 @@
               "Attempts to increase an animal's intelligence could interfere with other important aspects of the animal's biology.",
               "While it is possible to slightly increase animal intelligence, it is not likely that it will be inherited by an animal's offspring."
             ],
-            "answerIndex": 2
+            "answerIndex": 2,
+            "evidence": {
+              "paragraph": 1,
+              "sentences": [
+                3,
+                5
+              ]
+            },
+            "explanation": "第2段落では、脳の大きい魚の子は消化器官が小さくなり、産む子の数も少なくなったことが述べられており、知能を高めようとする試みが他の身体的特徴に影響しうることを示している。選択肢3が一致する。",
+            "translation": "魚の実験は、動物アップリフトの試みについて何を示しているか。\n1 動物がどれだけ賢くなれるかには限界があり、どれだけ交配を重ねてもそれを超えることはできない。\n2 動物の知能を高めようとする試みが、意図とは逆の効果をもたらす可能性がある。\n3 動物の知能を高めようとする試みは、その動物の生物学的な他の重要な側面に影響を及ぼす可能性がある。\n4 動物の知能をわずかに高めることは可能だが、それが子孫に受け継がれる可能性は低い。"
           },
           {
             "q": 30,
@@ -357,7 +544,15 @@
               "there are likely to be more risks in performing operations on animals' brains due to our lack of knowledge about how they function.",
               "there is a significant risk that the effects of the procedure could reduce the survival instincts of animals that receive it."
             ],
-            "answerIndex": 0
+            "answerIndex": 0,
+            "evidence": {
+              "paragraph": 2,
+              "sentences": [
+                3
+              ]
+            },
+            "explanation": "第3段落では、動物アップリフトの倫理的問題として、動物が事前に処置への同意を与えることができない点が挙げられている。選択肢1が一致する。",
+            "translation": "第3段落で示されている、動物アップリフトに反対する論拠の一つは何か。\n1 動物は自分の身に何が起ころうとしているかに同意することができないため、行うべきではない。\n2 動物の行動に大きな変化をもたらし、それが環境に悪影響を及ぼす可能性がある。\n3 脳の働きについての知識が不足しているため、動物の脳に対する手術のリスクがより大きくなる可能性が高い。\n4 その処置を受けた動物の生存本能を低下させる重大なリスクがある。"
           },
           {
             "q": 31,
@@ -366,11 +561,165 @@
               "Humans need to develop better types of surgical procedures so that we do not harm animals when trying to uplift them.",
               "It is likely that the same medical advances that are used to uplift animals will also help them to live longer, healthier lives.",
               "Humans should develop the technology necessary for uplifting animals before we consider whether it is right to do so or not.",
-              "If humans use animals in the process of increasing our own intelligence, that would increase our obligation to uplift them. This is the end of the Reading Test. Please continue to the next page and complete the Writing Test."
+              "If humans use animals in the process of increasing our own intelligence, that would increase our obligation to uplift them."
             ],
-            "answerIndex": 3
+            "answerIndex": 3,
+            "evidence": {
+              "paragraph": 3,
+              "sentences": [
+                1,
+                2
+              ]
+            },
+            "explanation": "第4段落でドヴォルスキーは、人間が自らの知能を高めるためにも動物が犠牲にされるだろうと述べ、それゆえ動物への技術提供を拒むことは非倫理的だと論じている。これは、人間が動物を利用するなら動物への義務も増すという考え方であり、選択肢4と一致する。",
+            "translation": "ジョージ・ドヴォルスキーは動物アップリフトについてどう考えているか。\n1 動物をアップリフトしようとする際に傷つけないよう、人間はより優れた外科手術の技術を開発する必要がある。\n2 動物をアップリフトするために使われるのと同じ医学的進歩が、動物がより長く健康的な生活を送る助けにもなる可能性が高い。\n3 人間は、動物をアップリフトすることが正しいかどうかを検討する前に、そのために必要な技術を開発すべきだ。\n4 人間が自らの知能を高める過程で動物を利用するなら、それは人間が動物をアップリフトする義務を増すことになる。"
           }
-        ]
+        ],
+        "paragraphs": [
+          {
+            "sentences": [
+              "While the concept of artificially increasing animal intelligence through technology once seemed like science fiction, recent advances suggest it may be achievable.",
+              "One promising approach for doing so is genetic manipulation.",
+              "For instance, in 2014, researchers discovered that a human gene called FOXP2 was related to acquiring language skills in humans.",
+              "When mice were genetically altered to produce it, they were able to learn a route through a maze much more rapidly than their unmodified counterparts, indicating that the gene had significantly enhanced their memory, which is an essential component of intelligence.",
+              "This research is preliminary, however, and intelligence depends on a multitude of genes, so significant technical and ethical hurdles must be overcome before such advancements can be responsibly applied."
+            ],
+            "translation": "テクノロジーによって動物の知能を人為的に高めるという発想は、かつてはSF的なものに思えたが、近年の進歩によりそれが実現可能かもしれないことが示唆されている。そのための有望な方法の一つが遺伝子操作である。例えば2014年、研究者たちはFOXP2と呼ばれるヒトの遺伝子が、人間の言語能力の獲得に関係していることを発見した。この遺伝子を発現するよう遺伝子操作されたマウスは、迷路を通り抜けるルートを、操作されていない個体よりもはるかに速く学習できるようになり、これは知能の重要な構成要素である記憶力がこの遺伝子によって大きく向上したことを示していた。しかし、この研究はまだ初歩的な段階にあり、知能は非常に多くの遺伝子に依存しているため、こうした進歩を責任を持って応用する前には、大きな技術的・倫理的な壁を乗り越えなければならない。"
+          },
+          {
+            "sentences": [
+              "An aspect of animal uplift that needs to be considered is the possibility of unintended outcomes.",
+              "One experiment compared fish with larger brains that were bred together to fish with smaller brains that were bred together.",
+              "The young of the larger brained fish tended to have even bigger brains, and the babies' performance on cognitive tests was superior to that of fish with smaller brains.",
+              "However, the researchers also observed that these fish produced young that had smaller digestive systems, and this in turn seems to have led them to produce fewer offspring.",
+              "This is likely due to the fact that larger brains require substantially more energy.",
+              "As this experiment indicates, trying to boost intelligence may disrupt other physical attributes, leading to consequences that extend beyond the individual animals to entire populations."
+            ],
+            "translation": "動物のアップリフト(能力向上)について考慮すべき点の一つに、意図しない結果が生じる可能性がある。ある実験では、脳の大きい個体同士を交配させた魚と、脳の小さい個体同士を交配させた魚を比較した。脳の大きい魚の子は、さらに脳が大きくなる傾向があり、認知テストの成績も脳の小さい魚の子より優れていた。しかし研究者たちは、これらの魚が消化器官の小さい子を産むことにも気づき、そのためこの魚たちが産む子の数自体が少なくなっているようだと観察した。これはおそらく、脳が大きいほど格段に多くのエネルギーを必要とするためである。この実験が示すように、知能を高めようとする試みは他の身体的特徴を乱す可能性があり、その影響は個体だけでなく個体群全体にまで及びうる。"
+          },
+          {
+            "sentences": [
+              "Furthermore, opponents of animal uplift point out that the process would likely involve surgical procedures on healthy animals.",
+              "There would almost certainly be psychological consequences as well, and an uplifted animal's existence might well be completely transformed.",
+              "A mouse, whose life would normally be a simple matter of survival, could instead be thrust into a confusing, possibly terrifying awareness of how brief its lifespan is and how little control it has over its environment.",
+              "There is also the issue of whether making such radical alterations to an animal's biology could ever be considered ethical, since it would be impossible for the creature to give consent beforehand, especially since the procedures would probably not be reversible."
+            ],
+            "translation": "さらに、動物アップリフトに反対する人々は、その過程には健康な動物への外科的処置がほぼ確実に伴うだろうと指摘する。心理的な影響もほぼ間違いなく生じ、アップリフトされた動物の存在のあり方は完全に変わってしまうかもしれない。本来なら生きることが単なる生存の問題であるはずのマウスが、代わりに、自分の寿命がいかに短いか、自分の環境をいかにコントロールできないかという、混乱を招く、場合によっては恐ろしい自覚に突然投げ込まれるかもしれない。また、動物の生物学的性質にこれほど根本的な改変を加えることが倫理的に許されるのかという問題もある。というのも、その処置はおそらく元に戻せないものであるうえ、当の生き物が事前に同意を与えることは不可能だからである。"
+          },
+          {
+            "sentences": [
+              "George Dvorsky, chairperson of the Institute for Ethics and Emerging Technologies, however, argues that withholding animal uplift is itself unethical.",
+              "Animals have long been sacrificed as test subjects during the creation of new surgical procedures or the development of medicines that have increased human life expectancy, and if humans artificially increase our own intelligence, animals will likely be sacrificed for that as well.",
+              "According to Dvorsky, in light of increased awareness of animal rights and given the tremendous role that animals have played in improving human existence, withholding advances that could improve their intelligence would be just as unethical as withholding them from a group of humans who lack sufficient wealth to afford them.",
+              "While the ability to uplift animals would have undeniable benefits, it is also true that we face an ethical dilemma when altering another species.",
+              "Clearly, there are difficult decisions about animal uplift that need to be made."
+            ],
+            "translation": "しかし、倫理・新興技術研究所の議長であるジョージ・ドヴォルスキーは、動物アップリフトを行わないこと自体が非倫理的だと主張する。動物は、新しい外科手術や、人間の寿命を延ばしてきた医薬品の開発の過程で、長らく実験対象として犠牲にされてきており、もし人間が自らの知能を人為的に高めるならば、そのためにも動物が犠牲にされる可能性が高い。ドヴォルスキーによれば、動物の権利に対する意識が高まっていること、そして動物が人間の生活向上に多大な役割を果たしてきたことを踏まえると、動物の知能を向上させうる技術を提供しないことは、それを買う十分な資力を持たない人間の集団に提供しないことと同じくらい非倫理的だという。動物をアップリフトする能力には紛れもない利点がある一方で、別の種を改変する際には倫理的なジレンマに直面することもまた事実である。動物アップリフトについては、下さなければならない難しい決断が明らかに存在する。"
+          }
+        ],
+        "summary": {
+          "sections": [
+            {
+              "label": "¶1 遺伝子操作という方法",
+              "lines": [
+                [
+                  "FOXP2という",
+                  {
+                    "blank": 1
+                  },
+                  "の遺伝子をマウスに導入すると、迷路学習が速くなり",
+                  {
+                    "blank": 2
+                  },
+                  "が向上した。"
+                ],
+                [
+                  "ただし研究はまだ初歩的な段階である。"
+                ]
+              ]
+            },
+            {
+              "label": "¶2 意図しない結果",
+              "lines": [
+                [
+                  "脳を大きくした魚の子は",
+                  {
+                    "blank": 3
+                  },
+                  "が小さくなり、産む子の数も減った。"
+                ]
+              ]
+            },
+            {
+              "label": "¶3-4 倫理をめぐる賛否",
+              "lines": [
+                [
+                  "反対派は、動物が処置に",
+                  {
+                    "blank": 4
+                  },
+                  "できない点を問題視する。"
+                ],
+                [
+                  "ドヴォルスキーは、人間はこれまでも医療の進歩のために動物を",
+                  {
+                    "blank": 5
+                  },
+                  "きたのだから、能力向上の技術を与えないことも同様に非倫理的だと主張する。"
+                ]
+              ]
+            }
+          ],
+          "blanks": [
+            {
+              "id": 1,
+              "answer": "人間",
+              "accepted": [
+                "人間",
+                "ヒト"
+              ]
+            },
+            {
+              "id": 2,
+              "answer": "記憶力",
+              "accepted": [
+                "記憶力",
+                "記憶"
+              ]
+            },
+            {
+              "id": 3,
+              "answer": "消化器官",
+              "accepted": [
+                "消化器官",
+                "消化器"
+              ]
+            },
+            {
+              "id": 4,
+              "answer": "事前に同意",
+              "accepted": [
+                "事前に同意",
+                "同意"
+              ]
+            },
+            {
+              "id": 5,
+              "answer": "犠牲にして",
+              "accepted": [
+                "犠牲にして",
+                "実験台にして"
+              ]
+            }
+          ],
+          "distractors": [
+            "視力",
+            "繁殖能力そのもの",
+            "投票",
+            "解放して",
+            "訓練して"
+          ]
+        }
       }
     ]
   },
@@ -382,7 +731,8 @@
       "label": "英文要約",
       "prompt": "Fluoride is a naturally occurring mineral found in water and soil. In the early twentieth century, researchers observed that people in certain regions had fewer dental problems after drinking water containing fluoride. Based on these findings, governments in several countries introduced water fluoridation as a public health policy, and it is now practiced in many urban areas. Supporters believe that adding fluoride to water improves dental health in practical ways. In communities where dental clinics are limited, residents may only visit a dentist once every few years due to cost or travel distance. By including fluoride in tap water, protection is provided daily without requiring clinic visits. In addition, fluoride reaches children at school, office workers, and elderly people at home equally, regardless of income or personal routines. However, critics express concerns about possible negative effects. One issue is that individuals consume different amounts of water depending on factors such as age, physical activity, or climate. For example, people working outdoors may drink much more water than others. This makes it difficult to control individual intake. Another concern is that some people may rely too much on fluoride and reduce personal dental care, which can result in undetected problems.",
       "targetMin": 60,
-      "targetMax": 70
+      "targetMax": 70,
+      "referenceAnswer": "Supporters of water fluoridation say it protects dental health effectively, since adding fluoride to tap water gives daily protection without frequent clinic visits, benefiting everyone regardless of income. Critics counter that water intake varies by age, activity, and climate, making individual fluoride intake hard to control. They also worry people may rely too heavily on fluoride and neglect their own dental care, causing unnoticed problems."
     },
     {
       "id": "writing-5",
@@ -397,7 +747,8 @@
         "Technology"
       ],
       "targetMin": 120,
-      "targetMax": 150
+      "targetMax": 150,
+      "referenceAnswer": "I think advertising has too much influence on the way people spend money. I have two reasons for this. First, advertising can limit people's freedom to make their own choices. When companies repeat the same messages again and again, people may end up buying products simply because they feel familiar, rather than because they actually need them. Second, advertising does not always give reliable information. Companies often focus on the positive points of their products while hiding negative points, such as high prices or low quality. As a result, people can be misled into spending money on things that do not truly meet their needs. For these reasons, I believe advertising has too much influence on the way people spend money."
     }
   ],
   "listening": [
@@ -412,7 +763,16 @@
         "The man is not suited to his job."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆☆Take a seat, Bradley. First, I just want to say that you did a great job on the Parkway project.\n★★Thanks.\n☆☆But I'm also worried that you've been taking on too much recently. You've been putting in some long hours, and I've noticed you are looking tired.\n★★I have to admit that it's a tough job, but I enjoy the work.\n☆☆That's great, but make sure you tell me if there's too much for you to handle alone. I can find someone to assist you, if necessary.\n★★Thanks. I appreciate that.",
+      "question": "What does the woman imply?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'm, I've, it's, That's, there's, you've が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 0.0,
+      "end": 185.44
     },
     {
       "q": 2,
@@ -425,7 +785,16 @@
         "The teams do not get along well."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "★★How's the new job going, Mackenzie?\n☆I'm finding it hard, actually.\n★★Are things hectic there?\n☆Not really. The workload's probably lighter than in my last job. It's the overall atmosphere that's the problem.\n★★What's wrong with it?\n☆Everyone's extremely competitive, and there's constant tension between teams, especially among the managers.\n★★That sounds tough.\n☆It is. I try not to get involved, but it takes a huge effort to stay neutral.",
+      "question": "What does the woman say about her new company?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には Everyone's, How's, I'm, It's, that's, there's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 195.57,
+      "end": 235.95
     },
     {
       "q": 3,
@@ -438,7 +807,16 @@
         "She sometimes refuses to work overtime."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆☆How's Nicole doing on that report for the vice president, Takeshi?\n★★Well, she's putting in a lot of overtime, but it doesn't seem like she's accomplishing much.\n☆☆That sounds worrying.\n★★Yes, last night I found her manually entering data into a spreadsheet. If she'd scanned it, she could have finished everything in just a few minutes instead of spending hours on it.\n☆☆It sounds like someone needs to have a talk with her.",
+      "question": "What does the man imply about Nicole?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には doesn't, How's, she'd, she's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 246.09,
+      "end": 281.06
     },
     {
       "q": 4,
@@ -451,7 +829,16 @@
         "She should have explained her situation sooner. Part 1 Dialogues: 1 question each Multiple-choice Part 2 Passages: 2 questions each Multiple-choice Part 3 Real-Life: 1 question each Multiple-choice There are three parts to this listening test. ※ Listen carefully to the instructions."
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆☆Dad, I got my midterm exam results back today. I did pretty badly in sociology and political history. The other subjects were OK, though.\n★★Have you been studying hard enough? I don't mind you having a part-time job, but your studies must always come first.\n☆☆It's not the job.\n★★So, what happened?\n☆☆I just thought sociology and political history would be easy, so I spent more time on the other subjects.\n★★Well, whatever the reason, you'd better study hard for the rest of the year.",
+      "question": "What does the father tell his daughter?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には don't, It's, you'd が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 291.2,
+      "end": 334.44
     },
     {
       "q": 5,
@@ -464,7 +851,16 @@
         "She was rude to some customers."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "★★Jenny, could you come into my office, please?\n☆☆Sure. Is there a problem?\n★★Yes, there is. I've received several complaints from customers about your attitude. One lady said you told her to go and shop somewhere else.\n☆☆I did, but only because she was being unreasonable. She wasn't happy with any of the makeup I suggested.\n★★Well, your behavior is just not acceptable. If this carries on, I'll have no choice but to fire you.\n☆☆OK, I'll try to do better.",
+      "question": "Why is the man angry with the woman?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'll, I've, wasn't が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 344.57,
+      "end": 388.18
     },
     {
       "q": 6,
@@ -477,7 +873,16 @@
         "She is currently very busy."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "★Hey, Ingrid. Have you heard the company's decided to send us on a team-building trip this fall?\n☆Yes, unfortunately.\n★Why do you say that? It'll be fun.\n☆The boss has asked me to lead the planning committee on top of everything else I have to do. I'm already involved in a huge project with the marketing team.\n★Just tell her you can't do it.\n☆But that would make me seem unmotivated. I'll just have to do more overtime.",
+      "question": "What do we learn about the woman?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には can't, company's, I'll, I'm, It'll が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 398.31,
+      "end": 434.44
     },
     {
       "q": 7,
@@ -490,7 +895,16 @@
         "She has never heard of the company."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "★★Are you going to apply for that accounting job you saw an ad for?\n☆I'm not sure. I have all the qualifications they're asking for, but I've never used one of the software applications they list in the ad.\n★★It's probably still worth applying. How long has the ad been up?\n☆About two months.\n★★In that case, they may be willing to be flexible. Plus, I bet you could learn how to use the software pretty quickly.",
+      "question": "Why is the woman unsure about applying for the job?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'm, I've, It's, they're が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 444.6,
+      "end": 480.38
     },
     {
       "q": 8,
@@ -503,7 +917,16 @@
         "Wash the jacket himself."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆☆Hello, Pearl Dry Cleaning.\n★Hi. How much will it cost to clean a down jacket?\n☆☆Is it filled with real feathers?\n★It's 80 percent goose down.\n☆☆In that case, you're probably better off cleaning it at home.\n★Really? I thought it was better to get it dry-cleaned.\n☆☆We can do it for you, but there's a risk the dry-cleaning chemicals will damage the feathers. You can easily find instructions online telling you how to clean it yourself.\n★OK, I'll do that. Thanks.",
+      "question": "What does the woman suggest the man do?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には I'll, It's, there's, you're が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 490.6,
+      "end": 531.25
     },
     {
       "q": 9,
@@ -516,7 +939,16 @@
         "It has broken lights."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆Hi, Marcus. Can you help me? My car won't start.\n★Sure. What happened?\n☆I drove to the grocery store yesterday, and it was fine. But this morning, the engine wouldn't turn on.\n★Did you leave the lights on overnight?\n☆No, but I think the battery is dead. The radio and air conditioner aren't working either.\n★In that case, you should get a new battery. I'll help you install it once you have it.\n☆Thanks. That would be a huge help.",
+      "question": "What does the woman think is the problem with her car?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には aren't, I'll, won't, wouldn't が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 541.37,
+      "end": 582.9
     },
     {
       "q": 10,
@@ -529,7 +961,16 @@
         "He did not have the required experience."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆How did the job interview go?\n★They were professional and friendly, but we hit a stumbling block.\n☆Are they looking for someone with a different skill set?\n★That wasn't the problem. The position is currently part-time, which is why I applied, but they're looking for a candidate willing to become full-time soon.\n☆And you don't want to do that?\n★Well, my freelance work is picking up. In fact, I've just gotten some consultation work for two finance companies. Besides, I worked full-time for twenty years, which was exhausting.\n☆Fair enough.",
+      "question": "What do we learn about the man?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には don't, I've, they're, wasn't が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 593.06,
+      "end": 637.99
     },
     {
       "q": 11,
@@ -542,7 +983,16 @@
         "Work at the community center."
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "★Hey, Janet. I heard you recently retired. How do you like it?\n☆Well, it's nice not to have to go to work every day, but I find I'm getting bored.\n★You should volunteer. There are lots of organizations that need help.\n☆Actually, I signed up to help at the community center, but I don't think it's for me.\n★I know you love painting. Have you thought about offering classes to beginners?\n☆That sounds perfect. I'll start planning it this weekend.",
+      "question": "What will the woman probably do?",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には don't, I'll, I'm, it's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 648.14,
+      "end": 686.28
     },
     {
       "q": 12,
@@ -555,7 +1005,16 @@
         "He finds flying too tiring these days. Listening Test"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part1.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part1.mp3",
+      "script": "☆Hey, Irvin. Are you coming to the annual Christmas party at our house? Everyone's hoping you'll bring your homemade cookies.\n★Sorry, Tomoko. I'm flying to the States to visit my dad.\n☆How's he doing? Is he living in a home for seniors now?\n★He still lives in the family house. He's good for his age, but since my mom passed, he gets lonely, especially around Christmastime.\n☆He'll be excited to spend time with you, then.\n★Yeah. I'm looking forward to it too.",
+      "question": "What is one thing we learn about Irvin's father? Here are the directions for Part 2. In this part, you will hear six passages, (A) through (F). Each passage will be followed by two questions, No. 13 through No. 24. For each question, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage and the questions will be given only once. Now, let's begin. ★(A) The Creation of Braille Louis Braille was born in France in the 1800s. As a child, he lost his sight in an accident at his father's workshop. At that time, blind people were often unfairly treated as inferior in society. Louis, however, showed great determination to get a proper education. He entered a special school for the blind, where he struggled to read using the few raised-letter books available. These books were hard to use and offered little independence for blind students. Determined to change this, Braille studied a system of raised dots originally designed as a code by the French military for reading in the dark. He adapted it to create a simpler and more flexible system when he was still a teenager. His invention allowed blind people to read and write with their fingers and gave them new opportunities in education and society. Today, Braille's system remains one of the most important legacies in the history of accessibility. ☆☆Questions ☆☆No. 13 What does the speaker say about Louis Braille's early life? ☆☆No. 14 What does the speaker say about Braille's invention? ☆(B) The E-Tattoo For pilots and others in high-stakes professions, mental exhaustion could have serious consequences. To monitor mental strain, many companies ask employees to complete surveys ranking their tiredness and stress levels. Some researchers think this approach is too subjective, so they have been developing a brain-wave-monitoring device called an e-tattoo that provides real-time, objective data. The researchers believe the device can enhance safety in high-pressure jobs by warning when performance may be affected. Other head devices exist, but often have many electrical wires, and they are heavy, uncomfortable, and expensive. The e-tattoo is a lightweight, disposable sensor that is cheap to produce. The sensor is stuck on the forehead, and it transmits brain-wave-activity data wirelessly, making it portable and user-friendly. Although results on test subjects have been promising, researchers eventually hope to manufacture a version that covers the entire head to provide more-comprehensive data on stress and fatigue. ★★Questions ★★No. 15 What do researchers say about the e-tattoo? ★★No. 16 What is one issue with the e-tattoo? ★★(C) Counterillumination For marine creatures, hiding from predators in open water can be challenging. This is because objects in the sea appear as dark silhouettes when viewed from below. To overcome this problem, some creatures use a strategy known as counterillumination. They emit light from special cells known as photophores on the undersides of their bodies, which they can adjust to match the lighter background created by sunlight from above. Doing this makes it difficult for predators to see them from below. A study in Australia suggested that mimicking this strategy could also help protect swimmers and surfers. Great white sharks sometimes attack and kill humans. This is thought to be because, when viewed from below, swimmers and surfboards resemble seals, which are the sharks' natural prey. However, the study showed that attaching LED lights to the undersides of seal-shaped decoys reduced the chance of them being attacked by great white sharks. ☆☆Questions ☆☆No. 17 What does the speaker say about some marine creatures? ☆☆No. 18 What did the Australian study suggest? ☆☆(D) Tupaia's Map In 1768, the British explorer Captain James Cook embarked on an expedition to explore the South Pacific. Accompanying Cook as an interpreter and guide was a Tahitian priest named Tupaia. Tupaia was born on the island of Raiatea, but he was forced to flee to Tahiti when his homeland was invaded by warriors from a nearby island. Tupaia became well respected on Tahiti, and he was also an expert navigator. During the expedition, Tupaia drew a map showing more than seventy islands. The map has puzzled historians for many years because it does not match modern charts, but two German professors now believe it should be viewed from a different perspective. Unlike conventional maps, which show islands based on their geographical locations, Tupaia's map showed islands in relation to each other, ignoring the physical distance between them. The professors think this reflected the traditional navigation techniques of people in the region. ★★Questions ★★No. 19 Why did Tupaia leave the island where he was born? ★★No. 20 What do two German professors believe about Tupaia's map? ★(E) Roman Puzzle In 2021, several thousand fragments of Roman wall art were discovered in London at a redevelopment site. The Romans founded London soon after they invaded Britain in the mid-first century, and the pieces are thought to date from around that time. They were all found together in a pit in the ground, leading archaeologists to believe that the building which housed them was deliberately torn down rather than slowly falling into disrepair. Reconstruction of the wall art has provided insights into life in Roman London. Archaeologists believe the art, which decorated around twenty walls of the building, points to the prosperity of the owner. The decorative birds, candelabras, and musical instruments are skillfully painted, and yellow paint, which was uncommon, is extensively employed. Archaeologists believe the area where they found the pieces was affluent and speculate that the building might have been a villa or provided luxurious accommodations for Roman travelers. ☆Questions ☆No. 21 What did the discovery of the wall art suggest to archaeologists? ☆No. 22 What do archaeologists believe based on the reconstructed wall art? ☆(F) Betelgeuse's Companion Star Scientists have long suspected the well-known star Betelgeuse has a companion star orbiting it. Many astronomers, however, doubted that the second star's existence would ever be confirmed. Betelgeuse is extremely large and bright, and attempts to detect the darker companion failed to capture enough detail to observe it. A new technique using the Gemini North telescope in Hawaii, however, took multiple images while focused on the star for a very short time. This reduced the blur caused by Earth's atmosphere, allowing astronomers to view enough detail to be fairly certain the companion star is there. Although both stars seem to be similar in age, the smaller star is hot and blue-white, unlike the cooler red glow of Betelgeuse. The smaller star's orbit brings it extremely close to Betelgeuse. In fact, scientists predict that the companion star will probably be swallowed within the next ten thousand years, resulting in the destruction of both stars. ★★Questions ★★No. 23 What did astronomers previously believe about Betelgeuse's companion star? ★★No. 24 What will probably happen within the next ten thousand years? Finally, here are the directions for Part 3. In this part, you will hear five passages, (G) through (K). The passages represent real-life situations and may contain sound effects. Each passage will have one question, No. 25 through No. 29. Before each passage, you will have 10 seconds to read the situation and question written in your test booklet. After you hear the passage, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage will be given only once. Now, let's begin. ★★(G) You have 10 seconds to read the situation and Question No. 25. ☆☆Here are a few popular backpacks. The Kooster 360 is a good choice. It's waterproof and has strong shoulder straps. It's fairly narrow, though, and can hold just a limited amount. The CampusPack is durable and has wide shoulder straps and padding, and it can handle a full day's worth of school supplies. The FitTrek is extremely light and packs away when empty, but doesn't have much padding, so carrying a lot in it would be hard on your shoulders. The TC Pack has a modern design and is water-resistant, though users say it becomes uncomfortable when loaded. ★★Now mark your answer on your answer sheet. ☆(H) You have 10 seconds to read the situation and Question No. 26. ★The Green Galley is an excellent choice for up to twenty class members. The Round Table can hold up to forty members and features a podium with a built-in laptop. Both the Green Galley and the Round Table are valued for their audiovisual systems, but neither includes cooking equipment. The Royal Hall has seventeen food preparation stations, which can be removed if additional space is needed. The Craft Kitchen seats up to twelve people and is equipped with new cooking appliances. The Royal Hall and the Craft Kitchen are often used by chefs leading food workshops. ☆Now mark your answer on your answer sheet. ★★(I) You have 10 seconds to read the situation and Question No. 27. ☆The dog walker job would give you plenty of hands-on time with animals, with shifts from Monday through Friday afternoons. The pet shop assistant job is for Sundays only. You would help customers choose supplies, clean cages, and feed the animals. The shop is on the main bus route. The animal shelter volunteer job is on Saturdays, and you would work with rescued cats and dogs. The shelter is far from the city, with no public transportation nearby. The zoo café needs staff for both Saturdays and Sundays. Your role in this job would be to serve refreshments and snacks. ★★Now mark your answer on your answer sheet. ★(J) You have 10 seconds to read the situation and Question No. 28. ☆☆We have tables available at either six thirty or eight next Friday evening. Let me tell you about the menus we offer. Our standard set menu has a choice of two or three courses. The two- course option is forty-one dollars per person, and the three-course option is fifty-two dollars. If you arrive before 7 p.m., you can also opt for our early-bird menu, which is thirty-six dollars for two courses or forty-five dollars for three. You're also welcome to choose from our à la carte menu, which will work out about 20 percent more expensive than the standard set menu. ★Now mark your answer on your answer sheet. ☆☆(K) You have 10 seconds to read the situation and Question No. 29. ★Attention passengers. Due to severe thunderstorms in the area, we have several flight updates. Flight 247 to Denver, originally scheduled to depart at 3:15 p.m., has been moved to 5:30 p.m. Flight 891 to Los Angeles, scheduled for a 4:45 p.m. departure, has been canceled entirely. Passengers on Flight 891 should report to the customer service desk near Gate A5 for rebooking options. Flight 623 to Seattle, originally departing at 6:20 p.m. from Gate D3, will depart on time but from Gate D7. All passengers should check the departure boards regularly, as conditions may change rapidly. ☆☆Now mark your answer on your answer sheet. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "tips": [
+        "第1部は対話。最後の質問の疑問詞(What/Why/How など)を先に確認し、話者の目的や困りごとを押さえる。",
+        "短縮形は弱く速く発音されます。この音声には Everyone's, He'll, He's, How's, I'm, you'll が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 696.44,
+      "end": 735.47
     },
     {
       "q": 13,
@@ -568,7 +1027,16 @@
         "He was dedicated to getting a good education."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "Louis Braille was born in France in the 1800s. As a child, he lost his sight in an accident at his father's workshop. At that time, blind people were often unfairly treated as inferior in society. Louis, however, showed great determination to get a proper education. He entered a special school for the blind, where he struggled to read using the few raised-letter books available. These books were hard to use and offered little independence for blind students. Determined to change this, Braille studied a system of raised dots originally designed as a code by the French military for reading in the dark. He adapted it to create a simpler and more flexible system when he was still a teenager. His invention allowed blind people to read and write with their fingers and gave them new opportunities in education and society. Today, Braille's system remains one of the most important legacies in the history of accessibility.",
+      "question": "What does the speaker say about Louis Braille's early life?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には Braille's, father's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 0.0,
+      "end": 135.61
     },
     {
       "q": 14,
@@ -581,7 +1049,16 @@
         "It made blind people more respected. (B)"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "Louis Braille was born in France in the 1800s. As a child, he lost his sight in an accident at his father's workshop. At that time, blind people were often unfairly treated as inferior in society. Louis, however, showed great determination to get a proper education. He entered a special school for the blind, where he struggled to read using the few raised-letter books available. These books were hard to use and offered little independence for blind students. Determined to change this, Braille studied a system of raised dots originally designed as a code by the French military for reading in the dark. He adapted it to create a simpler and more flexible system when he was still a teenager. His invention allowed blind people to read and write with their fingers and gave them new opportunities in education and society. Today, Braille's system remains one of the most important legacies in the history of accessibility.",
+      "question": "What does the speaker say about Braille's invention?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には Braille's, father's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 0.0,
+      "end": 135.61
     },
     {
       "q": 15,
@@ -594,7 +1071,15 @@
         "Companies may misuse the data they receive."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "For pilots and others in high-stakes professions, mental exhaustion could have serious consequences. To monitor mental strain, many companies ask employees to complete surveys ranking their tiredness and stress levels. Some researchers think this approach is too subjective, so they have been developing a brain-wave-monitoring device called an e-tattoo that provides real-time, objective data. The researchers believe the device can enhance safety in high-pressure jobs by warning when performance may be affected. Other head devices exist, but often have many electrical wires, and they are heavy, uncomfortable, and expensive. The e-tattoo is a lightweight, disposable sensor that is cheap to produce. The sensor is stuck on the forehead, and it transmits brain-wave-activity data wirelessly, making it portable and user-friendly. Although results on test subjects have been promising, researchers eventually hope to manufacture a version that covers the entire head to provide more-comprehensive data on stress and fatigue.",
+      "question": "What do researchers say about the e-tattoo?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 145.72,
+      "end": 246.71
     },
     {
       "q": 16,
@@ -607,7 +1092,15 @@
         "It is difficult to produce in high quantities. Part 2"
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "For pilots and others in high-stakes professions, mental exhaustion could have serious consequences. To monitor mental strain, many companies ask employees to complete surveys ranking their tiredness and stress levels. Some researchers think this approach is too subjective, so they have been developing a brain-wave-monitoring device called an e-tattoo that provides real-time, objective data. The researchers believe the device can enhance safety in high-pressure jobs by warning when performance may be affected. Other head devices exist, but often have many electrical wires, and they are heavy, uncomfortable, and expensive. The e-tattoo is a lightweight, disposable sensor that is cheap to produce. The sensor is stuck on the forehead, and it transmits brain-wave-activity data wirelessly, making it portable and user-friendly. Although results on test subjects have been promising, researchers eventually hope to manufacture a version that covers the entire head to provide more-comprehensive data on stress and fatigue.",
+      "question": "What is one issue with the e-tattoo?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 145.72,
+      "end": 246.71
     },
     {
       "q": 17,
@@ -620,7 +1113,15 @@
         "They swim deeper to escape predators."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "For marine creatures, hiding from predators in open water can be challenging. This is because objects in the sea appear as dark silhouettes when viewed from below. To overcome this problem, some creatures use a strategy known as counterillumination. They emit light from special cells known as photophores on the undersides of their bodies, which they can adjust to match the lighter background created by sunlight from above. Doing this makes it difficult for predators to see them from below. A study in Australia suggested that mimicking this strategy could also help protect swimmers and surfers. Great white sharks sometimes attack and kill humans. This is thought to be because, when viewed from below, swimmers and surfboards resemble seals, which are the sharks' natural prey. However, the study showed that attaching LED lights to the undersides of seal-shaped decoys reduced the chance of them being attacked by great white sharks.",
+      "question": "What does the speaker say about some marine creatures?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 256.88,
+      "end": 356.07
     },
     {
       "q": 18,
@@ -633,7 +1134,15 @@
         "Great white sharks rarely attack humans. (D)"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "For marine creatures, hiding from predators in open water can be challenging. This is because objects in the sea appear as dark silhouettes when viewed from below. To overcome this problem, some creatures use a strategy known as counterillumination. They emit light from special cells known as photophores on the undersides of their bodies, which they can adjust to match the lighter background created by sunlight from above. Doing this makes it difficult for predators to see them from below. A study in Australia suggested that mimicking this strategy could also help protect swimmers and surfers. Great white sharks sometimes attack and kill humans. This is thought to be because, when viewed from below, swimmers and surfboards resemble seals, which are the sharks' natural prey. However, the study showed that attaching LED lights to the undersides of seal-shaped decoys reduced the chance of them being attacked by great white sharks.",
+      "question": "What did the Australian study suggest?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 256.88,
+      "end": 356.07
     },
     {
       "q": 19,
@@ -646,7 +1155,16 @@
         "To become a priest."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "In 1768, the British explorer Captain James Cook embarked on an expedition to explore the South Pacific. Accompanying Cook as an interpreter and guide was a Tahitian priest named Tupaia. Tupaia was born on the island of Raiatea, but he was forced to flee to Tahiti when his homeland was invaded by warriors from a nearby island. Tupaia became well respected on Tahiti, and he was also an expert navigator. During the expedition, Tupaia drew a map showing more than seventy islands. The map has puzzled historians for many years because it does not match modern charts, but two German professors now believe it should be viewed from a different perspective. Unlike conventional maps, which show islands based on their geographical locations, Tupaia's map showed islands in relation to each other, ignoring the physical distance between them. The professors think this reflected the traditional navigation techniques of people in the region.",
+      "question": "Why did Tupaia leave the island where he was born?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には Tupaia's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 366.28,
+      "end": 472.55
     },
     {
       "q": 20,
@@ -659,7 +1177,16 @@
         "Historians have been reading it incorrectly. Listening Test"
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "In 1768, the British explorer Captain James Cook embarked on an expedition to explore the South Pacific. Accompanying Cook as an interpreter and guide was a Tahitian priest named Tupaia. Tupaia was born on the island of Raiatea, but he was forced to flee to Tahiti when his homeland was invaded by warriors from a nearby island. Tupaia became well respected on Tahiti, and he was also an expert navigator. During the expedition, Tupaia drew a map showing more than seventy islands. The map has puzzled historians for many years because it does not match modern charts, but two German professors now believe it should be viewed from a different perspective. Unlike conventional maps, which show islands based on their geographical locations, Tupaia's map showed islands in relation to each other, ignoring the physical distance between them. The professors think this reflected the traditional navigation techniques of people in the region.",
+      "question": "What do two German professors believe about Tupaia's map?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には Tupaia's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 366.28,
+      "end": 472.55
     },
     {
       "q": 21,
@@ -672,7 +1199,15 @@
         "It came from a building that was intentionally destroyed."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "In 2021, several thousand fragments of Roman wall art were discovered in London at a redevelopment site. The Romans founded London soon after they invaded Britain in the mid-first century, and the pieces are thought to date from around that time. They were all found together in a pit in the ground, leading archaeologists to believe that the building which housed them was deliberately torn down rather than slowly falling into disrepair. Reconstruction of the wall art has provided insights into life in Roman London. Archaeologists believe the art, which decorated around twenty walls of the building, points to the prosperity of the owner. The decorative birds, candelabras, and musical instruments are skillfully painted, and yellow paint, which was uncommon, is extensively employed. Archaeologists believe the area where they found the pieces was affluent and speculate that the building might have been a villa or provided luxurious accommodations for Roman travelers.",
+      "question": "What did the discovery of the wall art suggest to archaeologists?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 482.84,
+      "end": 590.48
     },
     {
       "q": 22,
@@ -685,7 +1220,15 @@
         "The building's owner could not have been Roman. (F)"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "In 2021, several thousand fragments of Roman wall art were discovered in London at a redevelopment site. The Romans founded London soon after they invaded Britain in the mid-first century, and the pieces are thought to date from around that time. They were all found together in a pit in the ground, leading archaeologists to believe that the building which housed them was deliberately torn down rather than slowly falling into disrepair. Reconstruction of the wall art has provided insights into life in Roman London. Archaeologists believe the art, which decorated around twenty walls of the building, points to the prosperity of the owner. The decorative birds, candelabras, and musical instruments are skillfully painted, and yellow paint, which was uncommon, is extensively employed. Archaeologists believe the area where they found the pieces was affluent and speculate that the building might have been a villa or provided luxurious accommodations for Roman travelers.",
+      "question": "What do archaeologists believe based on the reconstructed wall art?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 482.84,
+      "end": 590.48
     },
     {
       "q": 23,
@@ -698,7 +1241,16 @@
         "It was larger than Betelgeuse."
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "Scientists have long suspected the well-known star Betelgeuse has a companion star orbiting it. Many astronomers, however, doubted that the second star's existence would ever be confirmed. Betelgeuse is extremely large and bright, and attempts to detect the darker companion failed to capture enough detail to observe it. A new technique using the Gemini North telescope in Hawaii, however, took multiple images while focused on the star for a very short time. This reduced the blur caused by Earth's atmosphere, allowing astronomers to view enough detail to be fairly certain the companion star is there. Although both stars seem to be similar in age, the smaller star is hot and blue-white, unlike the cooler red glow of Betelgeuse. The smaller star's orbit brings it extremely close to Betelgeuse. In fact, scientists predict that the companion star will probably be swallowed within the next ten thousand years, resulting in the destruction of both stars. Finally, here are the directions for Part 3. In this part, you will hear five passages, (G) through (K). The passages represent real-life situations and may contain sound effects. Each passage will have one question, No. 25 through No. 29. Before each passage, you will have 10 seconds to read the situation and question written in your test booklet. After you hear the passage, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage will be given only once. Now, let's begin. ★★(G) You have 10 seconds to read the situation and Question No. 25. ☆☆Here are a few popular backpacks. The Kooster 360 is a good choice. It's waterproof and has strong shoulder straps. It's fairly narrow, though, and can hold just a limited amount. The CampusPack is durable and has wide shoulder straps and padding, and it can handle a full day's worth of school supplies. The FitTrek is extremely light and packs away when empty, but doesn't have much padding, so carrying a lot in it would be hard on your shoulders. The TC Pack has a modern design and is water-resistant, though users say it becomes uncomfortable when loaded. ★★Now mark your answer on your answer sheet. ☆(H) You have 10 seconds to read the situation and Question No. 26. ★The Green Galley is an excellent choice for up to twenty class members. The Round Table can hold up to forty members and features a podium with a built-in laptop. Both the Green Galley and the Round Table are valued for their audiovisual systems, but neither includes cooking equipment. The Royal Hall has seventeen food preparation stations, which can be removed if additional space is needed. The Craft Kitchen seats up to twelve people and is equipped with new cooking appliances. The Royal Hall and the Craft Kitchen are often used by chefs leading food workshops. ☆Now mark your answer on your answer sheet. ★★(I) You have 10 seconds to read the situation and Question No. 27. ☆The dog walker job would give you plenty of hands-on time with animals, with shifts from Monday through Friday afternoons. The pet shop assistant job is for Sundays only. You would help customers choose supplies, clean cages, and feed the animals. The shop is on the main bus route. The animal shelter volunteer job is on Saturdays, and you would work with rescued cats and dogs. The shelter is far from the city, with no public transportation nearby. The zoo café needs staff for both Saturdays and Sundays. Your role in this job would be to serve refreshments and snacks. ★★Now mark your answer on your answer sheet. ★(J) You have 10 seconds to read the situation and Question No. 28. ☆☆We have tables available at either six thirty or eight next Friday evening. Let me tell you about the menus we offer. Our standard set menu has a choice of two or three courses. The two- course option is forty-one dollars per person, and the three-course option is fifty-two dollars. If you arrive before 7 p.m., you can also opt for our early-bird menu, which is thirty-six dollars for two courses or forty-five dollars for three. You're also welcome to choose from our à la carte menu, which will work out about 20 percent more expensive than the standard set menu. ★Now mark your answer on your answer sheet. ☆☆(K) You have 10 seconds to read the situation and Question No. 29. ★Attention passengers. Due to severe thunderstorms in the area, we have several flight updates. Flight 247 to Denver, originally scheduled to depart at 3:15 p.m., has been moved to 5:30 p.m. Flight 891 to Los Angeles, scheduled for a 4:45 p.m. departure, has been canceled entirely. Passengers on Flight 891 should report to the customer service desk near Gate A5 for rebooking options. Flight 623 to Seattle, originally departing at 6:20 p.m. from Gate D3, will depart on time but from Gate D7. All passengers should check the departure boards regularly, as conditions may change rapidly. ☆☆Now mark your answer on your answer sheet. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "question": "What did astronomers previously believe about Betelgeuse's companion star?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には day's, doesn't, Earth's, It's, let's, star's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 600.6,
+      "end": 702.28
     },
     {
       "q": 24,
@@ -711,7 +1263,16 @@
         "Betelgeuse will become hotter than the companion star."
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part2.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part2.mp3",
+      "script": "Scientists have long suspected the well-known star Betelgeuse has a companion star orbiting it. Many astronomers, however, doubted that the second star's existence would ever be confirmed. Betelgeuse is extremely large and bright, and attempts to detect the darker companion failed to capture enough detail to observe it. A new technique using the Gemini North telescope in Hawaii, however, took multiple images while focused on the star for a very short time. This reduced the blur caused by Earth's atmosphere, allowing astronomers to view enough detail to be fairly certain the companion star is there. Although both stars seem to be similar in age, the smaller star is hot and blue-white, unlike the cooler red glow of Betelgeuse. The smaller star's orbit brings it extremely close to Betelgeuse. In fact, scientists predict that the companion star will probably be swallowed within the next ten thousand years, resulting in the destruction of both stars. Finally, here are the directions for Part 3. In this part, you will hear five passages, (G) through (K). The passages represent real-life situations and may contain sound effects. Each passage will have one question, No. 25 through No. 29. Before each passage, you will have 10 seconds to read the situation and question written in your test booklet. After you hear the passage, you will have 10 seconds to choose the best answer and mark your answer on your answer sheet. The passage will be given only once. Now, let's begin. ★★(G) You have 10 seconds to read the situation and Question No. 25. ☆☆Here are a few popular backpacks. The Kooster 360 is a good choice. It's waterproof and has strong shoulder straps. It's fairly narrow, though, and can hold just a limited amount. The CampusPack is durable and has wide shoulder straps and padding, and it can handle a full day's worth of school supplies. The FitTrek is extremely light and packs away when empty, but doesn't have much padding, so carrying a lot in it would be hard on your shoulders. The TC Pack has a modern design and is water-resistant, though users say it becomes uncomfortable when loaded. ★★Now mark your answer on your answer sheet. ☆(H) You have 10 seconds to read the situation and Question No. 26. ★The Green Galley is an excellent choice for up to twenty class members. The Round Table can hold up to forty members and features a podium with a built-in laptop. Both the Green Galley and the Round Table are valued for their audiovisual systems, but neither includes cooking equipment. The Royal Hall has seventeen food preparation stations, which can be removed if additional space is needed. The Craft Kitchen seats up to twelve people and is equipped with new cooking appliances. The Royal Hall and the Craft Kitchen are often used by chefs leading food workshops. ☆Now mark your answer on your answer sheet. ★★(I) You have 10 seconds to read the situation and Question No. 27. ☆The dog walker job would give you plenty of hands-on time with animals, with shifts from Monday through Friday afternoons. The pet shop assistant job is for Sundays only. You would help customers choose supplies, clean cages, and feed the animals. The shop is on the main bus route. The animal shelter volunteer job is on Saturdays, and you would work with rescued cats and dogs. The shelter is far from the city, with no public transportation nearby. The zoo café needs staff for both Saturdays and Sundays. Your role in this job would be to serve refreshments and snacks. ★★Now mark your answer on your answer sheet. ★(J) You have 10 seconds to read the situation and Question No. 28. ☆☆We have tables available at either six thirty or eight next Friday evening. Let me tell you about the menus we offer. Our standard set menu has a choice of two or three courses. The two- course option is forty-one dollars per person, and the three-course option is fifty-two dollars. If you arrive before 7 p.m., you can also opt for our early-bird menu, which is thirty-six dollars for two courses or forty-five dollars for three. You're also welcome to choose from our à la carte menu, which will work out about 20 percent more expensive than the standard set menu. ★Now mark your answer on your answer sheet. ☆☆(K) You have 10 seconds to read the situation and Question No. 29. ★Attention passengers. Due to severe thunderstorms in the area, we have several flight updates. Flight 247 to Denver, originally scheduled to depart at 3:15 p.m., has been moved to 5:30 p.m. Flight 891 to Los Angeles, scheduled for a 4:45 p.m. departure, has been canceled entirely. Passengers on Flight 891 should report to the customer service desk near Gate A5 for rebooking options. Flight 623 to Seattle, originally departing at 6:20 p.m. from Gate D3, will depart on time but from Gate D7. All passengers should check the departure boards regularly, as conditions may change rapidly. ☆☆Now mark your answer on your answer sheet. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "question": "What will probably happen within the next ten thousand years?",
+      "tips": [
+        "第2部は1人が話すパッセージ。同じ講義・説明に2問続くので、1回の音声で両方の設問に関係する情報を拾う意識を持つ。",
+        "短縮形は弱く速く発音されます。この音声には day's, doesn't, Earth's, It's, let's, star's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ],
+      "start": 600.6,
+      "end": 702.28
     },
     {
       "q": 25,
@@ -724,7 +1285,13 @@
         "The TC Pack. (H)"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3",
+      "script": "Here are a few popular backpacks. The Kooster 360 is a good choice. It's waterproof and has strong shoulder straps. It's fairly narrow, though, and can hold just a limited amount. The CampusPack is durable and has wide shoulder straps and padding, and it can handle a full day's worth of school supplies. The FitTrek is extremely light and packs away when empty, but doesn't have much padding, so carrying a lot in it would be hard on your shoulders. The TC Pack has a modern design and is water-resistant, though users say it becomes uncomfortable when loaded.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "短縮形は弱く速く発音されます。この音声には day's, doesn't, It's が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 26,
@@ -737,7 +1304,12 @@
         "The Craft Kitchen. Listening Test Part 3"
       ],
       "answerIndex": 2,
-      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3",
+      "script": "The Green Galley is an excellent choice for up to twenty class members. The Round Table can hold up to forty members and features a podium with a built-in laptop. Both the Green Galley and the Round Table are valued for their audiovisual systems, but neither includes cooking equipment. The Royal Hall has seventeen food preparation stations, which can be removed if additional space is needed. The Craft Kitchen seats up to twelve people and is equipped with new cooking appliances. The Royal Hall and the Craft Kitchen are often used by chefs leading food workshops.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 27,
@@ -750,7 +1322,12 @@
         "Zoo café staff. (J)"
       ],
       "answerIndex": 1,
-      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3",
+      "script": "The dog walker job would give you plenty of hands-on time with animals, with shifts from Monday through Friday afternoons. The pet shop assistant job is for Sundays only. You would help customers choose supplies, clean cages, and feed the animals. The shop is on the main bus route. The animal shelter volunteer job is on Saturdays, and you would work with rescued cats and dogs. The shelter is far from the city, with no public transportation nearby. The zoo café needs staff for both Saturdays and Sundays. Your role in this job would be to serve refreshments and snacks.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 28,
@@ -763,7 +1340,13 @@
         "Choose the à la carte menu. (K)"
       ],
       "answerIndex": 0,
-      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3",
+      "script": "We have tables available at either six thirty or eight next Friday evening. Let me tell you about the menus we offer. Our standard set menu has a choice of two or three courses. The two- course option is forty-one dollars per person, and the three-course option is fifty-two dollars. If you arrive before 7 p.m., you can also opt for our early-bird menu, which is thirty-six dollars for two courses or forty-five dollars for three. You're also welcome to choose from our à la carte menu, which will work out about 20 percent more expensive than the standard set menu.",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "短縮形は弱く速く発音されます。この音声には You're が出てきます。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     },
     {
       "q": 29,
@@ -776,7 +1359,12 @@
         "Go to Gate D7."
       ],
       "answerIndex": 3,
-      "audio": "data/eiken_p1/2026-1/audio-part3.mp3"
+      "audio": "data/eiken_p1/2026-1/audio-part3.mp3",
+      "script": "Attention passengers. Due to severe thunderstorms in the area, we have several flight updates. Flight 247 to Denver, originally scheduled to depart at 3:15 p.m., has been moved to 5:30 p.m. Flight 891 to Los Angeles, scheduled for a 4:45 p.m. departure, has been canceled entirely. Passengers on Flight 891 should report to the customer service desk near Gate A5 for rebooking options. Flight 623 to Seattle, originally departing at 6:20 p.m. from Gate D3, will depart on time but from Gate D7. All passengers should check the departure boards regularly, as conditions may change rapidly. Your time is up. Stop writing and wait quietly until the answer sheets have been collected. では、時間です。筆記用具を置いて答えの記入をやめてください。これにて試験終了 となります。公正なる試験実施にご協力いただきありがとうございました。質問があ る方は、ただちに試験監督者にお申し出ください。 試験監督者に連絡いたします。これより最終の受験者数を確認してください。その後、 解答用紙を回収し枚数の確認を行ってください。なお、問題冊子は回収しません。受 験者数と解答用紙の枚数の一致を確認してから、解散の指示を出してください。 受験者の皆さんは、身のまわりをよく点検し、忘れものがないように注意してくださ い。受験者の皆さんが退室するときは、別の教室が試験中の場合もありますので、声 を出さず、会場出口まで静かに退出してください。それでは、解散の指示を出すまで 静かにお待ちください。",
+      "tips": [
+        "第3部は状況・設問が問題冊子に印刷されている。先に状況と設問を読んでから音声を聞き、条件に一致する選択肢を絞り込む。",
+        "数字・日時・固有名詞は選択肢の根拠になりやすいので、書き取りでも正確に拾う。"
+      ]
     }
   ]
 }
