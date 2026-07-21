@@ -12,7 +12,13 @@
       "meaning": "花嫁、新婦",
       "etymology": "古英語 brȳd「花嫁」。ゲルマン系の語で bridal（婚礼の＝bride+ale宴）, bridegroom（花婿）と同系。",
       "example": "In many countries, the bride wears a white dress at a wedding.",
-      "collocation": "the bride and groom（新郎新婦） / a blushing bride"
+      "exampleTranslation": "多くの国では、花嫁は結婚式で白いドレスを着ます。",
+      "collocation": "the bride and groom（新郎新婦） / a blushing bride",
+      "relatedWords": [
+        { "word": "bridal", "pos": "形容詞", "meaning": "花嫁の、結婚式の", "relation": "word_family" },
+        { "word": "bridegroom", "pos": "名詞", "meaning": "花婿、新郎", "relation": "word_family" }
+      ],
+      "selfExampleEnabled": true
     },
     {
       "q": 1, "is_answer": false, "word": "lawyer", "ipa": "/ˈlɔːjər/", "pos": "名詞",

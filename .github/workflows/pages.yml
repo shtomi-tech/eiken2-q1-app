@@ -34,6 +34,7 @@ jobs:
         run: node scripts/write-config.mjs
         env:
           APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
+          AI_CHECK_ENDPOINT: ${{ secrets.AI_CHECK_ENDPOINT }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 

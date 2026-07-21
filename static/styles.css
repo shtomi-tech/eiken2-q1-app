@@ -672,6 +672,77 @@ h2 {
 .flashEx { font-size: 15px; }
 .flashEx em { font-style: normal; border-bottom: 2px solid var(--ink); padding: 0 2px; }
 .flashColl { font-size: 14px; color: var(--muted); }
+.flashExampleTranslation { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.relatedWordList { display: grid; gap: 8px; }
+.relatedWord {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-radius: var(--r-md);
+  background: var(--surface-soft);
+  padding: 8px 10px;
+}
+.relatedWordSurface { font-family: var(--serif); font-size: 18px; }
+.relatedWordMeaning { color: var(--muted); font-size: 13px; }
+
+.selfExamplePanel {
+  margin: 18px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--clay);
+  border-radius: var(--r-lg);
+  background: var(--paper);
+  padding: 16px;
+}
+.selfExampleHead {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.selfExampleHead .label { margin-bottom: 4px; color: var(--clay); }
+.selfExampleHead h3 { margin: 0; font-family: var(--serif); font-size: 23px; }
+.selfExampleTag { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.selfExamplePrompt { margin: 8px 0 14px; color: var(--muted); font-size: 13px; }
+.selfExamplePanel textarea {
+  width: 100%;
+  min-height: 112px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--parchment);
+  color: var(--ink);
+  padding: 12px 14px;
+  line-height: 1.7;
+}
+.selfExampleMeta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.selfExampleCount, .selfExampleStatus { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.selfExampleStatus.ok { color: var(--ok); }
+.selfExampleStatus.ng { color: var(--ng); }
+.selfExampleActions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.selfExampleActions button { min-width: 140px; }
+.selfExampleFeedbackHost { margin-top: 12px; }
+.selfExampleFeedback {
+  border-left: 4px solid var(--ok);
+  border-radius: var(--r-md);
+  background: var(--parchment);
+  padding: 12px 14px;
+}
+.selfExampleFeedback.revise { border-left-color: var(--clay); }
+.selfExampleFeedback p { margin: 5px 0 0; font-size: 13px; }
+.selfExampleFeedbackTitle { margin: 0 !important; font-family: var(--serif); font-size: 20px !important; font-weight: 600; }
+.selfExampleSuggestionLabel { color: var(--clay); font-family: var(--mono); font-size: 10px !important; letter-spacing: .08em; }
+.selfExampleSuggestion { font-family: var(--serif); font-size: 16px !important; }
+.selfExampleFeedbackText { color: var(--muted); }
+.selfExampleUnavailable { margin-bottom: 0; }
 
 .cardCounter {
   font-family: var(--mono);
@@ -779,6 +850,7 @@ h2 {
   .dailyGrid.cols4 { grid-template-columns: repeat(2, 1fr); }
   .topActions, .itemHead, .sectionHead { align-items: stretch; }
   .stagePill { min-width: 90px; font-size: 10px; }
+  .selfExamplePanel { margin: 14px; }
 }
 
 /* ============================================================

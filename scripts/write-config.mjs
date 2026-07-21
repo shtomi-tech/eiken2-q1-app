@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 const configPath = resolve("static/config.json");
 const config = {
   appBaseUrl: process.env.APP_BASE_URL || process.env.URL || "",
+  aiCheckEndpoint: process.env.AI_CHECK_ENDPOINT || "",
   supabaseUrl: process.env.SUPABASE_URL || "",
   supabaseAnonKey: process.env.SUPABASE_ANON_KEY || ""
 };
