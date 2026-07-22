@@ -22,6 +22,13 @@ const EikenSerialApp = (function () {
     { id: "dictation", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の全設問を聞き、解答と書き取りを確認します。" },
     { id: "q3", label: "大問3（長文）", tag: "READING", reason: "過去問3回分の本文・設問・内容整理を完了します。" },
   ];
+  const PRE1_STEPS = [
+    { id: "reading1", label: "大問1（語彙）", tag: "READING 1", reason: "過去問3回分の語彙を、意味確認から4択まで学習します。" },
+    { id: "reading2", label: "大問2（空所補充）", tag: "READING 2", reason: "過去問3回分の空所補充問題を確認します。" },
+    { id: "reading3", label: "大問3（長文）", tag: "READING 3", reason: "過去問3回分の長文・根拠文・内容整理を完了します。" },
+    { id: "listening", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の音声問題を聞き、解答と書き取りを確認します。" },
+    { id: "writing", label: "ライティング", tag: "WRITING", reason: "過去問3回分の英文要約・英作文を組み立て、レビューします。" },
+  ];
 
   let manifest = null;
   let profile = null;
@@ -94,6 +101,18 @@ const EikenSerialApp = (function () {
   }
 
   function selectedProfile() {
+    const savedProfile = readJson(PROFILE_KEY, null);
+    if (savedProfile && savedProfile.grade === "pre1" && savedProfile.pre1Id && manifest.pre1) {
+      const roundId = savedProfile.pre1Id.replace("eikenp1-", "");
+      const round = manifest.pre1.rounds.find((item) => item.id === roundId) || manifest.pre1.rounds[0];
+      return {
+        id: savedProfile.pre1Id,
+        grade: "pre1",
+        label: savedProfile.label || `英検準1級 ${round.label}`,
+        pre1Id: `eikenp1-${round.id}`,
+        rounds: { pre1: manifest.pre1.rounds.map((item) => item.id) },
+      };
+    }
     const q1Id = selectedQ1Id();
     const q1 = manifest.q1[q1Id];
     const q3Id = manifest.q3[q1Id] ? q1Id : manifest.defaultDatasetId;
@@ -150,13 +169,26 @@ const EikenSerialApp = (function () {
     loaded = true;
   }
 
+  async function loadPre1Assets() {
+    profile = selectedProfile();
+    const entries = await Promise.all(profile.rounds.pre1.map(async (roundId) => {
+      const round = manifest.pre1.rounds.find((item) => item.id === roundId);
+      return [roundId, await getJson(round.dataUrl)];
+    }));
+    assets = { pre1: Object.fromEntries(entries) };
+    loaded = true;
+  }
+
   async function ensureLoaded() {
     const nextProfile = manifest ? selectedProfile() : null;
-    if (loaded && profile && nextProfile && profile.id === nextProfile.id && profile.dictation.round === nextProfile.dictation.round) return;
+    if (loaded && profile && nextProfile && profile.id === nextProfile.id
+      && (profile.grade === "pre1" || profile.dictation.round === nextProfile.dictation.round)) return;
     if (loading) return loading;
     loading = (async () => {
       manifest = await getJson(MANIFEST_URL);
-      await loadAssets();
+      profile = selectedProfile();
+      if (profile.grade === "pre1") await loadPre1Assets();
+      else await loadAssets();
     })().finally(() => { loading = null; });
     return loading;
   }
@@ -314,6 +346,113 @@ const EikenSerialApp = (function () {
     };
   }
 
+  function pre1RoundLabel(id) {
+    const round = manifest.pre1.rounds.find((item) => item.id === id);
+    return round ? round.label : id;
+  }
+
+  function pre1Sections(data) {
+    const part3 = [];
+    (data.reading && data.reading.part3 || []).forEach((passage) => {
+      passage.questions.forEach((question) => part3.push({ ...question, passage }));
+    });
+    return [
+      { id: "reading1", type: "questions", questions: data.reading && data.reading.part1 || [] },
+      { id: "reading2", type: "questions", questions: data.reading && data.reading.part2 || [] },
+      { id: "reading3", type: "questions", questions: part3 },
+      { id: "listening", type: "questions", questions: data.listening || [] },
+      { id: "writing", type: "writing", questions: data.writing || [] },
+    ];
+  }
+
+  function pre1Progress(roundId) {
+    const store = readJson("eiken_pre1_progress_v1", {});
+    const saved = store.rounds && store.rounds[roundId] && typeof store.rounds[roundId] === "object"
+      ? store.rounds[roundId]
+      : {};
+    return {
+      questions: saved.questions && typeof saved.questions === "object" ? saved.questions : {},
+      writing: saved.writing && typeof saved.writing === "object" ? saved.writing : {},
+      summaries: saved.summaries && typeof saved.summaries === "object" ? saved.summaries : {},
+    };
+  }
+
+  function pre1QuestionKey(sectionId, question) { return `${sectionId}:${question.q}`; }
+
+  function pre1SectionComplete(section, progress) {
+    if (section.type === "writing") {
+      return section.questions.length > 0 && section.questions.every((task) => progress.writing[task.id] && progress.writing[task.id].reviewed);
+    }
+    const questionsDone = section.questions.length > 0 && section.questions.every((question) => {
+      const saved = progress.questions[pre1QuestionKey(section.id, question)];
+      return saved && saved.answered;
+    });
+    if (section.id !== "reading3" || !questionsDone) return questionsDone;
+    const passages = [...new Map(section.questions.map((question) => [question.passage.id, question.passage])).values()];
+    return passages.every((passage) => progress.summaries[passage.id] && progress.summaries[passage.id].graded);
+  }
+
+  function pre1SectionStats(section, progress) {
+    if (section.type === "writing") {
+      const done = section.questions.filter((task) => progress.writing[task.id] && progress.writing[task.id].reviewed).length;
+      return { done, total: section.questions.length };
+    }
+    const answered = section.questions.filter((question) => {
+      const saved = progress.questions[pre1QuestionKey(section.id, question)];
+      return saved && saved.answered;
+    });
+    return {
+      done: answered.length,
+      total: section.questions.length,
+      correct: answered.filter((question) => progress.questions[pre1QuestionKey(section.id, question)].correct).length,
+    };
+  }
+
+  function pre1StepSummary(step) {
+    const roundSummaries = profile.rounds.pre1.map((roundId) => {
+      const section = pre1Sections(assets.pre1[roundId] || {}).find((item) => item.id === step.id);
+      const progress = pre1Progress(roundId);
+      const stats = pre1SectionStats(section, progress);
+      return { id: roundId, section, progress, stats, complete: pre1SectionComplete(section, progress) };
+    });
+    const completedRounds = roundSummaries.filter((round) => round.complete).length;
+    const done = roundSummaries.reduce((sum, round) => sum + round.stats.done, 0);
+    const total = roundSummaries.reduce((sum, round) => sum + round.stats.total, 0);
+    const nextRound = roundSummaries.find((round) => !round.complete);
+    let nextLabel = "3回分完了";
+    if (nextRound) {
+      if (step.id === "writing") {
+        const next = nextRound.section.questions.find((task) => !(nextRound.progress.writing[task.id] && nextRound.progress.writing[task.id].reviewed));
+        nextLabel = `${pre1RoundLabel(nextRound.id)}・${next ? `課題${next.number || next.id}` : "レビュー"}`;
+      } else {
+        const next = nextRound.section.questions.find((question) => {
+          const saved = nextRound.progress.questions[pre1QuestionKey(step.id, question)];
+          return !(saved && saved.answered);
+        });
+        nextLabel = `${pre1RoundLabel(nextRound.id)}・${next ? `第${next.q}問` : "内容整理"}`;
+      }
+    }
+    const inProgress = done > 0 || completedRounds > 0;
+    const unit = step.id === "writing" ? "題" : "問";
+    return {
+      complete: completedRounds === profile.rounds.pre1.length && profile.rounds.pre1.length > 0,
+      completed: completedRounds,
+      total: profile.rounds.pre1.length,
+      status: completedRounds === profile.rounds.pre1.length && profile.rounds.pre1.length > 0 ? "done" : inProgress ? "progress" : "ready",
+      nextId: nextRound ? nextRound.id : null,
+      nextLabel,
+      detail: `${completedRounds} / ${profile.rounds.pre1.length}回・${done} / ${total}${unit}`,
+    };
+  }
+
+  function collectPre1Summaries() {
+    summaries = PRE1_STEPS.map((step) => pre1StepSummary(step));
+    const firstIncomplete = summaries.findIndex((summary) => !summary.complete);
+    currentStepIndex = firstIncomplete >= 0 ? firstIncomplete : PRE1_STEPS.length - 1;
+    saveRouteState();
+    return summaries;
+  }
+
   function collectSummaries() {
     summaries = [q1Summary(), paraphraseSummary(), writingSummary(), dictationSummary(), q3Summary()];
     const firstIncomplete = summaries.findIndex((summary) => !summary.complete);
@@ -334,6 +473,51 @@ const EikenSerialApp = (function () {
     return "復習する";
   }
 
+  function renderPre1Home() {
+    collectPre1Summaries();
+    const current = PRE1_STEPS[currentStepIndex];
+    const currentSummary = summaries[currentStepIndex];
+    const allComplete = summaries.every((summary) => summary.complete);
+    homePanel.className = "serialHome";
+    sessionPanel.className = "hide";
+    const cards = PRE1_STEPS.map((step, index) => {
+      const summary = summaries[index];
+      const locked = index > currentStepIndex && !summary.complete;
+      const cls = `serialStepCard ${summary.complete ? "isDone" : index === currentStepIndex ? "isCurrent" : "isLocked"}`;
+      const progress = summary.total ? `${summary.completed} / ${summary.total}` : "—";
+      return `<article class="${cls}">
+        <div class="serialStepTop"><span class="serialStepNo">${String(index + 1).padStart(2, "0")}</span><span class="serialStepTag">${step.tag}</span><span class="serialStepStatus">${statusLabel(summary, index)}</span></div>
+        <h3>${step.label}</h3>
+        <p>${escapeHtml(summary.detail || step.reason)}</p>
+        <div class="serialStepProgress"><strong>${progress}</strong><span>${escapeHtml(summary.nextLabel)}</span></div>
+        ${locked ? `<p class="serialLock">前の段階を完了すると解放されます。</p>` : ""}
+      </article>`;
+    }).join("");
+
+    homePanel.innerHTML = `<section class="card hero serialHero">
+      <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
+      <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
+      <p class="serialLead">大問1（語彙） → 大問2（空所補充） → 大問3（長文） → リスニング → ライティングの順に進みます。</p>
+      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span></div>
+      <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
+      <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
+    </section>
+    <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>5段階のコース</h2></div><p class="hint">準1級の過去問3回分を、セクションごとに進めます。</p></div><div class="serialStepList">${cards}</div></section>
+    <section class="card serialNote"><p class="label">保存について</p><p>準1級の各回の回答・下書き・途中位置は、準1級モードと同じ保存領域を使います。主要5セクションは3回分が完了するまで次の段階へ進みません。</p></section>`;
+
+    document.getElementById("serialStartBtn").addEventListener("click", () => {
+      if (allComplete) currentStepIndex = 0;
+      startCurrent();
+    });
+    document.getElementById("serialFreeBtn").addEventListener("click", () => {
+      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { free: true });
+    });
+    document.getElementById("serialGradeBtn").addEventListener("click", () => {
+      if (window.EikenAppRouter) window.EikenAppRouter.open("entry");
+    });
+    if (window.EikenAppRouter) window.EikenAppRouter.refreshNav();
+  }
+
   function q1IdForRound(round) {
     return profile.rounds.q1.find((id) => roundSuffix(id) === round) || profile.q1Id;
   }
@@ -343,6 +527,11 @@ const EikenSerialApp = (function () {
   }
 
   function setSerialPreferences(step, summary) {
+    if (profile.grade === "pre1") {
+      const activeRound = summary.nextId || profile.pre1Id.replace("eikenp1-", "");
+      try { localStorage.setItem("eiken_pre1_round", activeRound); } catch (error) { /* その場の演習は続ける */ }
+      return profile;
+    }
     const activeProfile = {
       ...profile,
       dictation: { ...profile.dictation },
@@ -367,15 +556,27 @@ const EikenSerialApp = (function () {
   }
 
   function startCurrent() {
-    const step = STEPS[currentStepIndex];
+    const steps = profile.grade === "pre1" ? PRE1_STEPS : STEPS;
+    const step = steps[currentStepIndex];
     if (!step) return;
     const summary = summaries[currentStepIndex];
     setSerialPreferences(step, summary);
+    if (profile.grade === "pre1") {
+      window.EikenSerialContext = {
+        active: true,
+        stepId: step.id,
+        roundId: summary.nextId || profile.pre1Id.replace("eikenp1-", ""),
+        profileId: profile.id,
+      };
+      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { free: true, serial: true });
+      return;
+    }
     window.EikenSerialContext = { active: true, stepId: step.id, profileId: profile.id };
     if (window.EikenAppRouter) window.EikenAppRouter.open(step.id, { serial: true });
   }
 
   function renderHome() {
+    if (profile && profile.grade === "pre1") return renderPre1Home();
     collectSummaries();
     const current = STEPS[currentStepIndex];
     const currentSummary = summaries[currentStepIndex];
@@ -444,7 +645,10 @@ const EikenSerialApp = (function () {
   }
 
   function refreshNav() {
-    if (loaded) collectSummaries();
+    if (loaded) {
+      if (profile && profile.grade === "pre1") collectPre1Summaries();
+      else collectSummaries();
+    }
   }
 
   function handleKey() { /* 直列コースはキーボード操作なし */ }

@@ -225,6 +225,19 @@ h2 {
 .pre1Hero { padding: 24px; }
 .pre1Hero .ghost { border-color: rgba(250, 249, 245, .42); color: var(--parchment); }
 .pre1Hero .ghost:hover:not(:disabled) { border-color: var(--parchment); background: var(--parchment); color: var(--ink); }
+.pre1Hero #pre1ResumeBtn {
+  border: 2px solid var(--parchment);
+  background: var(--parchment);
+  color: var(--ink);
+  font-weight: 700;
+}
+.pre1Hero #pre1ResumeBtn:hover:not(:disabled) {
+  border-color: var(--surface-strong);
+  background: var(--surface-strong);
+}
+.pre1Hero #pre1ResumeBtn:focus-visible {
+  outline-color: var(--clay);
+}
 .pre1HomeHead,
 .pre1SessionHead { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
 .pre1HomeHead h2,

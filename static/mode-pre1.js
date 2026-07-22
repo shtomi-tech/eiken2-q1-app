@@ -1546,6 +1546,19 @@ const EikenPre1App = (function () {
     renderHome();
   }
 
+  async function startCourse() {
+    const context = window.EikenSerialContext;
+    if (!context || !context.active) return;
+    await ensureLoaded();
+    const requestedRound = context.roundId || readString(ROUND_KEY, manifest.pre1.defaultRound);
+    const roundId = rounds().some((round) => round.id === requestedRound)
+      ? requestedRound
+      : manifest.pre1.defaultRound;
+    state.roundId = roundId;
+    state.data = await loadRound(roundId);
+    openSection(context.stepId || "reading1");
+  }
+
   async function mount() {
     renderLoading("準1級の問題セットを読み込んでいます…");
     try {
@@ -1566,7 +1579,7 @@ const EikenPre1App = (function () {
     }
   }
 
-  return { mount, handleKey };
+  return { mount, handleKey, startCourse };
 })();
 
 window.EikenPre1App = EikenPre1App;

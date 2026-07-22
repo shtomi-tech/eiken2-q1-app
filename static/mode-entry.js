@@ -142,7 +142,7 @@ const EikenGradeEntryApp = (function () {
     const nextProfile = setGrade(grade);
     if (!nextProfile || !window.EikenAppRouter) return;
     if (nextProfile.grade === "pre1") {
-      window.EikenAppRouter.open("pre1", { free: true });
+      window.EikenAppRouter.open(path === "free" ? "pre1" : "serial", path === "free" ? { free: true } : {});
       return;
     }
     window.EikenAppRouter.open(path === "free" ? "free" : "serial");
