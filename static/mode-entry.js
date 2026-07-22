@@ -194,10 +194,6 @@ const EikenGradeEntryApp = (function () {
   function startPath(grade, path) {
     const nextProfile = setGrade(grade);
     if (!nextProfile || !window.EikenAppRouter) return;
-    if (nextProfile.grade === "pre1") {
-      window.EikenAppRouter.open(path === "free" ? "pre1" : "serial", path === "free" ? { free: true } : {});
-      return;
-    }
     window.EikenAppRouter.open(path === "free" ? "free" : "serial");
   }
 
@@ -250,7 +246,7 @@ const EikenGradeEntryApp = (function () {
       <div class="sectionHead"><div><p class="label">GRADE</p><h2>受験する級</h2></div><p class="hint">先に級、次に進み方。</p></div>
       <div class="gradeChoiceGrid">${cards}</div>
     </section>
-    <section class="card gradeEntryNote"><p class="label">2つの進み方</p><div class="gradeEntryModes"><p><strong>学習ルート</strong><span>大問1 → 言い換え → 英作文 → リスニング → 大問3の順に進みます。</span></p><p><strong>自由演習</strong><span>順番のロックを外し、五つの技能からその日に取り組むものを選べます。</span></p></div></section>`;
+    <section class="card gradeEntryNote"><p class="label">2つの進み方</p><div class="gradeEntryModes"><p><strong>学習ルート</strong><span>級に合った五つの技能を、前の段階から順番に進めます。</span></p><p><strong>自由演習</strong><span>順番のロックを外し、五つの技能からその日に取り組むものを選べます。</span></p></div></section>`;
 
     homePanel.querySelectorAll("[data-grade][data-route]").forEach((button) => {
       button.addEventListener("click", () => startPath(button.dataset.grade, button.dataset.route));

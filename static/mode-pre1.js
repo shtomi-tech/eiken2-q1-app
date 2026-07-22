@@ -206,11 +206,11 @@ const EikenPre1App = (function () {
       passage.questions.forEach((question) => part3.push({ ...question, passage }));
     });
     return [
-      { id: "reading1", label: "大問1・語彙", tag: "READING 1", type: "questions", questions: data.reading.part1 || [] },
-      { id: "reading2", label: "大問2・空所補充", tag: "READING 2", type: "questions", questions: data.reading.part2 || [] },
-      { id: "reading3", label: "大問3・長文", tag: "READING 3", type: "questions", questions: part3 },
-      { id: "listening", label: "リスニング", tag: "LISTENING", type: "questions", questions: data.listening || [] },
+      { id: "reading1", label: "大問1・語彙", tag: "VOCABULARY", type: "questions", questions: data.reading.part1 || [] },
+      { id: "reading2", label: "大問2・空所補充", tag: "CLOZE", type: "questions", questions: data.reading.part2 || [] },
       { id: "writing", label: "ライティング", tag: "WRITING", type: "writing", questions: data.writing || [] },
+      { id: "listening", label: "リスニング", tag: "LISTENING", type: "questions", questions: data.listening || [] },
+      { id: "reading3", label: "大問3・長文", tag: "READING", type: "questions", questions: part3 },
     ];
   }
 
@@ -287,12 +287,12 @@ const EikenPre1App = (function () {
       <div class="pre1HomeHead"><div><p class="label">EIKEN PRE-1 / PAST EXAMS</p><h2>${complete ? "この回を完了しました" : "準1級の過去問を、回ごとに解く"}</h2></div>
         <label class="datasetPicker"><span class="fieldLabel">問題セット</span><select class="datasetSelect" id="pre1RoundSelect">${roundOptions}</select></label>
       </div>
-      <p class="pre1Lead">大問1〜3、ライティング、リスニングを分けて保存します。正解数だけでなく、どこまで終えたかも回ごとに残ります。</p>
+      <p class="pre1Lead">大問1、大問2、ライティング、リスニング、大問3を分けて保存します。正解数だけでなく、どこまで終えたかも回ごとに残ります。</p>
       <div class="shareStatus${shareStatus.tone ? ` ${shareStatus.tone}` : ""}" id="pre1ShareStatus" aria-live="polite">${escapeHtml(shareStatus.message)}</div>
       <div class="pre1Overall"><strong>${totalStats.done} / ${totalStats.total}</strong><span>設問・課題を確認済み</span>${complete ? "<b>この回は完了 ✅</b>" : ""}</div>
       <div class="actions">${resume && resume.roundId === state.roundId ? `<button class="cta" type="button" id="pre1ResumeBtn">続きから再開する</button>` : `<button class="cta" type="button" data-section="${sections.find((section) => !sectionComplete(section))?.id || "reading1"}">未完了のセクションから始める</button>`}<button class="ghost" type="button" id="pre1GradeBtn">級を変更</button></div>
     </section>
-    <section class="card pre1SectionArea"><div class="sectionHead"><div><p class="label">SECTIONS</p><h2>一次試験の構成</h2></div><p class="hint">${escapeHtml(info.label)}</p></div><div class="pre1SectionGrid">${sectionCards}</div></section>
+    <section class="card pre1SectionArea"><div class="sectionHead"><div><p class="label">SKILLS</p><h2>演習する技能</h2></div><p class="hint">${escapeHtml(info.label)}</p></div><div class="pre1SectionGrid">${sectionCards}</div></section>
     <section class="card pre1Note"><p class="label">保存について</p><p>選択問題の回答、ライティングの下書き、途中位置はブラウザに保存されます。公式PDFの問題文を公開用データとして再配布する設定にはしていません。</p></section>`;
 
     const select = document.getElementById("pre1RoundSelect");
@@ -313,11 +313,12 @@ const EikenPre1App = (function () {
     return result;
   }
 
-  async function switchRound(roundId) {
+  async function switchRound(roundId, sectionId = null) {
     state.roundId = roundId;
     state.data = await loadRound(roundId);
     saveJson(ROUND_KEY, roundId);
-    renderHome();
+    if (sectionId) openSection(sectionId);
+    else renderHome();
   }
 
   function activeSection() {
@@ -373,6 +374,7 @@ const EikenPre1App = (function () {
       if (section.id === "reading3") resetQ3Flow();
     }
     saveResume();
+    setChromeTitle(`英検準1級 ${section.label}`);
     renderSection(section);
   }
 
@@ -604,7 +606,9 @@ const EikenPre1App = (function () {
 
   function renderSectionHeader(section, currentLabel) {
     const stats = sectionStats(section);
-    return `<div class="pre1SessionHead"><div><p class="label">${escapeHtml(section.tag)}</p><h2>${escapeHtml(section.label)}</h2><p class="hint">${currentLabel}</p></div><div class="pre1SessionActions"><span>${stats.done} / ${stats.total}確認済み</span><button class="ghost smallGhost" type="button" id="pre1BackHomeBtn">セクション一覧</button></div></div>`;
+    const roundOptions = rounds().map((round) => `<option value="${escapeHtml(round.id)}"${round.id === state.roundId ? " selected" : ""}>${escapeHtml(round.label)}</option>`).join("");
+    const backLabel = window.EikenLearningPath === "free" ? "技能一覧" : "セクション一覧";
+    return `<div class="pre1SessionHead"><div><p class="label">${escapeHtml(section.tag)}</p><h2>${escapeHtml(section.label)}</h2><p class="hint">${currentLabel}</p></div><div class="pre1SessionActions"><label class="datasetPicker"><span class="fieldLabel">問題セット</span><select class="datasetSelect" id="pre1SessionRoundSelect">${roundOptions}</select></label><span>${stats.done} / ${stats.total}確認済み</span><button class="ghost smallGhost" type="button" id="pre1BackHomeBtn">${backLabel}</button></div></div>`;
   }
 
   function renderQuestion() {
@@ -1218,7 +1222,12 @@ const EikenPre1App = (function () {
 
   function bindCommonSessionButtons() {
     const button = document.getElementById("pre1BackHomeBtn");
-    if (button) button.addEventListener("click", renderHome);
+    if (button) button.addEventListener("click", () => {
+      if (window.EikenLearningPath === "free" && window.EikenAppRouter) window.EikenAppRouter.open("free");
+      else renderHome();
+    });
+    const select = document.getElementById("pre1SessionRoundSelect");
+    if (select) select.addEventListener("change", () => { void switchRound(select.value, state.sectionId); });
   }
 
   function wordCount(value) {
@@ -1569,6 +1578,17 @@ const EikenPre1App = (function () {
     }
   }
 
+  async function mountSection(sectionId) {
+    renderLoading("準1級の問題セットを読み込んでいます…");
+    try {
+      await boot();
+      openSection(sectionId);
+    } catch (error) {
+      homePanel.innerHTML = `<div class="card"><h2>準1級モードを読み込めませんでした</h2><p>HTTPサーバー経由で起動しているか確認してください。</p><p class="hint">${escapeHtml(error.message)}</p></div>`;
+      console.error(error);
+    }
+  }
+
   function handleKey(event) {
     if (event.defaultPrevented || event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement) return;
     if (!state.sectionId || state.resultShown) return;
@@ -1579,7 +1599,7 @@ const EikenPre1App = (function () {
     }
   }
 
-  return { mount, handleKey, startCourse };
+  return { mount, mountSection, handleKey, startCourse };
 })();
 
 window.EikenPre1App = EikenPre1App;

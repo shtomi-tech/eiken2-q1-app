@@ -8,12 +8,19 @@
 const EikenFreeApp = (function () {
   const homePanel = document.getElementById("homePanel");
   const sessionPanel = document.getElementById("sessionPanel");
-  const SKILLS = [
+  const STANDARD_SKILLS = [
     { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", description: "意味確認から4択、誤答復習まで。" },
     { id: "paraphrase", label: "言い換え", tag: "PARAPHRASE", description: "もの・人・場所を別の言い方で説明する練習。" },
     { id: "writing", label: "英作文", tag: "WRITING", description: "型に沿って理由と結論を書き、レビューする練習。" },
     { id: "dictation", label: "リスニング", tag: "LISTENING", description: "音声を聞いて答え、必要な設問を書き取る練習。" },
     { id: "q3", label: "大問3（長文）", tag: "READING", description: "設問と本文の根拠、内容整理まで確認する練習。" },
+  ];
+  const PRE1_SKILLS = [
+    { id: "pre1-reading1", label: "大問1（語彙）", tag: "VOCABULARY", description: "意味確認から4択、誤答復習まで。" },
+    { id: "pre1-reading2", label: "大問2（空所補充）", tag: "CLOZE", description: "文脈を確認し、空所に合う語句を選ぶ練習。" },
+    { id: "pre1-writing", label: "ライティング", tag: "WRITING", description: "英文要約と英作文を段階的に組み立て、レビューする練習。" },
+    { id: "pre1-listening", label: "リスニング", tag: "LISTENING", description: "音声問題を解き、誤答した設問を書き取る練習。" },
+    { id: "pre1-reading3", label: "大問3（長文）", tag: "READING", description: "設問と本文の根拠、内容整理まで確認する練習。" },
   ];
 
   function escapeHtml(value) {
@@ -51,23 +58,10 @@ const EikenFreeApp = (function () {
       return;
     }
 
-    if (profile.grade === "pre1") {
-      homePanel.innerHTML = `<section class="card hero freeHero">
-        <p class="label">FREE PRACTICE / EIKEN PRE-1</p>
-        <h2>準1級モードを開きます</h2>
-        <p>準1級は、過去問の出題構成に合わせた専用モードで演習します。</p>
-        <div class="actions"><button class="cta" type="button" id="freePre1Btn">準1級モードへ</button><button class="ghost" type="button" id="freePre1GradeBtn">級を変更</button></div>
-      </section>`;
-      document.getElementById("freePre1Btn").addEventListener("click", () => openSkill("pre1"));
-      document.getElementById("freePre1GradeBtn").addEventListener("click", () => {
-        if (window.EikenAppRouter) window.EikenAppRouter.open("entry");
-      });
-      return;
-    }
-
     if (window.EikenGradeEntryApp) window.EikenGradeEntryApp.applyProfile(profile);
-    const cards = SKILLS.map((skill) => `<article class="freeSkillCard">
-      <div class="freeSkillTop"><span class="freeSkillNo">${String(SKILLS.indexOf(skill) + 1).padStart(2, "0")}</span><span class="freeSkillTag">${skill.tag}</span></div>
+    const skills = profile.grade === "pre1" ? PRE1_SKILLS : STANDARD_SKILLS;
+    const cards = skills.map((skill, index) => `<article class="freeSkillCard">
+      <div class="freeSkillTop"><span class="freeSkillNo">${String(index + 1).padStart(2, "0")}</span><span class="freeSkillTag">${skill.tag}</span></div>
       <h3>${skill.label}</h3>
       <p>${skill.description}</p>
       <button class="cta" type="button" data-skill="${skill.id}">この技能を演習する</button>

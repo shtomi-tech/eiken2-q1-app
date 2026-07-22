@@ -23,11 +23,11 @@ const EikenSerialApp = (function () {
     { id: "q3", label: "大問3（長文）", tag: "READING", reason: "過去問3回分の本文・設問・内容整理を完了します。" },
   ];
   const PRE1_STEPS = [
-    { id: "reading1", label: "大問1（語彙）", tag: "READING 1", reason: "過去問3回分の語彙を、意味確認から4択まで学習します。" },
-    { id: "reading2", label: "大問2（空所補充）", tag: "READING 2", reason: "過去問3回分の空所補充問題を確認します。" },
-    { id: "reading3", label: "大問3（長文）", tag: "READING 3", reason: "過去問3回分の長文・根拠文・内容整理を完了します。" },
-    { id: "listening", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の音声問題を聞き、解答と書き取りを確認します。" },
+    { id: "reading1", label: "大問1（語彙）", tag: "VOCABULARY", reason: "過去問3回分の語彙を、意味確認から4択まで学習します。" },
+    { id: "reading2", label: "大問2（空所補充）", tag: "CLOZE", reason: "過去問3回分の空所補充問題を確認します。" },
     { id: "writing", label: "ライティング", tag: "WRITING", reason: "過去問3回分の英文要約・英作文を組み立て、レビューします。" },
+    { id: "listening", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の音声問題を聞き、解答と書き取りを確認します。" },
+    { id: "reading3", label: "大問3（長文）", tag: "READING", reason: "過去問3回分の長文・根拠文・内容整理を完了します。" },
   ];
 
   let manifest = null;
@@ -497,7 +497,7 @@ const EikenSerialApp = (function () {
     homePanel.innerHTML = `<section class="card hero serialHero">
       <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
       <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
-      <p class="serialLead">大問1（語彙） → 大問2（空所補充） → 大問3（長文） → リスニング → ライティングの順に進みます。</p>
+      <p class="serialLead">大問1（語彙） → 大問2（空所補充） → ライティング → リスニング → 大問3（長文）の順に進みます。</p>
       <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span></div>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
       <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
@@ -510,7 +510,7 @@ const EikenSerialApp = (function () {
       startCurrent();
     });
     document.getElementById("serialFreeBtn").addEventListener("click", () => {
-      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { free: true });
+      if (window.EikenAppRouter) window.EikenAppRouter.open("free");
     });
     document.getElementById("serialGradeBtn").addEventListener("click", () => {
       if (window.EikenAppRouter) window.EikenAppRouter.open("entry");
@@ -568,7 +568,7 @@ const EikenSerialApp = (function () {
         roundId: summary.nextId || profile.pre1Id.replace("eikenp1-", ""),
         profileId: profile.id,
       };
-      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { free: true, serial: true });
+      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { serial: true });
       return;
     }
     window.EikenSerialContext = { active: true, stepId: step.id, profileId: profile.id };
