@@ -439,8 +439,6 @@ const EikenPre1App = (function () {
     const progress = progressState.progress;
     const key = questionKey(section.id, question);
     const saved = progress.questions[key];
-    if ((saved && saved.answered) || state.vocabStage === "practice") return renderQuestion();
-
     const vocab = vocabCache[state.roundId];
     if (!vocab) {
       renderLoadingSession("語彙データを読み込んでいます…");
@@ -453,6 +451,8 @@ const EikenPre1App = (function () {
       });
       return;
     }
+    if ((saved && saved.answered) || state.vocabStage === "practice") return renderQuestion();
+
     const words = vocab[String(question.q)];
     if (!words) { state.vocabStage = "practice"; return renderQuestion(); }
 
@@ -631,8 +631,12 @@ const EikenPre1App = (function () {
       }
       return `<button type="button" class="${cls}" data-choice="${index}" ${showResult ? "disabled" : ""}><span class="key">${index + 1}</span><span>${escapeHtml(choice)}</span></button>`;
     }).join("");
+    const vocabWords = section.id === "reading1" ? vocabCache[state.roundId]?.[String(question.q)] : null;
+    const correctMeaning = Array.isArray(vocabWords)
+      ? vocabWords.find((entry) => entry.word === question.choices[question.answerIndex])?.meaning || ""
+      : "";
     const resultHtml = showResult
-      ? `<div class="resultBox ${correct ? "ok" : "ng"}"><strong>${correct ? "正解" : "不正解"}</strong><p>正解：${question.answerIndex + 1} ${escapeHtml(question.choices[question.answerIndex])}</p></div>`
+      ? `<div class="resultBox ${correct ? "ok" : "ng"}"><strong>${correct ? "正解" : "不正解"}</strong><p>正解：${question.answerIndex + 1} ${escapeHtml(question.choices[question.answerIndex])}${correctMeaning ? `（意味：${escapeHtml(correctMeaning)}）` : ""}</p></div>`
       : `<p class="pre1Prompt">最も適切な選択肢を選んでください。</p>`;
     const isLast = state.index === section.questions.length - 1;
     sessionPanel.className = "pre1Session";
