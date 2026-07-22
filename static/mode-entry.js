@@ -14,6 +14,7 @@ const EikenGradeEntryApp = (function () {
 
   let manifest = null;
   let loading = null;
+  let identity = null; // { state: "anonymous" | "student" | "error", ... } — 一度解決したら再取得しない
 
   function escapeHtml(value) {
     return String(value == null ? "" : value)
@@ -33,6 +34,58 @@ const EikenGradeEntryApp = (function () {
     } catch (error) {
       return fallback;
     }
+  }
+
+  // 共有URL（?s=&t=）でログイン中の生徒名を解決する。共有URLでなければ何もしない（従来どおり匿名ローカル）。
+  async function ensureIdentity() {
+    if (identity) return identity;
+    const shared = typeof parseSharedParams === "function" ? parseSharedParams() : { studentId: "", token: "" };
+    if (!shared.studentId && !shared.token) {
+      identity = { state: "anonymous" };
+      return identity;
+    }
+    try {
+      const cfg = normalizeConfig(await loadOptionalJson("static/config.json"));
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) throw new Error("クラウド設定が未完了です。先生に連絡してください。");
+      const response = await fetch(`${cfg.supabaseUrl}/rest/v1/rpc/app_auth_student`, {
+        method: "POST",
+        headers: {
+          apikey: cfg.supabaseAnonKey,
+          Authorization: `Bearer ${cfg.supabaseAnonKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ p_student_id: shared.studentId, p_access_token: shared.token }),
+      });
+      if (!response.ok) throw new Error(`app_auth_student: HTTP ${response.status}`);
+      const rows = await response.json();
+      const student = Array.isArray(rows) ? rows[0] : rows;
+      if (!student || !student.id) throw new Error("生徒URLを確認できませんでした。QRコードを作り直してください。");
+      identity = { state: "student", id: String(student.id), name: String(student.display_name || student.id) };
+    } catch (error) {
+      console.error(error);
+      identity = { state: "error", id: shared.studentId, message: error.message || "生徒URLを確認できませんでした。" };
+    }
+    return identity;
+  }
+
+  function setShareStatus(message, tone = "") {
+    const slot = document.getElementById("shareStatus");
+    if (!slot) return;
+    slot.textContent = message || "";
+    slot.className = `shareStatus${tone ? ` ${tone}` : ""}`;
+  }
+
+  function renderIdentity() {
+    if (!identity || identity.state === "anonymous") {
+      setShareStatus("");
+      return "";
+    }
+    if (identity.state === "error") {
+      setShareStatus(identity.message, "ng");
+      return `<div class="gradeEntryUser isError"><span class="label">LOGIN / 確認が必要</span><strong>生徒を確認できませんでした</strong><span>${escapeHtml(identity.message)}</span></div>`;
+    }
+    setShareStatus(`${identity.name} さんとして学習中（進捗はクラウド保存）`, "ok");
+    return `<div class="gradeEntryUser"><span class="label">LOGGED IN / ログイン中</span><strong>${escapeHtml(identity.name)} さん</strong><span>ID: ${escapeHtml(identity.id)}／この先の進捗は、この生徒として保存されます。</span></div>`;
   }
 
   async function ensureLoaded() {
@@ -190,6 +243,7 @@ const EikenGradeEntryApp = (function () {
       <p class="label">CHOOSE GRADE / START HERE</p>
       <h2>${profile ? "級を確認して、演習を始める" : "英検の級を選ぶ"}</h2>
       <p class="gradeEntryLead">級を先に決めると、語彙・英作文・リスニング・長文の入口が揃います。そのあと、順番に進むか、好きな技能から始めるかを選べます。</p>
+      ${renderIdentity()}
       ${current}
     </section>
     <section class="card gradeChoiceSection">
@@ -209,7 +263,7 @@ const EikenGradeEntryApp = (function () {
     sessionPanel.className = "hide";
     homePanel.innerHTML = `<div class="card"><p class="loading">級の設定を読み込んでいます…</p></div>`;
     try {
-      await ensureLoaded();
+      await Promise.all([ensureLoaded(), ensureIdentity()]);
       renderHome();
     } catch (error) {
       homePanel.innerHTML = `<div class="card"><h2>級の設定を読み込めませんでした</h2><p>HTTPサーバー経由で起動しているか確認してください。</p><p class="hint">${escapeHtml(error.message)}</p></div>`;

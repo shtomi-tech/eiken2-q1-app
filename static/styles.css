@@ -315,6 +315,11 @@ h2 {
 .gradeEntryHero, .freeHero { padding: 28px 24px; }
 .gradeEntryHero h2, .freeHero h2 { color: var(--parchment); font-size: clamp(30px, 5vw, 44px); }
 .gradeEntryHero > p:not(.label), .freeHero > p:not(.label) { max-width: 720px; color: rgba(250, 249, 246, .72); }
+.gradeEntryUser { display: grid; gap: 3px; margin-top: 20px; padding: 14px 16px; border-radius: var(--r-md); background: rgba(250, 249, 246, .12); }
+.gradeEntryUser .label { margin: 0; color: rgba(250, 249, 246, .72); }
+.gradeEntryUser strong { font-family: var(--serif); font-size: 24px; line-height: 1.25; color: var(--parchment); }
+.gradeEntryUser > span:last-child { color: rgba(250, 249, 246, .72); font-size: 13px; }
+.gradeEntryUser.isError { background: rgba(250, 249, 246, .08); border-left: 4px solid var(--clay); padding-left: 12px; }
 .gradeEntryCurrent { display: grid; gap: 3px; margin-top: 20px; border-top: 1px solid rgba(250, 249, 246, .32); padding-top: 16px; }
 .gradeEntryCurrent .label { margin: 0; }
 .gradeEntryCurrent strong { font-family: var(--serif); font-size: 28px; line-height: 1.25; }
