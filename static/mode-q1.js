@@ -153,6 +153,7 @@ function resumeDescription(resume) {
     return `第${resume.q}問・${stage}`;
   }
   if (resume.mode === "review") return `復習 ${Number(resume.reviewIdx || 0) + 1}/${resume.reviewQueue?.length || 1}（第${resume.q}問）`;
+  if (resume.mode === "cycle") return `${resume.cyclePhase === "random" ? "ランダム復習" : "累積練習"} ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
   if (resume.mode === "meaning") return `全語句の意味チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
   if (resume.mode === "final") return `最終チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
   return "学習の続き";
@@ -180,6 +181,10 @@ function saveResume() {
     wrongReviewed: Boolean(session.wrongReviewed),
     meaningCorrect: session.meaningCorrect || 0,
     finalCorrect: session.finalCorrect || 0,
+    cycleCorrect: session.cycleCorrect || 0,
+    cyclePhase: session.cyclePhase || null,
+    cycleBlockIndex: session.cycleBlockIndex,
+    cycleRound: session.cycleRound,
     practiceAnswered: Boolean(session.practiceAnswered),
     practiceResult: session.practiceResult,
     checkChoices: session._checkChoices || null,
@@ -208,6 +213,10 @@ function restoreSession() {
     reviewQueue: saved.reviewQueue || [],
     wrongLog: (saved.wrongLog || []).map((entry) => ({ item: resolveItem(entry.item), picked: entry.picked })).filter((entry) => entry.item),
     _checkChoices: saved.checkChoices || null,
+    cycleCorrect: saved.cycleCorrect || 0,
+    cyclePhase: saved.cyclePhase || null,
+    cycleBlockIndex: Number.isInteger(saved.cycleBlockIndex) ? saved.cycleBlockIndex : null,
+    cycleRound: Number.isInteger(saved.cycleRound) ? saved.cycleRound : null,
   };
   renderSession();
   return true;
@@ -223,6 +232,10 @@ function unit(q) {
   return state.progress.units[q];
 }
 const FINAL_PASS_RATE = 0.8;
+const CYCLE_QUESTIONS_PER_BLOCK = 5;
+const CYCLE_BLOCKS = 3;
+const CYCLE_SESSION_SIZE = 15;
+const CYCLE_RANDOM_ROUNDS = 3;
 
 function finalPassScore(finalTotal) {
   return Math.ceil(finalTotal * FINAL_PASS_RATE);
@@ -254,6 +267,133 @@ function finalProgress(finalTotal) {
     saveProgress();
   }
   return f;
+}
+
+/* ============================================================
+   累積・ランダム出題サイクル
+   既存の設問別進捗と最終チェックは変更せず、語彙の復習導線だけを追加する。
+   ============================================================ */
+function defaultCycleState() {
+  return {
+    version: 1,
+    baseQIndex: 0,
+    cumulativeDone: 0,
+    randomRound: 0,
+    history: [],
+  };
+}
+
+function loadCycleState() {
+  const saved = state.progress.cumulativeCycle;
+  if (!saved || saved.version !== 1) return defaultCycleState();
+  return {
+    ...defaultCycleState(),
+    ...saved,
+    baseQIndex: Math.max(0, Math.min(state.qList.length, Number(saved.baseQIndex) || 0)),
+    cumulativeDone: Math.max(0, Math.min(CYCLE_BLOCKS, Number(saved.cumulativeDone) || 0)),
+    randomRound: Math.max(0, Math.min(CYCLE_RANDOM_ROUNDS, Number(saved.randomRound) || 0)),
+    history: Array.isArray(saved.history) ? saved.history : [],
+  };
+}
+
+function saveCycleState(cycle) {
+  state.progress.cumulativeCycle = cycle || defaultCycleState();
+  saveProgress();
+}
+
+function cycleQuestions(cycle) {
+  return state.qList.slice(cycle.baseQIndex, cycle.baseQIndex + CYCLE_QUESTIONS_PER_BLOCK * CYCLE_BLOCKS);
+}
+
+function completedCycleBlocks(questions) {
+  let completed = 0;
+  for (let i = 0; i < questions.length; i += CYCLE_QUESTIONS_PER_BLOCK) {
+    const block = questions.slice(i, i + CYCLE_QUESTIONS_PER_BLOCK);
+    if (!block.length || !block.every((q) => unit(q).learned)) break;
+    completed += 1;
+  }
+  return completed;
+}
+
+function cycleItemsForQuestions(questions) {
+  return questions.flatMap((q) => state.itemsByQ[q] || []);
+}
+
+function cyclePlan() {
+  const cycle = loadCycleState();
+  const questions = cycleQuestions(cycle);
+  if (!questions.length) {
+    return { phase: "complete", cycle, title: "累積サイクル完了", hint: "この問題セットの累積サイクルは完了しています。" };
+  }
+
+  const requiredBlocks = Math.min(CYCLE_BLOCKS, Math.ceil(questions.length / CYCLE_QUESTIONS_PER_BLOCK));
+  const completedBlocks = Math.min(requiredBlocks, completedCycleBlocks(questions));
+  const cumulativeDone = Math.min(cycle.cumulativeDone, completedBlocks);
+
+  if (cumulativeDone < completedBlocks) {
+    const blockEnd = Math.min(questions.length, (cumulativeDone + 1) * CYCLE_QUESTIONS_PER_BLOCK);
+    const poolQuestions = questions.slice(0, blockEnd);
+    const items = cycleItemsForQuestions(poolQuestions);
+    return {
+      phase: "cumulative",
+      cycle,
+      blockIndex: cumulativeDone,
+      title: `累積練習・第${cumulativeDone + 1}ブロック`,
+      hint: `第${cumulativeDone + 1}ブロックまでの既習範囲、${poolQuestions.length}設問から練習します。途中の点数はCLEAR判定に使いません。`,
+      items,
+    };
+  }
+
+  if (completedBlocks < requiredBlocks) {
+    const start = completedBlocks * CYCLE_QUESTIONS_PER_BLOCK;
+    const end = Math.min(questions.length, start + CYCLE_QUESTIONS_PER_BLOCK);
+    const nextQ = questions.slice(start, end).find((q) => !unit(q).learned);
+    return {
+      phase: "new",
+      cycle,
+      nextQ: nextQ || null,
+      title: `新規学習・第${completedBlocks + 1}ブロック`,
+      hint: `次の${end - start}設問を通常の3ステップで学習します。`,
+    };
+  }
+
+  if (cycle.randomRound < CYCLE_RANDOM_ROUNDS) {
+    const items = cycleItemsForQuestions(questions);
+    return {
+      phase: "random",
+      cycle,
+      round: cycle.randomRound + 1,
+      title: `ランダム復習 ${cycle.randomRound + 1}/${CYCLE_RANDOM_ROUNDS}`,
+      hint: `第1〜${requiredBlocks}ブロックの全語句からランダムに出題します。`,
+      items,
+    };
+  }
+
+  return { phase: "complete", cycle, title: "累積サイクル完了", hint: "この問題セットの累積サイクルは完了しています。" };
+}
+
+function recordCyclePractice(session) {
+  if (!session || session.mode !== "cycle") return;
+  const cycle = loadCycleState();
+  cycle.history = [...cycle.history, {
+    phase: session.cyclePhase,
+    blockIndex: Number.isInteger(session.cycleBlockIndex) ? session.cycleBlockIndex : null,
+    round: Number.isInteger(session.cycleRound) ? session.cycleRound : null,
+    score: session.cycleCorrect,
+    total: session.checkOrder.length,
+    completedAt: new Date().toISOString(),
+  }].slice(-30);
+  if (session.cyclePhase === "cumulative") {
+    cycle.cumulativeDone = Math.max(cycle.cumulativeDone, session.cycleBlockIndex + 1);
+  } else if (session.cyclePhase === "random") {
+    cycle.randomRound = Math.min(CYCLE_RANDOM_ROUNDS, cycle.randomRound + 1);
+    if (cycle.randomRound >= CYCLE_RANDOM_ROUNDS) {
+      cycle.baseQIndex += CYCLE_QUESTIONS_PER_BLOCK * CYCLE_BLOCKS;
+      cycle.cumulativeDone = 0;
+      cycle.randomRound = 0;
+    }
+  }
+  saveCycleState(cycle);
 }
 
 /* ============================================================
@@ -517,6 +657,24 @@ function renderHome() {
   ));
   home.appendChild(summary);
 
+  const cycle = cyclePlan();
+  if (learned > 0 || cycle.phase !== "new") {
+    const cycleCard = el("section", { class: "card" });
+    cycleCard.appendChild(el("p", { class: "label" }, "累積サイクル"));
+    cycleCard.appendChild(el("h2", {}, cycle.title));
+    cycleCard.appendChild(el("p", { class: "hint" }, cycle.hint));
+    const cycleActions = el("div", { class: "actions" });
+    if (cycle.phase === "new" && cycle.nextQ) {
+      cycleActions.appendChild(el("button", { class: "cta", onclick: () => startLearn(cycle.nextQ) }, `第${cycle.nextQ}問を学習する`));
+    } else if (cycle.phase === "cumulative" || cycle.phase === "random") {
+      cycleActions.appendChild(el("button", { class: "cta reviewCta", onclick: () => startCycleCheck(cycle) }, `${cycle.title}を始める`));
+    } else {
+      cycleActions.appendChild(el("button", { class: "secondaryCta", disabled: "disabled" }, "このサイクルは完了済みです"));
+    }
+    cycleCard.appendChild(cycleActions);
+    home.appendChild(cycleCard);
+  }
+
   // question path
   const path = el("section", { class: "card" });
   path.appendChild(el("div", { class: "pathHead" },
@@ -684,6 +842,27 @@ function startMeaningPractice() {
   renderSession();
 }
 
+function startCycleCheck(plan) {
+  if (!plan || !plan.items || !plan.items.length) return;
+  session = {
+    mode: "cycle",
+    q: null,
+    items: plan.items,
+    stage: "check",
+    checkOrder: shuffle(plan.items).slice(0, Math.min(CYCLE_SESSION_SIZE, plan.items.length)),
+    checkIdx: 0,
+    checkAnswered: false,
+    cycleCorrect: 0,
+    cyclePhase: plan.phase,
+    cycleBlockIndex: Number.isInteger(plan.blockIndex) ? plan.blockIndex : null,
+    cycleRound: Number.isInteger(plan.round) ? plan.round : null,
+    wrongLog: [],
+    wrongChecked: [],
+    wrongReviewed: false,
+  };
+  renderSession();
+}
+
 function startFinalCheck() {
   const queue = shuffle(allVocabularyItems());
   session = {
@@ -710,9 +889,10 @@ function renderSession() {
   panel.innerHTML = "";
 
   const isMeaning = session.mode === "meaning";
+  const isCycle = session.mode === "cycle";
   const isFinal = session.mode === "final";
   const q = session.q;
-  const isIdiom = !isMeaning && !isFinal && session.items[0].type === "idiom";
+  const isIdiom = !isMeaning && !isCycle && !isFinal && session.items[0].type === "idiom";
   const isReview = session.mode === "review";
 
   // header
@@ -727,6 +907,7 @@ function renderSession() {
 
   // stage bar
   if (isFinal) panel.appendChild(finalBar());
+  else if (isCycle) panel.appendChild(cycleBar());
   else if (isMeaning) panel.appendChild(meaningBar());
   else if (isReview) panel.appendChild(reviewBar());
   else panel.appendChild(stageBar(session.stage));
@@ -743,6 +924,7 @@ function renderSession() {
 
 function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
   if (isFinal) return `最終チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`;
+  if (session.mode === "cycle") return `${session.cyclePhase === "random" ? "ランダム復習" : "累積練習"} ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   if (isMeaning) return `全語句ランダム ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   if (isReview) return `復習演習 ${session.reviewIdx + 1} / ${session.reviewQueue.length}`;
   return `第${q}問 ・ ${isIdiom ? "熟語" : "単語"}`;
@@ -750,6 +932,7 @@ function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
 
 function stageTitle(stage) {
   if (session && session.mode === "final") return `最終チェック${session.checkOrder.length}問`;
+  if (session && session.mode === "cycle") return session.cyclePhase === "random" ? "ランダム復習" : "累積練習";
   if (session && session.mode === "meaning") return "意味チェックだけ演習";
   if (session && session.mode === "review") return "間違えた問題を演習";
   return {
@@ -831,6 +1014,14 @@ function buildFlashCard(item) {
   if (item.selfExampleEnabled) inner.appendChild(buildSelfExamplePanel(item));
   card.appendChild(inner);
   return card;
+}
+
+function cycleBar() {
+  const label = session.cyclePhase === "random" ? "ランダム復習" : "累積練習";
+  return el("div", { class: "stageBar meaningBar" },
+    el("div", { class: "stagePill active" }, `${label} ${session.checkIdx + 1} / ${session.checkOrder.length}`),
+    el("div", { class: "stagePill" }, `回答済 ${session.checkIdx} / 正解 ${session.cycleCorrect}`),
+  );
 }
 
 function renderFlash(body) {
@@ -1111,6 +1302,7 @@ function renderCheck(body) {
         else if (txt === m && !isCorrect) c.classList.add("wrong");
       });
       if ((session.mode === "meaning" || session.mode === "learn") && isCorrect) session.meaningCorrect += 1;
+      if (session.mode === "cycle" && isCorrect) session.cycleCorrect += 1;
       if (session.mode === "final" && isCorrect) session.finalCorrect += 1;
       if (!isCorrect && session.wrongLog) session.wrongLog.push({ item, picked: m });
       if (last && session.mode === "final") saveFinalResult();
@@ -1160,7 +1352,7 @@ function appendCheckFeedback(box, item, surface, correct, isCorrect) {
 
 // 意味チェックの最終問のあと：誤答があればまず復習ステージへ、無ければ従来どおりの行き先へ
 function afterCheckDestination() {
-  return (session.mode === "meaning" || session.mode === "final") ? "done" : "practice";
+  return (session.mode === "meaning" || session.mode === "cycle" || session.mode === "final") ? "done" : "practice";
 }
 function nextStageAfterCheck() {
   if (session.wrongLog && session.wrongLog.length && !session.wrongReviewed) return "wrongReview";
@@ -1320,6 +1512,7 @@ function renderDone(body) {
   clearResume();
   const q = session.q;
   const isMeaning = session.mode === "meaning";
+  const isCycle = session.mode === "cycle";
   const isFinal = session.mode === "final";
   const isReview = session.mode === "review";
   const banner = el("div", { class: "doneBanner" });
@@ -1332,6 +1525,14 @@ function renderDone(body) {
       ? `${dataset().shortLabel} 大問1 CLEAR`
       : `最終チェック完了。${session.finalCorrect}/${session.checkOrder.length}でした`));
     banner.appendChild(el("p", { class: "hint" }, `${finalPassScore(finalTotal)}/${finalTotal}問以上（正答率80%以上）でCLEAR`));
+  } else if (isCycle) {
+    if (!session.cycleRecorded) {
+      recordCyclePractice(session);
+      session.cycleRecorded = true;
+    }
+    banner.appendChild(el("div", { class: "big" }, `${session.cycleCorrect} / ${session.checkOrder.length}`));
+    banner.appendChild(el("h2", {}, session.cyclePhase === "random" ? "ランダム復習が完了しました" : "累積練習が完了しました"));
+    banner.appendChild(el("p", { class: "hint" }, "これは練習記録です。最終チェックのCLEAR判定には影響しません。"));
   } else if (isMeaning) {
     banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
     banner.appendChild(el("h2", {}, "全語句の意味チェックが完了しました"));
@@ -1349,6 +1550,13 @@ function renderDone(body) {
   if (isFinal) {
     if (session.finalCorrect < finalPassScore(session.checkOrder.length)) {
       actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, `もう一度${session.checkOrder.length}問に挑戦する`));
+    }
+  } else if (isCycle) {
+    const nextCycle = cyclePlan();
+    if (nextCycle.phase === "cumulative" || nextCycle.phase === "random") {
+      actions.appendChild(el("button", { class: "cta reviewCta", onclick: () => startCycleCheck(nextCycle) }, `${nextCycle.title}へ →`));
+    } else if (nextCycle.phase === "new" && nextCycle.nextQ) {
+      actions.appendChild(el("button", { class: "cta", onclick: () => startLearn(nextCycle.nextQ) }, `第${nextCycle.nextQ}問の学習へ →`));
     }
   } else if (isMeaning) {
     actions.appendChild(el("button", { class: "cta meaningCta", onclick: startMeaningPractice },
