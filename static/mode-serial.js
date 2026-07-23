@@ -434,11 +434,17 @@ const EikenSerialApp = (function () {
       } else {
         const next = nextRound.section.questions.find((question) => {
           const saved = nextRound.progress.questions[pre1QuestionKey(step.id, question)];
-          return !(saved && saved.answered && (step.id !== "reading1" || saved.correct));
+          return !(saved && saved.answered);
         });
-        const q1Ready = step.id === "reading1" && !next
+        const retry = step.id === "reading1" && !next
+          ? nextRound.section.questions.find((question) => {
+            const saved = nextRound.progress.questions[pre1QuestionKey(step.id, question)];
+            return saved && saved.answered && !saved.correct;
+          })
+          : null;
+        const q1Ready = step.id === "reading1" && !next && !retry
           && nextRound.progress.finalCheck && nextRound.progress.finalCheck.cleared !== true;
-        nextLabel = `${pre1RoundLabel(nextRound.id)}・${next ? `第${next.q}問` : q1Ready ? "最終チェック" : "内容整理"}`;
+        nextLabel = `${pre1RoundLabel(nextRound.id)}・${next ? `第${next.q}問` : retry ? `第${retry.q}問を解き直す` : q1Ready ? "最終チェック" : "内容整理"}`;
       }
     }
     const inProgress = done > 0 || completedRounds > 0;

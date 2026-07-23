@@ -388,9 +388,17 @@ const EikenPre1App = (function () {
   function firstOpenQuestionIndex(section, progress) {
     const idx = section.questions.findIndex((question) => {
       const saved = progress.questions[questionKey(section.id, question)];
-      return !(saved && saved.answered && (section.id !== "reading1" || saved.correct));
+      return !(saved && saved.answered);
     });
-    return idx >= 0 ? idx : 0;
+    if (idx >= 0) return idx;
+    if (section.id === "reading1") {
+      const retryIdx = section.questions.findIndex((question) => {
+        const saved = progress.questions[questionKey(section.id, question)];
+        return saved && saved.answered && !saved.correct;
+      });
+      if (retryIdx >= 0) return retryIdx;
+    }
+    return 0;
   }
 
   function firstOpenWritingIndex(section, progress) {
@@ -454,6 +462,21 @@ const EikenPre1App = (function () {
     resetQ3Flow();
     const section = activeSection();
     if (!section) return renderHome();
+    const progress = roundProgress();
+    if (section.type === "writing") {
+      state.writingIndex = firstOpenWritingIndex(section, progress);
+      const task = section.questions[state.writingIndex];
+      state.writingStep = writingResumeStep(task, normalizeWritingDraft(task.type, progress.writing[task.id]));
+    } else {
+      const current = section.questions[state.index];
+      const currentSaved = current && progress.questions[questionKey(section.id, current)];
+      if (currentSaved && currentSaved.answered) {
+        state.index = firstOpenQuestionIndex(section, progress);
+        state.selectedIndex = null;
+        state.resultShown = false;
+        state.listeningMode = "problem";
+      }
+    }
     renderSection(section);
   }
 
