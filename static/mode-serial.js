@@ -374,12 +374,19 @@ const EikenSerialApp = (function () {
       questions: saved.questions && typeof saved.questions === "object" ? saved.questions : {},
       writing: saved.writing && typeof saved.writing === "object" ? saved.writing : {},
       summaries: saved.summaries && typeof saved.summaries === "object" ? saved.summaries : {},
+      finalCheck: saved.finalCheck && typeof saved.finalCheck === "object" ? saved.finalCheck : {},
     };
   }
 
   function pre1QuestionKey(sectionId, question) { return `${sectionId}:${question.q}`; }
 
   function pre1SectionComplete(section, progress) {
+    if (section.id === "reading1") {
+      return section.questions.length > 0 && section.questions.every((question) => {
+        const saved = progress.questions[pre1QuestionKey(section.id, question)];
+        return saved && saved.answered && saved.correct;
+      }) && Boolean(progress.finalCheck && progress.finalCheck.cleared);
+    }
     if (section.type === "writing") {
       return section.questions.length > 0 && section.questions.every((task) => progress.writing[task.id] && progress.writing[task.id].reviewed);
     }
@@ -427,9 +434,11 @@ const EikenSerialApp = (function () {
       } else {
         const next = nextRound.section.questions.find((question) => {
           const saved = nextRound.progress.questions[pre1QuestionKey(step.id, question)];
-          return !(saved && saved.answered);
+          return !(saved && saved.answered && (step.id !== "reading1" || saved.correct));
         });
-        nextLabel = `${pre1RoundLabel(nextRound.id)}・${next ? `第${next.q}問` : "内容整理"}`;
+        const q1Ready = step.id === "reading1" && !next
+          && nextRound.progress.finalCheck && nextRound.progress.finalCheck.cleared !== true;
+        nextLabel = `${pre1RoundLabel(nextRound.id)}・${next ? `第${next.q}問` : q1Ready ? "最終チェック" : "内容整理"}`;
       }
     }
     const inProgress = done > 0 || completedRounds > 0;

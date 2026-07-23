@@ -37,6 +37,12 @@ const EikenPre1App = (function () {
     checkAnswered: false,
     wrongLog: [],
     wrongChecked: [],
+    finalCorrect: 0,
+    finalOrder: [],
+    finalChoices: null,
+    finalAnswerIndex: -1,
+    finalPicked: null,
+    finalAnswered: false,
     q3Phase: "practice",
     q3Step: "choice",
     q3SelectedIndex: null,
@@ -91,11 +97,12 @@ const EikenPre1App = (function () {
 
   function ensureRoundProgress(store, roundId = state.roundId) {
     if (!store.rounds[roundId] || typeof store.rounds[roundId] !== "object") {
-      store.rounds[roundId] = { questions: {}, writing: {}, summaries: {} };
+      store.rounds[roundId] = { questions: {}, writing: {}, summaries: {}, finalCheck: {} };
     }
     if (!store.rounds[roundId].questions || typeof store.rounds[roundId].questions !== "object") store.rounds[roundId].questions = {};
     if (!store.rounds[roundId].writing || typeof store.rounds[roundId].writing !== "object") store.rounds[roundId].writing = {};
     if (!store.rounds[roundId].summaries || typeof store.rounds[roundId].summaries !== "object") store.rounds[roundId].summaries = {};
+    if (!store.rounds[roundId].finalCheck || typeof store.rounds[roundId].finalCheck !== "object") store.rounds[roundId].finalCheck = {};
     return store.rounds[roundId];
   }
 
@@ -216,8 +223,49 @@ const EikenPre1App = (function () {
 
   function questionKey(sectionId, question) { return `${sectionId}:${question.q}`; }
 
+  function allVocabItems(roundId = state.roundId) {
+    const vocab = vocabCache[roundId] || {};
+    return Object.keys(vocab)
+      .sort((a, b) => Number(a) - Number(b))
+      .flatMap((qKey) => (Array.isArray(vocab[qKey]) ? vocab[qKey] : []).map((item, wordIdx) => ({
+        ...item,
+        q: Number(qKey),
+        wordIdx,
+      })));
+  }
+
+  function finalPassScore(finalTotal) { return Math.ceil(finalTotal * 0.8); }
+
+  function finalCheckCleared(progress, finalTotal) {
+    const final = progress.finalCheck;
+    return Boolean(final && final.cleared && final.bestTotal === finalTotal);
+  }
+
+  function reading1Stats(section, progress) {
+    const answered = section.questions.filter((question) => {
+      const saved = progress.questions[questionKey(section.id, question)];
+      return saved && saved.answered;
+    });
+    return {
+      done: answered.length,
+      total: section.questions.length,
+      correct: answered.filter((question) => progress.questions[questionKey(section.id, question)].correct).length,
+      finalTotal: allVocabItems().length,
+      finalBestScore: Number(progress.finalCheck?.bestScore) || 0,
+    };
+  }
+
+  function reading1ReadyForFinal(section, progress) {
+    const stats = reading1Stats(section, progress);
+    return stats.total > 0 && stats.done === stats.total && stats.correct === stats.total && stats.finalTotal > 0;
+  }
+
   function sectionComplete(section) {
     const progress = roundProgress();
+    if (section.id === "reading1") {
+      const stats = reading1Stats(section, progress);
+      return reading1ReadyForFinal(section, progress) && finalCheckCleared(progress, stats.finalTotal);
+    }
     if (section.type === "writing") {
       return section.questions.length > 0 && section.questions.every((task) => progress.writing[task.id] && progress.writing[task.id].reviewed);
     }
@@ -229,6 +277,7 @@ const EikenPre1App = (function () {
 
   function sectionStats(section) {
     const progress = roundProgress();
+    if (section.id === "reading1") return reading1Stats(section, progress);
     if (section.type === "writing") {
       const completed = section.questions.filter((task) => progress.writing[task.id] && progress.writing[task.id].reviewed).length;
       return { done: completed, total: section.questions.length };
@@ -269,12 +318,23 @@ const EikenPre1App = (function () {
     const sectionCards = sections.map((section) => {
       const stats = sectionStats(section);
       const done = sectionComplete(section);
-      const score = section.type === "writing" ? `${stats.done} / ${stats.total}題` : `${stats.done} / ${stats.total}問`;
+      const score = section.type === "writing"
+        ? `${stats.done} / ${stats.total}題`
+        : section.id === "reading1"
+          ? `${stats.done} / ${stats.total}問・正解 ${stats.correct}問`
+          : `${stats.done} / ${stats.total}問`;
+      const buttonLabel = done
+        ? "復習する"
+        : section.id === "reading1" && stats.done === stats.total && stats.correct === stats.total
+          ? "最終チェックへ"
+          : stats.done
+            ? "続きから解く"
+            : "始める";
       return `<article class="pre1SectionCard ${done ? "isDone" : ""}">
         <div class="pre1SectionTop"><span class="pre1SectionTag">${escapeHtml(section.tag)}</span><span class="pre1SectionStatus">${done ? "完了 ✅" : score}</span></div>
         <h3>${escapeHtml(section.label)}</h3>
         <p>${section.type === "writing" ? "英文要約と英作文。下書きは自動保存されます。" : "選択肢を選び、答えを確認します。"}</p>
-        <button class="cta" type="button" data-section="${section.id}">${done ? "復習する" : stats.done ? "続きから解く" : "始める"}</button>
+        <button class="cta" type="button" data-section="${section.id}">${buttonLabel}</button>
       </article>`;
     }).join("");
     const totalStats = sections.reduce((sum, section) => {
@@ -328,7 +388,7 @@ const EikenPre1App = (function () {
   function firstOpenQuestionIndex(section, progress) {
     const idx = section.questions.findIndex((question) => {
       const saved = progress.questions[questionKey(section.id, question)];
-      return !(saved && saved.answered);
+      return !(saved && saved.answered && (section.id !== "reading1" || saved.correct));
     });
     return idx >= 0 ? idx : 0;
   }
@@ -395,8 +455,9 @@ const EikenPre1App = (function () {
     renderSection(section);
   }
 
-  /* ---- 大問1：暗記カード → 意味チェック → [誤答があれば]見直し → 本番4択 ----
-   * 既存のstatic/mode-q1.jsと同じ4段階の学習フローを、reading1セクションにのみ適用する。
+  /* ---- 大問1：暗記カード → 意味チェック → [誤答があれば]見直し → 本番4択 → 最終チェック ----
+   * 既存のstatic/mode-q1.jsと同じ通常4段階の学習フローを、reading1セクションにのみ適用し、
+   * セクション完了には全語句の最終チェック（正答率80%以上）も求める。
    * 本番4択そのものは既存のrenderQuestion()をそのまま使う(進捗スキーマ・採点ロジックを変えないため)。
    * 暗記カード・意味チェックの途中位置はセッション内メモリのみで保持し、resumeでは常にカード1枚目から
    * 再開する(語彙学習のやり直しは実害が小さく、状態の保存を複雑にしない設計判断)。
@@ -431,6 +492,12 @@ const EikenPre1App = (function () {
     state.checkAnswered = false;
     state.wrongLog = [];
     state.wrongChecked = [];
+    state.finalCorrect = 0;
+    state.finalOrder = [];
+    state.finalChoices = null;
+    state.finalAnswerIndex = -1;
+    state.finalPicked = null;
+    state.finalAnswered = false;
   }
 
   function renderReading1() {
@@ -452,6 +519,11 @@ const EikenPre1App = (function () {
         renderQuestion();
       });
       return;
+    }
+    if (state.vocabStage === "final") return renderVocabFinalCheck(section);
+    if (state.vocabStage === "finalDone") return renderVocabFinalDone(section);
+    if (reading1ReadyForFinal(section, progress) && !finalCheckCleared(progress, allVocabItems().length)) {
+      return startFinalCheck(section);
     }
     if ((saved && saved.answered) || state.vocabStage === "practice") return renderQuestion();
 
@@ -604,6 +676,119 @@ const EikenPre1App = (function () {
     });
   }
 
+  function startFinalCheck(section) {
+    const items = allVocabItems();
+    if (!items.length) return renderQuestion();
+    state.vocabStage = "final";
+    state.finalCorrect = 0;
+    state.finalOrder = shuffle(items.map((item) => ({ q: item.q, wordIdx: item.wordIdx })));
+    state.checkIdx = 0;
+    state.finalChoices = null;
+    state.finalAnswerIndex = -1;
+    state.finalPicked = null;
+    state.finalAnswered = false;
+    renderReading1();
+  }
+
+  function finalItem() {
+    const ref = state.finalOrder[state.checkIdx];
+    const vocab = vocabCache[state.roundId] || {};
+    return ref && vocab[String(ref.q)] ? vocab[String(ref.q)][ref.wordIdx] : null;
+  }
+
+  function prepareFinalChoices() {
+    const item = finalItem();
+    if (!item) return;
+    const ref = state.finalOrder[state.checkIdx];
+    const pool = shuffle(allVocabItems().filter((entry) => entry.q !== ref.q || entry.wordIdx !== ref.wordIdx)).slice(0, 3);
+    const options = shuffle([item.meaning, ...pool.map((entry) => entry.meaning)]);
+    state.finalChoices = options;
+    state.finalAnswerIndex = options.indexOf(item.meaning);
+    state.finalPicked = null;
+    state.finalAnswered = false;
+  }
+
+  function renderVocabFinalCheck(section) {
+    if (!state.finalChoices) prepareFinalChoices();
+    const item = finalItem();
+    if (!item || !state.finalChoices) return renderHome();
+    const showResult = state.finalAnswered;
+    const choicesHtml = state.finalChoices.map((meaning, i) => {
+      let cls = "choiceBtn";
+      if (showResult) {
+        if (i === state.finalAnswerIndex) cls += " correct";
+        else if (i === state.finalPicked) cls += " wrong";
+      }
+      return `<button type="button" class="${cls}" data-final-choice="${i}" ${showResult ? "disabled" : ""}><span class="key">${i + 1}</span><span>${escapeHtml(meaning)}</span></button>`;
+    }).join("");
+    const total = state.finalOrder.length;
+    const isLast = state.checkIdx === total - 1;
+    const correct = state.finalPicked === state.finalAnswerIndex;
+    sessionPanel.className = "pre1Session";
+    homePanel.className = "hide";
+    sessionPanel.innerHTML = `<section class="card pre1QuestionCard">
+      ${renderSectionHeader(section, `大問1 ・ 最終チェック ${state.checkIdx + 1} / ${total}`)}
+      <div class="quizBox">
+        <div class="roundInfo">最終チェック ${state.checkIdx + 1} / ${total}</div>
+        <p class="askWord">${escapeHtml(item.word)} の意味は?</p>
+        <div class="choices">${choicesHtml}</div>
+        ${showResult ? `<div class="resultBox ${correct ? "ok" : "ng"}"><strong>${correct ? "正解" : "不正解"}</strong><p>正解：${escapeHtml(item.meaning)}</p></div>` : `<p class="pre1Prompt">全語句の意味を確認します。正答率80%以上でCLEARです。</p>`}
+      </div>
+      <div class="navRow pre1QuestionNav">${showResult ? `<button class="cta" type="button" id="pre1FinalNextBtn">${isLast ? "結果を見る" : "次の語句へ"}</button>` : ""}</div>
+    </section>`;
+    bindCommonSessionButtons();
+    if (!showResult) {
+      sessionPanel.querySelectorAll("[data-final-choice]").forEach((button) => button.addEventListener("click", () => {
+        state.finalPicked = Number(button.dataset.finalChoice);
+        state.finalAnswered = true;
+        if (state.finalPicked === state.finalAnswerIndex) state.finalCorrect += 1;
+        renderVocabFinalCheck(section);
+      }));
+    } else {
+      document.getElementById("pre1FinalNextBtn").addEventListener("click", () => {
+        if (isLast) {
+          saveFinalResult(total);
+          state.vocabStage = "finalDone";
+          renderVocabFinalDone(section);
+          return;
+        }
+        state.checkIdx += 1;
+        state.finalChoices = null;
+        state.finalPicked = null;
+        state.finalAnswered = false;
+        renderVocabFinalCheck(section);
+      });
+    }
+  }
+
+  function saveFinalResult(finalTotal) {
+    const progressState = progressBundle();
+    const final = progressState.progress.finalCheck;
+    final.lastScore = state.finalCorrect;
+    final.bestScore = Math.max(Number(final.bestScore) || 0, state.finalCorrect);
+    final.bestTotal = finalTotal;
+    final.lastTriedAt = new Date().toISOString();
+    final.cleared = state.finalCorrect >= finalPassScore(finalTotal);
+    if (final.cleared) final.clearedAt = new Date().toISOString();
+    saveProgress(progressState.store);
+  }
+
+  function renderVocabFinalDone(section) {
+    const total = state.finalOrder.length || allVocabItems().length;
+    const passed = state.finalCorrect >= finalPassScore(total);
+    sessionPanel.className = "pre1Session";
+    homePanel.className = "hide";
+    sessionPanel.innerHTML = `<section class="completionCard">
+      <p class="label">大問1 ・ 最終チェック</p>
+      <h2>${passed ? "大問1 CLEAR" : "最終チェック完了"}</h2>
+      <div class="completionScore">${state.finalCorrect} / ${total}問</div>
+      <p class="hint">${finalPassScore(total)} / ${total}問以上（正答率80%以上）でCLEAR</p>
+      <div class="actions">${passed ? "" : `<button class="cta" type="button" id="pre1FinalRetryBtn">もう一度最終チェックに挑戦する</button>`}<button class="ghost" type="button" id="pre1FinalHomeBtn">セクション一覧へ戻る</button></div>
+    </section>`;
+    document.getElementById("pre1FinalRetryBtn")?.addEventListener("click", () => startFinalCheck(section));
+    document.getElementById("pre1FinalHomeBtn").addEventListener("click", renderHome);
+  }
+
   function renderSectionHeader(section, currentLabel) {
     const stats = sectionStats(section);
     const roundOptions = rounds().map((round) => `<option value="${escapeHtml(round.id)}"${round.id === state.roundId ? " selected" : ""}>${escapeHtml(round.label)}</option>`).join("");
@@ -619,7 +804,7 @@ const EikenPre1App = (function () {
     const progress = progressState.progress;
     const key = questionKey(section.id, question);
     const saved = progress.questions[key];
-    const showResult = state.resultShown || Boolean(saved && saved.answered);
+    const showResult = state.resultShown || Boolean(saved && saved.answered && (section.id !== "reading1" || saved.correct));
     const selectedIndex = state.selectedIndex == null ? (saved ? saved.selectedIndex : null) : state.selectedIndex;
     const correct = showResult && selectedIndex === question.answerIndex;
     const passageHtml = question.passage
@@ -1550,7 +1735,10 @@ const EikenPre1App = (function () {
       ? savedRound
       : manifest.pre1.defaultRound;
     state.roundId = roundId;
-    await Promise.all(manifest.pre1.rounds.map((round) => loadRound(round.id)));
+    await Promise.all([
+      ...manifest.pre1.rounds.map((round) => loadRound(round.id)),
+      ...manifest.pre1.rounds.map((round) => loadVocab(round.id)),
+    ]);
     state.data = dataCache[roundId];
     renderHome();
   }
