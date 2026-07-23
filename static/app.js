@@ -78,6 +78,37 @@ function renderAppNav() {
 
   renderGroup(routeApps, "appNavRoutes", "進み方");
   renderGroup(skillApps, "appNavSkills", "技能");
+  renderSerialStepper();
+}
+
+function renderSerialStepper() {
+  const el = document.getElementById("serialStepper");
+  if (!el) return;
+  const showable = currentPath === "serial" && currentAppId !== "serial" && currentAppId !== "entry";
+  const info = showable && window.EikenSerialApp && window.EikenSerialApp.stepSummaries
+    ? window.EikenSerialApp.stepSummaries()
+    : null;
+  if (!info) {
+    el.className = "hide";
+    el.innerHTML = "";
+    return;
+  }
+  const literalIndex = info.steps.findIndex((step) => step.id === currentAppId);
+  const context = window.EikenSerialContext;
+  const contextIndex = literalIndex < 0 && context && context.active
+    ? info.steps.findIndex((step) => step.id === context.stepId)
+    : -1;
+  const activeIndex = literalIndex >= 0 ? literalIndex : contextIndex >= 0 ? contextIndex : info.currentIndex;
+  const activeStep = info.steps[activeIndex];
+  const items = info.steps.map((step, index) => {
+    const state = step.complete ? "isDone" : index === activeIndex ? "isCurrent" : "isLocked";
+    const dot = step.complete ? "✅" : state === "isLocked" ? "🔒" : String(index + 1);
+    return `<li class="serialStepperItem ${state}"${index === activeIndex ? ' aria-current="step"' : ""}>` +
+      `<span class="serialStepperDot">${dot}</span><span class="serialStepperLabel">${step.label}</span></li>`;
+  }).join("");
+  el.className = "serialStepper";
+  el.innerHTML = `<div class="serialStepperHead"><span class="label">SERIAL COURSE ・ ステップ ${activeIndex + 1} / ${info.steps.length}</span><strong>${activeStep ? activeStep.label : ""}</strong></div>` +
+    `<ol class="serialStepperTrack">${items}</ol>`;
 }
 
 function switchApp(id, options = {}) {

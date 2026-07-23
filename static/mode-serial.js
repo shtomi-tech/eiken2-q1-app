@@ -660,9 +660,24 @@ const EikenSerialApp = (function () {
     }
   }
 
+  function stepSummaries() {
+    if (!loaded || !profile) return null;
+    if (profile.grade === "pre1") collectPre1Summaries();
+    else collectSummaries();
+    const steps = profile.grade === "pre1" ? PRE1_STEPS : STEPS;
+    return {
+      currentIndex: currentStepIndex,
+      steps: steps.map((step, index) => ({
+        id: step.id,
+        label: step.label,
+        complete: Boolean(summaries[index] && summaries[index].complete),
+      })),
+    };
+  }
+
   function handleKey() { /* 直列コースはキーボード操作なし */ }
 
-  return { mount, handleKey, isUnlocked, refreshNav };
+  return { mount, handleKey, isUnlocked, refreshNav, stepSummaries };
 })();
 
 window.EikenSerialApp = EikenSerialApp;

@@ -421,6 +421,7 @@ const EikenPre1App = (function () {
     if (!section) return;
     const progress = roundProgress();
     state.sectionId = sectionId;
+    if (window.EikenSerialContext && window.EikenSerialContext.active) window.EikenSerialContext.stepId = sectionId;
     if (section.type === "writing") {
       state.writingIndex = firstOpenWritingIndex(section, progress);
       const task = section.questions[state.writingIndex];
@@ -436,6 +437,7 @@ const EikenPre1App = (function () {
     saveResume();
     setChromeTitle(`英検準1級 ${section.label}`);
     renderSection(section);
+    if (window.EikenAppRouter) window.EikenAppRouter.refreshNav();
   }
 
   function resumeSession() {

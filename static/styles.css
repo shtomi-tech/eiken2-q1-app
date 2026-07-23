@@ -219,6 +219,78 @@ h2 {
   .appTab { min-height: 56px; }
 }
 
+/* ---- Serial stepper（学習ルート中の現在地。isDone/isCurrent/isLockedは.serialStepCardと共通の意匠） ---- */
+.serialStepper {
+  background: var(--paper);
+  border-radius: var(--r-lg);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.serialStepperHead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.serialStepperHead .label { margin: 0; }
+.serialStepperHead strong { font-family: var(--serif); font-size: 19px; }
+.serialStepperTrack {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.serialStepperItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 0;
+  padding: 6px 10px 6px 6px;
+  border-radius: var(--r-pill);
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+.serialStepperDot {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid currentColor;
+  border-radius: var(--r-pill);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.serialStepperLabel {
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.serialStepperItem.isCurrent { background: var(--surface-strong); color: var(--ink); }
+.serialStepperItem.isCurrent .serialStepperDot { border: 2px solid var(--clay); color: var(--clay); font-weight: 700; }
+.serialStepperItem.isCurrent .serialStepperLabel { font-weight: 600; }
+.serialStepperItem.isLocked { opacity: .6; }
+
+@media (max-width: 560px) {
+  .serialStepperHead strong { font-size: 17px; }
+  .serialStepperItem { justify-content: center; padding: 6px; }
+  .serialStepperLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
 /* ---- 準1級：過去問モード ---- */
 .pre1Home,
 .pre1Session { max-width: 1080px; margin: 0 auto; }
