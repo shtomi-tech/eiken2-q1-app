@@ -425,6 +425,7 @@ const EikenSerialApp = (function () {
     const completedRounds = roundSummaries.filter((round) => round.complete).length;
     const done = roundSummaries.reduce((sum, round) => sum + round.stats.done, 0);
     const total = roundSummaries.reduce((sum, round) => sum + round.stats.total, 0);
+    const correct = roundSummaries.reduce((sum, round) => sum + (round.stats.correct || 0), 0);
     const nextRound = roundSummaries.find((round) => !round.complete);
     let nextLabel = "3回分完了";
     if (nextRound) {
@@ -449,6 +450,9 @@ const EikenSerialApp = (function () {
     }
     const inProgress = done > 0 || completedRounds > 0;
     const unit = step.id === "writing" ? "題" : "問";
+    const detail = step.id === "reading1"
+      ? `${completedRounds} / ${profile.rounds.pre1.length}回・${done} / ${total}${unit}・正解 ${correct} / ${total}問`
+      : `${completedRounds} / ${profile.rounds.pre1.length}回・${done} / ${total}${unit}`;
     return {
       complete: completedRounds === profile.rounds.pre1.length && profile.rounds.pre1.length > 0,
       completed: completedRounds,
@@ -456,7 +460,7 @@ const EikenSerialApp = (function () {
       status: completedRounds === profile.rounds.pre1.length && profile.rounds.pre1.length > 0 ? "done" : inProgress ? "progress" : "ready",
       nextId: nextRound ? nextRound.id : null,
       nextLabel,
-      detail: `${completedRounds} / ${profile.rounds.pre1.length}回・${done} / ${total}${unit}`,
+      detail,
     };
   }
 
@@ -513,7 +517,7 @@ const EikenSerialApp = (function () {
       <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
       <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
       <p class="serialLead">大問1（語彙） → 大問2（空所補充） → ライティング → リスニング → 大問3（長文）の順に進みます。</p>
-      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span></div>
+      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span>${allComplete ? "" : `<span class="serialCurrentNext"><span class="label">次の操作</span><strong>${escapeHtml(currentSummary.nextLabel)}</strong></span>`}</div>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
       <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
     </section>

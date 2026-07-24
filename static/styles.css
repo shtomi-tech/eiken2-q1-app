@@ -436,6 +436,8 @@ h2 {
 .serialCurrent .label { margin: 0; }
 .serialCurrent strong { font-family: var(--serif); font-size: 28px; line-height: 1.25; }
 .serialCurrent > span:last-child { color: rgba(250, 249, 246, .72); font-size: 13px; }
+.serialCurrentNext { display: grid; gap: 3px; margin-top: 8px; border-top: 1px solid rgba(250, 249, 246, .2); padding-top: 8px; }
+.serialCurrentNext strong { color: var(--parchment); font-family: var(--mono); font-size: 13px; font-weight: 500; line-height: 1.5; }
 .serialPrimary { margin-top: 18px; background: var(--parchment); color: var(--ink); }
 .serialPrimary:hover:not(:disabled) { background: var(--surface-strong); }
 .serialStepList { display: grid; gap: 12px; }
