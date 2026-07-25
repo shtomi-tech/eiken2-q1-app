@@ -208,6 +208,25 @@ const EikenSerialApp = (function () {
   }
 
   function q1Summary() {
+    function resumeLabel(resume) {
+      if (!resume) return "";
+      if (resume.mode === "learn") {
+        const stage = {
+          flash: `STEP 1 暗記カード ${Number(resume.flashIdx || 0) + 1}/${resume.items?.length || 4}`,
+          check: `STEP 2 意味チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 4}`,
+          wrongReview: "間違えた語句の復習",
+          practice: "STEP 3 本番形式",
+          done: "完了確認",
+        }[resume.stage] || "学習中";
+        return `第${resume.q}問・${stage}`;
+      }
+      if (resume.mode === "review") return `復習 ${Number(resume.reviewIdx || 0) + 1}/${resume.reviewQueue?.length || 1}（第${resume.q}問）`;
+      if (resume.mode === "cycle") return `${resume.cyclePhase === "random" ? "ランダム復習" : "累積練習"} ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
+      if (resume.mode === "meaning") return `全語句の意味チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
+      if (resume.mode === "final") return `最終チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
+      return "学習の続き";
+    }
+
     const roundIds = profile.rounds.q1;
     const roundSummaries = roundIds.map((id) => {
       const data = assets.q1[id] || {};
@@ -217,19 +236,25 @@ const EikenSerialApp = (function () {
       const units = saved.units && typeof saved.units === "object" ? saved.units : {};
       const learned = questions.filter((question) => units[question.q] && units[question.q].learned).length;
       const clear = Boolean(saved.finalCheck && saved.finalCheck.cleared);
-      return { id, questions, saved, learned, clear };
+      const resume = saved.resume && typeof saved.resume === "object" ? saved.resume : null;
+      return { id, questions, saved, learned, clear, resume, resumeLabel: resumeLabel(resume) };
     });
     const completedRounds = roundSummaries.filter((round) => round.clear).length;
     const learnedQuestions = roundSummaries.reduce((sum, round) => sum + round.learned, 0);
     const totalQuestions = roundSummaries.reduce((sum, round) => sum + round.questions.length, 0);
-    const nextRound = roundSummaries.find((round) => !round.clear);
+    const resumeRound = roundSummaries.find((round) => !round.clear && round.resume);
+    const nextRound = resumeRound || roundSummaries.find((round) => !round.clear);
     const next = nextRound && nextRound.questions.find((question) => !(nextRound.saved.units && nextRound.saved.units[question.q] && nextRound.saved.units[question.q].learned));
-    const inProgress = learnedQuestions > 0 || completedRounds > 0;
-    const nextLabel = !nextRound
-      ? "3回分CLEAR済み"
-      : next
-        ? `${roundLabel("q1", nextRound.id)}・第${next.q}問を学習`
-        : `${roundLabel("q1", nextRound.id)}・最終チェックに挑戦`;
+    const resume = resumeRound && resumeRound.resume;
+    const inProgress = learnedQuestions > 0 || completedRounds > 0 || Boolean(resume);
+    const nextLabel = resume
+      ? `${roundLabel("q1", nextRound.id)}・続きから（${resumeRound.resumeLabel}）`
+      : !nextRound
+        ? "3回分CLEAR済み"
+        : next
+          ? `${roundLabel("q1", nextRound.id)}・第${next.q}問を学習`
+          : `${roundLabel("q1", nextRound.id)}・最終チェックに挑戦`;
+    const resumeDetail = resume ? `・途中保存あり（${resumeRound.resumeLabel}）` : "";
     return {
       complete: completedRounds === roundIds.length && roundIds.length > 0,
       completed: completedRounds,
@@ -237,7 +262,7 @@ const EikenSerialApp = (function () {
       status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : inProgress ? "progress" : "ready",
       nextId: nextRound ? nextRound.id : null,
       nextLabel,
-      detail: `${completedRounds} / ${roundIds.length}回・${learnedQuestions} / ${totalQuestions}問${completedRounds === roundIds.length ? "・各回CLEAR" : ""}`,
+      detail: `${completedRounds} / ${roundIds.length}回・${learnedQuestions} / ${totalQuestions}問${completedRounds === roundIds.length ? "・各回CLEAR" : ""}${resumeDetail}`,
     };
   }
 
@@ -620,7 +645,7 @@ const EikenSerialApp = (function () {
       <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
       <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
       <p class="serialLead">大問1（3回分） → 言い換え（補助） → 英作文（3回分） → リスニング（3回分） → 大問3（3回分）の順に進みます。</p>
-      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span></div>
+      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span>${allComplete ? "" : `<span class="serialCurrentNext"><span class="label">次の操作</span><strong>${escapeHtml(currentSummary.nextLabel)}</strong></span>`}</div>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
       <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
     </section>

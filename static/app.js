@@ -22,6 +22,7 @@ const APPS = [
   { id: "q3", tag: "05 / 長文", label: "大問3（長文）", title: "英検 大問3 演習アプリ", skill: true, mount: () => EikenQ3App.mount(), handleKey: (e) => EikenQ3App.handleKey(e), startSerial: () => EikenQ3App.startSerial() },
 ];
 const ACTIVE_APP_KEY = "eiken_active_app";
+const ACTIVE_PATH_KEY = "eiken_active_path";
 
 let currentAppId = null;
 let currentPath = "entry";
@@ -29,6 +30,14 @@ window.EikenActiveAppId = null;
 window.EikenLearningPath = "entry";
 
 function loadActiveAppId() {
+  try {
+    const savedId = localStorage.getItem(ACTIVE_APP_KEY);
+    if (savedId && APPS.some((app) => app.id === savedId)) {
+      const savedPath = localStorage.getItem(ACTIVE_PATH_KEY);
+      if (["entry", "serial", "free"].includes(savedPath)) currentPath = savedPath;
+      return savedId;
+    }
+  } catch (e) { /* 保存値が読めなくても入口から起動する */ }
   return "entry";
 }
 
@@ -127,7 +136,10 @@ function switchApp(id, options = {}) {
   currentPath = nextPath;
   window.EikenActiveAppId = id;
   window.EikenLearningPath = currentPath;
-  try { localStorage.setItem(ACTIVE_APP_KEY, id); } catch (e) { /* ignore */ }
+  try {
+    localStorage.setItem(ACTIVE_APP_KEY, id);
+    localStorage.setItem(ACTIVE_PATH_KEY, currentPath);
+  } catch (e) { /* ignore */ }
   document.getElementById("appTitle").textContent = next.title;
   document.title = next.title;
   // モード切替時、モード固有スコープのクラス（例: q3Session）が残らないようリセットする

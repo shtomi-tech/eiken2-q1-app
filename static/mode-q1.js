@@ -1510,6 +1510,7 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
 /* ---- DONE ---- */
 function renderDone(body) {
   clearResume();
+  const serialContext = Boolean(window.EikenSerialContext && window.EikenSerialContext.active);
   const q = session.q;
   const isMeaning = session.mode === "meaning";
   const isCycle = session.mode === "cycle";
@@ -1577,7 +1578,16 @@ function renderDone(body) {
       actions.appendChild(el("button", { class: "cta", onclick: renderHome }, "次の学習を選ぶ →"));
     }
   }
-  actions.appendChild(el("button", { class: "ghost", onclick: renderHome }, "一覧へ戻る"));
+  actions.appendChild(el("button", {
+    class: "ghost",
+    onclick: serialContext ? () => window.EikenAppRouter && window.EikenAppRouter.open("serial") : renderHome,
+  }, serialContext ? "学習ルートに戻る" : "一覧へ戻る"));
+  if (serialContext) {
+    const nextAction = actions.querySelector(".cta");
+    if (nextAction && nextAction.textContent.startsWith("次の設問へ")) {
+      nextAction.textContent = nextAction.textContent.replace("次の設問へ", "次の設問を続ける");
+    }
+  }
   body.appendChild(actions);
 }
 
