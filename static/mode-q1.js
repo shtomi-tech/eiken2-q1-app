@@ -902,7 +902,7 @@ function renderSession() {
        el("h2", {}, stageTitle(session.stage)),
        el("p", { class: "sessionState" }, "現在地をこの端末に保存中"),
      ),
-    el("button", { class: "ghost", onclick: () => renderHome() }, "一覧へ戻る"),
+    el("button", { class: "ghost", onclick: () => { saveResume(); renderHome(); } }, "一覧へ戻る"),
   ));
 
   // stage bar

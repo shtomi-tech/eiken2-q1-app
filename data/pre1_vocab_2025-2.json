@@ -453,7 +453,7 @@
         "word": "dehydrated",
         "isAnswer": false,
         "pos": "動詞",
-        "meaning": "脱水した(dehydrate)",
+        "meaning": "脱水した",
         "etymology": "de-「除去」+ hydrate(ギリシャ語 hydor「水」)。",
         "example": "He felt dehydrated after running in the summer heat without drinking water."
       },
@@ -461,7 +461,7 @@
         "word": "evoked",
         "isAnswer": true,
         "pos": "動詞",
-        "meaning": "呼び起こした、想起させた(evoke)",
+        "meaning": "呼び起こした、想起させた",
         "etymology": "ラテン語 evocare。e-「外へ」+ vocare「呼ぶ」。",
         "example": "The old song evoked memories of her childhood."
       },
@@ -469,7 +469,7 @@
         "word": "acquired",
         "isAnswer": false,
         "pos": "動詞",
-        "meaning": "取得した、身につけた(acquire)",
+        "meaning": "取得した、身につけた",
         "etymology": "ラテン語 acquirere。ad-+quaerere「求める」。",
         "example": "She acquired fluency in French after living in Paris for two years."
       },
@@ -477,7 +477,7 @@
         "word": "posed",
         "isAnswer": false,
         "pos": "動詞",
-        "meaning": "ポーズをとった、(問題を)引き起こした(pose)",
+        "meaning": "ポーズをとった、(問題を)引き起こした",
         "etymology": "フランス語 poser「置く」。ラテン語 pausare「休止する」と ponere「置く」が混ざって発達した。",
         "example": "The new policy posed a serious challenge for small businesses."
       }

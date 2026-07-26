@@ -144,6 +144,7 @@ const EikenPre1App = (function () {
 
   function saveResume() {
     if (!state.sectionId) return;
+    const isReading1 = state.sectionId === "reading1";
     saveJson(RESUME_KEY, {
       roundId: state.roundId,
       sectionId: state.sectionId,
@@ -153,8 +154,20 @@ const EikenPre1App = (function () {
       writingIndex: state.writingIndex,
       writingStep: state.writingStep,
       listeningMode: state.listeningMode,
+      vocabStage: isReading1 ? state.vocabStage : null,
+      vocabCheckIdx: isReading1 ? state.checkIdx : null,
+      finalCorrect: isReading1 ? state.finalCorrect : null,
+      finalOrder: isReading1 ? state.finalOrder : null,
+      finalChoices: isReading1 ? state.finalChoices : null,
+      finalAnswerIndex: isReading1 ? state.finalAnswerIndex : null,
+      finalPicked: isReading1 ? state.finalPicked : null,
+      finalAnswered: isReading1 ? state.finalAnswered : null,
     });
     saveJson(ROUND_KEY, state.roundId);
+  }
+
+  function clearResume() {
+    try { localStorage.removeItem(RESUME_KEY); } catch (error) { /* 匿名ローカル利用を止めない */ }
   }
 
   async function ensureLoaded() {
@@ -306,6 +319,7 @@ const EikenPre1App = (function () {
   function renderHome() {
     const info = roundInfo();
     const sections = mcSections(state.data);
+    const resume = loadResume();
     const complete = roundComplete(state.data);
     setChromeTitle("英検準1級 過去問演習");
     homePanel.className = "pre1Home";
@@ -318,12 +332,15 @@ const EikenPre1App = (function () {
     const sectionCards = sections.map((section) => {
       const stats = sectionStats(section);
       const done = sectionComplete(section);
+      const hasSectionResume = Boolean(resume && resume.roundId === state.roundId && resume.sectionId === section.id);
       const score = section.type === "writing"
         ? `${stats.done} / ${stats.total}題`
         : section.id === "reading1"
           ? `${stats.done} / ${stats.total}問・正解 ${stats.correct}問`
           : `${stats.done} / ${stats.total}問`;
-      const buttonLabel = done
+      const buttonLabel = hasSectionResume
+        ? "続きから再開する"
+        : done
         ? "復習する"
         : section.id === "reading1" && stats.done === stats.total && stats.correct === stats.total
           ? "最終チェックへ"
@@ -341,8 +358,6 @@ const EikenPre1App = (function () {
       const stats = sectionStats(section);
       return { done: sum.done + stats.done, total: sum.total + stats.total };
     }, { done: 0, total: 0 });
-    const resume = loadResume();
-
     homePanel.innerHTML = `<section class="card hero pre1Hero">
       <div class="pre1HomeHead"><div><p class="label">EIKEN PRE-1 / PAST EXAMS</p><h2>${complete ? "この回を完了しました" : "準1級の過去問を、回ごとに解く"}</h2></div>
         <label class="datasetPicker"><span class="fieldLabel">問題セット</span><select class="datasetSelect" id="pre1RoundSelect">${roundOptions}</select></label>
@@ -462,6 +477,19 @@ const EikenPre1App = (function () {
     resetQ3Flow();
     const section = activeSection();
     if (!section) return renderHome();
+    if (section.id === "reading1" && resume.vocabStage === "final"
+      && Array.isArray(resume.finalOrder) && resume.finalOrder.length) {
+      state.vocabStage = "final";
+      state.checkIdx = Math.max(0, Number(resume.vocabCheckIdx) || 0);
+      state.finalCorrect = Math.max(0, Number(resume.finalCorrect) || 0);
+      state.finalOrder = resume.finalOrder;
+      state.finalChoices = Array.isArray(resume.finalChoices) ? resume.finalChoices : null;
+      state.finalAnswerIndex = Number.isInteger(resume.finalAnswerIndex) ? resume.finalAnswerIndex : -1;
+      state.finalPicked = resume.finalPicked == null ? null : Number(resume.finalPicked);
+      state.finalAnswered = Boolean(resume.finalAnswered);
+      renderSection(section);
+      return;
+    }
     const progress = roundProgress();
     if (section.type === "writing") {
       state.writingIndex = firstOpenWritingIndex(section, progress);
@@ -737,6 +765,7 @@ const EikenPre1App = (function () {
     if (!state.finalChoices) prepareFinalChoices();
     const item = finalItem();
     if (!item || !state.finalChoices) return renderHome();
+    saveResume();
     const showResult = state.finalAnswered;
     const choicesHtml = state.finalChoices.map((meaning, i) => {
       let cls = "choiceBtn";
@@ -757,7 +786,7 @@ const EikenPre1App = (function () {
         <div class="roundInfo">最終チェック ${state.checkIdx + 1} / ${total}</div>
         <p class="askWord">${escapeHtml(item.word)} の意味は?</p>
         <div class="choices">${choicesHtml}</div>
-        ${showResult ? `<div class="resultBox ${correct ? "ok" : "ng"}"><strong>${correct ? "正解" : "不正解"}</strong><p>正解：${escapeHtml(item.meaning)}</p></div>` : `<p class="pre1Prompt">全語句の意味を確認します。正答率80%以上でCLEARです。</p>`}
+        ${showResult ? `<div class="resultBox ${correct ? "ok" : "ng"}"><strong>${correct ? "正解" : "不正解"}</strong><p>正解：${escapeHtml(item.meaning)}</p></div>` : `<p class="pre1Prompt">全語句の意味を確認します。正答率80%以上でCLEARです。途中で一覧へ戻っても、次回はここから再開できます。</p>`}
       </div>
       <div class="navRow pre1QuestionNav">${showResult ? `<button class="cta" type="button" id="pre1FinalNextBtn">${isLast ? "結果を見る" : "次の語句へ"}</button>` : ""}</div>
     </section>`;
@@ -799,6 +828,7 @@ const EikenPre1App = (function () {
   }
 
   function renderVocabFinalDone(section) {
+    clearResume();
     const total = state.finalOrder.length || allVocabItems().length;
     const passed = state.finalCorrect >= finalPassScore(total);
     sessionPanel.className = "pre1Session";
@@ -895,8 +925,9 @@ const EikenPre1App = (function () {
    * reading3セクションにのみ適用する。reading3のsection.questionsは大問1・2と同じ「フラットな配列」だが、
    * 各要素にmcSections()で付与された`passage`(段落・要約データ)を持つため、パッセージ境界は
    * 隣接要素のpassage.idの変化で検出する。q3の細かい進行状態(q3Step/q3SelectedEvidence/要約の下書き)は
-   * 語彙学習(vocabStage等)と同じくセッション内メモリのみで保持し、RESUME_KEYには保存しない
+   * セッション内メモリのみで保持し、RESUME_KEYには保存しない
    * (再開時は常にそのセクションの最初の未回答設問からになる。書き直しの実害は小さいため)。
+   * 一方、大問1の最終チェックは問題順・現在位置・正答数をRESUME_KEYに保存し、同じ位置から再開する。
    */
   function q3Passages() {
     return [...new Map(activeSection().questions.map((question) => [question.passage.id, question.passage])).values()];
@@ -1433,6 +1464,7 @@ const EikenPre1App = (function () {
   function bindCommonSessionButtons() {
     const button = document.getElementById("pre1BackHomeBtn");
     if (button) button.addEventListener("click", () => {
+      saveResume();
       if (window.EikenLearningPath === "free" && window.EikenAppRouter) window.EikenAppRouter.open("free");
       else renderHome();
     });
@@ -1778,7 +1810,13 @@ const EikenPre1App = (function () {
       : manifest.pre1.defaultRound;
     state.roundId = roundId;
     state.data = await loadRound(roundId);
-    openSection(context.stepId || "reading1");
+    const targetSection = context.stepId || "reading1";
+    const resume = loadResume();
+    if (resume && resume.roundId === roundId && resume.sectionId === targetSection) {
+      resumeSession();
+      return;
+    }
+    openSection(targetSection);
   }
 
   async function mount() {

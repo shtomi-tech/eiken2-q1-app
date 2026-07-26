@@ -10,7 +10,7 @@
         "word": "evaded",
         "isAnswer": true,
         "pos": "動詞",
-        "meaning": "免れた、回避した(evade)",
+        "meaning": "免れた、回避した",
         "etymology": "ラテン語 evadere。e-「外へ」+ vadere「行く」。",
         "example": "He evaded the question by changing the subject."
       },
@@ -18,7 +18,7 @@
         "word": "sterilized",
         "isAnswer": false,
         "pos": "動詞",
-        "meaning": "殺菌した、不妊にした(sterilize)",
+        "meaning": "殺菌した、不妊にした",
         "etymology": "ラテン語 sterilis「不毛の」+ -ize。",
         "example": "All the surgical instruments were sterilized before the operation."
       },
@@ -26,7 +26,7 @@
         "word": "wrecked",
         "isAnswer": false,
         "pos": "動詞",
-        "meaning": "難破させた、破壊した(wreck)",
+        "meaning": "難破させた、破壊した",
         "etymology": "古ノルド語系。岸に打ち上げられた物を指した語から。ゲルマン語起源。",
         "example": "The storm wrecked several boats in the harbor."
       },
@@ -34,7 +34,7 @@
         "word": "commuted",
         "isAnswer": false,
         "pos": "動詞",
-        "meaning": "通勤した、(刑を)減刑した(commute)",
+        "meaning": "通勤した、(刑を)減刑した",
         "etymology": "ラテン語 commutare「すっかり変える」。com-+mutare「変える」。",
         "example": "She commuted to the city by train every day."
       }
