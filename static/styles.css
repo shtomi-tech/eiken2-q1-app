@@ -383,8 +383,10 @@ h2 {
 }
 
 /* ---- Grade entry / free practice ---- */
+body[data-eiken-app="entry"] .wrap { max-width: 960px; }
 .gradeEntryHome, .freeHome { max-width: 960px; margin: 0 auto; }
-.gradeEntryHero, .freeHero { padding: 28px 24px; }
+.gradeEntryHero { padding: 28px 24px; }
+.freeHero { padding: 28px 24px; }
 .gradeEntryHero h2, .freeHero h2 { color: var(--parchment); font-size: clamp(30px, 5vw, 44px); }
 .gradeEntryHero > p:not(.label), .freeHero > p:not(.label) { max-width: 720px; color: rgba(250, 249, 246, .72); }
 .gradeEntryUser { display: grid; gap: 3px; margin-top: 20px; padding: 14px 16px; border-radius: var(--r-md); background: rgba(250, 249, 246, .12); }
@@ -392,21 +394,30 @@ h2 {
 .gradeEntryUser strong { font-family: var(--serif); font-size: 24px; line-height: 1.25; color: var(--parchment); }
 .gradeEntryUser > span:last-child { color: rgba(250, 249, 246, .72); font-size: 13px; }
 .gradeEntryUser.isError { background: rgba(250, 249, 246, .08); border-left: 4px solid var(--clay); padding-left: 12px; }
-.gradeEntryCurrent { display: grid; gap: 3px; margin-top: 20px; border-top: 1px solid rgba(250, 249, 246, .32); padding-top: 16px; }
+.gradeEntryCurrent { display: grid; gap: 4px; margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
 .gradeEntryCurrent .label { margin: 0; }
 .gradeEntryCurrent strong { font-family: var(--serif); font-size: 28px; line-height: 1.25; }
-.gradeEntryCurrent > span:last-child { color: rgba(250, 249, 246, .72); font-size: 13px; }
-.gradeChoiceGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.gradeChoiceCard { background: var(--surface-soft); border-radius: var(--r-md); padding: 18px; }
-.gradeChoiceCard.isSelected { border-left: 4px solid var(--clay); padding-left: 14px; background: var(--surface-strong); }
-.gradeChoiceCard h3 { margin: 8px 0 4px; font-family: var(--serif); font-size: 32px; line-height: 1.2; }
-.gradeChoiceCard p:not(.label) { color: var(--muted); font-size: 13px; min-height: 44px; }
-.gradeChoiceActions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
-.gradeChoiceActions button { flex: 1 1 180px; }
+.gradeEntryCurrent > span:last-child { color: var(--muted); font-size: 13px; }
+.gradeChoiceGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.gradeChoiceCard { display: flex; min-width: 0; min-height: 224px; padding: 0; overflow: hidden; background: var(--surface-soft); border-radius: var(--r-md); }
+.gradeChoiceCard.isSelected { border-left: 4px solid var(--clay); background: var(--surface-strong); }
+.gradeChoiceSelect { display: grid; grid-template-rows: auto auto 1fr auto; align-items: start; gap: 8px; width: 100%; min-height: 224px; border: 0; border-radius: 0; background: transparent; color: var(--ink); padding: 16px; text-align: left; }
+.gradeChoiceSelect:hover { background: var(--surface-soft); color: var(--ink); }
+.gradeChoiceCard.isSelected .gradeChoiceSelect { padding-left: 12px; }
+.gradeChoiceSelect .label { margin: 0; }
+.gradeChoiceSelect strong { font-family: var(--serif); font-size: 32px; line-height: 1.2; }
+.gradeChoiceDescription { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.gradeChoiceState { color: var(--clay); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
+.gradeChoiceCard:not(.isSelected) .gradeChoiceState { color: var(--muted); }
+.gradeRouteSection { margin-top: 32px; }
+.gradeRouteGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.gradeRouteCard { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; min-height: 216px; border-radius: var(--r-md); background: var(--surface-soft); padding: 16px; }
+.gradeRouteCard.isRecommended { border-left: 4px solid var(--clay); padding-left: 12px; background: var(--surface-strong); }
+.gradeRouteCard .label { margin: 0; }
+.gradeRouteCard h3 { margin: 0; font-family: var(--serif); font-size: 26px; line-height: 1.2; }
+.gradeRouteCard p:not(.label) { margin: 0; color: var(--muted); font-size: 13px; }
+.gradeRouteCard button { width: 100%; margin-top: 8px; }
 .gradeEntryNote { border-left: 4px solid var(--line); }
-.gradeEntryModes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.gradeEntryModes p { display: grid; gap: 3px; margin: 0; padding: 14px; background: var(--surface-soft); border-radius: var(--r-md); }
-.gradeEntryModes span { color: var(--muted); font-size: 13px; }
 .serialModeLinks, .freeModeLinks { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
 .serialModeLinks .ghost, .freeModeLinks .ghost { border-color: rgba(250, 249, 246, .42); color: var(--parchment); }
 .serialModeLinks .ghost:hover:not(:disabled), .freeModeLinks .ghost:hover:not(:disabled) { background: var(--parchment); color: var(--ink); }
@@ -421,9 +432,19 @@ h2 {
 .freeNoteText { margin: 0; color: var(--muted); font-size: 13px; }
 
 @media (max-width: 560px) {
+  body[data-eiken-app="entry"] .appNavRoutes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  body[data-eiken-app="entry"] .appTab { min-height: 60px; padding: 8px; }
   .gradeEntryHero, .freeHero { padding: 18px; }
-  .gradeChoiceGrid, .gradeEntryModes, .freeSkillList { grid-template-columns: 1fr; }
-  .gradeChoiceCard h3 { font-size: 28px; }
+  .gradeChoiceGrid { grid-template-columns: 1fr; gap: 12px; }
+  .gradeChoiceCard, .gradeChoiceSelect { min-height: 156px; height: 156px; }
+  .gradeChoiceSelect { grid-template-columns: 1fr auto; grid-template-rows: auto auto 1fr; align-items: center; column-gap: 10px; padding: 12px; }
+  .gradeChoiceSelect .label { grid-column: 1 / -1; }
+  .gradeChoiceSelect strong { font-size: 26px; }
+  .gradeChoiceDescription { grid-column: 1 / -1; grid-row: 3; }
+  .gradeChoiceState { grid-column: 2; grid-row: 2; white-space: nowrap; }
+  .gradeChoiceCard.isSelected .gradeChoiceSelect { padding-left: 8px; }
+  .gradeRouteGrid { grid-template-columns: 1fr; gap: 12px; }
+  .gradeRouteCard { min-height: 216px; }
 }
 
 /* ---- Serial course ---- */

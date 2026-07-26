@@ -136,6 +136,8 @@ function switchApp(id, options = {}) {
   currentPath = nextPath;
   window.EikenActiveAppId = id;
   window.EikenLearningPath = currentPath;
+  document.body.dataset.eikenApp = id;
+  document.body.dataset.eikenPath = currentPath;
   try {
     localStorage.setItem(ACTIVE_APP_KEY, id);
     localStorage.setItem(ACTIVE_PATH_KEY, currentPath);

@@ -201,10 +201,6 @@ const EikenGradeEntryApp = (function () {
     const profile = getProfile();
     homePanel.className = "gradeEntryHome";
     sessionPanel.className = "hide";
-    const current = profile
-      ? `<div class="gradeEntryCurrent"><span class="label">現在の設定</span><strong>${escapeHtml(profile.label)}</strong><span>級を選び直すと、各技能のデータも同じ級に切り替わります。</span></div>`
-      : `<div class="gradeEntryCurrent"><span class="label">最初にすること</span><strong>受験する級を選ぶ</strong><span>あとから変更できます。進捗データは級ごとに残ります。</span></div>`;
-
     const grades = [
       {
         id: "pre2",
@@ -225,32 +221,91 @@ const EikenGradeEntryApp = (function () {
         description: "大学中級程度。準1級の過去問3回分を、セクションごとに演習します。",
       },
     ];
-    const cards = grades.map((grade) => `<article class="gradeChoiceCard ${profile && profile.grade === grade.id ? "isSelected" : ""}">
-      <p class="label">${grade.eyebrow}</p>
-      <h3>${grade.label}</h3>
-      <p>${grade.description}</p>
-      <div class="gradeChoiceActions">
-        <button class="cta" type="button" data-grade="${grade.id}" data-route="serial">学習ルートへ</button>
-        <button class="ghost" type="button" data-grade="${grade.id}" data-route="free">自由演習へ</button>
-      </div>
-    </article>`).join("");
+    let selectedGrade = profile ? profile.grade : "";
+    const gradeMap = Object.fromEntries(grades.map((grade) => [grade.id, grade]));
+    const selected = () => selectedGrade ? gradeMap[selectedGrade] : null;
+    const routeLabel = (route) => {
+      const grade = selected();
+      if (!grade) return "先に級を選ぶ";
+      if (route === "serial" && profile && profile.grade === selectedGrade) return "続きから進める";
+      return route === "serial" ? `${grade.label}の学習ルートへ` : `${grade.label}で自由演習へ`;
+    };
+    const cards = grades.map((grade) => {
+      const isSelected = selectedGrade === grade.id;
+      return `<article class="gradeChoiceCard ${isSelected ? "isSelected" : ""}">
+        <button class="gradeChoiceSelect" type="button" data-grade-select="${grade.id}" aria-pressed="${isSelected ? "true" : "false"}">
+          <span class="label">${grade.eyebrow}</span>
+          <strong>${grade.label}</strong>
+          <span class="gradeChoiceDescription">${grade.description}</span>
+          <span class="gradeChoiceState">${isSelected ? "選択中" : "この級を選ぶ"}</span>
+        </button>
+      </article>`;
+    }).join("");
+    const selectionStatus = () => {
+      const grade = selected();
+      return grade
+        ? `<span class="label">現在の設定</span><strong>${escapeHtml(grade.label)}</strong><span>この級の教材を使います。級を変更しても、級ごとの進捗は残ります。</span>`
+        : `<span class="label">最初にすること</span><strong>受験する級を選ぶ</strong><span>級を選ぶと、次の進み方を選べます。</span>`;
+    };
 
     homePanel.innerHTML = `<section class="card hero gradeEntryHero">
       <p class="label">CHOOSE GRADE / START HERE</p>
-      <h2>${profile ? "級を確認して、演習を始める" : "英検の級を選ぶ"}</h2>
-      <p class="gradeEntryLead">級を先に決めると、語彙・英作文・リスニング・長文の入口が揃います。そのあと、順番に進むか、好きな技能から始めるかを選べます。</p>
+      <h2>${profile ? `${escapeHtml(selected().label)}の学習を続ける` : "受験する級を選ぶ"}</h2>
+      <p class="gradeEntryLead">級を決めると、対応する教材と次の学習がそろいます。</p>
       ${renderIdentity()}
-      ${current}
     </section>
     <section class="card gradeChoiceSection">
-      <div class="sectionHead"><div><p class="label">GRADE</p><h2>受験する級</h2></div><p class="hint">先に級、次に進み方。</p></div>
+      <div class="sectionHead"><div><p class="label">STEP 1 / GRADE</p><h2>受験する級</h2></div><p class="hint">級を選んでから、進み方を決めます。</p></div>
       <div class="gradeChoiceGrid">${cards}</div>
+      <div class="gradeEntryCurrent" id="gradeSelectionStatus" aria-live="polite">${selectionStatus()}</div>
     </section>
-    <section class="card gradeEntryNote"><p class="label">2つの進み方</p><div class="gradeEntryModes"><p><strong>学習ルート</strong><span>級に合った五つの技能を、前の段階から順番に進めます。</span></p><p><strong>自由演習</strong><span>順番のロックを外し、五つの技能からその日に取り組むものを選べます。</span></p></div></section>`;
+    <section class="card gradeRouteSection">
+      <div class="sectionHead"><div><p class="label">STEP 2 / PATH</p><h2>進み方を選ぶ</h2></div><p class="hint">選択した級の学習を始めます。</p></div>
+      <div class="gradeRouteGrid">
+        <article class="gradeRouteCard isRecommended">
+          <p class="label">RECOMMENDED / SERIAL</p>
+          <h3>学習ルート</h3>
+          <p>五つの技能を、前の段階から順番に進めます。途中保存した場所から再開できます。</p>
+          <button class="cta" type="button" data-route="serial">${routeLabel("serial")}</button>
+        </article>
+        <article class="gradeRouteCard">
+          <p class="label">FREE PRACTICE</p>
+          <h3>自由演習</h3>
+          <p>順番のロックを外し、その日に取り組む技能を選べます。</p>
+          <button class="ghost" type="button" data-route="free">${routeLabel("free")}</button>
+        </article>
+      </div>
+    </section>
+    <section class="card gradeEntryNote"><p class="label">保存について</p><p class="freeNoteText">選んだ級はこのブラウザに保存されます。各技能の回答・下書き・途中位置は、これまでどおり別々に保存されます。</p></section>`;
 
-    homePanel.querySelectorAll("[data-grade][data-route]").forEach((button) => {
-      button.addEventListener("click", () => startPath(button.dataset.grade, button.dataset.route));
+    function updateSelection(nextGrade) {
+      selectedGrade = nextGrade;
+      const grade = selected();
+      homePanel.querySelectorAll("[data-grade-select]").forEach((button) => {
+        const active = button.dataset.gradeSelect === selectedGrade;
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+        button.closest(".gradeChoiceCard").classList.toggle("isSelected", active);
+        const state = button.querySelector(".gradeChoiceState");
+        if (state) state.textContent = active ? "選択中" : "この級を選ぶ";
+      });
+      const status = document.getElementById("gradeSelectionStatus");
+      if (status) status.innerHTML = selectionStatus();
+      homePanel.querySelectorAll("[data-route]").forEach((button) => {
+        button.textContent = routeLabel(button.dataset.route);
+        button.disabled = !grade;
+        button.setAttribute("aria-disabled", grade ? "false" : "true");
+      });
+    }
+
+    homePanel.querySelectorAll("[data-grade-select]").forEach((button) => {
+      button.addEventListener("click", () => updateSelection(button.dataset.gradeSelect));
     });
+    homePanel.querySelectorAll("[data-route]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (selectedGrade) startPath(selectedGrade, button.dataset.route);
+      });
+    });
+    updateSelection(selectedGrade);
     if (window.EikenAppRouter) window.EikenAppRouter.refreshNav();
   }
 
