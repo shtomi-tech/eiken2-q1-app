@@ -70,7 +70,7 @@ select, input {
   padding: 8px 10px;
 }
 
-.wrap { max-width: 1080px; margin: 0 auto; padding: 24px 16px 64px; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
 
 .top {
   display: flex;
@@ -383,7 +383,6 @@ h2 {
 }
 
 /* ---- Grade entry / free practice ---- */
-body[data-eiken-app="entry"] .wrap { max-width: 960px; }
 .gradeEntryHome, .freeHome { max-width: 960px; margin: 0 auto; }
 .gradeEntryHero { padding: 28px 24px; }
 .freeHero { padding: 28px 24px; }
