@@ -16,7 +16,7 @@ const EikenSerialApp = (function () {
   const sessionPanel = document.getElementById("sessionPanel");
 
   const STEPS = [
-    { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", reason: "過去問3回分の語彙を学習し、各回の最終チェックをCLEARします。" },
+    { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", reason: "2026年度第1回 → 2025年度第3回 → 2025年度第2回の順に、各回を通し・解きなおし・最終チェックまで完了します。" },
     { id: "paraphrase", label: "言い換え", tag: "PARAPHRASE / SUB", reason: "補助練習8問を回答し、自己判定を登録します。過去問3回分の判定対象外です。" },
     { id: "writing", label: "英作文", tag: "WRITING", reason: "過去問3回分を書き、各題の参考解答とレビューを確認します。" },
     { id: "dictation", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の全設問を聞き、解答と書き取りを確認します。" },
@@ -67,6 +67,16 @@ const EikenSerialApp = (function () {
   function roundSuffix(id) {
     const match = String(id || "").match(/(\d{4}-\d+)$/);
     return match ? match[1] : "";
+  }
+
+  // 大問1だけは、選択中の回ではなく学習ルートの固定順で進める。
+  const Q1_SERIAL_ROUNDS = ["2026-1", "2025-3", "2025-2"];
+  function q1SerialRoundIds(ids) {
+    const unique = [...new Set(ids)].filter(Boolean);
+    const ordered = Q1_SERIAL_ROUNDS
+      .map((round) => unique.find((id) => roundSuffix(id) === round))
+      .filter(Boolean);
+    return [...ordered, ...unique.filter((id) => !Q1_SERIAL_ROUNDS.includes(roundSuffix(id)))];
   }
 
   function profileRounds(q1Id, dictationRound) {
@@ -227,7 +237,7 @@ const EikenSerialApp = (function () {
       return "学習の続き";
     }
 
-    const roundIds = profile.rounds.q1;
+    const roundIds = q1SerialRoundIds(profile.rounds.q1);
     const roundSummaries = roundIds.map((id) => {
       const data = assets.q1[id] || {};
       const questions = Array.isArray(data.questions) ? data.questions : [];
@@ -235,25 +245,29 @@ const EikenSerialApp = (function () {
         || (id === manifest.defaultDatasetId ? readJson("eiken2_q1_v1", {}) : {});
       const units = saved.units && typeof saved.units === "object" ? saved.units : {};
       const learned = questions.filter((question) => units[question.q] && units[question.q].learned).length;
+      const reviewCount = questions.filter((question) => units[question.q] && units[question.q].needsReview).length;
       const clear = Boolean(saved.finalCheck && saved.finalCheck.cleared);
       const resume = saved.resume && typeof saved.resume === "object" ? saved.resume : null;
-      return { id, questions, saved, learned, clear, resume, resumeLabel: resumeLabel(resume) };
+      return { id, questions, saved, learned, reviewCount, clear, resume, resumeLabel: resumeLabel(resume) };
     });
     const completedRounds = roundSummaries.filter((round) => round.clear).length;
     const learnedQuestions = roundSummaries.reduce((sum, round) => sum + round.learned, 0);
     const totalQuestions = roundSummaries.reduce((sum, round) => sum + round.questions.length, 0);
-    const resumeRound = roundSummaries.find((round) => !round.clear && round.resume);
-    const nextRound = resumeRound || roundSummaries.find((round) => !round.clear);
+    // 先の回に途中保存があっても、前の回を飛ばさない。
+    const nextRound = roundSummaries.find((round) => !round.clear);
+    const resumeRound = nextRound && nextRound.resume ? nextRound : null;
     const next = nextRound && nextRound.questions.find((question) => !(nextRound.saved.units && nextRound.saved.units[question.q] && nextRound.saved.units[question.q].learned));
     const resume = resumeRound && resumeRound.resume;
     const inProgress = learnedQuestions > 0 || completedRounds > 0 || Boolean(resume);
     const nextLabel = resume
-      ? `${roundLabel("q1", nextRound.id)}・続きから（${resumeRound.resumeLabel}）`
-      : !nextRound
-        ? "3回分CLEAR済み"
-        : next
-          ? `${roundLabel("q1", nextRound.id)}・第${next.q}問を学習`
-          : `${roundLabel("q1", nextRound.id)}・最終チェックに挑戦`;
+        ? `${roundLabel("q1", nextRound.id)}・続きから（${resumeRound.resumeLabel}）`
+        : !nextRound
+          ? "3回分CLEAR済み"
+          : next
+            ? `${roundLabel("q1", nextRound.id)}・第${next.q}問を学習`
+          : nextRound.reviewCount
+            ? `${roundLabel("q1", nextRound.id)}・解きなおし（あと${nextRound.reviewCount}問）`
+            : `${roundLabel("q1", nextRound.id)}・最終チェックに挑戦`;
     const resumeDetail = resume ? `・途中保存あり（${resumeRound.resumeLabel}）` : "";
     return {
       complete: completedRounds === roundIds.length && roundIds.length > 0,
