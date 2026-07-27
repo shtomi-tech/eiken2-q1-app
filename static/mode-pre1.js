@@ -1592,6 +1592,17 @@ const EikenPre1App = (function () {
     return paragraphs.join("\n\n");
   }
 
+  function summaryPromptParagraphs(task) {
+    const prompt = String(task.prompt || "").trim();
+    const paragraphs = prompt.split(/\s+(?=Supporters\b|Nevertheless,\s*critics\b|However,\s*(?:critics|opponents)\b)/i).map((value) => value.trim()).filter(Boolean);
+    return paragraphs.length === 3 ? paragraphs : [prompt];
+  }
+
+  function summaryPromptMarkup(task) {
+    const labels = ["背景・状況", "Supporters（賛成意見）", "Critics / Opponents（反対意見）"];
+    return `<div class="pre1SummaryPrompt" aria-label="要約問題文">${summaryPromptParagraphs(task).map((paragraph, index) => `<article class="pre1SummaryParagraph"><p class="pre1SummaryParagraphLabel">第${index + 1}段落 / ${labels[index] || "本文"}</p><p>${escapeHtml(paragraph)}</p></article>`).join("")}</div>`;
+  }
+
   function summaryCopyText(task, draft) {
     const answers = summaryParagraphs(draft).map((value, index) => `【第${index + 1}段落】\n${String(value || "").trim()}`).join("\n\n");
     return [
@@ -1599,7 +1610,7 @@ const EikenPre1App = (function () {
       `目標語数：${task.targetMin}〜${task.targetMax}語`,
       "",
       "【原文】",
-      task.prompt,
+      summaryPromptParagraphs(task).join("\n\n"),
       "",
       "【答案】",
       answers,
@@ -1708,10 +1719,11 @@ const EikenPre1App = (function () {
 
     sessionPanel.className = "pre1Session writingSession";
     homePanel.className = "hide";
+    const promptMarkup = task.type === "SUMMARY" ? summaryPromptMarkup(task) : `<p class="pre1WritingPrompt">${escapeHtml(task.prompt)}</p>`;
     sessionPanel.innerHTML = `<section class="card pre1WritingCard">
       ${renderSectionHeader(section, `課題${task.number}（${state.writingIndex + 1} / ${section.questions.length}）`)}
       <div class="writingPromptMeta"><span>${escapeHtml(task.type)}</span><strong>${task.targetMin}–${task.targetMax}語</strong></div>
-      <h3>${escapeHtml(task.label)}</h3><p class="pre1WritingPrompt">${escapeHtml(task.prompt)}</p>${points}
+      <h3>${escapeHtml(task.label)}</h3>${promptMarkup}${points}
       <div class="writingFlowHeader"><div><p class="writingKicker">YOUR RESPONSE</p><h2>${task.type === "SUMMARY" ? "3段落でまとめる" : `${stepCount}段階で組み立てる`}</h2></div><div class="writingFlowProgress"><strong>STEP ${state.writingStep + 1} / ${stepCount}</strong><span>${stepTitles[state.writingStep]}</span></div></div>
       <div class="writingStepper" role="tablist" aria-label="${stepCount}段階のフロー">${stepperHtml}</div>
       <p class="writingFlowStatus" aria-live="polite"></p>
