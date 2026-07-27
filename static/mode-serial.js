@@ -299,21 +299,24 @@ const EikenSerialApp = (function () {
   function writingSummary() {
     const questions = (Array.isArray(assets.writing) ? assets.writing : [])
       .filter((question) => question.grade === profile.writingGrade);
+    const officialQuestions = questions.filter((question) => question.type !== "SUMMARY");
+    const summaryQuestions = questions.filter((question) => question.type === "SUMMARY");
     const saved = readJson("eiken_writing_progress_v1", {});
-    const roundIds = [...new Set(questions.map((question) => question.round))].filter(Boolean);
-    const completedQuestions = questions.filter((question) => saved[question.id]).length;
+    const roundIds = [...new Set(officialQuestions.map((question) => question.round))].filter(Boolean);
+    const completedQuestions = officialQuestions.filter((question) => saved[question.id]).length;
+    const completedSummaries = summaryQuestions.filter((question) => saved[question.id]).length;
     const completedRounds = roundIds.filter((round) => {
-      const roundQuestions = questions.filter((question) => question.round === round);
+      const roundQuestions = officialQuestions.filter((question) => question.round === round);
       return roundQuestions.length > 0 && roundQuestions.every((question) => saved[question.id]);
     }).length;
-    const next = questions.find((question) => !saved[question.id]);
+    const next = officialQuestions.find((question) => !saved[question.id]);
     return {
       complete: completedRounds === roundIds.length && roundIds.length > 0,
       completed: completedRounds,
       total: roundIds.length,
       status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : completedQuestions ? "progress" : "ready",
-      nextLabel: next ? `${next.round}の英作文` : "全問題をレビュー済み",
-      detail: `${completedRounds} / ${roundIds.length}回・${completedQuestions} / ${questions.length}題・下書きは自動保存`,
+      nextLabel: next ? `${next.round}の英作文` : summaryQuestions.some((question) => !saved[question.id]) ? "要約練習を追加で進める" : "全問題をレビュー済み",
+      detail: `${completedRounds} / ${roundIds.length}回・英作文 ${completedQuestions} / ${officialQuestions.length}題・要約 ${completedSummaries} / ${summaryQuestions.length}題・下書きは自動保存`,
     };
   }
 

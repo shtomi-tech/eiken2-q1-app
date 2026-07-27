@@ -1730,6 +1730,11 @@ h2 {
 .writingReference p { color: var(--muted); font-size: 13px; }
 .writingReference p:nth-of-type(2) { color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.8; }
 .writingSourceNote { border-left: 3px solid var(--line); padding-left: 10px; }
+.writingSummaryPrompt { display: grid; gap: 16px; margin: 18px 0 0; }
+.writingSummaryPromptParagraph { margin: 0; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.writingSummaryPromptParagraph:last-child { border-bottom: 0; padding-bottom: 0; }
+.writingSummaryPromptLabel { margin: 0 0 6px; color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.writingSummaryPromptParagraph > p:last-child { margin: 0; line-height: 1.85; }
 .summaryParagraphPanel .writingField textarea { min-height: 180px; }
 .summaryDraftPreview { display: grid; gap: 8px; margin-top: 18px; }
 .summaryDraftParagraph { border-radius: var(--r-md); background: var(--surface-soft); padding: 12px 14px; }
