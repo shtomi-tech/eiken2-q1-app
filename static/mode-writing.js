@@ -8,6 +8,8 @@ const EikenWritingApp = (function () {
   const STEP_LABELS = ["TRANSLATE", "HEAD", "BODY 1", "BODY 2", "CONCLUSION", "REVIEW"];
   const SUMMARY_STEP_TITLES = ["第1段落を書く", "第2段落を書く", "第3段落を書く", "添削に出す"];
   const SUMMARY_STEP_LABELS = ["PARAGRAPH 1", "PARAGRAPH 2", "PARAGRAPH 3", "CHECK"];
+  const EMAIL_STEP_TITLES = ["メールを読む", "返信を書く", "質問を2つ書く", "添削に出す"];
+  const EMAIL_STEP_LABELS = ["READ", "REPLY", "QUESTIONS", "CHECK"];
   const homePanel = document.getElementById("homePanel");
   const sessionPanel = document.getElementById("sessionPanel");
   const state = {
@@ -45,14 +47,23 @@ const EikenWritingApp = (function () {
   function countWords(value) { const text = String(value || "").trim(); return text ? text.split(/\s+/).length : 0; }
 
   function isSummaryQuestion(question) { return question.type === "SUMMARY"; }
+  function isEmailQuestion(question) { return question.type === "EMAIL"; }
 
-  function flowTitles(question) { return isSummaryQuestion(question) ? SUMMARY_STEP_TITLES : STEP_TITLES; }
-  function flowLabels(question) { return isSummaryQuestion(question) ? SUMMARY_STEP_LABELS : STEP_LABELS; }
+  function flowTitles(question) {
+    if (isSummaryQuestion(question)) return SUMMARY_STEP_TITLES;
+    if (isEmailQuestion(question)) return EMAIL_STEP_TITLES;
+    return STEP_TITLES;
+  }
+  function flowLabels(question) {
+    if (isSummaryQuestion(question)) return SUMMARY_STEP_LABELS;
+    if (isEmailQuestion(question)) return EMAIL_STEP_LABELS;
+    return STEP_LABELS;
+  }
 
   function emptyDraft(type = "ESSAY") {
-    return type === "SUMMARY"
-      ? { paragraph1: "", paragraph2: "", paragraph3: "", answer: "", reviewed: false, clipboardCopied: false }
-      : { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "" };
+    if (type === "SUMMARY") return { paragraph1: "", paragraph2: "", paragraph3: "", answer: "", reviewed: false, clipboardCopied: false };
+    if (type === "EMAIL") return { emailReply: "", emailQuestion1: "", emailQuestion2: "", answer: "", reviewed: false, clipboardCopied: false };
+    return { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "" };
   }
 
   function normalizeDraft(raw, type = "ESSAY") {
@@ -67,6 +78,15 @@ const EikenWritingApp = (function () {
       draft.reviewed = Boolean(raw.reviewed);
       draft.clipboardCopied = Boolean(raw.clipboardCopied);
       if (!draft.paragraph1 && !draft.paragraph2 && !draft.paragraph3 && draft.answer.trim()) draft.paragraph1 = draft.answer;
+      return draft;
+    }
+    if (type === "EMAIL") {
+      draft.emailReply = stringOrEmpty(raw.emailReply);
+      draft.emailQuestion1 = stringOrEmpty(raw.emailQuestion1);
+      draft.emailQuestion2 = stringOrEmpty(raw.emailQuestion2);
+      draft.answer = stringOrEmpty(raw.answer);
+      draft.reviewed = Boolean(raw.reviewed);
+      draft.clipboardCopied = Boolean(raw.clipboardCopied);
       return draft;
     }
     draft.translation = stringOrEmpty(raw.translation);
@@ -130,8 +150,12 @@ const EikenWritingApp = (function () {
   }
 
   function overallTargetMarkup(question) {
-    const label = isSummaryQuestion(question) ? "要約全体" : "英作文全体";
-    const note = isSummaryQuestion(question) ? "準2級の読解本文を使った練習目安です。" : "文字数ではなく、英語の語数で確認します。";
+    const label = isSummaryQuestion(question) ? "英文要約" : isEmailQuestion(question) ? "返信メール" : "英作文全体";
+    const note = isSummaryQuestion(question)
+      ? "2級の公式形式です。文字数ではなく、英語の語数で確認します。"
+      : isEmailQuestion(question)
+        ? "返信本文と質問2つを合わせた語数の目安です。"
+        : "文字数ではなく、英語の語数で確認します。";
     return `<div class="writingTarget"><div><p class="writingTargetKicker">WRITING TARGET</p><strong>${label} ${question.targetMin}–${question.targetMax}語</strong><small>${note}</small></div><span>目安</span></div>`;
   }
 
@@ -141,6 +165,12 @@ const EikenWritingApp = (function () {
       if (step === 1) return Boolean(draft.paragraph2.trim());
       if (step === 2) return Boolean(draft.paragraph3.trim());
       return Boolean(draft.paragraph1.trim()) && Boolean(draft.paragraph2.trim()) && Boolean(draft.paragraph3.trim());
+    }
+    if (isEmailQuestion(question)) {
+      if (step === 0) return true;
+      if (step === 1) return Boolean(draft.emailReply.trim());
+      if (step === 2) return Boolean(draft.emailQuestion1.trim()) && Boolean(draft.emailQuestion2.trim());
+      return Boolean(draft.emailReply.trim()) && Boolean(draft.emailQuestion1.trim()) && Boolean(draft.emailQuestion2.trim());
     }
     if (step === 0) return Boolean(draft.translation.trim());
     if (step === 1) return Boolean(draft.stance) && Boolean(draft.head.trim());
@@ -152,6 +182,7 @@ const EikenWritingApp = (function () {
 
   function resumeStep(question, draft) {
     const last = flowTitles(question).length - 1;
+    if (isEmailQuestion(question) && !emailAnswer(draft)) return 0;
     for (let step = 0; step < last; step += 1) if (!stepComplete(step, draft, question)) return step;
     return last;
   }
@@ -162,6 +193,12 @@ const EikenWritingApp = (function () {
       "第2段落の英文を入力してください。",
       "第3段落の英文を入力してください。",
       "3段落を入力してから、添削用テキストを作成してください。",
+    ][step];
+    if (isEmailQuestion(question)) return [
+      "本文を確認して、返信の内容を考えます。",
+      "まず、Alexの質問への答えを入力してください。",
+      "下線部について具体的な質問を2つ入力してください。",
+      "返信と質問2つを入力してから、添削用テキストを作成してください。",
     ][step];
     return [
       "まず、設問の日本語訳を入力してください。",
@@ -184,12 +221,19 @@ const EikenWritingApp = (function () {
       .join("\n\n");
   }
 
+  function emailAnswer(draft) {
+    return [draft.emailReply, draft.emailQuestion1, draft.emailQuestion2]
+      .map((value) => String(value || "").trim())
+      .filter(Boolean)
+      .join(" ");
+  }
+
   function summaryCopyText(question, draft) {
     const answers = [draft.paragraph1, draft.paragraph2, draft.paragraph3]
       .map((value, index) => `【第${index + 1}段落】\n${String(value || "").trim()}`)
       .join("\n\n");
     return [
-      "英検準2級・英文要約練習の添削依頼",
+      `英検${question.gradeLabel}・英文要約練習の添削依頼`,
       `練習目安：${question.targetMin}〜${question.targetMax}語`,
       "",
       "【原文】",
@@ -199,10 +243,36 @@ const EikenWritingApp = (function () {
       answers,
       "",
       "【添削の依頼】",
-      `準2級レベルの英文要約練習として、${question.targetMin}〜${question.targetMax}語の目安を踏まえて添削してください。`,
+      `${question.gradeLabel}レベルの英文要約練習として、${question.targetMin}〜${question.targetMax}語の目安を踏まえて添削してください。`,
       "内容・構成・語彙・文法の4観点で、よい点と改善点を具体的に示してください。",
       "第1〜3段落それぞれの内容の不足や、原文にない内容があれば指摘してください。",
       "最後に、修正例を示す場合は、どこを直したかが分かるように説明してください。",
+    ].join("\n");
+  }
+
+  function emailCopyText(question, draft) {
+    return [
+      `英検${question.gradeLabel}・Eメール問題の添削依頼`,
+      `返信本文と質問2つ：${question.targetMin}〜${question.targetMax}語`,
+      "",
+      "【受信メール】",
+      String(question.prompt || "").trim(),
+      "",
+      `【下線部】${question.underlinedText || ""}`,
+      "",
+      "【答案】",
+      "Hi, Alex!",
+      "Thank you for your e-mail.",
+      String(draft.emailReply || "").trim(),
+      `質問1：${String(draft.emailQuestion1 || "").trim()}`,
+      `質問2：${String(draft.emailQuestion2 || "").trim()}`,
+      "Best wishes,",
+      "",
+      "【添削の依頼】",
+      `英検${question.gradeLabel}のEメール練習として、相手の質問への答えと、下線部についての具体的な質問2つが入っているか確認してください。`,
+      `返信本文と質問2つの語数が${question.targetMin}〜${question.targetMax}語の目安に収まっているか確認してください。`,
+      "内容・構成・語彙・文法の4観点で、よい点と改善点を具体的に示してください。",
+      "最後に、自然な修正例を示してください。",
     ].join("\n");
   }
 
@@ -210,10 +280,22 @@ const EikenWritingApp = (function () {
     return `<div class="writingSummaryPrompt" aria-label="要約の原文">${summaryParagraphs(question).map((paragraph, index) => `<article class="writingSummaryPromptParagraph"><p class="writingSummaryPromptLabel">原文 第${index + 1}段落</p><p>${escapeHtml(paragraph)}</p></article>`).join("")}</div>`;
   }
 
+  function emailPromptMarkup(question) {
+    const highlighted = escapeHtml(question.prompt || "").replace(
+      escapeHtml(question.underlinedText || ""),
+      `<mark class="writingEmailUnderline">${escapeHtml(question.underlinedText || "")}</mark>`,
+    );
+    return `<div class="writingEmailCard"><div class="writingEmailMeta"><span>From: ${escapeHtml(question.emailFrom || "Alex")}</span><span>Subject: ${escapeHtml(question.emailSubject || "")}</span></div><div class="writingEmailBody">${highlighted.split(/\n\s*\n/).map((paragraph) => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`).join("")}</div><p class="writingEmailNote">下線部：${escapeHtml(question.underlinedText || "本文中の下線部")}</p></div>`;
+  }
+
   function summaryDraftMarkup(draft) {
     return [draft.paragraph1, draft.paragraph2, draft.paragraph3]
       .map((value, index) => `<article class="summaryDraftParagraph"><span>第${index + 1}段落</span><p>${escapeHtml(value || "未入力")}</p></article>`)
       .join("");
+  }
+
+  function emailDraftMarkup(draft) {
+    return `<article class="summaryDraftParagraph"><span>返信本文</span><p>${escapeHtml(draft.emailReply || "未入力")}</p></article><article class="summaryDraftParagraph"><span>質問1</span><p>${escapeHtml(draft.emailQuestion1 || "未入力")}</p></article><article class="summaryDraftParagraph"><span>質問2</span><p>${escapeHtml(draft.emailQuestion2 || "未入力")}</p></article>`;
   }
 
   function isGoodIdeaQuestion(question) { return /good idea/i.test(question.prompt); }
@@ -237,6 +319,11 @@ const EikenWritingApp = (function () {
     if (isSummaryQuestion(question)) {
       const paragraphs = [draft.paragraph1, draft.paragraph2, draft.paragraph3].slice(0, state.step);
       return `<details class="writingContext" open><summary>ここまでの入力を確認する</summary><div class="writingSummaryList">${paragraphs.map((value, index) => summaryMarkup(`第${index + 1}段落`, value, index)).join("")}</div></details>`;
+    }
+    if (isEmailQuestion(question)) {
+      const labels = ["返信本文", "質問1", "質問2"];
+      const fields = [draft.emailReply, draft.emailQuestion1, draft.emailQuestion2].slice(0, Math.max(0, state.step - 1));
+      return fields.length ? `<details class="writingContext" open><summary>ここまでの入力を確認する</summary><div class="writingSummaryList">${fields.map((value, index) => summaryMarkup(labels[index], value, index + 1)).join("")}</div></details>` : "";
     }
     const summaries = [];
     summaries.push(summaryMarkup("設問の日本語訳", draft.translation, 0));
@@ -299,8 +386,25 @@ const EikenWritingApp = (function () {
     return panel;
   }
 
+  function renderEmailStepPanel(draft, question) {
+    let panel = renderContext(draft, question);
+    if (state.step === 0) {
+      panel += `<div class="writingPanel"><p class="writingKicker">STEP 1 / READ</p><h3>受信メールの内容を確認する</h3><p class="writingHelp">Alexの質問に答え、本文の下線部について具体的な質問を2つ作ります。</p><ul class="writingEmailChecklist"><li>メールの最後の質問に答える</li><li>下線部の特徴をたずねる質問を2つ書く</li><li>返信本文と質問2つを40〜50語にまとめる</li></ul></div>`;
+    } else if (state.step === 1) {
+      panel += `<div class="writingPanel"><p class="writingKicker">STEP 2 / REPLY</p><h3>Alexの質問に返信する</h3><p class="writingHelp">まず、メールの最後の質問に対する自分の答えと理由を書きます。</p><div class="writingEmailScaffold"><span>Hi, Alex!</span><span>Thank you for your e-mail.</span>${fieldTextarea("返信本文", draft.emailReply, "emailReply", "Yes / Noと、その理由を英語で書きます。")}<span>Best wishes,</span></div></div>`;
+    } else if (state.step === 2) {
+      panel += `<div class="writingPanel"><p class="writingKicker">STEP 3 / QUESTIONS</p><h3>下線部について質問を2つ書く</h3><p class="writingHelp">下線部の特徴を、相手に具体的にたずねます。Yes / Noで終わる質問だけにしないようにします。</p>${fieldTextarea("質問1", draft.emailQuestion1, "emailQuestion1", "例：How often is it available?")}${fieldTextarea("質問2", draft.emailQuestion2, "emailQuestion2", "例：Who can use it?")}</div>`;
+    } else {
+      const count = countWords(emailAnswer(draft));
+      const status = statusFor(question, count);
+      panel += `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP 4 / CHECK</p><h3>個人の生成AIで添削する</h3><p class="writingHelp">返信本文と質問2つを一括コピーし、普段使っている生成AIに貼り付けてください。このアプリ内では採点しません。</p>${overallTargetMarkup(question)}<div class="summaryDraftPreview">${emailDraftMarkup(draft)}</div><div class="writingWordCount" data-status="${status.key}" aria-live="polite"><strong>${count}</strong><span>${status.label} / 目安 ${question.targetMin}–${question.targetMax}語</span></div><div class="summaryCopyBox"><label class="writingField"><span>生成AIに貼り付けるテキスト</span><textarea id="writingEmailCopyPayload" class="summaryCopyPayload" readonly rows="14" aria-label="生成AIに貼り付ける添削依頼文"></textarea></label><div class="summaryCopyActions"><button type="button" id="writingEmailCopyBtn">添削用テキストをコピー</button>${draft.reviewed ? `<span class="summaryCopyStatus">${draft.clipboardCopied ? "コピー済み" : "手動コピー済み"}。生成AIに貼り付けてください。</span>` : `<button class="ghost" type="button" id="writingEmailManualCompleteBtn">手動でコピーしたので完了にする</button>`}</div></div>${draft.reviewed ? `<div class="resultBox ok"><strong>添削に出す準備ができました</strong><p>コピーしたテキストを個人の生成AIへ貼り付けて、内容・構成・語彙・文法を確認してください。</p><button class="ghost" type="button" id="writingEmailUnreviewBtn">完了を取り消して編集する</button></div>` : ""}<details class="writingReference"><summary>参考解答を開く</summary><p>返信内容と質問の作り方を確認します。</p><p>${escapeHtml(question.referenceAnswer)}</p></details></div>`;
+    }
+    return panel;
+  }
+
   function renderStepPanel(draft, question) {
     if (isSummaryQuestion(question)) return renderSummaryStepPanel(draft, question);
+    if (isEmailQuestion(question)) return renderEmailStepPanel(draft, question);
     let panel = renderContext(draft, question);
     if (state.step === 0) {
       panel += `<div class="writingPanel"><p class="writingKicker">STEP 1 / TRANSLATE</p><h3>テーマの英文を日本語に訳す</h3><p class="writingHelp">まずは、設問が何を聞いているかを確かめます。ここでは直訳で構いません。</p>${fieldTextarea("日本語訳", draft.translation, "translation", "テーマの意味を日本語で書きます。")}</div>`;
@@ -339,13 +443,17 @@ const EikenWritingApp = (function () {
     const nextLabel = titles[state.step + 1] || "";
     const questionTitle = isSummaryQuestion(question)
       ? (question.label || `英文要約練習：${question.sourceTitle || ""}`)
+      : isEmailQuestion(question)
+        ? (question.label || `Eメール問題：${question.emailSubject || ""}`)
       : question.prompt;
     const promptBody = isSummaryQuestion(question)
       ? `<p>${escapeHtml(question.instruction)}</p>${summaryPromptMarkup(question)}`
+      : isEmailQuestion(question)
+        ? `<p>${escapeHtml(question.instruction)}</p>${emailPromptMarkup(question)}`
       : `<p>${escapeHtml(question.instruction)}</p>`;
-    const questionNumber = isSummaryQuestion(question) ? "要約補助" : `Q${question.number}`;
-    const flowHeading = isSummaryQuestion(question) ? "3段落でまとめる" : "6段階で英作文を組み立てる";
-    const finalNavigation = isSummaryQuestion(question)
+    const questionNumber = isSummaryQuestion(question) ? "要約" : isEmailQuestion(question) ? "Eメール" : `Q${question.number}`;
+    const flowHeading = isSummaryQuestion(question) ? "3段落で要約する" : isEmailQuestion(question) ? "Eメールに返信する" : "6段階で英作文を組み立てる";
+    const finalNavigation = isSummaryQuestion(question) || isEmailQuestion(question)
       ? "<span>添削用テキストをコピーして、個人の生成AIへ貼り付けます。</span>"
       : "<span>チェックを終えたら、参考解答と比べます。</span>";
     const points = question.points.length ? `<div class="writingPoints"><span>POINTS</span>${question.points.map((point) => `<span>${escapeHtml(point)}</span>`).join("")}</div>` : "";
@@ -390,6 +498,14 @@ const EikenWritingApp = (function () {
       else if (isSummaryQuestion(question)) {
         draft[field.dataset.field] = field.value;
         draft.answer = summaryAnswer(draft);
+        draft.reviewed = false;
+        draft.clipboardCopied = false;
+        state.completed[question.id] = false;
+        writeStorage(PROGRESS_KEY, state.completed);
+        persistDraft(question, draft);
+      } else if (isEmailQuestion(question)) {
+        draft[field.dataset.field] = field.value;
+        draft.answer = emailAnswer(draft);
         draft.reviewed = false;
         draft.clipboardCopied = false;
         state.completed[question.id] = false;
@@ -440,12 +556,15 @@ const EikenWritingApp = (function () {
       writeStorage(PROGRESS_KEY, state.completed);
       reference.querySelector("summary").focus();
     });
-    const summaryPayload = sessionPanel.querySelector("#writingSummaryCopyPayload");
-    if (summaryPayload && isSummaryQuestion(question)) {
-      summaryPayload.value = summaryCopyText(question, draft);
-      sessionPanel.querySelector("#writingSummaryCopyBtn")?.addEventListener("click", async () => {
+    const copyPayload = sessionPanel.querySelector("#writingSummaryCopyPayload, #writingEmailCopyPayload");
+    if (copyPayload && (isSummaryQuestion(question) || isEmailQuestion(question))) {
+      copyPayload.value = isSummaryQuestion(question) ? summaryCopyText(question, draft) : emailCopyText(question, draft);
+      const copyButton = sessionPanel.querySelector("#writingSummaryCopyBtn, #writingEmailCopyBtn");
+      const manualButton = sessionPanel.querySelector("#writingSummaryManualCompleteBtn, #writingEmailManualCompleteBtn");
+      const unreviewButton = sessionPanel.querySelector("#writingSummaryUnreviewBtn, #writingEmailUnreviewBtn");
+      copyButton?.addEventListener("click", async () => {
         try {
-          await navigator.clipboard.writeText(summaryPayload.value);
+          await navigator.clipboard.writeText(copyPayload.value);
           draft.reviewed = true;
           draft.clipboardCopied = true;
           state.completed[question.id] = true;
@@ -453,12 +572,12 @@ const EikenWritingApp = (function () {
           persistDraft(question, draft);
           renderSession();
         } catch (error) {
-          summaryPayload.focus();
-          summaryPayload.select();
+          copyPayload.focus();
+          copyPayload.select();
           if (flowStatus) flowStatus.textContent = "自動コピーできませんでした。テキストを選択したので、Ctrl+Cでコピーしてください。";
         }
       });
-      sessionPanel.querySelector("#writingSummaryManualCompleteBtn")?.addEventListener("click", () => {
+      manualButton?.addEventListener("click", () => {
         draft.reviewed = true;
         draft.clipboardCopied = false;
         state.completed[question.id] = true;
@@ -466,7 +585,7 @@ const EikenWritingApp = (function () {
         persistDraft(question, draft);
         renderSession();
       });
-      sessionPanel.querySelector("#writingSummaryUnreviewBtn")?.addEventListener("click", () => {
+      unreviewButton?.addEventListener("click", () => {
         draft.reviewed = false;
         draft.clipboardCopied = false;
         state.completed[question.id] = false;
@@ -486,6 +605,8 @@ const EikenWritingApp = (function () {
     if (state.completed[question.id]) return { label: "レビュー済み", className: "done", action: "復習する" };
     const fields = isSummaryQuestion(question)
       ? ["paragraph1", "paragraph2", "paragraph3"]
+      : isEmailQuestion(question)
+        ? ["emailReply", "emailQuestion1", "emailQuestion2"]
       : ["translation", "stance", "head", "body1Reason", "body1Simple", "body2Reason", "body2Simple", "conclusion", "answer"];
     if (fields.some((field) => String(draft[field] || "").trim())) return { label: `STEP ${resumeStep(question, draft) + 1} まで入力`, className: "progress", action: "続きから" };
     return { label: "未回答", className: "", action: "始める" };
@@ -500,20 +621,28 @@ const EikenWritingApp = (function () {
     const rounds = [...new Set(gradeQuestions.map((question) => question.round))];
     const isPre2 = state.grade === "pre2";
     const heroLead = isPre2
-      ? "テーマ英作文に加えて、読解本文を3段落でまとめる要約補助練習も用意しています。添削は個人の生成AIへ一括で渡します。"
-      : "テーマの意味を確認し、HEAD・BODY 1・BODY 2・CONCLUSIONの順に英作文を作ります。日本語の理由を平易に直す工程も省略しません。";
+      ? "Eメール問題とテーマ英作文を用意しています。返信メールでは、質問への答えと下線部についての具体的な質問2つを書きます。"
+      : "英文要約とテーマ英作文を用意しています。要約は本文を3段落に分けて整理し、添削は個人の生成AIへ一括で渡します。";
     const heroRule = isPre2
-      ? "英作文 6段階 / 要約 4段階"
-      : "TRANSLATE → HEAD → BODY 1 → BODY 2 → CONCLUSION → REVIEW";
-    homePanel.innerHTML = `<section class="card hero"><p class="label">EIKEN WRITING / ${state.grade === "2kyu" ? "GRADE 2" : "PRE-2"}</p><h2>訳して、組み立てて、書く。</h2><p class="writingLead">${heroLead}</p><div class="writingHeroRule"><strong>${isPre2 ? "2つの練習" : "6段階"}</strong><span>${heroRule}</span></div></section>
+      ? "Eメール 4段階 / 英作文 6段階"
+      : "要約 4段階 / 英作文 6段階";
+    homePanel.innerHTML = `<section class="card hero"><p class="label">EIKEN WRITING / ${state.grade === "2kyu" ? "GRADE 2" : "PRE-2"}</p><h2>読んで、組み立てて、書く。</h2><p class="writingLead">${heroLead}</p><div class="writingHeroRule"><strong>2つの練習</strong><span>${heroRule}</span></div></section>
       <section class="card"><div class="writingHomeHeader"><div><p class="label">PRACTICE MENU</p><h2>英作文の問題を選ぶ</h2></div><div class="writingGradeButtons"><button class="ghost" type="button" data-grade="2kyu" aria-pressed="${state.grade === "2kyu"}">2級</button><button class="ghost" type="button" data-grade="pre2" aria-pressed="${state.grade === "pre2"}">準2級</button></div></div><div class="writingStats"><div><strong>${completed} / ${gradeQuestions.length}</strong><span>レビュー済み</span></div><div><strong>${questions.length}</strong><span>表示中の問題</span></div><div><strong>${state.grade === "2kyu" ? "80–100" : "50–60"}</strong><span>英作文全体の語数</span></div></div><div class="writingFilters"><button class="writingFilter" type="button" data-round="all" aria-pressed="${state.round === "all"}">すべて</button>${rounds.map((round) => `<button class="writingFilter" type="button" data-round="${escapeHtml(round)}" aria-pressed="${state.round === round}">${escapeHtml(round)}</button>`).join("")}</div><div class="writingQuestionList">${questions.length ? questions.map((question, index) => {
       const status = questionStatus(question);
-      const title = isSummaryQuestion(question) ? (question.label || `英文要約練習：${question.sourceTitle || ""}`) : question.prompt;
-      const instruction = isSummaryQuestion(question) ? "3段落に分けて英文を書き、添削用テキストを個人の生成AIへコピーします。" : question.instruction;
-      const typeLabel = isSummaryQuestion(question) ? "SUMMARY / 補助" : question.type;
+      const title = isSummaryQuestion(question)
+        ? (question.label || `英文要約：${question.sourceTitle || ""}`)
+        : isEmailQuestion(question)
+          ? (question.label || `Eメール：${question.emailSubject || ""}`)
+        : question.prompt;
+      const instruction = isSummaryQuestion(question)
+        ? "本文を3段落に分けて英文でまとめ、添削用テキストを個人の生成AIへコピーします。"
+        : isEmailQuestion(question)
+          ? "返信本文と、下線部についての具体的な質問2つを書きます。"
+        : question.instruction;
+      const typeLabel = isSummaryQuestion(question) ? "SUMMARY" : isEmailQuestion(question) ? "E-MAIL" : question.type;
       return `<article class="writingQuestionCard ${status.className}"><div class="writingQuestionMeta"><span>${escapeHtml(typeLabel)}</span><span>${escapeHtml(question.round)}</span></div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(instruction)}</p>${overallTargetMarkup(question)}<div class="writingQuestionFooter"><span>${status.label}</span><button type="button" data-practice-index="${index}">${status.action}</button></div></article>`;
     }).join("") : "<p class=\"hint\">この条件の問題はありません。</p>"}</div></section>
-      <section class="card writingGuide"><p class="label">HOW TO WRITE</p><h2>入力する順番</h2>${isPre2 ? "<ol><li><strong>英作文</strong><span>テーマを訳し、HEAD・BODY 1・BODY 2・CONCLUSIONを順に作ります。</span></li><li><strong>英文要約</strong><span>原文を確認し、第1〜3段落を書いたあと、添削用テキストをコピーします。</span></li></ol>" : "<ol><li><strong>テーマを訳す</strong><span>何を聞かれているかを日本語で確認します。</span></li><li><strong>HEAD</strong><span>Yes / Noを選び、定型で立場を示します。</span></li><li><strong>BODY 1・2</strong><span>理由を考え、英語にしやすい平易な日本語に直します。</span></li><li><strong>CONCLUSION・REVIEW</strong><span>定型で結び、全体の語数とつながりを確認します。</span></li></ol>"}<p class="hint">表示される語数は文字数ではなく、英語の単語数です。</p></section>`;
+      <section class="card writingGuide"><p class="label">HOW TO WRITE</p><h2>入力する順番</h2>${isPre2 ? "<ol><li><strong>Eメール</strong><span>受信メールを読み、返信本文と下線部についての質問2つを書きます。</span></li><li><strong>英作文</strong><span>テーマを訳し、HEAD・BODY 1・BODY 2・CONCLUSIONを順に作ります。</span></li></ol>" : "<ol><li><strong>英文要約</strong><span>本文を第1〜3段落に分けてまとめ、添削用テキストをコピーします。</span></li><li><strong>英作文</strong><span>テーマを訳し、HEAD・BODY 1・BODY 2・CONCLUSIONを順に作ります。</span></li></ol>"}<p class="hint">表示される語数は文字数ではなく、英語の単語数です。</p></section>`;
     homePanel.querySelectorAll("[data-grade]").forEach((button) => button.addEventListener("click", () => { state.grade = button.dataset.grade; state.round = "all"; state.index = 0; renderHome(); }));
     homePanel.querySelectorAll("[data-round]").forEach((button) => button.addEventListener("click", () => { state.round = button.dataset.round; state.index = 0; renderHome(); }));
     homePanel.querySelectorAll("[data-practice-index]").forEach((button) => button.addEventListener("click", () => {

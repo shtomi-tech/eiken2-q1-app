@@ -1735,6 +1735,16 @@ h2 {
 .writingSummaryPromptParagraph:last-child { border-bottom: 0; padding-bottom: 0; }
 .writingSummaryPromptLabel { margin: 0 0 6px; color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
 .writingSummaryPromptParagraph > p:last-child { margin: 0; line-height: 1.85; }
+.writingEmailCard { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-soft); padding: 16px; }
+.writingEmailMeta { display: flex; gap: 8px 18px; flex-wrap: wrap; color: var(--muted); font-family: var(--mono); font-size: 10px; }
+.writingEmailBody { margin-top: 14px; font-size: 16px; line-height: 1.8; }
+.writingEmailBody p { margin: 0 0 14px; }
+.writingEmailBody p:last-child { margin-bottom: 0; }
+.writingUnderlineNote, .writingEmailNote { margin: 14px 0 0; color: var(--clay); font-family: var(--mono); font-size: 11px; }
+.writingEmailUnderline { background: rgba(183, 94, 55, .18); color: inherit; padding: 0 2px; }
+.writingEmailChecklist { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; }
+.writingEmailScaffold { display: grid; gap: 8px; }
+.writingEmailScaffold > span { color: var(--muted); font-family: var(--mono); font-size: 11px; }
 .summaryParagraphPanel .writingField textarea { min-height: 180px; }
 .summaryDraftPreview { display: grid; gap: 8px; margin-top: 18px; }
 .summaryDraftParagraph { border-radius: var(--r-md); background: var(--surface-soft); padding: 12px 14px; }

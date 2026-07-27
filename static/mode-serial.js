@@ -315,7 +315,7 @@ const EikenSerialApp = (function () {
       completed: completedRounds,
       total: roundIds.length,
       status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : completedQuestions ? "progress" : "ready",
-      nextLabel: next ? `${next.round}の英作文` : summaryQuestions.some((question) => !saved[question.id]) ? "要約練習を追加で進める" : "全問題をレビュー済み",
+      nextLabel: next ? `${next.round}のライティング` : summaryQuestions.some((question) => !saved[question.id]) ? "要約練習を追加で進める" : "全問題をレビュー済み",
       detail: `${completedRounds} / ${roundIds.length}回・英作文 ${completedQuestions} / ${officialQuestions.length}題・要約 ${completedSummaries} / ${summaryQuestions.length}題・下書きは自動保存`,
     };
   }
