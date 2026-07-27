@@ -1725,6 +1725,16 @@ h2 {
 .writingReference p { color: var(--muted); font-size: 13px; }
 .writingReference p:nth-of-type(2) { color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.8; }
 .writingSourceNote { border-left: 3px solid var(--line); padding-left: 10px; }
+.summaryParagraphPanel .writingField textarea { min-height: 180px; }
+.summaryDraftPreview { display: grid; gap: 8px; margin-top: 18px; }
+.summaryDraftParagraph { border-radius: var(--r-md); background: var(--surface-soft); padding: 12px 14px; }
+.summaryDraftParagraph span { color: var(--clay); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
+.summaryDraftParagraph p { margin: 6px 0 0; white-space: pre-wrap; line-height: 1.7; }
+.summaryCopyBox { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 14px; }
+.summaryCopyPayload { min-height: 260px !important; background: var(--surface-soft) !important; font-family: var(--mono); font-size: 12px; line-height: 1.6 !important; }
+.summaryCopyActions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.summaryCopyActions button { min-height: 44px; }
+.summaryCopyStatus { color: var(--ok); font-family: var(--mono); font-size: 11px; }
 .writingNavigation, .writingQuestionNav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
 .writingNavigation > span { color: var(--muted); font-size: 13px; }
 .writingQuestionNav { margin-top: 0; }

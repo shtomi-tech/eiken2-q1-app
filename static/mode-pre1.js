@@ -1479,12 +1479,12 @@ const EikenPre1App = (function () {
 
   /* ---- 英作文：ESSAY(6段階)/SUMMARY(4段階)の多段階フロー ----
    * ESSAYは既存2級/準2級のstatic/mode-writing.jsと同じ6段階(TRANSLATE→HEAD→BODY1→BODY2→CONCLUSION→REVIEW)。
-   * SUMMARYは賛否の立場(stance)を持たない要約課題のため、新規に4段階(TRANSLATE→OUTLINE→WRITE→REVIEW)を設計している。
+   * SUMMARYは原文の3つの論点に対応する段落入力と、個人の生成AIへ渡す添削用コピーに分ける。
    */
   const ESSAY_STEP_TITLES = ["設問を訳す", "HEADを作る", "BODY 1を作る", "BODY 2を作る", "CONCLUSIONを書く", "全体をレビュー"];
   const ESSAY_STEP_LABELS = ["TRANSLATE", "HEAD", "BODY 1", "BODY 2", "CONCLUSION", "REVIEW"];
-  const SUMMARY_STEP_TITLES = ["原文を確認する", "要点を整理する", "英語で要約する", "全体をレビュー"];
-  const SUMMARY_STEP_LABELS = ["TRANSLATE", "OUTLINE", "WRITE", "REVIEW"];
+  const SUMMARY_STEP_TITLES = ["第1段落を書く", "第2段落を書く", "第3段落を書く", "添削に出す"];
+  const SUMMARY_STEP_LABELS = ["PARAGRAPH 1", "PARAGRAPH 2", "PARAGRAPH 3", "CHECK"];
 
   function essaySectionTargets() {
     return { head: { min: 18, max: 23 }, body1: { min: 42, max: 53 }, body2: { min: 42, max: 53 }, conclusion: { min: 18, max: 23 } };
@@ -1502,7 +1502,7 @@ const EikenPre1App = (function () {
 
   function emptyWritingDraft(type) {
     return type === "SUMMARY"
-      ? { translation: "", forPoint: "", againstPoint: "", answer: "", reviewed: false }
+      ? { translation: "", forPoint: "", againstPoint: "", paragraph1: "", paragraph2: "", paragraph3: "", answer: "", reviewed: false, clipboardCopied: false }
       : { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "", reviewed: false };
   }
 
@@ -1515,6 +1515,11 @@ const EikenPre1App = (function () {
     if (type === "SUMMARY") {
       draft.forPoint = typeof raw.forPoint === "string" ? raw.forPoint : "";
       draft.againstPoint = typeof raw.againstPoint === "string" ? raw.againstPoint : "";
+      draft.paragraph1 = typeof raw.paragraph1 === "string" ? raw.paragraph1 : "";
+      draft.paragraph2 = typeof raw.paragraph2 === "string" ? raw.paragraph2 : "";
+      draft.paragraph3 = typeof raw.paragraph3 === "string" ? raw.paragraph3 : "";
+      draft.clipboardCopied = Boolean(raw.clipboardCopied);
+      if (!draft.paragraph1 && !draft.paragraph2 && !draft.paragraph3 && draft.answer.trim()) draft.paragraph1 = draft.answer;
     } else {
       draft.stance = raw.stance === "yes" || raw.stance === "no" ? raw.stance : "";
       draft.head = typeof raw.head === "string" ? raw.head : "";
@@ -1531,9 +1536,10 @@ const EikenPre1App = (function () {
 
   function writingStepComplete(task, draft, step) {
     if (task.type === "SUMMARY") {
-      if (step === 0) return Boolean(draft.translation.trim());
-      if (step === 1) return Boolean(draft.forPoint.trim()) && Boolean(draft.againstPoint.trim());
-      return Boolean(draft.answer.trim());
+      if (step === 0) return Boolean(draft.paragraph1.trim());
+      if (step === 1) return Boolean(draft.paragraph2.trim());
+      if (step === 2) return Boolean(draft.paragraph3.trim());
+      return Boolean(draft.paragraph1.trim()) && Boolean(draft.paragraph2.trim()) && Boolean(draft.paragraph3.trim());
     }
     if (step === 0) return Boolean(draft.translation.trim());
     if (step === 1) return Boolean(draft.stance) && Boolean(draft.head.trim());
@@ -1551,7 +1557,7 @@ const EikenPre1App = (function () {
 
   function writingRequirement(task, step) {
     if (task.type === "SUMMARY") {
-      return ["まず、原文の内容を日本語で確認してください。", "賛成派・反対派、両方の要点を入力してください。", "完成した要約を入力してください。", "完成した要約を入力してください。"][step];
+      return ["第1段落の英文を入力してください。", "第2段落の英文を入力してください。", "第3段落の英文を入力してください。", "3段落を入力してから、添削用テキストを作成してください。"][step];
     }
     return ["まず、設問の日本語訳を入力してください。", "Yes / Noを選び、HEADの英文を入力してください。", "BODY 1の理由と、平易な日本語を入力してください。", "BODY 2の理由と、平易な日本語を入力してください。", "CONCLUSIONの英文を入力してください。", "完成した英作文を入力してください。"][step];
   }
@@ -1577,15 +1583,43 @@ const EikenPre1App = (function () {
     return `<div class="writingSummary"><div><span>${escapeHtml(label)}</span><button class="writingTextButton" type="button" data-writing-edit-step="${editStep}">編集</button></div><p>${escapeHtml(value || "未入力")}</p></div>`;
   }
 
+  function summaryParagraphs(draft) {
+    return [draft.paragraph1, draft.paragraph2, draft.paragraph3];
+  }
+
+  function summaryAnswer(draft) {
+    const paragraphs = summaryParagraphs(draft).map((value) => String(value || "").trim()).filter(Boolean);
+    return paragraphs.join("\n\n");
+  }
+
+  function summaryCopyText(task, draft) {
+    const answers = summaryParagraphs(draft).map((value, index) => `【第${index + 1}段落】\n${String(value || "").trim()}`).join("\n\n");
+    return [
+      "英検準1級・英文要約の添削依頼",
+      `目標語数：${task.targetMin}〜${task.targetMax}語`,
+      "",
+      "【原文】",
+      task.prompt,
+      "",
+      "【答案】",
+      answers,
+      "",
+      "【添削の依頼】",
+      `英検準1級の英文要約として、${task.targetMin}〜${task.targetMax}語の目標を踏まえて添削してください。`,
+      "内容・構成・語彙・文法の4観点で、よい点と改善点を具体的に示してください。",
+      "第1〜3段落それぞれの内容の不足や、原文にない内容があれば指摘してください。",
+      "最後に、修正例を示す場合は、どこを直したかが分かるように説明してください。"
+    ].join("\n");
+  }
+
   function renderWritingContext(task, draft) {
     if (state.writingStep === 0) return "";
     const isSummary = task.type === "SUMMARY";
-    const items = [writingSummaryMarkup(isSummary ? "原文の内容(日本語)" : "設問の日本語訳", draft.translation, 0)];
+    const items = isSummary
+      ? summaryParagraphs(draft).slice(0, state.writingStep).map((value, index) => writingSummaryMarkup(`第${index + 1}段落`, value, index))
+      : [writingSummaryMarkup("設問の日本語訳", draft.translation, 0)];
     if (isSummary) {
-      if (state.writingStep >= 2) {
-        items.push(writingSummaryMarkup("賛成派の要点", draft.forPoint, 1));
-        items.push(writingSummaryMarkup("反対派の要点", draft.againstPoint, 1));
-      }
+      return `<details class="writingContext" open><summary>ここまでの入力を確認する</summary><div class="writingSummaryList">${items.join("")}</div></details>`;
     } else {
       if (state.writingStep >= 2) {
         items.push(writingSummaryMarkup("立場", draft.stance === "yes" ? "YES（賛成）" : draft.stance === "no" ? "NO（反対）" : "", 1));
@@ -1611,9 +1645,21 @@ const EikenPre1App = (function () {
   }
 
   function renderWritingReviewPanel(task, draft) {
-    const count = wordCount(draft.answer);
-    const status = count === 0 ? { key: "empty", label: "未入力" } : count < task.targetMin ? { key: "low", label: "語数不足" } : count > task.targetMax ? { key: "high", label: "語数超過" } : { key: "ok", label: "目安内" };
     const isSummary = task.type === "SUMMARY";
+    const count = wordCount(isSummary ? summaryAnswer(draft) : draft.answer);
+    const status = count === 0 ? { key: "empty", label: "未入力" } : count < task.targetMin ? { key: "low", label: "語数不足" } : count > task.targetMax ? { key: "high", label: "語数超過" } : { key: "ok", label: "目安内" };
+    if (isSummary) {
+      const paragraphs = summaryParagraphs(draft);
+      const paragraphPreview = paragraphs.map((value, index) => `<article class="summaryDraftParagraph"><span>第${index + 1}段落</span><p>${escapeHtml(value || "未入力")}</p></article>`).join("");
+      return `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP ${writingStepCount(task)} / CHECK</p><h3>個人の生成AIで添削する</h3><p class="writingHelp">3段落をまとめた依頼文を一括コピーし、普段使っている生成AIに貼り付けてください。このアプリ内では採点しません。</p>
+        <div class="writingTarget"><div><p class="writingTargetKicker">WRITING TARGET</p><strong>要約全体 ${task.targetMin}–${task.targetMax}語</strong><small>3段落の合計語数です。</small></div><span>目安</span></div>
+        <div class="summaryDraftPreview">${paragraphPreview}</div>
+        <div class="writingWordCount" data-status="${status.key}" aria-live="polite"><strong>${count}</strong><span>${status.label} / 目安 ${task.targetMin}–${task.targetMax}語</span></div>
+        <div class="summaryCopyBox"><label class="writingField"><span>生成AIに貼り付けるテキスト</span><textarea id="pre1WritingCopyPayload" class="summaryCopyPayload" readonly rows="14" aria-label="生成AIに貼り付ける添削依頼文"></textarea></label><div class="summaryCopyActions"><button type="button" id="pre1WritingCopyBtn">添削用テキストをコピー</button>${draft.reviewed ? `<span class="summaryCopyStatus">${draft.clipboardCopied ? "コピー済み" : "手動コピー済み"}。生成AIに貼り付けてください。</span>` : `<button class="ghost" type="button" id="pre1WritingManualCompleteBtn">手動でコピーしたので完了にする</button>`}</div></div>
+        ${draft.reviewed ? `<div class="resultBox ok"><strong>添削に出す準備ができました</strong><p>コピーしたテキストを個人の生成AIへ貼り付けて、内容・構成・語彙・文法を確認してください。</p><button class="ghost" type="button" id="pre1WritingUnreviewBtn">完了を取り消して編集する</button></div>` : ""}
+        <details class="writingReference"><summary>参考解答を開く</summary><p>生成AIの添削後に、自分の答案との違いを確認します。</p><p>${escapeHtml(task.referenceAnswer || "")}</p></details>
+      </div>`;
+    }
     return `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP ${writingStepCount(task)} / REVIEW</p><h3>全体をレビューする</h3><p class="writingHelp">ここまでの内容がつながっているかを確認し、完成した英文を入力します。</p>
       <div class="writingTarget"><div><p class="writingTargetKicker">WRITING TARGET</p><strong>${isSummary ? "要約" : "英作文"}全体 ${task.targetMin}–${task.targetMax}語</strong><small>文字数ではなく、英語の語数で確認します。</small></div><span>目安</span></div>
       ${writingFieldMarkup(isSummary ? "完成した要約" : "完成した英作文", draft.answer, "answer", isSummary ? "賛成派・反対派の要点を含めてまとめます。" : "HEAD → BODY 1 → BODY 2 → CONCLUSION の順で書きます。")}
@@ -1627,9 +1673,9 @@ const EikenPre1App = (function () {
 
   function renderWritingStepPanel(task, draft) {
     if (task.type === "SUMMARY") {
-      if (state.writingStep === 0) return `<div class="writingPanel"><p class="writingKicker">STEP 1 / TRANSLATE</p><h3>原文を日本語で確認する</h3><p class="writingHelp">まずは原文が何を言っているかを、日本語で大まかに確認します。直訳で構いません。</p>${writingFieldMarkup("日本語訳（下書き）", draft.translation, "translation", "原文の内容を日本語で書きます。")}</div>`;
-      if (state.writingStep === 1) return `<div class="writingPanel"><p class="writingKicker">STEP 2 / OUTLINE</p><h3>賛成派・反対派の要点を整理する</h3><p class="writingHelp">原文に出てくる賛成派(Supporters)と反対派(Critics / Opponents)、それぞれの主張を一言で整理します。</p><div class="writingBodyGrid"><div class="writingBodySubstep"><p>01 / FOR</p>${writingFieldMarkup("賛成派の要点", draft.forPoint, "forPoint", "賛成派が挙げている理由を日本語でまとめます。")}</div><div class="writingBodySubstep"><p>02 / AGAINST</p>${writingFieldMarkup("反対派の要点", draft.againstPoint, "againstPoint", "反対派が挙げている理由を日本語でまとめます。")}</div></div></div>`;
-      if (state.writingStep === 2) return `<div class="writingPanel"><p class="writingKicker">STEP 3 / WRITE</p><h3>英語で要約を書く</h3><p class="writingHelp">整理した要点をもとに、${task.targetMin}〜${task.targetMax}語の英語で要約します。</p>${writingFieldMarkup("英語の要約", draft.answer, "answer", "賛成派・反対派、両方の要点を含めて要約します。")}</div>`;
+      if (state.writingStep === 0) return `<div class="writingPanel summaryParagraphPanel"><p class="writingKicker">STEP 1 / PARAGRAPH 1</p><h3>第1段落を書く</h3><p class="writingHelp">原文のテーマや背景を、英語で簡潔にまとめます。答案全体の導入になる段落です。</p>${writingFieldMarkup("第1段落の英文", draft.paragraph1, "paragraph1", "原文のテーマ・背景を英語で書きます。")}</div>`;
+      if (state.writingStep === 1) return `<div class="writingPanel summaryParagraphPanel"><p class="writingKicker">STEP 2 / PARAGRAPH 2</p><h3>第2段落を書く</h3><p class="writingHelp">原文の Supporters が述べている利点や理由を、英語でまとめます。</p>${writingFieldMarkup("第2段落の英文", draft.paragraph2, "paragraph2", "Supporters の主張を英語で書きます。")}</div>`;
+      if (state.writingStep === 2) return `<div class="writingPanel summaryParagraphPanel"><p class="writingKicker">STEP 3 / PARAGRAPH 3</p><h3>第3段落を書く</h3><p class="writingHelp">原文の Critics が述べている問題点や懸念を、英語でまとめます。</p>${writingFieldMarkup("第3段落の英文", draft.paragraph3, "paragraph3", "Critics の主張を英語で書きます。")}</div>`;
       return renderWritingReviewPanel(task, draft);
     }
     if (state.writingStep === 0) return `<div class="writingPanel"><p class="writingKicker">STEP 1 / TRANSLATE</p><h3>設問の英文を日本語に訳す</h3><p class="writingHelp">まずは、設問が何を聞いているかを確かめます。ここでは直訳で構いません。</p>${writingFieldMarkup("日本語訳", draft.translation, "translation", "設問の意味を日本語で書きます。")}</div>`;
@@ -1666,12 +1712,12 @@ const EikenPre1App = (function () {
       ${renderSectionHeader(section, `課題${task.number}（${state.writingIndex + 1} / ${section.questions.length}）`)}
       <div class="writingPromptMeta"><span>${escapeHtml(task.type)}</span><strong>${task.targetMin}–${task.targetMax}語</strong></div>
       <h3>${escapeHtml(task.label)}</h3><p class="pre1WritingPrompt">${escapeHtml(task.prompt)}</p>${points}
-      <div class="writingFlowHeader"><div><p class="writingKicker">YOUR RESPONSE</p><h2>${stepCount}段階で組み立てる</h2></div><div class="writingFlowProgress"><strong>STEP ${state.writingStep + 1} / ${stepCount}</strong><span>${stepTitles[state.writingStep]}</span></div></div>
+      <div class="writingFlowHeader"><div><p class="writingKicker">YOUR RESPONSE</p><h2>${task.type === "SUMMARY" ? "3段落でまとめる" : `${stepCount}段階で組み立てる`}</h2></div><div class="writingFlowProgress"><strong>STEP ${state.writingStep + 1} / ${stepCount}</strong><span>${stepTitles[state.writingStep]}</span></div></div>
       <div class="writingStepper" role="tablist" aria-label="${stepCount}段階のフロー">${stepperHtml}</div>
       <p class="writingFlowStatus" aria-live="polite"></p>
       ${renderWritingContext(task, draft)}
       ${renderWritingStepPanel(task, draft)}
-      <div class="writingNavigation"><button class="ghost" type="button" id="pre1WritingPrevStepBtn" ${state.writingStep === 0 ? "disabled" : ""}>← 前のステップ</button>${state.writingStep < stepCount - 1 ? `<button type="button" id="pre1WritingNextStepBtn">${escapeHtml(nextLabel)} →</button>` : "<span>チェックを終えたら、参考解答と比べます。</span>"}</div>
+      <div class="writingNavigation"><button class="ghost" type="button" id="pre1WritingPrevStepBtn" ${state.writingStep === 0 ? "disabled" : ""}>← 前のステップ</button>${state.writingStep < stepCount - 1 ? `<button type="button" id="pre1WritingNextStepBtn">${escapeHtml(nextLabel)} →</button>` : task.type === "SUMMARY" ? "<span>添削用テキストをコピーして、個人の生成AIへ貼り付けます。</span>" : "<span>チェックを終えたら、参考解答と比べます。</span>"}</div>
       <div class="navRow pre1QuestionNav"><button class="ghost" type="button" id="pre1WritingPrevBtn" ${state.writingIndex === 0 ? "disabled" : ""}>前の課題</button>${draft.reviewed && isLastTask ? `<button class="cta" type="button" id="pre1WritingHomeBtn">セクション一覧へ</button>` : draft.reviewed ? `<button class="cta" type="button" id="pre1WritingNextBtn">次の課題へ</button>` : ""}</div>
     </section>`;
     bindCommonSessionButtons();
@@ -1681,9 +1727,18 @@ const EikenPre1App = (function () {
   function bindWritingSession(section, task, draft, progressState, stepCount) {
     const flowStatus = sessionPanel.querySelector(".writingFlowStatus");
     const persist = () => { saveProgress(progressState.store); saveResume(); };
+    const payload = sessionPanel.querySelector("#pre1WritingCopyPayload");
+    if (payload && task.type === "SUMMARY") payload.value = summaryCopyText(task, draft);
 
     sessionPanel.querySelectorAll("textarea[data-writing-field]").forEach((field) => field.addEventListener("input", () => {
       draft[field.dataset.writingField] = field.value;
+      if (task.type === "SUMMARY" && ["paragraph1", "paragraph2", "paragraph3"].includes(field.dataset.writingField)) {
+        draft.reviewed = false;
+        draft.clipboardCopied = false;
+        draft.answer = summaryAnswer(draft);
+        const payload = sessionPanel.querySelector("#pre1WritingCopyPayload");
+        if (payload) payload.value = summaryCopyText(task, draft);
+      }
       if (field.dataset.writingField === "answer") {
         const count = wordCount(field.value);
         const key = count === 0 ? "empty" : count < task.targetMin ? "low" : count > task.targetMax ? "high" : "ok";
@@ -1749,6 +1804,29 @@ const EikenPre1App = (function () {
         return;
       }
       draft.reviewed = true;
+      persist();
+      renderWriting();
+    });
+    const copyButton = document.getElementById("pre1WritingCopyBtn");
+    if (copyButton) copyButton.addEventListener("click", async () => {
+      const payload = sessionPanel.querySelector("#pre1WritingCopyPayload");
+      if (!payload) return;
+      try {
+        await navigator.clipboard.writeText(payload.value);
+        draft.reviewed = true;
+        draft.clipboardCopied = true;
+        persist();
+        renderWriting();
+      } catch (error) {
+        payload.focus();
+        payload.select();
+        if (flowStatus) flowStatus.textContent = "自動コピーできませんでした。選択されたテキストを手動でコピーしてください。";
+      }
+    });
+    const manualCompleteButton = document.getElementById("pre1WritingManualCompleteBtn");
+    if (manualCompleteButton) manualCompleteButton.addEventListener("click", () => {
+      draft.reviewed = true;
+      draft.clipboardCopied = false;
       persist();
       renderWriting();
     });
