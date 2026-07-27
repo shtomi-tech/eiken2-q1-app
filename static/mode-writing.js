@@ -63,7 +63,7 @@ const EikenWritingApp = (function () {
   function emptyDraft(type = "ESSAY") {
     if (type === "SUMMARY") return { paragraph1: "", paragraph2: "", paragraph3: "", answer: "", reviewed: false, clipboardCopied: false };
     if (type === "EMAIL") return { emailReply: "", emailQuestion1: "", emailQuestion2: "", answer: "", reviewed: false, clipboardCopied: false };
-    return { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "" };
+    return { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "", reviewed: false, clipboardCopied: false };
   }
 
   function normalizeDraft(raw, type = "ESSAY") {
@@ -98,6 +98,8 @@ const EikenWritingApp = (function () {
     draft.body2Simple = stringOrEmpty(raw.body2Simple) || (Array.isArray(raw.simpleReasons) ? stringOrEmpty(raw.simpleReasons[1]) : "");
     draft.conclusion = stringOrEmpty(raw.conclusion);
     draft.answer = stringOrEmpty(raw.answer);
+    draft.reviewed = Boolean(raw.reviewed);
+    draft.clipboardCopied = Boolean(raw.clipboardCopied);
     return draft;
   }
 
@@ -276,6 +278,28 @@ const EikenWritingApp = (function () {
     ].join("\n");
   }
 
+  function essayCopyText(question, draft) {
+    return [
+      `英検${question.gradeLabel}・英作文の添削依頼`,
+      `目標語数：${question.targetMin}〜${question.targetMax}語`,
+      "",
+      "【設問】",
+      String(question.prompt || "").trim(),
+      "",
+      "【POINTS】",
+      (question.points || []).join(" / "),
+      "",
+      "【答案】",
+      String(draft.answer || "").trim(),
+      "",
+      "【添削の依頼】",
+      `英検${question.gradeLabel}の英作文として、${question.targetMin}〜${question.targetMax}語の目安を踏まえて添削してください。`,
+      "TOPICに対する意見が明確か、POINTSを参考にした理由が2つ含まれているか確認してください。",
+      "HEAD・BODY 1・BODY 2・CONCLUSIONの構成、内容・語彙・文法の4観点で、よい点と改善点を具体的に示してください。",
+      "最後に、自然な修正例を示してください。",
+    ].join("\n");
+  }
+
   function summaryPromptMarkup(question) {
     return `<div class="writingSummaryPrompt" aria-label="要約の原文">${summaryParagraphs(question).map((paragraph, index) => `<article class="writingSummaryPromptParagraph"><p class="writingSummaryPromptLabel">原文 第${index + 1}段落</p><p>${escapeHtml(paragraph)}</p></article>`).join("")}</div>`;
   }
@@ -419,10 +443,12 @@ const EikenWritingApp = (function () {
     } else {
       const count = countWords(draft.answer);
       const status = statusFor(question, count);
-      panel += `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP 6 / REVIEW</p><h3>全体をレビューする</h3><p class="writingHelp">HEAD、BODY 1、BODY 2、CONCLUSIONの順につながっているかを確認し、完成した英作文を入力します。</p>${overallTargetMarkup(question)}${fieldTextarea("完成した英作文", draft.answer, "answer", "HEAD → BODY 1 → BODY 2 → CONCLUSION の順で書きます。")}
+      panel += `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP 6 / REVIEW</p><h3>個人の生成AIで添削する</h3><p class="writingHelp">HEAD、BODY 1、BODY 2、CONCLUSIONの順につながっているかを確認し、完成した英作文を入力します。答案と設問をまとめた依頼文を個人の生成AIに貼り付けてください。</p>${overallTargetMarkup(question)}${fieldTextarea("完成した英作文", draft.answer, "answer", "HEAD → BODY 1 → BODY 2 → CONCLUSION の順で書きます。")}
         <div class="writingWordCount" data-status="${status.key}" aria-live="polite"><strong>${count}</strong><span>${status.label} / 目安 ${question.targetMin}–${question.targetMax}語</span></div>
-        <div class="writingReviewActions"><span>${draft.answer.trim() ? "自動保存済み" : "入力すると自動保存"}</span><button class="ghost" type="button" data-action="save">下書きを保存</button><button type="button" data-action="reference">参考解答を見る</button></div>
+        <div class="writingReviewActions"><span>${draft.answer.trim() ? "自動保存済み" : "入力すると自動保存"}</span><button class="ghost" type="button" data-action="save">下書きを保存</button></div>
         <div class="writingChecks"><h4>レビュー項目</h4><label><input type="checkbox"> HEADでYes / Noの立場が伝わる</label><label><input type="checkbox"> BODY 1とBODY 2に、それぞれ理由と説明がある</label><label><input type="checkbox"> CONCLUSIONが最初の意見に戻っている</label><label><input type="checkbox"> 英作文全体の語数と文のつながりを確認した</label></div>
+        <div class="summaryCopyBox"><label class="writingField"><span>生成AIに貼り付けるテキスト</span><textarea id="writingEssayCopyPayload" class="summaryCopyPayload" readonly rows="14" aria-label="生成AIに貼り付ける添削依頼文"></textarea></label><div class="summaryCopyActions"><button type="button" id="writingEssayCopyBtn">添削用テキストをコピー</button>${draft.reviewed ? `<span class="summaryCopyStatus">${draft.clipboardCopied ? "コピー済み" : "手動コピー済み"}。生成AIに貼り付けてください。</span>` : `<button class="ghost" type="button" id="writingEssayManualCompleteBtn">手動でコピーしたので完了にする</button>`}</div></div>
+        ${draft.reviewed ? `<div class="resultBox ok"><strong>添削に出す準備ができました</strong><p>コピーしたテキストを個人の生成AIへ貼り付けて、内容・構成・語彙・文法を確認してください。</p><button class="ghost" type="button" id="writingEssayUnreviewBtn">完了を取り消して編集する</button></div>` : ""}
         <details class="writingReference" data-reference><summary>参考解答を開く</summary><p>自分の構成や表現との違いを確認します。</p><p>${escapeHtml(question.referenceAnswer)}</p><p class="writingSourceNote">出典PDFは公開サイトには含めていません。</p></details>
       </div>`;
     }
@@ -453,9 +479,7 @@ const EikenWritingApp = (function () {
       : `<p>${escapeHtml(question.instruction)}</p>`;
     const questionNumber = isSummaryQuestion(question) ? "要約" : isEmailQuestion(question) ? "Eメール" : `Q${question.number}`;
     const flowHeading = isSummaryQuestion(question) ? "3段落で要約する" : isEmailQuestion(question) ? "Eメールに返信する" : "6段階で英作文を組み立てる";
-    const finalNavigation = isSummaryQuestion(question) || isEmailQuestion(question)
-      ? "<span>添削用テキストをコピーして、個人の生成AIへ貼り付けます。</span>"
-      : "<span>チェックを終えたら、参考解答と比べます。</span>";
+    const finalNavigation = "<span>添削用テキストをコピーして、個人の生成AIへ貼り付けます。</span>";
     const points = question.points.length ? `<div class="writingPoints"><span>POINTS</span>${question.points.map((point) => `<span>${escapeHtml(point)}</span>`).join("")}</div>` : "";
     sessionPanel.className = "writingSession";
     sessionPanel.innerHTML = `<div class="writingSessionHead"><button class="ghost" type="button" data-action="back-home">← 問題一覧</button><p>問題 ${String(state.index + 1).padStart(2, "0")} / ${questions.length}</p><button class="ghost" type="button" data-action="restart">この問題を最初から</button></div>
@@ -511,8 +535,24 @@ const EikenWritingApp = (function () {
         state.completed[question.id] = false;
         writeStorage(PROGRESS_KEY, state.completed);
         persistDraft(question, draft);
-      } else { draft[field.dataset.field] = field.value; persistDraft(question, draft); }
+      } else {
+        draft[field.dataset.field] = field.value;
+        draft.reviewed = false;
+        draft.clipboardCopied = false;
+        state.completed[question.id] = false;
+        writeStorage(PROGRESS_KEY, state.completed);
+        persistDraft(question, draft);
+      }
     }));
+    if (answerField && !isSummaryQuestion(question) && !isEmailQuestion(question)) {
+      answerField.addEventListener("input", () => {
+        draft.reviewed = false;
+        draft.clipboardCopied = false;
+        state.completed[question.id] = false;
+        writeStorage(PROGRESS_KEY, state.completed);
+        persistDraft(question, draft);
+      });
+    }
     sessionPanel.querySelectorAll('input[data-field="stance"]').forEach((input) => input.addEventListener("change", () => {
       const oldHead = draft.stance ? headTemplate(question, draft.stance) : "";
       const oldConclusion = draft.stance ? conclusionTemplate(question, draft.stance) : "";
@@ -556,12 +596,12 @@ const EikenWritingApp = (function () {
       writeStorage(PROGRESS_KEY, state.completed);
       reference.querySelector("summary").focus();
     });
-    const copyPayload = sessionPanel.querySelector("#writingSummaryCopyPayload, #writingEmailCopyPayload");
-    if (copyPayload && (isSummaryQuestion(question) || isEmailQuestion(question))) {
-      copyPayload.value = isSummaryQuestion(question) ? summaryCopyText(question, draft) : emailCopyText(question, draft);
-      const copyButton = sessionPanel.querySelector("#writingSummaryCopyBtn, #writingEmailCopyBtn");
-      const manualButton = sessionPanel.querySelector("#writingSummaryManualCompleteBtn, #writingEmailManualCompleteBtn");
-      const unreviewButton = sessionPanel.querySelector("#writingSummaryUnreviewBtn, #writingEmailUnreviewBtn");
+    const copyPayload = sessionPanel.querySelector("#writingSummaryCopyPayload, #writingEmailCopyPayload, #writingEssayCopyPayload");
+    if (copyPayload) {
+      copyPayload.value = isSummaryQuestion(question) ? summaryCopyText(question, draft) : isEmailQuestion(question) ? emailCopyText(question, draft) : essayCopyText(question, draft);
+      const copyButton = sessionPanel.querySelector("#writingSummaryCopyBtn, #writingEmailCopyBtn, #writingEssayCopyBtn");
+      const manualButton = sessionPanel.querySelector("#writingSummaryManualCompleteBtn, #writingEmailManualCompleteBtn, #writingEssayManualCompleteBtn");
+      const unreviewButton = sessionPanel.querySelector("#writingSummaryUnreviewBtn, #writingEmailUnreviewBtn, #writingEssayUnreviewBtn");
       copyButton?.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(copyPayload.value);

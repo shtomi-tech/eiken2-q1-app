@@ -1503,7 +1503,7 @@ const EikenPre1App = (function () {
   function emptyWritingDraft(type) {
     return type === "SUMMARY"
       ? { translation: "", forPoint: "", againstPoint: "", paragraph1: "", paragraph2: "", paragraph3: "", answer: "", reviewed: false, clipboardCopied: false }
-      : { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "", reviewed: false };
+      : { translation: "", stance: "", head: "", body1Reason: "", body1Simple: "", body2Reason: "", body2Simple: "", conclusion: "", answer: "", reviewed: false, clipboardCopied: false };
   }
 
   function normalizeWritingDraft(type, raw) {
@@ -1511,6 +1511,7 @@ const EikenPre1App = (function () {
     if (!raw || typeof raw !== "object") return draft;
     draft.answer = typeof raw.answer === "string" ? raw.answer : "";
     draft.reviewed = Boolean(raw.reviewed);
+    draft.clipboardCopied = Boolean(raw.clipboardCopied);
     draft.translation = typeof raw.translation === "string" ? raw.translation : "";
     if (type === "SUMMARY") {
       draft.forPoint = typeof raw.forPoint === "string" ? raw.forPoint : "";
@@ -1623,6 +1624,28 @@ const EikenPre1App = (function () {
     ].join("\n");
   }
 
+  function essayCopyText(task, draft) {
+    return [
+      "英検準1級・英作文の添削依頼",
+      `目標語数：${task.targetMin}〜${task.targetMax}語`,
+      "",
+      "【設問】",
+      String(task.prompt || "").trim(),
+      "",
+      "【POINTS】",
+      (task.points || []).join(" / "),
+      "",
+      "【答案】",
+      String(draft.answer || "").trim(),
+      "",
+      "【添削の依頼】",
+      `英検準1級の英作文として、${task.targetMin}〜${task.targetMax}語の目安を踏まえて添削してください。`,
+      "TOPICに対する意見が明確か、POINTSを参考にした理由が2つ含まれているか確認してください。",
+      "HEAD・BODY 1・BODY 2・CONCLUSIONの構成、内容・語彙・文法の4観点で、よい点と改善点を具体的に示してください。",
+      "最後に、自然な修正例を示してください。",
+    ].join("\n");
+  }
+
   function renderWritingContext(task, draft) {
     if (state.writingStep === 0) return "";
     const isSummary = task.type === "SUMMARY";
@@ -1671,13 +1694,12 @@ const EikenPre1App = (function () {
         <details class="writingReference"><summary>参考解答を開く</summary><p>生成AIの添削後に、自分の答案との違いを確認します。</p><p>${escapeHtml(task.referenceAnswer || "")}</p></details>
       </div>`;
     }
-    return `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP ${writingStepCount(task)} / REVIEW</p><h3>全体をレビューする</h3><p class="writingHelp">ここまでの内容がつながっているかを確認し、完成した英文を入力します。</p>
+    return `<div class="writingPanel writingReviewPanel"><p class="writingKicker">STEP ${writingStepCount(task)} / REVIEW</p><h3>個人の生成AIで添削する</h3><p class="writingHelp">ここまでの内容がつながっているかを確認し、完成した英文を入力します。答案と設問をまとめた依頼文を個人の生成AIに貼り付けてください。</p>
       <div class="writingTarget"><div><p class="writingTargetKicker">WRITING TARGET</p><strong>${isSummary ? "要約" : "英作文"}全体 ${task.targetMin}–${task.targetMax}語</strong><small>文字数ではなく、英語の語数で確認します。</small></div><span>目安</span></div>
       ${writingFieldMarkup(isSummary ? "完成した要約" : "完成した英作文", draft.answer, "answer", isSummary ? "賛成派・反対派の要点を含めてまとめます。" : "HEAD → BODY 1 → BODY 2 → CONCLUSION の順で書きます。")}
       <div class="writingWordCount" data-status="${status.key}" aria-live="polite"><strong>${count}</strong><span>${status.label} / 目安 ${task.targetMin}–${task.targetMax}語</span></div>
-      ${draft.reviewed
-        ? `<div class="resultBox ok"><strong>確認済み</strong><p>この課題は完了として記録されています。</p><button class="ghost" type="button" id="pre1WritingUnreviewBtn">確認済みを解除する</button></div>`
-        : `<div class="writingReviewActions"><button type="button" id="pre1WritingReferenceBtn">参考解答を見る</button></div>`}
+      <div class="summaryCopyBox"><label class="writingField"><span>生成AIに貼り付けるテキスト</span><textarea id="pre1WritingCopyPayload" class="summaryCopyPayload" readonly rows="14" aria-label="生成AIに貼り付ける添削依頼文"></textarea></label><div class="summaryCopyActions"><button type="button" id="pre1WritingCopyBtn">添削用テキストをコピー</button>${draft.reviewed ? `<span class="summaryCopyStatus">${draft.clipboardCopied ? "コピー済み" : "手動コピー済み"}。生成AIに貼り付けてください。</span>` : `<button class="ghost" type="button" id="pre1WritingManualCompleteBtn">手動でコピーしたので完了にする</button>`}</div></div>
+      ${draft.reviewed ? `<div class="resultBox ok"><strong>添削に出す準備ができました</strong><p>コピーしたテキストを個人の生成AIへ貼り付けて、内容・構成・語彙・文法を確認してください。</p><button class="ghost" type="button" id="pre1WritingUnreviewBtn">完了を取り消して編集する</button></div>` : ""}
       <details class="writingReference" id="pre1WritingReferenceDetails" ${draft.reviewed ? "open" : ""}><summary>参考解答を開く</summary><p>自分の構成や表現との違いを確認します。</p><p>${escapeHtml(task.referenceAnswer || "")}</p></details>
     </div>`;
   }
@@ -1729,7 +1751,7 @@ const EikenPre1App = (function () {
       <p class="writingFlowStatus" aria-live="polite"></p>
       ${renderWritingContext(task, draft)}
       ${renderWritingStepPanel(task, draft)}
-      <div class="writingNavigation"><button class="ghost" type="button" id="pre1WritingPrevStepBtn" ${state.writingStep === 0 ? "disabled" : ""}>← 前のステップ</button>${state.writingStep < stepCount - 1 ? `<button type="button" id="pre1WritingNextStepBtn">${escapeHtml(nextLabel)} →</button>` : task.type === "SUMMARY" ? "<span>添削用テキストをコピーして、個人の生成AIへ貼り付けます。</span>" : "<span>チェックを終えたら、参考解答と比べます。</span>"}</div>
+       <div class="writingNavigation"><button class="ghost" type="button" id="pre1WritingPrevStepBtn" ${state.writingStep === 0 ? "disabled" : ""}>← 前のステップ</button>${state.writingStep < stepCount - 1 ? `<button type="button" id="pre1WritingNextStepBtn">${escapeHtml(nextLabel)} →</button>` : "<span>添削用テキストをコピーして、個人の生成AIへ貼り付けます。</span>"}</div>
       <div class="navRow pre1QuestionNav"><button class="ghost" type="button" id="pre1WritingPrevBtn" ${state.writingIndex === 0 ? "disabled" : ""}>前の課題</button>${draft.reviewed && isLastTask ? `<button class="cta" type="button" id="pre1WritingHomeBtn">セクション一覧へ</button>` : draft.reviewed ? `<button class="cta" type="button" id="pre1WritingNextBtn">次の課題へ</button>` : ""}</div>
     </section>`;
     bindCommonSessionButtons();
@@ -1740,7 +1762,7 @@ const EikenPre1App = (function () {
     const flowStatus = sessionPanel.querySelector(".writingFlowStatus");
     const persist = () => { saveProgress(progressState.store); saveResume(); };
     const payload = sessionPanel.querySelector("#pre1WritingCopyPayload");
-    if (payload && task.type === "SUMMARY") payload.value = summaryCopyText(task, draft);
+    if (payload) payload.value = task.type === "SUMMARY" ? summaryCopyText(task, draft) : essayCopyText(task, draft);
 
     sessionPanel.querySelectorAll("textarea[data-writing-field]").forEach((field) => field.addEventListener("input", () => {
       draft[field.dataset.writingField] = field.value;
@@ -1750,6 +1772,12 @@ const EikenPre1App = (function () {
         draft.answer = summaryAnswer(draft);
         const payload = sessionPanel.querySelector("#pre1WritingCopyPayload");
         if (payload) payload.value = summaryCopyText(task, draft);
+      }
+      if (task.type === "ESSAY") {
+        draft.reviewed = false;
+        draft.clipboardCopied = false;
+        const payload = sessionPanel.querySelector("#pre1WritingCopyPayload");
+        if (payload) payload.value = essayCopyText(task, draft);
       }
       if (field.dataset.writingField === "answer") {
         const count = wordCount(field.value);
