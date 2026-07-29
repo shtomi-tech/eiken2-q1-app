@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ja" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>eiken-practice / Architecture Map</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#e8edf5',
+            muted: '#8f9bb0',
+            canvas: '#080d17',
+            panel: '#111827',
+            panel2: '#172033',
+            line: '#2a3850',
+            cyan: '#63d7ff',
+            violet: '#b59cff',
+            amber: '#f7c66b',
+            green: '#62dda3',
+            rose: '#ff8aab'
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace']
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(99,215,255,.18), 0 18px 50px rgba(0,0,0,.28)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #080d17; color: #e8edf5; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    button { font: inherit; }
+    .noise { background-image: radial-gradient(rgba(255,255,255,.06) .6px, transparent .6px); background-size: 7px 7px; opacity: .15; pointer-events: none; }
+    .arch-stage { position: relative; min-height: 790px; overflow: hidden; background: radial-gradient(circle at 52% 25%, rgba(99,215,255,.08), transparent 32%), linear-gradient(145deg, rgba(17,24,39,.96), rgba(8,13,23,.96)); }
+    .arch-stage::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(99,215,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(99,215,255,.04) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(to bottom, black, transparent 90%); pointer-events: none; }
+    .arch-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .arch-edge { fill: none; stroke: #2a3850; stroke-width: 1.3; opacity: .72; transition: opacity .2s, stroke .2s, stroke-width .2s; }
+    .arch-edge[data-kind="flow"] { stroke: #6d5bb1; stroke-dasharray: 6 5; }
+    .arch-edge[data-kind="integration"] { stroke: #3d866e; stroke-dasharray: 3 4; }
+    .arch-edge.is-dim { opacity: .09; }
+    .arch-edge.is-related { opacity: 1; stroke: #63d7ff; stroke-width: 2.8; filter: drop-shadow(0 0 5px rgba(99,215,255,.6)); }
+    .arch-edge.is-related[data-kind="flow"] { stroke: #b59cff; }
+    .arch-edge.is-related[data-kind="integration"] { stroke: #62dda3; }
+    .edge-label { fill: #8f9bb0; font: 500 9px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .05em; pointer-events: none; }
+    .arch-node { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: calc(var(--w) * 1%); transform: translate(-50%, -50%); z-index: 2; text-align: left; border: 1px solid rgba(143,155,176,.28); background: rgba(17,24,39,.94); border-radius: 12px; padding: 10px 11px; min-height: 62px; transition: opacity .2s, transform .2s, border-color .2s, box-shadow .2s, background .2s; }
+    .arch-node:hover, .arch-node:focus-visible { transform: translate(-50%, -50%) translateY(-2px); border-color: rgba(99,215,255,.8); outline: none; }
+    .arch-node.is-dim { opacity: .24; }
+    .arch-node.is-related { border-color: #63d7ff; box-shadow: 0 0 0 1px rgba(99,215,255,.22), 0 0 24px rgba(99,215,255,.12); background: rgba(20,35,55,.98); }
+    .arch-node.is-selected { border-color: #f7c66b; box-shadow: 0 0 0 2px rgba(247,198,107,.18), 0 0 30px rgba(247,198,107,.12); }
+    .arch-node .node-kind { color: #8f9bb0; font: 500 9px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .arch-node .node-title { margin-top: 3px; font-size: 12px; line-height: 1.25; font-weight: 600; }
+    .arch-node .node-file { margin-top: 5px; color: #8f9bb0; font: 400 9px ui-monospace, SFMono-Regular, Consolas, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .kind-shell, .kind-router, .kind-entry, .kind-serial, .kind-free { border-top: 2px solid #63d7ff; }
+    .kind-skill { border-top: 2px solid #b59cff; }
+    .kind-data, .kind-asset, .kind-registry { border-top: 2px solid #f7c66b; }
+    .kind-storage, .kind-engine { border-top: 2px solid #ff8aab; }
+    .kind-sync, .kind-api, .kind-service { border-top: 2px solid #62dda3; }
+    .kind-deploy { border-top: 2px solid #8f9bb0; }
+    .flow-step { transition: border-color .18s, background .18s, color .18s, opacity .18s; }
+    .flow-step.is-active { border-color: #63d7ff; background: rgba(99,215,255,.12); color: #e8edf5; }
+    .flow-step.is-dim { opacity: .42; }
+    .legend-line { width: 24px; height: 0; border-top: 2px solid currentColor; }
+    .legend-dash { border-top-style: dashed; }
+    .detail-scroll { max-height: 370px; overflow: auto; }
+    @media (max-width: 1024px) {
+      .arch-stage { min-height: 980px; }
+      .arch-node { padding: 8px 9px; }
+      .arch-node .node-title { font-size: 11px; }
+      .arch-node .node-file { font-size: 8px; }
+    }
+    @media (max-width: 640px) {
+      .arch-stage { min-height: 1180px; }
+      .arch-node { width: calc(min(var(--w) * 1%, 30%)); }
+      .arch-node .node-title { font-size: 10px; }
+      .arch-node .node-kind, .arch-node .node-file { font-size: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise fixed inset-0"></div>
+  <main class="relative mx-auto max-w-[1500px] px-4 py-6 sm:px-6 lg:px-8">
+    <header class="mb-6 flex flex-col gap-4 border-b border-line/70 pb-6 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p class="mb-2 font-mono text-[11px] uppercase tracking-[.2em] text-cyan">eiken-practice / codebase analysis</p>
+        <h1 class="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Architecture Map</h1>
+        <p class="mt-2 max-w-3xl text-sm leading-6 text-muted">現行コードの責務・データ経路・保存境界を、ノードと実行フローとして追えるようにしたもの。大きな地図です。迷子になったらクリックします。</p>
+      </div>
+      <div class="grid grid-cols-3 gap-2 text-right font-mono text-[10px] uppercase tracking-[.12em] text-muted">
+        <div class="rounded-lg border border-line bg-panel/80 px-3 py-2"><span id="nodeCount" class="block text-lg tracking-normal text-ink">—</span>nodes</div>
+        <div class="rounded-lg border border-line bg-panel/80 px-3 py-2"><span id="edgeCount" class="block text-lg tracking-normal text-ink">—</span>edges</div>
+        <div class="rounded-lg border border-line bg-panel/80 px-3 py-2"><span id="flowCount" class="block text-lg tracking-normal text-ink">—</span>flows</div>
+      </div>
+    </header>
+
+    <section class="grid gap-5 xl:grid-cols-[minmax(0,1.8fr)_minmax(320px,.8fr)]">
+      <div class="overflow-hidden rounded-2xl border border-line bg-panel shadow-glow">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-line/70 px-4 py-3">
+          <div>
+            <h2 class="text-sm font-semibold text-ink">Interactive architecture</h2>
+            <p class="mt-1 text-xs text-muted">ノードを選ぶと、その責務と接続だけを強調します。</p>
+          </div>
+          <div class="flex flex-wrap gap-3 font-mono text-[10px] uppercase tracking-[.1em] text-muted" aria-label="edge legend">
+            <span class="flex items-center gap-1.5 text-cyan"><i class="legend-line"></i>runtime</span>
+            <span class="flex items-center gap-1.5 text-violet"><i class="legend-line legend-dash"></i>flow</span>
+            <span class="flex items-center gap-1.5 text-green"><i class="legend-line legend-dash"></i>integration</span>
+          </div>
+        </div>
+        <div id="archStage" class="arch-stage" role="region" aria-label="eiken-practice architecture diagram">
+          <svg class="arch-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2a3850"></path></marker>
+              <marker id="arrow-related" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#63d7ff"></path></marker>
+            </defs>
+            <g id="edgeLayer"></g>
+          </svg>
+          <div id="nodeLayer"></div>
+        </div>
+      </div>
+
+      <aside class="rounded-2xl border border-line bg-panel p-4 shadow-glow">
+        <div class="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <p class="font-mono text-[10px] uppercase tracking-[.16em] text-amber">selected node</p>
+            <h2 id="detailTitle" class="mt-1 text-lg font-semibold text-ink">Architecture overview</h2>
+          </div>
+          <span id="detailKind" class="rounded-full border border-line px-2 py-1 font-mono text-[9px] uppercase tracking-[.12em] text-muted">overview</span>
+        </div>
+        <p id="detailSummary" class="text-sm leading-6 text-muted">ルーターから各モード、データ、保存、外部連携への道筋を表示しています。ノードをクリックすると詳細が出ます。</p>
+        <div class="my-4 border-t border-line/70"></div>
+        <p class="mb-2 font-mono text-[10px] uppercase tracking-[.16em] text-cyan">connections</p>
+        <div id="detailConnections" class="detail-scroll space-y-2 text-xs text-muted"><p>ノードを選択してください。</p></div>
+        <div class="mt-5 rounded-xl border border-amber/30 bg-amber/5 p-3">
+          <p class="font-mono text-[10px] uppercase tracking-[.14em] text-amber">analysis signal</p>
+          <p class="mt-2 text-xs leading-5 text-muted">直列コースは進捗の所有者ではなく、各モードの状態からゲートを算出する調停役です。保存契約を変更すると、入口・自由演習・モード・クラウド同期の4方向へ影響します。</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-line bg-panel p-4 shadow-glow sm:p-5">
+      <div class="flex flex-col gap-3 border-b border-line/70 pb-4 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="font-mono text-[10px] uppercase tracking-[.18em] text-violet">flows / path + steps</p>
+          <h2 class="mt-1 text-xl font-semibold text-ink">実行経路を選んで追う</h2>
+          <p class="mt-1 text-xs leading-5 text-muted">パスを選び、ステップを押すと、図上の関連ノードとエッジを強調します。</p>
+        </div>
+        <div id="flowTabs" class="flex flex-wrap gap-2" role="tablist" aria-label="execution flows"></div>
+      </div>
+      <div class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(260px,.5fr)]">
+        <div>
+          <div id="flowSteps" class="grid gap-2 sm:grid-cols-2 xl:grid-cols-4" role="list" aria-label="flow steps"></div>
+        </div>
+        <div class="rounded-xl border border-line bg-canvas/70 p-4">
+          <p id="flowEyebrow" class="font-mono text-[10px] uppercase tracking-[.16em] text-cyan">step 01</p>
+          <h3 id="flowTitle" class="mt-1 text-base font-semibold text-ink">—</h3>
+          <p id="flowAction" class="mt-2 text-sm leading-6 text-muted">—</p>
+          <p id="flowNodeLabel" class="mt-3 font-mono text-[10px] uppercase tracking-[.1em] text-muted">—</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-5 flex flex-col gap-2 border-t border-line/70 pt-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+      <span>Source of truth for this map: current files under <code class="text-ink">C:/Users/shtom/dev/eiken-practice</code>.</span>
+      <span class="font-mono text-[10px] uppercase tracking-[.12em]">data contract: nodes · edges · flows[{steps}]</span>
+    </footer>
+  </main>
+
+  <script id="architecture-data" type="application/json">
+{
+  "meta": { "title": "eiken-practice architecture map", "repository": "C:/Users/shtom/dev/eiken-practice", "observedAt": "2026-07-27" },
+  "nodes": [
+    { "id": "index-shell", "label": "index.html", "kind": "shell", "file": "index.html", "summary": "Shared DOM shell: header, app navigation, homePanel, sessionPanel, and script loading.", "position": { "x": 13, "y": 12, "w": 23 } },
+    { "id": "app-router", "label": "static/app.js", "kind": "router", "file": "static/app.js", "summary": "Thin router over APPS. Chooses the active path, mounts a mode, updates navigation, and keeps the shared panels reusable.", "position": { "x": 38, "y": 12, "w": 25 } },
+    { "id": "grade-entry", "label": "mode-entry.js", "kind": "entry", "file": "static/mode-entry.js", "summary": "Loads the manifest, selects 2級 / 準2級 / 準1級, stores the grade profile, and optionally authenticates a shared student URL.", "position": { "x": 72, "y": 11, "w": 23 } },
+    { "id": "manifest", "label": "data/manifest.json", "kind": "registry", "file": "data/manifest.json", "summary": "Dataset registry for q1, q2, q3, dictation, and pre1 rounds. It is the runtime routing table for learning data.", "position": { "x": 72, "y": 30, "w": 23 } },
+    { "id": "serial-course", "label": "mode-serial.js", "kind": "serial", "file": "static/mode-serial.js", "summary": "Fixed-order course coordinator. Reads per-mode progress, aggregates three-round completion, and unlocks the next primary step.", "position": { "x": 38, "y": 31, "w": 25 } },
+    { "id": "free-practice", "label": "mode-free.js", "kind": "free", "file": "static/mode-free.js", "summary": "Unlocked skill picker. It applies the current profile and delegates progress ownership to each skill mode.", "position": { "x": 13, "y": 31, "w": 23 } },
+    { "id": "skill-q1", "label": "mode-q1.js · 語彙", "kind": "skill", "file": "static/mode-q1.js", "summary": "Vocabulary flow: meaning/example cards → meaning check → four-choice practice → wrong review / final check.", "position": { "x": 12, "y": 52, "w": 20 } },
+    { "id": "skill-q2", "label": "mode-q2.js · 空所", "kind": "skill", "file": "static/mode-q2.js", "summary": "Cloze questions loaded per dataset. Answers and resume state are kept locally by dataset.", "position": { "x": 29, "y": 52, "w": 20 } },
+    { "id": "skill-paraphrase", "label": "mode-paraphrase.js", "kind": "skill", "file": "static/mode-paraphrase.js", "summary": "Supplementary paraphrase practice with typed answers, structural evaluation, self-rating, and resume state.", "position": { "x": 51, "y": 52, "w": 20 } },
+    { "id": "skill-writing", "label": "mode-writing.js · 英作文", "kind": "skill", "file": "static/mode-writing.js", "summary": "Structured drafts for essay, summary, and email variants. Steps are persisted locally and review text is copied to an external AI.", "position": { "x": 73, "y": 52, "w": 21 } },
+    { "id": "skill-dictation", "label": "mode-dictation.js", "kind": "skill", "file": "static/mode-dictation.js", "summary": "Audio question flow with answer tracking, wrong-answer dictation, scripts, round switching, and resume state.", "position": { "x": 18, "y": 70, "w": 21 } },
+    { "id": "skill-q3", "label": "mode-q3.js · 長文", "kind": "skill", "file": "static/mode-q3.js", "summary": "Reading flow: four-choice answer → evidence sentence selection → grading → summary completion and review.", "position": { "x": 41, "y": 70, "w": 20 } },
+    { "id": "skill-pre1", "label": "mode-pre1.js · 準1級", "kind": "skill", "file": "static/mode-pre1.js", "summary": "Dedicated round/section engine for pre-1: vocabulary, cloze, writing, listening, and reading sections.", "position": { "x": 64, "y": 70, "w": 22 } },
+    { "id": "datasets", "label": "data/*.json", "kind": "data", "file": "data/", "summary": "Vocabulary, questions, lessons, paraphrase, writing, and pre-1 round payloads. Loaded at runtime through relative URLs.", "position": { "x": 75, "y": 87, "w": 21 } },
+    { "id": "audio-assets", "label": "assets/audio + clips", "kind": "asset", "file": "assets/", "summary": "Listening source files: round audio and per-question clips used by dictation and pre-1 listening.", "position": { "x": 51, "y": 87, "w": 21 } },
+    { "id": "local-storage", "label": "localStorage", "kind": "storage", "file": "static/mode-*.js", "summary": "Primary anonymous persistence. Keys are separated by mode, dataset, round, drafts, resume position, and route/profile state.", "position": { "x": 28, "y": 87, "w": 20 } },
+    { "id": "harness-store", "label": "harness store + engine", "kind": "engine", "file": "static/vendor/harness/store.js, engine.js", "summary": "Generated, DOM-free state layer for unit × mode progress, wrong queues, and optional Leitner review scheduling.", "position": { "x": 12, "y": 87, "w": 20 } },
+    { "id": "cloud-sync", "label": "harness/cloud.js", "kind": "sync", "file": "static/vendor/harness/cloud.js", "summary": "Optional student URL sync. It is a no-op without ?s / ?t or runtime configuration, and debounces saves before RPC calls.", "position": { "x": 12, "y": 72, "w": 20 } },
+    { "id": "sentence-function", "label": "Netlify /api/check-sentence", "kind": "api", "file": "netlify/functions/check-sentence.mjs", "summary": "Optional server-side sentence check. It validates input, calls OpenAI with a JSON contract, and returns normalized feedback.", "position": { "x": 73, "y": 72, "w": 22 } },
+    { "id": "supabase", "label": "Supabase RPC", "kind": "service", "file": "app_students / app_progress RPCs", "summary": "Student authentication and progress load/save through app_auth_student, app_load_progress, and app_save_progress.", "position": { "x": 30, "y": 70, "w": 20 } },
+    { "id": "pages-deploy", "label": "GitHub Pages workflow", "kind": "deploy", "file": ".github/workflows/pages.yml", "summary": "Push to main generates runtime config, prepares _site, uploads the artifact, and deploys the static site.", "position": { "x": 38, "y": 8, "w": 25 } },
+    { "id": "netlify-deploy", "label": "Netlify function deploy", "kind": "deploy", "file": "netlify.toml", "summary": "Netlify serves the function directory; the static Pages site can call its configured endpoint for sentence checks.", "position": { "x": 70, "y": 8, "w": 24 } }
+  ],
+  "edges": [
+    { "id": "e-index-router", "source": "index-shell", "target": "app-router", "label": "loads", "kind": "runtime" }, { "id": "e-router-entry", "source": "app-router", "target": "grade-entry", "label": "mounts", "kind": "runtime" }, { "id": "e-router-serial", "source": "app-router", "target": "serial-course", "label": "mounts", "kind": "runtime" }, { "id": "e-router-free", "source": "app-router", "target": "free-practice", "label": "mounts", "kind": "runtime" }, { "id": "e-entry-manifest", "source": "grade-entry", "target": "manifest", "label": "reads", "kind": "data" }, { "id": "e-entry-storage", "source": "grade-entry", "target": "local-storage", "label": "profile", "kind": "persistence" }, { "id": "e-serial-manifest", "source": "serial-course", "target": "manifest", "label": "reads", "kind": "data" }, { "id": "e-serial-storage", "source": "serial-course", "target": "local-storage", "label": "aggregates", "kind": "persistence" }, { "id": "e-serial-skills", "source": "serial-course", "target": "skill-q1", "label": "unlocks", "kind": "flow" }, { "id": "e-serial-q2", "source": "serial-course", "target": "skill-q2", "label": "unlocks", "kind": "flow" }, { "id": "e-serial-writing", "source": "serial-course", "target": "skill-writing", "label": "unlocks", "kind": "flow" }, { "id": "e-serial-dictation", "source": "serial-course", "target": "skill-dictation", "label": "unlocks", "kind": "flow" }, { "id": "e-serial-q3", "source": "serial-course", "target": "skill-q3", "label": "unlocks", "kind": "flow" }, { "id": "e-serial-pre1", "source": "serial-course", "target": "skill-pre1", "label": "pre1 mode", "kind": "flow" }, { "id": "e-free-skills", "source": "free-practice", "target": "skill-q1", "label": "opens any", "kind": "flow" }, { "id": "e-free-writing", "source": "free-practice", "target": "skill-writing", "label": "opens any", "kind": "flow" }, { "id": "e-free-pre1", "source": "free-practice", "target": "skill-pre1", "label": "pre1 list", "kind": "flow" }, { "id": "e-modes-data", "source": "skill-q1", "target": "datasets", "label": "fetches", "kind": "data" }, { "id": "e-q2-data", "source": "skill-q2", "target": "datasets", "label": "fetches", "kind": "data" }, { "id": "e-paraphrase-data", "source": "skill-paraphrase", "target": "datasets", "label": "fetches", "kind": "data" }, { "id": "e-writing-data", "source": "skill-writing", "target": "datasets", "label": "fetches", "kind": "data" }, { "id": "e-dictation-data", "source": "skill-dictation", "target": "datasets", "label": "fetches", "kind": "data" }, { "id": "e-pre1-data", "source": "skill-pre1", "target": "datasets", "label": "fetches", "kind": "data" }, { "id": "e-dictation-audio", "source": "skill-dictation", "target": "audio-assets", "label": "plays", "kind": "asset" }, { "id": "e-pre1-audio", "source": "skill-pre1", "target": "audio-assets", "label": "plays", "kind": "asset" }, { "id": "e-q1-local", "source": "skill-q1", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-q2-local", "source": "skill-q2", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-paraphrase-local", "source": "skill-paraphrase", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-writing-local", "source": "skill-writing", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-dictation-local", "source": "skill-dictation", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-q3-local", "source": "skill-q3", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-pre1-local", "source": "skill-pre1", "target": "local-storage", "label": "saves", "kind": "persistence" }, { "id": "e-q1-engine", "source": "skill-q1", "target": "harness-store", "label": "optional", "kind": "engine" }, { "id": "e-q1-cloud", "source": "skill-q1", "target": "cloud-sync", "label": "syncs", "kind": "integration" }, { "id": "e-q3-cloud", "source": "skill-q3", "target": "cloud-sync", "label": "syncs", "kind": "integration" }, { "id": "e-dictation-cloud", "source": "skill-dictation", "target": "cloud-sync", "label": "syncs", "kind": "integration" }, { "id": "e-pre1-cloud", "source": "skill-pre1", "target": "cloud-sync", "label": "syncs", "kind": "integration" }, { "id": "e-entry-supabase", "source": "grade-entry", "target": "supabase", "label": "auth", "kind": "integration" }, { "id": "e-cloud-supabase", "source": "cloud-sync", "target": "supabase", "label": "RPC load/save", "kind": "integration" }, { "id": "e-writing-api", "source": "skill-writing", "target": "sentence-function", "label": "optional check", "kind": "integration" }, { "id": "e-function-openai", "source": "sentence-function", "target": "supabase", "label": "separate service", "kind": "integration" }, { "id": "e-pages-index", "source": "pages-deploy", "target": "index-shell", "label": "publishes", "kind": "delivery" }, { "id": "e-netlify-function", "source": "netlify-deploy", "target": "sentence-function", "label": "serves", "kind": "delivery" }, { "id": "e-pages-config", "source": "pages-deploy", "target": "cloud-sync", "label": "configures", "kind": "delivery" }
+  ],
+  "flows": [
+    { "id": "standard-serial", "label": "2級 / 準2級 · 学習ルート", "description": "固定順の主要ルート。", "steps": [ { "order": 1, "nodeId": "grade-entry", "label": "級を選ぶ", "action": "manifestから級と回を決める。", "edgeIds": ["e-router-entry", "e-entry-manifest", "e-entry-storage"] }, { "order": 2, "nodeId": "serial-course", "label": "学習ルート", "action": "各モードの三回分進捗からゲートを計算する。", "edgeIds": ["e-router-serial", "e-serial-manifest", "e-serial-storage"] }, { "order": 3, "nodeId": "skill-q1", "label": "大問1（語彙）", "action": "意味確認、4択、復習、最終チェック。", "edgeIds": ["e-serial-skills", "e-modes-data", "e-q1-local", "e-q1-cloud"] }, { "order": 4, "nodeId": "skill-q2", "label": "大問2（空所補充）", "action": "回別データを解き、ローカル保存する。", "edgeIds": ["e-serial-q2", "e-q2-data", "e-q2-local"] }, { "order": 5, "nodeId": "skill-paraphrase", "label": "言い換え（補助）", "action": "自己判定する。主要ゲート対象外。", "edgeIds": ["e-paraphrase-data", "e-paraphrase-local"] }, { "order": 6, "nodeId": "skill-writing", "label": "英作文", "action": "段階入力を保存しレビュー文を作る。", "edgeIds": ["e-serial-writing", "e-writing-data", "e-writing-local"] }, { "order": 7, "nodeId": "skill-dictation", "label": "リスニング", "action": "音声、4択、誤答書き取り。", "edgeIds": ["e-serial-dictation", "e-dictation-data", "e-dictation-audio", "e-dictation-local", "e-dictation-cloud"] }, { "order": 8, "nodeId": "skill-q3", "label": "大問3（長文）", "action": "解答、根拠文、内容整理。", "edgeIds": ["e-serial-q3", "e-q3-local", "e-q3-cloud"] } ] },
+    { "id": "standard-free", "label": "2級 / 準2級 · 自由演習", "description": "順序ロックなしの技能選択。", "steps": [ { "order": 1, "nodeId": "grade-entry", "label": "級を選ぶ", "action": "grade profileを確定する。", "edgeIds": ["e-router-entry", "e-entry-manifest", "e-entry-storage"] }, { "order": 2, "nodeId": "free-practice", "label": "自由演習", "action": "現在の級の技能一覧を表示する。", "edgeIds": ["e-router-free", "e-free-skills", "e-free-writing"] }, { "order": 3, "nodeId": "skill-writing", "label": "任意の技能へ", "action": "既存の保存領域を使う技能モードへ委譲する。", "edgeIds": ["e-writing-data", "e-writing-local"] } ] },
+    { "id": "pre1-serial", "label": "準1級 · 学習ルート", "description": "準1級専用の五セクション順。", "steps": [ { "order": 1, "nodeId": "grade-entry", "label": "準1級を選ぶ", "action": "pre1 round profileを確定する。", "edgeIds": ["e-router-entry", "e-entry-manifest", "e-entry-storage"] }, { "order": 2, "nodeId": "serial-course", "label": "順序を計算", "action": "大問1 → writing → listening → 大問2 → 大問3。", "edgeIds": ["e-router-serial", "e-serial-manifest", "e-serial-pre1"] }, { "order": 3, "nodeId": "skill-pre1", "label": "準1級モード", "action": "回ごとに五セクションを演習する。", "edgeIds": ["e-pre1-data", "e-pre1-local", "e-pre1-cloud", "e-pre1-audio"] }, { "order": 4, "nodeId": "local-storage", "label": "回別進捗", "action": "questions / writing / summaries / finalCheck / resumeを保存する。", "edgeIds": ["e-pre1-local"] } ] },
+    { "id": "q1-cloud-session", "label": "共有URL · Q1同期", "description": "共有URLがある場合の選択的なクラウド同期。", "steps": [ { "order": 1, "nodeId": "skill-q1", "label": "Q1を開始", "action": "語彙データと回答状態を読む。", "edgeIds": ["e-modes-data", "e-q1-local"] }, { "order": 2, "nodeId": "cloud-sync", "label": "共有URLを確認", "action": "?s / ?t と設定が揃う場合だけ有効化する。", "edgeIds": ["e-q1-cloud", "e-cloud-supabase"] }, { "order": 3, "nodeId": "supabase", "label": "load / save", "action": "認証、進捗load、変更後saveをRPCで行う。", "edgeIds": ["e-cloud-supabase"] }, { "order": 4, "nodeId": "local-storage", "label": "匿名時はローカル", "action": "条件がなければlocalStorageだけで続行する。", "edgeIds": ["e-q1-local"] } ] },
+    { "id": "sentence-ai-check", "label": "自作英文 · 任意AIチェック", "description": "自作英文チェックと英作文レビューの外部境界。", "steps": [ { "order": 1, "nodeId": "skill-q1", "label": "例文を下書き", "action": "自作英文をdataset単位で保存する。", "edgeIds": ["e-q1-local", "e-modes-data"] }, { "order": 2, "nodeId": "sentence-function", "label": "任意endpoint", "action": "設定済みの場合だけ英文をPOSTする。", "edgeIds": ["e-writing-api", "e-netlify-function"] }, { "order": 3, "nodeId": "netlify-deploy", "label": "Netlifyで提供", "action": "/api/check-sentenceを公開する。", "edgeIds": ["e-netlify-function"] }, { "order": 4, "nodeId": "skill-writing", "label": "英作文レビュー", "action": "アプリ内採点ではなくレビュー文を個人AIへコピーする。", "edgeIds": ["e-writing-local"] } ] }
+  ]
+}
+  </script>
+  <script>
+    const architecture = JSON.parse(document.getElementById('architecture-data').textContent);
+    const state = { flowId: architecture.flows[0].id, stepIndex: 0, selectedNodeId: null };
+    const nodeById = Object.fromEntries(architecture.nodes.map(node => [node.id, node]));
+    const edgeById = Object.fromEntries(architecture.edges.map(edge => [edge.id, edge]));
+    const edgePath = {
+      'e-index-router': 'M 18 12 C 25 12, 29 12, 38 12', 'e-router-entry': 'M 51 12 C 59 10, 63 10, 72 11', 'e-router-serial': 'M 50 16 C 50 23, 47 25, 43 31', 'e-router-free': 'M 38 16 C 30 22, 21 26, 13 31',
+      'e-entry-manifest': 'M 72 17 C 72 22, 72 25, 72 30', 'e-entry-storage': 'M 69 16 C 57 33, 41 64, 31 87', 'e-serial-manifest': 'M 50 36 C 58 34, 65 32, 72 30', 'e-serial-storage': 'M 39 37 C 37 51, 32 71, 31 87',
+      'e-serial-skills': 'M 38 36 C 31 42, 19 46, 12 52', 'e-serial-q2': 'M 42 38 C 39 44, 34 47, 29 52', 'e-serial-writing': 'M 51 36 C 59 43, 67 46, 73 52', 'e-serial-dictation': 'M 39 37 C 30 52, 22 61, 18 70', 'e-serial-q3': 'M 44 38 C 45 50, 42 59, 41 70', 'e-serial-pre1': 'M 54 36 C 59 49, 62 60, 64 70',
+      'e-free-skills': 'M 15 36 C 14 43, 11 46, 10 52', 'e-free-writing': 'M 18 35 C 33 44, 58 48, 70 52', 'e-free-pre1': 'M 20 34 C 35 49, 56 59, 63 70',
+      'e-modes-data': 'M 16 58 C 31 68, 57 77, 75 87', 'e-q2-data': 'M 35 58 C 46 68, 62 77, 75 87', 'e-paraphrase-data': 'M 57 58 C 65 68, 71 77, 75 87', 'e-writing-data': 'M 78 58 C 79 69, 78 77, 75 87', 'e-dictation-data': 'M 24 75 C 40 81, 60 84, 75 87', 'e-pre1-data': 'M 70 76 C 72 81, 74 84, 75 87',
+      'e-dictation-audio': 'M 28 74 C 36 79, 43 84, 51 87', 'e-pre1-audio': 'M 60 76 C 58 81, 55 84, 51 87', 'e-q1-local': 'M 10 59 C 17 70, 24 78, 29 87', 'e-q2-local': 'M 31 59 C 31 70, 30 78, 30 87', 'e-paraphrase-local': 'M 52 59 C 46 70, 37 79, 31 87', 'e-writing-local': 'M 73 59 C 61 73, 46 81, 33 87', 'e-dictation-local': 'M 20 75 C 23 80, 26 84, 28 87', 'e-q3-local': 'M 39 75 C 37 80, 34 84, 32 87', 'e-pre1-local': 'M 62 76 C 52 82, 42 85, 34 87',
+      'e-q1-engine': 'M 8 58 C 7 69, 6 77, 7 87', 'e-q1-cloud': 'M 9 59 C 9 65, 9 68, 9 72', 'e-q3-cloud': 'M 38 74 C 27 75, 16 74, 10 72', 'e-dictation-cloud': 'M 18 70 C 15 71, 12 72, 10 72', 'e-pre1-cloud': 'M 63 70 C 47 72, 27 72, 10 72', 'e-entry-supabase': 'M 69 16 C 54 33, 37 58, 31 70', 'e-cloud-supabase': 'M 17 72 C 22 72, 26 71, 30 70', 'e-writing-api': 'M 79 58 C 78 64, 75 68, 73 72', 'e-function-openai': 'M 68 72 C 57 72, 44 71, 34 70', 'e-pages-index': 'M 42 7 C 34 7, 22 8, 12 10', 'e-netlify-function': 'M 70 7 C 71 22, 72 45, 73 72', 'e-pages-config': 'M 45 8 C 33 24, 20 52, 12 70'
+    };
+    const $ = selector => document.querySelector(selector);
+    const edgeLayer = $('#edgeLayer');
+    const nodeLayer = $('#nodeLayer');
+    const flowTabs = $('#flowTabs');
+    const flowSteps = $('#flowSteps');
+    const selectedFlow = () => architecture.flows.find(flow => flow.id === state.flowId) || architecture.flows[0];
+    document.getElementById('nodeCount').textContent = architecture.nodes.length;
+    document.getElementById('edgeCount').textContent = architecture.edges.length;
+    document.getElementById('flowCount').textContent = architecture.flows.length;
+
+    function renderEdges() {
+      edgeLayer.innerHTML = architecture.edges.map(edge => `<path id="${edge.id}" class="arch-edge" data-edge-id="${edge.id}" data-kind="${edge.kind}" d="${edgePath[edge.id] || ''}" marker-end="url(#arrow-default)"></path>`).join('');
+    }
+    function renderNodes() {
+      nodeLayer.innerHTML = architecture.nodes.map(node => `<button type="button" class="arch-node kind-${node.kind}" data-node-id="${node.id}" style="--x:${node.position.x};--y:${node.position.y};--w:${node.position.w}" aria-label="${node.label} を選択"><span class="node-kind">${node.kind}</span><span class="node-title block">${node.label}</span><span class="node-file block">${node.file}</span></button>`).join('');
+      nodeLayer.querySelectorAll('[data-node-id]').forEach(button => button.addEventListener('click', () => { state.selectedNodeId = button.dataset.nodeId; updateSelection(); }));
+    }
+    function renderFlowTabs() {
+      flowTabs.innerHTML = architecture.flows.map(flow => `<button type="button" role="tab" aria-selected="${flow.id === state.flowId}" data-flow-id="${flow.id}" class="rounded-lg border px-3 py-2 text-left text-xs transition ${flow.id === state.flowId ? 'border-cyan bg-cyan/10 text-ink' : 'border-line bg-canvas text-muted hover:border-cyan/60 hover:text-ink'}">${flow.label}</button>`).join('');
+      flowTabs.querySelectorAll('[data-flow-id]').forEach(button => button.addEventListener('click', () => { state.flowId = button.dataset.flowId; state.stepIndex = 0; state.selectedNodeId = null; renderFlowTabs(); renderFlowSteps(); updateSelection(); }));
+    }
+    function renderFlowSteps() {
+      const flow = selectedFlow();
+      flowSteps.innerHTML = flow.steps.map((step, index) => `<button type="button" role="listitem" data-step-index="${index}" class="flow-step rounded-xl border border-line bg-canvas/70 p-3 text-left ${index === state.stepIndex ? 'is-active' : ''}"><span class="font-mono text-[10px] uppercase tracking-[.14em] text-muted">step ${String(step.order).padStart(2, '0')}</span><span class="mt-1 block text-sm font-semibold text-ink">${step.label}</span><span class="mt-1 block text-xs leading-5 text-muted">${step.action}</span></button>`).join('');
+      flowSteps.querySelectorAll('[data-step-index]').forEach(button => button.addEventListener('click', () => { state.stepIndex = Number(button.dataset.stepIndex); state.selectedNodeId = null; renderFlowSteps(); updateSelection(); }));
+    }
+    function connectionItems(nodeId) {
+      return architecture.edges.filter(edge => edge.source === nodeId || edge.target === nodeId).map(edge => {
+        const other = edge.source === nodeId ? nodeById[edge.target] : nodeById[edge.source];
+        const direction = edge.source === nodeId ? '→' : '←';
+        return `<button type="button" data-connection-node="${other.id}" class="flex w-full items-start gap-2 rounded-lg border border-line/70 bg-canvas/50 px-3 py-2 text-left hover:border-cyan/60"><span class="font-mono text-cyan">${direction}</span><span><strong class="font-medium text-ink">${other.label}</strong><span class="mt-0.5 block text-[11px] text-muted">${edge.label} · ${edge.kind}</span></span></button>`;
+      }).join('');
+    }
+    function updateDetail(nodeId) {
+      const node = nodeId ? nodeById[nodeId] : null;
+      $('#detailTitle').textContent = node ? node.label : 'Architecture overview';
+      $('#detailKind').textContent = node ? node.kind : 'overview';
+      $('#detailSummary').textContent = node ? node.summary : 'ルーターから各モード、データ、保存、外部連携への道筋を表示しています。ノードをクリックすると詳細が出ます。';
+      const connections = node ? connectionItems(node.id) : '<p>ノードを選択してください。</p>';
+      $('#detailConnections').innerHTML = connections;
+      $('#detailConnections').querySelectorAll('[data-connection-node]').forEach(button => button.addEventListener('click', () => { state.selectedNodeId = button.dataset.connectionNode; updateSelection(); }));
+    }
+    function updateFlowDetail() {
+      const flow = selectedFlow();
+      const step = flow.steps[state.stepIndex] || flow.steps[0];
+      $('#flowEyebrow').textContent = `step ${String(step.order).padStart(2, '0')} / ${flow.steps.length}`;
+      $('#flowTitle').textContent = step.label;
+      $('#flowAction').textContent = step.action;
+      $('#flowNodeLabel').textContent = `${flow.label} · ${nodeById[step.nodeId].file}`;
+    }
+    function updateSelection() {
+      const flow = selectedFlow();
+      const step = flow.steps[state.stepIndex] || flow.steps[0];
+      const activeNodeId = state.selectedNodeId || step.nodeId;
+      const activeEdgeIds = new Set(state.selectedNodeId ? architecture.edges.filter(edge => edge.source === state.selectedNodeId || edge.target === state.selectedNodeId).map(edge => edge.id) : step.edgeIds);
+      nodeLayer.querySelectorAll('[data-node-id]').forEach(node => {
+        const related = node.dataset.nodeId === activeNodeId || [...activeEdgeIds].some(edgeId => { const edge = edgeById[edgeId]; return edge && (edge.source === node.dataset.nodeId || edge.target === node.dataset.nodeId); });
+        node.classList.toggle('is-selected', node.dataset.nodeId === state.selectedNodeId);
+        node.classList.toggle('is-related', related);
+        node.classList.toggle('is-dim', !related);
+      });
+      edgeLayer.querySelectorAll('[data-edge-id]').forEach(edge => {
+        const related = activeEdgeIds.has(edge.dataset.edgeId);
+        edge.classList.toggle('is-related', related);
+        edge.classList.toggle('is-dim', !related);
+        edge.setAttribute('marker-end', related ? 'url(#arrow-related)' : 'url(#arrow-default)');
+      });
+      updateDetail(activeNodeId);
+      updateFlowDetail();
+    }
+    renderEdges();
+    renderNodes();
+    renderFlowTabs();
+    renderFlowSteps();
+    updateSelection();
+  </script>
+</body>
+</html>

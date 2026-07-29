@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "title": "eiken-practice architecture map",
+    "repository": "C:/Users/shtom/dev/eiken-practice",
+    "observedAt": "2026-07-27",
+    "scope": "Static Eiken practice app: routing, learning modes, data, persistence, optional integrations, and deployment.",
+    "notes": [
+      "The diagram describes the current code paths, not a proposed rewrite.",
+      "q1, q3, dictation, and pre1 instantiate the shared optional cloud helper; q2, paraphrase, and writing currently persist locally.",
+      "The serial course aggregates existing mode progress and opens a mode; it does not own answer records."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "index-shell",
+      "label": "index.html",
+      "kind": "shell",
+      "group": "runtime",
+      "file": "index.html",
+      "summary": "Shared DOM shell: header, app navigation, homePanel, sessionPanel, and script loading.",
+      "position": { "x": 13, "y": 12, "w": 23 }
+    },
+    {
+      "id": "app-router",
+      "label": "static/app.js",
+      "kind": "router",
+      "group": "runtime",
+      "file": "static/app.js",
+      "summary": "Thin router over APPS. Chooses the active path, mounts a mode, updates navigation, and keeps the shared panels reusable.",
+      "position": { "x": 38, "y": 12, "w": 25 }
+    },
+    {
+      "id": "grade-entry",
+      "label": "mode-entry.js",
+      "kind": "entry",
+      "group": "orchestration",
+      "file": "static/mode-entry.js",
+      "summary": "Loads the manifest, selects 2級 / 準2級 / 準1級, stores the grade profile, and optionally authenticates a shared student URL.",
+      "position": { "x": 72, "y": 11, "w": 23 }
+    },
+    {
+      "id": "manifest",
+      "label": "data/manifest.json",
+      "kind": "registry",
+      "group": "data",
+      "file": "data/manifest.json",
+      "summary": "Dataset registry for q1, q2, q3, dictation, and pre1 rounds. It is the runtime routing table for learning data.",
+      "position": { "x": 72, "y": 30, "w": 23 }
+    },
+    {
+      "id": "serial-course",
+      "label": "mode-serial.js",
+      "kind": "serial",
+      "group": "orchestration",
+      "file": "static/mode-serial.js",
+      "summary": "Fixed-order course coordinator. Reads per-mode progress, aggregates three-round completion, and unlocks the next primary step.",
+      "position": { "x": 38, "y": 31, "w": 25 }
+    },
+    {
+      "id": "free-practice",
+      "label": "mode-free.js",
+      "kind": "free",
+      "group": "orchestration",
+      "file": "static/mode-free.js",
+      "summary": "Unlocked skill picker. It applies the current profile and delegates progress ownership to each skill mode.",
+      "position": { "x": 13, "y": 31, "w": 23 }
+    },
+    {
+      "id": "skill-q1",
+      "label": "mode-q1.js · 語彙",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-q1.js",
+      "summary": "Vocabulary flow: meaning/example cards → meaning check → four-choice practice → wrong review / final check.",
+      "position": { "x": 12, "y": 52, "w": 20 }
+    },
+    {
+      "id": "skill-q2",
+      "label": "mode-q2.js · 空所",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-q2.js",
+      "summary": "Cloze questions loaded per dataset. Answers and resume state are kept locally by dataset.",
+      "position": { "x": 29, "y": 52, "w": 20 }
+    },
+    {
+      "id": "skill-paraphrase",
+      "label": "mode-paraphrase.js",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-paraphrase.js",
+      "summary": "Supplementary paraphrase practice with typed answers, structural evaluation, self-rating, and resume state.",
+      "position": { "x": 51, "y": 52, "w": 20 }
+    },
+    {
+      "id": "skill-writing",
+      "label": "mode-writing.js · 英作文",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-writing.js",
+      "summary": "Structured drafts for essay, summary, and email variants. Steps are persisted locally and review text is copied to an external AI.",
+      "position": { "x": 73, "y": 52, "w": 21 }
+    },
+    {
+      "id": "skill-dictation",
+      "label": "mode-dictation.js",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-dictation.js",
+      "summary": "Audio question flow with answer tracking, wrong-answer dictation, scripts, round switching, and resume state.",
+      "position": { "x": 18, "y": 70, "w": 21 }
+    },
+    {
+      "id": "skill-q3",
+      "label": "mode-q3.js · 長文",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-q3.js",
+      "summary": "Reading flow: four-choice answer → evidence sentence selection → grading → summary completion and review.",
+      "position": { "x": 41, "y": 70, "w": 20 }
+    },
+    {
+      "id": "skill-pre1",
+      "label": "mode-pre1.js · 準1級",
+      "kind": "skill",
+      "group": "skill",
+      "file": "static/mode-pre1.js",
+      "summary": "Dedicated round/section engine for pre-1: vocabulary, cloze, writing, listening, and reading sections.",
+      "position": { "x": 64, "y": 70, "w": 22 }
+    },
+    {
+      "id": "datasets",
+      "label": "data/*.json",
+      "kind": "data",
+      "group": "data",
+      "file": "data/",
+      "summary": "Vocabulary, questions, lessons, paraphrase, writing, and pre-1 round payloads. Loaded at runtime through relative URLs.",
+      "position": { "x": 75, "y": 87, "w": 21 }
+    },
+    {
+      "id": "audio-assets",
+      "label": "assets/audio + clips",
+      "kind": "asset",
+      "group": "data",
+      "file": "assets/",
+      "summary": "Listening source files: round audio and per-question clips used by dictation and pre-1 listening.",
+      "position": { "x": 51, "y": 87, "w": 21 }
+    },
+    {
+      "id": "local-storage",
+      "label": "localStorage",
+      "kind": "storage",
+      "group": "persistence",
+      "file": "static/mode-*.js",
+      "summary": "Primary anonymous persistence. Keys are separated by mode, dataset, round, drafts, resume position, and route/profile state.",
+      "position": { "x": 28, "y": 87, "w": 20 }
+    },
+    {
+      "id": "harness-store",
+      "label": "harness store + engine",
+      "kind": "engine",
+      "group": "persistence",
+      "file": "static/vendor/harness/store.js, engine.js",
+      "summary": "Generated, DOM-free state layer for unit × mode progress, wrong queues, and optional Leitner review scheduling.",
+      "position": { "x": 12, "y": 87, "w": 20 }
+    },
+    {
+      "id": "cloud-sync",
+      "label": "harness/cloud.js",
+      "kind": "sync",
+      "group": "integration",
+      "file": "static/vendor/harness/cloud.js",
+      "summary": "Optional student URL sync. It is a no-op without ?s / ?t or runtime configuration, and debounces saves before RPC calls.",
+      "position": { "x": 12, "y": 72, "w": 20 }
+    },
+    {
+      "id": "sentence-function",
+      "label": "Netlify /api/check-sentence",
+      "kind": "api",
+      "group": "integration",
+      "file": "netlify/functions/check-sentence.mjs",
+      "summary": "Optional server-side sentence check. It validates input, calls OpenAI with a JSON contract, and returns normalized feedback.",
+      "position": { "x": 73, "y": 72, "w": 22 }
+    },
+    {
+      "id": "supabase",
+      "label": "Supabase RPC",
+      "kind": "service",
+      "group": "integration",
+      "file": "app_students / app_progress RPCs",
+      "summary": "Student authentication and progress load/save through app_auth_student, app_load_progress, and app_save_progress.",
+      "position": { "x": 30, "y": 70, "w": 20 }
+    },
+    {
+      "id": "pages-deploy",
+      "label": "GitHub Pages workflow",
+      "kind": "deploy",
+      "group": "delivery",
+      "file": ".github/workflows/pages.yml",
+      "summary": "Push to main generates runtime config, prepares _site, uploads the artifact, and deploys the static site.",
+      "position": { "x": 38, "y": 8, "w": 25 }
+    },
+    {
+      "id": "netlify-deploy",
+      "label": "Netlify function deploy",
+      "kind": "deploy",
+      "group": "delivery",
+      "file": "netlify.toml",
+      "summary": "Netlify serves the function directory; the static Pages site can call its configured endpoint for sentence checks.",
+      "position": { "x": 70, "y": 8, "w": 24 }
+    }
+  ],
+  "edges": [
+    { "id": "e-index-router", "source": "index-shell", "target": "app-router", "label": "loads", "kind": "runtime", "description": "The HTML shell loads app.js and the mode scripts, then exposes shared panels." },
+    { "id": "e-router-entry", "source": "app-router", "target": "grade-entry", "label": "mounts", "kind": "runtime", "description": "The default route is entry; router.open switches into the grade selector." },
+    { "id": "e-router-serial", "source": "app-router", "target": "serial-course", "label": "mounts", "kind": "runtime", "description": "The router mounts the fixed-order course into homePanel." },
+    { "id": "e-router-free", "source": "app-router", "target": "free-practice", "label": "mounts", "kind": "runtime", "description": "The router mounts the unlocked skill list." },
+    { "id": "e-entry-manifest", "source": "grade-entry", "target": "manifest", "label": "reads", "kind": "data", "description": "Grade/profile selection is resolved from the manifest registry." },
+    { "id": "e-entry-storage", "source": "grade-entry", "target": "local-storage", "label": "profile", "kind": "persistence", "description": "Grade profile and selected datasets are stored in browser storage." },
+    { "id": "e-serial-manifest", "source": "serial-course", "target": "manifest", "label": "reads", "kind": "data", "description": "Serial loads all three rounds and the matching audio datasets for the active grade." },
+    { "id": "e-serial-storage", "source": "serial-course", "target": "local-storage", "label": "aggregates", "kind": "persistence", "description": "Route state is separate; completion is computed from each mode's saved state." },
+    { "id": "e-serial-skills", "source": "serial-course", "target": "skill-q1", "label": "unlocks", "kind": "flow", "description": "The standard route begins with vocabulary and advances after its gate." },
+    { "id": "e-serial-q2", "source": "serial-course", "target": "skill-q2", "label": "unlocks", "kind": "flow", "description": "Cloze is the second standard primary step." },
+    { "id": "e-serial-writing", "source": "serial-course", "target": "skill-writing", "label": "unlocks", "kind": "flow", "description": "Writing follows q2; paraphrase is present as an auxiliary step." },
+    { "id": "e-serial-dictation", "source": "serial-course", "target": "skill-dictation", "label": "unlocks", "kind": "flow", "description": "Listening follows writing after the round gate." },
+    { "id": "e-serial-q3", "source": "serial-course", "target": "skill-q3", "label": "unlocks", "kind": "flow", "description": "Reading is the final standard route step." },
+    { "id": "e-serial-pre1", "source": "serial-course", "target": "skill-pre1", "label": "pre1 mode", "kind": "flow", "description": "The pre-1 profile uses a dedicated section sequence inside mode-pre1.js." },
+    { "id": "e-free-skills", "source": "free-practice", "target": "skill-q1", "label": "opens any", "kind": "flow", "description": "Free practice can open any standard skill without serial locking." },
+    { "id": "e-free-writing", "source": "free-practice", "target": "skill-writing", "label": "opens any", "kind": "flow", "description": "The free list delegates directly to writing." },
+    { "id": "e-free-pre1", "source": "free-practice", "target": "skill-pre1", "label": "pre1 list", "kind": "flow", "description": "The pre-1 profile swaps in its five section entries." },
+    { "id": "e-modes-data", "source": "skill-q1", "target": "datasets", "label": "fetches", "kind": "data", "description": "Q1 reads vocabulary and question JSON selected by the manifest." },
+    { "id": "e-q2-data", "source": "skill-q2", "target": "datasets", "label": "fetches", "kind": "data", "description": "Q2 loads q2 round JSON." },
+    { "id": "e-paraphrase-data", "source": "skill-paraphrase", "target": "datasets", "label": "fetches", "kind": "data", "description": "Paraphrase loads its separate question bank." },
+    { "id": "e-writing-data", "source": "skill-writing", "target": "datasets", "label": "fetches", "kind": "data", "description": "Writing loads question variants from writing_questions.json." },
+    { "id": "e-dictation-data", "source": "skill-dictation", "target": "datasets", "label": "fetches", "kind": "data", "description": "Dictation loads lessons and round-specific data." },
+    { "id": "e-pre1-data", "source": "skill-pre1", "target": "datasets", "label": "fetches", "kind": "data", "description": "Pre-1 loads round data and vocabulary from manifest entries." },
+    { "id": "e-dictation-audio", "source": "skill-dictation", "target": "audio-assets", "label": "plays", "kind": "asset", "description": "Audio clips and full-part files support playback and dictation." },
+    { "id": "e-pre1-audio", "source": "skill-pre1", "target": "audio-assets", "label": "plays", "kind": "asset", "description": "Pre-1 listening also consumes local audio assets." },
+    { "id": "e-q1-local", "source": "skill-q1", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Q1 uses dataset-scoped progress and example keys." },
+    { "id": "e-q2-local", "source": "skill-q2", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Q2 uses eiken2q2.progress.<dataset> plus dataset/resume state." },
+    { "id": "e-paraphrase-local", "source": "skill-paraphrase", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Paraphrase uses eiken_paraphrase_practice_v1." },
+    { "id": "e-writing-local", "source": "skill-writing", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Writing uses separate draft and progress keys." },
+    { "id": "e-dictation-local", "source": "skill-dictation", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Dictation stores answers by level/round plus a resume pointer." },
+    { "id": "e-q3-local", "source": "skill-q3", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Q3 stores question, summary, and resume state per dataset." },
+    { "id": "e-pre1-local", "source": "skill-pre1", "target": "local-storage", "label": "saves", "kind": "persistence", "description": "Pre-1 stores round-scoped questions, writing, summaries, final checks, and resume state." },
+    { "id": "e-q1-engine", "source": "skill-q1", "target": "harness-store", "label": "optional", "kind": "engine", "description": "Q1 can use the generated harness state layer for normalized progress." },
+    { "id": "e-q1-cloud", "source": "skill-q1", "target": "cloud-sync", "label": "syncs", "kind": "integration", "description": "Q1 creates the optional cloud helper with appId eiken2-q1." },
+    { "id": "e-q3-cloud", "source": "skill-q3", "target": "cloud-sync", "label": "syncs", "kind": "integration", "description": "Q3 creates the optional cloud helper with appId eiken2-q3." },
+    { "id": "e-dictation-cloud", "source": "skill-dictation", "target": "cloud-sync", "label": "syncs", "kind": "integration", "description": "Dictation creates the optional cloud helper with appId eiken-dictation." },
+    { "id": "e-pre1-cloud", "source": "skill-pre1", "target": "cloud-sync", "label": "syncs", "kind": "integration", "description": "Pre-1 creates the optional cloud helper with appId eiken-pre1." },
+    { "id": "e-entry-supabase", "source": "grade-entry", "target": "supabase", "label": "auth", "kind": "integration", "description": "A shared student URL can authenticate before learning starts." },
+    { "id": "e-cloud-supabase", "source": "cloud-sync", "target": "supabase", "label": "RPC load/save", "kind": "integration", "description": "Cloud sync calls app_auth_student, app_load_progress, and app_save_progress." },
+    { "id": "e-writing-api", "source": "skill-writing", "target": "sentence-function", "label": "optional check", "kind": "integration", "description": "The current writing UI copies prompts to a personal AI; Q1's example checker uses the optional endpoint when configured." },
+    { "id": "e-function-openai", "source": "sentence-function", "target": "supabase", "label": "separate service", "kind": "integration", "description": "The function is deployed on Netlify and calls OpenAI; it does not use Supabase for the sentence response." },
+    { "id": "e-pages-index", "source": "pages-deploy", "target": "index-shell", "label": "publishes", "kind": "delivery", "description": "Pages publishes the static root after generating runtime config." },
+    { "id": "e-netlify-function", "source": "netlify-deploy", "target": "sentence-function", "label": "serves", "kind": "delivery", "description": "Netlify exposes /api/check-sentence from netlify/functions." },
+    { "id": "e-pages-config", "source": "pages-deploy", "target": "cloud-sync", "label": "configures", "kind": "delivery", "description": "The Pages workflow writes static/config.json from deployment secrets." }
+  ],
+  "flows": [
+    {
+      "id": "standard-serial",
+      "label": "2級 / 準2級 · 学習ルート",
+      "description": "固定順の主要ルート。直列側が既存モードの回別進捗を集計して次段階を解放する。",
+      "steps": [
+        { "order": 1, "nodeId": "grade-entry", "label": "級を選ぶ", "action": "manifestから級と回を決め、プロフィールをlocalStorageへ保存する。", "edgeIds": ["e-router-entry", "e-entry-manifest", "e-entry-storage"] },
+        { "order": 2, "nodeId": "serial-course", "label": "学習ルートを開く", "action": "q1 / q2 / 言い換え / 英作文 / リスニング / q3 の順序とゲートを計算する。", "edgeIds": ["e-router-serial", "e-serial-manifest", "e-serial-storage"] },
+        { "order": 3, "nodeId": "skill-q1", "label": "大問1（語彙）", "action": "意味確認、意味チェック、4択、誤答復習、最終チェックを進める。", "edgeIds": ["e-serial-skills", "e-modes-data", "e-q1-local", "e-q1-cloud"] },
+        { "order": 4, "nodeId": "skill-q2", "label": "大問2（空所補充）", "action": "回別の本文と空所問題を解き、データセット別に進捗を保存する。", "edgeIds": ["e-serial-q2", "e-q2-data", "e-q2-local"] },
+        { "order": 5, "nodeId": "skill-paraphrase", "label": "言い換え（補助）", "action": "補助練習を自己判定する。主要3回分のゲート対象外。", "edgeIds": ["e-paraphrase-data", "e-paraphrase-local"] },
+        { "order": 6, "nodeId": "skill-writing", "label": "英作文", "action": "設問タイプに応じた段階入力を保存し、レビュー用テキストを作る。", "edgeIds": ["e-serial-writing", "e-writing-data", "e-writing-local"] },
+        { "order": 7, "nodeId": "skill-dictation", "label": "リスニング", "action": "音声、4択、誤答書き取りを回別に進める。", "edgeIds": ["e-serial-dictation", "e-dictation-data", "e-dictation-audio", "e-dictation-local", "e-dictation-cloud"] },
+        { "order": 8, "nodeId": "skill-q3", "label": "大問3（長文）", "action": "解答、根拠文、内容整理を完了し、3回分のゲートを閉じる。", "edgeIds": ["e-serial-q3", "e-q3-local", "e-q3-cloud"] }
+      ]
+    },
+    {
+      "id": "standard-free",
+      "label": "2級 / 準2級 · 自由演習",
+      "description": "順序ロックを外し、現在の級の技能一覧から直接モードを開く。",
+      "steps": [
+        { "order": 1, "nodeId": "grade-entry", "label": "級を選ぶ", "action": "現在のgrade profileを確定する。", "edgeIds": ["e-router-entry", "e-entry-manifest", "e-entry-storage"] },
+        { "order": 2, "nodeId": "free-practice", "label": "自由演習を開く", "action": "profileに応じた6技能の一覧を表示する。", "edgeIds": ["e-router-free", "e-free-skills", "e-free-writing"] },
+        { "order": 3, "nodeId": "skill-writing", "label": "任意の技能へ", "action": "選んだ技能モードへ直接委譲し、既存の保存領域を使う。", "edgeIds": ["e-writing-data", "e-writing-local"] }
+      ]
+    },
+    {
+      "id": "pre1-serial",
+      "label": "準1級 · 学習ルート",
+      "description": "準1級専用モードで、セクション順と3回分の完了を管理する。",
+      "steps": [
+        { "order": 1, "nodeId": "grade-entry", "label": "準1級を選ぶ", "action": "pre1 round profileを確定する。", "edgeIds": ["e-router-entry", "e-entry-manifest", "e-entry-storage"] },
+        { "order": 2, "nodeId": "serial-course", "label": "pre1の順序を計算", "action": "大問1 → ライティング → リスニング → 大問2 → 大問3を5段階で表示する。", "edgeIds": ["e-router-serial", "e-serial-manifest", "e-serial-pre1"] },
+        { "order": 3, "nodeId": "skill-pre1", "label": "準1級モード", "action": "roundごとに語彙、空所、writing、listening、readingを切り替える。", "edgeIds": ["e-pre1-data", "e-pre1-local", "e-pre1-cloud", "e-pre1-audio"] },
+        { "order": 4, "nodeId": "local-storage", "label": "回別進捗を保存", "action": "questions / writing / summaries / finalCheck / resumeを同じpre1領域に保存する。", "edgeIds": ["e-pre1-local"] }
+      ]
+    },
+    {
+      "id": "q1-cloud-session",
+      "label": "共有URL · Q1クラウド同期",
+      "description": "共有URLと設定がある場合だけ、Q1の進捗をローカルからクラウドへ同期する。",
+      "steps": [
+        { "order": 1, "nodeId": "skill-q1", "label": "Q1を開始", "action": "語彙データと回答状態を読み込む。", "edgeIds": ["e-modes-data", "e-q1-local"] },
+        { "order": 2, "nodeId": "cloud-sync", "label": "共有URLを確認", "action": "?s=<id>&t=<token> と static/config.json が揃う場合だけ同期を有効化する。", "edgeIds": ["e-q1-cloud", "e-cloud-supabase"] },
+        { "order": 3, "nodeId": "supabase", "label": "load / save", "action": "app_auth_student → app_load_progress、変更後はapp_save_progressへ送る。", "edgeIds": ["e-cloud-supabase"] },
+        { "order": 4, "nodeId": "local-storage", "label": "匿名時はローカル", "action": "共有条件がなければ、従来どおりlocalStorageだけで続行する。", "edgeIds": ["e-q1-local"] }
+      ]
+    },
+    {
+      "id": "sentence-ai-check",
+      "label": "自作英文 · 任意AIチェック",
+      "description": "Q1の自作英文チェックと英作文の外部レビュー境界を示す。",
+      "steps": [
+        { "order": 1, "nodeId": "skill-q1", "label": "例文を下書き", "action": "対象語を使った自作英文をdataset単位で保存する。", "edgeIds": ["e-q1-local", "e-modes-data"] },
+        { "order": 2, "nodeId": "sentence-function", "label": "任意エンドポイント", "action": "設定された場合だけ、入力検証済みの英文をPOSTする。", "edgeIds": ["e-writing-api", "e-netlify-function"] },
+        { "order": 3, "nodeId": "netlify-deploy", "label": "Netlifyで提供", "action": "Netlify Functionが/api/check-sentenceとして公開される。", "edgeIds": ["e-netlify-function"] },
+        { "order": 4, "nodeId": "skill-writing", "label": "英作文レビュー", "action": "writingはアプリ内採点ではなく、レビュー用テキストを個人のAIへコピーする。", "edgeIds": ["e-writing-local"] }
+      ]
+    }
+  ]
+}

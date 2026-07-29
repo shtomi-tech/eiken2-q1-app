@@ -44,9 +44,9 @@ py -3 -m http.server 8061 --bind 127.0.0.1
 ## データと共通エンジン
 
 - 大問1のデータ: `data/questions_*.json` と `data/vocab_*.json`
-- 大問2のデータ: `data/q2_*.json`。公式PDFをローカルで構造化するスクリプトは `scripts/build_q2_data.py`（元PDFは `eiken-materials` 側）。
+- 大問2のデータ: `data/q2_*.json`。公式PDFをローカルで構造化するスクリプトは `scripts/build_q2_data.py`（元PDFは `materials/` 側、gitignore対象）。
 - 大問3のデータ: `data/q3_questions_2026-1.json`
-- リスニングのデータ: `data/lessons*.json`（設問データ）と `assets/clips/` `assets/audio/`（音声。約240MB）
+- リスニングのデータ: `data/lessons*.json`（設問データ）と `assets/clips/` `assets/audio/`（音声。約240MB）。2025-2・2025-3の元PDF・音声は `materials/英検2級/` `materials/英検準2級/`（gitignore対象）。2026-1は別途Downloadsから構築（`scripts/build_lessons.py` `scripts/build_lessons_p2.py`）。
 - 準1級過去問のデータ: `data/pre1_*.json`。公式PDF・音声をローカルで構造化するスクリプトは `scripts/build_pre1_data.py`。元ファイルの `data/eiken_p1/` は公開用データとして扱わない。
 - 画面・アプリ固有ロジック: `static/mode-entry.js`（級入口）・`static/mode-serial.js`（学習ルート）・`static/mode-free.js`（自由演習）・`static/mode-pre1.js`（準1級過去問）・`static/mode-q1.js`（大問1）・`static/mode-q2.js`（大問2）・`static/mode-q3.js`（大問3）・`static/mode-dictation.js`（リスニング）・`static/mode-paraphrase.js`（言い換え練習）・`static/mode-writing.js`（英作文）・`static/app.js`（画面切替の薄いシェル）
 - 言い換え練習データ: `data/paraphrase_questions.json`（既存の大問データ・進捗キーとは分離）
