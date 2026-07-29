@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "grade": "英検準2級",
+    "round": "2025-3",
+    "label": "英検準2級 2025年度第3回",
+    "section": "Reading 大問2（空所補充）",
+    "sourcePdf": "2025-3-1ji-p2kyu.pdf",
+    "sourceNote": "英検公式の過去問PDFをローカル学習用に構造化"
+  },
+  "questions": [
+    {
+      "q": 16,
+      "stem": "空所（16）に入る最も適切なものを選んでください。",
+      "choices": [
+        "I won't be able to stay long",
+        "I don't have time for lunch",
+        "I have nothing special to do",
+        "I will move out of this town (17) A : Have you finished writing your history report? B : Not yet. I'm planning to do it this weekend. Our next class is on Monday, isn't it? A : It is, but the teacher said we must email it to her by tomorrow morning. B : Oh no! I guess I'll have to"
+      ],
+      "answerIndex": 0,
+      "context": "(16) A : Jackson, can we study together after school? I'm having trouble with my homework. B : Sure, I'd be happy to help. (16) today, though. A : Oh, what time do you have to leave? B : Around 5:30 p.m. I want to watch a soccer game on TV. It starts at six o'clock, so I need to be home by then."
+    },
+    {
+      "q": 17,
+      "stem": "空所（17）に入る最も適切なものを選んでください。",
+      "choices": [
+        "study hard over the weekend",
+        "help you with your homework",
+        "stay up late tonight to finish it",
+        "write more reports by Monday (18) A : You look worried, John. What's wrong? B : I want to play a video game on my computer, but the Internet is so slow. A : Really? I'm watching a movie on my phone right now, and it's working fine. Maybe you should try starting up your computer again. B : OK, I just"
+      ],
+      "answerIndex": 2,
+      "context": "(17) A : Have you finished writing your history report? B : Not yet. I'm planning to do it this weekend. Our next class is on Monday, isn't it? A : It is, but the teacher said we must email it to her by tomorrow morning. B : Oh no! I guess I'll have to (17)."
+    },
+    {
+      "q": 18,
+      "stem": "空所（18）に入る最も適切なものを選んでください。",
+      "choices": [
+        "turned it off",
+        "changed its color",
+        "bought a new computer",
+        "saw the movie A : Hi, I'm staying in this city for the weekend with my kids. Is there (19) while we're here? B : There's a special exhibition at the public museum right now. You can learn about this city's history by seeing old photos taken by famous photographers. A : I would love that, but my kids might get bored. B : How about (20)? It's happening all weekend at City Park. You can enjoy live performances by local musicians there, and there will be activities where kids can try different musical instruments. A : That sounds great! Do we need to buy tickets? B : Yes, you can choose ten dollars per day or fifteen dollars for a twoday pass. A : I'd like three twoday passes, please. B : Sure!"
+      ],
+      "answerIndex": 0,
+      "context": "(18) A : You look worried, John. What's wrong? B : I want to play a video game on my computer, but the Internet is so slow. A : Really? I'm watching a movie on my phone right now, and it's working fine. Maybe you should try starting up your computer again. B : OK, I just (18). I hope this works."
+    },
+    {
+      "q": 19,
+      "stem": "空所（19）に入る最も適切なものを選んでください。",
+      "choices": [
+        "a good place to stay",
+        "a map we can use",
+        "something fun to see",
+        "something we can eat"
+      ],
+      "answerIndex": 2,
+      "context": "A : Hi, I'm staying in this city for the weekend with my kids. Is there (19) while we're here? B : There's a special exhibition at the public museum right now. You can learn about this city's history by seeing old photos taken by famous photographers. A : I would love that, but my kids might get bored. B : How about (20)? It's happening all weekend at City Park. You can enjoy live performances by local musicians there, and there will be activities where kids can try different musical instruments. A : That sounds great! Do we need to buy tickets? B : Yes, you can choose ten dollars per day or fifteen dollars for a twoday pass. A : I'd like three twoday passes, please. B : Sure!"
+    },
+    {
+      "q": 20,
+      "stem": "空所（20）に入る最も適切なものを選んでください。",
+      "choices": [
+        "taking part in music lessons for free",
+        "checking out a local music festival",
+        "watching a short history film instead",
+        "visiting the museum on weekdays"
+      ],
+      "answerIndex": 1,
+      "context": "A : Hi, I'm staying in this city for the weekend with my kids. Is there (19) while we're here? B : There's a special exhibition at the public museum right now. You can learn about this city's history by seeing old photos taken by famous photographers. A : I would love that, but my kids might get bored. B : How about (20)? It's happening all weekend at City Park. You can enjoy live performances by local musicians there, and there will be activities where kids can try different musical instruments. A : That sounds great! Do we need to buy tickets? B : Yes, you can choose ten dollars per day or fifteen dollars for a twoday pass. A : I'd like three twoday passes, please. B : Sure!"
+    },
+    {
+      "q": 21,
+      "stem": "空所（21）に入る最も適切なものを選んでください。",
+      "choices": [
+        "how he learned English",
+        "where he hoped to live",
+        "what he wanted to become",
+        "why he had so many friends"
+      ],
+      "answerIndex": 2,
+      "context": "Grade Pre-2 6 A Friend in Spain Sophie was born in America and now works in her hometown. She spent a year studying abroad in Spain when she was a college student. One of the friends she met during that time was Andre. They quickly became good friends. They talked about many things, like their dreams. One day, she asked (21). He said that he wanted to be an actor. He told her that he had been working very hard on his training. Five years later, Sophie was watching a Spanish movie on TV. She felt that one of the characters looked very familiar. She looked closely at his face and saw that it was Andre. Later, she learned from the Internet that he had been an actor for a few years. She felt that (22). This made her so happy. And she learned from this experience that she should also take action to make her own dream come true."
+    },
+    {
+      "q": 22,
+      "stem": "空所（22）に入る最も適切なものを選んでください。",
+      "choices": [
+        "she must give up her dream",
+        "she should become an actor",
+        "he should have gone back to college",
+        "he must have realized his dream"
+      ],
+      "answerIndex": 3,
+      "context": "Grade Pre-2 6 A Friend in Spain Sophie was born in America and now works in her hometown. She spent a year studying abroad in Spain when she was a college student. One of the friends she met during that time was Andre. They quickly became good friends. They talked about many things, like their dreams. One day, she asked (21). He said that he wanted to be an actor. He told her that he had been working very hard on his training. Five years later, Sophie was watching a Spanish movie on TV. She felt that one of the characters looked very familiar. She looked closely at his face and saw that it was Andre. Later, she learned from the Internet that he had been an actor for a few years. She felt that (22). This made her so happy. And she learned from this experience that she should also take action to make her own dream come true."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "grade": "英検準2級",
+    "round": "2026-1",
+    "label": "英検準2級 2026年度第1回",
+    "section": "Reading 大問2（空所補充）",
+    "sourcePdf": "2026-1-1ji-p2kyu.pdf",
+    "sourceNote": "英検公式の過去問PDFをローカル学習用に構造化"
+  },
+  "questions": [
+    {
+      "q": 16,
+      "stem": "空所（16）に入る最も適切なものを選んでください。",
+      "choices": [
+        "I can take you there",
+        "I can take the wrong way",
+        "you won't make it",
+        "you won't see me again (17) A : Lucas, which gym do you go to? I'm thinking about joining one. B : That's great! I go to the one next to the supermarket, but there's a new one closer to your place. It just opened last month. A : Oh, where is it? B : It's right across from the movie theater. It's"
+      ],
+      "answerIndex": 0,
+      "context": "(16) A : Excuse me. Do you know the way to the Greenlake Theater? B : Yes. Go straight down this street, then turn right at the second light. After that, walk for about five minutes. The theater will be on your left. A : Thanks. I'm not sure if I can get there, but I'll try. B : Well, I'm going in the same direction, so (16). Please follow me."
+    },
+    {
+      "q": 17,
+      "stem": "空所（17）に入る最も適切なものを選んでください。",
+      "choices": [
+        "the closest to the supermarket",
+        "only about one year old",
+        "about five minutes from your house",
+        "too noisy and small for real training (18) A : Hello. I'd like to sign up for one of the volunteer programs this summer. B : Of course! May I ask"
+      ],
+      "answerIndex": 2,
+      "context": "(17) A : Lucas, which gym do you go to? I'm thinking about joining one. B : That's great! I go to the one next to the supermarket, but there's a new one closer to your place. It just opened last month. A : Oh, where is it? B : It's right across from the movie theater. It's (17). I haven't been there, but people say it's good."
+    },
+    {
+      "q": 18,
+      "stem": "空所（18）に入る最も適切なものを選んでください。",
+      "choices": [
+        "how you learned about our programs",
+        "which program you're interested in",
+        "what kinds of books you enjoy reading",
+        "when your summer vacation finishes A : Dad, where's my lunch? I need to take it to school today. B : Lunch? But you (19). Why do you need to bring your own? A : From today, the cafeteria will be closed for repairs, and everyone must bring their own lunch. Didn't you see the letter from school? I gave it to you last week. B : Hmm. Maybe I missed it. When will the cafeteria open again? A : Not until next Monday. So, do you have time to make it now? B : I don't think so. Can you (20) today? A : OK. I'll stop by my favorite bakery. But please don't forget to make my lunch for the rest of the week. B : Alright, I won't."
+      ],
+      "answerIndex": 1,
+      "context": "(18) A : Hello. I'd like to sign up for one of the volunteer programs this summer. B : Of course! May I ask (18)? We have plenty to choose from. A : Sure. Is \"Let's Work as a Librarian\" still open? I believe it begins on August 10. B : Let me check. Yes, it's still available. Please go ahead and fill out this form."
+    },
+    {
+      "q": 19,
+      "stem": "空所（19）に入る最も適切なものを選んでください。",
+      "choices": [
+        "usually eat at the cafeteria",
+        "always make your own lunch",
+        "didn't wake up early enough",
+        "don't have school today"
+      ],
+      "answerIndex": 0,
+      "context": "A : Dad, where's my lunch? I need to take it to school today. B : Lunch? But you (19). Why do you need to bring your own? A : From today, the cafeteria will be closed for repairs, and everyone must bring their own lunch. Didn't you see the letter from school? I gave it to you last week. B : Hmm. Maybe I missed it. When will the cafeteria open again? A : Not until next Monday. So, do you have time to make it now? B : I don't think so. Can you (20) today? A : OK. I'll stop by my favorite bakery. But please don't forget to make my lunch for the rest of the week. B : Alright, I won't."
+    },
+    {
+      "q": 20,
+      "stem": "空所（20）に入る最も適切なものを選んでください。",
+      "choices": [
+        "ask your teacher to make it",
+        "eat at the school cafeteria",
+        "buy something on your way",
+        "make something by yourself"
+      ],
+      "answerIndex": 2,
+      "context": "A : Dad, where's my lunch? I need to take it to school today. B : Lunch? But you (19). Why do you need to bring your own? A : From today, the cafeteria will be closed for repairs, and everyone must bring their own lunch. Didn't you see the letter from school? I gave it to you last week. B : Hmm. Maybe I missed it. When will the cafeteria open again? A : Not until next Monday. So, do you have time to make it now? B : I don't think so. Can you (20) today? A : OK. I'll stop by my favorite bakery. But please don't forget to make my lunch for the rest of the week. B : Alright, I won't."
+    },
+    {
+      "q": 21,
+      "stem": "空所（21）に入る最も適切なものを選んでください。",
+      "choices": [
+        "no need to speak English",
+        "only one way for language learning",
+        "something more important than trying hard",
+        "nothing wrong with making mistakes"
+      ],
+      "answerIndex": 3,
+      "context": "Grade Pre-2 6 The Advice Haruto is a high school student in Tokyo. Although he enjoyed studying English, he was always afraid to speak the language. He worried that he might be embarrassed if his English was wrong. One day, he talked with his older sister, who spoke English very well. She told him that there was (21). She even explained that it was a necessary step to improve his skills. Thanks to her, Haruto's attitude toward speaking English changed. One day, his teacher, Ms. Sato, gave a speech activity in her English class. Haruto still felt worried, but he decided to do his best. When his turn came, he stood up and spoke clearly, despite feeling nervous. He knew that (22). When he finished the whole speech, however, Ms. Sato smiled and said his speech was very good. She also explained how he could make it even better. From that day, he began to enjoy speaking English."
+    },
+    {
+      "q": 22,
+      "stem": "空所（22）に入る最も適切なものを選んでください。",
+      "choices": [
+        "his speech was not perfect",
+        "his classmate made the same mistake",
+        "he could not continue his speech",
+        "he had forgotten his speech"
+      ],
+      "answerIndex": 0,
+      "context": "Grade Pre-2 6 The Advice Haruto is a high school student in Tokyo. Although he enjoyed studying English, he was always afraid to speak the language. He worried that he might be embarrassed if his English was wrong. One day, he talked with his older sister, who spoke English very well. She told him that there was (21). She even explained that it was a necessary step to improve his skills. Thanks to her, Haruto's attitude toward speaking English changed. One day, his teacher, Ms. Sato, gave a speech activity in her English class. Haruto still felt worried, but he decided to do his best. When his turn came, he stood up and spoke clearly, despite feeling nervous. He knew that (22). When he finished the whole speech, however, Ms. Sato smiled and said his speech was very good. She also explained how he could make it even better. From that day, he began to enjoy speaking English."
+    }
+  ]
+}

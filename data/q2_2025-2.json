@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "grade": "英検2級",
+    "round": "2025-2",
+    "label": "英検2級 2025年度第2回",
+    "section": "Reading 大問2（空所補充）",
+    "sourcePdf": "2025-2-1ji-2kyu.pdf",
+    "sourceNote": "英検公式の過去問PDFをローカル学習用に構造化"
+  },
+  "questions": [
+    {
+      "q": 18,
+      "stem": "空所（18）に入る最も適切なものを選んでください。",
+      "choices": [
+        "As a result",
+        "In other words",
+        "On the other hand",
+        "In the same way"
+      ],
+      "answerIndex": 2,
+      "context": "Grade 2 7 A Toy Made from a Spring There are many inventions in the world, and they have made our lives richer and more interesting. Thomas Edison repeated experiments and finally achieved his original goal of inventing the light bulb. Some inventions, like Edison's light bulb, are the result of the inventor's desire to create them from the beginning. (18), there are other types of inventions that were created by chance. A toy called the Slinky is one of them. Richard James was an engineer working for the United States Navy. He was given the task of coming up with an idea to protect expensive instruments on the ship during the rough ocean travel. One day, while he was dealing with a spring, he (19) from a shelf. Instead of falling where he thought it would, it moved along the shelf. It looked as if it was walking down the stairs. He let the spring fall to the floor again and again to check that it moved like a living thing each time. After showing his wife his interesting discovery, he decided to develop it into a toy. She thought about the name that would suit the toy. She looked up some words in the dictionary and chose the word slinky. She chose the name because it meant \"elegant and smooth movement.\" When James tried to demonstrate and sell it at a department store, he was worried. He thought that (20). However, when he arrived, many shoppers were there to buy the toy. Ever since then, the Slinky has been enjoyed by many children around the world."
+    },
+    {
+      "q": 19,
+      "stem": "空所（19）に入る最も適切なものを選んでください。",
+      "choices": [
+        "accidentally dropped it",
+        "took some books",
+        "suddenly heard some noise",
+        "picked up one document"
+      ],
+      "answerIndex": 0,
+      "context": "Grade 2 7 A Toy Made from a Spring There are many inventions in the world, and they have made our lives richer and more interesting. Thomas Edison repeated experiments and finally achieved his original goal of inventing the light bulb. Some inventions, like Edison's light bulb, are the result of the inventor's desire to create them from the beginning. (18), there are other types of inventions that were created by chance. A toy called the Slinky is one of them. Richard James was an engineer working for the United States Navy. He was given the task of coming up with an idea to protect expensive instruments on the ship during the rough ocean travel. One day, while he was dealing with a spring, he (19) from a shelf. Instead of falling where he thought it would, it moved along the shelf. It looked as if it was walking down the stairs. He let the spring fall to the floor again and again to check that it moved like a living thing each time. After showing his wife his interesting discovery, he decided to develop it into a toy. She thought about the name that would suit the toy. She looked up some words in the dictionary and chose the word slinky. She chose the name because it meant \"elegant and smooth movement.\" When James tried to demonstrate and sell it at a department store, he was worried. He thought that (20). However, when he arrived, many shoppers were there to buy the toy. Ever since then, the Slinky has been enjoyed by many children around the world."
+    },
+    {
+      "q": 20,
+      "stem": "空所（20）に入る最も適切なものを選んでください。",
+      "choices": [
+        "people owned one already",
+        "the store did not have space",
+        "people might not come to buy one",
+        "the store would run out of stock"
+      ],
+      "answerIndex": 2,
+      "context": "Grade 2 7 A Toy Made from a Spring There are many inventions in the world, and they have made our lives richer and more interesting. Thomas Edison repeated experiments and finally achieved his original goal of inventing the light bulb. Some inventions, like Edison's light bulb, are the result of the inventor's desire to create them from the beginning. (18), there are other types of inventions that were created by chance. A toy called the Slinky is one of them. Richard James was an engineer working for the United States Navy. He was given the task of coming up with an idea to protect expensive instruments on the ship during the rough ocean travel. One day, while he was dealing with a spring, he (19) from a shelf. Instead of falling where he thought it would, it moved along the shelf. It looked as if it was walking down the stairs. He let the spring fall to the floor again and again to check that it moved like a living thing each time. After showing his wife his interesting discovery, he decided to develop it into a toy. She thought about the name that would suit the toy. She looked up some words in the dictionary and chose the word slinky. She chose the name because it meant \"elegant and smooth movement.\" When James tried to demonstrate and sell it at a department store, he was worried. He thought that (20). However, when he arrived, many shoppers were there to buy the toy. Ever since then, the Slinky has been enjoyed by many children around the world."
+    },
+    {
+      "q": 21,
+      "stem": "空所（21）に入る最も適切なものを選んでください。",
+      "choices": [
+        "animals make some noise",
+        "owls sleep in the day",
+        "sound arrives at each ear",
+        "their eye recognizes the light"
+      ],
+      "answerIndex": 2,
+      "context": "Grade 2 8 Learning from Owls Owls are active at night because darkness works to their advantage. They have large eyes to gather as much light as possible. This helps them spot animals in the dark. What helps them find animals in the dark is not only their eyes but also their ears. Their ears are located at different heights on the left and right sides of their heads. This makes the time at which (21) different. They analyze this difference instantly and determine the accurate position of the animals. Spotting food is only the first step when animals hunt for their food. The hunters must get closer and catch their food before being noticed. Owls are also good at this. Many birds tend to make noise when cutting through the wind because air moves through their feathers in uncontrolled ways. However, the edges of owl feathers are unique. The special design helps create (22). This allows them to fly quietly and long distances without being noticed. Some researchers are considering using the owl's feather structure in airplane design. A team at the University of London made a copy of owl feathers with 3D printing. They created model airplane wings with a structure similar to that of owl feathers and studied how air flowed around them. The research could help reduce noise from airplanes. This is very important for people in areas near airports, where more flights have caused higher noise levels. (23), many people hope for progress in this technology."
+    },
+    {
+      "q": 22,
+      "stem": "空所（22）に入る最も適切なものを選んでください。",
+      "choices": [
+        "a smooth and silent air movement",
+        "a loud hitting sound in the air",
+        "a strong air movement to fly up",
+        "a color change in their wings"
+      ],
+      "answerIndex": 0,
+      "context": "Grade 2 8 Learning from Owls Owls are active at night because darkness works to their advantage. They have large eyes to gather as much light as possible. This helps them spot animals in the dark. What helps them find animals in the dark is not only their eyes but also their ears. Their ears are located at different heights on the left and right sides of their heads. This makes the time at which (21) different. They analyze this difference instantly and determine the accurate position of the animals. Spotting food is only the first step when animals hunt for their food. The hunters must get closer and catch their food before being noticed. Owls are also good at this. Many birds tend to make noise when cutting through the wind because air moves through their feathers in uncontrolled ways. However, the edges of owl feathers are unique. The special design helps create (22). This allows them to fly quietly and long distances without being noticed. Some researchers are considering using the owl's feather structure in airplane design. A team at the University of London made a copy of owl feathers with 3D printing. They created model airplane wings with a structure similar to that of owl feathers and studied how air flowed around them. The research could help reduce noise from airplanes. This is very important for people in areas near airports, where more flights have caused higher noise levels. (23), many people hope for progress in this technology."
+    },
+    {
+      "q": 23,
+      "stem": "空所（23）に入る最も適切なものを選んでください。",
+      "choices": [
+        "In spite of this",
+        "To begin with",
+        "Even so",
+        "Therefore 2 B"
+      ],
+      "answerIndex": 3,
+      "context": "Grade 2 8 Learning from Owls Owls are active at night because darkness works to their advantage. They have large eyes to gather as much light as possible. This helps them spot animals in the dark. What helps them find animals in the dark is not only their eyes but also their ears. Their ears are located at different heights on the left and right sides of their heads. This makes the time at which (21) different. They analyze this difference instantly and determine the accurate position of the animals. Spotting food is only the first step when animals hunt for their food. The hunters must get closer and catch their food before being noticed. Owls are also good at this. Many birds tend to make noise when cutting through the wind because air moves through their feathers in uncontrolled ways. However, the edges of owl feathers are unique. The special design helps create (22). This allows them to fly quietly and long distances without being noticed. Some researchers are considering using the owl's feather structure in airplane design. A team at the University of London made a copy of owl feathers with 3D printing. They created model airplane wings with a structure similar to that of owl feathers and studied how air flowed around them. The research could help reduce noise from airplanes. This is very important for people in areas near airports, where more flights have caused higher noise levels. (23), many people hope for progress in this technology."
+    }
+  ]
+}

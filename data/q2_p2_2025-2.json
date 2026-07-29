@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "grade": "英検準2級",
+    "round": "2025-2",
+    "label": "英検準2級 2025年度第2回",
+    "section": "Reading 大問2（空所補充）",
+    "sourcePdf": "2025-2-1ji-p2kyu.pdf",
+    "sourceNote": "英検公式の過去問PDFをローカル学習用に構造化"
+  },
+  "questions": [
+    {
+      "q": 16,
+      "stem": "空所（16）に入る最も適切なものを選んでください。",
+      "choices": [
+        "fix your desk as soon as possible",
+        "make sure the screen is dark enough",
+        "change the screen to a new one",
+        "return it to you without any repairs (17) A : Jason, how should we get to the hotel from here? B : Let me check the guidebook. It says we can either take the bus or the train. A : We've got heavy bags, so I'd prefer not to walk too much. B : In that case,"
+      ],
+      "answerIndex": 2,
+      "context": "(16) A : Welcome to Jason's PC Rescue. How can I assist you today? B : Hi, I accidentally dropped my computer from my desk. I can turn it on, but the top half of the screen is completely dark. A : I understand. I'll (16) and check if everything else works well. B : Thank you. I really hope that's the only part that's damaged."
+    },
+    {
+      "q": 17,
+      "stem": "空所（17）に入る最も適切なものを選んでください。",
+      "choices": [
+        "we should take the bus",
+        "we can walk to our hotel",
+        "let's book a guided tour later",
+        "let's check in our baggage first (18) A : Hello. What can I get for you today? B : Hi. I'd like four beef tacos and a large chicken salad to go, please. A : Sure. For your salad, we have a creamy dressing or a spicy dressing. Which one would you like? B : I don't want my salad to be too hot, so I'll have"
+      ],
+      "answerIndex": 0,
+      "context": "(17) A : Jason, how should we get to the hotel from here? B : Let me check the guidebook. It says we can either take the bus or the train. A : We've got heavy bags, so I'd prefer not to walk too much. B : In that case, (17). It drops us off right in front of the hotel."
+    },
+    {
+      "q": 18,
+      "stem": "空所（18）に入る最も適切なものを選んでください。",
+      "choices": [
+        "another cup of tea",
+        "the creamy one",
+        "two more tacos",
+        "something spicy A : I'm going to have a dinner party this weekend. Do you want to join us? B : That sounds exciting! What are you planning to make? A : Some of my friends (19), so I'm thinking of making vegetable sushi. B : That's interesting. I'm sure you'll need a variety of vegetables for that. A : That's right. Actually, I'm looking for good places to buy them. B : Hmm. How about checking out the farmers' market? You (20), so everything is fresh and delicious. A : That sounds great. I really need to get some fresh avocados and cucumbers. How are the prices? B : They are usually quite low. I think you'll enjoy shopping there."
+      ],
+      "answerIndex": 1,
+      "context": "(18) A : Hello. What can I get for you today? B : Hi. I'd like four beef tacos and a large chicken salad to go, please. A : Sure. For your salad, we have a creamy dressing or a spicy dressing. Which one would you like? B : I don't want my salad to be too hot, so I'll have (18), please."
+    },
+    {
+      "q": 19,
+      "stem": "空所（19）に入る最も適切なものを選んでください。",
+      "choices": [
+        "don't like parties",
+        "don't eat meat or fish",
+        "like to go fishing",
+        "like to eat out"
+      ],
+      "answerIndex": 1,
+      "context": "A : Some of my friends (19), so I'm thinking of making vegetable sushi. B : That's interesting. I'm sure you'll need a variety of vegetables for that. A : That's right. Actually, I'm looking for good places to buy them. B : Hmm. How about checking out the farmers' market? You (20), so everything is fresh and delicious. A : That sounds great. I really need to get some fresh avocados and cucumbers. How are the prices? B : They are usually quite low. I think you'll enjoy shopping there."
+    },
+    {
+      "q": 20,
+      "stem": "空所（20）に入る最も適切なものを選んでください。",
+      "choices": [
+        "are expecting a poor harvest this year",
+        "are working at the farms nearby",
+        "can buy directly from the producers",
+        "can learn how to make sushi rolls"
+      ],
+      "answerIndex": 2,
+      "context": "A : Some of my friends (19), so I'm thinking of making vegetable sushi. B : That's interesting. I'm sure you'll need a variety of vegetables for that. A : That's right. Actually, I'm looking for good places to buy them. B : Hmm. How about checking out the farmers' market? You (20), so everything is fresh and delicious. A : That sounds great. I really need to get some fresh avocados and cucumbers. How are the prices? B : They are usually quite low. I think you'll enjoy shopping there."
+    },
+    {
+      "q": 21,
+      "stem": "空所（21）に入る最も適切なものを選んでください。",
+      "choices": [
+        "When her college called her",
+        "While she was there",
+        "When her family visited her",
+        "When she was in New York"
+      ],
+      "answerIndex": 1,
+      "context": "Grade Pre-2 6 Old Friends Ruby, a college student who lives in New York, is from a small town. She is usually very busy with her studies. And during college vacations, she often stays in the city to spend time with her college friends. One day, she returned to her hometown for the first time in a while. (21), she found out that her childhood friend Alfred's house was no longer there. Later, she heard that his whole family had recently moved out. Ruby and Alfred were childhood friends but had little contact with each other. Ruby felt bad about it, so she decided to contact him to meet. When they met, they (22). They had not seen each other for a long time but did not feel uncomfortable at all. This experience made her realize that her childhood friends were a big part of her life. She also learned that she should care more about her old friends."
+    },
+    {
+      "q": 22,
+      "stem": "空所（22）に入る最も適切なものを選んでください。",
+      "choices": [
+        "had a great time together",
+        "learned making new friends was great",
+        "felt sorry about each other's pets",
+        "found it hard to have conversations"
+      ],
+      "answerIndex": 0,
+      "context": "Grade Pre-2 6 Old Friends Ruby, a college student who lives in New York, is from a small town. She is usually very busy with her studies. And during college vacations, she often stays in the city to spend time with her college friends. One day, she returned to her hometown for the first time in a while. (21), she found out that her childhood friend Alfred's house was no longer there. Later, she heard that his whole family had recently moved out. Ruby and Alfred were childhood friends but had little contact with each other. Ruby felt bad about it, so she decided to contact him to meet. When they met, they (22). They had not seen each other for a long time but did not feel uncomfortable at all. This experience made her realize that her childhood friends were a big part of her life. She also learned that she should care more about her old friends."
+    }
+  ]
+}

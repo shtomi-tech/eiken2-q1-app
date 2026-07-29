@@ -10,6 +10,7 @@ const EikenFreeApp = (function () {
   const sessionPanel = document.getElementById("sessionPanel");
   const STANDARD_SKILLS = [
     { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", description: "意味確認から4択、誤答復習まで。" },
+    { id: "q2", label: "大問2（空所補充）", tag: "CLOZE", description: "本文の流れを確認し、空所に合う語句を選ぶ練習。" },
     { id: "paraphrase", label: "言い換え", tag: "PARAPHRASE", description: "もの・人・場所を別の言い方で説明する練習。" },
     { id: "writing", label: "英作文", tag: "WRITING", description: "型に沿って理由と結論を書き、レビューする練習。" },
     { id: "dictation", label: "リスニング", tag: "LISTENING", description: "音声を聞いて答え、必要な設問を書き取る練習。" },

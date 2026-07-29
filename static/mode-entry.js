@@ -128,6 +128,7 @@ const EikenGradeEntryApp = (function () {
     }
     if (!manifest.q1 || !manifest.q1[q1Id]) return null;
     const grade = gradeFromQ1Id(q1Id);
+    const q2Id = manifest.q2 && manifest.q2[q1Id] ? q1Id : manifest.defaultDatasetId;
     const q3Id = manifest.q3 && manifest.q3[q1Id] ? q1Id : manifest.defaultDatasetId;
     const level = grade === "pre2" ? "p2" : "g2";
     const fallbackRound = q1Id.slice(q1Id.lastIndexOf("-") + 1);
@@ -138,6 +139,7 @@ const EikenGradeEntryApp = (function () {
       grade,
       label: manifest.q1[q1Id].label,
       q1Id,
+      q2Id,
       q3Id,
       dictation: { level, round },
       writingGrade: grade,
@@ -176,6 +178,7 @@ const EikenGradeEntryApp = (function () {
     try {
       localStorage.setItem(PROFILE_KEY, JSON.stringify(nextProfile));
       if (nextProfile.q1Id) localStorage.setItem("eiken_q1_dataset", nextProfile.q1Id);
+      if (nextProfile.q2Id) localStorage.setItem("eiken_q2_dataset", nextProfile.q2Id);
       if (nextProfile.q3Id) localStorage.setItem("eiken_q3_dataset", nextProfile.q3Id);
       if (nextProfile.dictation) localStorage.setItem("eiken_dictation_dataset", JSON.stringify(nextProfile.dictation));
       if (nextProfile.pre1Id) localStorage.setItem("eiken_pre1_round", nextProfile.pre1Id.replace("eikenp1-", ""));
@@ -247,10 +250,11 @@ const EikenGradeEntryApp = (function () {
         ? `<span class="label">現在の設定</span><strong>${escapeHtml(grade.label)}</strong><span>この級の教材を使います。級を変更しても、級ごとの進捗は残ります。</span>`
         : `<span class="label">最初にすること</span><strong>受験する級を選ぶ</strong><span>級を選ぶと、次の進み方を選べます。</span>`;
     };
+    const routeSkillCount = selectedGrade === "pre1" ? "五つ" : "六つ";
 
     homePanel.innerHTML = `<section class="card hero gradeEntryHero">
       <p class="label">CHOOSE GRADE / START HERE</p>
-      <h2>${profile ? `${escapeHtml(selected().label)}の学習を続ける` : "受験する級を選ぶ"}</h2>
+      <h2 id="gradeEntryHeading">${profile ? `${escapeHtml(selected().label)}の学習を続ける` : "受験する級を選ぶ"}</h2>
       <p class="gradeEntryLead">級を決めると、対応する教材と次の学習がそろいます。</p>
       ${renderIdentity()}
     </section>
@@ -265,7 +269,7 @@ const EikenGradeEntryApp = (function () {
         <article class="gradeRouteCard isRecommended">
           <p class="label">RECOMMENDED / SERIAL</p>
           <h3>学習ルート</h3>
-          <p>五つの技能を、前の段階から順番に進めます。途中保存した場所から再開できます。</p>
+          <p id="gradeRouteDescription">${routeSkillCount}の技能を、前の段階から順番に進めます。途中保存した場所から再開できます。</p>
           <button class="cta" type="button" data-route="serial">${routeLabel("serial")}</button>
         </article>
         <article class="gradeRouteCard">
@@ -290,6 +294,10 @@ const EikenGradeEntryApp = (function () {
       });
       const status = document.getElementById("gradeSelectionStatus");
       if (status) status.innerHTML = selectionStatus();
+      const heading = document.getElementById("gradeEntryHeading");
+      if (heading) heading.textContent = `${grade.label}の学習を続ける`;
+      const routeDescription = document.getElementById("gradeRouteDescription");
+      if (routeDescription) routeDescription.textContent = `${selectedGrade === "pre1" ? "五つ" : "六つ"}の技能を、前の段階から順番に進めます。途中保存した場所から再開できます。`;
       homePanel.querySelectorAll("[data-route]").forEach((button) => {
         button.textContent = routeLabel(button.dataset.route);
         button.disabled = !grade;

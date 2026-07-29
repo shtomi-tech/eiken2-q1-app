@@ -22,7 +22,6 @@ const EikenSerialApp = (function () {
       steps: [
         { id: "q1", label: "大問1（語彙）", tag: "VOCABULARY", reason: "2026年度第1回 → 2025年度第3回 → 2025年度第2回の順に、各回を通し・解きなおし・最終チェックまで完了します。" },
         { id: "q2", label: "大問2（空所補充）", tag: "CLOZE", reason: "過去問3回分の本文を読み、空所補充問題を確認します。" },
-        { id: "paraphrase", label: "言い換え", tag: "PARAPHRASE / SUB", reason: "補助練習8問を回答し、自己判定を登録します。過去問3回分の判定対象外です。" },
         { id: "writing", label: "英作文", tag: "WRITING", reason: "過去問3回分を書き、各題の参考解答とレビューを確認します。" },
         { id: "dictation", label: "リスニング", tag: "LISTENING", reason: "過去問3回分の全設問を聞き、解答と書き取りを確認します。" },
         { id: "q3", label: "大問3（長文）", tag: "READING", reason: "過去問3回分の本文・設問・内容整理を完了します。" },
@@ -303,6 +302,11 @@ const EikenSerialApp = (function () {
       nextId: nextRound ? nextRound.id : null,
       nextLabel,
       detail: `${completedRounds} / ${roundIds.length}回・${learnedQuestions} / ${totalQuestions}問${completedRounds === roundIds.length ? "・各回CLEAR" : ""}${resumeDetail}`,
+      rounds: roundSummaries.map((round) => ({
+        id: round.id,
+        label: roundLabel("q1", round.id),
+        status: round.clear ? "done" : round.learned || round.resume || round.reviewCount ? "progress" : "ready",
+      })),
     };
   }
 
@@ -334,6 +338,11 @@ const EikenSerialApp = (function () {
       nextId: nextRound ? nextRound.id : null,
       nextLabel,
       detail: `${completedRounds} / ${roundIds.length}回・${answeredQuestions} / ${totalQuestions}問・正解 ${roundSummaries.reduce((sum, round) => sum + round.correct, 0)}問`,
+      rounds: roundSummaries.map((round) => ({
+        id: round.id,
+        label: roundLabel("q2", round.id),
+        status: round.complete ? "done" : round.answered ? "progress" : "ready",
+      })),
     };
   }
 
@@ -362,6 +371,11 @@ const EikenSerialApp = (function () {
     const roundIds = [...new Set(officialQuestions.map((question) => question.round))].filter(Boolean);
     const completedQuestions = officialQuestions.filter((question) => saved[question.id]).length;
     const completedSummaries = summaryQuestions.filter((question) => saved[question.id]).length;
+    const roundSummaries = roundIds.map((round) => {
+      const roundQuestions = officialQuestions.filter((question) => question.round === round);
+      const completed = roundQuestions.filter((question) => saved[question.id]).length;
+      return { round, completed, total: roundQuestions.length };
+    });
     const completedRounds = roundIds.filter((round) => {
       const roundQuestions = officialQuestions.filter((question) => question.round === round);
       return roundQuestions.length > 0 && roundQuestions.every((question) => saved[question.id]);
@@ -374,6 +388,11 @@ const EikenSerialApp = (function () {
       status: completedRounds === roundIds.length && roundIds.length > 0 ? "done" : completedQuestions ? "progress" : "ready",
       nextLabel: next ? `${next.round}のライティング` : summaryQuestions.some((question) => !saved[question.id]) ? "要約練習を追加で進める" : "全問題をレビュー済み",
       detail: `${completedRounds} / ${roundIds.length}回・英作文 ${completedQuestions} / ${officialQuestions.length}題・要約 ${completedSummaries} / ${summaryQuestions.length}題・下書きは自動保存`,
+      rounds: roundSummaries.map((round) => ({
+        id: round.round,
+        label: round.round,
+        status: round.completed === round.total && round.total > 0 ? "done" : round.completed ? "progress" : "ready",
+      })),
     };
   }
 
@@ -400,6 +419,11 @@ const EikenSerialApp = (function () {
       nextId: nextRound ? nextRound.round : null,
       nextLabel: nextRound ? `${roundLabel("dictation", nextRound.round)}・No. ${next ? next.id : "確認"}を聞く` : "3回分確認済み",
       detail: `${completedRounds} / ${roundIds.length}回・${answered} / ${totalLessons}問・${profile.dictation.level === "g2" ? "2級" : "準2級"}`,
+      rounds: roundSummaries.map((round) => ({
+        id: round.round,
+        label: roundLabel("dictation", round.round),
+        status: round.lessons.length > 0 && round.answered === round.lessons.length ? "done" : round.answered ? "progress" : "ready",
+      })),
     };
   }
 
@@ -442,6 +466,11 @@ const EikenSerialApp = (function () {
       nextId: nextRound ? nextRound.id : null,
       nextLabel,
       detail: `${completedRounds} / ${roundIds.length}回・${completedPassages} / ${totalPassages}本文・${answeredQuestions} / ${totalQuestions}設問`,
+      rounds: roundSummaries.map((round) => ({
+        id: round.id,
+        label: roundLabel("q3", round.id),
+        status: round.passages.length > 0 && round.completePassages === round.passages.length ? "done" : round.answeredQuestions ? "progress" : "ready",
+      })),
     };
   }
 
@@ -449,7 +478,6 @@ const EikenSerialApp = (function () {
     const summariesByStep = {
       q1: q1Summary,
       q2: q2Summary,
-      paraphrase: paraphraseSummary,
       writing: writingSummary,
       dictation: dictationSummary,
       q3: q3Summary,
@@ -581,6 +609,11 @@ const EikenSerialApp = (function () {
       nextId: nextRound ? nextRound.id : null,
       nextLabel,
       detail,
+      rounds: roundSummaries.map((round) => ({
+        id: round.id,
+        label: pre1RoundLabel(round.id),
+        status: round.complete ? "done" : round.stats.done ? "progress" : "ready",
+      })),
     };
   }
 
@@ -600,9 +633,42 @@ const EikenSerialApp = (function () {
   }
 
   function primaryLabel(summary) {
-    if (summary.status === "progress") return "続きから進める";
-    if (summary.status === "ready") return "この段階を始める";
-    return "復習する";
+    if (summary.status === "progress") return summary.nextLabel.includes("続きから")
+      ? summary.nextLabel
+      : `続きから：${summary.nextLabel}`;
+    if (summary.status === "ready") return `開始：${summary.nextLabel || "この段階"}`;
+    return "この技能を復習する";
+  }
+
+  function roundStatusLabel(status) {
+    return status === "done" ? "完了" : status === "progress" ? "途中" : "未着手";
+  }
+
+  function roundStatusChips(summary) {
+    if (!summary.rounds || !summary.rounds.length) return "";
+    const chips = summary.rounds.map((round) => `<span class="serialRoundChip is-${round.status}">
+      <span>${escapeHtml(round.label)}</span><strong>${roundStatusLabel(round.status)}</strong>
+    </span>`).join("");
+    return `<div class="serialRounds" aria-label="過去問の回別進捗"><span class="label">回別進捗</span><div class="serialRoundList">${chips}</div></div>`;
+  }
+
+  function startStep(index) {
+    const steps = currentCourse().steps;
+    const step = steps[index];
+    if (!step) return;
+    const summary = summaries[index];
+    setSerialPreferences(step, summary);
+    window.EikenSerialContext = {
+      active: true,
+      stepId: step.id,
+      roundId: summary.nextId || (profile.grade === "pre1" ? profile.pre1Id.replace("eikenp1-", "") : ""),
+      profileId: profile.id,
+    };
+    if (profile.grade === "pre1") {
+      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { serial: true });
+      return;
+    }
+    if (window.EikenAppRouter) window.EikenAppRouter.open(step.id, { serial: true });
   }
 
   function renderPre1Home() {
@@ -624,6 +690,7 @@ const EikenSerialApp = (function () {
         <h3>${step.label}</h3>
         <p>${escapeHtml(summary.detail || step.reason)}</p>
         <div class="serialStepProgress"><strong>${progress}</strong><span>${escapeHtml(summary.nextLabel)}</span></div>
+        ${summary.complete ? `<button class="ghost serialReviewBtn" type="button" data-serial-review="${index}">この技能を復習する</button>` : ""}
         ${locked ? `<p class="serialLock">前の段階を完了すると解放されます。</p>` : ""}
       </article>`;
     }).join("");
@@ -632,8 +699,9 @@ const EikenSerialApp = (function () {
       <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
       <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
       <p class="serialLead">大問1（語彙） → ライティング → リスニング → 大問2（空所補充） → 大問3（長文）の順に進みます。</p>
-      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span>${allComplete ? "" : `<span class="serialCurrentNext"><span class="label">次の操作</span><strong>${escapeHtml(currentSummary.nextLabel)}</strong></span>`}</div>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
+      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span>${allComplete ? "" : `<span class="serialCurrentNext"><span class="label">次の操作</span><strong>${escapeHtml(currentSummary.nextLabel)}</strong></span>`}</div>
+      ${allComplete ? "" : roundStatusChips(currentSummary)}
       <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
     </section>
     <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>5段階のコース</h2></div><p class="hint">準1級の過去問3回分を、セクションごとに進めます。</p></div><div class="serialStepList">${cards}</div></section>
@@ -642,6 +710,9 @@ const EikenSerialApp = (function () {
     document.getElementById("serialStartBtn").addEventListener("click", () => {
       if (allComplete) currentStepIndex = 0;
       startCurrent();
+    });
+    homePanel.querySelectorAll("[data-serial-review]").forEach((button) => {
+      button.addEventListener("click", () => startStep(Number(button.dataset.serialReview)));
     });
     document.getElementById("serialFreeBtn").addEventListener("click", () => {
       if (window.EikenAppRouter) window.EikenAppRouter.open("free");
@@ -695,25 +766,7 @@ const EikenSerialApp = (function () {
     return activeProfile;
   }
 
-  function startCurrent() {
-    const steps = currentCourse().steps;
-    const step = steps[currentStepIndex];
-    if (!step) return;
-    const summary = summaries[currentStepIndex];
-    setSerialPreferences(step, summary);
-    if (profile.grade === "pre1") {
-      window.EikenSerialContext = {
-        active: true,
-        stepId: step.id,
-        roundId: summary.nextId || profile.pre1Id.replace("eikenp1-", ""),
-        profileId: profile.id,
-      };
-      if (window.EikenAppRouter) window.EikenAppRouter.open("pre1", { serial: true });
-      return;
-    }
-    window.EikenSerialContext = { active: true, stepId: step.id, profileId: profile.id };
-    if (window.EikenAppRouter) window.EikenAppRouter.open(step.id, { serial: true });
-  }
+  function startCurrent() { startStep(currentStepIndex); }
 
   function renderHome() {
     if (profile && profile.grade === "pre1") return renderPre1Home();
@@ -742,17 +795,21 @@ const EikenSerialApp = (function () {
     homePanel.innerHTML = `<section class="card hero serialHero">
       <p class="label">SERIAL COURSE / ${escapeHtml(profile.label)}</p>
       <h2>${allComplete ? "直列コースを完了しました" : `${current.label}を進める`}</h2>
-      <p class="serialLead">大問1（3回分） → 大問2（3回分） → 言い換え（補助） → 英作文（3回分） → リスニング（3回分） → 大問3（3回分）の順に進みます。</p>
-      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span>${allComplete ? "" : `<span class="serialCurrentNext"><span class="label">次の操作</span><strong>${escapeHtml(currentSummary.nextLabel)}</strong></span>`}</div>
+      <p class="serialLead">大問1（3回分） → 大問2（3回分） → 英作文（3回分） → リスニング（3回分） → 大問3（3回分）の順に進みます。</p>
       <div class="actions"><button class="cta serialPrimary" type="button" id="serialStartBtn">${allComplete ? "大問1から復習する" : primaryLabel(currentSummary)}</button></div>
+      <div class="serialCurrent"><span class="label">${allComplete ? "コース完了" : "現在の学習"}</span><strong>${allComplete ? "最初から復習できます" : current.label}</strong><span>${escapeHtml(allComplete ? "記録は残したまま、各段階を復習できます。" : currentSummary.detail)}</span>${allComplete ? "" : `<span class="serialCurrentNext"><span class="label">次の操作</span><strong>${escapeHtml(currentSummary.nextLabel)}</strong></span>`}</div>
+      ${allComplete ? "" : roundStatusChips(currentSummary)}
       <div class="serialModeLinks"><button class="ghost" type="button" id="serialFreeBtn">自由演習へ</button><button class="ghost" type="button" id="serialGradeBtn">級を変更</button></div>
     </section>
-    <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>6段階のコース</h2></div><p class="hint">大問1・2、英作文、リスニング、大問3は過去問3回分。言い換えは補助練習です。</p></div><div class="serialStepList">${cards}</div></section>
+    <section class="card serialPathCard"><div class="sectionHead"><div><p class="label">学習順</p><h2>5段階のコース</h2></div><p class="hint">大問1・2、英作文、リスニング、大問3を過去問3回分ずつ進めます。言い換えは追加練習です。</p></div><div class="serialStepList">${cards}</div></section>
     <section class="card serialNote"><p class="label">保存について</p><p>各回の回答・下書き・途中位置は、これまでどおり回ごとの保存領域に記録されます。主要パートは3回分が完了するまで次の段階へ進みません。</p></section>`;
 
     document.getElementById("serialStartBtn").addEventListener("click", () => {
       if (allComplete) currentStepIndex = 0;
       startCurrent();
+    });
+    homePanel.querySelectorAll("[data-serial-review]").forEach((button) => {
+      button.addEventListener("click", () => startStep(Number(button.dataset.serialReview)));
     });
     document.getElementById("serialFreeBtn").addEventListener("click", () => {
       if (window.EikenAppRouter) window.EikenAppRouter.open("free");

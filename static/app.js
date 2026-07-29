@@ -16,10 +16,11 @@ const APPS = [
   { id: "pre1-listening", tag: "04 / 音声", label: "リスニング", title: "英検準1級 リスニング", skill: true, pre1Skill: true, mount: () => EikenPre1App.mountSection("listening"), handleKey: (e) => EikenPre1App.handleKey(e) },
   { id: "pre1-reading3", tag: "05 / 長文", label: "大問3（長文）", title: "英検準1級 大問3（長文）", skill: true, pre1Skill: true, mount: () => EikenPre1App.mountSection("reading3"), handleKey: (e) => EikenPre1App.handleKey(e) },
   { id: "q1", tag: "01 / 語彙", label: "大問1（語彙）", title: "英検 大問1 単語アプリ", skill: true, mount: () => EikenQ1App.mount(), handleKey: (e) => EikenQ1App.handleKey(e), startSerial: () => EikenQ1App.startSerial() },
-  { id: "paraphrase", tag: "02 / 型", label: "言い換え", title: "英作文 言い換え練習", skill: true, mount: () => EikenParaphraseApp.mount(), handleKey: (e) => EikenParaphraseApp.handleKey(e), startSerial: () => EikenParaphraseApp.startSerial() },
-  { id: "writing", tag: "03 / 構成", label: "英作文", title: "英検 英作文アプリ", skill: true, mount: () => EikenWritingApp.mount(), handleKey: (e) => EikenWritingApp.handleKey(e), startSerial: () => EikenWritingApp.startSerial() },
-  { id: "dictation", tag: "04 / 音声", label: "リスニング", title: "英検 リスニング・ディクテーション", skill: true, mount: () => EikenDictationApp.mount(), handleKey: (e) => EikenDictationApp.handleKey(e), startSerial: () => EikenDictationApp.startSerial() },
-  { id: "q3", tag: "05 / 長文", label: "大問3（長文）", title: "英検 大問3 演習アプリ", skill: true, mount: () => EikenQ3App.mount(), handleKey: (e) => EikenQ3App.handleKey(e), startSerial: () => EikenQ3App.startSerial() },
+  { id: "q2", tag: "02 / 空所", label: "大問2（空所補充）", title: "英検 大問2（空所補充）演習", skill: true, mount: () => EikenQ2App.mount(), handleKey: (e) => EikenQ2App.handleKey(e) },
+  { id: "paraphrase", tag: "03 / 型", label: "言い換え", title: "英作文 言い換え練習", skill: true, mount: () => EikenParaphraseApp.mount(), handleKey: (e) => EikenParaphraseApp.handleKey(e), startSerial: () => EikenParaphraseApp.startSerial() },
+  { id: "writing", tag: "04 / 構成", label: "英作文", title: "英検 英作文アプリ", skill: true, mount: () => EikenWritingApp.mount(), handleKey: (e) => EikenWritingApp.handleKey(e), startSerial: () => EikenWritingApp.startSerial() },
+  { id: "dictation", tag: "05 / 音声", label: "リスニング", title: "英検 リスニング・ディクテーション", skill: true, mount: () => EikenDictationApp.mount(), handleKey: (e) => EikenDictationApp.handleKey(e), startSerial: () => EikenDictationApp.startSerial() },
+  { id: "q3", tag: "06 / 長文", label: "大問3（長文）", title: "英検 大問3 演習アプリ", skill: true, mount: () => EikenQ3App.mount(), handleKey: (e) => EikenQ3App.handleKey(e), startSerial: () => EikenQ3App.startSerial() },
 ];
 const ACTIVE_APP_KEY = "eiken_active_app";
 const ACTIVE_PATH_KEY = "eiken_active_path";

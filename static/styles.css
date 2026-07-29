@@ -291,6 +291,31 @@ h2 {
   }
 }
 
+/* ---- 大問2（空所補充） ---- */
+.q2Home,
+.q2Session { max-width: 1080px; margin: 0 auto; }
+.q2Hero { padding: 24px; }
+.q2HomeControls { display: flex; align-items: end; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+.q2HomeControls .datasetPicker { min-width: 260px; }
+.q2HomeControls .cta { min-height: 44px; }
+.q2RoundCard { margin-top: 16px; }
+.q2ProgressBadge { color: var(--clay); font-family: var(--mono); font-size: 12px; }
+.q2QuestionList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.q2QuestionLink { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 48px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--parchment); color: var(--ink); padding: 10px 12px; text-align: left; }
+.q2QuestionLink:hover { border-color: var(--ink); }
+.q2QuestionLink strong { color: var(--muted); font-family: var(--mono); font-size: 10px; font-weight: 500; }
+.q2Passage { max-height: 360px; overflow: auto; }
+.q2Passage p:last-child { white-space: normal; }
+.q2Session { padding-bottom: 28px; }
+.q2Session .choices { display: grid; gap: 12px; margin-bottom: 16px; }
+.q2Session .choiceBtn { display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; }
+.q2Session .choiceBtn:disabled { opacity: 1; cursor: default; }
+@media (max-width: 700px) {
+  .q2QuestionList { grid-template-columns: 1fr; }
+  .q2HomeControls .datasetPicker { width: 100%; }
+  .q2HomeControls .cta { width: 100%; }
+}
+
 /* ---- 準1級：過去問モード ---- */
 .pre1Home,
 .pre1Session { max-width: 1080px; margin: 0 auto; }
@@ -463,6 +488,16 @@ h2 {
 .serialCurrent > span:last-child { color: rgba(250, 249, 246, .72); font-size: 13px; }
 .serialCurrentNext { display: grid; gap: 3px; margin-top: 8px; border-top: 1px solid rgba(250, 249, 246, .2); padding-top: 8px; }
 .serialCurrentNext strong { color: var(--parchment); font-family: var(--mono); font-size: 13px; font-weight: 500; line-height: 1.5; }
+.serialRounds { display: grid; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(250, 249, 246, .2); }
+.serialRounds > .label { margin: 0; color: rgba(250, 249, 246, .72); }
+.serialRoundList { display: flex; gap: 8px; flex-wrap: wrap; }
+.serialRoundChip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; border: 1px solid rgba(250, 249, 246, .32); border-radius: var(--r-pill); padding: 6px 10px; color: var(--parchment); font-size: 12px; }
+.serialRoundChip strong { font-family: var(--mono); font-size: 10px; font-weight: 500; }
+.serialRoundChip.is-done { border-color: var(--ok); }
+.serialRoundChip.is-done strong { color: #8fe0a8; }
+.serialRoundChip.is-progress { border-color: var(--clay); }
+.serialRoundChip.is-progress strong { color: #f0b49f; }
+.serialRoundChip.is-ready strong { color: rgba(250, 249, 246, .72); }
 .serialPrimary { margin-top: 18px; background: var(--parchment); color: var(--ink); }
 .serialPrimary:hover:not(:disabled) { background: var(--surface-strong); }
 .serialStepList { display: grid; gap: 12px; }
@@ -479,6 +514,7 @@ h2 {
 .serialStepProgress { display: flex; align-items: baseline; gap: 10px; margin-top: 12px; }
 .serialStepProgress strong { font-family: var(--serif); font-size: 25px; line-height: 1; }
 .serialStepProgress span { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.serialReviewBtn { margin-top: 12px; }
 .serialLock { margin-top: 10px !important; color: var(--clay) !important; }
 .serialNote { border-left: 4px solid var(--line); }
 .serialNote p:last-child { margin: 0; color: var(--muted); font-size: 13px; }
