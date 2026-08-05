@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "2025-2",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "英検公式の過去問PDFを、許諾のもと大問1だけ学習用JSONへ構造化",
+    "source_problem_url": "https://www.eiken.or.jp/eiken/exam/kakomon/2025-2-1ji-1kyu.pdf",
+    "source_answer_url": "https://www.eiken.or.jp/eiken/result/pdf/202502F1kyu.pdf",
+    "counts": {
+      "words": 72,
+      "idioms": 16,
+      "total": 88
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "The company accountant was arrested for ( ) after it was discovered she had stolen almost a million dollars from the company over five years.",
+      "choices": [
+        "embezzlement",
+        "notoriety",
+        "fortitude",
+        "cessation"
+      ],
+      "answerIndex": 0,
+      "translation": "会社の会計担当者は、5年間で会社から約100万ドルを盗んだことが発覚し、横領で逮捕された。"
+    },
+    {
+      "q": 2,
+      "stem": "The film has received much ( ) for its excellent storytelling and its cinematic beauty. In fact, it has already won two major awards.",
+      "choices": [
+        "clatter",
+        "acclaim",
+        "bigotry",
+        "dogma"
+      ],
+      "answerIndex": 1,
+      "translation": "その映画は優れた物語と映像美で大きな称賛を受け、すでに主要な賞を2つ獲得している。"
+    },
+    {
+      "q": 3,
+      "stem": "It was widely known that the government was ( ) with corruption. It was common for officials to demand money before performing even the simplest of services.",
+      "choices": [
+        "gaunt",
+        "meager",
+        "rife",
+        "virile"
+      ],
+      "answerIndex": 2,
+      "translation": "政府が汚職にまみれていることは広く知られていた。役人が最も簡単なサービスを行う前にも金を要求するのが普通だった。"
+    },
+    {
+      "q": 4,
+      "stem": "While one might expect to be tired following a workout, many people find that they actually feel ( ) after moderate exercise.",
+      "choices": [
+        "invigorated",
+        "provincial",
+        "contiguous",
+        "tenuous"
+      ],
+      "answerIndex": 0,
+      "translation": "運動後は疲れると思うかもしれないが、適度な運動の後は実際には元気になったと感じる人が多い。"
+    },
+    {
+      "q": 5,
+      "stem": "Leilani thought it was useless to ( ) her current financial situation, so instead of complaining, she decided to look for a higherpaying job.",
+      "choices": [
+        "collate",
+        "revoke",
+        "bemoan",
+        "thwart"
+      ],
+      "answerIndex": 2,
+      "translation": "レイラニは現在の経済状況を嘆いても無駄だと思い、愚痴を言う代わりに、もっと給料の高い仕事を探すことにした。"
+    },
+    {
+      "q": 6,
+      "stem": "After two workers were injured on the job, safety took on ( ) importance at the factory. Huge sums of money were spent to ensure all the latest safety standards were met.",
+      "choices": [
+        "paramount",
+        "haphazard",
+        "pristine",
+        "heedless"
+      ],
+      "answerIndex": 0,
+      "translation": "2人の作業員が仕事中にけがをした後、工場では安全が最重要になった。最新の安全基準を満たすため多額の費用が使われた。"
+    },
+    {
+      "q": 7,
+      "stem": "Although Jackie's parents ( ) her not to quit school, Jackie ignored them and began working as a yoga instructor.",
+      "choices": [
+        "implored",
+        "purged",
+        "reverted",
+        "grafted"
+      ],
+      "answerIndex": 0,
+      "translation": "ジャッキーの両親は学校を辞めないよう彼女に懇願したが、彼女は聞かず、ヨガ講師として働き始めた。"
+    },
+    {
+      "q": 8,
+      "stem": "Although he feared the champion, the boxer made a show of ( ) at the media conference by saying he would knock him out in the first round.",
+      "choices": [
+        "demeanor",
+        "discretion",
+        "congeniality",
+        "bravado"
+      ],
+      "answerIndex": 3,
+      "translation": "王者を恐れていたが、そのボクサーは記者会見で第1ラウンドに相手を倒すと言い、強がってみせた。"
+    },
+    {
+      "q": 9,
+      "stem": "The bank's hightech safedeposit boxes are thought to be ( ). \"We are 100 percent confident no one can break into the boxes to steal our customers' valuables,\" said the manager.",
+      "choices": [
+        "enervating",
+        "jarring",
+        "impregnable",
+        "precocious"
+      ],
+      "answerIndex": 2,
+      "translation": "銀行のハイテク金庫は、侵入して顧客の貴重品を盗むことができないと考えられている。"
+    },
+    {
+      "q": 10,
+      "stem": "Astronauts bravely risk their lives in order to explore space. The reward for these ( ) people, though, is a view unlike any other.",
+      "choices": [
+        "diminutive",
+        "superficial",
+        "tedious",
+        "intrepid"
+      ],
+      "answerIndex": 3,
+      "translation": "宇宙飛行士は宇宙探査のため勇敢に命をかける。その勇敢な人々への報酬は、他にない景色である。"
+    },
+    {
+      "q": 11,
+      "stem": "After being ( ) for nearly a decade, it was difficult for Brian to adjust to life outside of prison.",
+      "choices": [
+        "proclaimed",
+        "quenched",
+        "incarcerated",
+        "synthesized"
+      ],
+      "answerIndex": 2,
+      "translation": "10年近く投獄されていたため、ブライアンは刑務所の外の生活に慣れるのが難しかった。"
+    },
+    {
+      "q": 12,
+      "stem": "Relations between the two countries are in a state of ( ), and neither side is willing to sit down to work out a solution.",
+      "choices": [
+        "discord",
+        "heresy",
+        "credence",
+        "germination"
+      ],
+      "answerIndex": 0,
+      "translation": "両国の関係は不和の状態にあり、どちらの側も解決策を話し合うために席に着こうとしない。"
+    },
+    {
+      "q": 13,
+      "stem": "The politician was caught on camera attempting to pay off a reporter ( ). He thought no one would see him, but the camera's zoom lens revealed everything.",
+      "choices": [
+        "deferentially",
+        "sequentially",
+        "slenderly",
+        "discreetly"
+      ],
+      "answerIndex": 3,
+      "translation": "その政治家は記者に賄賂を渡そうとしているところを、目立たないように撮影されていた。"
+    },
+    {
+      "q": 14,
+      "stem": "A: Have you received the ( ) of tools we ordered? B: No, but the supplier says it should arrive within the week.",
+      "choices": [
+        "liaison",
+        "entreaty",
+        "levity",
+        "consignment"
+      ],
+      "answerIndex": 3,
+      "translation": "注文した道具の一式は届いたか。まだだが、仕入れ先は週内に届くはずだと言っている。"
+    },
+    {
+      "q": 15,
+      "stem": "The candidate's campaign was undermined by the ( ) of her character through persistent rumors and lies spread by her opponents.",
+      "choices": [
+        "buttressing",
+        "assassination",
+        "digression",
+        "coup"
+      ],
+      "answerIndex": 1,
+      "translation": "候補者の選挙運動は、対立候補が広めたうわさや嘘による人格攻撃で弱体化した。"
+    },
+    {
+      "q": 16,
+      "stem": "The journalist was fired for publishing ( ) articles. His claims were often based on little to no evidence.",
+      "choices": [
+        "spurious",
+        "ailing",
+        "overt",
+        "magnanimous"
+      ],
+      "answerIndex": 0,
+      "translation": "そのジャーナリストは根拠がほとんどない主張をする、根拠のない記事を発表したため解雇された。"
+    },
+    {
+      "q": 17,
+      "stem": "A: I can't believe I was ( ) into buying such a bad car. It was a total waste of money! B: I told you to get a second opinion before making the purchase.",
+      "choices": [
+        "jilted",
+        "duped",
+        "slanted",
+        "scampered"
+      ],
+      "answerIndex": 1,
+      "translation": "そんなにひどい車を買うようだまされたなんて信じられない。まったくお金の無駄だった。"
+    },
+    {
+      "q": 18,
+      "stem": "When the man lost his job, he had no choice but to ( ) his watch. It was a lastditch effort to raise enough money to pay his rent.",
+      "choices": [
+        "scrawl",
+        "percolate",
+        "pawn",
+        "sully"
+      ],
+      "answerIndex": 2,
+      "translation": "その男性は仕事を失うと、家賃を払うためのお金を何とか作る最後の手段として、時計を質に入れるしかなかった。"
+    },
+    {
+      "q": 19,
+      "stem": "With the final exams just a month away, now is the time for students to ( ) and study hard. There will be plenty of time for relaxation after school is finished.",
+      "choices": [
+        "pony up",
+        "buckle down",
+        "foul up",
+        "cast down"
+      ],
+      "answerIndex": 1,
+      "translation": "期末試験まであと1か月なので、今こそ本腰を入れて一生懸命勉強するときだ。学校が終われば休む時間はたくさんある。"
+    },
+    {
+      "q": 20,
+      "stem": "An increase in drunk drivers has caused police to ( ). They are setting up roadblocks and giving random breath tests.",
+      "choices": [
+        "breeze in",
+        "branch off",
+        "crack down",
+        "lop off"
+      ],
+      "answerIndex": 2,
+      "translation": "飲酒運転の増加を受け、警察は厳しい取り締まりを始めた。道路封鎖を行い、無作為の呼気検査をしている。"
+    },
+    {
+      "q": 21,
+      "stem": "When his friend from another town suddenly arrived, Rick had to ( ) some food and drink quickly. Luckily, he had some snacks and soda in his refrigerator.",
+      "choices": [
+        "dwell on",
+        "reel off",
+        "rustle up",
+        "haul off"
+      ],
+      "answerIndex": 2,
+      "translation": "別の町に住む友人が突然来たので、リックは急いで食べ物と飲み物を用意しなければならなかった。幸い冷蔵庫に軽食とソーダがあった。"
+    },
+    {
+      "q": 22,
+      "stem": "When unexpected problems ( ), it is important to remain calm and think logically about how to solve them.",
+      "choices": [
+        "fritter away",
+        "rip off",
+        "sound off",
+        "crop up"
+      ],
+      "answerIndex": 3,
+      "translation": "予期しない問題が起きたときは、落ち着いて論理的に解決方法を考えることが重要だ。"
+    }
+  ]
+}

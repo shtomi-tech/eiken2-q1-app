@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "2025-3",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "英検公式の過去問PDFを、許諾のもと大問1だけ学習用JSONへ構造化",
+    "source_problem_url": "https://www.eiken.or.jp/eiken/exam/kakomon/2025-3-1ji-1kyu.pdf",
+    "source_answer_url": "https://www.eiken.or.jp/eiken/result/pdf/202503F1kyu.pdf",
+    "counts": {
+      "words": 72,
+      "idioms": 16,
+      "total": 88
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "A: I think our biggest mistake was employing so many new staff four years ago. B: Yes, in ( ) we can say that, but at the time it seemed important to expand the workforce.",
+      "choices": [
+        "backlog",
+        "upheaval",
+        "outreach",
+        "hindsight"
+      ],
+      "answerIndex": 3,
+      "translation": "4年前にあれほど多くの新職員を採用したのが最大の間違いだった。後知恵ではそう言えるが、当時は人員を増やすことが重要に思えた。"
+    },
+    {
+      "q": 2,
+      "stem": "Jacinda's golf club membership was ( ) after she failed to pay her annual fees.",
+      "choices": [
+        "appeased",
+        "expounded",
+        "peddled",
+        "rescinded"
+      ],
+      "answerIndex": 3,
+      "translation": "ジャシンダは年会費を払わなかったため、ゴルフクラブの会員資格を取り消された。"
+    },
+    {
+      "q": 3,
+      "stem": "A: I hear you started your own consulting company, Matt. Is it difficult to compete with the big corporations? B: It was until we found our ( ) in the market. Now we offer services that no one else provides.",
+      "choices": [
+        "grime",
+        "ridge",
+        "glaze",
+        "niche"
+      ],
+      "answerIndex": 3,
+      "translation": "大企業と競争するのは難しかったが、市場の隙間を見つけた。今では他社が提供していないサービスを提供している。"
+    },
+    {
+      "q": 4,
+      "stem": "Suzanne had a high fever when her flight arrived in Japan. She was kept in ( ) at the airport until the authorities were certain she was not carrying a dangerous virus.",
+      "choices": [
+        "posterity",
+        "quarantine",
+        "tempest",
+        "saturation"
+      ],
+      "answerIndex": 1,
+      "translation": "スザンヌは日本に到着したとき高熱があり、危険なウイルスを持っていないと当局が確認するまで空港で隔離された。"
+    },
+    {
+      "q": 5,
+      "stem": "The troops crossed over into enemy territory just after sunset. The ( ) happened so swiftly that the defenders were completely overrun within hours.",
+      "choices": [
+        "incursion",
+        "grievance",
+        "enigma",
+        "query"
+      ],
+      "answerIndex": 0,
+      "translation": "軍隊は日没直後に敵の領土へ越境した。その侵入は非常に速く、守備側は数時間で圧倒された。"
+    },
+    {
+      "q": 6,
+      "stem": "Despite the ( ) praise of many top critics, the film was unpopular with general audiences.",
+      "choices": [
+        "fastidious",
+        "exuberant",
+        "unassuming",
+        "anonymous"
+      ],
+      "answerIndex": 1,
+      "translation": "多くの一流評論家が熱烈に称賛したにもかかわらず、その映画は一般観客には不評だった。"
+    },
+    {
+      "q": 7,
+      "stem": "The extreme heat and humidity caused the hikers to move ( ) as they trekked through the jungle. In the end, they were barely able to keep walking.",
+      "choices": [
+        "brusquely",
+        "surreptitiously",
+        "cordially",
+        "ploddingly"
+      ],
+      "answerIndex": 3,
+      "translation": "極端な暑さと湿気のため、ハイカーたちはジャングルをのろのろと進んだ。最後には歩き続けるのもやっとだった。"
+    },
+    {
+      "q": 8,
+      "stem": "Firefighters routinely put their lives in ( ) when responding to calls for help. They risk injury or death on a regular basis.",
+      "choices": [
+        "impasse",
+        "contempt",
+        "jeopardy",
+        "futility"
+      ],
+      "answerIndex": 2,
+      "translation": "消防士は救助要請に応じる際、日常的に命を危険にさらしている。けがや死亡の危険をいつも負っている。"
+    },
+    {
+      "q": 9,
+      "stem": "The three lost hikers were extremely hungry when they were rescued in the mountains. They had run out of ( ) two days before and had eaten nothing since then.",
+      "choices": [
+        "plantations",
+        "sockets",
+        "provisions",
+        "ventures"
+      ],
+      "answerIndex": 2,
+      "translation": "迷子になった3人のハイカーは、山で救助されたとき極度に空腹だった。2日前に食料が尽き、それ以来何も食べていなかった。"
+    },
+    {
+      "q": 10,
+      "stem": "Gretchen took her grandmother's necklace to a jeweler to have it ( ). She was surprised to find out that it was worth over $3,000.",
+      "choices": [
+        "percolated",
+        "contorted",
+        "tarnished",
+        "appraised"
+      ],
+      "answerIndex": 3,
+      "translation": "グレッチェンは祖母のネックレスを宝石商に持っていき、価値を査定してもらった。3000ドル以上の価値があると知って驚いた。"
+    },
+    {
+      "q": 11,
+      "stem": "At first, the boy's parents had to ( ) him into riding the roller coaster because he was scared. After the first ride, though, he wanted to go on again and again.",
+      "choices": [
+        "buttress",
+        "cajole",
+        "redeem",
+        "gratify"
+      ],
+      "answerIndex": 1,
+      "translation": "少年の両親は、怖がっていた彼を最初はジェットコースターに乗るよう説得しなければならなかった。最初の乗車後、彼は何度も乗りたがった。"
+    },
+    {
+      "q": 12,
+      "stem": "Professor Baldwin quickly tired of the ( ) comments from one of her students. They made it difficult to maintain a serious atmosphere in the classroom.",
+      "choices": [
+        "translucent",
+        "fortuitous",
+        "inane",
+        "pampered"
+      ],
+      "answerIndex": 2,
+      "translation": "ボールドウィン教授は、学生の一人のばかげた発言にすぐ飽きた。その発言のせいで授業の真剣な雰囲気を保てなかった。"
+    },
+    {
+      "q": 13,
+      "stem": "The politician tried to ( ) control of the party from the leader, but the attempt failed, and he was forced to resign.",
+      "choices": [
+        "scamper",
+        "wrest",
+        "peek",
+        "belittle"
+      ],
+      "answerIndex": 1,
+      "translation": "その政治家は党の指導者から主導権を奪おうとしたが失敗し、辞任を余儀なくされた。"
+    },
+    {
+      "q": 14,
+      "stem": "The board's ( ) approval of the CEO's plan became clear when the members did not say anything against it at the following meeting.",
+      "choices": [
+        "rotund",
+        "malevolent",
+        "ascetic",
+        "tacit"
+      ],
+      "answerIndex": 3,
+      "translation": "理事会が次の会議で反対意見を何も言わなかったことから、CEOの計画を暗黙に承認していたことが明らかになった。"
+    },
+    {
+      "q": 15,
+      "stem": "With a focus on ( ) lines, the architect used long, narrow windows to create a tall, slender appearance for the building.",
+      "choices": [
+        "vertical",
+        "intangible",
+        "squeamish",
+        "enraptured"
+      ],
+      "answerIndex": 0,
+      "translation": "建築家は垂直の線を重視し、長く細い窓を使って建物を高く細身に見せた。"
+    },
+    {
+      "q": 16,
+      "stem": "A: This house looks ( ). B: Yes, it's in very bad condition. It's been empty for years.",
+      "choices": [
+        "lanky",
+        "vivacious",
+        "mutinous",
+        "dilapidated"
+      ],
+      "answerIndex": 3,
+      "translation": "この家は荒廃しているように見える。そう、非常に悪い状態だ。何年も空き家になっている。"
+    },
+    {
+      "q": 17,
+      "stem": "The ( ) comments made by the film critic upset the director. She felt that his harsh remarks about the acting and script were unfair.",
+      "choices": [
+        "caustic",
+        "ticklish",
+        "subversive",
+        "impromptu"
+      ],
+      "answerIndex": 0,
+      "translation": "映画評論家の辛辣な発言は監督を怒らせた。監督は演技と脚本への厳しい批評が不公平だと感じた。"
+    },
+    {
+      "q": 18,
+      "stem": "The politician's comments on social issues have ( ) a large number of voters. He is now working hard to change their negative opinion of him.",
+      "choices": [
+        "repulsed",
+        "extolled",
+        "conciliated",
+        "bungled"
+      ],
+      "answerIndex": 0,
+      "translation": "その政治家の社会問題についての発言は、多くの有権者に反感を抱かせた。彼は今、彼らの悪い印象を変えようと懸命に働いている。"
+    },
+    {
+      "q": 19,
+      "stem": "The man was so tired that he could not help but ( ) during the meeting, even though he did his best to stay awake.",
+      "choices": [
+        "nod off",
+        "pipe down",
+        "drone on",
+        "crank out"
+      ],
+      "answerIndex": 0,
+      "translation": "その男性はとても疲れていたので、眠らないよう努力したにもかかわらず、会議中にうとうとせずにはいられなかった。"
+    },
+    {
+      "q": 20,
+      "stem": "The man refused to ( ) to his crime. Even when the police showed him video footage of himself committing it, he still denied it.",
+      "choices": [
+        "tail off",
+        "patch up",
+        "choke off",
+        "own up"
+      ],
+      "answerIndex": 3,
+      "translation": "その男性は自分の犯罪を認めようとしなかった。警察が犯行中の映像を見せても、否定し続けた。"
+    },
+    {
+      "q": 21,
+      "stem": "Many Japanese companies ( ) the work of making parts to small, familyowned manufacturing shops rather than doing it themselves. Distributing work in this way makes production much more efficient.",
+      "choices": [
+        "hush up",
+        "get behind",
+        "plug in",
+        "farm out"
+      ],
+      "answerIndex": 3,
+      "translation": "多くの日本企業は、部品製造の仕事を自社で行わず、小規模な家族経営の工場に外注している。仕事を分散すると生産が効率化する。"
+    },
+    {
+      "q": 22,
+      "stem": "Jeremy's parents encouraged him to explore other career options in case his dream of becoming a professional baseball player did not ( ).",
+      "choices": [
+        "sit by",
+        "dive in",
+        "strike back",
+        "pan out"
+      ],
+      "answerIndex": 3,
+      "translation": "ジェレミーの両親は、プロ野球選手になる夢が実現しなかった場合に備え、他の職業も探すよう勧めた。"
+    }
+  ]
+}

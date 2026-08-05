@@ -1,4 +1,4 @@
-"""Q1用9データセットの最低限の契約を検証する。"""
+"""Q1用12データセットの最低限の契約を検証する。"""
 
 from __future__ import annotations
 
@@ -13,6 +13,7 @@ EXPECTED_IDS = {
     *(f"eiken2-{round_id}" for round_id in ("2026-1", "2025-3", "2025-2")),
     *(f"eikenp2-{round_id}" for round_id in ("2026-1", "2025-3", "2025-2")),
     *(f"eikenp1-{round_id}" for round_id in ("2026-1", "2025-3", "2025-2")),
+    *(f"eiken1-{round_id}" for round_id in ("2026-1", "2025-3", "2025-2")),
 }
 
 

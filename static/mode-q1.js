@@ -650,7 +650,7 @@ function renderHome() {
     home.appendChild(el("section", { class: "card hero" },
       el("p", { class: "label" }, "学習の流れ"),
       el("h2", {}, "大問1の語句を「覚えてから解く」"),
-      el("p", { class: "hint" }, "各設問の4つの選択肢を、意味・語源・例文で覚える → 意味チェック → 本番形式で解く、の3ステップ。"),
+      el("p", { class: "hint" }, "各設問の4つの選択肢を、意味・補足情報で覚える → 意味チェック → 本番形式で解く、の3ステップ。"),
     ));
   }
 

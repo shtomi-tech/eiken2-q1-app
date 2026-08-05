@@ -1,0 +1,563 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "2026-1",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "英検公式の過去問PDFを、許諾のもと大問1だけ学習用JSONへ構造化",
+    "source_problem_url": "https://www.eiken.or.jp/eiken/exam/kakomon/2026-1-1ji-1kyu.pdf",
+    "source_answer_url": "https://www.eiken.or.jp/eiken/result/pdf/202601F1kyu.pdf",
+    "counts": {
+      "words": 72,
+      "idioms": 16,
+      "total": 88
+    }
+  },
+  "words": [
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "統合した、固めた",
+      "word": "consolidated"
+    },
+    {
+      "q": 1,
+      "is_answer": true,
+      "meaning": "言葉を濁した、曖昧に答えた",
+      "word": "equivocated"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "軽減した、和らげた",
+      "word": "alleviated"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "発した、発生した",
+      "word": "emanated"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "ぶつぶつ言う",
+      "word": "mutter"
+    },
+    {
+      "q": 2,
+      "is_answer": true,
+      "meaning": "強化する、支える",
+      "word": "bolster"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "嘆く、悲しむ",
+      "word": "lament"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "つばぜり合いをする、軽く争う",
+      "word": "spar"
+    },
+    {
+      "q": 3,
+      "is_answer": true,
+      "meaning": "延期する",
+      "word": "defer"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "明らかにする、解明する",
+      "word": "elucidate"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "求める、懇願する",
+      "word": "solicit"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "消散させる、浪費する",
+      "word": "dissipate"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "苦しみ、苦痛",
+      "word": "torments"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "路上演奏者",
+      "word": "buskers"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "名残、痕跡",
+      "word": "vestiges"
+    },
+    {
+      "q": 4,
+      "is_answer": true,
+      "meaning": "使節",
+      "word": "envoys"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "手先、道化役",
+      "word": "stooge"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "地球外の、宇宙人",
+      "word": "extraterrestrial"
+    },
+    {
+      "q": 5,
+      "is_answer": true,
+      "meaning": "現職者",
+      "word": "incumbent"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "巡礼者",
+      "word": "pilgrim"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "固有の、本来備わった",
+      "word": "inherent"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "風変わりな",
+      "word": "eccentric"
+    },
+    {
+      "q": 6,
+      "is_answer": true,
+      "meaning": "幸先のよい、縁起のよい",
+      "word": "auspicious"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "装飾過多の",
+      "word": "ornate"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "関係のある、適切な",
+      "word": "pertinent"
+    },
+    {
+      "q": 7,
+      "is_answer": true,
+      "meaning": "深く後悔した、悔恨の",
+      "word": "contrite"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "疑わしい",
+      "word": "dubious"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "もうかる",
+      "word": "lucrative"
+    },
+    {
+      "q": 8,
+      "is_answer": true,
+      "meaning": "完全に破壊された、消し去られた",
+      "word": "obliterated"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "でっち上げた、調合した",
+      "word": "concocted"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "慣れた、順応した",
+      "word": "acclimated"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "推論して導き出した",
+      "word": "deduced"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "吐き気がする",
+      "word": "queasy"
+    },
+    {
+      "q": 9,
+      "is_answer": true,
+      "meaning": "忠実な、断固とした",
+      "word": "staunch"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "多孔性の、穴の多い",
+      "word": "porous"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "だらしない、薄汚れた",
+      "word": "scruffy"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "溝、どぶ；捨てる",
+      "word": "ditch"
+    },
+    {
+      "q": 10,
+      "is_answer": true,
+      "meaning": "要点、大意",
+      "word": "gist"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "前兆",
+      "word": "omen"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "戦利品、略奪品",
+      "word": "loot"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "感情、意見",
+      "word": "sentiment"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "クーデター；大成功",
+      "word": "coup"
+    },
+    {
+      "q": 11,
+      "is_answer": true,
+      "meaning": "不足、欠乏",
+      "word": "dearth"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "病棟；保護する対象",
+      "word": "ward"
+    },
+    {
+      "q": 12,
+      "is_answer": true,
+      "meaning": "伴った、必要とした",
+      "word": "entailed"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "なだめた",
+      "word": "placated"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "熟考した",
+      "word": "mulled"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "避けた、回避した",
+      "word": "averted"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "快活さ、敏捷さ",
+      "word": "alacrity"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "言い逃れ、曖昧な答え",
+      "word": "prevarication"
+    },
+    {
+      "q": 13,
+      "is_answer": true,
+      "meaning": "収束、融合",
+      "word": "convergence"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "郷愁、懐かしさ",
+      "word": "nostalgia"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "公然と無視した、軽視した",
+      "word": "flouted"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "神格化した",
+      "word": "deified"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "発酵させた",
+      "word": "fermented"
+    },
+    {
+      "q": 14,
+      "is_answer": true,
+      "meaning": "うまく説得した",
+      "word": "coaxed"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "強烈な（味・臭い）；辛辣な",
+      "word": "pungent"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "相反する感情を抱く、どちらとも決めかねる",
+      "word": "ambivalent"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "光沢のある、輝く",
+      "word": "lustrous"
+    },
+    {
+      "q": 15,
+      "is_answer": true,
+      "meaning": "騒々しい、活発な",
+      "word": "boisterous"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "乱れた、だらしのない",
+      "word": "disheveled"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "鋭い、的確な",
+      "word": "incisive"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "洗練された、物腰の柔らかな",
+      "word": "suave"
+    },
+    {
+      "q": 16,
+      "is_answer": true,
+      "meaning": "長年続く、恒久的な",
+      "word": "perennial"
+    },
+    {
+      "q": 17,
+      "is_answer": true,
+      "meaning": "慈悲、寛大な処置",
+      "word": "clemency"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "支払い能力",
+      "word": "solvency"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "在職期間、任期",
+      "word": "tenure"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "非難、譴責",
+      "word": "censure"
+    },
+    {
+      "q": 18,
+      "is_answer": true,
+      "meaning": "手に負えない、乱暴な",
+      "word": "unruly"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "無感動な、冷静な",
+      "word": "stolid"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "ぱっとしない、精彩を欠く",
+      "word": "lackluster"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "曖昧模糊とした",
+      "word": "nebulous"
+    }
+  ],
+  "idioms": [
+    {
+      "q": 19,
+      "is_answer": true,
+      "meaning": "共感する、～と自分を重ねる",
+      "phrase": "identify with",
+      "pos": "熟語"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "引き寄せる、だます",
+      "phrase": "reel in",
+      "pos": "熟語"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "片付ける、素早く終える",
+      "phrase": "polish off",
+      "pos": "熟語"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "意識を失う；停電する",
+      "phrase": "black out",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "現れる；音量を上げる",
+      "phrase": "turn up",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "次第に好きになる、徐々に影響する",
+      "phrase": "grow on",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "組み込む",
+      "phrase": "build in",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": true,
+      "meaning": "大量に作り出す",
+      "phrase": "churn out",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": true,
+      "meaning": "いじくり回す、改ざんする",
+      "phrase": "tamper with",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "弱まる、手加減する",
+      "phrase": "ease off",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "でっち上げる",
+      "phrase": "trump up",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "新分野に進出する",
+      "phrase": "branch out",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "少しずつ配る",
+      "phrase": "dole out",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "口をつぐむ",
+      "phrase": "clam up",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "（罰などを）与える",
+      "phrase": "mete out",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": true,
+      "meaning": "勇気を奮い起こす",
+      "phrase": "pluck up",
+      "pos": "熟語"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # DESIGN.md — eiken-practice
 
 > このアプリのUIデザイン正本。エージェントは `dev/CLAUDE.md` の共通指針ではなく**このファイルに準拠**すること。
-> ベース: [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) の Claude DESIGN.md（Anthropic公式サイト風の暖色エディトリアルデザイン）を本アプリ（英検2級・準2級・準1級の大問1語彙演習、Windows/モバイル環境）向けに適応。
+> ベース: [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) の Claude DESIGN.md（Anthropic公式サイト風の暖色エディトリアルデザイン）を本アプリ（英検1級・2級・準2級・準1級の大問1語彙演習、Windows/モバイル環境）向けに適応。
 
 ## デザインの核
 

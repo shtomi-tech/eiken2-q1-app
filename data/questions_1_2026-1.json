@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "2026-1",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "英検公式の過去問PDFを、許諾のもと大問1だけ学習用JSONへ構造化",
+    "source_problem_url": "https://www.eiken.or.jp/eiken/exam/kakomon/2026-1-1ji-1kyu.pdf",
+    "source_answer_url": "https://www.eiken.or.jp/eiken/result/pdf/202601F1kyu.pdf",
+    "counts": {
+      "words": 72,
+      "idioms": 16,
+      "total": 88
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "When the mayor was asked about his tax plans, he ( ). As a result, no one was sure what his policy really was.",
+      "choices": [
+        "consolidated",
+        "equivocated",
+        "alleviated",
+        "emanated"
+      ],
+      "answerIndex": 1,
+      "translation": "市長は税制計画について尋ねられると言葉を濁した。そのため、実際の政策が誰にも分からなかった。"
+    },
+    {
+      "q": 2,
+      "stem": "The general decided to send more troops to the border to ( ) the army's defenses. He hoped the show of strength would prevent further attacks.",
+      "choices": [
+        "mutter",
+        "bolster",
+        "lament",
+        "spar"
+      ],
+      "answerIndex": 1,
+      "translation": "将軍は軍の防衛を強化するため、国境へさらに兵を送ることにした。力を示せば攻撃を防げると考えた。"
+    },
+    {
+      "q": 3,
+      "stem": "After a long discussion, the board members were unable to reach an agreement. It was therefore decided to ( ) the decision until the next meeting.",
+      "choices": [
+        "defer",
+        "elucidate",
+        "solicit",
+        "dissipate"
+      ],
+      "answerIndex": 0,
+      "translation": "長い議論の後も理事会は合意に達しなかった。そこで、決定を次回の会議まで延期することになった。"
+    },
+    {
+      "q": 4,
+      "stem": "Throughout history, sending ( ) to other countries has always been crucial for negotiating trade deals and improving relations.",
+      "choices": [
+        "torments",
+        "buskers",
+        "vestiges",
+        "envoys"
+      ],
+      "answerIndex": 3,
+      "translation": "歴史を通じて、貿易交渉や関係改善のために他国へ使節を送ることは常に重要だった。"
+    },
+    {
+      "q": 5,
+      "stem": "As the ( ) in the election race, Mayor Davenport has a big advantage over her opponent, who has never held political office before.",
+      "choices": [
+        "stooge",
+        "extraterrestrial",
+        "incumbent",
+        "pilgrim"
+      ],
+      "answerIndex": 2,
+      "translation": "選挙戦の現職者であるダベンポート市長は、政治職を務めたことのない対立候補より大きな有利さを持っている。"
+    },
+    {
+      "q": 6,
+      "stem": "It was raining when Rafael woke up on the morning of his English exam, but the weather soon became sunny. He considered this an ( ) start to the day.",
+      "choices": [
+        "inherent",
+        "eccentric",
+        "auspicious",
+        "ornate"
+      ],
+      "answerIndex": 2,
+      "translation": "英語試験の朝、ラファエルが起きたときは雨だったが、すぐに晴れた。彼は幸先のよい一日の始まりだと考えた。"
+    },
+    {
+      "q": 7,
+      "stem": "After she was told that she would be punished for taking her brother's toys away from him, the little girl was ( ). She apologized and promised not to do it again.",
+      "choices": [
+        "pertinent",
+        "contrite",
+        "dubious",
+        "lucrative"
+      ],
+      "answerIndex": 1,
+      "translation": "兄のおもちゃを取り上げたことで罰を受けると言われると、その少女は深く反省した。謝り、二度としないと約束した。"
+    },
+    {
+      "q": 8,
+      "stem": "So many bombs were dropped on the city during the war that nearly half of it was ( ). It took years to rebuild the numerous buildings that had been destroyed.",
+      "choices": [
+        "obliterated",
+        "concocted",
+        "acclimated",
+        "deduced"
+      ],
+      "answerIndex": 0,
+      "translation": "戦争中に非常に多くの爆弾が落とされ、街のほぼ半分が完全に破壊された。多数の建物の再建には何年もかかった。"
+    },
+    {
+      "q": 9,
+      "stem": "The woman was a ( ) supporter of the mayor and continued to vote for him despite the scandals that surrounded him.",
+      "choices": [
+        "queasy",
+        "staunch",
+        "porous",
+        "scruffy"
+      ],
+      "answerIndex": 1,
+      "translation": "その女性は市長を断固として支持し、市長をめぐる不祥事にもかかわらず投票し続けた。"
+    },
+    {
+      "q": 10,
+      "stem": "Although Pedro's English listening skills are not great, he is generally able to get the ( ) of a conversation if people speak slowly.",
+      "choices": [
+        "ditch",
+        "gist",
+        "omen",
+        "loot"
+      ],
+      "answerIndex": 1,
+      "translation": "ペドロの英語の聞き取り能力は高くないが、ゆっくり話してもらえば、会話の大意はたいてい分かる。"
+    },
+    {
+      "q": 11,
+      "stem": "The refusal of democratic nations worldwide to trade with the country had led it to suffer from a ( ) of medicines and other essential goods.",
+      "choices": [
+        "sentiment",
+        "coup",
+        "dearth",
+        "ward"
+      ],
+      "answerIndex": 2,
+      "translation": "世界中の民主主義国がその国との貿易を拒否したため、その国では医薬品などの必需品が不足していた。"
+    },
+    {
+      "q": 12,
+      "stem": "At first, Steve thought the translation job would be easy, but it actually ( ) a great deal of timeconsuming work, such as factchecking.",
+      "choices": [
+        "entailed",
+        "placated",
+        "mulled",
+        "averted"
+      ],
+      "answerIndex": 0,
+      "translation": "スティーブは翻訳の仕事が簡単だと思っていたが、実際には事実確認など、時間のかかる作業を大量に伴っていた。"
+    },
+    {
+      "q": 13,
+      "stem": "The ( ) of different cultures in the city has made it a fascinating place to live, with a wide variety of cultural events and restaurants to enjoy.",
+      "choices": [
+        "alacrity",
+        "prevarication",
+        "convergence",
+        "nostalgia"
+      ],
+      "answerIndex": 2,
+      "translation": "市内で異なる文化が融合しているため、さまざまな文化行事やレストランがあり、住むのに魅力的な場所になっている。"
+    },
+    {
+      "q": 14,
+      "stem": "A: Did you get your son to eat his vegetables? B: Yes, I ( ) him into it by promising to give him some dessert afterward.",
+      "choices": [
+        "flouted",
+        "deified",
+        "fermented",
+        "coaxed"
+      ],
+      "answerIndex": 3,
+      "translation": "息子に野菜を食べさせられたか。デザートをあげると約束して、うまく説得した。"
+    },
+    {
+      "q": 15,
+      "stem": "The party became so ( ) that a neighbor called the police to complain about the noise.",
+      "choices": [
+        "pungent",
+        "ambivalent",
+        "lustrous",
+        "boisterous"
+      ],
+      "answerIndex": 3,
+      "translation": "パーティーがあまりに騒々しくなったので、近所の人が騒音について警察に苦情を言った。"
+    },
+    {
+      "q": 16,
+      "stem": "The ( ) problem of traffic congestion in the city has gotten worse in recent months. The mayor is under pressure to find a solution.",
+      "choices": [
+        "disheveled",
+        "incisive",
+        "suave",
+        "perennial"
+      ],
+      "answerIndex": 3,
+      "translation": "市の長年の問題である交通渋滞は、ここ数か月で悪化している。市長は解決策を見つけるよう迫られている。"
+    },
+    {
+      "q": 17,
+      "stem": "The president granted ( ) to the prisoners who had committed nonviolent crimes. He felt that they deserved a second chance.",
+      "choices": [
+        "clemency",
+        "solvency",
+        "tenure",
+        "censure"
+      ],
+      "answerIndex": 0,
+      "translation": "大統領は、非暴力犯罪を犯した囚人たちに恩赦を与えた。彼らには再出発の機会があるべきだと考えたのだ。"
+    },
+    {
+      "q": 18,
+      "stem": "The crowd at the soccer match began to get ( ), so the police were called to get the violent fans to calm down.",
+      "choices": [
+        "unruly",
+        "stolid",
+        "lackluster",
+        "nebulous"
+      ],
+      "answerIndex": 0,
+      "translation": "サッカーの試合の観客が手に負えない状態になり始めたので、警察が呼ばれ、乱暴なファンを落ち着かせた。"
+    },
+    {
+      "q": 19,
+      "stem": "The boy could not ( ) any of the characters in the novel, so he found it difficult to enjoy reading it.",
+      "choices": [
+        "identify with",
+        "reel in",
+        "polish off",
+        "black out"
+      ],
+      "answerIndex": 0,
+      "translation": "その少年は小説の登場人物の誰にも感情移入できず、読書を楽しむのが難しかった。"
+    },
+    {
+      "q": 20,
+      "stem": "The writer is known for his ability to ( ) one book after another. He often publishes as many as three books in a single year.",
+      "choices": [
+        "turn up",
+        "grow on",
+        "build in",
+        "churn out"
+      ],
+      "answerIndex": 3,
+      "translation": "その作家は本を次々と書き上げる能力で知られている。1年に3冊も出版することがある。"
+    },
+    {
+      "q": 21,
+      "stem": "The mechanic warned the car's owner not to ( ) the engine. He said that untrained people trying to repair engines often caused more damage than good.",
+      "choices": [
+        "tamper with",
+        "ease off",
+        "trump up",
+        "branch out"
+      ],
+      "answerIndex": 0,
+      "translation": "整備士は車の所有者に、エンジンをいじくり回さないよう警告した。知識のない人が修理しようとすると、かえって損害を増やすことが多いという。"
+    },
+    {
+      "q": 22,
+      "stem": "Although she was nervous, Mary decided to ( ) her courage and ask her boss for a pay raise.",
+      "choices": [
+        "dole out",
+        "clam up",
+        "mete out",
+        "pluck up"
+      ],
+      "answerIndex": 3,
+      "translation": "メアリーは緊張していたが、勇気を奮い起こして上司に昇給を頼むことにした。"
+    }
+  ]
+}

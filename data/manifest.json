@@ -54,6 +54,24 @@
       "shortLabel": "準1級",
       "vocabUrl": "data/vocab_pre1_2025-2.json",
       "questionsUrl": "data/questions_pre1_2025-2.json"
+    },
+    "eiken1-2026-1": {
+      "label": "英検1級 2026年度第1回",
+      "shortLabel": "1級",
+      "vocabUrl": "data/vocab_1_2026-1.json",
+      "questionsUrl": "data/questions_1_2026-1.json"
+    },
+    "eiken1-2025-3": {
+      "label": "英検1級 2025年度第3回",
+      "shortLabel": "1級",
+      "vocabUrl": "data/vocab_1_2025-3.json",
+      "questionsUrl": "data/questions_1_2025-3.json"
+    },
+    "eiken1-2025-2": {
+      "label": "英検1級 2025年度第2回",
+      "shortLabel": "1級",
+      "vocabUrl": "data/vocab_1_2025-2.json",
+      "questionsUrl": "data/questions_1_2025-2.json"
     }
   },
   "q2": {

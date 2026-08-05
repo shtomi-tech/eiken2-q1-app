@@ -1,0 +1,563 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "2025-2",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "英検公式の過去問PDFを、許諾のもと大問1だけ学習用JSONへ構造化",
+    "source_problem_url": "https://www.eiken.or.jp/eiken/exam/kakomon/2025-2-1ji-1kyu.pdf",
+    "source_answer_url": "https://www.eiken.or.jp/eiken/result/pdf/202502F1kyu.pdf",
+    "counts": {
+      "words": 72,
+      "idioms": 16,
+      "total": 88
+    }
+  },
+  "words": [
+    {
+      "q": 1,
+      "is_answer": true,
+      "meaning": "横領",
+      "word": "embezzlement"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "悪名",
+      "word": "notoriety"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "不屈の精神",
+      "word": "fortitude"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "停止、中止",
+      "word": "cessation"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "ガチャガチャという音",
+      "word": "clatter"
+    },
+    {
+      "q": 2,
+      "is_answer": true,
+      "meaning": "称賛、賞賛",
+      "word": "acclaim"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "偏見、偏狭さ",
+      "word": "bigotry"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "独断的な教義、定説",
+      "word": "dogma"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "やせこけた、やつれた",
+      "word": "gaunt"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "わずかな、乏しい",
+      "word": "meager"
+    },
+    {
+      "q": 3,
+      "is_answer": true,
+      "meaning": "はびこった、満ちた",
+      "word": "rife"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "男らしい、精力旺盛な",
+      "word": "virile"
+    },
+    {
+      "q": 4,
+      "is_answer": true,
+      "meaning": "元気づけられた、活気づいた",
+      "word": "invigorated"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "地方の；視野の狭い",
+      "word": "provincial"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "隣接した、連続した",
+      "word": "contiguous"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "希薄な、かすかな",
+      "word": "tenuous"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "照合する、比較する",
+      "word": "collate"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "取り消す、撤回する",
+      "word": "revoke"
+    },
+    {
+      "q": 5,
+      "is_answer": true,
+      "meaning": "嘆く、こぼす",
+      "word": "bemoan"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "妨げる",
+      "word": "thwart"
+    },
+    {
+      "q": 6,
+      "is_answer": true,
+      "meaning": "最高の、最重要の",
+      "word": "paramount"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "無計画な、でたらめな",
+      "word": "haphazard"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "汚れのない、原始のままの",
+      "word": "pristine"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "不注意な、気に留めない",
+      "word": "heedless"
+    },
+    {
+      "q": 7,
+      "is_answer": true,
+      "meaning": "懇願した",
+      "word": "implored"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "除去した、一掃した",
+      "word": "purged"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "元に戻った",
+      "word": "reverted"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "接ぎ木した、移植した",
+      "word": "grafted"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "態度、物腰",
+      "word": "demeanor"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "慎重さ、分別",
+      "word": "discretion"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "親しみやすさ、気の合う性質",
+      "word": "congeniality"
+    },
+    {
+      "q": 8,
+      "is_answer": true,
+      "meaning": "虚勢、強がり",
+      "word": "bravado"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "精力を奪う",
+      "word": "enervating"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "耳障りな、調和を乱す",
+      "word": "jarring"
+    },
+    {
+      "q": 9,
+      "is_answer": true,
+      "meaning": "攻略不能な、難攻不落の",
+      "word": "impregnable"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "早熟な",
+      "word": "precocious"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "小さい、小柄な",
+      "word": "diminutive"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "表面的な",
+      "word": "superficial"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "退屈な",
+      "word": "tedious"
+    },
+    {
+      "q": 10,
+      "is_answer": true,
+      "meaning": "勇敢な、恐れを知らない",
+      "word": "intrepid"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "宣言した、公言した",
+      "word": "proclaimed"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "消した、癒やした",
+      "word": "quenched"
+    },
+    {
+      "q": 11,
+      "is_answer": true,
+      "meaning": "投獄された",
+      "word": "incarcerated"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "合成した、統合した",
+      "word": "synthesized"
+    },
+    {
+      "q": 12,
+      "is_answer": true,
+      "meaning": "不和、意見の不一致",
+      "word": "discord"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "異端、異端説",
+      "word": "heresy"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "信用、信憑性",
+      "word": "credence"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "発芽",
+      "word": "germination"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "目上の人に敬意を払って",
+      "word": "deferentially"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "順番に",
+      "word": "sequentially"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "細長く、ほっそりと",
+      "word": "slenderly"
+    },
+    {
+      "q": 13,
+      "is_answer": true,
+      "meaning": "慎重に、目立たないように",
+      "word": "discreetly"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "連絡、連携；密通",
+      "word": "liaison"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "懇願",
+      "word": "entreaty"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "軽薄さ、軽口",
+      "word": "levity"
+    },
+    {
+      "q": 14,
+      "is_answer": true,
+      "meaning": "委託品、発送品",
+      "word": "consignment"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "支持、強化",
+      "word": "buttressing"
+    },
+    {
+      "q": 15,
+      "is_answer": true,
+      "meaning": "暗殺；人格攻撃、中傷",
+      "word": "assassination"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "脱線、余談",
+      "word": "digression"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "クーデター；大成功",
+      "word": "coup"
+    },
+    {
+      "q": 16,
+      "is_answer": true,
+      "meaning": "偽の、根拠のない",
+      "word": "spurious"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "病気の、弱っている",
+      "word": "ailing"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "公然の、明白な",
+      "word": "overt"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "寛大な",
+      "word": "magnanimous"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "捨てられた、婚約破棄された",
+      "word": "jilted"
+    },
+    {
+      "q": 17,
+      "is_answer": true,
+      "meaning": "だまされた",
+      "word": "duped"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "傾いた、偏った",
+      "word": "slanted"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "走り去った",
+      "word": "scampered"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "乱雑に書く、走り書き",
+      "word": "scrawl"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "浸透する、ろ過する",
+      "word": "percolate"
+    },
+    {
+      "q": 18,
+      "is_answer": true,
+      "meaning": "質に入れる",
+      "word": "pawn"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "汚す、傷つける",
+      "word": "sully"
+    }
+  ],
+  "idioms": [
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "（金を）支払う",
+      "phrase": "pony up",
+      "pos": "熟語"
+    },
+    {
+      "q": 19,
+      "is_answer": true,
+      "meaning": "本腰を入れて取り組む",
+      "phrase": "buckle down",
+      "pos": "熟語"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "めちゃくちゃにする、失敗する",
+      "phrase": "foul up",
+      "pos": "熟語"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "落胆させる、意気消沈させる",
+      "phrase": "cast down",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "ふらりと入ってくる",
+      "phrase": "breeze in",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "分岐する、枝分かれする",
+      "phrase": "branch off",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": true,
+      "meaning": "厳しく取り締まる",
+      "phrase": "crack down",
+      "pos": "熟語"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "切り落とす",
+      "phrase": "lop off",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "くよくよ考える、詳しく論じる",
+      "phrase": "dwell on",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "次々にすらすら言う",
+      "phrase": "reel off",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": true,
+      "meaning": "（食事などを）急いで用意する",
+      "phrase": "rustle up",
+      "pos": "熟語"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "急に持ち去る、引きずっていく",
+      "phrase": "haul off",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "浪費する",
+      "phrase": "fritter away",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "だまし取る、ぼったくる",
+      "phrase": "rip off",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "偉そうに話す、意見をぶちまける",
+      "phrase": "sound off",
+      "pos": "熟語"
+    },
+    {
+      "q": 22,
+      "is_answer": true,
+      "meaning": "不意に起こる",
+      "phrase": "crop up",
+      "pos": "熟語"
+    }
+  ]
+}
