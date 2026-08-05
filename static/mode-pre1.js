@@ -844,11 +844,25 @@ const EikenPre1App = (function () {
     document.getElementById("pre1FinalHomeBtn").addEventListener("click", renderHome);
   }
 
+  function renderPre1QuestionProgress(section) {
+    const total = section.questions.length;
+    if (!total) return "";
+    const stats = sectionStats(section);
+    const isFinalCheck = state.vocabStage === "final";
+    const currentIndex = Number.isInteger(state.index) && state.index >= 0 && state.index < total ? state.index : -1;
+    const useCompletedValue = isFinalCheck || currentIndex < 0;
+    const value = useCompletedValue ? stats.done : currentIndex + 1;
+    const label = useCompletedValue ? `確認済み ${value} / ${total}問` : `第${value}問 / ${total}問`;
+    const remaining = Math.max(0, total - value);
+    return `<div class="q1Progress"><div class="q1ProgressHead"><span class="label">大問1 設問進捗</span><strong class="q1ProgressValue">${label}</strong><span class="q1ProgressRemaining">残り${remaining}問</span></div><progress class="q1ProgressBar" max="${total}" value="${value}" aria-label="準1級大問1の設問進捗" aria-valuetext="${label}、残り${remaining}問"></progress></div>`;
+  }
+
   function renderSectionHeader(section, currentLabel) {
     const stats = sectionStats(section);
     const roundOptions = rounds().map((round) => `<option value="${escapeHtml(round.id)}"${round.id === state.roundId ? " selected" : ""}>${escapeHtml(round.label)}</option>`).join("");
     const backLabel = window.EikenLearningPath === "free" ? "技能一覧" : "セクション一覧";
-    return `<div class="pre1SessionHead"><div><p class="label">${escapeHtml(section.tag)}</p><h2>${escapeHtml(section.label)}</h2><p class="hint">${currentLabel}</p></div><div class="pre1SessionActions"><label class="datasetPicker"><span class="fieldLabel">問題セット</span><select class="datasetSelect" id="pre1SessionRoundSelect">${roundOptions}</select></label><span>${stats.done} / ${stats.total}確認済み</span><button class="ghost smallGhost" type="button" id="pre1BackHomeBtn">${backLabel}</button></div></div>`;
+    const questionProgress = section.id === "reading1" ? renderPre1QuestionProgress(section) : "";
+    return `<div class="pre1SessionHead"><div><p class="label">${escapeHtml(section.tag)}</p><h2>${escapeHtml(section.label)}</h2><p class="hint">${currentLabel}</p></div><div class="pre1SessionActions"><label class="datasetPicker"><span class="fieldLabel">問題セット</span><select class="datasetSelect" id="pre1SessionRoundSelect">${roundOptions}</select></label><span>${stats.done} / ${stats.total}確認済み</span><button class="ghost smallGhost" type="button" id="pre1BackHomeBtn">${backLabel}</button></div></div>${questionProgress}`;
   }
 
   function renderQuestion() {
