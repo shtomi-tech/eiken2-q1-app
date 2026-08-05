@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2025-3",
+    "source": "data/pre1_*.json から大問1だけを抽出した共通Q1データ"
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "The men who escaped from prison ( ) the police for three weeks, but they were finally caught and brought back.",
+      "choices": [
+        "evaded",
+        "sterilized",
+        "wrecked",
+        "commuted"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 2,
+      "stem": "The novel was fascinating because it told the same story from several different ( ). Each character saw the events in a very different way.",
+      "choices": [
+        "reductions",
+        "nominations",
+        "maneuvers",
+        "perspectives"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 3,
+      "stem": "Although the bedrooms in the apartment were quite ( ), the kitchen and dining room were small, so the couple decided not to rent it.",
+      "choices": [
+        "supernatural",
+        "cowardly",
+        "spacious",
+        "compliant"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 4,
+      "stem": "The university will hold an event next month for graduating high school students who are thinking of ( ) there next semester.",
+      "choices": [
+        "enrolling",
+        "rebelling",
+        "radiating",
+        "solidifying"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 5,
+      "stem": "Although the actual battle lasted for almost a week, the writer decided to ( ) all the events into one day in his novel to make it more dramatic.",
+      "choices": [
+        "inhale",
+        "haunt",
+        "obstruct",
+        "compress"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 6,
+      "stem": "The ( ) between the two neighboring teams is very strong. Sometimes, the players have even fought during games.",
+      "choices": [
+        "forgery",
+        "candidacy",
+        "leniency",
+        "rivalry"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 7,
+      "stem": "A: Are you going anywhere for spring vacation, George? B: I have ( ) plans to visit Spain, but I haven't booked anything yet.",
+      "choices": [
+        "nutritious",
+        "righteous",
+        "tentative",
+        "universal"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 8,
+      "stem": "Medical students spend a lot of time studying human ( ). They must memorize the terms for even the smallest parts of the body.",
+      "choices": [
+        "reprimand",
+        "anatomy",
+        "esteem",
+        "distress"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 9,
+      "stem": "While the ( ) of the mountain took them two days, the climbers were able to come down in less than twelve hours.",
+      "choices": [
+        "warranty",
+        "fracture",
+        "hazard",
+        "ascent"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 10,
+      "stem": "The two fighter jets were flying so close to one another that the pilot of one of them was afraid they would ( ).",
+      "choices": [
+        "abide",
+        "collide",
+        "subside",
+        "preside"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 11,
+      "stem": "After carefully removing the screws, the technician was able to ( ) the power supply from the computer and replace it with a newer model.",
+      "choices": [
+        "detach",
+        "tame",
+        "unfold",
+        "bundle"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 12,
+      "stem": "The company gave its salespeople ( ) over their daily work. They are now free to make their own decisions without having to get approval from management.",
+      "choices": [
+        "ransom",
+        "precaution",
+        "autonomy",
+        "conservation"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 13,
+      "stem": "New Croix City is known for its ( ) culture. People from all over the world come to live in the city, and it is famous for its diverse restaurants and neighborhoods.",
+      "choices": [
+        "gloomy",
+        "tender",
+        "cosmopolitan",
+        "menacing"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 14,
+      "stem": "The little girl had a ( ) in her eye as she told her grandmother about the new puppy her mother had given her. It was clear she was very happy.",
+      "choices": [
+        "perch",
+        "breeze",
+        "gleam",
+        "sizzle"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 15,
+      "stem": "The children were hungry, so the couple decided to ( ) the nearest town. They thought they could find a restaurant there.",
+      "choices": [
+        "live off",
+        "make for",
+        "pass on",
+        "wipe out"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 16,
+      "stem": "Julia has decided her son, Rob, is old enough to ( ) more responsibilities at home, so she will give him two additional jobs to do on weekends.",
+      "choices": [
+        "iron out",
+        "toss in",
+        "take on",
+        "size up"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 17,
+      "stem": "The company wants to try all other options first, but it cannot ( ) reducing its staff if its poor sales continue.",
+      "choices": [
+        "sound off",
+        "draw back",
+        "turn up",
+        "rule out"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 18,
+      "stem": "The movie star asked the journalist to ( ) after the interview. She promised to give him an exclusive story if he did.",
+      "choices": [
+        "chip in",
+        "pull off",
+        "stick around",
+        "bear up"
+      ],
+      "answerIndex": 2
+    }
+  ]
+}

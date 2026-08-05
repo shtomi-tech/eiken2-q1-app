@@ -13,6 +13,10 @@ const LEGACY_STORE_KEY = "eiken2_q1_v1";
 const STORE_PREFIX = "eiken_q1_progress_";
 const EXAMPLE_STORE_PREFIX = "eiken_q1_examples_";
 const DATASET_KEY = "eiken_q1_dataset";
+const LEGACY_PRE1_PROGRESS_KEY = "eiken_pre1_progress_v1";
+const LEGACY_PRE1_ROUND_KEY = "eiken_pre1_round";
+const LEGACY_PRE1_APP_ID = "eiken-pre1";
+const PRE1_MIGRATION_VERSION = 1;
 const MANIFEST_URL = "data/manifest.json";
 // 問題セット一覧は data/manifest.json（"q1"キー）から読み込む。
 // 回を追加するときはデータJSONを置いてmanifest.jsonに1エントリ足すだけでよく、このファイルの編集は不要。
@@ -25,27 +29,11 @@ async function loadManifest() {
   DEFAULT_DATASET_ID = manifest.defaultDatasetId;
 }
 
-function activeGrade() {
-  const profile = window.EikenGradeEntryApp && window.EikenGradeEntryApp.getProfile
-    ? window.EikenGradeEntryApp.getProfile()
-    : null;
-  if (profile && profile.grade) return profile.grade;
-  try {
-    return String(localStorage.getItem(DATASET_KEY) || "").startsWith("eikenp2-") ? "pre2" : "2kyu";
-  } catch (e) {
-    return "2kyu";
-  }
-}
-function matchesActiveGrade(id) {
-  return activeGrade() === "pre2" ? String(id).startsWith("eikenp2-") : String(id).startsWith("eiken2-");
-}
 function availableDatasets() {
-  return Object.entries(DATASETS).filter(([id]) => matchesActiveGrade(id));
+  return Object.entries(DATASETS);
 }
-function defaultDatasetIdForActiveGrade() {
-  const entries = availableDatasets();
-  const defaultSuffix = String(DEFAULT_DATASET_ID || "").replace(/^eiken(?:p2|2)-/, "");
-  return entries.find(([id]) => id.endsWith(defaultSuffix))?.[0] || entries[0]?.[0] || DEFAULT_DATASET_ID;
+function defaultDatasetId() {
+  return DEFAULT_DATASET_ID;
 }
 // 選択肢を描画した直後、この時間だけクリックを無視する（誤ダブルクリック防止）
 const CHOICE_GUARD_MS = 400;
@@ -79,12 +67,12 @@ async function loadAiConfig() {
 function loadDatasetId() {
   try {
     const id = localStorage.getItem(DATASET_KEY);
-    if (id && DATASETS[id] && matchesActiveGrade(id)) return id;
+    if (id && DATASETS[id]) return id;
   } catch (e) { /* ignore */ }
-  return defaultDatasetIdForActiveGrade();
+  return defaultDatasetId();
 }
 function dataset() {
-  return DATASETS[state.datasetId] || DATASETS[defaultDatasetIdForActiveGrade()];
+  return DATASETS[state.datasetId] || DATASETS[defaultDatasetId()];
 }
 function datasetCleared(datasetId) {
   const saved = datasetId === state.datasetId ? state.progress : loadProgress(datasetId);
@@ -100,6 +88,71 @@ function loadProgress(datasetId = state.datasetId) {
     if (raw) return JSON.parse(raw);
   } catch (e) { /* ignore */ }
   return { units: {} };
+}
+
+function readStoredObject(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    const value = JSON.parse(raw);
+    return value && typeof value === "object" ? value : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function migrateLegacyPre1Progress(legacyStore) {
+  if (!legacyStore || typeof legacyStore !== "object" || !legacyStore.rounds) return false;
+  let changed = false;
+  Object.entries(legacyStore.rounds).forEach(([roundId, oldRound]) => {
+    const datasetId = `eikenp1-${roundId}`;
+    if (!DATASETS[datasetId] || !oldRound || typeof oldRound !== "object") return;
+    const target = loadProgress(datasetId);
+    if (target.migrations?.pre1ProgressV1 === PRE1_MIGRATION_VERSION) return;
+    if (!target.units || typeof target.units !== "object") target.units = {};
+
+    Object.entries(oldRound.questions || {}).forEach(([key, saved]) => {
+      const match = /^reading1:(\d+)$/.exec(key);
+      if (!match || !saved || !saved.answered) return;
+      const q = Number(match[1]);
+      const correct = Boolean(saved.correct);
+      const current = target.units[q];
+      if (current && current.learned) return;
+      target.units[q] = {
+        learned: true,
+        solvedCorrect: correct,
+        needsReview: !correct,
+        attempts: 1,
+        wrongCount: correct ? 0 : 1,
+        lastAnsweredAt: saved.answeredAt || null,
+      };
+    });
+
+    if (oldRound.finalCheck && typeof oldRound.finalCheck === "object") {
+      target.finalCheck = {
+        ...oldRound.finalCheck,
+        ...(target.finalCheck || {}),
+      };
+    }
+    target.migrations = {
+      ...(target.migrations || {}),
+      pre1ProgressV1: PRE1_MIGRATION_VERSION,
+      migratedAt: new Date().toISOString(),
+    };
+    try {
+      localStorage.setItem(progressKey(datasetId), JSON.stringify(target));
+      changed = true;
+    } catch (e) { /* 移行できなくても旧データは残す */ }
+  });
+
+  try {
+    const currentDatasetId = localStorage.getItem(DATASET_KEY);
+    const oldRound = localStorage.getItem(LEGACY_PRE1_ROUND_KEY);
+    if (!currentDatasetId && oldRound && DATASETS[`eikenp1-${oldRound}`]) {
+      localStorage.setItem(DATASET_KEY, `eikenp1-${oldRound}`);
+    }
+  } catch (e) { /* ignore */ }
+  return changed;
 }
 function examplesKey(datasetId = state.datasetId) {
   return EXAMPLE_STORE_PREFIX + datasetId;
@@ -405,6 +458,8 @@ function recordCyclePractice(session) {
    ============================================================ */
 const APP_ID = "eiken2-q1";
 let cloud = null; // harness createCloud のインスタンス（init で生成）
+let legacyPre1Cloud = null;
+let legacyPre1CloudProgress = null;
 
 function setShareStatus(message, tone = "") {
   const slot = $("#shareStatus");
@@ -432,6 +487,11 @@ function applyCloudProgress(map) {
       try { localStorage.setItem(progressKey(id), JSON.stringify(prog)); } catch (e) { /* ignore */ }
     }
   });
+}
+function applyLegacyPre1CloudProgress(value) {
+  if (value && typeof value === "object" && value.rounds && typeof value.rounds === "object") {
+    legacyPre1CloudProgress = value;
+  }
 }
 function applySharedUi() {
   const enabled = Boolean(cloud && cloud.isEnabled());
@@ -466,6 +526,48 @@ function shuffle(arr) {
   return a;
 }
 function surfaceOf(item) { return item.type === "idiom" ? item.phrase : item.word; }
+function normalizedSurface(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[’']/g, "'")
+    .replace(/\b(one's|his|her|my|your|our|their|its)\b/g, "@poss")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+function surfaceVariants(value) {
+  const base = normalizedSurface(value);
+  const variants = new Set([base]);
+  if (base.endsWith("ies") && base.length > 3) variants.add(base.slice(0, -3) + "y");
+  if (base.endsWith("ied") && base.length > 3) variants.add(base.slice(0, -3) + "y");
+  if (base.endsWith("es") && base.length > 3) variants.add(base.slice(0, -2));
+  if (base.endsWith("s") && base.length > 2) variants.add(base.slice(0, -1));
+  if (base.endsWith("ed") && base.length > 3) {
+    const stem = base.slice(0, -2);
+    variants.add(stem);
+    if (/(.)\1$/.test(stem)) variants.add(stem.slice(0, -1));
+    if (stem.endsWith("i")) variants.add(stem.slice(0, -1) + "y");
+    variants.add(stem + "e");
+  }
+  if (base.endsWith("ing") && base.length > 4) {
+    const stem = base.slice(0, -3);
+    variants.add(stem);
+    if (/(.)\1$/.test(stem)) variants.add(stem.slice(0, -1));
+    variants.add(stem + "e");
+  }
+  return variants;
+}
+function findItemForSurface(items, value) {
+  const target = normalizedSurface(value);
+  const exact = items.find((item) => normalizedSurface(surfaceOf(item)) === target);
+  if (exact) return exact;
+  const targetVariants = surfaceVariants(value);
+  return items.find((item) => {
+    for (const variant of surfaceVariants(surfaceOf(item))) {
+      if (targetVariants.has(variant)) return true;
+    }
+    return false;
+  }) || null;
+}
 // 選んだ誤答の意味が本当はどの語句のものかを逆引き（混同ペアの可視化）
 function findOwnerOfMeaning(type, meaning, excludeItem) {
   return allVocabularyItems().find((it) => it !== excludeItem && it.type === type && it.meaning === meaning);
@@ -512,7 +614,7 @@ async function loadData(datasetId = state.datasetId) {
 }
 
 async function switchDataset(datasetId) {
-  if (!DATASETS[datasetId] || !matchesActiveGrade(datasetId) || datasetId === state.datasetId) return;
+  if (!DATASETS[datasetId] || datasetId === state.datasetId) return;
   await loadData(datasetId);
   if (window.EikenActiveAppId !== "q1") return;
   session = null;
@@ -1190,7 +1292,7 @@ async function checkSelfExample(item, textarea, checkButton, status, feedbackHos
         meaning: item.meaning,
         partOfSpeech: item.pos || "",
         sentence,
-        learnerLevel: activeGrade(),
+        learnerLevel: dataset().shortLabel,
       }),
     });
     const payload = await response.json().catch(() => ({}));
@@ -1473,8 +1575,6 @@ function renderPractice(body) {
   const q = session.q;
   const q_ = state.questions[q];
   const items = state.itemsByQ[q];
-  const itemBySurface = {};
-  for (const it of items) itemBySurface[surfaceOf(it).toLowerCase()] = it;
 
   const box = el("div", { class: "quizBox" });
   box.appendChild(el("div", { class: "quizTop" },
@@ -1492,14 +1592,14 @@ function renderPractice(body) {
       el("span", { class: "key" }, String(i + 1)),
       el("span", {}, c),
     );
-    btn.addEventListener("click", () => onPracticeAnswer(i, box, choiceWrap, q_, itemBySurface));
+    btn.addEventListener("click", () => onPracticeAnswer(i, box, choiceWrap, q_, items));
     choiceWrap.appendChild(btn);
   });
   box.appendChild(choiceWrap);
   body.appendChild(box);
 }
 
-function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
+function onPracticeAnswer(idx, box, choiceWrap, q_, items) {
   if (session.practiceAnswered || choicesLocked()) return;
   session.practiceAnswered = true;
   const correctIdx = q_.answerIndex;
@@ -1512,7 +1612,7 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
   });
 
   const correctWord = q_.choices[correctIdx];
-  const ansItem = itemBySurface[correctWord.toLowerCase()];
+  const ansItem = findItemForSurface(items, correctWord);
 
   const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng") },
     el("h3", {}, isCorrect ? "正解！" : "不正解"),
@@ -1541,7 +1641,6 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, itemBySurface) {
 /* ---- DONE ---- */
 function renderDone(body) {
   clearResume();
-  const serialContext = Boolean(window.EikenSerialContext && window.EikenSerialContext.active);
   const q = session.q;
   const isMeaning = session.mode === "meaning";
   const isCycle = session.mode === "cycle";
@@ -1611,14 +1710,8 @@ function renderDone(body) {
   }
   actions.appendChild(el("button", {
     class: "ghost",
-    onclick: serialContext ? () => window.EikenAppRouter && window.EikenAppRouter.open("serial") : renderHome,
-  }, serialContext ? "学習ルートに戻る" : "一覧へ戻る"));
-  if (serialContext) {
-    const nextAction = actions.querySelector(".cta");
-    if (nextAction && nextAction.textContent.startsWith("次の設問へ")) {
-      nextAction.textContent = nextAction.textContent.replace("次の設問へ", "次の設問を続ける");
-    }
-  }
+    onclick: renderHome,
+  }, "一覧へ戻る"));
   body.appendChild(actions);
 }
 
@@ -1631,7 +1724,15 @@ async function boot() {
   try {
     await loadManifest();
     await loadAiConfig();
-    state.datasetId = loadDatasetId();
+
+    // 旧準1級アプリのクラウド進捗は読み取り専用で一度だけ取り込む。
+    legacyPre1Cloud = createCloud({
+      appId: LEGACY_PRE1_APP_ID,
+      getPayload: () => readStoredObject(LEGACY_PRE1_PROGRESS_KEY) || {},
+      applyLoaded: applyLegacyPre1CloudProgress,
+      onStatus: () => {},
+    });
+    await legacyPre1Cloud.init();
 
     // 生徒別クラウド同期（共有URL ?s=&t= があり、config.json が揃っているときのみ有効）
     cloud = createCloud({
@@ -1642,6 +1743,11 @@ async function boot() {
     });
     await cloud.init();
     applySharedUi();
+
+    const legacyProgress = legacyPre1CloudProgress || readStoredObject(LEGACY_PRE1_PROGRESS_KEY);
+    const migratedLegacy = migrateLegacyPre1Progress(legacyProgress);
+    state.datasetId = loadDatasetId();
+    if (migratedLegacy) cloud.queueSave();
 
     await loadData();
     if (window.EikenActiveAppId !== "q1") return;
@@ -1669,27 +1775,7 @@ async function mount() {
   await boot();
 }
 
-function startSerial() {
-  if (state.progress.resume && restoreSession()) return;
-  const nextQ = state.qList.find((q) => !unit(q).learned);
-  if (nextQ) {
-    startLearn(nextQ);
-    return;
-  }
-  const reviewQs = reviewQueue();
-  if (reviewQs.length) {
-    startReview();
-    return;
-  }
-  const final = finalProgress(allVocabularyItems().length);
-  if (finalUnlocked() && !final.cleared) {
-    startFinalCheck();
-    return;
-  }
-  renderHome();
-}
-
 function handleKey() { /* 大問1モードはキーボード操作なし */ }
 
-return { mount, handleKey, startSerial };
+return { mount, handleKey };
 })();

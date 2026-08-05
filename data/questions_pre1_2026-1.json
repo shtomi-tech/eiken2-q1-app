@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2026-1",
+    "source": "data/pre1_*.json から大問1だけを抽出した共通Q1データ"
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "In order to illustrate how a cell functions, the biology teacher drew a detailed ( ) on the board showing all of its parts.",
+      "choices": [
+        "cemetery",
+        "diagram",
+        "equation",
+        "forecast"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 2,
+      "stem": "A: I think this sentence in your essay is ( ). B: Oh, you're right. It's almost the same as what I said in the previous paragraph.",
+      "choices": [
+        "possessive",
+        "horizontal",
+        "redundant",
+        "drastic"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 3,
+      "stem": "In some countries, governments ( ) the media in order to prevent criticism of them from being published.",
+      "choices": [
+        "haul",
+        "envy",
+        "subtract",
+        "censor"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 4,
+      "stem": "The scholarship is only available to students who meet its requirements. A ( ) must have excellent grades and be from a lowincome background.",
+      "choices": [
+        "referral",
+        "recipient",
+        "bouncer",
+        "successor"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 5,
+      "stem": "The scientist was accused of ( ) his data after experts attempted to copy his experiments but were unable to produce the same results.",
+      "choices": [
+        "triggering",
+        "fabricating",
+        "conserving",
+        "renouncing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 6,
+      "stem": "Last week, a police officer stopped Javier and gave him a traffic ( ) for driving faster than the speed limit.",
+      "choices": [
+        "ransom",
+        "specimen",
+        "cavity",
+        "citation"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 7,
+      "stem": "Because some ( ) was expected, the captain turned on the seat belt sign and asked all the passengers to return to their seats.",
+      "choices": [
+        "distortion",
+        "generosity",
+        "turbulence",
+        "conjecture"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 8,
+      "stem": "After several years with almost no rain, the area became a ( ) wasteland where no trees or other plants could survive.",
+      "choices": [
+        "nutritious",
+        "diverse",
+        "barren",
+        "coincidental"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 9,
+      "stem": "When Simon pulled on the rope, it suddenly became ( ). He realized that it must have come untied at the other end.",
+      "choices": [
+        "slack",
+        "sparse",
+        "vast",
+        "vital"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 10,
+      "stem": "The patient was diagnosed with a vitamin ( ). The doctor said she would need to take supplements until her vitamin levels were normal again.",
+      "choices": [
+        "descendant",
+        "triumph",
+        "emission",
+        "deficiency"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 11,
+      "stem": "Tanya seemed shy and nervous when she entered her new school, but she is now ( ) socially and has made a lot of friends.",
+      "choices": [
+        "flourishing",
+        "pledging",
+        "scattering",
+        "drooping"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 12,
+      "stem": "The art student showed her ( ) to the gallery owner. It contained samples of her paintings, drawings, and photographs.",
+      "choices": [
+        "reptile",
+        "glacier",
+        "blockade",
+        "portfolio"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 13,
+      "stem": "The teacher asked the student to ( ) his essay. She said it should be about half the length it was.",
+      "choices": [
+        "abbreviate",
+        "attest",
+        "carve",
+        "yield"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 14,
+      "stem": "The patient was in so much pain that the dentist had no choice but to ( ) the patient's damaged tooth.",
+      "choices": [
+        "radiate",
+        "magnify",
+        "extract",
+        "impart"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 15,
+      "stem": "The company was badly affected by the financial crisis and nearly ( ), but it has now recovered and is making a profit again.",
+      "choices": [
+        "sank in",
+        "let out",
+        "went under",
+        "lived off"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 16,
+      "stem": "The police officer became suspicious of the man because his story did not ( ). He was later found to have lied to the police.",
+      "choices": [
+        "add up",
+        "read into",
+        "take off",
+        "fall out"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 17,
+      "stem": "The patient tried to ( ) from the hospital without anyone noticing, but the nurse saw him and stopped him.",
+      "choices": [
+        "slip away",
+        "tear up",
+        "drop out",
+        "follow up"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 18,
+      "stem": "A: Our meeting prep took longer than expected. B: Yeah, the budget review really ( ) most of our afternoon.",
+      "choices": [
+        "fed off",
+        "burnt out",
+        "fell through",
+        "ate up"
+      ],
+      "answerIndex": 3
+    }
+  ]
+}

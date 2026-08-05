@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "grade": "準1級",
+    "round": "2025-2",
+    "source": "data/pre1_*.json から大問1だけを抽出した共通Q1データ"
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "The couple decided not to buy the house in the countryside because it was so ( ). The nearest town was over two hours away by car.",
+      "choices": [
+        "stocky",
+        "cheery",
+        "ambitious",
+        "remote"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 2,
+      "stem": "Dogs have excellent hearing compared with humans. There are many sounds that cannot be heard by people but are ( ) to dogs.",
+      "choices": [
+        "commendable",
+        "impressionable",
+        "audible",
+        "eligible"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 3,
+      "stem": "The new highway should be good for ( ) who drive to work from the suburbs. The amount of time needed to drive into the city is expected to drop by 10 percent.",
+      "choices": [
+        "invaders",
+        "commuters",
+        "composers",
+        "installers"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 4,
+      "stem": "Roger was eager to sell as many cars as possible because he earned a 20 percent ( ) on every sale. He planned to use the extra money to travel around the world.",
+      "choices": [
+        "commission",
+        "script",
+        "fragment",
+        "molecule"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 5,
+      "stem": "The doctor told Emma she was suffering from ( ) due to overwork. He said that with a break and plenty of rest, however, she would recover quickly.",
+      "choices": [
+        "virtue",
+        "fatigue",
+        "oversight",
+        "perception"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 6,
+      "stem": "Kevin nearly drove into the truck in front of him when it stopped ( ). He stepped hard on the brakes and just managed to avoid crashing into it.",
+      "choices": [
+        "indifferently",
+        "appealingly",
+        "abruptly",
+        "timidly"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 7,
+      "stem": "The professor told the class that she would not ( ) lateness. She said that any papers not turned in on time would receive a failing grade.",
+      "choices": [
+        "clarify",
+        "implement",
+        "tolerate",
+        "humiliate"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 8,
+      "stem": "While the sun may look small from Earth, it is ( ). In fact, it is many times bigger than any planet in the solar system.",
+      "choices": [
+        "massive",
+        "amusing",
+        "graceful",
+        "hesitant"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "q": 9,
+      "stem": "A: Majid, remind me how many people we can ( ) in Conference Room B. B: Fifteen, so it should be fine for today's meeting.",
+      "choices": [
+        "outlaw",
+        "elevate",
+        "plead",
+        "accommodate"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 10,
+      "stem": "The company president was not ( ) about the reasons for the layoffs. When asked, he gave only vague answers and avoided any direct comments.",
+      "choices": [
+        "alleged",
+        "forthcoming",
+        "blissful",
+        "fainthearted"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 11,
+      "stem": "The politician claimed he was ( ) to no one, but everyone knew he had received donations from many companies to help his campaign.",
+      "choices": [
+        "sinister",
+        "indebted",
+        "perilous",
+        "doomed"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 12,
+      "stem": "Parents were asked to ( ) their children to and from the school dance. Since the event would be held in the evening, school officials did not want children going on their own.",
+      "choices": [
+        "appoint",
+        "import",
+        "acquaint",
+        "escort"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 13,
+      "stem": "The cookie factory made one ( ) of cookies with salt instead of sugar. They had to throw the entire lot away.",
+      "choices": [
+        "aggression",
+        "substitute",
+        "relegation",
+        "batch"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "q": 14,
+      "stem": "The documentary on the war was so powerful that it ( ) strong feelings of sadness and anger in the viewers.",
+      "choices": [
+        "dehydrated",
+        "evoked",
+        "acquired",
+        "posed"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 15,
+      "stem": "The travel agent warned the couple not to ( ) the discount airline's flights being on time. They were often delayed or canceled.",
+      "choices": [
+        "take in",
+        "even out",
+        "figure on",
+        "make do"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 16,
+      "stem": "The country's military was able to ( ) the enemy's spy drone before it could gather any information about the country's defenses.",
+      "choices": [
+        "hold out",
+        "shoot down",
+        "get over",
+        "snap up"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "q": 17,
+      "stem": "The city plans to ( ) the old theater and build a new one in the same place, but many residents are unhappy about the plan.",
+      "choices": [
+        "tune up",
+        "touch on",
+        "tear down",
+        "free up"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "q": 18,
+      "stem": "A: How long will it take to ( ) from the mountaintop, Jane? B: About three hours, but it will take longer if we walk at a slow pace.",
+      "choices": [
+        "get down",
+        "round out",
+        "die away",
+        "lay out"
+      ],
+      "answerIndex": 0
+    }
+  ]
+}
