@@ -10,6 +10,7 @@
       "meaning": "免れた、回避した",
       "etymology": "ラテン語 evadere。e-「外へ」+ vadere「行く」。",
       "example": "He evaded the question by changing the subject.",
+      "exampleTranslation": "彼は話題を変えて質問を避けた。",
       "pos": "動詞",
       "q": 1
     },
@@ -18,6 +19,7 @@
       "meaning": "殺菌した、不妊にした",
       "etymology": "ラテン語 sterilis「不毛の」+ -ize。",
       "example": "All the surgical instruments were sterilized before the operation.",
+      "exampleTranslation": "すべての手術器具は手術前に滅菌されています。",
       "pos": "動詞",
       "q": 1
     },
@@ -26,6 +28,7 @@
       "meaning": "難破させた、破壊した",
       "etymology": "古ノルド語系。岸に打ち上げられた物を指した語から。ゲルマン語起源。",
       "example": "The storm wrecked several boats in the harbor.",
+      "exampleTranslation": "嵐により港で数隻のボートが難破した。",
       "pos": "動詞",
       "q": 1
     },
@@ -34,6 +37,7 @@
       "meaning": "通勤した、(刑を)減刑した",
       "etymology": "ラテン語 commutare「すっかり変える」。com-+mutare「変える」。",
       "example": "She commuted to the city by train every day.",
+      "exampleTranslation": "彼女は毎日電車でその街へ通勤しました。",
       "pos": "動詞",
       "q": 1
     },
@@ -42,6 +46,7 @@
       "meaning": "削減、縮小",
       "etymology": "ラテン語 reducere「引き戻す」。re-+ducere「導く」。",
       "example": "The company announced reductions in staff due to falling profits.",
+      "exampleTranslation": "同社は利益減少のため人員削減を発表した。",
       "pos": "名詞",
       "q": 2
     },
@@ -50,6 +55,7 @@
       "meaning": "ノミネート、指名",
       "etymology": "ラテン語 nominare「名付ける」(nomen「名前」)から。",
       "example": "The film received five nominations at the awards ceremony.",
+      "exampleTranslation": "この映画は授賞式で5部門にノミネートされた。",
       "pos": "名詞",
       "q": 2
     },
@@ -58,6 +64,7 @@
       "meaning": "(巧みな)動き、策略、軍事演習",
       "etymology": "フランス語 manoeuvre。ラテン語 manu operari「手で働く」から。",
       "example": "The company used some clever financial maneuvers to avoid bankruptcy.",
+      "exampleTranslation": "同社は破産を回避するためにいくつかの巧妙な財務戦略を講じた。",
       "pos": "名詞",
       "q": 2
     },
@@ -66,6 +73,7 @@
       "meaning": "見方、観点",
       "etymology": "ラテン語 perspicere「よく見る、見通す」。per-+specere「見る」。",
       "example": "Hearing different perspectives on the issue helped her form her own opinion.",
+      "exampleTranslation": "この問題についてさまざまな視点を聞くことで、彼女は自分の意見を形成することができました。",
       "pos": "名詞",
       "q": 2
     },
@@ -74,6 +82,7 @@
       "meaning": "超自然的な",
       "etymology": "super-「〜を超えた」+ natural(ラテン語 natura「自然」)。",
       "example": "The film is about supernatural events in an old mansion.",
+      "exampleTranslation": "この映画は古い邸宅で起こる超常現象についての物語です。",
       "pos": "形容詞",
       "q": 3
     },
@@ -82,6 +91,7 @@
       "meaning": "臆病な",
       "etymology": "coward(古フランス語 coart。coe「尻尾」+ -ard、尻尾を巻いて逃げる様子から)+ -ly。",
       "example": "It was cowardly of him to blame his colleague for his own mistake.",
+      "exampleTranslation": "自分のミスを同僚のせいにするのは彼にとって卑怯だった。",
       "pos": "形容詞",
       "q": 3
     },
@@ -90,6 +100,7 @@
       "meaning": "広々とした",
       "etymology": "ラテン語 spatiosus「広い」(spatium「空間」)から。",
       "example": "Their new apartment is much more spacious than the old one.",
+      "exampleTranslation": "彼らの新しいアパートは古いアパートよりずっと広いです。",
       "pos": "形容詞",
       "q": 3
     },
@@ -98,6 +109,7 @@
       "meaning": "従順な、(規則に)準拠した",
       "etymology": "ラテン語 complere「満たす、成し遂げる」から(comply の派生語)。",
       "example": "The factory had to make changes to remain compliant with safety regulations.",
+      "exampleTranslation": "工場は安全規制に準拠し続けるために変更を加える必要がありました。",
       "pos": "形容詞",
       "q": 3
     },
@@ -106,6 +118,7 @@
       "meaning": "登録する(こと)、入学する(こと)",
       "etymology": "古フランス語 enroller。en-+rolle「巻物、記録簿」。",
       "example": "She's enrolling in a night class to learn Spanish.",
+      "exampleTranslation": "彼女はスペイン語を学ぶために夜間クラスに登録しています。",
       "pos": "動詞(-ing)",
       "q": 4
     },
@@ -114,6 +127,7 @@
       "meaning": "反抗する(こと)、反乱を起こす(こと)",
       "etymology": "ラテン語 rebellare。re-「再び」+ bellare「戦う」(bellum「戦争」)。",
       "example": "Many teenagers go through a phase of rebelling against their parents.",
+      "exampleTranslation": "多くのティーンエイジャーは、親に反抗する段階を経験します。",
       "pos": "動詞(-ing)",
       "q": 4
     },
@@ -122,6 +136,7 @@
       "meaning": "放射する(こと)",
       "etymology": "ラテン語 radiare(radius「光線」)から。",
       "example": "Warmth was radiating from the fireplace.",
+      "exampleTranslation": "暖炉からは暖かさが伝わってきました。",
       "pos": "動詞(-ing)",
       "q": 4
     },
@@ -130,6 +145,7 @@
       "meaning": "固まる(こと)、強固にする(こと)",
       "etymology": "ラテン語 solidus「固い」+ -ify。",
       "example": "The wax began solidifying as it cooled.",
+      "exampleTranslation": "ワックスは冷えると固まり始めました。",
       "pos": "動詞(-ing)",
       "q": 4
     },
@@ -138,6 +154,7 @@
       "meaning": "吸い込む",
       "etymology": "ラテン語 inhalare。in-+halare「息をする」。",
       "example": "Try to inhale slowly and deeply to help you relax.",
+      "exampleTranslation": "リラックスできるよう、ゆっくりと深く息を吸いましょう。",
       "pos": "動詞",
       "q": 5
     },
@@ -146,6 +163,7 @@
       "meaning": "(幽霊が)出る、つきまとう",
       "etymology": "古フランス語 hanter。語源には諸説あり、確定していない。",
       "example": "The memory of that accident still haunts her.",
+      "exampleTranslation": "その事故の記憶は今でも彼女を悩ませている。",
       "pos": "動詞",
       "etymologyUncertain": true,
       "q": 5
@@ -155,6 +173,7 @@
       "meaning": "妨げる、塞ぐ",
       "etymology": "ラテン語 obstruere。ob-「〜に対して」+ struere「積み上げる」。",
       "example": "The fallen tree obstructed the road.",
+      "exampleTranslation": "倒木が道路を妨げた。",
       "pos": "動詞",
       "q": 5
     },
@@ -163,6 +182,7 @@
       "meaning": "圧縮する",
       "etymology": "ラテン語 comprimere。com-「共に」+ premere「押す」。",
       "example": "You can compress the file to make it smaller before sending it.",
+      "exampleTranslation": "送信する前にファイルを圧縮してサイズを小さくすることができます。",
       "pos": "動詞",
       "q": 5
     },
@@ -171,6 +191,7 @@
       "meaning": "偽造",
       "etymology": "古フランス語 forgier「鍛造する、形作る」(ラテン語 fabricare)から。",
       "example": "The painting turned out to be a clever forgery.",
+      "exampleTranslation": "その絵は巧妙な偽造であることが判明した。",
       "pos": "名詞",
       "q": 6
     },
@@ -179,6 +200,7 @@
       "meaning": "立候補",
       "etymology": "ラテン語 candidatus「白い服を着た人」。古代ローマで公職を求める人が白いトーガを着たことから。",
       "example": "She announced her candidacy for mayor last week.",
+      "exampleTranslation": "彼女は先週市長選への立候補を発表した。",
       "pos": "名詞",
       "q": 6
     },
@@ -187,6 +209,7 @@
       "meaning": "寛大さ、寛容",
       "etymology": "ラテン語 lenire「和らげる」(lenis「柔らかい」)から。",
       "example": "The judge showed leniency because it was the defendant's first offense.",
+      "exampleTranslation": "被告の初犯だったため裁判官は寛大な態度を示した。",
       "pos": "名詞",
       "q": 6
     },
@@ -195,6 +218,7 @@
       "meaning": "競争、対抗意識",
       "etymology": "ラテン語 rivalis「同じ小川を使う者」、つまり競争相手(rivus「小川」)から。",
       "example": "There's a long-standing rivalry between the two sports teams.",
+      "exampleTranslation": "2つのスポーツチームの間には長年にわたるライバル関係がある。",
       "pos": "名詞",
       "q": 6
     },
@@ -203,6 +227,7 @@
       "meaning": "栄養のある",
       "etymology": "ラテン語 nutrire「養う」+ -itious。",
       "example": "Fish is generally considered a nutritious source of protein.",
+      "exampleTranslation": "魚は一般に栄養価の高いタンパク質源であると考えられています。",
       "pos": "形容詞",
       "q": 7
     },
@@ -211,6 +236,7 @@
       "meaning": "正義感の強い、公正な",
       "etymology": "古英語 rihtwis。riht「正しい」+ wis「〜のような、賢い」。",
       "example": "He felt a righteous anger at the unfair treatment of his coworker.",
+      "exampleTranslation": "彼は同僚の不当な扱いに対して正当な怒りを感じた。",
       "pos": "形容詞",
       "q": 7
     },
@@ -219,6 +245,7 @@
       "meaning": "仮の、暫定的な",
       "etymology": "ラテン語 tentare/temptare「試みる」+ -ive。",
       "example": "We made a tentative plan to meet next Friday, but it might change.",
+      "exampleTranslation": "私たちは来週の金曜日に会うという暫定的な計画を立てましたが、変更される可能性があります。",
       "pos": "形容詞",
       "q": 7
     },
@@ -227,6 +254,7 @@
       "meaning": "普遍的な、万国共通の",
       "etymology": "ラテン語 universalis(universus「全体の」)から。",
       "example": "Music is often described as a universal language.",
+      "exampleTranslation": "音楽はしばしば世界共通言語であると言われます。",
       "pos": "形容詞",
       "q": 7
     },
@@ -235,6 +263,7 @@
       "meaning": "叱責、譴責",
       "etymology": "フランス語 réprimande。ラテン語 reprimere「押し返す、抑える」(re-+premere「押す」)から。",
       "example": "He received a formal reprimand for being late to work repeatedly.",
+      "exampleTranslation": "彼は度重なる遅刻で正式な懲戒処分を受けた。",
       "pos": "名詞",
       "q": 8
     },
@@ -243,6 +272,7 @@
       "meaning": "解剖学、構造",
       "etymology": "ギリシャ語 anatome「切開」。ana-「上に」+ temnein「切る」。",
       "example": "Medical students must study human anatomy in detail.",
+      "exampleTranslation": "医学生は人体解剖学を詳しく学ばなければなりません。",
       "pos": "名詞",
       "q": 8
     },
@@ -251,6 +281,7 @@
       "meaning": "尊敬、評価",
       "etymology": "ラテン語 aestimare「評価する」から。",
       "example": "She is held in high esteem by her colleagues.",
+      "exampleTranslation": "彼女は同僚から高く評価されています。",
       "pos": "名詞",
       "q": 8
     },
@@ -259,6 +290,7 @@
       "meaning": "苦悩、困窮",
       "etymology": "古フランス語 destresse。ラテン語 distringere「引き離す、締め付ける」(dis-+stringere「引き締める」)から。",
       "example": "The lost hikers signaled their distress by lighting a fire.",
+      "exampleTranslation": "道に迷ったハイカーたちは火をつけて遭難の合図をした。",
       "pos": "名詞",
       "q": 8
     },
@@ -267,6 +299,7 @@
       "meaning": "保証(書)",
       "etymology": "古北フランス語 warantie。ゲルマン語起源の warant(保証人)から(guarantee と同系)。",
       "example": "The washing machine comes with a two-year warranty.",
+      "exampleTranslation": "洗濯機には2年間の保証が付いています。",
       "pos": "名詞",
       "q": 9
     },
@@ -275,6 +308,7 @@
       "meaning": "骨折、亀裂",
       "etymology": "ラテン語 frangere「壊す」から。",
       "example": "An X-ray revealed a small fracture in his wrist.",
+      "exampleTranslation": "X線検査の結果、手首に小さな骨折があることが判明した。",
       "pos": "名詞",
       "q": 9
     },
@@ -283,6 +317,7 @@
       "meaning": "危険、危険要因",
       "etymology": "古フランス語 hasard。アラビア語 az-zahr「さいころ」に由来するとされるが確定的ではない。",
       "example": "Loose wires on the floor are a serious safety hazard.",
+      "exampleTranslation": "床に配線が緩んでいると、重大な安全上の問題が発生します。",
       "pos": "名詞",
       "etymologyUncertain": true,
       "q": 9
@@ -292,6 +327,7 @@
       "meaning": "上昇、登ること",
       "etymology": "ラテン語 ascendere「登る」。ad-+scandere「登る」。",
       "example": "The ascent to the summit took nearly six hours.",
+      "exampleTranslation": "頂上までの登りには6時間近くかかりました。",
       "pos": "名詞",
       "q": 9
     },
@@ -300,6 +336,7 @@
       "meaning": "従う、耐える",
       "etymology": "古英語 abidan。a-+bidan「待つ」。",
       "example": "All members must abide by the club's rules.",
+      "exampleTranslation": "すべての会員はクラブの規則を遵守しなければなりません。",
       "pos": "動詞",
       "q": 10
     },
@@ -308,6 +345,7 @@
       "meaning": "衝突する",
       "etymology": "ラテン語 collidere。com-「共に」+ laedere「傷つける」。",
       "example": "The two cars collided at the intersection.",
+      "exampleTranslation": "2台の車が交差点で衝突した。",
       "pos": "動詞",
       "q": 10
     },
@@ -316,6 +354,7 @@
       "meaning": "治まる、沈静化する",
       "etymology": "ラテン語 subsidere。sub-「下に」+ sidere「沈む、落ち着く」。",
       "example": "The pain in her ankle finally began to subside after a week.",
+      "exampleTranslation": "彼女の足首の痛みは、1週間後にようやく治まり始めました。",
       "pos": "動詞",
       "q": 10
     },
@@ -324,6 +363,7 @@
       "meaning": "議長を務める、司会する",
       "etymology": "ラテン語 praesidere。prae-「前に」+ sedere「座る」。",
       "example": "The vice president will preside over today's meeting.",
+      "exampleTranslation": "副大統領が今日の会議を主宰します。",
       "pos": "動詞",
       "q": 10
     },
@@ -332,6 +372,7 @@
       "meaning": "切り離す、分離する",
       "etymology": "フランス語 détacher。de-「反対」+ attacher「取り付ける」。",
       "example": "Please detach the form along the dotted line and mail it back to us.",
+      "exampleTranslation": "点線に沿って切り離し、郵送にてご返送ください。",
       "pos": "動詞",
       "q": 11
     },
@@ -340,6 +381,7 @@
       "meaning": "飼いならす",
       "etymology": "古英語 tam「飼いならされた」。ゲルマン語起源。",
       "example": "It took months to tame the wild horse.",
+      "exampleTranslation": "野生の馬を飼いならすのに何か月もかかった。",
       "pos": "動詞",
       "q": 11
     },
@@ -348,6 +390,7 @@
       "meaning": "広げる、(事態が)展開する",
       "etymology": "un-「反対」+ fold(古英語 fealdan「折る」)。",
       "example": "She unfolded the map to find the quickest route.",
+      "exampleTranslation": "彼女は地図を広げて最短ルートを見つけました。",
       "pos": "動詞",
       "q": 11
     },
@@ -356,6 +399,7 @@
       "meaning": "束ねる、まとめる",
       "etymology": "中期オランダ語・低地ドイツ語系。bind と関連する語。",
       "example": "He bundled up the old newspapers for recycling.",
+      "exampleTranslation": "彼はリサイクルするために古新聞を束ねた。",
       "pos": "動詞",
       "q": 11
     },
@@ -364,6 +408,7 @@
       "meaning": "身代金",
       "etymology": "古フランス語 raençon。ラテン語 redemptio「買い戻し」と同語源。",
       "example": "A large ransom was demanded for the missing painting's return.",
+      "exampleTranslation": "行方不明の絵画の返還には多額の身代金が要求された。",
       "pos": "名詞",
       "q": 12
     },
@@ -372,6 +417,7 @@
       "meaning": "予防措置、用心",
       "etymology": "ラテン語 praecautio。prae-「前もって」+ cavere「用心する」。",
       "example": "As a precaution, the school closed early before the storm arrived.",
+      "exampleTranslation": "予防措置として、学校は嵐が来る前に早めに閉校しました。",
       "pos": "名詞",
       "q": 12
     },
@@ -380,6 +426,7 @@
       "meaning": "自治、自主性",
       "etymology": "ギリシャ語 autonomia。autos「自己」+ nomos「法」。",
       "example": "The region was granted greater autonomy to manage its own affairs.",
+      "exampleTranslation": "この地域には、独自の事柄を管理するためのより大きな自治権が与えられました。",
       "pos": "名詞",
       "q": 12
     },
@@ -388,6 +435,7 @@
       "meaning": "保護、保全",
       "etymology": "ラテン語 conservare「保つ」から。",
       "example": "The organization works on the conservation of endangered species.",
+      "exampleTranslation": "この組織は絶滅危惧種の保護に取り組んでいます。",
       "pos": "名詞",
       "q": 12
     },
@@ -396,6 +444,7 @@
       "meaning": "陰気な、憂鬱な",
       "etymology": "中英語 gloumbe「不機嫌な顔をする」。語源は未詳。",
       "example": "The weather has been gloomy all week.",
+      "exampleTranslation": "今週はずっと暗い天気が続いています。",
       "pos": "形容詞",
       "etymologyUncertain": true,
       "q": 13
@@ -405,6 +454,7 @@
       "meaning": "柔らかい、優しい",
       "etymology": "ラテン語 tener「柔らかい、繊細な」から。",
       "example": "The meat was so tender it fell off the bone.",
+      "exampleTranslation": "お肉は骨から外れてしまうほど柔らかかったです。",
       "pos": "形容詞",
       "q": 13
     },
@@ -413,6 +463,7 @@
       "meaning": "国際的な、世界主義の",
       "etymology": "ギリシャ語 kosmopolites。kosmos「世界」+ polites「市民」。",
       "example": "London is a cosmopolitan city with people from all over the world.",
+      "exampleTranslation": "ロンドンは世界中から人が集まる国際都市です。",
       "pos": "形容詞",
       "q": 13
     },
@@ -421,6 +472,7 @@
       "meaning": "脅すような、威嚇的な",
       "etymology": "ラテン語 minacia「脅し」(minari「脅す」)から。",
       "example": "The dog gave a menacing growl as the stranger approached.",
+      "exampleTranslation": "見知らぬ人が近づくと、犬は威嚇するようなうなり声を上げた。",
       "pos": "形容詞",
       "q": 13
     },
@@ -429,6 +481,7 @@
       "meaning": "(鳥が)止まる、腰かける",
       "etymology": "古フランス語 perche「棒、さお」。ラテン語 pertica から。",
       "example": "A small bird perched on the windowsill.",
+      "exampleTranslation": "窓辺に小鳥が止まっています。",
       "pos": "動詞",
       "q": 14
     },
@@ -437,6 +490,7 @@
       "meaning": "軽やかに通り抜ける、(物事を)楽々とこなす",
       "etymology": "スペイン語・ポルトガル語 briza「北東の風」からとされるが語源は未詳。",
       "example": "She breezed through the exam without any difficulty.",
+      "exampleTranslation": "彼女は何の困難もなく試験を乗り越えた。",
       "pos": "動詞",
       "etymologyUncertain": true,
       "q": 14
@@ -446,6 +500,7 @@
       "meaning": "きらりと光る",
       "etymology": "古英語 glæm「輝き」。ゲルマン語起源。",
       "example": "The polished silver gleamed under the lights.",
+      "exampleTranslation": "磨き上げられたシルバーがライトの下で輝いていました。",
       "pos": "動詞",
       "q": 14
     },
@@ -454,6 +509,7 @@
       "meaning": "ジュージュー音を立てる",
       "etymology": "その音を模した擬音語(オノマトペ)。",
       "example": "The bacon sizzled loudly in the frying pan.",
+      "exampleTranslation": "フライパンの中でベーコンがジュウジュウと音を立てて焼けました。",
       "pos": "動詞",
       "q": 14
     },
@@ -462,6 +518,7 @@
       "meaning": "〜に頼って生活する",
       "etymology": "live「生活する」+ off。",
       "example": "He lives off a small pension.",
+      "exampleTranslation": "彼は少額の年金で暮らしている。",
       "pos": "句動詞",
       "q": 15
     },
@@ -470,6 +527,7 @@
       "meaning": "〜の方へ向かう、〜に役立つ",
       "etymology": "make「作る、進む」+ for。",
       "example": "A good night's sleep makes for a productive day.",
+      "exampleTranslation": "良質な睡眠は生産的な一日をもたらします。",
       "pos": "句動詞",
       "q": 15
     },
@@ -478,6 +536,7 @@
       "meaning": "伝える、(申し出などを)辞退する",
       "etymology": "pass「渡す」+ on。",
       "example": "Please pass on my regards to your family.",
+      "exampleTranslation": "ご家族によろしく伝えてください。",
       "pos": "句動詞",
       "q": 15
     },
@@ -486,6 +545,7 @@
       "meaning": "全滅させる、一掃する",
       "etymology": "wipe「拭く」+ out。",
       "example": "The disease wiped out most of the region's crops.",
+      "exampleTranslation": "この病気により、その地域の作物のほとんどが全滅した。",
       "pos": "句動詞",
       "q": 15
     },
@@ -494,6 +554,7 @@
       "meaning": "(問題などを)解決する",
       "etymology": "iron「アイロンをかける」+ out(しわを伸ばすイメージ)。",
       "example": "The two companies met to iron out their differences.",
+      "exampleTranslation": "両社は互いの違いを解決するために会合した。",
       "pos": "句動詞",
       "q": 16
     },
@@ -502,6 +563,7 @@
       "meaning": "気軽に付け加える、おまけに付ける",
       "etymology": "toss「軽く投げる」+ in。",
       "example": "The salesman offered to toss in free delivery.",
+      "exampleTranslation": "セールスマンは無料配達を申し出た。",
       "pos": "句動詞",
       "q": 16
     },
@@ -510,6 +572,7 @@
       "meaning": "引き受ける、(人を)雇う",
       "etymology": "take「取る」+ on。",
       "example": "The firm decided to take on two new employees this month.",
+      "exampleTranslation": "その会社は今月2人の新入社員を採用することを決めた。",
       "pos": "句動詞",
       "q": 16
     },
@@ -518,6 +581,7 @@
       "meaning": "評価する、見極める",
       "etymology": "size「大きさを測る」+ up。",
       "example": "She quickly sized up the situation before making a decision.",
+      "exampleTranslation": "彼女は決断を下す前に、すぐに状況を把握しました。",
       "pos": "句動詞",
       "q": 16
     },
@@ -526,6 +590,7 @@
       "meaning": "大声で不満を言う",
       "etymology": "sound「音を出す」+ off。",
       "example": "He's always sounding off about the government on social media.",
+      "exampleTranslation": "彼はいつもソーシャルメディアで政府について悪口を言っている。",
       "pos": "句動詞",
       "q": 17
     },
@@ -534,6 +599,7 @@
       "meaning": "後ずさりする、手を引く",
       "etymology": "draw「引く」+ back。",
       "example": "She drew back from the deal at the last minute.",
+      "exampleTranslation": "彼女は土壇場で契約を撤回した。",
       "pos": "句動詞",
       "q": 17
     },
@@ -542,6 +608,7 @@
       "meaning": "現れる、見つかる",
       "etymology": "turn「向く」+ up。",
       "example": "He finally turned up an hour late for the meeting.",
+      "exampleTranslation": "彼は結局、会議に1時間遅れて現れた。",
       "pos": "句動詞",
       "q": 17
     },
@@ -550,6 +617,7 @@
       "meaning": "除外する、可能性を排除する",
       "etymology": "rule「線を引く、裁定する」+ out。",
       "example": "Doctors have ruled out a serious illness after running several tests.",
+      "exampleTranslation": "医師はいくつかの検査を行った結果、重篤な病気の可能性を否定しました。",
       "pos": "句動詞",
       "q": 17
     },
@@ -558,6 +626,7 @@
       "meaning": "(お金などを)出し合う、割り込んで発言する",
       "etymology": "chip「(お金の)チップ、かけら」+ in。",
       "example": "Everyone chipped in to buy the teacher a farewell gift.",
+      "exampleTranslation": "みんなで協力して先生にお別れのプレゼントを買いました。",
       "pos": "句動詞",
       "q": 18
     },
@@ -566,6 +635,7 @@
       "meaning": "うまくやり遂げる",
       "etymology": "pull「引く」+ off。",
       "example": "It was a difficult project, but the team managed to pull it off.",
+      "exampleTranslation": "難しいプロジェクトでしたが、チームはなんとかやり遂げました。",
       "pos": "句動詞",
       "q": 18
     },
@@ -574,6 +644,7 @@
       "meaning": "その場に留まる",
       "etymology": "stick「くっつく、留まる」+ around。",
       "example": "Can you stick around after the meeting to help clean up?",
+      "exampleTranslation": "会議の後、片づけを手伝うためにそこに残ってもらえますか?",
       "pos": "句動詞",
       "q": 18
     },
@@ -582,6 +653,7 @@
       "meaning": "持ちこたえる、耐える",
       "etymology": "bear「耐える、支える」+ up。",
       "example": "Despite the bad news, she bore up remarkably well.",
+      "exampleTranslation": "悪い知らせにもかかわらず、彼女は驚くほど元気に育ちました。",
       "pos": "句動詞",
       "q": 18
     }

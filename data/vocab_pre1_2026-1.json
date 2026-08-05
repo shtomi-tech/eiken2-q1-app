@@ -10,6 +10,7 @@
       "meaning": "墓地",
       "etymology": "ギリシャ語 koimeterion「眠る場所」がラテン語・古フランス語を経て英語に入った。",
       "example": "The old cemetery on the hill has graves dating back two centuries.",
+      "exampleTranslation": "丘の上の古い墓地には 2 世紀前の墓があります。",
       "pos": "名詞",
       "q": 1
     },
@@ -18,6 +19,7 @@
       "meaning": "図、図表",
       "etymology": "ギリシャ語 diagramma。dia-「〜を通して」+ graphein「書く・描く」。",
       "example": "The teacher drew a diagram on the board to show how blood flows through the heart.",
+      "exampleTranslation": "先生は血液が心臓をどのように流れるかを黒板に図を書きました。",
       "pos": "名詞",
       "q": 1
     },
@@ -26,6 +28,7 @@
       "meaning": "方程式、等式",
       "etymology": "ラテン語 aequare「等しくする」(aequus「等しい」)から。",
       "example": "She solved the equation by isolating x on one side.",
+      "exampleTranslation": "彼女は片側の x を分離することによって方程式を解きました。",
       "pos": "名詞",
       "q": 1
     },
@@ -34,6 +37,7 @@
       "meaning": "予報、予測",
       "etymology": "fore-「前もって」+ cast「投げる、見積もる」の複合語。",
       "example": "According to the forecast, it will rain all weekend.",
+      "exampleTranslation": "天気予報によると、週末はずっと雨が降ります。",
       "pos": "名詞",
       "collocation": "weather forecast",
       "q": 1
@@ -43,6 +47,7 @@
       "meaning": "所有欲の強い、独占欲の強い",
       "etymology": "ラテン語 possidere「所有する」の派生語 possessivus から。",
       "example": "He became possessive about his girlfriend and didn't like her spending time with other friends.",
+      "exampleTranslation": "彼はガールフレンドに対して独占欲が強くなり、彼女が他の友達と時間を過ごすのを好まなかった。",
       "pos": "形容詞",
       "q": 2
     },
@@ -51,6 +56,7 @@
       "meaning": "水平の",
       "etymology": "ギリシャ語 horizon「境界を区切る(円)」+ -al。",
       "example": "Lay the board horizontal before you start cutting it.",
+      "exampleTranslation": "カットを開始する前に、ボードを水平に置きます。",
       "pos": "形容詞",
       "q": 2
     },
@@ -59,6 +65,7 @@
       "meaning": "余分な、冗長な、不要な",
       "etymology": "ラテン語 redundare「あふれ出る」。red-「再び」+ undare「波立つ」(unda「波」)。",
       "example": "This sentence in your essay is redundant; you already said the same thing in the previous paragraph.",
+      "exampleTranslation": "あなたのエッセイのこの文は冗長です。あなたはすでに前の段落で同じことを言いました。",
       "pos": "形容詞",
       "q": 2
     },
@@ -67,6 +74,7 @@
       "meaning": "徹底的な、思い切った、過激な",
       "etymology": "ギリシャ語 drastikos「効果的な、行動的な」(dran「行う」)から。",
       "example": "The company took drastic measures to cut costs, including laying off a third of its staff.",
+      "exampleTranslation": "同社は従業員の3分の1を解雇するなど、コスト削減のため思い切った措置を講じた。",
       "pos": "形容詞",
       "q": 2
     },
@@ -75,6 +83,7 @@
       "meaning": "引っ張る、(重い物を)運ぶ",
       "etymology": "「引く」を意味する hale の異形。古フランス語 haler(ゲルマン語起源)経由。",
       "example": "The fishermen hauled the nets onto the deck.",
+      "exampleTranslation": "漁師たちは網を甲板に引き上げた。",
       "pos": "動詞",
       "q": 3
     },
@@ -83,6 +92,7 @@
       "meaning": "うらやむ、ねたむ",
       "etymology": "ラテン語 invidia(invidere「悪意を持って見る」、in-+videre「見る」)から。",
       "example": "I envy people who can speak three languages fluently.",
+      "exampleTranslation": "3か国語を流暢に話せる人がうらやましいです。",
       "pos": "動詞",
       "q": 3
     },
@@ -91,6 +101,7 @@
       "meaning": "引く、減じる",
       "etymology": "ラテン語 subtrahere「下に引く」。sub-「下に」+ trahere「引く」。",
       "example": "If you subtract 15 from 40, you get 25.",
+      "exampleTranslation": "40から15を引くと25になります。",
       "pos": "動詞",
       "q": 3
     },
@@ -99,6 +110,7 @@
       "meaning": "検閲する",
       "etymology": "ラテン語 censere「評価する、判定する」。古代ローマの風紀監督官 censor に由来。",
       "example": "The government censored the film before allowing it to be shown in theaters.",
+      "exampleTranslation": "政府はこの映画を劇場で上映する前に検閲した。",
       "pos": "動詞",
       "q": 3
     },
@@ -107,6 +119,7 @@
       "meaning": "紹介、(専門医への)委託、照会",
       "etymology": "refer(ラテン語 referre、re-+ferre「運ぶ」)+ -al。",
       "example": "My doctor gave me a referral to see a specialist.",
+      "exampleTranslation": "医師は私に専門医の診察を受けるよう紹介してくれました。",
       "pos": "名詞",
       "q": 4
     },
@@ -115,6 +128,7 @@
       "meaning": "受取人",
       "etymology": "ラテン語 recipere「受け取る」(re-+capere「取る」)から。",
       "example": "She was the recipient of a scholarship for outstanding academic achievement.",
+      "exampleTranslation": "彼女は優れた学業成績により奨学金を受け取っていた。",
       "pos": "名詞",
       "q": 4
     },
@@ -123,6 +137,7 @@
       "meaning": "(クラブなどの)用心棒",
       "etymology": "bounce「跳ね返る」+ -er。「用心棒」の意味は20世紀に発達した。",
       "example": "The bouncer at the club checked everyone's ID before letting them in.",
+      "exampleTranslation": "クラブの用心棒は全員の身分証明書をチェックしてから入場させた。",
       "pos": "名詞",
       "etymologyUncertain": true,
       "q": 4
@@ -132,6 +147,7 @@
       "meaning": "後継者",
       "etymology": "ラテン語 succedere「後に続く」(sub-+cedere「行く」)の派生語。",
       "example": "The CEO announced his successor before retiring.",
+      "exampleTranslation": "CEOは退任する前に後任を発表した。",
       "pos": "名詞",
       "q": 4
     },
@@ -140,6 +156,7 @@
       "meaning": "引き起こす(こと)",
       "etymology": "trigger はオランダ語 trekker(trekken「引く」)から。",
       "example": "Loud noises can trigger a panic attack in some people.",
+      "exampleTranslation": "大きな騒音は、人によってはパニック発作を引き起こす可能性があります。",
       "pos": "動詞(-ing)",
       "q": 5
     },
@@ -148,6 +165,7 @@
       "meaning": "でっち上げる(こと)、捏造する(こと)",
       "etymology": "ラテン語 fabricare「作る、組み立てる」(fabrica「工房」)から。",
       "example": "The witness admitted to fabricating parts of his story.",
+      "exampleTranslation": "証人は自分の話の一部を捏造したことを認めた。",
       "pos": "動詞(-ing)",
       "q": 5
     },
@@ -156,6 +174,7 @@
       "meaning": "保存する(こと)、節約する(こと)",
       "etymology": "ラテン語 conservare。com-「共に」+ servare「保つ」。",
       "example": "We're conserving water during the drought by taking shorter showers.",
+      "exampleTranslation": "干ばつの間、私たちはシャワーの時間を短くすることで水を節約しています。",
       "pos": "動詞(-ing)",
       "q": 5
     },
@@ -164,6 +183,7 @@
       "meaning": "放棄する(こと)、断念する(こと)",
       "etymology": "ラテン語 renuntiare「拒否を宣言する」。re-+nuntiare「知らせる」(nuntius「使者」)。",
       "example": "He renounced his claim to the family business.",
+      "exampleTranslation": "彼は家業に対する権利を放棄した。",
       "pos": "動詞(-ing)",
       "q": 5
     },
@@ -172,6 +192,7 @@
       "meaning": "身代金",
       "etymology": "古フランス語 raençon。ラテン語 redemptio「買い戻し」と同語源(redemption と同根)。",
       "example": "The kidnappers demanded a large ransom for the hostage's release.",
+      "exampleTranslation": "誘拐犯は人質の解放のために多額の身代金を要求した。",
       "pos": "名詞",
       "q": 6
     },
@@ -180,6 +201,7 @@
       "meaning": "標本、見本",
       "etymology": "ラテン語 specimen「印、実例」(specere「見る」)から。",
       "example": "The biologist collected a specimen of the rare plant for study.",
+      "exampleTranslation": "生物学者は研究のために珍しい植物の標本を集めました。",
       "pos": "名詞",
       "q": 6
     },
@@ -188,6 +210,7 @@
       "meaning": "空洞、虫歯",
       "etymology": "ラテン語 cavus「空洞の」+ -ity。",
       "example": "The dentist found a small cavity in one of my back teeth.",
+      "exampleTranslation": "歯医者は私の奥歯の1本に小さな虫歯を見つけました。",
       "pos": "名詞",
       "q": 6
     },
@@ -196,6 +219,7 @@
       "meaning": "引用、召喚状、表彰",
       "etymology": "ラテン語 citare「呼び出す、動かす」(ciere「動かす・呼ぶ」の反復形)から。",
       "example": "The professor asked students to include a proper citation for every source they used.",
+      "exampleTranslation": "教授は学生たちに、使用したすべての情報源に適切な引用を含めるように求めました。",
       "pos": "名詞",
       "q": 6
     },
@@ -204,6 +228,7 @@
       "meaning": "歪み、歪曲",
       "etymology": "ラテン語 distorquere「あちこちにねじる」。dis-+torquere「ねじる」。",
       "example": "The old mirror created a strange distortion of my reflection.",
+      "exampleTranslation": "古い鏡は私の映りに奇妙な歪みを生み出しました。",
       "pos": "名詞",
       "q": 7
     },
@@ -212,6 +237,7 @@
       "meaning": "寛大さ、気前の良さ",
       "etymology": "ラテン語 generosus「高貴な、寛大な」(genus「生まれ、家柄」)から。",
       "example": "Her generosity toward the local charity was widely admired.",
+      "exampleTranslation": "地元の慈善活動に対する彼女の寛大さは広く賞賛されました。",
       "pos": "名詞",
       "q": 7
     },
@@ -220,6 +246,7 @@
       "meaning": "乱気流、動揺、混乱",
       "etymology": "ラテン語 turbulentus「騒然とした」(turba「群衆、騒動」)から。",
       "example": "The plane shook violently as it passed through an area of turbulence.",
+      "exampleTranslation": "飛行機は乱気流域を通過する際に激しく揺れた。",
       "pos": "名詞",
       "q": 7
     },
@@ -228,6 +255,7 @@
       "meaning": "推測、憶測",
       "etymology": "ラテン語 conicere「投げ合わせる、推論する」。com-+iacere「投げる」。",
       "example": "Without any real evidence, his theory is pure conjecture.",
+      "exampleTranslation": "実際の証拠がないため、彼の理論は単なる推測です。",
       "pos": "名詞",
       "q": 7
     },
@@ -236,6 +264,7 @@
       "meaning": "栄養のある",
       "etymology": "ラテン語 nutrire「養う」+ -itious。",
       "example": "A nutritious breakfast helps you concentrate better in the morning.",
+      "exampleTranslation": "栄養価の高い朝食は、朝の集中力を高めるのに役立ちます。",
       "pos": "形容詞",
       "q": 8
     },
@@ -244,6 +273,7 @@
       "meaning": "多様な",
       "etymology": "ラテン語 diversus「別々の方向を向いた」(divertere の過去分詞)から。",
       "example": "The city has a diverse population, with residents from over sixty countries.",
+      "exampleTranslation": "この都市には多様な人々が住んでおり、60 か国以上からの住民が住んでいます。",
       "pos": "形容詞",
       "q": 8
     },
@@ -252,6 +282,7 @@
       "meaning": "不毛の、実を結ばない",
       "etymology": "古フランス語 braine/baraigne。語源は未詳(ケルト語起源の可能性)。",
       "example": "Almost nothing grows in this barren stretch of desert.",
+      "exampleTranslation": "この不毛の砂漠地帯ではほとんど何も育たない。",
       "pos": "形容詞",
       "etymologyUncertain": true,
       "q": 8
@@ -261,6 +292,7 @@
       "meaning": "偶然の、たまたま一致した",
       "etymology": "coincide(ラテン語 co-+incidere「たまたま起こる」)+ -al。",
       "example": "It was purely coincidental that we were staying at the same hotel.",
+      "exampleTranslation": "私たちが同じホテルに泊まっていたのは全くの偶然でした。",
       "pos": "形容詞",
       "q": 8
     },
@@ -269,6 +301,7 @@
       "meaning": "たるんだ、緩い、(商売などが)不振の",
       "etymology": "古英語 slæc「緩い、怠惰な」。ゲルマン語起源。",
       "example": "Business has been slack since the new mall opened nearby.",
+      "exampleTranslation": "近くに新しいモールがオープンして以来、ビジネスは低迷している。",
       "pos": "形容詞",
       "q": 9
     },
@@ -277,6 +310,7 @@
       "meaning": "まばらな、希薄な",
       "etymology": "ラテン語 sparsus(spargere「まき散らす」の過去分詞)から。",
       "example": "The population is quite sparse in this remote mountain region.",
+      "exampleTranslation": "この人里離れた山間部では人口は非常にまばらです。",
       "pos": "形容詞",
       "q": 9
     },
@@ -285,6 +319,7 @@
       "meaning": "広大な、莫大な",
       "etymology": "ラテン語 vastus「広大な、荒涼とした」。",
       "example": "The vast desert stretched as far as the eye could see.",
+      "exampleTranslation": "見渡す限り広大な砂漠が広がっていた。",
       "pos": "形容詞",
       "q": 9
     },
@@ -293,6 +328,7 @@
       "meaning": "極めて重要な、生命の",
       "etymology": "ラテン語 vitalis(vita「生命」)から。",
       "example": "Clean water is vital for human health.",
+      "exampleTranslation": "きれいな水は人間の健康にとって不可欠です。",
       "pos": "形容詞",
       "q": 9
     },
@@ -301,6 +337,7 @@
       "meaning": "子孫",
       "etymology": "ラテン語 descendere「下る」(de-+scandere「登る」)の派生語。",
       "example": "She is a direct descendant of one of the town's founders.",
+      "exampleTranslation": "彼女は町の創設者の一人の直系の子孫です。",
       "pos": "名詞",
       "q": 10
     },
@@ -309,6 +346,7 @@
       "meaning": "勝利、大成功",
       "etymology": "ラテン語 triumphus。勝利した将軍の凱旋行進を指した。",
       "example": "Winning the championship was a great triumph for the team.",
+      "exampleTranslation": "チャンピオンシップの優勝はチームにとって大きな勝利でした。",
       "pos": "名詞",
       "q": 10
     },
@@ -317,6 +355,7 @@
       "meaning": "排出、放出",
       "etymology": "ラテン語 emittere「送り出す」(e-+mittere「送る」)から。",
       "example": "The new law aims to reduce carbon emissions from factories.",
+      "exampleTranslation": "新しい法律は工場からの二酸化炭素排出量を削減することを目的としています。",
       "pos": "名詞",
       "collocation": "carbon emission",
       "q": 10
@@ -326,6 +365,7 @@
       "meaning": "不足、欠乏",
       "etymology": "ラテン語 deficere「不足する、欠ける」(de-+facere「作る、する」)から。",
       "example": "A vitamin D deficiency can weaken your bones over time.",
+      "exampleTranslation": "ビタミンD欠乏症は、時間の経過とともに骨を弱める可能性があります。",
       "pos": "名詞",
       "q": 10
     },
@@ -334,6 +374,7 @@
       "meaning": "繁栄する(こと)、生い茂る(こと)",
       "etymology": "ラテン語 florere「花咲く」(flos「花」)から。",
       "example": "The small bakery has been flourishing since it opened last year.",
+      "exampleTranslation": "その小さなパン屋は昨年オープンして以来、繁盛しています。",
       "pos": "動詞(-ing)",
       "q": 11
     },
@@ -342,6 +383,7 @@
       "meaning": "誓う(こと)、約束する(こと)",
       "etymology": "古フランス語 plege「保証、担保」。フランク語起源とされる。",
       "example": "Every member pledged to attend the meeting.",
+      "exampleTranslation": "メンバー全員が会議に出席することを約束した。",
       "pos": "動詞(-ing)",
       "etymologyUncertain": true,
       "q": 11
@@ -351,6 +393,7 @@
       "meaning": "まき散らす(こと)、散らばる(こと)",
       "etymology": "中英語期の語で、shatter との関連が指摘されるが語源ははっきりしない。",
       "example": "The wind sent leaves scattering across the yard.",
+      "exampleTranslation": "風で木の葉が庭に散らばりました。",
       "pos": "動詞(-ing)",
       "etymologyUncertain": true,
       "q": 11
@@ -360,6 +403,7 @@
       "meaning": "うなだれる(こと)、しおれる(こと)",
       "etymology": "古ノルド語 drupa「沈む、うなだれる」から。",
       "example": "The flowers were drooping in the summer heat.",
+      "exampleTranslation": "夏の暑さで花がしぼんでしまいました。",
       "pos": "動詞(-ing)",
       "q": 11
     },
@@ -368,6 +412,7 @@
       "meaning": "爬虫類",
       "etymology": "ラテン語 reptilis「這う」(repere「這う」)から。",
       "example": "Snakes and lizards are both types of reptile.",
+      "exampleTranslation": "ヘビとトカゲはどちらも爬虫類の一種です。",
       "pos": "名詞",
       "q": 12
     },
@@ -376,6 +421,7 @@
       "meaning": "氷河",
       "etymology": "フランス語(フランコプロヴァンス語 glacière 経由)、ラテン語 glacies「氷」から。",
       "example": "The glacier has retreated significantly over the past fifty years due to warming temperatures.",
+      "exampleTranslation": "気温の温暖化により、氷河は過去50年間で大幅に後退した。",
       "pos": "名詞",
       "q": 12
     },
@@ -384,6 +430,7 @@
       "meaning": "封鎖",
       "etymology": "block に -ade を付けた語(barricade からの類推)。",
       "example": "The navy set up a blockade to prevent supplies from reaching the port.",
+      "exampleTranslation": "海軍は物資が港に届かないように封鎖を敷いた。",
       "pos": "名詞",
       "q": 12
     },
@@ -392,6 +439,7 @@
       "meaning": "作品集、資産構成、書類ばさみ",
       "etymology": "イタリア語 portafoglio。portare「運ぶ」+ foglio「葉、紙」。",
       "example": "The artist showed her portfolio to several galleries before finding one willing to display her work.",
+      "exampleTranslation": "アーティストは自分のポートフォリオをいくつかのギャラリーに見せた後、作品を展示してくれるギャラリーを見つけました。",
       "pos": "名詞",
       "collocation": "investment portfolio",
       "q": 12
@@ -401,6 +449,7 @@
       "meaning": "短縮する、略す",
       "etymology": "ラテン語 abbreviare。ab-+brevis「短い」。",
       "example": "'Doctor' is often abbreviated to 'Dr.' in writing.",
+      "exampleTranslation": "「ドクター」は「ドクター」と略されることが多いです。書面で。",
       "pos": "動詞",
       "q": 13
     },
@@ -409,6 +458,7 @@
       "meaning": "証明する、証言する",
       "etymology": "ラテン語 attestari。ad-+testari「証言する」(testis「証人」)。",
       "example": "Several colleagues can attest to her honesty.",
+      "exampleTranslation": "何人かの同僚が彼女の誠実さを証明できます。",
       "pos": "動詞",
       "q": 13
     },
@@ -417,6 +467,7 @@
       "meaning": "彫る、切り分ける",
       "etymology": "古英語 ceorfan「切る」。ゲルマン語起源。",
       "example": "He carved a small wooden bird for his daughter.",
+      "exampleTranslation": "彼は娘のために小さな木で鳥を彫りました。",
       "pos": "動詞",
       "q": 13
     },
@@ -425,6 +476,7 @@
       "meaning": "産出する、譲る、屈する",
       "etymology": "古英語 gieldan「支払う、報いる」。ゲルマン語起源。",
       "example": "The field yielded a record harvest this year.",
+      "exampleTranslation": "その畑では今年記録的な収穫があった。",
       "pos": "動詞",
       "q": 13
     },
@@ -433,6 +485,7 @@
       "meaning": "放射する、輝く",
       "etymology": "ラテン語 radiare(radius「光線、車輪の輻」)から。",
       "example": "The stove radiated heat throughout the small cabin.",
+      "exampleTranslation": "ストーブは小さな船室全体に熱を放射しました。",
       "pos": "動詞",
       "q": 14
     },
@@ -441,6 +494,7 @@
       "meaning": "拡大する",
       "etymology": "ラテン語 magnificare。magnus「大きい」+ facere「作る」。",
       "example": "The microscope can magnify a cell up to a thousand times its actual size.",
+      "exampleTranslation": "顕微鏡は細胞を実際のサイズの最大 1,000 倍まで拡大できます。",
       "pos": "動詞",
       "q": 14
     },
@@ -449,6 +503,7 @@
       "meaning": "抽出する、引き出す",
       "etymology": "ラテン語 extrahere。ex-「外へ」+ trahere「引く」。",
       "example": "The dentist had to extract two of his wisdom teeth.",
+      "exampleTranslation": "歯医者は親知らずを2本抜歯しなければなりませんでした。",
       "pos": "動詞",
       "q": 14
     },
@@ -457,6 +512,7 @@
       "meaning": "伝える、分け与える",
       "etymology": "ラテン語 impartire。in-+pars「部分」。",
       "example": "The old teacher tried to impart his wisdom to the younger staff.",
+      "exampleTranslation": "その老教師は自分の知恵を若い職員に伝えようとした。",
       "pos": "動詞",
       "q": 14
     },
@@ -465,6 +521,7 @@
       "meaning": "徐々に理解される、しみ込む",
       "etymology": "sink(古英語 sincan「沈む」)+ in。",
       "example": "It took a few days for the bad news to sink in.",
+      "exampleTranslation": "悪い知らせが浸透するまでに数日かかりました。",
       "pos": "句動詞",
       "q": 15
     },
@@ -473,6 +530,7 @@
       "meaning": "外に出す、(秘密などを)漏らす、(声を)発する",
       "etymology": "let「許す」+ out。",
       "example": "She let out a scream when she saw the spider.",
+      "exampleTranslation": "彼女はクモを見て悲鳴を上げた。",
       "pos": "句動詞",
       "q": 15
     },
@@ -481,6 +539,7 @@
       "meaning": "倒産する、沈む",
       "etymology": "go「行く」+ under。",
       "example": "Many small shops went under during the economic downturn.",
+      "exampleTranslation": "経済不況で多くの小さな商店が潰れました。",
       "pos": "句動詞",
       "q": 15
     },
@@ -489,6 +548,7 @@
       "meaning": "〜に頼って生活する",
       "etymology": "live「生活する」+ off。",
       "example": "He lived off his savings for almost a year after losing his job.",
+      "exampleTranslation": "彼は職を失った後、ほぼ1年間貯蓄を切り崩して暮らした。",
       "pos": "句動詞",
       "q": 15
     },
@@ -497,6 +557,7 @@
       "meaning": "合計する、つじつまが合う",
       "etymology": "add「加える」+ up。",
       "example": "His story just doesn't add up; something is missing.",
+      "exampleTranslation": "彼の話はまったくつじつまが合わない。何かが足りない。",
       "pos": "句動詞",
       "q": 16
     },
@@ -505,6 +566,7 @@
       "meaning": "〜を深読みする、〜に別の意味を見出す",
       "etymology": "read「読む」+ into。",
       "example": "Don't read too much into his silence; he's probably just tired.",
+      "exampleTranslation": "彼の沈黙を深読みしないでください。彼はおそらくただ疲れているだけだろう。",
       "pos": "句動詞",
       "q": 16
     },
@@ -513,6 +575,7 @@
       "meaning": "離陸する、急成長する、脱ぐ",
       "etymology": "take「取る」+ off。",
       "example": "Sales took off after the product was featured on TV.",
+      "exampleTranslation": "テレビで紹介されてから売れ行きが好調。",
       "pos": "句動詞",
       "q": 16
     },
@@ -521,6 +584,7 @@
       "meaning": "仲たがいする、抜け落ちる",
       "etymology": "fall「落ちる」+ out。",
       "example": "The two old friends fell out over a business disagreement.",
+      "exampleTranslation": "二人の古い友人は仕事上の意見の相違で仲たがいした。",
       "pos": "句動詞",
       "q": 16
     },
@@ -529,6 +593,7 @@
       "meaning": "こっそり立ち去る、過ぎ去る",
       "etymology": "slip「滑る、こっそり動く」+ away。",
       "example": "He slipped away from the party without saying goodbye.",
+      "exampleTranslation": "彼は別れも言わずにパーティーから抜け出した。",
       "pos": "句動詞",
       "q": 17
     },
@@ -537,6 +602,7 @@
       "meaning": "引き裂く、(契約などを)破棄する",
       "etymology": "tear「引き裂く」+ up。",
       "example": "She tore up the letter without reading it.",
+      "exampleTranslation": "彼女はその手紙を読まずに破り捨てた。",
       "pos": "句動詞",
       "q": 17
     },
@@ -545,6 +611,7 @@
       "meaning": "中途退学する、脱落する",
       "etymology": "drop「落ちる」+ out。",
       "example": "He dropped out of college to start his own business.",
+      "exampleTranslation": "彼は自分のビジネスを始めるために大学を中退しました。",
       "pos": "句動詞",
       "q": 17
     },
@@ -553,6 +620,7 @@
       "meaning": "追跡調査する、フォローアップする",
       "etymology": "follow「従う」+ up。",
       "example": "The doctor asked me to follow up with a blood test in a month.",
+      "exampleTranslation": "医師は私に、1か月後に血液検査を行うように言いました。",
       "pos": "句動詞",
       "q": 17
     },
@@ -561,6 +629,7 @@
       "meaning": "〜を糧にする、〜を食べて生きる",
       "etymology": "feed「食べさせる、食べる」+ off。",
       "example": "The rumor fed off people's fear and spread quickly.",
+      "exampleTranslation": "その噂は人々の恐怖を煽り、すぐに広まりました。",
       "pos": "句動詞",
       "q": 18
     },
@@ -569,6 +638,7 @@
       "meaning": "燃え尽きる、疲れ果てる",
       "etymology": "burn「燃える」+ out。",
       "example": "She felt completely burnt out after months of overtime work.",
+      "exampleTranslation": "彼女は何か月も残業を続けた後、完全に燃え尽き果ててしまったように感じた。",
       "pos": "句動詞",
       "q": 18
     },
@@ -577,6 +647,7 @@
       "meaning": "(計画などが)だめになる、失敗に終わる",
       "etymology": "fall「落ちる」+ through。",
       "example": "Our vacation plans fell through when the flight was canceled.",
+      "exampleTranslation": "飛行機がキャンセルされたため、私たちの休暇の計画は崩れてしまいました。",
       "pos": "句動詞",
       "q": 18
     },
@@ -585,6 +656,7 @@
       "meaning": "食い尽くす、(時間・お金などを)大量に消費する",
       "etymology": "eat「食べる」+ up。",
       "example": "The long commute ate up two hours of his day.",
+      "exampleTranslation": "長い通勤で 1 日の 2 時間が費やされました。",
       "pos": "句動詞",
       "q": 18
     }

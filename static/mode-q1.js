@@ -1200,7 +1200,6 @@ function buildFlashCard(item) {
   if (item.etymology) inner.appendChild(flashRow("語源・なりたち", item.etymology, "flashEtym"));
   if (item.example) inner.appendChild(flashExampleRow(item));
   if (Array.isArray(item.relatedWords) && item.relatedWords.length) inner.appendChild(flashRelatedRow(item));
-  if (item.collocation) inner.appendChild(flashRow("使い方・コロケーション", item.collocation, "flashColl"));
   if (item.selfExampleEnabled) inner.appendChild(buildSelfExamplePanel(item));
   card.appendChild(inner);
   return card;
@@ -1265,7 +1264,12 @@ function flashExampleRow(item) {
     else p.appendChild(document.createTextNode(part));
   });
   row.appendChild(p);
-  if (item.exampleTranslation) row.appendChild(el("p", { class: "flashExampleTranslation" }, item.exampleTranslation));
+  if (item.exampleTranslation) {
+    row.appendChild(el("p", { class: "flashExampleTranslation" },
+      el("span", { class: "flashExampleTranslationLabel" }, "日本語訳"),
+      document.createTextNode(item.exampleTranslation),
+    ));
+  }
   return row;
 }
 

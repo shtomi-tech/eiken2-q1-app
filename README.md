@@ -51,6 +51,18 @@ py -3 scripts/generate_tts_1.py --grade pre2 --round all
 
 生成先は `assets/audio/vocab/<級>/<回>/` です。生成済みの単語は大問1の暗記カードで「音声」ボタンから再生できます。
 
+## 暗記カードの例文訳
+
+2級・準2級・準1級の例文には `exampleTranslation` として日本語訳を収録しています。訳のない例文を補う
+場合は、次のスクリプトを実行します。取得した機械翻訳は、教材として使う前に必要に応じて確認してください。
+
+```powershell
+py -3 scripts/add_example_translations.py --dry-run
+py -3 scripts/add_example_translations.py
+```
+
+暗記カードでは、例文の下に日本語訳を表示し、従来の「使い方・コロケーション」欄は表示しません。
+
 ## 公開版・生徒別進捗
 
 公開版は [GitHub Pages](https://shtomi-tech.github.io/eiken2-q1-app/) です。

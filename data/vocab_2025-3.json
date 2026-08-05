@@ -12,6 +12,7 @@
       "meaning": "主要な、大きな",
       "etymology": "ラテン語 maior「より大きい」。majority（多数）と同根で「大きい・重要な」方向の語。",
       "example": "The company made a major change to its plan.",
+      "exampleTranslation": "会社は計画を大幅に変更した。",
       "collocation": "a major problem / a major city"
     },
     {
@@ -19,6 +20,7 @@
       "meaning": "上の、上部の",
       "etymology": "up（上へ）+ 比較を表す -er。「より上にある」から上部の意味。",
       "example": "Hugh did exercises to increase the strength of his upper body.",
+      "exampleTranslation": "ヒューは上半身の筋力を高めるためにエクササイズをしました。",
       "collocation": "upper body / upper floor / upper class"
     },
     {
@@ -26,6 +28,7 @@
       "meaning": "直接の、まっすぐな",
       "etymology": "ラテン語 dirigere「まっすぐに導く」から。direction（方向）と同根。",
       "example": "There is a direct train from the airport to the city.",
+      "exampleTranslation": "空港から市内まで直通の電車があります。",
       "collocation": "direct contact / direct flight"
     },
     {
@@ -33,6 +36,7 @@
       "meaning": "弾力のある、伸縮する",
       "etymology": "ギリシャ語 elastos「伸ばせる」系の語。elastic band（輪ゴム）で覚えるとよい。",
       "example": "The elastic material stretches easily.",
+      "exampleTranslation": "伸縮性のある素材なので伸びやすいです。",
       "collocation": "elastic band / elastic material"
     },
 
@@ -41,6 +45,7 @@
       "meaning": "部隊、一団",
       "etymology": "古フランス語 troupe「群れ、一団」。group と似た「まとまり」の感覚。",
       "example": "A troop of soldiers entered the town.",
+      "exampleTranslation": "兵士の一団が町に入った。",
       "collocation": "a troop of soldiers / troop movements"
     },
     {
@@ -48,6 +53,7 @@
       "meaning": "ことわざ",
       "etymology": "ラテン語 proverbium < pro-（前に）+ verbum（言葉）。昔から前面に出て使われる言葉。",
       "example": "My grandmother often used an old proverb.",
+      "exampleTranslation": "私の祖母は古いことわざをよく使っていました。",
       "collocation": "an old proverb / as the proverb says"
     },
     {
@@ -55,6 +61,7 @@
       "meaning": "崖、断崖",
       "etymology": "古英語 clif「崖」。基本語で、climb（登る）と音で結びつけて覚えやすい。",
       "example": "She stood at the edge of a tall cliff.",
+      "exampleTranslation": "彼女は高い崖の端に立っていました。",
       "collocation": "a steep cliff / the edge of a cliff"
     },
     {
@@ -62,6 +69,7 @@
       "meaning": "義務、職務",
       "etymology": "due（当然支払われる・当然の）から。「当然すべきこと」が duty。",
       "example": "It is my duty to help the guests.",
+      "exampleTranslation": "ゲストを助けるのが私の義務です。",
       "collocation": "do one's duty / on duty"
     },
 
@@ -70,6 +78,7 @@
       "meaning": "存在する",
       "etymology": "ラテン語 existere < ex-（外へ）+ sistere（立つ）。外に立ち現れる。",
       "example": "Many different opinions exist in the class.",
+      "exampleTranslation": "クラス内ではさまざまな意見が飛び交います。",
       "collocation": "still exist / exist in nature"
     },
     {
@@ -77,6 +86,7 @@
       "meaning": "反応する",
       "etymology": "re-（返して）+ act（行動する）。相手の行動に返す動き。",
       "example": "How did your husband react when you told him about the baby?",
+      "exampleTranslation": "赤ちゃんのことを旦那さんに話したとき、旦那さんはどう反応しましたか？",
       "collocation": "react to news / react quickly"
     },
     {
@@ -84,6 +94,7 @@
       "meaning": "つかむ、奪い取る",
       "etymology": "古フランス語 saisir「所有する、つかむ」。chance を目的語にして「機会をつかむ」。",
       "example": "The police seized the stolen goods.",
+      "exampleTranslation": "警察は盗まれた商品を押収した。",
       "collocation": "seize a chance / seize control"
     },
     {
@@ -91,6 +102,7 @@
       "meaning": "消える、姿を消す",
       "etymology": "dis-（反対）+ appear（現れる）。現れなくなること。",
       "example": "The sun disappeared behind the clouds.",
+      "exampleTranslation": "太陽は雲の向こうに消えてしまいました。",
       "collocation": "suddenly disappear / disappear from view"
     },
 
@@ -99,6 +111,7 @@
       "meaning": "大統領、社長、会長",
       "etymology": "ラテン語 praesidere「前に座る、管理する」。pre-（前）+ sit（座る）の感覚。",
       "example": "The president gave a speech to the nation.",
+      "exampleTranslation": "大統領は国民に向けて演説した。",
       "collocation": "company president / student council president"
     },
     {
@@ -106,6 +119,7 @@
       "meaning": "観客、見物人",
       "etymology": "ラテン語 spectare「見る」。inspect, respect と同じ spect（見る）の語根。",
       "example": "Thousands of spectators watched the game.",
+      "exampleTranslation": "何千人もの観客がその試合を観戦した。",
       "collocation": "a spectator sport / spectators in the stadium"
     },
     {
@@ -113,6 +127,7 @@
       "meaning": "哲学者、思想家",
       "etymology": "ギリシャ語 philos（愛する）+ sophia（知恵）。「知を愛する人」。",
       "example": "She wants to be a philosopher and learn about the meaning of life.",
+      "exampleTranslation": "彼女は哲学者になって人生の意味について学びたいと思っています。",
       "collocation": "a Greek philosopher / moral philosopher"
     },
     {
@@ -120,6 +135,7 @@
       "meaning": "指揮者、車掌",
       "etymology": "conduct（導く）+ -or（人）。音楽や乗客を導く人。",
       "example": "The conductor raised his hand before the music began.",
+      "exampleTranslation": "音楽が始まる前に指揮者が手を挙げた。",
       "collocation": "train conductor / orchestra conductor"
     },
 
@@ -128,6 +144,7 @@
       "meaning": "交流する、相互に作用する",
       "etymology": "inter-（間で）+ act（行動する）。互いに行動し合うこと。",
       "example": "Students interact with each other during group work.",
+      "exampleTranslation": "グループワーク中に学生同士が交流します。",
       "collocation": "interact with people / interact online"
     },
     {
@@ -135,6 +152,7 @@
       "meaning": "うろたえる、パニックになる",
       "etymology": "ギリシャ神 Pan が引き起こす突然の恐怖に由来する語とされる。",
       "example": "I started to panic when I realized my passport was gone.",
+      "exampleTranslation": "パスポートがなくなったことに気づいてパニックになり始めました。",
       "collocation": "don't panic / panic about a test"
     },
     {
@@ -142,6 +160,7 @@
       "meaning": "飛ぶ、飛行機で行く",
       "etymology": "古英語 fleogan「飛ぶ」。flight（飛行）と同系。",
       "example": "They will fly to Canada next week.",
+      "exampleTranslation": "彼らは来週カナダに飛ぶ予定です。",
       "collocation": "fly to London / fly over the city"
     },
     {
@@ -149,6 +168,7 @@
       "meaning": "泳ぐ",
       "etymology": "古英語 swimman「泳ぐ」。基本的な動作動詞。",
       "example": "We swam in the lake all afternoon.",
+      "exampleTranslation": "私たちは午後中ずっと湖で泳ぎました。",
       "collocation": "swim across a river / go swimming"
     },
 
@@ -157,6 +177,7 @@
       "meaning": "回復する、取り戻す",
       "etymology": "re-（再び）+ cover（覆う・保護する）系。「元の状態を取り戻す」。",
       "example": "She recovered quickly from her illness.",
+      "exampleTranslation": "彼女は病気からすぐに回復しました。",
       "collocation": "recover from illness / recover lost files"
     },
     {
@@ -164,6 +185,7 @@
       "meaning": "見直す、確認する、復習する",
       "etymology": "re-（再び）+ view（見る）。もう一度見ること。",
       "example": "My boss says we will review my progress next month.",
+      "exampleTranslation": "上司は来月私の進捗状況を確認すると言っています。",
       "collocation": "review progress / review notes"
     },
     {
@@ -171,6 +193,7 @@
       "meaning": "拡大する、広げる",
       "etymology": "ラテン語 expandere < ex-（外へ）+ pandere（広げる）。",
       "example": "The company plans to expand its business overseas.",
+      "exampleTranslation": "同社は海外での事業拡大を計画している。",
       "collocation": "expand a business / expand rapidly"
     },
     {
@@ -178,6 +201,7 @@
       "meaning": "疑う、怪しいと思う",
       "etymology": "ラテン語 suspicere「下から見る」。spec（見る）の語根を含む。",
       "example": "I suspect that the story is not true.",
+      "exampleTranslation": "この話は真実ではないのではないかと思います。",
       "collocation": "suspect a problem / suspect someone of"
     },
 
@@ -186,6 +210,7 @@
       "meaning": "結ぶ、縛る",
       "etymology": "古英語 tigan「結ぶ」。名詞 tie（ネクタイ）も「結ぶもの」。",
       "example": "Neil stopped to tie his shoelaces.",
+      "exampleTranslation": "ニールは靴ひもを結ぶために立ち止まった。",
       "collocation": "tie one's shoes / tie a knot"
     },
     {
@@ -193,6 +218,7 @@
       "meaning": "稼ぐ、得る",
       "etymology": "古英語 earnian「労働で得る」。努力して得る感覚。",
       "example": "She earns money by teaching piano.",
+      "exampleTranslation": "彼女はピアノを教えることでお金を稼いでいます。",
       "collocation": "earn money / earn respect"
     },
     {
@@ -200,6 +226,7 @@
       "meaning": "雇う、借りる",
       "etymology": "古英語 hyrian「賃金を払って使う」。人にも物にも使う。",
       "example": "The store will hire new workers this summer.",
+      "exampleTranslation": "その店はこの夏、新しい従業員を雇う予定だ。",
       "collocation": "hire a worker / hire a car"
     },
     {
@@ -207,6 +234,7 @@
       "meaning": "注ぐ、激しく降る",
       "etymology": "中英語 pouren「注ぐ」。液体が流れ出るイメージ。",
       "example": "Please pour some tea into this cup.",
+      "exampleTranslation": "このカップにお茶を注いでください。",
       "collocation": "pour water / pour rain"
     },
 
@@ -215,6 +243,7 @@
       "meaning": "幸運、財産",
       "etymology": "ラテン語 fortuna「運命、幸運」。fortunate（幸運な）と同根。",
       "example": "He made a fortune through his business.",
+      "exampleTranslation": "彼はビジネスで富を築きました。",
       "collocation": "good fortune / make a fortune"
     },
     {
@@ -222,6 +251,7 @@
       "meaning": "区別、卓越、名誉",
       "etymology": "distinct（別個の）+ -ion。語根 stinguere「刺して分ける」から区別の意味。",
       "example": "There is an important distinction between the two ideas.",
+      "exampleTranslation": "2 つの考え方には重要な違いがあります。",
       "collocation": "make a distinction / a clear distinction"
     },
     {
@@ -229,6 +259,7 @@
       "meaning": "忠誠、忠実さ",
       "etymology": "loyal（忠実な）+ -ty。loyal は law（法）と同系で「法にかなった」。",
       "example": "The fans have a lot of loyalty to the team.",
+      "exampleTranslation": "ファンはチームに対して深い忠誠心を持っています。",
       "collocation": "loyalty to a team / customer loyalty"
     },
     {
@@ -236,6 +267,7 @@
       "meaning": "疑い、疑念",
       "etymology": "suspect と同根。spec（見る）を含み、「疑いの目で見ること」。",
       "example": "The strange noise filled her with suspicion.",
+      "exampleTranslation": "奇妙な音で彼女は疑いの気持ちでいっぱいになった。",
       "collocation": "arouse suspicion / under suspicion"
     },
 
@@ -244,6 +276,7 @@
       "meaning": "富、豊かさ",
       "etymology": "weal（幸福、繁栄）+ -th。well と同じ「よい状態」の感覚。",
       "example": "The country gained great wealth from trade.",
+      "exampleTranslation": "その国は貿易から莫大な富を獲得した。",
       "collocation": "great wealth / wealth of information"
     },
     {
@@ -251,6 +284,7 @@
       "meaning": "激怒、怒り",
       "etymology": "ラテン語 rabies「狂暴、激しい怒り」系。激しい感情を表す。",
       "example": "He shouted in rage after hearing the news.",
+      "exampleTranslation": "彼はその知らせを聞いて激怒して叫びました。",
       "collocation": "in a rage / road rage"
     },
     {
@@ -258,6 +292,7 @@
       "meaning": "無知、知らないこと",
       "etymology": "ignore（知らないふりをする、無視する）+ -ance。ラテン語 ignorare「知らない」。",
       "example": "Arguments often result from people's ignorance of each other's ways.",
+      "exampleTranslation": "口論は、人々がお互いのやり方を知らないことから起こることがよくあります。",
       "collocation": "ignorance of the law / complete ignorance"
     },
     {
@@ -265,6 +300,7 @@
       "meaning": "貧困、欠乏",
       "etymology": "ラテン語 pauper「貧しい」。poor と関連する語。",
       "example": "The charity helps children living in poverty.",
+      "exampleTranslation": "この慈善団体は貧困の中で暮らす子供たちを支援しています。",
       "collocation": "live in poverty / reduce poverty"
     },
 
@@ -273,6 +309,7 @@
       "meaning": "無邪気に、悪気なく",
       "etymology": "innocent（無罪の、無邪気な）+ -ly。in-（否定）+ nocere（害する）で「害のない」。",
       "example": "The child smiled innocently.",
+      "exampleTranslation": "その子は無邪気に微笑んだ。",
       "collocation": "ask innocently / smile innocently"
     },
     {
@@ -280,6 +317,7 @@
       "meaning": "ありがたいことに、感謝して",
       "etymology": "thankful（感謝している）+ -ly。文全体を修飾して「幸いにも」。",
       "example": "Thankfully, I found a stream and followed it down to the road.",
+      "exampleTranslation": "ありがたいことに、私は小川を見つけて、それをたどって道路まで下りました。",
       "collocation": "thankfully, ... / smile thankfully"
     },
     {
@@ -287,6 +325,7 @@
       "meaning": "伝統的に、昔から",
       "etymology": "tradition（伝統）+ -ally。ラテン語 tradere「手渡す」から。",
       "example": "This festival is traditionally held in spring.",
+      "exampleTranslation": "この祭りは伝統的に春に開催されます。",
       "collocation": "traditionally used / traditionally held"
     },
     {
@@ -294,6 +333,7 @@
       "meaning": "腹を立てて、恨めしそうに",
       "etymology": "resentful（憤慨している）+ -ly。re- + sentir（感じる）で「強く感じ返す」。",
       "example": "He looked at them resentfully.",
+      "exampleTranslation": "彼は憤慨しながら彼らを見た。",
       "collocation": "speak resentfully / look resentfully"
     }
   ],
@@ -303,6 +343,7 @@
       "meaning": "握手する",
       "etymology": "shake（振る）+ hands（手）。あいさつや合意の動作。",
       "example": "They shook hands after the meeting.",
+      "exampleTranslation": "会談後、彼らは握手をした。",
       "collocation": "shake hands with someone"
     },
     {
@@ -310,6 +351,7 @@
       "meaning": "道を譲る、崩れる、屈する",
       "etymology": "way（道・進路）を give（与える）から「進路を譲る」。",
       "example": "Drivers must give way to pedestrians.",
+      "exampleTranslation": "ドライバーは歩行者に道を譲らなければなりません。",
       "collocation": "give way to traffic / give way under pressure"
     },
     {
@@ -317,6 +359,7 @@
       "meaning": "苦労する、骨を折る、努める",
       "etymology": "pain（苦労）を take（引き受ける）という形で「手間を惜しまない」。",
       "example": "I took pains to study all the vocabulary every night.",
+      "exampleTranslation": "私は毎晩すべての単語を勉強するのに苦労しました。",
       "collocation": "take pains to do"
     },
     {
@@ -324,6 +367,7 @@
       "meaning": "意味をなす、理にかなう",
       "etymology": "sense（意味・感覚）を make（作る）から「意味が成立する」。",
       "example": "Your explanation makes sense.",
+      "exampleTranslation": "あなたの説明は理にかなっています。",
       "collocation": "make sense to someone / it makes sense"
     },
 
@@ -332,6 +376,7 @@
       "meaning": "多かれ少なかれ、だいたい",
       "etymology": "more（もっと）or less（少なく）で、細部の差をならして言う表現。",
       "example": "The two brothers were more or less the same size.",
+      "exampleTranslation": "二人の兄弟はほぼ同じ身長でした。",
       "collocation": "more or less the same / more or less finished"
     },
     {
@@ -339,6 +384,7 @@
       "meaning": "遅かれ早かれ、いつかは",
       "etymology": "soon（早く）or later（遅く）で、時期はともかく起こるという意味。",
       "example": "Sooner or later, you will need to make a decision.",
+      "exampleTranslation": "遅かれ早かれ、決断を下さなければなりません。",
       "collocation": "sooner or later, ..."
     },
     {
@@ -346,6 +392,7 @@
       "meaning": "昼も夜も、絶えず",
       "etymology": "day（昼）and night（夜）を並べ、ずっと続くことを表す。",
       "example": "The team worked day and night to finish the project.",
+      "exampleTranslation": "チームはプロジェクトを完成させるために昼夜を問わず働きました。",
       "collocation": "work day and night"
     },
     {
@@ -353,6 +400,7 @@
       "meaning": "前後で、前と後に",
       "etymology": "before（前）and after（後）。変化の比較でよく使う。",
       "example": "The photos show the room before and after the repair.",
+      "exampleTranslation": "写真は改修前と改修後のお部屋です。",
       "collocation": "before and after photos"
     },
 
@@ -361,6 +409,7 @@
       "meaning": "見せびらかす、誇示する",
       "etymology": "show（見せる）+ off（外へ）。外に向けて目立たせる。",
       "example": "He likes to show off his new watch.",
+      "exampleTranslation": "彼は新しい時計を自慢するのが好きです。",
       "collocation": "show off skills / show off money"
     },
     {
@@ -368,6 +417,7 @@
       "meaning": "片付ける、蓄える",
       "etymology": "put（置く）+ away（離れた所へ）。しまい込むイメージ。",
       "example": "Please put away your toys.",
+      "exampleTranslation": "おもちゃは片付けてください。",
       "collocation": "put away clothes / put away money"
     },
     {
@@ -375,6 +425,7 @@
       "meaning": "〜を食べて生きる、〜で暮らす",
       "etymology": "live（生きる）+ on（支えとして）。生活のよりどころを表す。",
       "example": "They could barely live on the money they had left.",
+      "exampleTranslation": "彼らは残ったお金でかろうじて生活することができました。",
       "collocation": "live on a small income / live on rice"
     },
     {
@@ -382,6 +433,7 @@
       "meaning": "〜から成る、構成される",
       "etymology": "consist（成り立つ）+ of（材料・構成要素）。",
       "example": "The team consists of ten members.",
+      "exampleTranslation": "チームは10人のメンバーで構成されています。",
       "collocation": "consist of parts / consist of members"
     },
 
@@ -390,6 +442,7 @@
       "meaning": "少しずつ",
       "etymology": "bit（少し）を重ねて、段階的な変化を表す。",
       "example": "Bit by bit, she learned to speak Japanese.",
+      "exampleTranslation": "少しずつ彼女は日本語を話せるようになりました。",
       "collocation": "improve bit by bit"
     },
     {
@@ -397,6 +450,7 @@
       "meaning": "はるかに、断然",
       "etymology": "far（遠く）+ away（離れて）で、差が大きいことを強める。",
       "example": "This is far and away the best restaurant in town.",
+      "exampleTranslation": "これは町ではるかに最高のレストランです。",
       "collocation": "far and away the best"
     },
     {
@@ -404,6 +458,7 @@
       "meaning": "全か無かの、一か八かの",
       "etymology": "all（全部）or nothing（無）で中間がないこと。",
       "example": "It was an all-or-nothing decision.",
+      "exampleTranslation": "それは全か無かの決断でした。",
       "collocation": "an all-or-nothing approach"
     },
     {
@@ -411,6 +466,7 @@
       "meaning": "無事で、ぴんぴんして",
       "etymology": "safe（安全な）+ sound（健全な）。同じ意味を重ねて強調する表現。",
       "example": "The cat came home safe and sound.",
+      "exampleTranslation": "猫は無事に帰ってきました。",
       "collocation": "arrive safe and sound"
     },
 
@@ -419,6 +475,7 @@
       "meaning": "〜を探して、〜を求めて",
       "etymology": "search（探索）を名詞として使い、「探索の中で」から。",
       "example": "Clara went to the bookstore in search of a novel.",
+      "exampleTranslation": "クララは小説を探しに本屋に行きました。",
       "collocation": "go in search of / in search of work"
     },
     {
@@ -426,6 +483,7 @@
       "meaning": "〜を恐れて、〜しないように",
       "etymology": "fear（恐れ）のために、という構造。",
       "example": "She spoke quietly for fear of waking the baby.",
+      "exampleTranslation": "彼女は赤ん坊を起こすのを恐れて静かに話した。",
       "collocation": "for fear of failure / for fear of doing"
     },
     {
@@ -433,6 +491,7 @@
       "meaning": "〜を代表して、〜のために",
       "etymology": "behalf は「利益・側」を表す語。ある人の側に立つ表現。",
       "example": "I accepted the award on behalf of the team.",
+      "exampleTranslation": "チームを代表して賞を受け取りました。",
       "collocation": "speak on behalf of / on behalf of everyone"
     },
     {
@@ -440,6 +499,7 @@
       "meaning": "〜に関して",
       "etymology": "regard（見る、考慮）を使い、「〜を見る観点で」。",
       "example": "We have no comments with regard to the plan.",
+      "exampleTranslation": "この計画に関してはコメントはありません。",
       "collocation": "with regard to this issue"
     },
 
@@ -448,6 +508,7 @@
       "meaning": "行動を起こす、動き出す",
       "etymology": "move（動き）を make（作る）から「一歩動く」。",
       "example": "We should make a move before it gets dark.",
+      "exampleTranslation": "暗くなる前に行動を起こさなければなりません。",
       "collocation": "make a move toward / make the first move"
     },
     {
@@ -455,6 +516,7 @@
       "meaning": "昼寝をする、仮眠を取る",
       "etymology": "nap（短い眠り）を take（取る）。",
       "example": "I think I'll take a nap this afternoon.",
+      "exampleTranslation": "今日の午後は昼寝しようと思います。",
       "collocation": "take a short nap / take a quick nap"
     },
     {
@@ -462,6 +524,7 @@
       "meaning": "願いごとをする",
       "etymology": "wish（願い）を make（作る）から、心の中で願いを立てる。",
       "example": "Make a wish before you blow out the candles.",
+      "exampleTranslation": "ろうそくの火を吹き消す前に願い事をしましょう。",
       "collocation": "make a wish on a star"
     },
     {
@@ -469,6 +532,7 @@
       "meaning": "思い切ってやってみる、賭けに出る",
       "etymology": "chance（機会・可能性）を take（取る）。リスクを含む機会を選ぶこと。",
       "example": "He decided to take a chance and start a new business.",
+      "exampleTranslation": "彼はチャンスを掴んで新しいビジネスを始めようと決心した。",
       "collocation": "take a chance on / take a chance with"
     },
 
@@ -477,6 +541,7 @@
       "meaning": "〜と同じくらい速く",
       "etymology": "as ... as の同等比較。fast（速い）を比べる形。",
       "example": "Run as fast as you can.",
+      "exampleTranslation": "できるだけ速く走ってください。",
       "collocation": "as fast as possible / as fast as one can"
     },
     {
@@ -484,6 +549,7 @@
       "meaning": "〜する限りでは、〜まで",
       "etymology": "far（遠く、範囲）を使い、知識や関心の範囲を示す。",
       "example": "As far as I know, most people are planning to attend.",
+      "exampleTranslation": "私の知る限り、ほとんどの人が参加する予定です。",
       "collocation": "as far as I know / as far as I'm concerned"
     },
     {
@@ -491,6 +557,7 @@
       "meaning": "〜する限り、〜でありさえすれば",
       "etymology": "long（長さ・期間）を使い、条件が続く範囲を表す。",
       "example": "You can stay here as long as you are quiet.",
+      "exampleTranslation": "静かにしている限り、ここにいても大丈夫です。",
       "collocation": "as long as possible / as long as you want"
     },
     {
@@ -498,6 +565,7 @@
       "meaning": "〜だけでなく、〜と同じくらい上手に",
       "etymology": "well（よく）を使った同等比較から、追加の意味にも広がった表現。",
       "example": "She speaks Spanish as well as English.",
+      "exampleTranslation": "彼女は英語だけでなくスペイン語も話します。",
       "collocation": "A as well as B / as well as anyone"
     }
   ]

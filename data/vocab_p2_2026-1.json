@@ -19,6 +19,7 @@
       "pos": "副詞",
       "meaning": "緊張して、不安そうに",
       "example": "He waited nervously for the result.",
+      "exampleTranslation": "彼は緊張しながら結果を待った。",
       "etymology": "nervous（緊張した）+ -ly。神経が高ぶった状態で行動するイメージ。",
       "collocation": "wait nervously / smile nervously"
     },
@@ -30,6 +31,7 @@
       "pos": "副詞",
       "meaning": "完全に、本当に、まったく",
       "example": "This meal is absolutely delicious.",
+      "exampleTranslation": "この食事は本当に美味しいです。",
       "etymology": "absolute（完全な）+ -ly。「完全に」から強調の「本当に」。",
       "collocation": "absolutely delicious / absolutely right"
     },
@@ -41,6 +43,7 @@
       "pos": "副詞",
       "meaning": "めったに〜ない",
       "example": "She rarely eats breakfast.",
+      "exampleTranslation": "彼女はめったに朝食を食べません。",
       "etymology": "rare（まれな）+ -ly。頻度がとても低いことを表す。",
       "collocation": "rarely see / rarely happens"
     },
@@ -52,6 +55,7 @@
       "pos": "副詞",
       "meaning": "別々に、個別に",
       "example": "The students worked separately.",
+      "exampleTranslation": "生徒たちは別々に取り組みました。",
       "etymology": "separate（分ける）+ -ly。分けられた状態で、別々に。",
       "collocation": "work separately / pay separately"
     },
@@ -63,6 +67,7 @@
       "pos": "動詞",
       "meaning": "異動させた、移した",
       "example": "Dennis was transferred to the New York office.",
+      "exampleTranslation": "デニスはニューヨーク事務所に転勤になりました。",
       "etymology": "transfer（移す）+ -ed。trans- は「向こうへ」、fer は「運ぶ」。",
       "collocation": "be transferred to / transfer money"
     },
@@ -74,6 +79,7 @@
       "pos": "動詞",
       "meaning": "減らした、縮小した",
       "example": "The store reduced the price.",
+      "exampleTranslation": "その店は価格を下げた。",
       "etymology": "reduce（減らす）+ -ed。re-（後ろへ）+ ducere（導く）が語源。",
       "collocation": "reduce the price / reduce waste"
     },
@@ -85,6 +91,7 @@
       "pos": "動詞",
       "meaning": "提案した、申し込んだ",
       "example": "She proposed a new plan.",
+      "exampleTranslation": "彼女は新しい計画を提案した。",
       "etymology": "propose（提案する）+ -ed。pro-（前へ）+ pose（置く）で「前に差し出す」。",
       "collocation": "propose a plan / propose an idea"
     },
@@ -96,6 +103,7 @@
       "pos": "動詞",
       "meaning": "謝った",
       "example": "He apologized for being late.",
+      "exampleTranslation": "彼は遅れたことを謝った。",
       "etymology": "apologize（謝る）+ -ed。apology（謝罪）と同系。",
       "collocation": "apologize for / apologize to someone"
     },
@@ -107,6 +115,7 @@
       "pos": "名詞",
       "meaning": "危険、危険性",
       "example": "They learned about the dangers of smoking.",
+      "exampleTranslation": "彼らは喫煙の危険性について学びました。",
       "etymology": "danger（危険）の複数形。危害が起こる可能性を表す。",
       "collocation": "the dangers of / face danger"
     },
@@ -118,6 +127,7 @@
       "pos": "名詞",
       "meaning": "宮殿",
       "example": "The city has many old palaces.",
+      "exampleTranslation": "市内には古い宮殿がたくさんあります。",
       "etymology": "palace（宮殿）の複数形。ラテン語 palatium に由来。",
       "collocation": "royal palace / old palaces"
     },
@@ -129,6 +139,7 @@
       "pos": "名詞",
       "meaning": "市場、マーケット",
       "example": "We bought fruit at the markets.",
+      "exampleTranslation": "私たちは市場で果物を買いました。",
       "etymology": "market（市場）の複数形。売買が行われる場所・領域。",
       "collocation": "local market / global markets"
     },
@@ -140,6 +151,7 @@
       "pos": "名詞",
       "meaning": "美術館、展示室",
       "example": "The galleries were full of paintings.",
+      "exampleTranslation": "ギャラリーは絵画でいっぱいでした。",
       "etymology": "gallery（美術館、展示室）の複数形。絵や作品を並べる場所。",
       "collocation": "art gallery / photo gallery"
     },
@@ -151,6 +163,7 @@
       "pos": "形容詞",
       "meaning": "木製の",
       "example": "They sat on a wooden chair.",
+      "exampleTranslation": "彼らは木の椅子に座った。",
       "etymology": "wood（木）+ -en。「木でできた」。",
       "collocation": "wooden chair / wooden house"
     },
@@ -162,6 +175,7 @@
       "pos": "形容詞",
       "meaning": "退屈な",
       "example": "The movie was boring.",
+      "exampleTranslation": "その映画は退屈だった。",
       "etymology": "bore（退屈させる）+ -ing。人を退屈にさせる性質。",
       "collocation": "boring movie / boring class"
     },
@@ -173,6 +187,7 @@
       "pos": "形容詞",
       "meaning": "かわいい",
       "example": "That dog is cute.",
+      "exampleTranslation": "あの犬はかわいいですね。",
       "etymology": "「かわいい」の基本語。小ささ・魅力を表す。",
       "collocation": "cute dog / cute idea"
     },
@@ -184,6 +199,7 @@
       "pos": "形容詞",
       "meaning": "手ごろな、妥当な",
       "example": "The price seemed reasonable.",
+      "exampleTranslation": "価格は手頃なようでした。",
       "etymology": "reason（理由、理性）+ -able。「理由に合う」から妥当・手ごろ。",
       "collocation": "reasonable price / reasonable choice"
     },
@@ -195,6 +211,7 @@
       "pos": "名詞",
       "meaning": "賞、賞品",
       "example": "She won an award.",
+      "exampleTranslation": "彼女は賞を受賞しました。",
       "etymology": "a- + ward（見る、守る）系。「与えられるもの」から賞。",
       "collocation": "win an award / receive an award"
     },
@@ -206,6 +223,7 @@
       "pos": "名詞",
       "meaning": "通路",
       "example": "He walked down the aisle.",
+      "exampleTranslation": "彼は通路を歩いて行きました。",
       "etymology": "教会や劇場などの「通路」。発音は s を読まない。",
       "collocation": "walk down the aisle / aisle seat"
     },
@@ -217,6 +235,7 @@
       "pos": "名詞",
       "meaning": "試み、挑戦",
       "example": "This is my first attempt.",
+      "exampleTranslation": "これは私にとって初めての試みです。",
       "etymology": "at-（〜へ）+ tempt（試みる）。何かをやってみること。",
       "collocation": "make an attempt / first attempt"
     },
@@ -228,6 +247,7 @@
       "pos": "名詞",
       "meaning": "発表、お知らせ",
       "example": "Mr. Harris made an announcement.",
+      "exampleTranslation": "ハリス氏が発表した。",
       "etymology": "announce（知らせる）+ -ment。公に知らせること。",
       "collocation": "make an announcement / official announcement"
     },
@@ -239,6 +259,7 @@
       "pos": "名詞",
       "meaning": "方針、政策",
       "example": "The company changed its policies.",
+      "exampleTranslation": "会社は方針を変更した。",
       "etymology": "policy（方針、政策）の複数形。行動の基本方針。",
       "collocation": "school policies / company policies"
     },
@@ -250,6 +271,7 @@
       "pos": "名詞",
       "meaning": "毛布",
       "example": "We need warm blankets.",
+      "exampleTranslation": "暖かい毛布が必要です。",
       "etymology": "blanket（毛布）の複数形。覆って温めるもの。",
       "collocation": "warm blanket / extra blankets"
     },
@@ -261,6 +283,7 @@
       "pos": "名詞",
       "meaning": "像、彫像",
       "example": "Artists will create statues for the parks.",
+      "exampleTranslation": "アーティストは公園のために彫像を制作します。",
       "etymology": "statue（像）の複数形。立っている姿を表すラテン語系。",
       "collocation": "bronze statue / create statues"
     },
@@ -272,6 +295,7 @@
       "pos": "名詞",
       "meaning": "昆虫",
       "example": "Some insects live under stones.",
+      "exampleTranslation": "石の下に住む昆虫もいます。",
       "etymology": "insect（昆虫）の複数形。in- + sect（切る）で体が分かれた虫。",
       "collocation": "small insects / insects and plants"
     },
@@ -283,6 +307,7 @@
       "pos": "名詞",
       "meaning": "電池、バッテリー",
       "example": "My phone battery is low.",
+      "exampleTranslation": "携帯電話のバッテリーが少なくなっています。",
       "etymology": "電池、バッテリー。もとは「打つもの・砲台」の意味から発展。",
       "collocation": "phone battery / battery charger"
     },
@@ -294,6 +319,7 @@
       "pos": "名詞",
       "meaning": "レシート、領収書",
       "example": "He keeps the receipt in a safe place.",
+      "exampleTranslation": "彼は領収書を安全な場所に保管しています。",
       "etymology": "receive（受け取る）と同系。受け取った証明がレシート。",
       "collocation": "keep the receipt / sales receipt"
     },
@@ -305,6 +331,7 @@
       "pos": "名詞",
       "meaning": "ウェブサイト",
       "example": "I checked the website.",
+      "exampleTranslation": "ウェブサイトを確認しました。",
       "etymology": "web（網、ウェブ）+ site（場所）。ネット上の場所。",
       "collocation": "visit a website / official website"
     },
@@ -316,6 +343,7 @@
       "pos": "名詞",
       "meaning": "枠、額縁、骨組み",
       "example": "The picture has a wooden frame.",
+      "exampleTranslation": "絵には木製のフレームが付いています。",
       "etymology": "枠・骨組み。物を囲って形を作るもの。",
       "collocation": "picture frame / window frame"
     },
@@ -327,6 +355,7 @@
       "pos": "動詞",
       "meaning": "貼る、貼り付ける",
       "example": "Paste the photo here.",
+      "exampleTranslation": "ここに写真を貼り付けます。",
       "etymology": "のり状のもの、貼り付ける。copy and paste の paste。",
       "collocation": "paste a photo / copy and paste"
     },
@@ -338,6 +367,7 @@
       "pos": "動詞",
       "meaning": "責める、〜のせいにする",
       "example": "Do not blame your friends.",
+      "exampleTranslation": "友達を責めないでください。",
       "etymology": "責任を負わせる、非難する。",
       "collocation": "blame someone / blame A for B"
     },
@@ -349,6 +379,7 @@
       "pos": "動詞",
       "meaning": "信頼する",
       "example": "People can trust their friends.",
+      "exampleTranslation": "人は友達を信頼することができます。",
       "etymology": "信頼する。名詞でも「信頼」。",
       "collocation": "trust your friends / build trust"
     },
@@ -360,6 +391,7 @@
       "pos": "動詞",
       "meaning": "ひっかく、傷をつける",
       "example": "The cat scratched the door.",
+      "exampleTranslation": "猫がドアを引っ掻いた。",
       "etymology": "ひっかく、傷をつける。表面をこするイメージ。",
       "collocation": "scratch the surface / scratch your arm"
     },
@@ -371,6 +403,7 @@
       "pos": "動詞",
       "meaning": "入る、入力する、参加する",
       "example": "Enter your name here.",
+      "exampleTranslation": "ここにあなたの名前を入力してください。",
       "etymology": "en-（中へ）+ ter（行く）系。中に入る・入力する。",
       "collocation": "enter a room / enter your name"
     },
@@ -382,6 +415,7 @@
       "pos": "動詞",
       "meaning": "従事する、関わる",
       "example": "They engage in sports.",
+      "exampleTranslation": "彼らはスポーツに取り組んでいます。",
       "etymology": "en- + gage（約束、担保）。関わらせる・従事する。",
       "collocation": "engage in / engage students"
     },
@@ -393,6 +427,7 @@
       "pos": "動詞",
       "meaning": "主張する、要求する",
       "example": "He claimed that he was right.",
+      "exampleTranslation": "彼は自分が正しいと主張した。",
       "etymology": "強く主張する、要求する。名詞で「主張・請求」。",
       "collocation": "claim that / claim responsibility"
     },
@@ -404,6 +439,7 @@
       "pos": "動詞",
       "meaning": "得点する、点を取る",
       "example": "How many points did you score?",
+      "exampleTranslation": "何点獲得しましたか？",
       "etymology": "得点する、点数。スポーツやテストの点に使う。",
       "collocation": "score points / get a high score"
     },
@@ -415,6 +451,7 @@
       "pos": "動詞",
       "meaning": "痛む、うずく",
       "example": "My legs started to ache.",
+      "exampleTranslation": "足が痛くなり始めました。",
       "etymology": "継続的に痛む。headache, stomachache と同系。",
       "collocation": "legs ache / have a headache"
     },
@@ -426,6 +463,7 @@
       "pos": "動詞",
       "meaning": "なだめる、和らげる",
       "example": "The music soothed the baby.",
+      "exampleTranslation": "音楽は赤ちゃんを落ち着かせました。",
       "etymology": "痛みや気持ちを和らげる、なだめる。",
       "collocation": "soothe pain / soothe a baby"
     },
@@ -437,6 +475,7 @@
       "pos": "動詞",
       "meaning": "押す",
       "example": "Push the door open.",
+      "exampleTranslation": "ドアを押して開けます。",
       "etymology": "押す。物理的にも比喩的にも使う。",
       "collocation": "push the door / push someone to do"
     },
@@ -448,6 +487,7 @@
       "pos": "動詞",
       "meaning": "集める、集まる",
       "example": "People gathered in the park.",
+      "exampleTranslation": "人々が公園に集まった。",
       "etymology": "集まる、集める。情報や人がまとまるイメージ。",
       "collocation": "gather information / gather around"
     }
@@ -461,6 +501,7 @@
       "pos": "前置詞句",
       "meaning": "〜の隣に",
       "example": "The store is next to the station.",
+      "exampleTranslation": "お店は駅の隣にあります。",
       "etymology": "next（次の）+ to。「すぐ次にある」から隣。",
       "collocation": "next to the station / sit next to"
     },
@@ -472,6 +513,7 @@
       "pos": "前置詞句",
       "meaning": "〜を除いて、〜以外は",
       "example": "Everyone came except for Ken.",
+      "exampleTranslation": "ケン以外はみんな来ました。",
       "etymology": "except（除く）+ for。全体から一部を除外する表現。",
       "collocation": "except for one thing / except for Sunday"
     },
@@ -483,6 +525,7 @@
       "pos": "前置詞句",
       "meaning": "〜の向かいに",
       "example": "The gym is across from the theater.",
+      "exampleTranslation": "ジムは劇場の向かいにあります。",
       "etymology": "across（横切って）+ from。向かい側にある位置関係。",
       "collocation": "across from the theater / across from my house"
     },
@@ -494,6 +537,7 @@
       "pos": "前置詞句",
       "meaning": "最大〜まで、〜次第で",
       "example": "You can choose up to three items.",
+      "exampleTranslation": "項目は3つまでお選びいただけます。",
       "etymology": "上限や範囲を示す表現。「〜まで」。",
       "collocation": "up to three / up to you"
     },
@@ -505,6 +549,7 @@
       "pos": "句動詞",
       "meaning": "乗る、うまくやっていく",
       "example": "Get on the bus here.",
+      "exampleTranslation": "ここでバスに乗ります。",
       "etymology": "get（到達する）+ on（上に）。乗る、うまくやる。",
       "collocation": "get on the bus / get on well"
     },
@@ -516,6 +561,7 @@
       "pos": "句動詞",
       "meaning": "脱ぐ、離陸する",
       "example": "Please take off your shoes.",
+      "exampleTranslation": "靴を脱いで下さい。",
       "etymology": "take（取る）+ off（離れて）。脱ぐ・離陸する。",
       "collocation": "take off shoes / plane takes off"
     },
@@ -527,6 +573,7 @@
       "pos": "句動詞",
       "meaning": "あきらめる",
       "example": "Do not give up.",
+      "exampleTranslation": "諦めないでください。",
       "etymology": "give（渡す）+ up（手放す）。あきらめる。",
       "collocation": "give up trying / never give up"
     },
@@ -538,6 +585,7 @@
       "pos": "句動詞",
       "meaning": "気をつける、注意する",
       "example": "Look out! There is a bee.",
+      "exampleTranslation": "外を見る！蜂がいます。",
       "etymology": "外を見る、注意を外へ向けることから「気をつける」。",
       "collocation": "Look out! / look out for cars"
     },
@@ -549,6 +597,7 @@
       "pos": "慣用句",
       "meaning": "問題外で、不可能で",
       "example": "Buying a new phone is out of the question.",
+      "exampleTranslation": "新しい携帯電話を購入するのは問題外です。",
       "etymology": "question（検討事項）の外にある→検討にも値しない。",
       "collocation": "That is out of the question / completely out of the question"
     },
@@ -560,6 +609,7 @@
       "pos": "慣用句",
       "meaning": "未定で、はっきりしていない",
       "example": "The plan is still up in the air.",
+      "exampleTranslation": "その計画はまだ宙に浮いている。",
       "etymology": "空中に浮いている→まだ決まっていない。",
       "collocation": "plans are up in the air / still up in the air"
     },
@@ -571,6 +621,7 @@
       "pos": "慣用句",
       "meaning": "機嫌がよくて",
       "example": "He was in a good temper today.",
+      "exampleTranslation": "今日の彼は機嫌が良かった。",
       "etymology": "temper は「気分、機嫌」。よい機嫌の状態。",
       "collocation": "be in a good temper / stay in a good temper"
     },
@@ -582,6 +633,7 @@
       "pos": "慣用句",
       "meaning": "あなたには関係ないこと",
       "example": "That is none of your business.",
+      "exampleTranslation": "それはあなたには関係ありません。",
       "etymology": "business は「関わること」。あなたの関わることではない。",
       "collocation": "That is none of your business / none of my business"
     },
@@ -593,6 +645,7 @@
       "pos": "動詞句",
       "meaning": "決心する、決める",
       "example": "I cannot make up my mind.",
+      "exampleTranslation": "決心がつきません。",
       "etymology": "mind（考え）を作り上げる→決心する。",
       "collocation": "make up my mind / cannot make up my mind"
     },
@@ -604,6 +657,7 @@
       "pos": "慣用句",
       "meaning": "しつこく言うのをやめる",
       "example": "Please get off my back.",
+      "exampleTranslation": "私の背中から降りてください。",
       "etymology": "背中から降りる→しつこく干渉するのをやめる。",
       "collocation": "Get off my back / tell someone to get off your back"
     },
@@ -615,6 +669,7 @@
       "pos": "動詞句",
       "meaning": "航海に出る",
       "example": "They will go on a voyage.",
+      "exampleTranslation": "彼らは航海に出発します。",
       "etymology": "voyage は「航海、長旅」。航海に出る。",
       "collocation": "go on a voyage / long voyage"
     },
@@ -626,6 +681,7 @@
       "pos": "動詞句",
       "meaning": "明かりを消す",
       "example": "Put out the light before bed.",
+      "exampleTranslation": "寝る前に電気を消してください。",
       "etymology": "put out は「消す」。明かりを消す。",
       "collocation": "put out the light / put out a fire"
     },
@@ -637,6 +693,7 @@
       "pos": "動詞句",
       "meaning": "〜に取りかかる",
       "example": "Let us make a start on the project.",
+      "exampleTranslation": "プロジェクトを始めましょう。",
       "etymology": "start を作る→取りかかる。",
       "collocation": "make a start on homework / make a start on the project"
     },
@@ -648,6 +705,7 @@
       "pos": "動詞句",
       "meaning": "〜を見る、確認する",
       "example": "Take a look at several phones.",
+      "exampleTranslation": "いくつかの携帯電話を見てみましょう。",
       "etymology": "look（見ること）を take する→ちょっと見る。",
       "collocation": "take a look at this / take a quick look at"
     },
@@ -659,6 +717,7 @@
       "pos": "動詞句",
       "meaning": "〜のために親切なことをする",
       "example": "Can you do a favor for me?",
+      "exampleTranslation": "お願いをしてもらえますか？",
       "etymology": "favor は「親切な行為」。人のために親切をする。",
       "collocation": "do a favor for me / ask a favor"
     },
@@ -670,6 +729,7 @@
       "pos": "動詞句",
       "meaning": "〜と少し話をする",
       "example": "I need to have a word with you.",
+      "exampleTranslation": "一言お話ししたいことがあります。",
       "etymology": "word は「短い話」。少し話をする。",
       "collocation": "have a word with you / have a quick word with"
     }
