@@ -37,6 +37,19 @@ py -3 -m http.server 8061 --bind 127.0.0.1
 
 ブラウザで `http://127.0.0.1:8061/` を開きます。JSONを相対パスで読むため、`index.html` を直接開かないでください。
 
+## 英検1級の単語音声
+
+Azure Speechのキーを保存せず、環境変数から読み込んで英検1級の単語MP3を生成します。
+
+```powershell
+$env:AZURE_SPEECH_KEY = "AzureポータルのKEY 1"
+$env:AZURE_SPEECH_REGION = "japaneast"
+py -3 scripts/generate_tts_1.py --round 2026-1 --limit 5
+py -3 scripts/generate_tts_1.py --round all
+```
+
+生成先は `assets/audio/vocab/1/<回>/` です。生成済みの単語は大問1の暗記カードで「音声」ボタンから再生できます。
+
 ## 公開版・生徒別進捗
 
 公開版は [GitHub Pages](https://shtomi-tech.github.io/eiken2-q1-app/) です。

@@ -816,6 +816,25 @@ h2 {
   gap: 10px;
   flex-wrap: wrap;
 }
+.flashListenButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  border: 1px solid rgba(250, 249, 245, .48);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--parchment);
+  padding: 7px 11px;
+  font-size: 12px;
+}
+.flashListenButton:hover:not(:disabled),
+.flashListenButton.isPlaying {
+  border-color: var(--parchment);
+  background: var(--parchment);
+  color: var(--ink);
+}
+.flashListenButton:disabled { cursor: wait; }
 .flashIpa {
   color: rgba(250, 249, 246, .76);
   font-family: var(--mono);

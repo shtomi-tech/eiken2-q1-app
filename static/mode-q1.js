@@ -534,6 +534,47 @@ function normalizedSurface(value) {
     .replace(/\s+/g, " ")
     .trim();
 }
+function audioSlug(value) {
+  return normalizedSurface(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+function vocabularyAudioPath(item) {
+  if (item.type !== "word" || !/^eiken1-\d{4}-\d+$/.test(state.datasetId || "")) return "";
+  const round = state.datasetId.slice("eiken1-".length);
+  const slug = audioSlug(item.word);
+  return slug ? `assets/audio/vocab/1/${round}/${slug}.mp3` : "";
+}
+let activeVocabAudio = null;
+let activeVocabButton = null;
+function resetVocabAudioButton(button) {
+  if (!button) return;
+  button.disabled = false;
+  button.classList.remove("isPlaying");
+}
+function playVocabAudio(path, button) {
+  if (activeVocabAudio) {
+    activeVocabAudio.pause();
+    activeVocabAudio.currentTime = 0;
+  }
+  resetVocabAudioButton(activeVocabButton);
+  const audio = new Audio(path);
+  activeVocabAudio = audio;
+  activeVocabButton = button;
+  button.disabled = true;
+  button.classList.add("isPlaying");
+  const finish = () => {
+    resetVocabAudioButton(button);
+    if (activeVocabAudio === audio) {
+      activeVocabAudio = null;
+      activeVocabButton = null;
+    }
+  };
+  audio.addEventListener("ended", finish, { once: true });
+  audio.addEventListener("error", () => {
+    button.title = "音声ファイルを読み込めませんでした。生成スクリプトを確認してください。";
+    finish();
+  }, { once: true });
+  audio.play().catch(finish);
+}
 function surfaceVariants(value) {
   const base = normalizedSurface(value);
   const variants = new Set([base]);
@@ -1128,10 +1169,24 @@ function questionProgressBar() {
 function buildFlashCard(item) {
   const card = el("div", { class: "flash" });
   const head = el("div", { class: "flashHead" });
+  const surface = surfaceOf(item);
   const wordLine = el("div", { class: "flashWordLine" },
-    el("div", { class: "flashWord" }, surfaceOf(item)),
+    el("div", { class: "flashWord" }, surface),
   );
   if (item.ipa) wordLine.appendChild(el("div", { class: "flashIpa" }, item.ipa));
+  const audioPath = vocabularyAudioPath(item);
+  if (audioPath) {
+    const audioButton = el("button", {
+      class: "flashListenButton",
+      type: "button",
+      "aria-label": `${surface}の発音を聞く`,
+      title: "発音を聞く",
+    });
+    audioButton.appendChild(el("span", { "aria-hidden": "true" }, "▶"));
+    audioButton.appendChild(document.createTextNode(" 音声"));
+    audioButton.addEventListener("click", () => playVocabAudio(audioPath, audioButton));
+    wordLine.appendChild(audioButton);
+  }
   head.appendChild(el("div", {},
     wordLine,
     el("div", { class: "flashPos" }, item.pos || ""),
