@@ -1,4 +1,4 @@
-"""Azure Speechで英検1級の単語音声を生成する。"""
+"""Azure Speechで英検1級・2級・準2級の単語音声を生成する。"""
 
 from __future__ import annotations
 
@@ -13,8 +13,12 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VOCAB_PATTERN = "vocab_1_*.json"
-AUDIO_ROOT = ROOT / "assets" / "audio" / "vocab" / "1"
+AUDIO_ROOT = ROOT / "assets" / "audio" / "vocab"
+GRADE_CONFIG = {
+    "1": {"pattern": "vocab_1_*.json", "filename": r"vocab_1_(.+)\.json", "folder": "1"},
+    "2": {"pattern": "vocab_*.json", "filename": r"vocab_(\d{4}-\d+)\.json", "folder": "2"},
+    "pre2": {"pattern": "vocab_p2_*.json", "filename": r"vocab_p2_(.+)\.json", "folder": "pre2"},
+}
 DEFAULT_VOICE = "en-US-JennyNeural"
 OUTPUT_FORMAT = "audio-24khz-48kbitrate-mono-mp3"
 
@@ -26,10 +30,11 @@ def audio_slug(word: str) -> str:
     return slug
 
 
-def vocab_files(round_id: str) -> list[tuple[str, Path]]:
+def vocab_files(grade: str, round_id: str) -> list[tuple[str, Path]]:
+    config = GRADE_CONFIG[grade]
     files = []
-    for path in sorted((ROOT / "data").glob(VOCAB_PATTERN)):
-        match = re.fullmatch(r"vocab_1_(.+)\.json", path.name)
+    for path in sorted((ROOT / "data").glob(config["pattern"])):
+        match = re.fullmatch(config["filename"], path.name)
         if not match:
             continue
         current_round = match.group(1)
@@ -37,13 +42,13 @@ def vocab_files(round_id: str) -> list[tuple[str, Path]]:
             continue
         files.append((current_round, path))
     if not files:
-        raise SystemExit(f"対象データが見つかりません: {round_id}")
+        raise SystemExit(f"対象データが見つかりません: grade={grade}, round={round_id}")
     return files
 
 
-def load_jobs(round_id: str) -> list[tuple[str, str]]:
+def load_jobs(grade: str, round_id: str) -> list[tuple[str, str]]:
     jobs: list[tuple[str, str]] = []
-    for current_round, path in vocab_files(round_id):
+    for current_round, path in vocab_files(grade, round_id):
         data = json.loads(path.read_text(encoding="utf-8"))
         seen: set[str] = set()
         for item in data.get("words", []):
@@ -90,7 +95,7 @@ def request_audio(key: str, region: str, word: str, voice: str) -> bytes:
 
 
 def generate(args: argparse.Namespace) -> int:
-    jobs = load_jobs(args.round_id)
+    jobs = load_jobs(args.grade, args.round_id)
     if args.limit:
         jobs = jobs[: args.limit]
 
@@ -104,8 +109,9 @@ def generate(args: argparse.Namespace) -> int:
 
     generated = 0
     skipped = 0
+    audio_dir = GRADE_CONFIG[args.grade]["folder"]
     for current_round, word in jobs:
-        target = AUDIO_ROOT / current_round / f"{audio_slug(word)}.mp3"
+        target = AUDIO_ROOT / audio_dir / current_round / f"{audio_slug(word)}.mp3"
         if target.exists() and not args.force:
             skipped += 1
             continue
@@ -128,6 +134,7 @@ def generate(args: argparse.Namespace) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--grade", choices=sorted(GRADE_CONFIG), default="1", help="1 / 2 / pre2")
     parser.add_argument("--round", dest="round_id", default="all", help="2026-1 / 2025-3 / 2025-2 / all")
     parser.add_argument("--limit", type=int, help="先頭から指定件数だけ処理する")
     parser.add_argument("--voice", default=os.environ.get("AZURE_SPEECH_VOICE", DEFAULT_VOICE))

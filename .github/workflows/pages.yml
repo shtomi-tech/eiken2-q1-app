@@ -54,7 +54,7 @@ jobs:
           cp data/manifest.json _site/data/
           cp data/questions_[0-9]*.json data/questions_p2_*.json data/questions_pre1_*.json _site/data/
           cp data/vocab_[0-9]*.json data/vocab_p2_*.json data/vocab_pre1_*.json _site/data/
-          cp -R assets/audio/vocab/1 _site/assets/audio/vocab/
+          cp -R assets/audio/vocab/* _site/assets/audio/vocab/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

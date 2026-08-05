@@ -538,10 +538,12 @@ function audioSlug(value) {
   return normalizedSurface(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 function vocabularyAudioPath(item) {
-  if (item.type !== "word" || !/^eiken1-\d{4}-\d+$/.test(state.datasetId || "")) return "";
-  const round = state.datasetId.slice("eiken1-".length);
+  if (item.type !== "word") return "";
+  const match = /^(eiken1|eiken2|eikenp2)-(\d{4}-\d+)$/.exec(state.datasetId || "");
+  if (!match) return "";
+  const audioGrade = { eiken1: "1", eiken2: "2", eikenp2: "pre2" }[match[1]];
   const slug = audioSlug(item.word);
-  return slug ? `assets/audio/vocab/1/${round}/${slug}.mp3` : "";
+  return slug ? `assets/audio/vocab/${audioGrade}/${match[2]}/${slug}.mp3` : "";
 }
 let activeVocabAudio = null;
 let activeVocabButton = null;
