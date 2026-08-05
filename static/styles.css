@@ -757,6 +757,30 @@ h2 {
 .reviewBar .stagePill.active { background: var(--clay); color: var(--parchment); }
 .meaningBar .stagePill { flex-basis: 50%; }
 
+.q1Progress {
+  background: var(--paper);
+  border-radius: var(--r-md);
+  margin: -4px 0 16px;
+  padding: 10px 12px 12px;
+}
+.q1ProgressHead {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.q1ProgressHead .label { margin: 0 auto 0 0; }
+.q1ProgressValue,
+.q1ProgressRemaining { font-family: var(--mono); font-size: 12px; }
+.q1ProgressRemaining { color: var(--muted); }
+.q1ProgressBar {
+  accent-color: var(--clay);
+  display: block;
+  height: 8px;
+  margin-top: 8px;
+  width: 100%;
+}
+
 .roundInfo {
   background: var(--paper);
   border-radius: var(--r-pill);

@@ -911,6 +911,7 @@ function renderSession() {
   else if (isMeaning) panel.appendChild(meaningBar());
   else if (isReview) panel.appendChild(reviewBar());
   else panel.appendChild(stageBar(session.stage));
+  panel.appendChild(questionProgressBar());
 
   const body = el("div", {});
   panel.appendChild(body);
@@ -989,6 +990,36 @@ function stageBar(stage) {
     bar.appendChild(el("div", { class: cls }, labels[s]));
   });
   return bar;
+}
+
+function questionProgressBar() {
+  const total = state.qList.length;
+  if (!total) return el("div", { class: "q1Progress hide" });
+
+  const isQuestionSession = session.q != null;
+  const current = isQuestionSession
+    ? Math.max(1, state.qList.indexOf(session.q) + 1)
+    : state.qList.filter((q) => unit(q).learned).length;
+  const value = Math.min(total, current);
+  const remaining = Math.max(0, total - value);
+  const label = isQuestionSession ? `第${value}問 / ${total}問` : `学習済み ${value} / ${total}問`;
+
+  const wrap = el("div", { class: "q1Progress" },
+    el("div", { class: "q1ProgressHead" },
+      el("span", { class: "label" }, "大問1 設問進捗"),
+      el("strong", { class: "q1ProgressValue" }, label),
+      el("span", { class: "q1ProgressRemaining" }, `残り${remaining}問`),
+    ),
+  );
+  const progress = el("progress", {
+    class: "q1ProgressBar",
+    max: total,
+    value,
+    "aria-label": "大問1の設問進捗",
+  });
+  progress.setAttribute("aria-valuetext", `${label}、残り${remaining}問`);
+  wrap.appendChild(progress);
+  return wrap;
 }
 
 /* ---- STEP 1: flashcards ---- */
