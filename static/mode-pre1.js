@@ -850,7 +850,7 @@ const EikenPre1App = (function () {
     const stats = sectionStats(section);
     const isFinalCheck = state.vocabStage === "final";
     const currentIndex = Number.isInteger(state.index) && state.index >= 0 && state.index < total ? state.index : -1;
-    const useCompletedValue = isFinalCheck || currentIndex < 0;
+    const useCompletedValue = isFinalCheck || stats.done >= total || currentIndex < 0;
     const value = useCompletedValue ? stats.done : currentIndex + 1;
     const label = useCompletedValue ? `確認済み ${value} / ${total}問` : `第${value}問 / ${total}問`;
     const remaining = Math.max(0, total - value);
