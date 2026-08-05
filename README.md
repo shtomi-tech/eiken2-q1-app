@@ -37,7 +37,7 @@ py -3 -m http.server 8061 --bind 127.0.0.1
 
 ブラウザで `http://127.0.0.1:8061/` を開きます。JSONを相対パスで読むため、`index.html` を直接開かないでください。
 
-## 英検1級・2級・準2級の単語音声
+## 英検1級・2級・準1級・準2級の単語音声
 
 Azure Speechのキーを保存せず、環境変数から読み込んで単語MP3を生成します。
 
@@ -46,10 +46,17 @@ $env:AZURE_SPEECH_KEY = "AzureポータルのKEY 1"
 $env:AZURE_SPEECH_REGION = "japaneast"
 py -3 scripts/generate_tts_1.py --grade 1 --round all
 py -3 scripts/generate_tts_1.py --grade 2 --round all
+py -3 scripts/generate_tts_1.py --grade pre1 --round all
 py -3 scripts/generate_tts_1.py --grade pre2 --round all
 ```
 
 生成先は `assets/audio/vocab/<級>/<回>/` です。生成済みの単語は大問1の暗記カードで「音声」ボタンから再生できます。
+準1級はMP3がない場合も、暗記カードの「音声」ボタンからブラウザ標準の英語音声を再生します。
+
+## 暗記カードの共通構成
+
+全級で、見出し語・発音記号・品詞・意味・語源（収録されている場合）・例文・例文の日本語訳を同じ順序で表示します。
+1級の例文は公式の大問1設問文を使い、正答カードだけ空所を語句で補います。誤答カードは空所付きのまま表示し、誤った選択肢を不自然な英文に差し込みません。
 
 ## 暗記カードの例文訳
 
@@ -85,6 +92,7 @@ Q1のクラウドアプリIDは `eiken2-q1` です。旧準1級アプリの `eik
 - `static/vendor/harness/cloud.js`: 生徒別クラウド同期の生成物。直接編集しない
 - `scripts/build_q1_pre1_data.py`: 準1級Q1データの抽出
 - `scripts/build_q1_1_data.py`: 1級公式PDFから大問1を抽出
+- `scripts/enrich_flashcard_fields.py`: 1級・準1級の発音・品詞・例文項目の補完
 - `scripts/check_q1_data.py`: 12セットのデータ契約チェック
 
 大問2以降の旧統合コードは移管用にリポジトリ内へ残っていますが、現在のQ1アプリでは読み込まず、Pages公開物にも含めません。

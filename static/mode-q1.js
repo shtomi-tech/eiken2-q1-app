@@ -537,22 +537,65 @@ function normalizedSurface(value) {
 function audioSlug(value) {
   return normalizedSurface(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
-function vocabularyAudioPath(item) {
-  if (item.type !== "word") return "";
-  const match = /^(eiken1|eiken2|eikenp2)-(\d{4}-\d+)$/.exec(state.datasetId || "");
-  if (!match) return "";
-  const audioGrade = { eiken1: "1", eiken2: "2", eikenp2: "pre2" }[match[1]];
-  const slug = audioSlug(item.word);
-  return slug ? `assets/audio/vocab/${audioGrade}/${match[2]}/${slug}.mp3` : "";
+function vocabularyAudioDataset(item) {
+  if (item.type !== "word") return null;
+  const match = /^(eiken1|eiken2|eikenp2|eikenp1)-(\d{4}-\d+)$/.exec(state.datasetId || "");
+  return match ? { appGrade: match[1], round: match[2] } : null;
 }
+function vocabularyAudioPath(item) {
+  const dataset = vocabularyAudioDataset(item);
+  if (!dataset) return "";
+  const audioGrade = { eiken1: "1", eiken2: "2", eikenp1: "pre1", eikenp2: "pre2" }[dataset.appGrade];
+  if (!audioGrade) return "";
+  const slug = audioSlug(item.word);
+  return slug ? `assets/audio/vocab/${audioGrade}/${dataset.round}/${slug}.mp3` : "";
+}
+function vocabularyAudioEnabled(item) { return Boolean(vocabularyAudioDataset(item)); }
 let activeVocabAudio = null;
 let activeVocabButton = null;
+let activeVocabSpeech = null;
 function resetVocabAudioButton(button) {
   if (!button) return;
   button.disabled = false;
   button.classList.remove("isPlaying");
 }
-function playVocabAudio(path, button) {
+function stopVocabSpeech() {
+  if (!activeVocabSpeech) return;
+  window.speechSynthesis.cancel();
+  resetVocabAudioButton(activeVocabSpeech.button);
+  activeVocabSpeech = null;
+}
+function playVocabSpeech(text, button) {
+  if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) {
+    button.title = "このブラウザでは音声を再生できません。";
+    return;
+  }
+  if (activeVocabAudio) {
+    activeVocabAudio.pause();
+    activeVocabAudio.currentTime = 0;
+    activeVocabAudio = null;
+  }
+  resetVocabAudioButton(activeVocabButton);
+  stopVocabSpeech();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  activeVocabSpeech = { utterance, button };
+  button.disabled = true;
+  button.classList.add("isPlaying");
+  const finish = () => {
+    resetVocabAudioButton(button);
+    if (activeVocabSpeech?.utterance === utterance) activeVocabSpeech = null;
+  };
+  utterance.addEventListener("end", finish, { once: true });
+  utterance.addEventListener("error", finish, { once: true });
+  window.speechSynthesis.speak(utterance);
+}
+function playVocabAudio(path, button, text) {
+  if (!path) {
+    playVocabSpeech(text, button);
+    return;
+  }
+  stopVocabSpeech();
   if (activeVocabAudio) {
     activeVocabAudio.pause();
     activeVocabAudio.currentTime = 0;
@@ -572,8 +615,9 @@ function playVocabAudio(path, button) {
   };
   audio.addEventListener("ended", finish, { once: true });
   audio.addEventListener("error", () => {
-    button.title = "音声ファイルを読み込めませんでした。生成スクリプトを確認してください。";
     finish();
+    button.title = "MP3を読み込めないため、ブラウザ音声を再生します。";
+    playVocabSpeech(text, button);
   }, { once: true });
   audio.play().catch(finish);
 }
@@ -1177,7 +1221,7 @@ function buildFlashCard(item) {
   );
   if (item.ipa) wordLine.appendChild(el("div", { class: "flashIpa" }, item.ipa));
   const audioPath = vocabularyAudioPath(item);
-  if (audioPath) {
+  if (vocabularyAudioEnabled(item)) {
     const audioButton = el("button", {
       class: "flashListenButton",
       type: "button",
@@ -1186,7 +1230,7 @@ function buildFlashCard(item) {
     });
     audioButton.appendChild(el("span", { "aria-hidden": "true" }, "▶"));
     audioButton.appendChild(document.createTextNode(" 音声"));
-    audioButton.addEventListener("click", () => playVocabAudio(audioPath, audioButton));
+    audioButton.addEventListener("click", () => playVocabAudio(audioPath, audioButton, surface));
     wordLine.appendChild(audioButton);
   }
   head.appendChild(el("div", {},
@@ -1199,8 +1243,6 @@ function buildFlashCard(item) {
   inner.appendChild(flashRow("意味", item.meaning, "flashMeaning"));
   if (item.etymology) inner.appendChild(flashRow("語源・なりたち", item.etymology, "flashEtym"));
   if (item.example) inner.appendChild(flashExampleRow(item));
-  if (Array.isArray(item.relatedWords) && item.relatedWords.length) inner.appendChild(flashRelatedRow(item));
-  if (item.selfExampleEnabled) inner.appendChild(buildSelfExamplePanel(item));
   card.appendChild(inner);
   return card;
 }

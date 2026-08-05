@@ -17,433 +17,721 @@
       "q": 1,
       "is_answer": true,
       "meaning": "横領",
-      "word": "embezzlement"
+      "word": "embezzlement",
+      "example": "The company accountant was arrested for embezzlement after it was discovered she had stolen almost a million dollars from the company over five years.",
+      "exampleTranslation": "会社の会計担当者は、5年間で会社から約100万ドルを盗んだことが発覚し、横領で逮捕された。",
+      "ipa": "/ɛmbˈɛzəlmənt/",
+      "pos": "名詞"
     },
     {
       "q": 1,
       "is_answer": false,
       "meaning": "悪名",
-      "word": "notoriety"
+      "word": "notoriety",
+      "example": "The company accountant was arrested for ( ) after it was discovered she had stolen almost a million dollars from the company over five years.",
+      "exampleTranslation": "会社の会計担当者は、5年間で会社から約100万ドルを盗んだことが発覚し、横領で逮捕された。",
+      "pos": "名詞",
+      "ipa": "/noʊtɚˈaɪəti/"
     },
     {
       "q": 1,
       "is_answer": false,
       "meaning": "不屈の精神",
-      "word": "fortitude"
+      "word": "fortitude",
+      "example": "The company accountant was arrested for ( ) after it was discovered she had stolen almost a million dollars from the company over five years.",
+      "exampleTranslation": "会社の会計担当者は、5年間で会社から約100万ドルを盗んだことが発覚し、横領で逮捕された。",
+      "ipa": "/fˈɔɹtɪtud/",
+      "pos": "名詞"
     },
     {
       "q": 1,
       "is_answer": false,
       "meaning": "停止、中止",
-      "word": "cessation"
+      "word": "cessation",
+      "example": "The company accountant was arrested for ( ) after it was discovered she had stolen almost a million dollars from the company over five years.",
+      "exampleTranslation": "会社の会計担当者は、5年間で会社から約100万ドルを盗んだことが発覚し、横領で逮捕された。",
+      "ipa": "/sɛsˈeɪʃən/",
+      "pos": "名詞"
     },
     {
       "q": 2,
       "is_answer": false,
       "meaning": "ガチャガチャという音",
-      "word": "clatter"
+      "word": "clatter",
+      "example": "The film has received much ( ) for its excellent storytelling and its cinematic beauty. In fact, it has already won two major awards.",
+      "exampleTranslation": "その映画は優れた物語と映像美で大きな称賛を受け、すでに主要な賞を2つ獲得している。",
+      "pos": "名詞・動詞",
+      "ipa": "/klˈætɚ/"
     },
     {
       "q": 2,
       "is_answer": true,
       "meaning": "称賛、賞賛",
-      "word": "acclaim"
+      "word": "acclaim",
+      "example": "The film has received much acclaim for its excellent storytelling and its cinematic beauty. In fact, it has already won two major awards.",
+      "exampleTranslation": "その映画は優れた物語と映像美で大きな称賛を受け、すでに主要な賞を2つ獲得している。",
+      "ipa": "/əklˈeɪm/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 2,
       "is_answer": false,
       "meaning": "偏見、偏狭さ",
-      "word": "bigotry"
+      "word": "bigotry",
+      "example": "The film has received much ( ) for its excellent storytelling and its cinematic beauty. In fact, it has already won two major awards.",
+      "exampleTranslation": "その映画は優れた物語と映像美で大きな称賛を受け、すでに主要な賞を2つ獲得している。",
+      "ipa": "/bˈɪɡətɹi/",
+      "pos": "名詞"
     },
     {
       "q": 2,
       "is_answer": false,
       "meaning": "独断的な教義、定説",
-      "word": "dogma"
+      "word": "dogma",
+      "example": "The film has received much ( ) for its excellent storytelling and its cinematic beauty. In fact, it has already won two major awards.",
+      "exampleTranslation": "その映画は優れた物語と映像美で大きな称賛を受け、すでに主要な賞を2つ獲得している。",
+      "ipa": "/dˈɑɡmə/",
+      "pos": "名詞"
     },
     {
       "q": 3,
       "is_answer": false,
       "meaning": "やせこけた、やつれた",
-      "word": "gaunt"
+      "word": "gaunt",
+      "example": "It was widely known that the government was ( ) with corruption. It was common for officials to demand money before performing even the simplest of services.",
+      "exampleTranslation": "政府が汚職にまみれていることは広く知られていた。役人が最も簡単なサービスを行う前にも金を要求するのが普通だった。",
+      "ipa": "/ɡˈɔnt/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 3,
       "is_answer": false,
       "meaning": "わずかな、乏しい",
-      "word": "meager"
+      "word": "meager",
+      "example": "It was widely known that the government was ( ) with corruption. It was common for officials to demand money before performing even the simplest of services.",
+      "exampleTranslation": "政府が汚職にまみれていることは広く知られていた。役人が最も簡単なサービスを行う前にも金を要求するのが普通だった。",
+      "pos": "形容詞・動詞",
+      "ipa": "/mˈiɡɚ/"
     },
     {
       "q": 3,
       "is_answer": true,
       "meaning": "はびこった、満ちた",
-      "word": "rife"
+      "word": "rife",
+      "example": "It was widely known that the government was rife with corruption. It was common for officials to demand money before performing even the simplest of services.",
+      "exampleTranslation": "政府が汚職にまみれていることは広く知られていた。役人が最も簡単なサービスを行う前にも金を要求するのが普通だった。",
+      "ipa": "/ɹˈaɪf/",
+      "pos": "形容詞・副詞"
     },
     {
       "q": 3,
       "is_answer": false,
       "meaning": "男らしい、精力旺盛な",
-      "word": "virile"
+      "word": "virile",
+      "example": "It was widely known that the government was ( ) with corruption. It was common for officials to demand money before performing even the simplest of services.",
+      "exampleTranslation": "政府が汚職にまみれていることは広く知られていた。役人が最も簡単なサービスを行う前にも金を要求するのが普通だった。",
+      "ipa": "/vˈɪɹəl/",
+      "pos": "形容詞"
     },
     {
       "q": 4,
       "is_answer": true,
       "meaning": "元気づけられた、活気づいた",
-      "word": "invigorated"
+      "word": "invigorated",
+      "example": "While one might expect to be tired following a workout, many people find that they actually feel invigorated after moderate exercise.",
+      "exampleTranslation": "運動後は疲れると思うかもしれないが、適度な運動の後は実際には元気になったと感じる人が多い。",
+      "pos": "形容詞",
+      "ipa": "/ɪnvˈɪɡɚeɪtɪd/"
     },
     {
       "q": 4,
       "is_answer": false,
       "meaning": "地方の；視野の狭い",
-      "word": "provincial"
+      "word": "provincial",
+      "example": "While one might expect to be tired following a workout, many people find that they actually feel ( ) after moderate exercise.",
+      "exampleTranslation": "運動後は疲れると思うかもしれないが、適度な運動の後は実際には元気になったと感じる人が多い。",
+      "ipa": "/pɹəvˈɪnʃəl/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 4,
       "is_answer": false,
       "meaning": "隣接した、連続した",
-      "word": "contiguous"
+      "word": "contiguous",
+      "example": "While one might expect to be tired following a workout, many people find that they actually feel ( ) after moderate exercise.",
+      "exampleTranslation": "運動後は疲れると思うかもしれないが、適度な運動の後は実際には元気になったと感じる人が多い。",
+      "ipa": "/kəntˈɪɡjuəs/",
+      "pos": "形容詞"
     },
     {
       "q": 4,
       "is_answer": false,
       "meaning": "希薄な、かすかな",
-      "word": "tenuous"
+      "word": "tenuous",
+      "example": "While one might expect to be tired following a workout, many people find that they actually feel ( ) after moderate exercise.",
+      "exampleTranslation": "運動後は疲れると思うかもしれないが、適度な運動の後は実際には元気になったと感じる人が多い。",
+      "ipa": "/tˈɛnjəwəs/",
+      "pos": "形容詞"
     },
     {
       "q": 5,
       "is_answer": false,
       "meaning": "照合する、比較する",
-      "word": "collate"
+      "word": "collate",
+      "example": "Leilani thought it was useless to ( ) her current financial situation, so instead of complaining, she decided to look for a higherpaying job.",
+      "exampleTranslation": "レイラニは現在の経済状況を嘆いても無駄だと思い、愚痴を言う代わりに、もっと給料の高い仕事を探すことにした。",
+      "ipa": "/kəlˈeɪt/",
+      "pos": "動詞"
     },
     {
       "q": 5,
       "is_answer": false,
       "meaning": "取り消す、撤回する",
-      "word": "revoke"
+      "word": "revoke",
+      "example": "Leilani thought it was useless to ( ) her current financial situation, so instead of complaining, she decided to look for a higherpaying job.",
+      "exampleTranslation": "レイラニは現在の経済状況を嘆いても無駄だと思い、愚痴を言う代わりに、もっと給料の高い仕事を探すことにした。",
+      "ipa": "/ɹɪvˈoʊk/",
+      "pos": "動詞・名詞"
     },
     {
       "q": 5,
       "is_answer": true,
       "meaning": "嘆く、こぼす",
-      "word": "bemoan"
+      "word": "bemoan",
+      "example": "Leilani thought it was useless to bemoan her current financial situation, so instead of complaining, she decided to look for a higherpaying job.",
+      "exampleTranslation": "レイラニは現在の経済状況を嘆いても無駄だと思い、愚痴を言う代わりに、もっと給料の高い仕事を探すことにした。",
+      "ipa": "/bɪmˈoʊn/",
+      "pos": "動詞"
     },
     {
       "q": 5,
       "is_answer": false,
       "meaning": "妨げる",
-      "word": "thwart"
+      "word": "thwart",
+      "example": "Leilani thought it was useless to ( ) her current financial situation, so instead of complaining, she decided to look for a higherpaying job.",
+      "exampleTranslation": "レイラニは現在の経済状況を嘆いても無駄だと思い、愚痴を言う代わりに、もっと給料の高い仕事を探すことにした。",
+      "ipa": "/θwˈɔɹt/",
+      "pos": "動詞・形容詞・名詞・副詞"
     },
     {
       "q": 6,
       "is_answer": true,
       "meaning": "最高の、最重要の",
-      "word": "paramount"
+      "word": "paramount",
+      "example": "After two workers were injured on the job, safety took on paramount importance at the factory. Huge sums of money were spent to ensure all the latest safety standards were met.",
+      "exampleTranslation": "2人の作業員が仕事中にけがをした後、工場では安全が最重要になった。最新の安全基準を満たすため多額の費用が使われた。",
+      "ipa": "/pˈɛɹəmaʊnt/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 6,
       "is_answer": false,
       "meaning": "無計画な、でたらめな",
-      "word": "haphazard"
+      "word": "haphazard",
+      "example": "After two workers were injured on the job, safety took on ( ) importance at the factory. Huge sums of money were spent to ensure all the latest safety standards were met.",
+      "exampleTranslation": "2人の作業員が仕事中にけがをした後、工場では安全が最重要になった。最新の安全基準を満たすため多額の費用が使われた。",
+      "pos": "形容詞・名詞・副詞",
+      "ipa": "/hæphˈæzɚd/"
     },
     {
       "q": 6,
       "is_answer": false,
       "meaning": "汚れのない、原始のままの",
-      "word": "pristine"
+      "word": "pristine",
+      "example": "After two workers were injured on the job, safety took on ( ) importance at the factory. Huge sums of money were spent to ensure all the latest safety standards were met.",
+      "exampleTranslation": "2人の作業員が仕事中にけがをした後、工場では安全が最重要になった。最新の安全基準を満たすため多額の費用が使われた。",
+      "ipa": "/pɹˈɪstin/",
+      "pos": "形容詞"
     },
     {
       "q": 6,
       "is_answer": false,
       "meaning": "不注意な、気に留めない",
-      "word": "heedless"
+      "word": "heedless",
+      "example": "After two workers were injured on the job, safety took on ( ) importance at the factory. Huge sums of money were spent to ensure all the latest safety standards were met.",
+      "exampleTranslation": "2人の作業員が仕事中にけがをした後、工場では安全が最重要になった。最新の安全基準を満たすため多額の費用が使われた。",
+      "ipa": "/hˈidləs/",
+      "pos": "形容詞"
     },
     {
       "q": 7,
       "is_answer": true,
       "meaning": "懇願した",
-      "word": "implored"
+      "word": "implored",
+      "example": "Although Jackie's parents implored her not to quit school, Jackie ignored them and began working as a yoga instructor.",
+      "exampleTranslation": "ジャッキーの両親は学校を辞めないよう彼女に懇願したが、彼女は聞かず、ヨガ講師として働き始めた。",
+      "ipa": "/ɪmplˈɔɹd/",
+      "pos": "動詞"
     },
     {
       "q": 7,
       "is_answer": false,
       "meaning": "除去した、一掃した",
-      "word": "purged"
+      "word": "purged",
+      "example": "Although Jackie's parents ( ) her not to quit school, Jackie ignored them and began working as a yoga instructor.",
+      "exampleTranslation": "ジャッキーの両親は学校を辞めないよう彼女に懇願したが、彼女は聞かず、ヨガ講師として働き始めた。",
+      "pos": "動詞",
+      "ipa": "/pˈɝdʒd/"
     },
     {
       "q": 7,
       "is_answer": false,
       "meaning": "元に戻った",
-      "word": "reverted"
+      "word": "reverted",
+      "example": "Although Jackie's parents ( ) her not to quit school, Jackie ignored them and began working as a yoga instructor.",
+      "exampleTranslation": "ジャッキーの両親は学校を辞めないよう彼女に懇願したが、彼女は聞かず、ヨガ講師として働き始めた。",
+      "pos": "形容詞",
+      "ipa": "/ɹɪvˈɝtɪd/"
     },
     {
       "q": 7,
       "is_answer": false,
       "meaning": "接ぎ木した、移植した",
-      "word": "grafted"
+      "word": "grafted",
+      "example": "Although Jackie's parents ( ) her not to quit school, Jackie ignored them and began working as a yoga instructor.",
+      "exampleTranslation": "ジャッキーの両親は学校を辞めないよう彼女に懇願したが、彼女は聞かず、ヨガ講師として働き始めた。",
+      "ipa": "/ɡɹˈæftɪd/",
+      "pos": "動詞・形容詞"
     },
     {
       "q": 8,
       "is_answer": false,
       "meaning": "態度、物腰",
-      "word": "demeanor"
+      "word": "demeanor",
+      "example": "Although he feared the champion, the boxer made a show of ( ) at the media conference by saying he would knock him out in the first round.",
+      "exampleTranslation": "王者を恐れていたが、そのボクサーは記者会見で第1ラウンドに相手を倒すと言い、強がってみせた。",
+      "pos": "名詞",
+      "ipa": "/dɪmˈinɚ/"
     },
     {
       "q": 8,
       "is_answer": false,
       "meaning": "慎重さ、分別",
-      "word": "discretion"
+      "word": "discretion",
+      "example": "Although he feared the champion, the boxer made a show of ( ) at the media conference by saying he would knock him out in the first round.",
+      "exampleTranslation": "王者を恐れていたが、そのボクサーは記者会見で第1ラウンドに相手を倒すと言い、強がってみせた。",
+      "ipa": "/dɪskɹˈɛʃən/",
+      "pos": "名詞"
     },
     {
       "q": 8,
       "is_answer": false,
       "meaning": "親しみやすさ、気の合う性質",
-      "word": "congeniality"
+      "word": "congeniality",
+      "example": "Although he feared the champion, the boxer made a show of ( ) at the media conference by saying he would knock him out in the first round.",
+      "exampleTranslation": "王者を恐れていたが、そのボクサーは記者会見で第1ラウンドに相手を倒すと言い、強がってみせた。",
+      "ipa": "/kəndʒiniˈæləti/",
+      "pos": "名詞"
     },
     {
       "q": 8,
       "is_answer": true,
       "meaning": "虚勢、強がり",
-      "word": "bravado"
+      "word": "bravado",
+      "example": "Although he feared the champion, the boxer made a show of bravado at the media conference by saying he would knock him out in the first round.",
+      "exampleTranslation": "王者を恐れていたが、そのボクサーは記者会見で第1ラウンドに相手を倒すと言い、強がってみせた。",
+      "ipa": "/bɹəvˈɑdoʊ/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 9,
       "is_answer": false,
       "meaning": "精力を奪う",
-      "word": "enervating"
+      "word": "enervating",
+      "example": "The bank's hightech safedeposit boxes are thought to be ( ). \"We are 100 percent confident no one can break into the boxes to steal our customers' valuables,\" said the manager.",
+      "exampleTranslation": "銀行のハイテク金庫は、侵入して顧客の貴重品を盗むことができないと考えられている。",
+      "pos": "形容詞",
+      "ipa": "/ˈɛnɚvˈeɪtɪŋ/"
     },
     {
       "q": 9,
       "is_answer": false,
       "meaning": "耳障りな、調和を乱す",
-      "word": "jarring"
+      "word": "jarring",
+      "example": "The bank's hightech safedeposit boxes are thought to be ( ). \"We are 100 percent confident no one can break into the boxes to steal our customers' valuables,\" said the manager.",
+      "exampleTranslation": "銀行のハイテク金庫は、侵入して顧客の貴重品を盗むことができないと考えられている。",
+      "ipa": "/dʒˈɑɹɪŋ/",
+      "pos": "名詞・形容詞"
     },
     {
       "q": 9,
       "is_answer": true,
       "meaning": "攻略不能な、難攻不落の",
-      "word": "impregnable"
+      "word": "impregnable",
+      "example": "The bank's hightech safedeposit boxes are thought to be impregnable. \"We are 100 percent confident no one can break into the boxes to steal our customers' valuables,\" said the manager.",
+      "exampleTranslation": "銀行のハイテク金庫は、侵入して顧客の貴重品を盗むことができないと考えられている。",
+      "ipa": "/ɪmpɹˈɛɡnəbəl/",
+      "pos": "形容詞"
     },
     {
       "q": 9,
       "is_answer": false,
       "meaning": "早熟な",
-      "word": "precocious"
+      "word": "precocious",
+      "example": "The bank's hightech safedeposit boxes are thought to be ( ). \"We are 100 percent confident no one can break into the boxes to steal our customers' valuables,\" said the manager.",
+      "exampleTranslation": "銀行のハイテク金庫は、侵入して顧客の貴重品を盗むことができないと考えられている。",
+      "ipa": "/pɹɪkˈoʊʃəs/",
+      "pos": "形容詞"
     },
     {
       "q": 10,
       "is_answer": false,
       "meaning": "小さい、小柄な",
-      "word": "diminutive"
+      "word": "diminutive",
+      "example": "Astronauts bravely risk their lives in order to explore space. The reward for these ( ) people, though, is a view unlike any other.",
+      "exampleTranslation": "宇宙飛行士は宇宙探査のため勇敢に命をかける。その勇敢な人々への報酬は、他にない景色である。",
+      "ipa": "/dɪmˈɪnjətɪv/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 10,
       "is_answer": false,
       "meaning": "表面的な",
-      "word": "superficial"
+      "word": "superficial",
+      "example": "Astronauts bravely risk their lives in order to explore space. The reward for these ( ) people, though, is a view unlike any other.",
+      "exampleTranslation": "宇宙飛行士は宇宙探査のため勇敢に命をかける。その勇敢な人々への報酬は、他にない景色である。",
+      "pos": "形容詞・名詞",
+      "ipa": "/supɚfˈɪʃəl/"
     },
     {
       "q": 10,
       "is_answer": false,
       "meaning": "退屈な",
-      "word": "tedious"
+      "word": "tedious",
+      "example": "Astronauts bravely risk their lives in order to explore space. The reward for these ( ) people, though, is a view unlike any other.",
+      "exampleTranslation": "宇宙飛行士は宇宙探査のため勇敢に命をかける。その勇敢な人々への報酬は、他にない景色である。",
+      "ipa": "/tˈidiəs/",
+      "pos": "形容詞"
     },
     {
       "q": 10,
       "is_answer": true,
       "meaning": "勇敢な、恐れを知らない",
-      "word": "intrepid"
+      "word": "intrepid",
+      "example": "Astronauts bravely risk their lives in order to explore space. The reward for these intrepid people, though, is a view unlike any other.",
+      "exampleTranslation": "宇宙飛行士は宇宙探査のため勇敢に命をかける。その勇敢な人々への報酬は、他にない景色である。",
+      "ipa": "/ɪntɹˈɛpəd/",
+      "pos": "形容詞"
     },
     {
       "q": 11,
       "is_answer": false,
       "meaning": "宣言した、公言した",
-      "word": "proclaimed"
+      "word": "proclaimed",
+      "example": "After being ( ) for nearly a decade, it was difficult for Brian to adjust to life outside of prison.",
+      "exampleTranslation": "10年近く投獄されていたため、ブライアンは刑務所の外の生活に慣れるのが難しかった。",
+      "ipa": "/pɹoʊklˈeɪmd/",
+      "pos": "形容詞"
     },
     {
       "q": 11,
       "is_answer": false,
       "meaning": "消した、癒やした",
-      "word": "quenched"
+      "word": "quenched",
+      "example": "After being ( ) for nearly a decade, it was difficult for Brian to adjust to life outside of prison.",
+      "exampleTranslation": "10年近く投獄されていたため、ブライアンは刑務所の外の生活に慣れるのが難しかった。",
+      "ipa": "/kwˈɛntʃt/",
+      "pos": "形容詞"
     },
     {
       "q": 11,
       "is_answer": true,
       "meaning": "投獄された",
-      "word": "incarcerated"
+      "word": "incarcerated",
+      "example": "After being incarcerated for nearly a decade, it was difficult for Brian to adjust to life outside of prison.",
+      "exampleTranslation": "10年近く投獄されていたため、ブライアンは刑務所の外の生活に慣れるのが難しかった。",
+      "ipa": "/ɪnkˈɑɹsɚeɪtɪd/",
+      "pos": "名詞"
     },
     {
       "q": 11,
       "is_answer": false,
       "meaning": "合成した、統合した",
-      "word": "synthesized"
+      "word": "synthesized",
+      "example": "After being ( ) for nearly a decade, it was difficult for Brian to adjust to life outside of prison.",
+      "exampleTranslation": "10年近く投獄されていたため、ブライアンは刑務所の外の生活に慣れるのが難しかった。",
+      "ipa": "/sˈɪnθɪsaɪzd/",
+      "pos": "形容詞"
     },
     {
       "q": 12,
       "is_answer": true,
       "meaning": "不和、意見の不一致",
-      "word": "discord"
+      "word": "discord",
+      "example": "Relations between the two countries are in a state of discord, and neither side is willing to sit down to work out a solution.",
+      "exampleTranslation": "両国の関係は不和の状態にあり、どちらの側も解決策を話し合うために席に着こうとしない。",
+      "ipa": "/dˈɪskɔɹd/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 12,
       "is_answer": false,
       "meaning": "異端、異端説",
-      "word": "heresy"
+      "word": "heresy",
+      "example": "Relations between the two countries are in a state of ( ), and neither side is willing to sit down to work out a solution.",
+      "exampleTranslation": "両国の関係は不和の状態にあり、どちらの側も解決策を話し合うために席に着こうとしない。",
+      "ipa": "/hˈɛɹəsi/",
+      "pos": "名詞"
     },
     {
       "q": 12,
       "is_answer": false,
       "meaning": "信用、信憑性",
-      "word": "credence"
+      "word": "credence",
+      "example": "Relations between the two countries are in a state of ( ), and neither side is willing to sit down to work out a solution.",
+      "exampleTranslation": "両国の関係は不和の状態にあり、どちらの側も解決策を話し合うために席に着こうとしない。",
+      "ipa": "/kɹˈidəns/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 12,
       "is_answer": false,
       "meaning": "発芽",
-      "word": "germination"
+      "word": "germination",
+      "example": "Relations between the two countries are in a state of ( ), and neither side is willing to sit down to work out a solution.",
+      "exampleTranslation": "両国の関係は不和の状態にあり、どちらの側も解決策を話し合うために席に着こうとしない。",
+      "pos": "名詞",
+      "ipa": "/dʒɚmənˈeɪʃən/"
     },
     {
       "q": 13,
       "is_answer": false,
       "meaning": "目上の人に敬意を払って",
-      "word": "deferentially"
+      "word": "deferentially",
+      "example": "The politician was caught on camera attempting to pay off a reporter ( ). He thought no one would see him, but the camera's zoom lens revealed everything.",
+      "exampleTranslation": "その政治家は記者に賄賂を渡そうとしているところを、目立たないように撮影されていた。",
+      "pos": "副詞",
+      "ipa": "/dɛfɚˈɛntʃəli/"
     },
     {
       "q": 13,
       "is_answer": false,
       "meaning": "順番に",
-      "word": "sequentially"
+      "word": "sequentially",
+      "example": "The politician was caught on camera attempting to pay off a reporter ( ). He thought no one would see him, but the camera's zoom lens revealed everything.",
+      "exampleTranslation": "その政治家は記者に賄賂を渡そうとしているところを、目立たないように撮影されていた。",
+      "ipa": "/səkwˈɛntʃəli/",
+      "pos": "副詞"
     },
     {
       "q": 13,
       "is_answer": false,
       "meaning": "細長く、ほっそりと",
-      "word": "slenderly"
+      "word": "slenderly",
+      "example": "The politician was caught on camera attempting to pay off a reporter ( ). He thought no one would see him, but the camera's zoom lens revealed everything.",
+      "exampleTranslation": "その政治家は記者に賄賂を渡そうとしているところを、目立たないように撮影されていた。",
+      "pos": "副詞",
+      "ipa": "/slˈɛndɚli/"
     },
     {
       "q": 13,
       "is_answer": true,
       "meaning": "慎重に、目立たないように",
-      "word": "discreetly"
+      "word": "discreetly",
+      "example": "The politician was caught on camera attempting to pay off a reporter discreetly. He thought no one would see him, but the camera's zoom lens revealed everything.",
+      "exampleTranslation": "その政治家は記者に賄賂を渡そうとしているところを、目立たないように撮影されていた。",
+      "ipa": "/dɪskɹˈitli/",
+      "pos": "副詞"
     },
     {
       "q": 14,
       "is_answer": false,
       "meaning": "連絡、連携；密通",
-      "word": "liaison"
+      "word": "liaison",
+      "example": "A: Have you received the ( ) of tools we ordered? B: No, but the supplier says it should arrive within the week.",
+      "exampleTranslation": "注文した道具の一式は届いたか。まだだが、仕入れ先は週内に届くはずだと言っている。",
+      "ipa": "/liˈeɪzɑn/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 14,
       "is_answer": false,
       "meaning": "懇願",
-      "word": "entreaty"
+      "word": "entreaty",
+      "example": "A: Have you received the ( ) of tools we ordered? B: No, but the supplier says it should arrive within the week.",
+      "exampleTranslation": "注文した道具の一式は届いたか。まだだが、仕入れ先は週内に届くはずだと言っている。",
+      "ipa": "/ɛntɹˈiti/",
+      "pos": "名詞"
     },
     {
       "q": 14,
       "is_answer": false,
       "meaning": "軽薄さ、軽口",
-      "word": "levity"
+      "word": "levity",
+      "example": "A: Have you received the ( ) of tools we ordered? B: No, but the supplier says it should arrive within the week.",
+      "exampleTranslation": "注文した道具の一式は届いたか。まだだが、仕入れ先は週内に届くはずだと言っている。",
+      "ipa": "/lˈɛvɪti/",
+      "pos": "名詞"
     },
     {
       "q": 14,
       "is_answer": true,
       "meaning": "委託品、発送品",
-      "word": "consignment"
+      "word": "consignment",
+      "example": "A: Have you received the consignment of tools we ordered? B: No, but the supplier says it should arrive within the week.",
+      "exampleTranslation": "注文した道具の一式は届いたか。まだだが、仕入れ先は週内に届くはずだと言っている。",
+      "ipa": "/kənsˈaɪnmənt/",
+      "pos": "名詞"
     },
     {
       "q": 15,
       "is_answer": false,
       "meaning": "支持、強化",
-      "word": "buttressing"
+      "word": "buttressing",
+      "example": "The candidate's campaign was undermined by the ( ) of her character through persistent rumors and lies spread by her opponents.",
+      "exampleTranslation": "候補者の選挙運動は、対立候補が広めたうわさや嘘による人格攻撃で弱体化した。",
+      "ipa": "/bˈətɹəsɪŋ/",
+      "pos": "名詞"
     },
     {
       "q": 15,
       "is_answer": true,
       "meaning": "暗殺；人格攻撃、中傷",
-      "word": "assassination"
+      "word": "assassination",
+      "example": "The candidate's campaign was undermined by the assassination of her character through persistent rumors and lies spread by her opponents.",
+      "exampleTranslation": "候補者の選挙運動は、対立候補が広めたうわさや嘘による人格攻撃で弱体化した。",
+      "ipa": "/əsæsənˈeɪʃən/",
+      "pos": "名詞"
     },
     {
       "q": 15,
       "is_answer": false,
       "meaning": "脱線、余談",
-      "word": "digression"
+      "word": "digression",
+      "example": "The candidate's campaign was undermined by the ( ) of her character through persistent rumors and lies spread by her opponents.",
+      "exampleTranslation": "候補者の選挙運動は、対立候補が広めたうわさや嘘による人格攻撃で弱体化した。",
+      "ipa": "/daɪɡɹˈɛʃən/",
+      "pos": "名詞"
     },
     {
       "q": 15,
       "is_answer": false,
       "meaning": "クーデター；大成功",
-      "word": "coup"
+      "word": "coup",
+      "example": "The candidate's campaign was undermined by the ( ) of her character through persistent rumors and lies spread by her opponents.",
+      "exampleTranslation": "候補者の選挙運動は、対立候補が広めたうわさや嘘による人格攻撃で弱体化した。",
+      "ipa": "/kˈu/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 16,
       "is_answer": true,
       "meaning": "偽の、根拠のない",
-      "word": "spurious"
+      "word": "spurious",
+      "example": "The journalist was fired for publishing spurious articles. His claims were often based on little to no evidence.",
+      "exampleTranslation": "そのジャーナリストは根拠がほとんどない主張をする、根拠のない記事を発表したため解雇された。",
+      "ipa": "/spjˈʊɹiəs/",
+      "pos": "形容詞"
     },
     {
       "q": 16,
       "is_answer": false,
       "meaning": "病気の、弱っている",
-      "word": "ailing"
+      "word": "ailing",
+      "example": "The journalist was fired for publishing ( ) articles. His claims were often based on little to no evidence.",
+      "exampleTranslation": "そのジャーナリストは根拠がほとんどない主張をする、根拠のない記事を発表したため解雇された。",
+      "ipa": "/ˈeɪlɪŋ/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 16,
       "is_answer": false,
       "meaning": "公然の、明白な",
-      "word": "overt"
+      "word": "overt",
+      "example": "The journalist was fired for publishing ( ) articles. His claims were often based on little to no evidence.",
+      "exampleTranslation": "そのジャーナリストは根拠がほとんどない主張をする、根拠のない記事を発表したため解雇された。",
+      "pos": "形容詞・名詞",
+      "ipa": "/oʊvˈɝt/"
     },
     {
       "q": 16,
       "is_answer": false,
       "meaning": "寛大な",
-      "word": "magnanimous"
+      "word": "magnanimous",
+      "example": "The journalist was fired for publishing ( ) articles. His claims were often based on little to no evidence.",
+      "exampleTranslation": "そのジャーナリストは根拠がほとんどない主張をする、根拠のない記事を発表したため解雇された。",
+      "ipa": "/mæɡnˈænəməs/",
+      "pos": "形容詞"
     },
     {
       "q": 17,
       "is_answer": false,
       "meaning": "捨てられた、婚約破棄された",
-      "word": "jilted"
+      "word": "jilted",
+      "example": "A: I can't believe I was ( ) into buying such a bad car. It was a total waste of money! B: I told you to get a second opinion before making the purchase.",
+      "exampleTranslation": "そんなにひどい車を買うようだまされたなんて信じられない。まったくお金の無駄だった。",
+      "ipa": "/dʒˈɪltɪd/",
+      "pos": "形容詞"
     },
     {
       "q": 17,
       "is_answer": true,
       "meaning": "だまされた",
-      "word": "duped"
+      "word": "duped",
+      "example": "A: I can't believe I was duped into buying such a bad car. It was a total waste of money! B: I told you to get a second opinion before making the purchase.",
+      "exampleTranslation": "そんなにひどい車を買うようだまされたなんて信じられない。まったくお金の無駄だった。",
+      "ipa": "/dˈupt/",
+      "pos": "動詞"
     },
     {
       "q": 17,
       "is_answer": false,
       "meaning": "傾いた、偏った",
-      "word": "slanted"
+      "word": "slanted",
+      "example": "A: I can't believe I was ( ) into buying such a bad car. It was a total waste of money! B: I told you to get a second opinion before making the purchase.",
+      "exampleTranslation": "そんなにひどい車を買うようだまされたなんて信じられない。まったくお金の無駄だった。",
+      "ipa": "/slˈæntəd/",
+      "pos": "形容詞"
     },
     {
       "q": 17,
       "is_answer": false,
       "meaning": "走り去った",
-      "word": "scampered"
+      "word": "scampered",
+      "example": "A: I can't believe I was ( ) into buying such a bad car. It was a total waste of money! B: I told you to get a second opinion before making the purchase.",
+      "exampleTranslation": "そんなにひどい車を買うようだまされたなんて信じられない。まったくお金の無駄だった。",
+      "pos": "形容詞",
+      "ipa": "/skˈæmpɚd/"
     },
     {
       "q": 18,
       "is_answer": false,
       "meaning": "乱雑に書く、走り書き",
-      "word": "scrawl"
+      "word": "scrawl",
+      "example": "When the man lost his job, he had no choice but to ( ) his watch. It was a lastditch effort to raise enough money to pay his rent.",
+      "exampleTranslation": "その男性は仕事を失うと、家賃を払うためのお金を何とか作る最後の手段として、時計を質に入れるしかなかった。",
+      "ipa": "/skɹˈɔl/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 18,
       "is_answer": false,
       "meaning": "浸透する、ろ過する",
-      "word": "percolate"
+      "word": "percolate",
+      "example": "When the man lost his job, he had no choice but to ( ) his watch. It was a lastditch effort to raise enough money to pay his rent.",
+      "exampleTranslation": "その男性は仕事を失うと、家賃を払うためのお金を何とか作る最後の手段として、時計を質に入れるしかなかった。",
+      "pos": "動詞・名詞",
+      "ipa": "/pˈɝkəleɪt/"
     },
     {
       "q": 18,
       "is_answer": true,
       "meaning": "質に入れる",
-      "word": "pawn"
+      "word": "pawn",
+      "example": "When the man lost his job, he had no choice but to pawn his watch. It was a lastditch effort to raise enough money to pay his rent.",
+      "exampleTranslation": "その男性は仕事を失うと、家賃を払うためのお金を何とか作る最後の手段として、時計を質に入れるしかなかった。",
+      "ipa": "/pˈɔn/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 18,
       "is_answer": false,
       "meaning": "汚す、傷つける",
-      "word": "sully"
+      "word": "sully",
+      "example": "When the man lost his job, he had no choice but to ( ) his watch. It was a lastditch effort to raise enough money to pay his rent.",
+      "exampleTranslation": "その男性は仕事を失うと、家賃を払うためのお金を何とか作る最後の手段として、時計を質に入れるしかなかった。",
+      "ipa": "/sˈəli/",
+      "pos": "名詞・動詞"
     }
   ],
   "idioms": [
@@ -452,112 +740,145 @@
       "is_answer": false,
       "meaning": "（金を）支払う",
       "phrase": "pony up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "With the final exams just a month away, now is the time for students to ( ) and study hard. There will be plenty of time for relaxation after school is finished.",
+      "exampleTranslation": "期末試験まであと1か月なので、今こそ本腰を入れて一生懸命勉強するときだ。学校が終われば休む時間はたくさんある。"
     },
     {
       "q": 19,
       "is_answer": true,
       "meaning": "本腰を入れて取り組む",
       "phrase": "buckle down",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "With the final exams just a month away, now is the time for students to buckle down and study hard. There will be plenty of time for relaxation after school is finished.",
+      "exampleTranslation": "期末試験まであと1か月なので、今こそ本腰を入れて一生懸命勉強するときだ。学校が終われば休む時間はたくさんある。"
     },
     {
       "q": 19,
       "is_answer": false,
       "meaning": "めちゃくちゃにする、失敗する",
       "phrase": "foul up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "With the final exams just a month away, now is the time for students to ( ) and study hard. There will be plenty of time for relaxation after school is finished.",
+      "exampleTranslation": "期末試験まであと1か月なので、今こそ本腰を入れて一生懸命勉強するときだ。学校が終われば休む時間はたくさんある。"
     },
     {
       "q": 19,
       "is_answer": false,
       "meaning": "落胆させる、意気消沈させる",
       "phrase": "cast down",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "With the final exams just a month away, now is the time for students to ( ) and study hard. There will be plenty of time for relaxation after school is finished.",
+      "exampleTranslation": "期末試験まであと1か月なので、今こそ本腰を入れて一生懸命勉強するときだ。学校が終われば休む時間はたくさんある。"
     },
     {
       "q": 20,
       "is_answer": false,
       "meaning": "ふらりと入ってくる",
       "phrase": "breeze in",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "An increase in drunk drivers has caused police to ( ). They are setting up roadblocks and giving random breath tests.",
+      "exampleTranslation": "飲酒運転の増加を受け、警察は厳しい取り締まりを始めた。道路封鎖を行い、無作為の呼気検査をしている。"
     },
     {
       "q": 20,
       "is_answer": false,
       "meaning": "分岐する、枝分かれする",
       "phrase": "branch off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "An increase in drunk drivers has caused police to ( ). They are setting up roadblocks and giving random breath tests.",
+      "exampleTranslation": "飲酒運転の増加を受け、警察は厳しい取り締まりを始めた。道路封鎖を行い、無作為の呼気検査をしている。"
     },
     {
       "q": 20,
       "is_answer": true,
       "meaning": "厳しく取り締まる",
       "phrase": "crack down",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "An increase in drunk drivers has caused police to crack down. They are setting up roadblocks and giving random breath tests.",
+      "exampleTranslation": "飲酒運転の増加を受け、警察は厳しい取り締まりを始めた。道路封鎖を行い、無作為の呼気検査をしている。"
     },
     {
       "q": 20,
       "is_answer": false,
       "meaning": "切り落とす",
       "phrase": "lop off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "An increase in drunk drivers has caused police to ( ). They are setting up roadblocks and giving random breath tests.",
+      "exampleTranslation": "飲酒運転の増加を受け、警察は厳しい取り締まりを始めた。道路封鎖を行い、無作為の呼気検査をしている。"
     },
     {
       "q": 21,
       "is_answer": false,
       "meaning": "くよくよ考える、詳しく論じる",
       "phrase": "dwell on",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When his friend from another town suddenly arrived, Rick had to ( ) some food and drink quickly. Luckily, he had some snacks and soda in his refrigerator.",
+      "exampleTranslation": "別の町に住む友人が突然来たので、リックは急いで食べ物と飲み物を用意しなければならなかった。幸い冷蔵庫に軽食とソーダがあった。"
     },
     {
       "q": 21,
       "is_answer": false,
       "meaning": "次々にすらすら言う",
       "phrase": "reel off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When his friend from another town suddenly arrived, Rick had to ( ) some food and drink quickly. Luckily, he had some snacks and soda in his refrigerator.",
+      "exampleTranslation": "別の町に住む友人が突然来たので、リックは急いで食べ物と飲み物を用意しなければならなかった。幸い冷蔵庫に軽食とソーダがあった。"
     },
     {
       "q": 21,
       "is_answer": true,
       "meaning": "（食事などを）急いで用意する",
       "phrase": "rustle up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When his friend from another town suddenly arrived, Rick had to rustle up some food and drink quickly. Luckily, he had some snacks and soda in his refrigerator.",
+      "exampleTranslation": "別の町に住む友人が突然来たので、リックは急いで食べ物と飲み物を用意しなければならなかった。幸い冷蔵庫に軽食とソーダがあった。"
     },
     {
       "q": 21,
       "is_answer": false,
       "meaning": "急に持ち去る、引きずっていく",
       "phrase": "haul off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When his friend from another town suddenly arrived, Rick had to ( ) some food and drink quickly. Luckily, he had some snacks and soda in his refrigerator.",
+      "exampleTranslation": "別の町に住む友人が突然来たので、リックは急いで食べ物と飲み物を用意しなければならなかった。幸い冷蔵庫に軽食とソーダがあった。"
     },
     {
       "q": 22,
       "is_answer": false,
       "meaning": "浪費する",
       "phrase": "fritter away",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When unexpected problems ( ), it is important to remain calm and think logically about how to solve them.",
+      "exampleTranslation": "予期しない問題が起きたときは、落ち着いて論理的に解決方法を考えることが重要だ。"
     },
     {
       "q": 22,
       "is_answer": false,
       "meaning": "だまし取る、ぼったくる",
       "phrase": "rip off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When unexpected problems ( ), it is important to remain calm and think logically about how to solve them.",
+      "exampleTranslation": "予期しない問題が起きたときは、落ち着いて論理的に解決方法を考えることが重要だ。"
     },
     {
       "q": 22,
       "is_answer": false,
       "meaning": "偉そうに話す、意見をぶちまける",
       "phrase": "sound off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When unexpected problems ( ), it is important to remain calm and think logically about how to solve them.",
+      "exampleTranslation": "予期しない問題が起きたときは、落ち着いて論理的に解決方法を考えることが重要だ。",
+      "ipa": "/sˈaʊndˈɔf/"
     },
     {
       "q": 22,
       "is_answer": true,
       "meaning": "不意に起こる",
       "phrase": "crop up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "When unexpected problems crop up, it is important to remain calm and think logically about how to solve them.",
+      "exampleTranslation": "予期しない問題が起きたときは、落ち着いて論理的に解決方法を考えることが重要だ。"
     }
   ]
 }

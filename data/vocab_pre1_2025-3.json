@@ -12,7 +12,8 @@
       "example": "He evaded the question by changing the subject.",
       "exampleTranslation": "彼は話題を変えて質問を避けた。",
       "pos": "動詞",
-      "q": 1
+      "q": 1,
+      "ipa": "/ɪvˈeɪdɪd/"
     },
     {
       "word": "sterilized",
@@ -21,7 +22,8 @@
       "example": "All the surgical instruments were sterilized before the operation.",
       "exampleTranslation": "すべての手術器具は手術前に滅菌されています。",
       "pos": "動詞",
-      "q": 1
+      "q": 1,
+      "ipa": "/stˈɛɹəlaɪzd/"
     },
     {
       "word": "wrecked",
@@ -30,7 +32,8 @@
       "example": "The storm wrecked several boats in the harbor.",
       "exampleTranslation": "嵐により港で数隻のボートが難破した。",
       "pos": "動詞",
-      "q": 1
+      "q": 1,
+      "ipa": "/ɹˈɛkt/"
     },
     {
       "word": "commuted",
@@ -39,7 +42,8 @@
       "example": "She commuted to the city by train every day.",
       "exampleTranslation": "彼女は毎日電車でその街へ通勤しました。",
       "pos": "動詞",
-      "q": 1
+      "q": 1,
+      "ipa": "/kəmjˈutɪd/"
     },
     {
       "word": "reductions",
@@ -48,7 +52,8 @@
       "example": "The company announced reductions in staff due to falling profits.",
       "exampleTranslation": "同社は利益減少のため人員削減を発表した。",
       "pos": "名詞",
-      "q": 2
+      "q": 2,
+      "ipa": "/ɹidˈəkʃənz/"
     },
     {
       "word": "nominations",
@@ -57,7 +62,8 @@
       "example": "The film received five nominations at the awards ceremony.",
       "exampleTranslation": "この映画は授賞式で5部門にノミネートされた。",
       "pos": "名詞",
-      "q": 2
+      "q": 2,
+      "ipa": "/nɑmənˈeɪʃənz/"
     },
     {
       "word": "maneuvers",
@@ -66,7 +72,8 @@
       "example": "The company used some clever financial maneuvers to avoid bankruptcy.",
       "exampleTranslation": "同社は破産を回避するためにいくつかの巧妙な財務戦略を講じた。",
       "pos": "名詞",
-      "q": 2
+      "q": 2,
+      "ipa": "/mənˈuvɚz/"
     },
     {
       "word": "perspectives",
@@ -75,7 +82,8 @@
       "example": "Hearing different perspectives on the issue helped her form her own opinion.",
       "exampleTranslation": "この問題についてさまざまな視点を聞くことで、彼女は自分の意見を形成することができました。",
       "pos": "名詞",
-      "q": 2
+      "q": 2,
+      "ipa": "/pɚspˈɛktɪvz/"
     },
     {
       "word": "supernatural",
@@ -84,7 +92,8 @@
       "example": "The film is about supernatural events in an old mansion.",
       "exampleTranslation": "この映画は古い邸宅で起こる超常現象についての物語です。",
       "pos": "形容詞",
-      "q": 3
+      "q": 3,
+      "ipa": "/supɚnˈætʃɚəl/"
     },
     {
       "word": "cowardly",
@@ -93,7 +102,8 @@
       "example": "It was cowardly of him to blame his colleague for his own mistake.",
       "exampleTranslation": "自分のミスを同僚のせいにするのは彼にとって卑怯だった。",
       "pos": "形容詞",
-      "q": 3
+      "q": 3,
+      "ipa": "/kˈaʊɚdli/"
     },
     {
       "word": "spacious",
@@ -102,7 +112,8 @@
       "example": "Their new apartment is much more spacious than the old one.",
       "exampleTranslation": "彼らの新しいアパートは古いアパートよりずっと広いです。",
       "pos": "形容詞",
-      "q": 3
+      "q": 3,
+      "ipa": "/spˈeɪʃəs/"
     },
     {
       "word": "compliant",
@@ -111,7 +122,8 @@
       "example": "The factory had to make changes to remain compliant with safety regulations.",
       "exampleTranslation": "工場は安全規制に準拠し続けるために変更を加える必要がありました。",
       "pos": "形容詞",
-      "q": 3
+      "q": 3,
+      "ipa": "/kəmplˈaɪənt/"
     },
     {
       "word": "enrolling",
@@ -120,7 +132,8 @@
       "example": "She's enrolling in a night class to learn Spanish.",
       "exampleTranslation": "彼女はスペイン語を学ぶために夜間クラスに登録しています。",
       "pos": "動詞(-ing)",
-      "q": 4
+      "q": 4,
+      "ipa": "/ɛnɹˈoʊlɪŋ/"
     },
     {
       "word": "rebelling",
@@ -129,7 +142,8 @@
       "example": "Many teenagers go through a phase of rebelling against their parents.",
       "exampleTranslation": "多くのティーンエイジャーは、親に反抗する段階を経験します。",
       "pos": "動詞(-ing)",
-      "q": 4
+      "q": 4,
+      "ipa": "/ɹɪbˈɛlɪŋ/"
     },
     {
       "word": "radiating",
@@ -138,7 +152,8 @@
       "example": "Warmth was radiating from the fireplace.",
       "exampleTranslation": "暖炉からは暖かさが伝わってきました。",
       "pos": "動詞(-ing)",
-      "q": 4
+      "q": 4,
+      "ipa": "/ɹˈeɪdieɪtɪŋ/"
     },
     {
       "word": "solidifying",
@@ -147,7 +162,8 @@
       "example": "The wax began solidifying as it cooled.",
       "exampleTranslation": "ワックスは冷えると固まり始めました。",
       "pos": "動詞(-ing)",
-      "q": 4
+      "q": 4,
+      "ipa": "/səlˈɪdəfaɪɪŋ/"
     },
     {
       "word": "inhale",
@@ -156,7 +172,8 @@
       "example": "Try to inhale slowly and deeply to help you relax.",
       "exampleTranslation": "リラックスできるよう、ゆっくりと深く息を吸いましょう。",
       "pos": "動詞",
-      "q": 5
+      "q": 5,
+      "ipa": "/ɪnhˈeɪl/"
     },
     {
       "word": "haunt",
@@ -166,7 +183,8 @@
       "exampleTranslation": "その事故の記憶は今でも彼女を悩ませている。",
       "pos": "動詞",
       "etymologyUncertain": true,
-      "q": 5
+      "q": 5,
+      "ipa": "/hˈɔnt/"
     },
     {
       "word": "obstruct",
@@ -175,7 +193,8 @@
       "example": "The fallen tree obstructed the road.",
       "exampleTranslation": "倒木が道路を妨げた。",
       "pos": "動詞",
-      "q": 5
+      "q": 5,
+      "ipa": "/əbstɹˈəkt/"
     },
     {
       "word": "compress",
@@ -184,7 +203,8 @@
       "example": "You can compress the file to make it smaller before sending it.",
       "exampleTranslation": "送信する前にファイルを圧縮してサイズを小さくすることができます。",
       "pos": "動詞",
-      "q": 5
+      "q": 5,
+      "ipa": "/kˈɑmpɹɛs/"
     },
     {
       "word": "forgery",
@@ -193,7 +213,8 @@
       "example": "The painting turned out to be a clever forgery.",
       "exampleTranslation": "その絵は巧妙な偽造であることが判明した。",
       "pos": "名詞",
-      "q": 6
+      "q": 6,
+      "ipa": "/fˈɔɹdʒɚi/"
     },
     {
       "word": "candidacy",
@@ -202,7 +223,8 @@
       "example": "She announced her candidacy for mayor last week.",
       "exampleTranslation": "彼女は先週市長選への立候補を発表した。",
       "pos": "名詞",
-      "q": 6
+      "q": 6,
+      "ipa": "/kˈændɪdəsi/"
     },
     {
       "word": "leniency",
@@ -211,7 +233,8 @@
       "example": "The judge showed leniency because it was the defendant's first offense.",
       "exampleTranslation": "被告の初犯だったため裁判官は寛大な態度を示した。",
       "pos": "名詞",
-      "q": 6
+      "q": 6,
+      "ipa": "/lˈinjənsi/"
     },
     {
       "word": "rivalry",
@@ -220,7 +243,8 @@
       "example": "There's a long-standing rivalry between the two sports teams.",
       "exampleTranslation": "2つのスポーツチームの間には長年にわたるライバル関係がある。",
       "pos": "名詞",
-      "q": 6
+      "q": 6,
+      "ipa": "/ɹˈaɪvəlɹi/"
     },
     {
       "word": "nutritious",
@@ -229,7 +253,8 @@
       "example": "Fish is generally considered a nutritious source of protein.",
       "exampleTranslation": "魚は一般に栄養価の高いタンパク質源であると考えられています。",
       "pos": "形容詞",
-      "q": 7
+      "q": 7,
+      "ipa": "/nutɹˈɪʃəs/"
     },
     {
       "word": "righteous",
@@ -238,7 +263,8 @@
       "example": "He felt a righteous anger at the unfair treatment of his coworker.",
       "exampleTranslation": "彼は同僚の不当な扱いに対して正当な怒りを感じた。",
       "pos": "形容詞",
-      "q": 7
+      "q": 7,
+      "ipa": "/ɹˈaɪtʃəs/"
     },
     {
       "word": "tentative",
@@ -247,7 +273,8 @@
       "example": "We made a tentative plan to meet next Friday, but it might change.",
       "exampleTranslation": "私たちは来週の金曜日に会うという暫定的な計画を立てましたが、変更される可能性があります。",
       "pos": "形容詞",
-      "q": 7
+      "q": 7,
+      "ipa": "/tˈɛntətɪv/"
     },
     {
       "word": "universal",
@@ -256,7 +283,8 @@
       "example": "Music is often described as a universal language.",
       "exampleTranslation": "音楽はしばしば世界共通言語であると言われます。",
       "pos": "形容詞",
-      "q": 7
+      "q": 7,
+      "ipa": "/junəvˈɝsəl/"
     },
     {
       "word": "reprimand",
@@ -265,7 +293,8 @@
       "example": "He received a formal reprimand for being late to work repeatedly.",
       "exampleTranslation": "彼は度重なる遅刻で正式な懲戒処分を受けた。",
       "pos": "名詞",
-      "q": 8
+      "q": 8,
+      "ipa": "/ɹˈɛpɹəmænd/"
     },
     {
       "word": "anatomy",
@@ -274,7 +303,8 @@
       "example": "Medical students must study human anatomy in detail.",
       "exampleTranslation": "医学生は人体解剖学を詳しく学ばなければなりません。",
       "pos": "名詞",
-      "q": 8
+      "q": 8,
+      "ipa": "/ənˈætəmi/"
     },
     {
       "word": "esteem",
@@ -283,7 +313,8 @@
       "example": "She is held in high esteem by her colleagues.",
       "exampleTranslation": "彼女は同僚から高く評価されています。",
       "pos": "名詞",
-      "q": 8
+      "q": 8,
+      "ipa": "/əstˈim/"
     },
     {
       "word": "distress",
@@ -292,7 +323,8 @@
       "example": "The lost hikers signaled their distress by lighting a fire.",
       "exampleTranslation": "道に迷ったハイカーたちは火をつけて遭難の合図をした。",
       "pos": "名詞",
-      "q": 8
+      "q": 8,
+      "ipa": "/dɪstɹˈɛs/"
     },
     {
       "word": "warranty",
@@ -301,7 +333,8 @@
       "example": "The washing machine comes with a two-year warranty.",
       "exampleTranslation": "洗濯機には2年間の保証が付いています。",
       "pos": "名詞",
-      "q": 9
+      "q": 9,
+      "ipa": "/wˈɔɹənti/"
     },
     {
       "word": "fracture",
@@ -310,7 +343,8 @@
       "example": "An X-ray revealed a small fracture in his wrist.",
       "exampleTranslation": "X線検査の結果、手首に小さな骨折があることが判明した。",
       "pos": "名詞",
-      "q": 9
+      "q": 9,
+      "ipa": "/fɹˈæktʃɚ/"
     },
     {
       "word": "hazard",
@@ -320,7 +354,8 @@
       "exampleTranslation": "床に配線が緩んでいると、重大な安全上の問題が発生します。",
       "pos": "名詞",
       "etymologyUncertain": true,
-      "q": 9
+      "q": 9,
+      "ipa": "/hˈæzɚd/"
     },
     {
       "word": "ascent",
@@ -329,7 +364,8 @@
       "example": "The ascent to the summit took nearly six hours.",
       "exampleTranslation": "頂上までの登りには6時間近くかかりました。",
       "pos": "名詞",
-      "q": 9
+      "q": 9,
+      "ipa": "/əsˈɛnt/"
     },
     {
       "word": "abide",
@@ -338,7 +374,8 @@
       "example": "All members must abide by the club's rules.",
       "exampleTranslation": "すべての会員はクラブの規則を遵守しなければなりません。",
       "pos": "動詞",
-      "q": 10
+      "q": 10,
+      "ipa": "/əbˈaɪd/"
     },
     {
       "word": "collide",
@@ -347,7 +384,8 @@
       "example": "The two cars collided at the intersection.",
       "exampleTranslation": "2台の車が交差点で衝突した。",
       "pos": "動詞",
-      "q": 10
+      "q": 10,
+      "ipa": "/kəlˈaɪd/"
     },
     {
       "word": "subside",
@@ -356,7 +394,8 @@
       "example": "The pain in her ankle finally began to subside after a week.",
       "exampleTranslation": "彼女の足首の痛みは、1週間後にようやく治まり始めました。",
       "pos": "動詞",
-      "q": 10
+      "q": 10,
+      "ipa": "/səbsˈaɪd/"
     },
     {
       "word": "preside",
@@ -365,7 +404,8 @@
       "example": "The vice president will preside over today's meeting.",
       "exampleTranslation": "副大統領が今日の会議を主宰します。",
       "pos": "動詞",
-      "q": 10
+      "q": 10,
+      "ipa": "/pɹɪzˈaɪd/"
     },
     {
       "word": "detach",
@@ -374,7 +414,8 @@
       "example": "Please detach the form along the dotted line and mail it back to us.",
       "exampleTranslation": "点線に沿って切り離し、郵送にてご返送ください。",
       "pos": "動詞",
-      "q": 11
+      "q": 11,
+      "ipa": "/dɪtˈætʃ/"
     },
     {
       "word": "tame",
@@ -383,7 +424,8 @@
       "example": "It took months to tame the wild horse.",
       "exampleTranslation": "野生の馬を飼いならすのに何か月もかかった。",
       "pos": "動詞",
-      "q": 11
+      "q": 11,
+      "ipa": "/tˈeɪm/"
     },
     {
       "word": "unfold",
@@ -392,7 +434,8 @@
       "example": "She unfolded the map to find the quickest route.",
       "exampleTranslation": "彼女は地図を広げて最短ルートを見つけました。",
       "pos": "動詞",
-      "q": 11
+      "q": 11,
+      "ipa": "/ənfˈoʊld/"
     },
     {
       "word": "bundle",
@@ -401,7 +444,8 @@
       "example": "He bundled up the old newspapers for recycling.",
       "exampleTranslation": "彼はリサイクルするために古新聞を束ねた。",
       "pos": "動詞",
-      "q": 11
+      "q": 11,
+      "ipa": "/bˈəndəl/"
     },
     {
       "word": "ransom",
@@ -410,7 +454,8 @@
       "example": "A large ransom was demanded for the missing painting's return.",
       "exampleTranslation": "行方不明の絵画の返還には多額の身代金が要求された。",
       "pos": "名詞",
-      "q": 12
+      "q": 12,
+      "ipa": "/ɹˈænsəm/"
     },
     {
       "word": "precaution",
@@ -419,7 +464,8 @@
       "example": "As a precaution, the school closed early before the storm arrived.",
       "exampleTranslation": "予防措置として、学校は嵐が来る前に早めに閉校しました。",
       "pos": "名詞",
-      "q": 12
+      "q": 12,
+      "ipa": "/pɹikˈɔʃən/"
     },
     {
       "word": "autonomy",
@@ -428,7 +474,8 @@
       "example": "The region was granted greater autonomy to manage its own affairs.",
       "exampleTranslation": "この地域には、独自の事柄を管理するためのより大きな自治権が与えられました。",
       "pos": "名詞",
-      "q": 12
+      "q": 12,
+      "ipa": "/ɔtˈɑnəmi/"
     },
     {
       "word": "conservation",
@@ -437,7 +484,8 @@
       "example": "The organization works on the conservation of endangered species.",
       "exampleTranslation": "この組織は絶滅危惧種の保護に取り組んでいます。",
       "pos": "名詞",
-      "q": 12
+      "q": 12,
+      "ipa": "/kɑnsɚvˈeɪʃən/"
     },
     {
       "word": "gloomy",
@@ -447,7 +495,8 @@
       "exampleTranslation": "今週はずっと暗い天気が続いています。",
       "pos": "形容詞",
       "etymologyUncertain": true,
-      "q": 13
+      "q": 13,
+      "ipa": "/ɡlˈumi/"
     },
     {
       "word": "tender",
@@ -456,7 +505,8 @@
       "example": "The meat was so tender it fell off the bone.",
       "exampleTranslation": "お肉は骨から外れてしまうほど柔らかかったです。",
       "pos": "形容詞",
-      "q": 13
+      "q": 13,
+      "ipa": "/tˈɛndɚ/"
     },
     {
       "word": "cosmopolitan",
@@ -465,7 +515,8 @@
       "example": "London is a cosmopolitan city with people from all over the world.",
       "exampleTranslation": "ロンドンは世界中から人が集まる国際都市です。",
       "pos": "形容詞",
-      "q": 13
+      "q": 13,
+      "ipa": "/kɑzməpˈɑlətən/"
     },
     {
       "word": "menacing",
@@ -474,7 +525,8 @@
       "example": "The dog gave a menacing growl as the stranger approached.",
       "exampleTranslation": "見知らぬ人が近づくと、犬は威嚇するようなうなり声を上げた。",
       "pos": "形容詞",
-      "q": 13
+      "q": 13,
+      "ipa": "/mˈɛnəsɪŋ/"
     },
     {
       "word": "perch",
@@ -483,7 +535,8 @@
       "example": "A small bird perched on the windowsill.",
       "exampleTranslation": "窓辺に小鳥が止まっています。",
       "pos": "動詞",
-      "q": 14
+      "q": 14,
+      "ipa": "/pˈɝtʃ/"
     },
     {
       "word": "breeze",
@@ -493,7 +546,8 @@
       "exampleTranslation": "彼女は何の困難もなく試験を乗り越えた。",
       "pos": "動詞",
       "etymologyUncertain": true,
-      "q": 14
+      "q": 14,
+      "ipa": "/bɹˈiz/"
     },
     {
       "word": "gleam",
@@ -502,7 +556,8 @@
       "example": "The polished silver gleamed under the lights.",
       "exampleTranslation": "磨き上げられたシルバーがライトの下で輝いていました。",
       "pos": "動詞",
-      "q": 14
+      "q": 14,
+      "ipa": "/ɡlˈim/"
     },
     {
       "word": "sizzle",
@@ -511,7 +566,8 @@
       "example": "The bacon sizzled loudly in the frying pan.",
       "exampleTranslation": "フライパンの中でベーコンがジュウジュウと音を立てて焼けました。",
       "pos": "動詞",
-      "q": 14
+      "q": 14,
+      "ipa": "/sˈɪzəl/"
     },
     {
       "word": "live off",
@@ -520,7 +576,8 @@
       "example": "He lives off a small pension.",
       "exampleTranslation": "彼は少額の年金で暮らしている。",
       "pos": "句動詞",
-      "q": 15
+      "q": 15,
+      "ipa": "/lˈaɪvˈɔf/"
     },
     {
       "word": "make for",
@@ -529,7 +586,8 @@
       "example": "A good night's sleep makes for a productive day.",
       "exampleTranslation": "良質な睡眠は生産的な一日をもたらします。",
       "pos": "句動詞",
-      "q": 15
+      "q": 15,
+      "ipa": "/mˈeɪkfˈɔɹ/"
     },
     {
       "word": "pass on",
@@ -538,7 +596,8 @@
       "example": "Please pass on my regards to your family.",
       "exampleTranslation": "ご家族によろしく伝えてください。",
       "pos": "句動詞",
-      "q": 15
+      "q": 15,
+      "ipa": "/pˈæsˈɑn/"
     },
     {
       "word": "wipe out",
@@ -547,7 +606,8 @@
       "example": "The disease wiped out most of the region's crops.",
       "exampleTranslation": "この病気により、その地域の作物のほとんどが全滅した。",
       "pos": "句動詞",
-      "q": 15
+      "q": 15,
+      "ipa": "/wˈaɪpˈaʊt/"
     },
     {
       "word": "iron out",
@@ -556,7 +616,8 @@
       "example": "The two companies met to iron out their differences.",
       "exampleTranslation": "両社は互いの違いを解決するために会合した。",
       "pos": "句動詞",
-      "q": 16
+      "q": 16,
+      "ipa": "/ˈaɪɚnˈaʊt/"
     },
     {
       "word": "toss in",
@@ -565,7 +626,8 @@
       "example": "The salesman offered to toss in free delivery.",
       "exampleTranslation": "セールスマンは無料配達を申し出た。",
       "pos": "句動詞",
-      "q": 16
+      "q": 16,
+      "ipa": "/tˈɔsɪn/"
     },
     {
       "word": "take on",
@@ -574,7 +636,8 @@
       "example": "The firm decided to take on two new employees this month.",
       "exampleTranslation": "その会社は今月2人の新入社員を採用することを決めた。",
       "pos": "句動詞",
-      "q": 16
+      "q": 16,
+      "ipa": "/tˈeɪkˈɑn/"
     },
     {
       "word": "size up",
@@ -583,7 +646,8 @@
       "example": "She quickly sized up the situation before making a decision.",
       "exampleTranslation": "彼女は決断を下す前に、すぐに状況を把握しました。",
       "pos": "句動詞",
-      "q": 16
+      "q": 16,
+      "ipa": "/sˈaɪzˈəp/"
     },
     {
       "word": "sound off",
@@ -592,7 +656,8 @@
       "example": "He's always sounding off about the government on social media.",
       "exampleTranslation": "彼はいつもソーシャルメディアで政府について悪口を言っている。",
       "pos": "句動詞",
-      "q": 17
+      "q": 17,
+      "ipa": "/sˈaʊndˈɔf/"
     },
     {
       "word": "draw back",
@@ -601,7 +666,8 @@
       "example": "She drew back from the deal at the last minute.",
       "exampleTranslation": "彼女は土壇場で契約を撤回した。",
       "pos": "句動詞",
-      "q": 17
+      "q": 17,
+      "ipa": "/dɹˈɔbˈæk/"
     },
     {
       "word": "turn up",
@@ -610,7 +676,8 @@
       "example": "He finally turned up an hour late for the meeting.",
       "exampleTranslation": "彼は結局、会議に1時間遅れて現れた。",
       "pos": "句動詞",
-      "q": 17
+      "q": 17,
+      "ipa": "/tˈɝnˈəp/"
     },
     {
       "word": "rule out",
@@ -619,7 +686,8 @@
       "example": "Doctors have ruled out a serious illness after running several tests.",
       "exampleTranslation": "医師はいくつかの検査を行った結果、重篤な病気の可能性を否定しました。",
       "pos": "句動詞",
-      "q": 17
+      "q": 17,
+      "ipa": "/ɹˈulˈaʊt/"
     },
     {
       "word": "chip in",
@@ -628,7 +696,8 @@
       "example": "Everyone chipped in to buy the teacher a farewell gift.",
       "exampleTranslation": "みんなで協力して先生にお別れのプレゼントを買いました。",
       "pos": "句動詞",
-      "q": 18
+      "q": 18,
+      "ipa": "/tʃˈɪpɪn/"
     },
     {
       "word": "pull off",
@@ -637,7 +706,8 @@
       "example": "It was a difficult project, but the team managed to pull it off.",
       "exampleTranslation": "難しいプロジェクトでしたが、チームはなんとかやり遂げました。",
       "pos": "句動詞",
-      "q": 18
+      "q": 18,
+      "ipa": "/pˈʊlˈɔf/"
     },
     {
       "word": "stick around",
@@ -646,7 +716,8 @@
       "example": "Can you stick around after the meeting to help clean up?",
       "exampleTranslation": "会議の後、片づけを手伝うためにそこに残ってもらえますか?",
       "pos": "句動詞",
-      "q": 18
+      "q": 18,
+      "ipa": "/stˈɪkɚˈaʊnd/"
     },
     {
       "word": "bear up",
@@ -655,7 +726,8 @@
       "example": "Despite the bad news, she bore up remarkably well.",
       "exampleTranslation": "悪い知らせにもかかわらず、彼女は驚くほど元気に育ちました。",
       "pos": "句動詞",
-      "q": 18
+      "q": 18,
+      "ipa": "/bˈɛɹˈəp/"
     }
   ],
   "idioms": []

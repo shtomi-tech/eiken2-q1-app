@@ -17,433 +17,721 @@
       "q": 1,
       "is_answer": false,
       "meaning": "統合した、固めた",
-      "word": "consolidated"
+      "word": "consolidated",
+      "example": "When the mayor was asked about his tax plans, he ( ). As a result, no one was sure what his policy really was.",
+      "exampleTranslation": "市長は税制計画について尋ねられると言葉を濁した。そのため、実際の政策が誰にも分からなかった。",
+      "ipa": "/kənsˈɑlədeɪtəd/",
+      "pos": "形容詞"
     },
     {
       "q": 1,
       "is_answer": true,
       "meaning": "言葉を濁した、曖昧に答えた",
-      "word": "equivocated"
+      "word": "equivocated",
+      "example": "When the mayor was asked about his tax plans, he equivocated. As a result, no one was sure what his policy really was.",
+      "exampleTranslation": "市長は税制計画について尋ねられると言葉を濁した。そのため、実際の政策が誰にも分からなかった。",
+      "ipa": "/ɪkwˈɪvəkeɪtɪd/",
+      "pos": "動詞"
     },
     {
       "q": 1,
       "is_answer": false,
       "meaning": "軽減した、和らげた",
-      "word": "alleviated"
+      "word": "alleviated",
+      "example": "When the mayor was asked about his tax plans, he ( ). As a result, no one was sure what his policy really was.",
+      "exampleTranslation": "市長は税制計画について尋ねられると言葉を濁した。そのため、実際の政策が誰にも分からなかった。",
+      "ipa": "/əlˈivieɪtəd/",
+      "pos": "形容詞"
     },
     {
       "q": 1,
       "is_answer": false,
       "meaning": "発した、発生した",
-      "word": "emanated"
+      "word": "emanated",
+      "example": "When the mayor was asked about his tax plans, he ( ). As a result, no one was sure what his policy really was.",
+      "exampleTranslation": "市長は税制計画について尋ねられると言葉を濁した。そのため、実際の政策が誰にも分からなかった。",
+      "ipa": "/ˈɛməneɪtɪd/",
+      "pos": "動詞"
     },
     {
       "q": 2,
       "is_answer": false,
       "meaning": "ぶつぶつ言う",
-      "word": "mutter"
+      "word": "mutter",
+      "example": "The general decided to send more troops to the border to ( ) the army's defenses. He hoped the show of strength would prevent further attacks.",
+      "exampleTranslation": "将軍は軍の防衛を強化するため、国境へさらに兵を送ることにした。力を示せば攻撃を防げると考えた。",
+      "pos": "動詞・名詞",
+      "ipa": "/mˈətɚ/"
     },
     {
       "q": 2,
       "is_answer": true,
       "meaning": "強化する、支える",
-      "word": "bolster"
+      "word": "bolster",
+      "example": "The general decided to send more troops to the border to bolster the army's defenses. He hoped the show of strength would prevent further attacks.",
+      "exampleTranslation": "将軍は軍の防衛を強化するため、国境へさらに兵を送ることにした。力を示せば攻撃を防げると考えた。",
+      "pos": "動詞・名詞",
+      "ipa": "/bˈoʊlstɚ/"
     },
     {
       "q": 2,
       "is_answer": false,
       "meaning": "嘆く、悲しむ",
-      "word": "lament"
+      "word": "lament",
+      "example": "The general decided to send more troops to the border to ( ) the army's defenses. He hoped the show of strength would prevent further attacks.",
+      "exampleTranslation": "将軍は軍の防衛を強化するため、国境へさらに兵を送ることにした。力を示せば攻撃を防げると考えた。",
+      "ipa": "/ləmˈɛnt/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 2,
       "is_answer": false,
       "meaning": "つばぜり合いをする、軽く争う",
-      "word": "spar"
+      "word": "spar",
+      "example": "The general decided to send more troops to the border to ( ) the army's defenses. He hoped the show of strength would prevent further attacks.",
+      "exampleTranslation": "将軍は軍の防衛を強化するため、国境へさらに兵を送ることにした。力を示せば攻撃を防げると考えた。",
+      "ipa": "/spˈɑɹ/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 3,
       "is_answer": true,
       "meaning": "延期する",
-      "word": "defer"
+      "word": "defer",
+      "example": "After a long discussion, the board members were unable to reach an agreement. It was therefore decided to defer the decision until the next meeting.",
+      "exampleTranslation": "長い議論の後も理事会は合意に達しなかった。そこで、決定を次回の会議まで延期することになった。",
+      "pos": "動詞",
+      "ipa": "/dɪfˈɝ/"
     },
     {
       "q": 3,
       "is_answer": false,
       "meaning": "明らかにする、解明する",
-      "word": "elucidate"
+      "word": "elucidate",
+      "example": "After a long discussion, the board members were unable to reach an agreement. It was therefore decided to ( ) the decision until the next meeting.",
+      "exampleTranslation": "長い議論の後も理事会は合意に達しなかった。そこで、決定を次回の会議まで延期することになった。",
+      "ipa": "/ɪlˈusədeɪt/",
+      "pos": "動詞・形容詞"
     },
     {
       "q": 3,
       "is_answer": false,
       "meaning": "求める、懇願する",
-      "word": "solicit"
+      "word": "solicit",
+      "example": "After a long discussion, the board members were unable to reach an agreement. It was therefore decided to ( ) the decision until the next meeting.",
+      "exampleTranslation": "長い議論の後も理事会は合意に達しなかった。そこで、決定を次回の会議まで延期することになった。",
+      "ipa": "/səlˈɪsɪt/",
+      "pos": "動詞・名詞"
     },
     {
       "q": 3,
       "is_answer": false,
       "meaning": "消散させる、浪費する",
-      "word": "dissipate"
+      "word": "dissipate",
+      "example": "After a long discussion, the board members were unable to reach an agreement. It was therefore decided to ( ) the decision until the next meeting.",
+      "exampleTranslation": "長い議論の後も理事会は合意に達しなかった。そこで、決定を次回の会議まで延期することになった。",
+      "ipa": "/dˈɪsəpeɪt/",
+      "pos": "動詞・形容詞"
     },
     {
       "q": 4,
       "is_answer": false,
       "meaning": "苦しみ、苦痛",
-      "word": "torments"
+      "word": "torments",
+      "example": "Throughout history, sending ( ) to other countries has always been crucial for negotiating trade deals and improving relations.",
+      "exampleTranslation": "歴史を通じて、貿易交渉や関係改善のために他国へ使節を送ることは常に重要だった。",
+      "ipa": "/tˈɔɹmɛnts/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 4,
       "is_answer": false,
       "meaning": "路上演奏者",
-      "word": "buskers"
+      "word": "buskers",
+      "example": "Throughout history, sending ( ) to other countries has always been crucial for negotiating trade deals and improving relations.",
+      "exampleTranslation": "歴史を通じて、貿易交渉や関係改善のために他国へ使節を送ることは常に重要だった。",
+      "pos": "名詞",
+      "ipa": "/bˈəskɚz/"
     },
     {
       "q": 4,
       "is_answer": false,
       "meaning": "名残、痕跡",
-      "word": "vestiges"
+      "word": "vestiges",
+      "example": "Throughout history, sending ( ) to other countries has always been crucial for negotiating trade deals and improving relations.",
+      "exampleTranslation": "歴史を通じて、貿易交渉や関係改善のために他国へ使節を送ることは常に重要だった。",
+      "ipa": "/vˈɛstɪdʒɪz/",
+      "pos": "名詞"
     },
     {
       "q": 4,
       "is_answer": true,
       "meaning": "使節",
-      "word": "envoys"
+      "word": "envoys",
+      "example": "Throughout history, sending envoys to other countries has always been crucial for negotiating trade deals and improving relations.",
+      "exampleTranslation": "歴史を通じて、貿易交渉や関係改善のために他国へ使節を送ることは常に重要だった。",
+      "ipa": "/ˈɛnvɔɪz/",
+      "pos": "名詞"
     },
     {
       "q": 5,
       "is_answer": false,
       "meaning": "手先、道化役",
-      "word": "stooge"
+      "word": "stooge",
+      "example": "As the ( ) in the election race, Mayor Davenport has a big advantage over her opponent, who has never held political office before.",
+      "exampleTranslation": "選挙戦の現職者であるダベンポート市長は、政治職を務めたことのない対立候補より大きな有利さを持っている。",
+      "ipa": "/stˈudʒ/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 5,
       "is_answer": false,
       "meaning": "地球外の、宇宙人",
-      "word": "extraterrestrial"
+      "word": "extraterrestrial",
+      "example": "As the ( ) in the election race, Mayor Davenport has a big advantage over her opponent, who has never held political office before.",
+      "exampleTranslation": "選挙戦の現職者であるダベンポート市長は、政治職を務めたことのない対立候補より大きな有利さを持っている。",
+      "pos": "形容詞・名詞",
+      "ipa": "/ɛkstɹətɚˈɛstɹiəl/"
     },
     {
       "q": 5,
       "is_answer": true,
       "meaning": "現職者",
-      "word": "incumbent"
+      "word": "incumbent",
+      "example": "As the incumbent in the election race, Mayor Davenport has a big advantage over her opponent, who has never held political office before.",
+      "exampleTranslation": "選挙戦の現職者であるダベンポート市長は、政治職を務めたことのない対立候補より大きな有利さを持っている。",
+      "ipa": "/ɪnkˈəmbənt/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 5,
       "is_answer": false,
       "meaning": "巡礼者",
-      "word": "pilgrim"
+      "word": "pilgrim",
+      "example": "As the ( ) in the election race, Mayor Davenport has a big advantage over her opponent, who has never held political office before.",
+      "exampleTranslation": "選挙戦の現職者であるダベンポート市長は、政治職を務めたことのない対立候補より大きな有利さを持っている。",
+      "ipa": "/pˈɪlɡɹəm/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 6,
       "is_answer": false,
       "meaning": "固有の、本来備わった",
-      "word": "inherent"
+      "word": "inherent",
+      "example": "It was raining when Rafael woke up on the morning of his English exam, but the weather soon became sunny. He considered this an ( ) start to the day.",
+      "exampleTranslation": "英語試験の朝、ラファエルが起きたときは雨だったが、すぐに晴れた。彼は幸先のよい一日の始まりだと考えた。",
+      "ipa": "/ɪnhˈɪɹənt/",
+      "pos": "形容詞"
     },
     {
       "q": 6,
       "is_answer": false,
       "meaning": "風変わりな",
-      "word": "eccentric"
+      "word": "eccentric",
+      "example": "It was raining when Rafael woke up on the morning of his English exam, but the weather soon became sunny. He considered this an ( ) start to the day.",
+      "exampleTranslation": "英語試験の朝、ラファエルが起きたときは雨だったが、すぐに晴れた。彼は幸先のよい一日の始まりだと考えた。",
+      "ipa": "/ɪksˈɛntɹɪk/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 6,
       "is_answer": true,
       "meaning": "幸先のよい、縁起のよい",
-      "word": "auspicious"
+      "word": "auspicious",
+      "example": "It was raining when Rafael woke up on the morning of his English exam, but the weather soon became sunny. He considered this an auspicious start to the day.",
+      "exampleTranslation": "英語試験の朝、ラファエルが起きたときは雨だったが、すぐに晴れた。彼は幸先のよい一日の始まりだと考えた。",
+      "ipa": "/ɑspˈɪʃəs/",
+      "pos": "形容詞"
     },
     {
       "q": 6,
       "is_answer": false,
       "meaning": "装飾過多の",
-      "word": "ornate"
+      "word": "ornate",
+      "example": "It was raining when Rafael woke up on the morning of his English exam, but the weather soon became sunny. He considered this an ( ) start to the day.",
+      "exampleTranslation": "英語試験の朝、ラファエルが起きたときは雨だったが、すぐに晴れた。彼は幸先のよい一日の始まりだと考えた。",
+      "ipa": "/ɔɹnˈeɪt/",
+      "pos": "形容詞・動詞"
     },
     {
       "q": 7,
       "is_answer": false,
       "meaning": "関係のある、適切な",
-      "word": "pertinent"
+      "word": "pertinent",
+      "example": "After she was told that she would be punished for taking her brother's toys away from him, the little girl was ( ). She apologized and promised not to do it again.",
+      "exampleTranslation": "兄のおもちゃを取り上げたことで罰を受けると言われると、その少女は深く反省した。謝り、二度としないと約束した。",
+      "pos": "形容詞・名詞",
+      "ipa": "/pˈɝtɪnɪnt/"
     },
     {
       "q": 7,
       "is_answer": true,
       "meaning": "深く後悔した、悔恨の",
-      "word": "contrite"
+      "word": "contrite",
+      "example": "After she was told that she would be punished for taking her brother's toys away from him, the little girl was contrite. She apologized and promised not to do it again.",
+      "exampleTranslation": "兄のおもちゃを取り上げたことで罰を受けると言われると、その少女は深く反省した。謝り、二度としないと約束した。",
+      "ipa": "/kəntɹˈaɪt/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 7,
       "is_answer": false,
       "meaning": "疑わしい",
-      "word": "dubious"
+      "word": "dubious",
+      "example": "After she was told that she would be punished for taking her brother's toys away from him, the little girl was ( ). She apologized and promised not to do it again.",
+      "exampleTranslation": "兄のおもちゃを取り上げたことで罰を受けると言われると、その少女は深く反省した。謝り、二度としないと約束した。",
+      "ipa": "/dˈubiəs/",
+      "pos": "形容詞"
     },
     {
       "q": 7,
       "is_answer": false,
       "meaning": "もうかる",
-      "word": "lucrative"
+      "word": "lucrative",
+      "example": "After she was told that she would be punished for taking her brother's toys away from him, the little girl was ( ). She apologized and promised not to do it again.",
+      "exampleTranslation": "兄のおもちゃを取り上げたことで罰を受けると言われると、その少女は深く反省した。謝り、二度としないと約束した。",
+      "ipa": "/lˈukɹətɪv/",
+      "pos": "形容詞"
     },
     {
       "q": 8,
       "is_answer": true,
       "meaning": "完全に破壊された、消し去られた",
-      "word": "obliterated"
+      "word": "obliterated",
+      "example": "So many bombs were dropped on the city during the war that nearly half of it was obliterated. It took years to rebuild the numerous buildings that had been destroyed.",
+      "exampleTranslation": "戦争中に非常に多くの爆弾が落とされ、街のほぼ半分が完全に破壊された。多数の建物の再建には何年もかかった。",
+      "pos": "形容詞",
+      "ipa": "/əblˈɪtɚeɪtɪd/"
     },
     {
       "q": 8,
       "is_answer": false,
       "meaning": "でっち上げた、調合した",
-      "word": "concocted"
+      "word": "concocted",
+      "example": "So many bombs were dropped on the city during the war that nearly half of it was ( ). It took years to rebuild the numerous buildings that had been destroyed.",
+      "exampleTranslation": "戦争中に非常に多くの爆弾が落とされ、街のほぼ半分が完全に破壊された。多数の建物の再建には何年もかかった。",
+      "ipa": "/kənkˈɑktəd/",
+      "pos": "形容詞"
     },
     {
       "q": 8,
       "is_answer": false,
       "meaning": "慣れた、順応した",
-      "word": "acclimated"
+      "word": "acclimated",
+      "example": "So many bombs were dropped on the city during the war that nearly half of it was ( ). It took years to rebuild the numerous buildings that had been destroyed.",
+      "exampleTranslation": "戦争中に非常に多くの爆弾が落とされ、街のほぼ半分が完全に破壊された。多数の建物の再建には何年もかかった。",
+      "ipa": "/ˈækləmeɪtɪd/",
+      "pos": "形容詞"
     },
     {
       "q": 8,
       "is_answer": false,
       "meaning": "推論して導き出した",
-      "word": "deduced"
+      "word": "deduced",
+      "example": "So many bombs were dropped on the city during the war that nearly half of it was ( ). It took years to rebuild the numerous buildings that had been destroyed.",
+      "exampleTranslation": "戦争中に非常に多くの爆弾が落とされ、街のほぼ半分が完全に破壊された。多数の建物の再建には何年もかかった。",
+      "ipa": "/dɪdˈust/",
+      "pos": "動詞"
     },
     {
       "q": 9,
       "is_answer": false,
       "meaning": "吐き気がする",
-      "word": "queasy"
+      "word": "queasy",
+      "example": "The woman was a ( ) supporter of the mayor and continued to vote for him despite the scandals that surrounded him.",
+      "exampleTranslation": "その女性は市長を断固として支持し、市長をめぐる不祥事にもかかわらず投票し続けた。",
+      "ipa": "/kwˈizi/",
+      "pos": "形容詞"
     },
     {
       "q": 9,
       "is_answer": true,
       "meaning": "忠実な、断固とした",
-      "word": "staunch"
+      "word": "staunch",
+      "example": "The woman was a staunch supporter of the mayor and continued to vote for him despite the scandals that surrounded him.",
+      "exampleTranslation": "その女性は市長を断固として支持し、市長をめぐる不祥事にもかかわらず投票し続けた。",
+      "ipa": "/stˈɔntʃ/",
+      "pos": "形容詞・名詞・動詞"
     },
     {
       "q": 9,
       "is_answer": false,
       "meaning": "多孔性の、穴の多い",
-      "word": "porous"
+      "word": "porous",
+      "example": "The woman was a ( ) supporter of the mayor and continued to vote for him despite the scandals that surrounded him.",
+      "exampleTranslation": "その女性は市長を断固として支持し、市長をめぐる不祥事にもかかわらず投票し続けた。",
+      "ipa": "/pˈɔɹəs/",
+      "pos": "形容詞"
     },
     {
       "q": 9,
       "is_answer": false,
       "meaning": "だらしない、薄汚れた",
-      "word": "scruffy"
+      "word": "scruffy",
+      "example": "The woman was a ( ) supporter of the mayor and continued to vote for him despite the scandals that surrounded him.",
+      "exampleTranslation": "その女性は市長を断固として支持し、市長をめぐる不祥事にもかかわらず投票し続けた。",
+      "ipa": "/skɹˈəfi/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 10,
       "is_answer": false,
       "meaning": "溝、どぶ；捨てる",
-      "word": "ditch"
+      "word": "ditch",
+      "example": "Although Pedro's English listening skills are not great, he is generally able to get the ( ) of a conversation if people speak slowly.",
+      "exampleTranslation": "ペドロの英語の聞き取り能力は高くないが、ゆっくり話してもらえば、会話の大意はたいてい分かる。",
+      "ipa": "/dˈɪtʃ/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 10,
       "is_answer": true,
       "meaning": "要点、大意",
-      "word": "gist"
+      "word": "gist",
+      "example": "Although Pedro's English listening skills are not great, he is generally able to get the gist of a conversation if people speak slowly.",
+      "exampleTranslation": "ペドロの英語の聞き取り能力は高くないが、ゆっくり話してもらえば、会話の大意はたいてい分かる。",
+      "ipa": "/dʒˈɪst/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 10,
       "is_answer": false,
       "meaning": "前兆",
-      "word": "omen"
+      "word": "omen",
+      "example": "Although Pedro's English listening skills are not great, he is generally able to get the ( ) of a conversation if people speak slowly.",
+      "exampleTranslation": "ペドロの英語の聞き取り能力は高くないが、ゆっくり話してもらえば、会話の大意はたいてい分かる。",
+      "ipa": "/ˈoʊmən/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 10,
       "is_answer": false,
       "meaning": "戦利品、略奪品",
-      "word": "loot"
+      "word": "loot",
+      "example": "Although Pedro's English listening skills are not great, he is generally able to get the ( ) of a conversation if people speak slowly.",
+      "exampleTranslation": "ペドロの英語の聞き取り能力は高くないが、ゆっくり話してもらえば、会話の大意はたいてい分かる。",
+      "ipa": "/lˈut/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 11,
       "is_answer": false,
       "meaning": "感情、意見",
-      "word": "sentiment"
+      "word": "sentiment",
+      "example": "The refusal of democratic nations worldwide to trade with the country had led it to suffer from a ( ) of medicines and other essential goods.",
+      "exampleTranslation": "世界中の民主主義国がその国との貿易を拒否したため、その国では医薬品などの必需品が不足していた。",
+      "ipa": "/sˈɛntəmənt/",
+      "pos": "名詞"
     },
     {
       "q": 11,
       "is_answer": false,
       "meaning": "クーデター；大成功",
-      "word": "coup"
+      "word": "coup",
+      "example": "The refusal of democratic nations worldwide to trade with the country had led it to suffer from a ( ) of medicines and other essential goods.",
+      "exampleTranslation": "世界中の民主主義国がその国との貿易を拒否したため、その国では医薬品などの必需品が不足していた。",
+      "ipa": "/kˈu/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 11,
       "is_answer": true,
       "meaning": "不足、欠乏",
-      "word": "dearth"
+      "word": "dearth",
+      "example": "The refusal of democratic nations worldwide to trade with the country had led it to suffer from a dearth of medicines and other essential goods.",
+      "exampleTranslation": "世界中の民主主義国がその国との貿易を拒否したため、その国では医薬品などの必需品が不足していた。",
+      "pos": "名詞・動詞",
+      "ipa": "/dˈɝθ/"
     },
     {
       "q": 11,
       "is_answer": false,
       "meaning": "病棟；保護する対象",
-      "word": "ward"
+      "word": "ward",
+      "example": "The refusal of democratic nations worldwide to trade with the country had led it to suffer from a ( ) of medicines and other essential goods.",
+      "exampleTranslation": "世界中の民主主義国がその国との貿易を拒否したため、その国では医薬品などの必需品が不足していた。",
+      "ipa": "/wˈɔɹd/",
+      "pos": "名詞・動詞"
     },
     {
       "q": 12,
       "is_answer": true,
       "meaning": "伴った、必要とした",
-      "word": "entailed"
+      "word": "entailed",
+      "example": "At first, Steve thought the translation job would be easy, but it actually entailed a great deal of timeconsuming work, such as factchecking.",
+      "exampleTranslation": "スティーブは翻訳の仕事が簡単だと思っていたが、実際には事実確認など、時間のかかる作業を大量に伴っていた。",
+      "ipa": "/ɪntˈeɪld/",
+      "pos": "形容詞"
     },
     {
       "q": 12,
       "is_answer": false,
       "meaning": "なだめた",
-      "word": "placated"
+      "word": "placated",
+      "example": "At first, Steve thought the translation job would be easy, but it actually ( ) a great deal of timeconsuming work, such as factchecking.",
+      "exampleTranslation": "スティーブは翻訳の仕事が簡単だと思っていたが、実際には事実確認など、時間のかかる作業を大量に伴っていた。",
+      "ipa": "/plˈeɪkeɪtəd/",
+      "pos": "動詞"
     },
     {
       "q": 12,
       "is_answer": false,
       "meaning": "熟考した",
-      "word": "mulled"
+      "word": "mulled",
+      "example": "At first, Steve thought the translation job would be easy, but it actually ( ) a great deal of timeconsuming work, such as factchecking.",
+      "exampleTranslation": "スティーブは翻訳の仕事が簡単だと思っていたが、実際には事実確認など、時間のかかる作業を大量に伴っていた。",
+      "ipa": "/mˈəld/",
+      "pos": "動詞・形容詞"
     },
     {
       "q": 12,
       "is_answer": false,
       "meaning": "避けた、回避した",
-      "word": "averted"
+      "word": "averted",
+      "example": "At first, Steve thought the translation job would be easy, but it actually ( ) a great deal of timeconsuming work, such as factchecking.",
+      "exampleTranslation": "スティーブは翻訳の仕事が簡単だと思っていたが、実際には事実確認など、時間のかかる作業を大量に伴っていた。",
+      "pos": "形容詞",
+      "ipa": "/əvˈɝtəd/"
     },
     {
       "q": 13,
       "is_answer": false,
       "meaning": "快活さ、敏捷さ",
-      "word": "alacrity"
+      "word": "alacrity",
+      "example": "The ( ) of different cultures in the city has made it a fascinating place to live, with a wide variety of cultural events and restaurants to enjoy.",
+      "exampleTranslation": "市内で異なる文化が融合しているため、さまざまな文化行事やレストランがあり、住むのに魅力的な場所になっている。",
+      "ipa": "/əlˈækɹəti/",
+      "pos": "名詞"
     },
     {
       "q": 13,
       "is_answer": false,
       "meaning": "言い逃れ、曖昧な答え",
-      "word": "prevarication"
+      "word": "prevarication",
+      "example": "The ( ) of different cultures in the city has made it a fascinating place to live, with a wide variety of cultural events and restaurants to enjoy.",
+      "exampleTranslation": "市内で異なる文化が融合しているため、さまざまな文化行事やレストランがあり、住むのに魅力的な場所になっている。",
+      "ipa": "/pɹəvɛɹəkˈeɪʃən/",
+      "pos": "名詞"
     },
     {
       "q": 13,
       "is_answer": true,
       "meaning": "収束、融合",
-      "word": "convergence"
+      "word": "convergence",
+      "example": "The convergence of different cultures in the city has made it a fascinating place to live, with a wide variety of cultural events and restaurants to enjoy.",
+      "exampleTranslation": "市内で異なる文化が融合しているため、さまざまな文化行事やレストランがあり、住むのに魅力的な場所になっている。",
+      "pos": "名詞",
+      "ipa": "/kənvˈɝdʒəns/"
     },
     {
       "q": 13,
       "is_answer": false,
       "meaning": "郷愁、懐かしさ",
-      "word": "nostalgia"
+      "word": "nostalgia",
+      "example": "The ( ) of different cultures in the city has made it a fascinating place to live, with a wide variety of cultural events and restaurants to enjoy.",
+      "exampleTranslation": "市内で異なる文化が融合しているため、さまざまな文化行事やレストランがあり、住むのに魅力的な場所になっている。",
+      "ipa": "/nɔstˈældʒə/",
+      "pos": "名詞"
     },
     {
       "q": 14,
       "is_answer": false,
       "meaning": "公然と無視した、軽視した",
-      "word": "flouted"
+      "word": "flouted",
+      "example": "A: Did you get your son to eat his vegetables? B: Yes, I ( ) him into it by promising to give him some dessert afterward.",
+      "exampleTranslation": "息子に野菜を食べさせられたか。デザートをあげると約束して、うまく説得した。",
+      "ipa": "/flˈaʊtɪd/",
+      "pos": "動詞"
     },
     {
       "q": 14,
       "is_answer": false,
       "meaning": "神格化した",
-      "word": "deified"
+      "word": "deified",
+      "example": "A: Did you get your son to eat his vegetables? B: Yes, I ( ) him into it by promising to give him some dessert afterward.",
+      "exampleTranslation": "息子に野菜を食べさせられたか。デザートをあげると約束して、うまく説得した。",
+      "ipa": "/dˈiəfaɪd/",
+      "pos": "名詞"
     },
     {
       "q": 14,
       "is_answer": false,
       "meaning": "発酵させた",
-      "word": "fermented"
+      "word": "fermented",
+      "example": "A: Did you get your son to eat his vegetables? B: Yes, I ( ) him into it by promising to give him some dessert afterward.",
+      "exampleTranslation": "息子に野菜を食べさせられたか。デザートをあげると約束して、うまく説得した。",
+      "pos": "形容詞",
+      "ipa": "/fɚmˈɛntəd/"
     },
     {
       "q": 14,
       "is_answer": true,
       "meaning": "うまく説得した",
-      "word": "coaxed"
+      "word": "coaxed",
+      "example": "A: Did you get your son to eat his vegetables? B: Yes, I coaxed him into it by promising to give him some dessert afterward.",
+      "exampleTranslation": "息子に野菜を食べさせられたか。デザートをあげると約束して、うまく説得した。",
+      "ipa": "/kˈoʊkst/",
+      "pos": "動詞"
     },
     {
       "q": 15,
       "is_answer": false,
       "meaning": "強烈な（味・臭い）；辛辣な",
-      "word": "pungent"
+      "word": "pungent",
+      "example": "The party became so ( ) that a neighbor called the police to complain about the noise.",
+      "exampleTranslation": "パーティーがあまりに騒々しくなったので、近所の人が騒音について警察に苦情を言った。",
+      "ipa": "/pˈəndʒənt/",
+      "pos": "形容詞"
     },
     {
       "q": 15,
       "is_answer": false,
       "meaning": "相反する感情を抱く、どちらとも決めかねる",
-      "word": "ambivalent"
+      "word": "ambivalent",
+      "example": "The party became so ( ) that a neighbor called the police to complain about the noise.",
+      "exampleTranslation": "パーティーがあまりに騒々しくなったので、近所の人が騒音について警察に苦情を言った。",
+      "ipa": "/æmbˈɪvələnt/",
+      "pos": "形容詞"
     },
     {
       "q": 15,
       "is_answer": false,
       "meaning": "光沢のある、輝く",
-      "word": "lustrous"
+      "word": "lustrous",
+      "example": "The party became so ( ) that a neighbor called the police to complain about the noise.",
+      "exampleTranslation": "パーティーがあまりに騒々しくなったので、近所の人が騒音について警察に苦情を言った。",
+      "ipa": "/lˈəstɹəs/",
+      "pos": "形容詞"
     },
     {
       "q": 15,
       "is_answer": true,
       "meaning": "騒々しい、活発な",
-      "word": "boisterous"
+      "word": "boisterous",
+      "example": "The party became so boisterous that a neighbor called the police to complain about the noise.",
+      "exampleTranslation": "パーティーがあまりに騒々しくなったので、近所の人が騒音について警察に苦情を言った。",
+      "pos": "形容詞",
+      "ipa": "/bˈɔɪstɚəs/"
     },
     {
       "q": 16,
       "is_answer": false,
       "meaning": "乱れた、だらしのない",
-      "word": "disheveled"
+      "word": "disheveled",
+      "example": "The ( ) problem of traffic congestion in the city has gotten worse in recent months. The mayor is under pressure to find a solution.",
+      "exampleTranslation": "市の長年の問題である交通渋滞は、ここ数か月で悪化している。市長は解決策を見つけるよう迫られている。",
+      "ipa": "/dɪʃˈɛvəld/",
+      "pos": "形容詞"
     },
     {
       "q": 16,
       "is_answer": false,
       "meaning": "鋭い、的確な",
-      "word": "incisive"
+      "word": "incisive",
+      "example": "The ( ) problem of traffic congestion in the city has gotten worse in recent months. The mayor is under pressure to find a solution.",
+      "exampleTranslation": "市の長年の問題である交通渋滞は、ここ数か月で悪化している。市長は解決策を見つけるよう迫られている。",
+      "ipa": "/ɪnsˈaɪsɪv/",
+      "pos": "形容詞"
     },
     {
       "q": 16,
       "is_answer": false,
       "meaning": "洗練された、物腰の柔らかな",
-      "word": "suave"
+      "word": "suave",
+      "example": "The ( ) problem of traffic congestion in the city has gotten worse in recent months. The mayor is under pressure to find a solution.",
+      "exampleTranslation": "市の長年の問題である交通渋滞は、ここ数か月で悪化している。市長は解決策を見つけるよう迫られている。",
+      "ipa": "/swˈɑv/",
+      "pos": "形容詞・名詞"
     },
     {
       "q": 16,
       "is_answer": true,
       "meaning": "長年続く、恒久的な",
-      "word": "perennial"
+      "word": "perennial",
+      "example": "The perennial problem of traffic congestion in the city has gotten worse in recent months. The mayor is under pressure to find a solution.",
+      "exampleTranslation": "市の長年の問題である交通渋滞は、ここ数か月で悪化している。市長は解決策を見つけるよう迫られている。",
+      "pos": "形容詞・名詞",
+      "ipa": "/pɚˈɛniəl/"
     },
     {
       "q": 17,
       "is_answer": true,
       "meaning": "慈悲、寛大な処置",
-      "word": "clemency"
+      "word": "clemency",
+      "example": "The president granted clemency to the prisoners who had committed nonviolent crimes. He felt that they deserved a second chance.",
+      "exampleTranslation": "大統領は、非暴力犯罪を犯した囚人たちに恩赦を与えた。彼らには再出発の機会があるべきだと考えたのだ。",
+      "ipa": "/klˈɛmənsi/",
+      "pos": "名詞"
     },
     {
       "q": 17,
       "is_answer": false,
       "meaning": "支払い能力",
-      "word": "solvency"
+      "word": "solvency",
+      "example": "The president granted ( ) to the prisoners who had committed nonviolent crimes. He felt that they deserved a second chance.",
+      "exampleTranslation": "大統領は、非暴力犯罪を犯した囚人たちに恩赦を与えた。彼らには再出発の機会があるべきだと考えたのだ。",
+      "ipa": "/sˈɔlvənsi/",
+      "pos": "名詞"
     },
     {
       "q": 17,
       "is_answer": false,
       "meaning": "在職期間、任期",
-      "word": "tenure"
+      "word": "tenure",
+      "example": "The president granted ( ) to the prisoners who had committed nonviolent crimes. He felt that they deserved a second chance.",
+      "exampleTranslation": "大統領は、非暴力犯罪を犯した囚人たちに恩赦を与えた。彼らには再出発の機会があるべきだと考えたのだ。",
+      "pos": "名詞・動詞",
+      "ipa": "/tˈɛnjɚ/"
     },
     {
       "q": 17,
       "is_answer": false,
       "meaning": "非難、譴責",
-      "word": "censure"
+      "word": "censure",
+      "example": "The president granted ( ) to the prisoners who had committed nonviolent crimes. He felt that they deserved a second chance.",
+      "exampleTranslation": "大統領は、非暴力犯罪を犯した囚人たちに恩赦を与えた。彼らには再出発の機会があるべきだと考えたのだ。",
+      "pos": "名詞・動詞",
+      "ipa": "/sˈɛnʃɚ/"
     },
     {
       "q": 18,
       "is_answer": true,
       "meaning": "手に負えない、乱暴な",
-      "word": "unruly"
+      "word": "unruly",
+      "example": "The crowd at the soccer match began to get unruly, so the police were called to get the violent fans to calm down.",
+      "exampleTranslation": "サッカーの試合の観客が手に負えない状態になり始めたので、警察が呼ばれ、乱暴なファンを落ち着かせた。",
+      "ipa": "/ənɹˈuli/",
+      "pos": "形容詞"
     },
     {
       "q": 18,
       "is_answer": false,
       "meaning": "無感動な、冷静な",
-      "word": "stolid"
+      "word": "stolid",
+      "example": "The crowd at the soccer match began to get ( ), so the police were called to get the violent fans to calm down.",
+      "exampleTranslation": "サッカーの試合の観客が手に負えない状態になり始めたので、警察が呼ばれ、乱暴なファンを落ち着かせた。",
+      "ipa": "/stˈɑləd/",
+      "pos": "形容詞"
     },
     {
       "q": 18,
       "is_answer": false,
       "meaning": "ぱっとしない、精彩を欠く",
-      "word": "lackluster"
+      "word": "lackluster",
+      "example": "The crowd at the soccer match began to get ( ), so the police were called to get the violent fans to calm down.",
+      "exampleTranslation": "サッカーの試合の観客が手に負えない状態になり始めたので、警察が呼ばれ、乱暴なファンを落ち着かせた。",
+      "pos": "形容詞・名詞",
+      "ipa": "/lˈækləstɚ/"
     },
     {
       "q": 18,
       "is_answer": false,
       "meaning": "曖昧模糊とした",
-      "word": "nebulous"
+      "word": "nebulous",
+      "example": "The crowd at the soccer match began to get ( ), so the police were called to get the violent fans to calm down.",
+      "exampleTranslation": "サッカーの試合の観客が手に負えない状態になり始めたので、警察が呼ばれ、乱暴なファンを落ち着かせた。",
+      "ipa": "/nˈɛbjələs/",
+      "pos": "形容詞"
     }
   ],
   "idioms": [
@@ -452,112 +740,145 @@
       "is_answer": true,
       "meaning": "共感する、～と自分を重ねる",
       "phrase": "identify with",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The boy could not identify with any of the characters in the novel, so he found it difficult to enjoy reading it.",
+      "exampleTranslation": "その少年は小説の登場人物の誰にも感情移入できず、読書を楽しむのが難しかった。"
     },
     {
       "q": 19,
       "is_answer": false,
       "meaning": "引き寄せる、だます",
       "phrase": "reel in",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The boy could not ( ) any of the characters in the novel, so he found it difficult to enjoy reading it.",
+      "exampleTranslation": "その少年は小説の登場人物の誰にも感情移入できず、読書を楽しむのが難しかった。"
     },
     {
       "q": 19,
       "is_answer": false,
       "meaning": "片付ける、素早く終える",
       "phrase": "polish off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The boy could not ( ) any of the characters in the novel, so he found it difficult to enjoy reading it.",
+      "exampleTranslation": "その少年は小説の登場人物の誰にも感情移入できず、読書を楽しむのが難しかった。"
     },
     {
       "q": 19,
       "is_answer": false,
       "meaning": "意識を失う；停電する",
       "phrase": "black out",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The boy could not ( ) any of the characters in the novel, so he found it difficult to enjoy reading it.",
+      "exampleTranslation": "その少年は小説の登場人物の誰にも感情移入できず、読書を楽しむのが難しかった。"
     },
     {
       "q": 20,
       "is_answer": false,
       "meaning": "現れる；音量を上げる",
       "phrase": "turn up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The writer is known for his ability to ( ) one book after another. He often publishes as many as three books in a single year.",
+      "exampleTranslation": "その作家は本を次々と書き上げる能力で知られている。1年に3冊も出版することがある。",
+      "ipa": "/tˈɝnˈəp/"
     },
     {
       "q": 20,
       "is_answer": false,
       "meaning": "次第に好きになる、徐々に影響する",
       "phrase": "grow on",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The writer is known for his ability to ( ) one book after another. He often publishes as many as three books in a single year.",
+      "exampleTranslation": "その作家は本を次々と書き上げる能力で知られている。1年に3冊も出版することがある。"
     },
     {
       "q": 20,
       "is_answer": false,
       "meaning": "組み込む",
       "phrase": "build in",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The writer is known for his ability to ( ) one book after another. He often publishes as many as three books in a single year.",
+      "exampleTranslation": "その作家は本を次々と書き上げる能力で知られている。1年に3冊も出版することがある。"
     },
     {
       "q": 20,
       "is_answer": true,
       "meaning": "大量に作り出す",
       "phrase": "churn out",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The writer is known for his ability to churn out one book after another. He often publishes as many as three books in a single year.",
+      "exampleTranslation": "その作家は本を次々と書き上げる能力で知られている。1年に3冊も出版することがある。"
     },
     {
       "q": 21,
       "is_answer": true,
       "meaning": "いじくり回す、改ざんする",
       "phrase": "tamper with",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The mechanic warned the car's owner not to tamper with the engine. He said that untrained people trying to repair engines often caused more damage than good.",
+      "exampleTranslation": "整備士は車の所有者に、エンジンをいじくり回さないよう警告した。知識のない人が修理しようとすると、かえって損害を増やすことが多いという。"
     },
     {
       "q": 21,
       "is_answer": false,
       "meaning": "弱まる、手加減する",
       "phrase": "ease off",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The mechanic warned the car's owner not to ( ) the engine. He said that untrained people trying to repair engines often caused more damage than good.",
+      "exampleTranslation": "整備士は車の所有者に、エンジンをいじくり回さないよう警告した。知識のない人が修理しようとすると、かえって損害を増やすことが多いという。"
     },
     {
       "q": 21,
       "is_answer": false,
       "meaning": "でっち上げる",
       "phrase": "trump up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The mechanic warned the car's owner not to ( ) the engine. He said that untrained people trying to repair engines often caused more damage than good.",
+      "exampleTranslation": "整備士は車の所有者に、エンジンをいじくり回さないよう警告した。知識のない人が修理しようとすると、かえって損害を増やすことが多いという。"
     },
     {
       "q": 21,
       "is_answer": false,
       "meaning": "新分野に進出する",
       "phrase": "branch out",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "The mechanic warned the car's owner not to ( ) the engine. He said that untrained people trying to repair engines often caused more damage than good.",
+      "exampleTranslation": "整備士は車の所有者に、エンジンをいじくり回さないよう警告した。知識のない人が修理しようとすると、かえって損害を増やすことが多いという。"
     },
     {
       "q": 22,
       "is_answer": false,
       "meaning": "少しずつ配る",
       "phrase": "dole out",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "Although she was nervous, Mary decided to ( ) her courage and ask her boss for a pay raise.",
+      "exampleTranslation": "メアリーは緊張していたが、勇気を奮い起こして上司に昇給を頼むことにした。"
     },
     {
       "q": 22,
       "is_answer": false,
       "meaning": "口をつぐむ",
       "phrase": "clam up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "Although she was nervous, Mary decided to ( ) her courage and ask her boss for a pay raise.",
+      "exampleTranslation": "メアリーは緊張していたが、勇気を奮い起こして上司に昇給を頼むことにした。"
     },
     {
       "q": 22,
       "is_answer": false,
       "meaning": "（罰などを）与える",
       "phrase": "mete out",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "Although she was nervous, Mary decided to ( ) her courage and ask her boss for a pay raise.",
+      "exampleTranslation": "メアリーは緊張していたが、勇気を奮い起こして上司に昇給を頼むことにした。"
     },
     {
       "q": 22,
       "is_answer": true,
       "meaning": "勇気を奮い起こす",
       "phrase": "pluck up",
-      "pos": "熟語"
+      "pos": "熟語",
+      "example": "Although she was nervous, Mary decided to pluck up her courage and ask her boss for a pay raise.",
+      "exampleTranslation": "メアリーは緊張していたが、勇気を奮い起こして上司に昇給を頼むことにした。"
     }
   ]
 }
