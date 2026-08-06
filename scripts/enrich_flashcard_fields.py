@@ -1,9 +1,7 @@
 """準2級を基準に、1級・準1級の暗記カード用データを補う。
 
-1級の例文は公式の大問1設問文を使う。正答カードだけ空所に語句を補い、
-誤答カードは空所付きの設問文を表示する。訳は公式設問の訳を使う。
 発音と品詞は Datamuse の発音・品詞タグから取得する。取得できない項目は
-推測で埋めない。
+推測で埋めない。1級のオリジナル例文は別スクリプトで管理する。
 """
 
 from __future__ import annotations
@@ -88,12 +86,6 @@ def surface(item: dict) -> str:
     return str(item.get("phrase") if item.get("phrase") else item.get("word", "")).strip()
 
 
-def load_questions(round_id: str) -> dict[int, dict]:
-    path = DATA_DIR / f"questions_1_{round_id}.json"
-    data = json.loads(path.read_text(encoding="utf-8"))
-    return {int(question["q"]): question for question in data.get("questions", [])}
-
-
 def cmu_to_ipa(pronunciation: str) -> str:
     result: list[str] = []
     for token in pronunciation.split():
@@ -157,12 +149,6 @@ def main() -> None:
     args = parser.parse_args()
 
     loaded = [(path, json.loads(path.read_text(encoding="utf-8"))) for path in target_paths()]
-    question_maps = {
-        path.name: load_questions(path.stem.removeprefix("vocab_1_"))
-        for path, _ in loaded
-        if path.name.startswith("vocab_1_")
-    }
-
     field_targets = {
         surface(item)
         for path, data in loaded
@@ -181,25 +167,6 @@ def main() -> None:
                 if index == 1 or index % 50 == 0 or index == len(futures):
                     print(f"発音情報取得: {index}/{len(futures)}")
 
-    generated_examples = 0
-    for path, data in loaded:
-        if not path.name.startswith("vocab_1_"):
-            continue
-        questions = question_maps[path.name]
-        for item in items_in(data):
-            question = questions.get(int(item["q"]))
-            if not question or not question.get("stem"):
-                continue
-            example = (
-                question["stem"].replace("( )", surface(item), 1)
-                if item.get("is_answer")
-                else question["stem"]
-            )
-            item["example"] = example
-            item["exampleTranslation"] = question.get("translation", "")
-            generated_examples += 1
-
-    print(f"1級の設問文から作る例文: {generated_examples}件")
     if args.dry_run:
         return
 

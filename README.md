@@ -25,6 +25,8 @@
 ```powershell
 py -3 scripts/build_q1_pre1_data.py
 py -3 scripts/build_q1_1_data.py
+py -3 scripts/enrich_flashcard_fields.py
+py -3 scripts/curate_1_examples.py
 py -3 scripts/check_q1_data.py
 ```
 
@@ -56,11 +58,11 @@ py -3 scripts/generate_tts_1.py --grade pre2 --round all
 ## 暗記カードの共通構成
 
 全級で、見出し語・発音記号・品詞・意味・語源（収録されている場合）・例文・例文の日本語訳を同じ順序で表示します。
-1級の例文は公式の大問1設問文を使い、正答カードだけ空所を語句で補います。誤答カードは空所付きのまま表示し、誤った選択肢を不自然な英文に差し込みません。
+1級の例文は公式の設問文を流用せず、語句ごとに作成したオリジナル英文と日本語訳を表示します。
 
 ## 暗記カードの例文訳
 
-2級・準2級・準1級の例文には `exampleTranslation` として日本語訳を収録しています。訳のない例文を補う
+1級・2級・準2級・準1級の例文には `exampleTranslation` として日本語訳を収録しています。訳のない例文を補う
 場合は、次のスクリプトを実行します。取得した機械翻訳は、教材として使う前に必要に応じて確認してください。
 
 ```powershell
@@ -92,7 +94,8 @@ Q1のクラウドアプリIDは `eiken2-q1` です。旧準1級アプリの `eik
 - `static/vendor/harness/cloud.js`: 生徒別クラウド同期の生成物。直接編集しない
 - `scripts/build_q1_pre1_data.py`: 準1級Q1データの抽出
 - `scripts/build_q1_1_data.py`: 1級公式PDFから大問1を抽出
-- `scripts/enrich_flashcard_fields.py`: 1級・準1級の発音・品詞・例文項目の補完
+- `scripts/enrich_flashcard_fields.py`: 1級・準1級の発音・品詞の補完
+- `scripts/curate_1_examples.py`: 1級のオリジナル例文・日本語訳の適用
 - `scripts/check_q1_data.py`: 12セットのデータ契約チェック
 
 大問2以降の旧統合コードは移管用にリポジトリ内へ残っていますが、現在のQ1アプリでは読み込まず、Pages公開物にも含めません。
