@@ -764,7 +764,7 @@ function renderHome() {
     ));
   }
 
-  // おすすめ（主導線）＝状態に応じて1つだけ決める。重要度：学習 → 復習 → 最終 → 最初から。
+  // おすすめ（主導線）＝状態に応じて1つだけ決める。重要度：学習 → 復習 → 最終 → 今日の復習(1級) → 最初から。
   let primary;
   if (resume) {
     primary = {
@@ -790,6 +790,15 @@ function renderHome() {
       why: `全${finalTotal}語の意味を通しで確認。${finalPassScore(finalTotal)}/${finalTotal}問以上（正答率80%以上）でCLEARです。`,
       onclick: startFinalCheck,
     };
+  } else if (kyu1 && meaningDueCount > 0) {
+    // 1周目の学習・復習・最終チェックが片付いたあとの「戻ってきた日」の主導線。
+    // ここが無いと、復習待ちの語句があっても常に「第1問からもう一周」だけが案内される。
+    primary = {
+      label: `今日の復習${meaningDueCount}語を演習する`,
+      why: "英検1級の学習済み全回から、復習日が来た語句だけをまとめて確認します。",
+      onclick: () => startMeaningPractice(true),
+      isMeaningDue: true,
+    };
   } else {
     primary = {
       label: "第1問からもう一周する",
@@ -806,8 +815,8 @@ function renderHome() {
 
   // そのほかの練習（従属メニュー・重要度順）。
   // 問題セット（データセット）や進捗によってボタンの有無が変わるとページ構造が揃わないため、
-  // 常に同じ3項目（英検1級は「全語を対象に演習する」を加えた4項目）を固定順で表示し、
-  // 選べない状態はdisabledで示す（表示/非表示の切り替えはしない）。
+  // 常に同じ2項目を固定順で表示し、選べない状態はdisabledで示す（表示/非表示の切り替えはしない）。
+  // 意味だけをまとめて練習（英検1級は「全語を対象に演習する」を含むグループ）はこの後に別途追加する。
   const remain = total - solved;
   const more = [
     {
@@ -821,13 +830,7 @@ function renderHome() {
       : canStartFinal
         ? { cls: "secondaryCta finalCta", label: `最終チェック${finalTotal}問に挑戦`, onclick: startFinalCheck, disabled: primary.onclick === startFinalCheck }
         : { cls: "secondaryCta", label: `最終チェック（あと${remain}問で解放）`, disabled: true },
-    kyu1
-      ? { cls: "secondaryCta", label: `意味だけをまとめて練習（今日の対象${meaningDueCount}語）`, onclick: () => startMeaningPractice(true) }
-      : { cls: "secondaryCta", label: `意味だけをまとめて練習（全${finalTotal}語・設問は解かない）`, onclick: startMeaningPractice },
-    kyu1
-      ? { cls: "secondaryCta", label: "全語を対象に演習する", onclick: () => startMeaningPractice(false) }
-      : null,
-  ].filter(Boolean);
+  ];
 
   const moreWrap = el("div", { class: "secondaryActions" });
   moreWrap.appendChild(el("p", { class: "label" }, "その他の練習"));
@@ -838,6 +841,25 @@ function renderHome() {
     else attrs.onclick = m.onclick;
     row.appendChild(el("button", attrs, m.label));
   });
+  // 「意味だけをまとめて練習」と「全語を対象に演習する」は関連が深い1組の操作なので、
+  // 折り返し時に離れないよう同じグループ(secondaryCtaGroup)にまとめる。
+  if (kyu1) {
+    const meaningAttrs = { class: "secondaryCta secondaryCtaWithBadge" };
+    if (primary.isMeaningDue) meaningAttrs.disabled = "disabled";
+    else meaningAttrs.onclick = () => startMeaningPractice(true);
+    row.appendChild(el("div", { class: "secondaryCtaGroup" },
+      el("button", meaningAttrs,
+        el("span", {}, "意味だけをまとめて練習"),
+        el("span", { class: "secondaryCtaBadge" }, `今日の対象 ${meaningDueCount}語`),
+      ),
+      el("button", { class: "ghost smallGhost", type: "button", onclick: () => startMeaningPractice(false) }, "全語を対象に演習する"),
+    ));
+  } else {
+    row.appendChild(el("button", {
+      class: "secondaryCta",
+      onclick: startMeaningPractice,
+    }, `意味だけをまとめて練習（全${finalTotal}語・設問は解かない）`));
+  }
   moreWrap.appendChild(row);
   summary.appendChild(moreWrap);
   summary.appendChild(el("div", { class: "missionNote" },

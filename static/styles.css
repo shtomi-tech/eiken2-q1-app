@@ -660,6 +660,11 @@ h2 {
 .secondaryCta.reviewCta:hover:not(:disabled),
 .secondaryCta.finalCta:hover:not(:disabled) { background: var(--clay); color: var(--parchment); }
 
+/* 意味だけをまとめて練習＋全語を対象に演習する（英検1級）：折り返しで離れないよう1つの塊にする */
+.secondaryCtaGroup { display: flex; flex-direction: column; gap: 6px; }
+.secondaryCtaWithBadge { display: flex; flex-direction: column; gap: 2px; }
+.secondaryCtaBadge { color: var(--muted); font-family: var(--mono); font-size: 12px; font-weight: 500; }
+
 .missionNote {
   border-top: 1px solid var(--line);
   margin-top: 16px;
