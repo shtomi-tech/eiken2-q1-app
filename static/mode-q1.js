@@ -266,7 +266,7 @@ function resumeDescription(resume) {
   }
   if (resume.mode === "review") return `復習 ${Number(resume.reviewIdx || 0) + 1}/${resume.reviewQueue?.length || 1}（第${resume.q}問）`;
   if (resume.mode === "meaning") {
-    const label = resume.dueOnly ? "今日の復習" : "全語句の意味チェック";
+    const label = resume.dueOnly ? "意味練習" : "全語句の意味チェック";
     return `${label} ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
   }
   if (resume.mode === "final") return `最終チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
@@ -300,6 +300,8 @@ function saveResume() {
     meaningCorrect: session.meaningCorrect || 0,
     finalCorrect: session.finalCorrect || 0,
     dueOnly: Boolean(session.dueOnly),
+    meaningVersion: session.meaningVersion || null,
+    meaningBatchSize: session.meaningBatchSize || null,
     practiceAnswered: Boolean(session.practiceAnswered),
     practiceResult: session.practiceResult,
     checkChoices: session._checkChoices || null,
@@ -334,11 +336,17 @@ async function restoreSession() {
     }
   }
   const items = (saved.items || []).map((s) => resolveItem(s, pool)).filter(Boolean);
-  const checkOrder = (saved.checkOrder || []).map((s) => resolveItem(s, pool)).filter(Boolean);
+  let checkOrder = (saved.checkOrder || []).map((s) => resolveItem(s, pool)).filter(Boolean);
   if ((saved.mode === "learn" && !items.length) || ((saved.mode === "meaning" || saved.mode === "final") && !checkOrder.length)) {
     resumeRecoveryMessage = "途中記録は保持していますが、現在の問題データと一致しないため自動再開できません。第1問から再開してください。";
     resumeUnavailable = true;
     return false;
+  }
+  if (saved.mode === "meaning" && is1kyu(state.datasetId)
+    && (saved.meaningVersion !== MEANING_PROGRESS_VERSION
+      || saved.meaningBatchSize !== MEANING_SESSION_SIZE
+      || checkOrder.length > MEANING_SESSION_SIZE)) {
+    return Boolean(await startMeaningPractice(true));
   }
   session = {
     ...saved,
@@ -376,8 +384,9 @@ function unitResult(u) {
 
 /* ---- 語句単位の進捗（英検1級の意味だけ演習でのみ使用。既存の units とは別ブロック） ---- */
 const LEITNER_LADDER = [1, 3, 7, 14]; // 正解のたびに進む復習間隔（日）
-const MIN_SESSION_SIZE = 10; // 復習対象が少なすぎるときの下限件数
-const DEFAULT_ITEM_STATE = Object.freeze({ wrongCount: 0, leitnerStage: 0, nextReviewAt: null });
+const MEANING_SESSION_SIZE = 30; // 1回に出す語句の上限
+const MEANING_PROGRESS_VERSION = 2;
+const DEFAULT_ITEM_STATE = Object.freeze({ wrongCount: 0, leitnerStage: 0, nextReviewAt: null, lastAnsweredAt: null });
 
 function itemKeyOf(item) {
   return `${item.type}:${surfaceOf(item).toLowerCase()}`;
@@ -394,6 +403,7 @@ function itemState(progress, key) {
   if (typeof s.wrongCount !== "number") s.wrongCount = 0;
   if (typeof s.leitnerStage !== "number") s.leitnerStage = 0;
   if (typeof s.nextReviewAt !== "string" && s.nextReviewAt !== null) s.nextReviewAt = null;
+  if (typeof s.lastAnsweredAt !== "string" && s.lastAnsweredAt !== null) s.lastAnsweredAt = null;
   return s;
 }
 // 意味だけ演習の解答結果をLeitnerに反映する。item._datasetId があれば本来の回の進捗へ書く。
@@ -401,9 +411,11 @@ function recordMeaningResult(item, isCorrect) {
   const datasetId = item._datasetId || state.datasetId;
   const progress = progressFor(datasetId);
   const s = itemState(progress, itemKeyOf(item));
+  const answeredAt = new Date();
+  s.lastAnsweredAt = answeredAt.toISOString();
   if (isCorrect) {
     const stage = Math.min(s.leitnerStage, LEITNER_LADDER.length - 1);
-    const next = new Date();
+    const next = new Date(answeredAt);
     next.setDate(next.getDate() + LEITNER_LADDER[stage]);
     s.nextReviewAt = next.toISOString();
     s.leitnerStage = Math.min(stage + 1, LEITNER_LADDER.length - 1);
@@ -480,7 +492,7 @@ function collectAllProgress() {
   return map;
 }
 
-/* ---- 英検1級：意味だけ演習だけ、学習済み全回の語彙をプールする ---- */
+/* ---- 英検1級：全回の語彙を読み込み、通常学習済みだけを意味練習へ回す ---- */
 let pooled1kyuPromise = null;
 let pooled1kyuData = null; // 解決後 { items, meaningPool } をキャッシュ（同一セッション内で使い回す）
 function kyu1DatasetIds() {
@@ -507,6 +519,38 @@ async function loadPooled1kyuItems() {
   }
   pooled1kyuData = await pooled1kyuPromise;
   return pooled1kyuData;
+}
+
+function isLearnedQuestion(progress, q) {
+  return Boolean(progress && progress.units && progress.units[q] && progress.units[q].learned);
+}
+
+function learned1kyuItems(items = []) {
+  return items.filter((item) => isLearnedQuestion(
+    progressFor(item._datasetId || state.datasetId),
+    item.q,
+  ));
+}
+
+function meaningPoolForItems(items) {
+  const pool = { word: [], idiom: [] };
+  for (const item of items) {
+    if (!pool[item.type]) pool[item.type] = [];
+    if (item.meaning && !pool[item.type].includes(item.meaning)) pool[item.type].push(item.meaning);
+  }
+  return pool;
+}
+
+function meaningPracticeSummary() {
+  if (!pooled1kyuData) return { total: 0, learned: 0, due: 0, locked: 0 };
+  const learned = learned1kyuItems(pooled1kyuData.items);
+  const due = learned.filter((item) => isItemDue(item));
+  return {
+    total: pooled1kyuData.items.length,
+    learned: learned.length,
+    due: due.length,
+    locked: Math.max(0, pooled1kyuData.items.length - learned.length),
+  };
 }
 // クラウドから来た進捗（{datasetId: progress}）を localStorage へ反映
 function applyCloudProgress(map) {
@@ -695,7 +739,7 @@ function findItemForSurface(items, value) {
 // 選んだ誤答の意味が本当はどの語句のものかを逆引き（混同ペアの可視化）
 function findOwnerOfMeaning(type, meaning, excludeItem) {
   const pooled = session && session.mode === "meaning" && is1kyu(state.datasetId) && pooled1kyuData;
-  const pool = pooled ? pooled1kyuData.items : allVocabularyItems();
+  const pool = pooled ? learned1kyuItems(pooled1kyuData.items) : allVocabularyItems();
   return pool.find((it) => it !== excludeItem && it.type === type && it.meaning === meaning);
 }
 // 選択肢を描画した瞬間の時刻を記録し、直後の誤クリックを無視する
@@ -776,15 +820,15 @@ function renderHome() {
   const currentDataset = dataset();
   // 意味だけをまとめて練習のバッジ・ラベル用（finalTotal とは別名。finalProgress の再判定に巻き込まない）。
   const kyu1 = is1kyu(state.datasetId);
-  // プール取得済みなら全1級回で計算、未取得ならこの回だけの概算を出しつつ裏で先読みする。
+  // 1級は3回分の語彙を読み込むが、通常学習済みの設問に属する語句だけを対象にする。
   // ホーム画面を表示中のときだけ再描画（学習セッション中に画面が奪われないようにする）。
   if (kyu1 && !pooled1kyuData) {
     loadPooled1kyuItems().then(() => {
       if (!$("#homePanel").classList.contains("hide")) renderHome();
     });
   }
-  const meaningDueSource = (kyu1 && pooled1kyuData) ? pooled1kyuData.items : allVocabularyItems();
-  const meaningDueCount = kyu1 ? meaningDueSource.filter((it) => isItemDue(it)).length : 0;
+  const meaningSummary = kyu1 ? meaningPracticeSummary() : null;
+  const meaningDueCount = meaningSummary ? meaningSummary.due : 0;
 
   // hero は初回訪問（まだ何も学習していない）時だけ表示し、Today見出しとの説明重複を避ける
   if (learned === 0) {
@@ -832,7 +876,7 @@ function renderHome() {
     ));
   }
 
-  // おすすめ（主導線）＝状態に応じて1つだけ決める。重要度：学習 → 復習 → 最終 → 今日の復習(1級) → 最初から。
+  // おすすめ（主導線）＝状態に応じて1つだけ決める。重要度：学習 → 復習 → 最終 → 意味練習(1級) → 最初から。
   let primary;
   if (resume) {
     primary = {
@@ -862,8 +906,8 @@ function renderHome() {
     // 1周目の学習・復習・最終チェックが片付いたあとの「戻ってきた日」の主導線。
     // ここが無いと、復習待ちの語句があっても常に「第1問からもう一周」だけが案内される。
     primary = {
-      label: `今日の復習${meaningDueCount}語を演習する`,
-      why: "英検1級の学習済み全回から、復習日が来た語句だけをまとめて確認します。",
+      label: `意味練習を始める（今回${Math.min(meaningDueCount, MEANING_SESSION_SIZE)}語句）`,
+      why: "通常学習で解いた語句だけを、最大30語句ずつ確認します。",
       onclick: () => startMeaningPractice(true),
       isMeaningDue: true,
     };
@@ -884,7 +928,6 @@ function renderHome() {
   // そのほかの練習（従属メニュー・重要度順）。
   // 問題セット（データセット）や進捗によってボタンの有無が変わるとページ構造が揃わないため、
   // 常に同じ2項目を固定順で表示し、選べない状態はdisabledで示す（表示/非表示の切り替えはしない）。
-  // 意味だけをまとめて練習（英検1級は「全語を対象に演習する」を含むグループ）はこの後に別途追加する。
   const remain = total - solved;
   const more = [
     {
@@ -909,19 +952,8 @@ function renderHome() {
     else attrs.onclick = m.onclick;
     row.appendChild(el("button", attrs, m.label));
   });
-  // 「意味だけをまとめて練習」と「全語を対象に演習する」は関連が深い1組の操作なので、
-  // 折り返し時に離れないよう同じグループ(secondaryCtaGroup)にまとめる。
   if (kyu1) {
-    const meaningAttrs = { class: "secondaryCta secondaryCtaWithBadge" };
-    if (primary.isMeaningDue) meaningAttrs.disabled = "disabled";
-    else meaningAttrs.onclick = () => startMeaningPractice(true);
-    row.appendChild(el("div", { class: "secondaryCtaGroup" },
-      el("button", meaningAttrs,
-        el("span", {}, "意味だけをまとめて練習"),
-        el("span", { class: "secondaryCtaBadge" }, `今日の対象 ${meaningDueCount}語`),
-      ),
-      el("button", { class: "ghost smallGhost", type: "button", onclick: () => startMeaningPractice(false) }, "全語を対象に演習する"),
-    ));
+    summary.appendChild(meaningMission(meaningSummary, Boolean(pooled1kyuData)));
   } else {
     row.appendChild(el("button", {
       class: "secondaryCta",
@@ -988,6 +1020,60 @@ function statCell(n, d, caption) {
     el("div", { class: "dailyNum", html: `${n}<small>/ ${d}</small>` }),
     el("div", { class: "dailyCaption" }, caption),
   );
+}
+
+function meaningMission(summary, ready) {
+  const total = summary.total;
+  const learned = summary.learned;
+  const due = summary.due;
+  const batch = Math.min(due, MEANING_SESSION_SIZE);
+  const mission = el("div", { class: "meaningMission" });
+  const head = el("div", { class: "meaningMissionHead" },
+    el("div", {},
+      el("p", { class: "label" }, "中心学習"),
+      el("h3", {}, "学習済みの語句を、意味だけ30語句ずつ"),
+    ),
+    el("span", { class: "meaningMissionBadge" }, ready ? `対象 ${learned} / ${total}語句` : "対象を確認中"),
+  );
+  mission.appendChild(head);
+  mission.appendChild(el("p", { class: "meaningMissionLead" },
+    "通常学習で最後まで解いた設問の4語句だけが対象です。1級3回分をまとめ、1回の出題は最大30語句に絞ります。",
+  ));
+
+  const metrics = el("div", { class: "meaningMissionMetrics" },
+    el("div", {}, el("strong", {}, ready ? `${learned} / ${total}` : "—"), el("span", {}, "学習済み対象")),
+    el("div", {}, el("strong", {}, ready ? `${batch}語句` : "—"), el("span", {}, "今回の出題")),
+    el("div", {}, el("strong", {}, ready ? `${summary.locked}語句` : "—"), el("span", {}, "未解放")),
+  );
+  mission.appendChild(metrics);
+
+  const progress = el("progress", {
+    class: "meaningMissionProgress",
+    max: Math.max(1, total),
+    value: learned,
+    "aria-label": "1級の意味練習対象語句数",
+  });
+  progress.setAttribute("aria-valuetext", ready ? `学習済み対象 ${learned}語句 / 全${total}語句` : "対象語句を確認中");
+  mission.appendChild(progress);
+
+  const buttonAttrs = { class: "cta meaningMissionCta", type: "button" };
+  let buttonLabel = "対象を確認中…";
+  let note = "通常学習を進めると、ここに語句が追加されます。";
+  if (ready && learned === 0) {
+    buttonLabel = "第1問を学習すると開始できます";
+    note = "まだ意味練習の対象はありません。まず通常学習で設問を解いてください。";
+  } else if (ready && due === 0) {
+    buttonLabel = "今日の復習対象はありません";
+    note = "復習日が来た語句がない状態です。次の復習日にまた表示されます。";
+  } else if (ready) {
+    buttonLabel = `今回の${batch}語句を練習する`;
+    note = `対象は最大${total}語句まで増えます。正解した語句は復習間隔に沿って次回へ回ります。`;
+    buttonAttrs.onclick = () => startMeaningPractice(true);
+  }
+  if (!buttonAttrs.onclick) buttonAttrs.disabled = "disabled";
+  mission.appendChild(el("button", buttonAttrs, buttonLabel));
+  mission.appendChild(el("p", { class: "meaningMissionNote" }, note));
+  return mission;
 }
 
 function datasetPicker() {
@@ -1090,28 +1176,32 @@ function readItemStateOf(item) {
   return readItemState(progressFor(item._datasetId || state.datasetId), itemKeyOf(item));
 }
 function isItemDue(item, now = Date.now()) {
-  const nextReviewAt = readItemStateOf(item).nextReviewAt;
+  const itemState = readItemStateOf(item);
+  // 旧形式の意味記録には回答時刻がないため、新仕様で一度だけ対象に戻す。
+  if (!itemState.lastAnsweredAt) return true;
+  const nextReviewAt = itemState.nextReviewAt;
   return !nextReviewAt || new Date(nextReviewAt).getTime() <= now;
 }
 // 誤答履歴が多い語を前に出す（ES2019以降 Array#sort は安定なので確率抽選は不要）。
 function weightedOrder(items) {
   return shuffle(items).sort((a, b) => readItemStateOf(b).wrongCount - readItemStateOf(a).wrongCount);
 }
-// dueOnly=true: 復習日が来た語だけ（下限 MIN_SESSION_SIZE を下回るときは近い順に補充）。
+// dueOnly=true: 復習日が来た語だけ。未学習語句や次回予定の語句は補充しない。
 function meaningPracticeQueue(items, dueOnly) {
-  if (!dueOnly) return weightedOrder(items);
-  const due = items.filter((it) => isItemDue(it));
-  if (due.length >= MIN_SESSION_SIZE || due.length === items.length) return weightedOrder(due);
-  const dueSet = new Set(due);
-  const rest = items.filter((it) => !dueSet.has(it))
-    .sort((a, b) => new Date(readItemStateOf(a).nextReviewAt).getTime() - new Date(readItemStateOf(b).nextReviewAt).getTime());
-  return weightedOrder(due.concat(rest.slice(0, MIN_SESSION_SIZE - due.length)));
+  const candidates = dueOnly ? items.filter((it) => isItemDue(it)) : items;
+  return weightedOrder(candidates).slice(0, MEANING_SESSION_SIZE);
 }
 
 async function startMeaningPractice(dueOnly = true) {
   const kyu1 = is1kyu(state.datasetId);
-  const source = kyu1 ? (await loadPooled1kyuItems()).items : allVocabularyItems();
-  const queue = kyu1 ? meaningPracticeQueue(source, dueOnly) : shuffle(source);
+  const source = kyu1
+    ? learned1kyuItems((await loadPooled1kyuItems()).items)
+    : allVocabularyItems();
+  const queue = kyu1 ? meaningPracticeQueue(source, true) : shuffle(source);
+  if (!queue.length) {
+    renderHome();
+    return false;
+  }
   session = {
     mode: "meaning",
     q: null,
@@ -1124,9 +1214,12 @@ async function startMeaningPractice(dueOnly = true) {
     wrongLog: [],
     wrongChecked: [],
     wrongReviewed: false,
-    dueOnly: kyu1 && dueOnly,
+    dueOnly: kyu1,
+    meaningVersion: kyu1 ? MEANING_PROGRESS_VERSION : null,
+    meaningBatchSize: kyu1 ? MEANING_SESSION_SIZE : null,
   };
   renderSession();
+  return true;
 }
 
 function startFinalCheck() {
@@ -1190,7 +1283,7 @@ function renderSession() {
 function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
   if (isFinal) return `最終チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   if (isMeaning) {
-    const label = session.dueOnly ? "今日の復習" : "全語句ランダム";
+    const label = session.dueOnly ? "意味練習" : "全語句ランダム";
     return `${label} ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   }
   if (isReview) return `復習演習 ${session.reviewIdx + 1} / ${session.reviewQueue.length}`;
@@ -1199,7 +1292,7 @@ function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
 
 function stageTitle(stage) {
   if (session && session.mode === "final") return `最終チェック${session.checkOrder.length}問`;
-  if (session && session.mode === "meaning") return "意味チェックだけ演習";
+  if (session && session.mode === "meaning") return `意味だけ練習（最大${MEANING_SESSION_SIZE}語句）`;
   if (session && session.mode === "review") return "間違えた問題を演習";
   return {
     flash: "STEP 1　覚える（暗記カード）",
@@ -1226,7 +1319,7 @@ function reviewBar() {
 function meaningBar() {
   return el("div", { class: "stageBar meaningBar" },
     el("div", { class: "stagePill active" },
-      `意味チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`),
+      `今回 ${session.checkOrder.length}語句`),
     el("div", { class: "stagePill" },
       `回答済 ${session.checkIdx} / 正解 ${session.meaningCorrect}`),
   );
@@ -1261,6 +1354,8 @@ function questionProgressBar() {
   const total = state.qList.length;
   if (!total) return el("div", { class: "q1Progress hide" });
 
+  if (session.mode === "meaning" && is1kyu(state.datasetId)) return meaningProgressBar();
+
   const isQuestionSession = session.q != null;
   const current = isQuestionSession
     ? Math.max(1, state.qList.indexOf(session.q) + 1)
@@ -1283,6 +1378,30 @@ function questionProgressBar() {
     "aria-label": "大問1の設問進捗",
   });
   progress.setAttribute("aria-valuetext", `${label}、残り${remaining}問`);
+  wrap.appendChild(progress);
+  return wrap;
+}
+
+function meaningProgressBar() {
+  const summary = meaningPracticeSummary();
+  const total = summary.total;
+  if (!total) return el("div", { class: "q1Progress hide" });
+  const remaining = Math.max(0, total - summary.learned);
+  const label = `対象 ${summary.learned} / ${total}語句`;
+  const wrap = el("div", { class: "q1Progress meaningProgress" },
+    el("div", { class: "q1ProgressHead" },
+      el("span", { class: "label" }, "意味練習の解放状況"),
+      el("strong", { class: "q1ProgressValue" }, label),
+      el("span", { class: "q1ProgressRemaining" }, `未解放${remaining}語句`),
+    ),
+  );
+  const progress = el("progress", {
+    class: "q1ProgressBar",
+    max: total,
+    value: summary.learned,
+    "aria-label": "1級の意味練習対象語句の解放状況",
+  });
+  progress.setAttribute("aria-valuetext", `${label}、未解放${remaining}語句`);
   wrap.appendChild(progress);
   return wrap;
 }
@@ -1575,8 +1694,8 @@ function renderCheck(body) {
   // choices: correct meaning + 3 distractors of same type
   if (!session._checkChoices) {
     const pooled = session.mode === "meaning" && is1kyu(state.datasetId) && pooled1kyuData;
-    const meaningPool = pooled ? pooled1kyuData.meaningPool : state.meaningPool;
-    const pool = meaningPool[item.type].filter((m) => m !== item.meaning);
+    const meaningPool = pooled ? meaningPoolForItems(learned1kyuItems(pooled1kyuData.items)) : state.meaningPool;
+    const pool = (meaningPool[item.type] || []).filter((m) => m !== item.meaning);
     const distractors = shuffle(pool).slice(0, 3);
     session._checkChoices = shuffle([item.meaning, ...distractors]);
   }
@@ -1819,6 +1938,7 @@ function renderDone(body) {
   const isMeaning = session.mode === "meaning";
   const isFinal = session.mode === "final";
   const isReview = session.mode === "review";
+  const meaningSummary = isMeaning && is1kyu(state.datasetId) ? meaningPracticeSummary() : null;
   const banner = el("div", { class: "doneBanner" });
   banner.appendChild(el("p", { class: "label", style: "color:rgba(250,249,246,.72)" }, "Step Complete"));
   if (isFinal) {
@@ -1831,7 +1951,14 @@ function renderDone(body) {
     banner.appendChild(el("p", { class: "hint" }, `${finalPassScore(finalTotal)}/${finalTotal}問以上（正答率80%以上）でCLEAR`));
   } else if (isMeaning) {
     banner.appendChild(el("div", { class: "big" }, `${session.meaningCorrect} / ${session.checkOrder.length}`));
-    banner.appendChild(el("h2", {}, session.dueOnly ? "今日の復習が完了しました" : "全語句の意味チェックが完了しました"));
+    banner.appendChild(el("h2", {}, is1kyu(state.datasetId)
+      ? `今回の${session.checkOrder.length}語句を完了しました`
+      : (session.dueOnly ? "今日の復習が完了しました" : "全語句の意味チェックが完了しました")));
+    if (meaningSummary) {
+      banner.appendChild(el("p", { class: "hint" },
+        `意味練習の対象は現在${meaningSummary.learned}/${meaningSummary.total}語句。未解放の語句は通常学習後に追加されます。`,
+      ));
+    }
   } else {
     banner.appendChild(el("div", { class: "big" }, session.practiceResult ? "正解！" : "復習リストに残しました"));
     banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
@@ -1848,8 +1975,13 @@ function renderDone(body) {
       actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, `もう一度${session.checkOrder.length}問に挑戦する`));
     }
   } else if (isMeaning) {
-    actions.appendChild(el("button", { class: "cta meaningCta", onclick: () => startMeaningPractice(session.dueOnly) },
-      session.dueOnly ? "もう一度、今日の復習をする" : "もう一度ランダムで演習する"));
+    if (meaningSummary && meaningSummary.due > 0) {
+      actions.appendChild(el("button", { class: "cta meaningCta", onclick: () => startMeaningPractice(true) },
+        `次の意味練習（今回${Math.min(meaningSummary.due, MEANING_SESSION_SIZE)}語句）へ →`));
+    } else if (!meaningSummary) {
+      actions.appendChild(el("button", { class: "cta meaningCta", onclick: () => startMeaningPractice(session.dueOnly) },
+        session.dueOnly ? "もう一度、今日の復習をする" : "もう一度ランダムで演習する"));
+    }
   } else if (isReview) {
     const nextReview = reviewQueue()[0];
     if (nextReview) {

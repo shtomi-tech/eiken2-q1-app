@@ -666,6 +666,79 @@ h2 {
 .secondaryCtaWithBadge { display: flex; flex-direction: column; gap: 2px; }
 .secondaryCtaBadge { color: var(--muted); font-family: var(--mono); font-size: 12px; font-weight: 500; }
 
+/* ---- 1級の中心学習：通常学習済み語句だけを30語句単位で意味確認 ---- */
+.meaningMission {
+  background: var(--surface-soft);
+  border-left: 4px solid var(--clay);
+  border-radius: var(--r-lg);
+  margin-top: 20px;
+  padding: 18px;
+}
+.meaningMissionHead {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+.meaningMission h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.35;
+  margin: 0;
+}
+.meaningMissionBadge {
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  color: var(--ink);
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 9px;
+  white-space: nowrap;
+}
+.meaningMissionLead {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 10px 0 14px;
+}
+.meaningMissionMetrics {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+.meaningMissionMetrics > div {
+  background: var(--parchment);
+  border-radius: var(--r-md);
+  padding: 10px;
+}
+.meaningMissionMetrics strong,
+.meaningMissionMetrics span { display: block; }
+.meaningMissionMetrics strong {
+  font-family: var(--mono);
+  font-size: 16px;
+  line-height: 1.3;
+}
+.meaningMissionMetrics span {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+.meaningMissionProgress {
+  accent-color: var(--clay);
+  display: block;
+  height: 8px;
+  margin: 0 0 14px;
+  width: 100%;
+}
+.meaningMissionCta { width: 100%; }
+.meaningMissionNote {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
 .missionNote {
   border-top: 1px solid var(--line);
   margin-top: 16px;
@@ -1054,6 +1127,8 @@ h2 {
   .dailyGrid.cols5 { grid-template-columns: repeat(2, 1fr); }
   .topActions, .itemHead, .sectionHead { align-items: stretch; }
   .stagePill { min-width: 90px; font-size: 10px; }
+  .meaningMissionHead { flex-direction: column; }
+  .meaningMissionBadge { align-self: flex-start; }
   .selfExamplePanel { margin: 14px; }
 }
 
