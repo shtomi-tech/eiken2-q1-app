@@ -1,4 +1,4 @@
-"""Azure Speechで英検1級・2級・準1級・準2級の単語音声を生成する。"""
+"""Azure Speechで英検1級・2級・準1級・準2級の単語・熟語音声を生成する。"""
 
 from __future__ import annotations
 
@@ -24,10 +24,14 @@ DEFAULT_VOICE = "en-US-JennyNeural"
 OUTPUT_FORMAT = "audio-24khz-48kbitrate-mono-mp3"
 
 
-def audio_slug(word: str) -> str:
-    slug = re.sub(r"[^a-z0-9]+", "-", word.lower()).strip("-")
+def audio_slug(surface: str) -> str:
+    normalized = str(surface or "").lower()
+    normalized = re.sub(r"[’']", "'", normalized)
+    normalized = re.sub(r"\b(one's|his|her|my|your|our|their|its)\b", "@poss", normalized)
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    slug = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
     if not slug:
-        raise ValueError(f"音声ファイル名を作れない単語です: {word!r}")
+        raise ValueError(f"音声ファイル名を作れない語句です: {surface!r}")
     return slug
 
 
@@ -47,17 +51,21 @@ def vocab_files(grade: str, round_id: str) -> list[tuple[str, Path]]:
     return files
 
 
-def load_jobs(grade: str, round_id: str) -> list[tuple[str, str]]:
-    jobs: list[tuple[str, str]] = []
+def load_jobs(grade: str, round_id: str) -> list[tuple[str, str, str]]:
+    jobs: list[tuple[str, str, str]] = []
     for current_round, path in vocab_files(grade, round_id):
         data = json.loads(path.read_text(encoding="utf-8"))
-        seen: set[str] = set()
-        for item in data.get("words", []):
-            word = str(item.get("word", "")).strip()
-            if not word or word in seen:
-                continue
-            seen.add(word)
-            jobs.append((current_round, word))
+        for item_type, data_key, surface_key in (
+            ("word", "words", "word"),
+            ("idiom", "idioms", "phrase"),
+        ):
+            seen: set[str] = set()
+            for item in data.get(data_key, []):
+                surface = str(item.get(surface_key, "")).strip()
+                if not surface or surface in seen:
+                    continue
+                seen.add(surface)
+                jobs.append((current_round, item_type, surface))
     return jobs
 
 
@@ -111,22 +119,25 @@ def generate(args: argparse.Namespace) -> int:
     generated = 0
     skipped = 0
     audio_dir = GRADE_CONFIG[args.grade]["folder"]
-    for current_round, word in jobs:
-        target = AUDIO_ROOT / audio_dir / current_round / f"{audio_slug(word)}.mp3"
+    for current_round, item_type, surface in jobs:
+        item_dir = AUDIO_ROOT / audio_dir / current_round
+        if item_type == "idiom":
+            item_dir /= "idiom"
+        target = item_dir / f"{audio_slug(surface)}.mp3"
         if target.exists() and not args.force:
             skipped += 1
             continue
         if args.dry_run:
-            print(f"[dry-run] {current_round}: {word} -> {target.relative_to(ROOT)}")
+            print(f"[dry-run] {current_round} {item_type}: {surface} -> {target.relative_to(ROOT)}")
             continue
 
         target.parent.mkdir(parents=True, exist_ok=True)
-        audio = request_audio(key, region, word, args.voice)
+        audio = request_audio(key, region, surface, args.voice)
         temporary = target.with_suffix(".mp3.tmp")
         temporary.write_bytes(audio)
         temporary.replace(target)
         generated += 1
-        print(f"生成: {current_round} {word}")
+        print(f"生成: {current_round} {item_type} {surface}")
 
     mode = "確認" if args.dry_run else "生成"
     print(f"{mode}対象 {len(jobs)}件 / 新規{generated}件 / 既存スキップ{skipped}件")

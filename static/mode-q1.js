@@ -408,7 +408,7 @@ function audioSlug(value) {
   return normalizedSurface(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 function vocabularyAudioDataset(item) {
-  if (item.type !== "word") return null;
+  if (!item || (item.type !== "word" && item.type !== "idiom")) return null;
   const match = /^(eiken1|eiken2|eikenp2|eikenp1)-(\d{4}-\d+)$/.exec(state.datasetId || "");
   return match ? { appGrade: match[1], round: match[2] } : null;
 }
@@ -417,8 +417,10 @@ function vocabularyAudioPath(item) {
   if (!dataset) return "";
   const audioGrade = { eiken1: "1", eiken2: "2", eikenp1: "pre1", eikenp2: "pre2" }[dataset.appGrade];
   if (!audioGrade) return "";
-  const slug = audioSlug(item.word);
-  return slug ? `assets/audio/vocab/${audioGrade}/${dataset.round}/${slug}.mp3` : "";
+  const slug = audioSlug(surfaceOf(item));
+  if (!slug) return "";
+  const folder = item.type === "idiom" ? "/idiom" : "";
+  return `assets/audio/vocab/${audioGrade}/${dataset.round}${folder}/${slug}.mp3`;
 }
 function vocabularyAudioEnabled(item) { return Boolean(vocabularyAudioDataset(item)); }
 let activeVocabAudio = null;
