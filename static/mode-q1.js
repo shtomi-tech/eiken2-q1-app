@@ -17,6 +17,7 @@ const LEGACY_PRE1_PROGRESS_KEY = "eiken_pre1_progress_v1";
 const LEGACY_PRE1_ROUND_KEY = "eiken_pre1_round";
 const LEGACY_PRE1_APP_ID = "eiken-pre1";
 const PRE1_MIGRATION_VERSION = 1;
+const CORRUPT_PROGRESS_PREFIX = "eiken_q1_corrupt_";
 const MANIFEST_URL = "data/manifest.json";
 // 問題セット一覧は data/manifest.json（"q1"キー）から読み込む。
 // 回を追加するときはデータJSONを置いてmanifest.jsonに1エントリ足すだけでよく、このファイルの編集は不要。
@@ -48,6 +49,10 @@ const state = {
   progress: { units: {} },
   userExamples: {},
 };
+
+const RESUMABLE_MODES = new Set(["learn", "review", "meaning", "final"]);
+let resumeRecoveryMessage = "";
+let resumeUnavailable = false;
 
 async function loadAiConfig() {
   aiCheckEndpoint = "";
@@ -91,24 +96,45 @@ function progressFor(datasetId) {
 function saveProgressFor(datasetId, progress) {
   if (datasetId === state.datasetId) { saveProgress(); return; }
   try { localStorage.setItem(progressKey(datasetId), JSON.stringify(progress)); } catch (e) { /* ignore */ }
-  if (cloud) cloud.queueSave();
+  if (cloud) cloud.queueSave({
+    datasetId,
+    progress,
+    meta: { lastDatasetId: state.datasetId },
+  });
 }
 function progressKey(datasetId = state.datasetId) {
   return STORE_PREFIX + datasetId;
 }
 function loadProgress(datasetId = state.datasetId) {
+  let raw = null;
   try {
-    let raw = localStorage.getItem(progressKey(datasetId));
+    raw = localStorage.getItem(progressKey(datasetId));
     if (!raw && datasetId === DEFAULT_DATASET_ID) raw = localStorage.getItem(LEGACY_STORE_KEY);
-    if (raw) {
-      const progress = JSON.parse(raw);
-      // 旧版の累積サイクル状態は、現在の学習フローへ持ち込まない。
-      delete progress.cumulativeCycle;
-      if (progress.resume?.mode === "cycle") delete progress.resume;
-      return progress;
+  } catch (e) { return { units: {} }; }
+  if (!raw) return { units: {} };
+  try {
+    const progress = JSON.parse(raw);
+    if (!progress || typeof progress !== "object" || Array.isArray(progress)) throw new Error("invalid progress");
+    // 旧形式の項目は削除しない。現行フローから参照しなくても、復旧用に元データを残す。
+    if (!progress.units || typeof progress.units !== "object" || Array.isArray(progress.units)) {
+      progress._recovery = {
+        ...(progress._recovery || {}),
+        invalidUnits: progress.units,
+      };
+      progress.units = {};
     }
-  } catch (e) { /* ignore */ }
-  return { units: {} };
+    return progress;
+  } catch (e) {
+    // 壊れたJSONを空データとして保存し直さないよう、原文を別キーへ退避する。
+    try {
+      const backupKey = CORRUPT_PROGRESS_PREFIX + datasetId;
+      if (!localStorage.getItem(backupKey)) localStorage.setItem(backupKey, raw);
+    } catch (backupError) { /* ignore */ }
+    return {
+      units: {},
+      _recovery: { type: "corrupt-local-record", datasetId },
+    };
+  }
 }
 
 function readStoredObject(key) {
@@ -122,7 +148,9 @@ function readStoredObject(key) {
   }
 }
 
+let migratedLegacyDatasetIds = [];
 function migrateLegacyPre1Progress(legacyStore) {
+  migratedLegacyDatasetIds = [];
   if (!legacyStore || typeof legacyStore !== "object" || !legacyStore.rounds) return false;
   let changed = false;
   Object.entries(legacyStore.rounds).forEach(([roundId, oldRound]) => {
@@ -143,6 +171,7 @@ function migrateLegacyPre1Progress(legacyStore) {
         learned: true,
         solvedCorrect: correct,
         needsReview: !correct,
+        answerResult: correct ? "correct" : "incorrect",
         attempts: 1,
         wrongCount: correct ? 0 : 1,
         lastAnsweredAt: saved.answeredAt || null,
@@ -162,6 +191,7 @@ function migrateLegacyPre1Progress(legacyStore) {
     };
     try {
       localStorage.setItem(progressKey(datasetId), JSON.stringify(target));
+      migratedLegacyDatasetIds.push(datasetId);
       changed = true;
     } catch (e) { /* 移行できなくても旧データは残す */ }
   });
@@ -242,6 +272,10 @@ function resumeDescription(resume) {
   if (resume.mode === "final") return `最終チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
   return "学習の続き";
 }
+function currentResume() {
+  const resume = state.progress && state.progress.resume;
+  return resume && RESUMABLE_MODES.has(resume.mode) && !resumeUnavailable ? resume : null;
+}
 function saveResume() {
   if (!session) return;
   state.progress.resume = {
@@ -270,18 +304,23 @@ function saveResume() {
     practiceResult: session.practiceResult,
     checkChoices: session._checkChoices || null,
   };
+  resumeRecoveryMessage = "";
+  resumeUnavailable = false;
   saveProgress();
 }
 function clearResume() {
   if (!state.progress.resume) return;
   delete state.progress.resume;
+  resumeRecoveryMessage = "";
+  resumeUnavailable = false;
   saveProgress();
 }
 async function restoreSession() {
   const saved = state.progress.resume;
   if (!saved || !saved.mode) return false;
-  if (!["learn", "review", "meaning", "final"].includes(saved.mode)) {
-    clearResume();
+  if (!RESUMABLE_MODES.has(saved.mode)) {
+    resumeRecoveryMessage = "以前の形式の途中記録は保持しています。現在の学習フローでは、第1問から再開してください。";
+    resumeUnavailable = true;
     return false;
   }
   // 英検1級のプール済み「意味だけ演習」を再開する場合のみプールを取得。
@@ -297,7 +336,8 @@ async function restoreSession() {
   const items = (saved.items || []).map((s) => resolveItem(s, pool)).filter(Boolean);
   const checkOrder = (saved.checkOrder || []).map((s) => resolveItem(s, pool)).filter(Boolean);
   if ((saved.mode === "learn" && !items.length) || ((saved.mode === "meaning" || saved.mode === "final") && !checkOrder.length)) {
-    clearResume();
+    resumeRecoveryMessage = "途中記録は保持していますが、現在の問題データと一致しないため自動再開できません。第1問から再開してください。";
+    resumeUnavailable = true;
     return false;
   }
   session = {
@@ -309,6 +349,8 @@ async function restoreSession() {
     wrongLog: (saved.wrongLog || []).map((entry) => ({ item: resolveItem(entry.item, pool), picked: entry.picked })).filter((entry) => entry.item),
     _checkChoices: saved.checkChoices || null,
   };
+  resumeRecoveryMessage = "";
+  resumeUnavailable = false;
   renderSession();
   return true;
 }
@@ -320,7 +362,16 @@ function unit(q) {
   if (typeof u.needsReview !== "boolean") u.needsReview = false;
   if (typeof u.attempts !== "number") u.attempts = 0;
   if (typeof u.wrongCount !== "number") u.wrongCount = 0;
+  if (!["correct", "incorrect", "unknown", "unseen"].includes(u.answerResult)) {
+    u.answerResult = u.solvedCorrect ? "correct" : (u.needsReview ? "incorrect" : (u.learned ? "unknown" : "unseen"));
+  }
   return state.progress.units[q];
+}
+function unitResult(u) {
+  if (!u.learned) return "unseen";
+  if (u.answerResult === "correct" || u.solvedCorrect) return "correct";
+  if (u.answerResult === "incorrect" || u.needsReview) return "incorrect";
+  return "unknown";
 }
 
 /* ---- 語句単位の進捗（英検1級の意味だけ演習でのみ使用。既存の units とは別ブロック） ---- */
@@ -460,6 +511,12 @@ async function loadPooled1kyuItems() {
 // クラウドから来た進捗（{datasetId: progress}）を localStorage へ反映
 function applyCloudProgress(map) {
   if (!map || typeof map !== "object") return;
+  const lastDatasetId = map._meta && typeof map._meta.lastDatasetId === "string"
+    ? map._meta.lastDatasetId
+    : "";
+  if (lastDatasetId && DATASETS[lastDatasetId]) {
+    try { localStorage.setItem(DATASET_KEY, lastDatasetId); } catch (e) { /* ignore */ }
+  }
   Object.entries(map).forEach(([id, prog]) => {
     if (DATASETS[id] && prog && typeof prog === "object") {
       try { localStorage.setItem(progressKey(id), JSON.stringify(prog)); } catch (e) { /* ignore */ }
@@ -652,6 +709,8 @@ function flashNavLocked() { return performance.now() < (session._flashNavReadyAt
    ============================================================ */
 async function loadData(datasetId = state.datasetId) {
   state.datasetId = datasetId;
+  resumeRecoveryMessage = "";
+  resumeUnavailable = false;
   state.itemsByQ = {};
   state.questions = {};
   state.qList = [];
@@ -685,6 +744,7 @@ async function loadData(datasetId = state.datasetId) {
 async function switchDataset(datasetId) {
   if (!DATASETS[datasetId] || datasetId === state.datasetId) return;
   await loadData(datasetId);
+  if (cloud) cloud.queueSave();
   if (window.EikenActiveAppId !== "q1") return;
   session = null;
   renderHome();
@@ -709,6 +769,7 @@ function renderHome() {
   const total = state.qList.length;
   const learned = state.qList.filter((q) => unit(q).learned).length;
   const solved = state.qList.filter((q) => unit(q).solvedCorrect).length;
+  const unknown = state.qList.filter((q) => unitResult(unit(q)) === "unknown").length;
   const reviewQs = reviewQueue();
   const finalTotal = allVocabularyItems().length;
   const final = finalProgress(finalTotal);
@@ -744,15 +805,16 @@ function renderHome() {
     ),
     datasetPicker(),
   ));
-  const grid = el("div", { class: "dailyGrid cols4" });
-  grid.appendChild(statCell(learned, total, "学習した設問"));
-  grid.appendChild(statCell(solved, total, "正解"));
+  const grid = el("div", { class: "dailyGrid cols5" });
+  grid.appendChild(statCell(learned, total, "実施済み"));
+  grid.appendChild(statCell(solved, total, "正解確認"));
+  grid.appendChild(statCell(unknown, total, "正誤未確認"));
   grid.appendChild(statCell(reviewQs.length, total, "復習対象"));
   grid.appendChild(statCell(final.bestScore, finalTotal, "最終チェック BEST"));
   summary.appendChild(grid);
 
   // --- 次にやること（Hickの法則：迷わせないため主導線は常に1つに絞る） ---
-  const resume = state.progress.resume;
+  const resume = currentResume();
   const nextQ = state.qList.find((q) => !unit(q).learned);
   const canStartFinal = finalUnlocked();
 
@@ -761,6 +823,12 @@ function renderHome() {
       el("p", { class: "label" }, "途中保存"),
       el("p", { class: "resumeText" }, resumeDescription(resume)),
       el("p", { class: "hint" }, "この端末に保存されています。続きから再開できます。"),
+    ));
+  }
+  if (resumeRecoveryMessage) {
+    summary.appendChild(el("div", { class: "resumeNotice recoveryNotice" },
+      el("p", { class: "label" }, "記録の扱い"),
+      el("p", { class: "hint" }, resumeRecoveryMessage),
     ));
   }
 
@@ -877,13 +945,14 @@ function renderHome() {
   const list = el("div", { class: "itemList" });
   for (const q of state.qList) {
     const u = unit(q);
+    const result = unitResult(u);
     const items = state.itemsByQ[q];
     const isIdiom = items[0].type === "idiom";
     const words = items.map(surfaceOf).join(" / ");
-    const cls = "qCard" + (u.needsReview ? " review" : (u.learned ? " done" : ""));
+    const cls = "qCard" + (u.needsReview ? " review" : (result === "correct" ? " done" : (result === "unknown" ? " unknown" : "")));
     const stat = u.needsReview
       ? `復習対象・ミス${u.wrongCount}回`
-      : (u.learned ? (u.solvedCorrect ? "学習済・正解" : "学習済") : "未学習");
+      : (result === "correct" ? "実施済み・正解確認" : (result === "unknown" ? "実施済み・正誤未確認" : "未学習"));
     list.appendChild(el("button", { class: cls, onclick: () => startLearn(q) },
       el("span", { class: "qno" }, `第${q}問 ・ ${isIdiom ? "熟語" : "単語"}`),
       el("span", { class: "qwords" }, words),
@@ -1731,6 +1800,7 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, items) {
   u.lastAnsweredAt = new Date().toISOString();
   u.solvedCorrect = isCorrect;
   u.needsReview = !isCorrect;
+  u.answerResult = isCorrect ? "correct" : "incorrect";
   if (!isCorrect) u.wrongCount += 1;
   saveProgress();
 
@@ -1826,6 +1896,11 @@ async function boot() {
     cloud = createCloud({
       appId: APP_ID,
       getPayload: collectAllProgress,
+      getPatch: () => ({
+        datasetId: state.datasetId,
+        progress: state.progress,
+        meta: { lastDatasetId: state.datasetId },
+      }),
       applyLoaded: applyCloudProgress,
       onStatus: setShareStatus,
     });
@@ -1835,7 +1910,15 @@ async function boot() {
     const legacyProgress = legacyPre1CloudProgress || readStoredObject(LEGACY_PRE1_PROGRESS_KEY);
     const migratedLegacy = migrateLegacyPre1Progress(legacyProgress);
     state.datasetId = loadDatasetId();
-    if (migratedLegacy) cloud.queueSave();
+    if (migratedLegacy) {
+      migratedLegacyDatasetIds.forEach((datasetId) => {
+        cloud.queueSave({
+          datasetId,
+          progress: loadProgress(datasetId),
+          meta: { lastDatasetId: state.datasetId },
+        });
+      });
+    }
 
     await loadData();
     if (window.EikenActiveAppId !== "q1") return;

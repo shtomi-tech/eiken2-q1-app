@@ -40,14 +40,20 @@ function parseSharedParams() {
  *   opts.appId          app_progress.p_app に入れる値（= config.APP_ID）
  *   opts.configPath     config.json の場所（既定 "static/config.json"）
  *   opts.getPayload     () => 保存する progress オブジェクト（store.snapshot 等）
+ *   opts.getPatch       () => { datasetId, progress, meta }（回単位の保存。省略可）
  *   opts.applyLoaded    (progress) => クラウドから来た進捗を適用（store.replace 等）
  *   opts.onStatus       (message, tone) => UI 通知（省略可）
  */
-function createCloud({ appId, configPath = "static/config.json", getPayload, applyLoaded, onStatus = () => {} }) {
+function createCloud({ appId, configPath = "static/config.json", getPayload, getPatch, applyLoaded, onStatus = () => {} }) {
   let cfg = {};
   const session = { requested: false, enabled: false, studentId: "", token: "", student: null };
   let saveTimer = null;
   let saveQueue = Promise.resolve();
+  const pendingPatches = new Map();
+
+  function statusTime(date = new Date()) {
+    return date.toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" });
+  }
 
   function hasConfig() {
     return Boolean(cfg.supabaseUrl && cfg.supabaseAnonKey);
@@ -66,7 +72,10 @@ function createCloud({ appId, configPath = "static/config.json", getPayload, app
     });
     if (!res.ok) {
       const text = await res.text().catch(() => "");
-      throw new Error(`${name}: ${res.status} ${text || res.statusText}`);
+      const error = new Error(`${name}: ${res.status} ${text || res.statusText}`);
+      error.status = res.status;
+      error.rpcName = name;
+      throw error;
     }
     if (res.status === 204) return null;
     return res.json();
@@ -94,7 +103,6 @@ function createCloud({ appId, configPath = "static/config.json", getPayload, app
       if (!student || !student.id) {
         throw new Error("生徒URLを確認できませんでした。QRコードを作り直してください。");
       }
-      session.enabled = true;
       session.student = { id: String(student.id), name: String(student.display_name || student.id) };
 
       const loaded = await rpc("app_load_progress", {
@@ -105,15 +113,34 @@ function createCloud({ appId, configPath = "static/config.json", getPayload, app
       const row = Array.isArray(loaded) ? loaded[0] : loaded;
       const progress = row && typeof row === "object" ? row.progress || row : {};
       if (progress && typeof progress === "object") applyLoaded(progress);
-      onStatus(`${session.student.name} さんとして学習中（進捗はクラウド保存）`, "ok");
+      // load 完了前は保存可能にしない。通信失敗時に空のローカル状態で
+      // クラウドを上書きする事故を避ける。
+      session.enabled = true;
+      onStatus(`${session.student.name} さんとして学習中（クラウド同期済み ${statusTime()}）`, "ok");
     } catch (e) {
+      session.enabled = false;
       console.error(e);
       onStatus(e.message || "共有URLの読み込みに失敗しました。", "ng");
     }
     return session;
   }
 
-  async function push() {
+  async function push(patchOverride = null) {
+    if (typeof getPatch === "function") {
+      const patch = patchOverride || getPatch();
+      if (!patch || !patch.datasetId || !patch.progress) {
+        throw new Error("回単位の保存データを作成できませんでした。");
+      }
+      await rpc("app_save_progress_dataset", {
+        p_app: appId,
+        p_student_id: session.studentId,
+        p_access_token: session.token,
+        p_dataset_id: String(patch.datasetId),
+        p_dataset_progress: patch.progress,
+        p_meta: patch.meta || {},
+      });
+      return;
+    }
     await rpc("app_save_progress", {
       p_app: appId,
       p_student_id: session.studentId,
@@ -123,15 +150,23 @@ function createCloud({ appId, configPath = "static/config.json", getPayload, app
   }
 
   // 保存はデバウンス（600ms）。直列キューで順序を保証。
-  function queueSave() {
+  function queueSave(patchOverride = null) {
     if (!session.enabled) return;
+    if (typeof getPatch === "function" && patchOverride && patchOverride.datasetId) {
+      pendingPatches.set(String(patchOverride.datasetId), patchOverride);
+    }
     onStatus(`${session.student.name} さんの進捗を保存中…`, "syncing");
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => {
+      const patches = pendingPatches.size ? [...pendingPatches.values()] : [null];
+      pendingPatches.clear();
       saveQueue = saveQueue
-        .then(() => push())
-        .then(() => onStatus(`${session.student.name} さんの進捗を保存しました。`, "ok"))
+        .then(async () => {
+          for (const patch of patches) await push(patch);
+        })
+        .then(() => onStatus(`${session.student.name} さんの進捗を保存済み（${statusTime()}）`, "ok"))
         .catch((e) => {
+          patches.filter(Boolean).forEach((patch) => pendingPatches.set(String(patch.datasetId), patch));
           console.error(e);
           onStatus("進捗のクラウド保存に失敗しました。通信状況を確認してください。", "ng");
         });

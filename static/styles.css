@@ -553,6 +553,7 @@ h2 {
   margin: 14px 0 16px;
 }
 .dailyGrid.cols4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.dailyGrid.cols5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .dailyCell {
   background: var(--parchment);
   border-radius: var(--r-md);
@@ -727,6 +728,7 @@ h2 {
   color: var(--muted);
 }
 .qCard.done .qstat { color: var(--ok); }
+.qCard.unknown .qstat { color: var(--muted); }
 .qCard.due .qstat { color: var(--clay); }
 .qCard.review .qstat { color: var(--clay); }
 
@@ -1049,6 +1051,7 @@ h2 {
   .dailyGrid, .itemList { grid-template-columns: 1fr; }
   .dailyGrid { grid-template-columns: repeat(3, 1fr); }
   .dailyGrid.cols4 { grid-template-columns: repeat(2, 1fr); }
+  .dailyGrid.cols5 { grid-template-columns: repeat(2, 1fr); }
   .topActions, .itemHead, .sectionHead { align-items: stretch; }
   .stagePill { min-width: 90px; font-size: 10px; }
   .selfExamplePanel { margin: 14px; }
