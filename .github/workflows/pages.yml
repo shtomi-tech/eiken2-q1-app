@@ -64,3 +64,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # 既定の10分では足りない。音声アセットを含む配信は平常時でも8分超かかっており、
+          # Pages側が混む日はタイムアウトして未公開のまま失敗する（2026-08-06に発生）。
+          timeout: 1800000
