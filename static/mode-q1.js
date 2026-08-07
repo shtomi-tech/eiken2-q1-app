@@ -84,7 +84,7 @@ function dataset() {
   return DATASETS[state.datasetId] || DATASETS[defaultDatasetId()];
 }
 function datasetCleared(datasetId) {
-  const saved = datasetId === state.datasetId ? state.progress : loadProgress(datasetId);
+  const saved = progressFor(datasetId);
   return Boolean(saved && saved.finalCheck && saved.finalCheck.cleared);
 }
 // datasetId から級プレフィックス（eiken1 / eiken2 / eikenp1 / eikenp2）を取り出す。
@@ -96,10 +96,28 @@ function gradeOf(datasetId) {
 function currentGrade() {
   return gradeOf(state.datasetId);
 }
+// 1描画（＝1回のキュー生成）の間だけ、非アクティブ回のブロックをメモ化する。
+// ホーム描画は語句ごとに progressFor を呼ぶため、無いと localStorage.getItem + JSON.parse が
+// 数百回走る。書き込み系（recordMeaningResult など）は描画パスの外なので、
+// 従来どおり毎回 localStorage から読み直してから保存する（古いコピーでの上書きを避ける）。
+let progressReadCache = null;
+function withProgressReadCache(fn) {
+  const outer = progressReadCache; // ネストしても内側で破棄しない
+  if (!outer) progressReadCache = new Map();
+  try {
+    return fn();
+  } finally {
+    if (!outer) progressReadCache = null;
+  }
+}
 // datasetId のブロックを読み書きする。アクティブ回は state.progress をそのまま使い、
 // 別コピーを作らない（renderHome→finalProgress の常時保存が古いコピーで上書きするのを防ぐ）。
 function progressFor(datasetId) {
   if (datasetId === state.datasetId) return state.progress;
+  if (progressReadCache) {
+    if (!progressReadCache.has(datasetId)) progressReadCache.set(datasetId, loadProgress(datasetId));
+    return progressReadCache.get(datasetId);
+  }
   return loadProgress(datasetId);
 }
 function saveProgressFor(datasetId, progress) {
@@ -876,6 +894,10 @@ function setChromeTitle(title) {
    HOME
    ============================================================ */
 function renderHome() {
+  // 同期処理のみ。await をまたぐとキャッシュが別パスへ漏れるので中で非同期処理を待たない。
+  return withProgressReadCache(renderHomeContent);
+}
+function renderHomeContent() {
   setChromeTitle(`英検${dataset().shortLabel} 大問1 単語アプリ`);
   $("#sessionPanel").classList.add("hide");
   const home = $("#homePanel");
@@ -1227,12 +1249,18 @@ function isItemDue(item, now = Date.now()) {
 }
 // 誤答履歴が多い語を前に出す（ES2019以降 Array#sort は安定なので確率抽選は不要）。
 function weightedOrder(items) {
-  return shuffle(items).sort((a, b) => readItemStateOf(b).wrongCount - readItemStateOf(a).wrongCount);
+  // 比較のたびに進捗を読み直さないよう、シャッフル後の並びで wrongCount を先に取る
+  // （同数の並びはシャッフル順のまま＝従来と同じ抽選）。
+  const shuffled = shuffle(items);
+  const wrongCounts = new Map(shuffled.map((item) => [item, readItemStateOf(item).wrongCount]));
+  return shuffled.sort((a, b) => wrongCounts.get(b) - wrongCounts.get(a));
 }
 // dueOnly=true: 復習日が来た語だけ。未学習語句や次回予定の語句は補充しない。
 function meaningPracticeQueue(items, dueOnly) {
-  const candidates = dueOnly ? items.filter((it) => isItemDue(it)) : items;
-  return weightedOrder(candidates).slice(0, MEANING_SESSION_SIZE);
+  return withProgressReadCache(() => {
+    const candidates = dueOnly ? items.filter((it) => isItemDue(it)) : items;
+    return weightedOrder(candidates).slice(0, MEANING_SESSION_SIZE);
+  });
 }
 
 async function startMeaningPractice(dueOnly = true, queueOverride = null) {
@@ -1249,7 +1277,8 @@ async function startMeaningPractice(dueOnly = true, queueOverride = null) {
     }
     queue = Array.isArray(queueOverride)
       ? queueOverride
-      : meaningPracticeQueue(learnedPooledItems(pooled.items), dueOnly);
+      // await をまたがない同期ブロックとしてまとめて読む
+      : withProgressReadCache(() => meaningPracticeQueue(learnedPooledItems(pooled.items), dueOnly));
   } else {
     // 級を判定できないdatasetIdへの保険。現在の回の語句だけで組む。
     queue = shuffle(allVocabularyItems()).slice(0, MEANING_SESSION_SIZE);
