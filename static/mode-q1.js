@@ -587,6 +587,32 @@ function meaningPoolForItems(items) {
   return pool;
 }
 
+// 学習済みだけで誤答を作ると、学習量が少ない段階では候補がその設問の残り語句に
+// 固定され、消去法で正解できてしまう。候補が下限に満たない間は同じ級の未学習語の
+// 意味で補い、それでも4択に足りなければ別type（word↔idiom）からも補う。
+const MEANING_DISTRACTOR_MIN_POOL = 8;
+
+function meaningDistractors(item, count = 3) {
+  const pooled = session.mode === "meaning" ? pooledData() : null;
+  const learnedPool = pooled ? meaningPoolForItems(learnedPooledItems(pooled.items)) : state.meaningPool;
+  const fullPool = pooled ? pooled.meaningPool : state.meaningPool;
+  const sameType = (pool) => (pool[item.type] || []).filter((m) => m && m !== item.meaning);
+  const otherTypes = (pool) => Object.keys(pool)
+    .filter((t) => t !== item.type)
+    .reduce((acc, t) => acc.concat(pool[t] || []), [])
+    .filter((m) => m && m !== item.meaning);
+
+  const candidates = [];
+  const add = (list) => {
+    for (const m of list) if (!candidates.includes(m)) candidates.push(m);
+  };
+
+  add(sameType(learnedPool));
+  if (candidates.length < MEANING_DISTRACTOR_MIN_POOL) add(shuffle(sameType(fullPool)));
+  if (candidates.length < count) add(shuffle(otherTypes(fullPool)));
+  return shuffle(candidates).slice(0, count);
+}
+
 function meaningPracticeSummary() {
   const pooled = pooledData();
   if (!pooled) return { total: 0, learned: 0, due: 0, locked: 0 };
@@ -1784,11 +1810,7 @@ function renderCheck(body) {
 
   // choices: correct meaning + 3 distractors of same type
   if (!session._checkChoices) {
-    const pooled = session.mode === "meaning" ? pooledData() : null;
-    const meaningPool = pooled ? meaningPoolForItems(learnedPooledItems(pooled.items)) : state.meaningPool;
-    const pool = (meaningPool[item.type] || []).filter((m) => m !== item.meaning);
-    const distractors = shuffle(pool).slice(0, 3);
-    session._checkChoices = shuffle([item.meaning, ...distractors]);
+    session._checkChoices = shuffle([item.meaning, ...meaningDistractors(item)]);
   }
   const choices = session._checkChoices;
   const correct = item.meaning;
