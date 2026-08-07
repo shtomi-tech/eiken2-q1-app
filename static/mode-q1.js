@@ -1349,12 +1349,25 @@ function reviewBar() {
 }
 
 function meaningBar() {
+  const answered = session.checkIdx + (session.checkAnswered ? 1 : 0);
+  const remaining = Math.max(0, session.checkOrder.length - answered);
   return el("div", { class: "stageBar meaningBar" },
     el("div", { class: "stagePill active" },
-      `今回 ${session.checkOrder.length}語句`),
+      answered ? `残り ${remaining}語句` : `今回 ${session.checkOrder.length}語句`),
     el("div", { class: "stagePill" },
-      `回答済 ${session.checkIdx} / 正解 ${session.meaningCorrect}`),
+      `回答済 ${answered} / 正解 ${session.meaningCorrect}`),
   );
+}
+
+function refreshMeaningBar() {
+  if (!session || session.mode !== "meaning") return;
+  const bar = document.querySelector("#sessionPanel .meaningBar");
+  if (!bar) return;
+  const answered = session.checkIdx + (session.checkAnswered ? 1 : 0);
+  const remaining = Math.max(0, session.checkOrder.length - answered);
+  const pills = bar.querySelectorAll(".stagePill");
+  if (pills[0]) pills[0].textContent = answered ? `残り ${remaining}語句` : `今回 ${session.checkOrder.length}語句`;
+  if (pills[1]) pills[1].textContent = `回答済 ${answered} / 正解 ${session.meaningCorrect}`;
 }
 
 function finalBar() {
@@ -1757,6 +1770,7 @@ function renderCheck(body) {
       if (last && session.mode === "final") saveFinalResult();
       if (session.mode === "meaning" && is1kyu(state.datasetId)) recordMeaningResult(item, isCorrect);
       saveResume();
+      refreshMeaningBar();
       appendCheckFeedback(box, item, surface, correct, isCorrect);
     });
     choiceWrap.appendChild(btn);
