@@ -1042,7 +1042,27 @@ h2 {
 
 .stem { font-size: 19px; line-height: 1.8; margin: 0 0 16px; }
 .blank { border-bottom: 2px solid var(--ink); padding: 0 22px; }
-.askWord { font-family: var(--serif); font-size: 26px; margin: 0 0 16px; }
+.askWordLine { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.askWord { font-family: var(--serif); font-size: 26px; margin: 0; }
+.quizListenButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--ink);
+  padding: 7px 11px;
+  font-size: 12px;
+}
+.quizListenButton:hover:not(:disabled),
+.quizListenButton.isPlaying {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--parchment);
+}
+.quizListenButton:disabled { cursor: wait; }
 
 .choices { display: grid; gap: 12px; }
 .choiceBtn {

@@ -702,6 +702,19 @@ function playVocabAudio(path, button, text) {
   }, { once: true });
   audio.play().catch(finish);
 }
+function buildVocabAudioButton(item, className = "flashListenButton") {
+  const surface = surfaceOf(item);
+  const audioButton = el("button", {
+    class: className,
+    type: "button",
+    "aria-label": `${surface}の発音を聞く`,
+    title: "発音を聞く",
+  });
+  audioButton.appendChild(el("span", { "aria-hidden": "true" }, "▶"));
+  audioButton.appendChild(document.createTextNode(" 音声"));
+  audioButton.addEventListener("click", () => playVocabAudio(vocabularyAudioPath(item), audioButton, surface));
+  return audioButton;
+}
 function surfaceVariants(value) {
   const base = normalizedSurface(value);
   const variants = new Set([base]);
@@ -1415,18 +1428,8 @@ function buildFlashCard(item) {
     el("div", { class: "flashWord" }, surface),
   );
   if (item.ipa) wordLine.appendChild(el("div", { class: "flashIpa" }, item.ipa));
-  const audioPath = vocabularyAudioPath(item);
   if (vocabularyAudioEnabled(item)) {
-    const audioButton = el("button", {
-      class: "flashListenButton",
-      type: "button",
-      "aria-label": `${surface}の発音を聞く`,
-      title: "発音を聞く",
-    });
-    audioButton.appendChild(el("span", { "aria-hidden": "true" }, "▶"));
-    audioButton.appendChild(document.createTextNode(" 音声"));
-    audioButton.addEventListener("click", () => playVocabAudio(audioPath, audioButton, surface));
-    wordLine.appendChild(audioButton);
+    wordLine.appendChild(buildVocabAudioButton(item));
   }
   head.appendChild(el("div", {},
     wordLine,
@@ -1689,7 +1692,10 @@ function renderCheck(body) {
 
   const box = el("div", { class: "quizBox" });
   box.appendChild(el("p", { class: "label" }, "次の語句の意味は？"));
-  box.appendChild(el("p", { class: "askWord" }, surface));
+  box.appendChild(el("div", { class: "askWordLine" },
+    el("p", { class: "askWord" }, surface),
+    buildVocabAudioButton(item, "quizListenButton"),
+  ));
 
   // choices: correct meaning + 3 distractors of same type
   if (!session._checkChoices) {
