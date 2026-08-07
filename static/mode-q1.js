@@ -576,9 +576,9 @@ function meaningIntervalBreakdown(items) {
   items.forEach((item) => { counts[meaningIntervalLabel(item)] += 1; });
   const wrap = el("div", {
     class: "meaningMissionIntervals",
-    "aria-label": "今回の出題間隔別内訳",
+    "aria-label": "学習済み語句の間隔別内訳",
   });
-  wrap.appendChild(el("p", { class: "meaningMissionIntervalsLabel" }, "今回の出題間隔別内訳"));
+  wrap.appendChild(el("p", { class: "meaningMissionIntervalsLabel" }, "学習済み語句の間隔別内訳"));
   const grid = el("div", { class: "meaningMissionIntervalGrid" });
   MEANING_INTERVALS.forEach(({ label }) => {
     grid.appendChild(el("div", { class: "meaningMissionInterval" },
@@ -878,8 +878,11 @@ function renderHome() {
     });
   }
   const meaningSummary = kyu1 ? meaningPracticeSummary() : null;
+  const meaningItems = kyu1 && pooled1kyuData
+    ? learned1kyuItems(pooled1kyuData.items)
+    : [];
   const meaningQueue = kyu1 && pooled1kyuData
-    ? meaningPracticeQueue(learned1kyuItems(pooled1kyuData.items), true)
+    ? meaningPracticeQueue(meaningItems, true)
     : [];
   const meaningDueCount = meaningSummary ? meaningSummary.due : 0;
 
@@ -979,7 +982,7 @@ function renderHome() {
   summary.appendChild(rec);
 
   if (kyu1) {
-    summary.appendChild(meaningMission(meaningSummary, Boolean(pooled1kyuData), meaningQueue));
+    summary.appendChild(meaningMission(meaningSummary, Boolean(pooled1kyuData), meaningQueue, meaningItems));
   } else {
     const moreWrap = el("div", { class: "secondaryActions" });
     moreWrap.appendChild(el("p", { class: "label" }, "その他の練習"));
@@ -1051,7 +1054,7 @@ function statCell(n, d, caption) {
   );
 }
 
-function meaningMission(summary, ready, nextQueue = []) {
+function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   const total = summary.total;
   const learned = summary.learned;
   const due = summary.due;
@@ -1075,7 +1078,7 @@ function meaningMission(summary, ready, nextQueue = []) {
     el("div", {}, el("strong", {}, ready ? `${summary.locked}語句` : "—"), el("span", {}, "未解放")),
   );
   mission.appendChild(metrics);
-  if (ready && nextQueue.length) mission.appendChild(meaningIntervalBreakdown(nextQueue));
+  if (ready && learnedItems.length) mission.appendChild(meaningIntervalBreakdown(learnedItems));
 
   const progress = el("progress", {
     class: "meaningMissionProgress",
