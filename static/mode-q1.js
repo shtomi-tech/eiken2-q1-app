@@ -938,43 +938,19 @@ function renderHome() {
   rec.appendChild(el("p", { class: "recWhy" }, primary.why));
   summary.appendChild(rec);
 
-  // そのほかの練習（従属メニュー・重要度順）。
-  // 問題セット（データセット）や進捗によってボタンの有無が変わるとページ構造が揃わないため、
-  // 常に同じ2項目を固定順で表示し、選べない状態はdisabledで示す（表示/非表示の切り替えはしない）。
-  const remain = total - solved;
-  const more = [
-    {
-      cls: "secondaryCta reviewCta",
-      label: reviewQs.length ? `間違えた${reviewQs.length}問を復習` : "復習対象はありません",
-      onclick: startReview,
-      disabled: !reviewQs.length || primary.onclick === startReview,
-    },
-    final.cleared
-      ? { cls: "secondaryCta finalCta", label: `最終チェックCLEAR済み（BEST ${final.bestScore}/${finalTotal}・正答率80%以上）`, disabled: true }
-      : canStartFinal
-        ? { cls: "secondaryCta finalCta", label: `最終チェック${finalTotal}問に挑戦`, onclick: startFinalCheck, disabled: primary.onclick === startFinalCheck }
-        : { cls: "secondaryCta", label: `最終チェック（あと${remain}問で解放）`, disabled: true },
-  ];
-
-  const moreWrap = el("div", { class: "secondaryActions" });
-  moreWrap.appendChild(el("p", { class: "label" }, "その他の練習"));
-  const row = el("div", { class: "actions" });
-  more.forEach((m) => {
-    const attrs = { class: m.cls };
-    if (m.disabled) attrs.disabled = "disabled";
-    else attrs.onclick = m.onclick;
-    row.appendChild(el("button", attrs, m.label));
-  });
   if (kyu1) {
     summary.appendChild(meaningMission(meaningSummary, Boolean(pooled1kyuData)));
   } else {
+    const moreWrap = el("div", { class: "secondaryActions" });
+    moreWrap.appendChild(el("p", { class: "label" }, "その他の練習"));
+    const row = el("div", { class: "actions" });
     row.appendChild(el("button", {
       class: "secondaryCta",
       onclick: startMeaningPractice,
     }, `意味だけをまとめて練習（全${finalTotal}語・設問は解かない）`));
+    moreWrap.appendChild(row);
+    summary.appendChild(moreWrap);
   }
-  moreWrap.appendChild(row);
-  summary.appendChild(moreWrap);
   summary.appendChild(el("div", { class: "missionNote" },
     el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final, finalTotal)),
   ));
