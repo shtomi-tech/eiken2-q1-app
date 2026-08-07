@@ -384,6 +384,13 @@ function unitResult(u) {
 
 /* ---- 語句単位の進捗（英検1級の意味だけ演習でのみ使用。既存の units とは別ブロック） ---- */
 const LEITNER_LADDER = [1, 3, 7, 14]; // 正解のたびに進む復習間隔（日）
+const MEANING_INTERVALS = [
+  { days: 0, label: "当日" },
+  { days: 1, label: "1日後" },
+  { days: 3, label: "3日後" },
+  { days: 7, label: "7日後" },
+  { days: 14, label: "14日後" },
+];
 const MEANING_SESSION_SIZE = 30; // 1回に出す語句の上限
 const MEANING_PROGRESS_VERSION = 2;
 const DEFAULT_ITEM_STATE = Object.freeze({ wrongCount: 0, leitnerStage: 0, nextReviewAt: null, lastAnsweredAt: null });
@@ -551,6 +558,36 @@ function meaningPracticeSummary() {
     due: due.length,
     locked: Math.max(0, pooled1kyuData.items.length - learned.length),
   };
+}
+
+// 今回出題される語句を、直前の復習間隔で分類する。
+function meaningIntervalLabel(item) {
+  const itemState = readItemStateOf(item);
+  if (!itemState.lastAnsweredAt || !itemState.nextReviewAt) return "当日";
+  const elapsedDays = Math.round(
+    (new Date(itemState.nextReviewAt).getTime() - new Date(itemState.lastAnsweredAt).getTime())
+      / (24 * 60 * 60 * 1000),
+  );
+  return MEANING_INTERVALS.find(({ days }) => days === elapsedDays)?.label || "当日";
+}
+
+function meaningIntervalBreakdown(items) {
+  const counts = Object.fromEntries(MEANING_INTERVALS.map(({ label }) => [label, 0]));
+  items.forEach((item) => { counts[meaningIntervalLabel(item)] += 1; });
+  const wrap = el("div", {
+    class: "meaningMissionIntervals",
+    "aria-label": "今回の出題間隔別内訳",
+  });
+  wrap.appendChild(el("p", { class: "meaningMissionIntervalsLabel" }, "今回の出題間隔別内訳"));
+  const grid = el("div", { class: "meaningMissionIntervalGrid" });
+  MEANING_INTERVALS.forEach(({ label }) => {
+    grid.appendChild(el("div", { class: "meaningMissionInterval" },
+      el("strong", {}, String(counts[label])),
+      el("span", {}, label),
+    ));
+  });
+  wrap.appendChild(grid);
+  return wrap;
 }
 // クラウドから来た進捗（{datasetId: progress}）を localStorage へ反映
 function applyCloudProgress(map) {
@@ -841,6 +878,9 @@ function renderHome() {
     });
   }
   const meaningSummary = kyu1 ? meaningPracticeSummary() : null;
+  const meaningQueue = kyu1 && pooled1kyuData
+    ? meaningPracticeQueue(learned1kyuItems(pooled1kyuData.items), true)
+    : [];
   const meaningDueCount = meaningSummary ? meaningSummary.due : 0;
 
   // hero は初回訪問（まだ何も学習していない）時だけ表示し、Today見出しとの説明重複を避ける
@@ -921,7 +961,7 @@ function renderHome() {
     primary = {
       label: `意味練習を始める（今回${Math.min(meaningDueCount, MEANING_SESSION_SIZE)}語句）`,
       why: "通常学習で解いた語句だけを、最大30語句ずつ確認します。",
-      onclick: () => startMeaningPractice(true),
+      onclick: () => startMeaningPractice(true, meaningQueue),
       isMeaningDue: true,
     };
   } else {
@@ -939,7 +979,7 @@ function renderHome() {
   summary.appendChild(rec);
 
   if (kyu1) {
-    summary.appendChild(meaningMission(meaningSummary, Boolean(pooled1kyuData)));
+    summary.appendChild(meaningMission(meaningSummary, Boolean(pooled1kyuData), meaningQueue));
   } else {
     const moreWrap = el("div", { class: "secondaryActions" });
     moreWrap.appendChild(el("p", { class: "label" }, "その他の練習"));
@@ -1011,11 +1051,11 @@ function statCell(n, d, caption) {
   );
 }
 
-function meaningMission(summary, ready) {
+function meaningMission(summary, ready, nextQueue = []) {
   const total = summary.total;
   const learned = summary.learned;
   const due = summary.due;
-  const batch = Math.min(due, MEANING_SESSION_SIZE);
+  const batch = nextQueue.length || Math.min(due, MEANING_SESSION_SIZE);
   const mission = el("div", { class: "meaningMission" });
   const head = el("div", { class: "meaningMissionHead" },
     el("div", {},
@@ -1035,6 +1075,7 @@ function meaningMission(summary, ready) {
     el("div", {}, el("strong", {}, ready ? `${summary.locked}語句` : "—"), el("span", {}, "未解放")),
   );
   mission.appendChild(metrics);
+  if (ready && nextQueue.length) mission.appendChild(meaningIntervalBreakdown(nextQueue));
 
   const progress = el("progress", {
     class: "meaningMissionProgress",
@@ -1057,7 +1098,7 @@ function meaningMission(summary, ready) {
   } else if (ready) {
     buttonLabel = `今回の${batch}語句を練習する`;
     note = `対象は最大${total}語句まで増えます。正解した語句は復習間隔に沿って次回へ回ります。`;
-    buttonAttrs.onclick = () => startMeaningPractice(true);
+    buttonAttrs.onclick = () => startMeaningPractice(true, nextQueue);
   }
   if (!buttonAttrs.onclick) buttonAttrs.disabled = "disabled";
   mission.appendChild(el("button", buttonAttrs, buttonLabel));
@@ -1181,12 +1222,14 @@ function meaningPracticeQueue(items, dueOnly) {
   return weightedOrder(candidates).slice(0, MEANING_SESSION_SIZE);
 }
 
-async function startMeaningPractice(dueOnly = true) {
+async function startMeaningPractice(dueOnly = true, queueOverride = null) {
   const kyu1 = is1kyu(state.datasetId);
   const source = kyu1
     ? learned1kyuItems((await loadPooled1kyuItems()).items)
     : allVocabularyItems();
-  const queue = kyu1 ? meaningPracticeQueue(source, true) : shuffle(source);
+  const queue = kyu1
+    ? (Array.isArray(queueOverride) ? queueOverride : meaningPracticeQueue(source, true))
+    : shuffle(source);
   if (!queue.length) {
     renderHome();
     return false;
