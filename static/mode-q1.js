@@ -387,6 +387,7 @@ async function restoreSession() {
   resumeRecoveryMessage = "";
   resumeUnavailable = false;
   renderSession();
+  resetSessionScroll();
   return true;
 }
 function unit(q) {
@@ -1151,7 +1152,7 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   progress.setAttribute("aria-valuetext", ready ? `学習済み対象 ${learned}語句 / 全${total}語句` : "対象語句を確認中");
   mission.appendChild(progress);
 
-  const buttonAttrs = { class: "cta meaningMissionCta", type: "button" };
+  const buttonAttrs = { class: "cta secondaryCta meaningMissionCta", type: "button" };
   let buttonLabel = "対象を確認中…";
   let note = "通常学習を進めると、ここに語句が追加されます。";
   if (ready && learned === 0) {
@@ -1315,6 +1316,10 @@ function finalMessage(solved, total, reviewCount, final, finalTotal) {
    ============================================================ */
 let session = null;
 
+function resetSessionScroll() {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}
+
 function startLearn(q) {
   const items = state.itemsByQ[q];
   session = {
@@ -1332,6 +1337,7 @@ function startLearn(q) {
     wrongReviewed: false,
   };
   renderSession();
+  resetSessionScroll();
 }
 
 function startReview() {
@@ -1350,6 +1356,7 @@ function startReview() {
     stage: "practice",
   };
   renderSession();
+  resetSessionScroll();
 }
 
 // 語句の進捗を、その語句が属する回（item._datasetId、無ければ現在の回）から読み取る。
@@ -1420,6 +1427,7 @@ async function startMeaningPractice(dueOnly = true, queueOverride = null) {
     meaningBatchSize: grade ? MEANING_SESSION_SIZE : null,
   };
   renderSession();
+  resetSessionScroll();
   return true;
 }
 
@@ -1439,6 +1447,7 @@ function startFinalCheck() {
     wrongReviewed: false,
   };
   renderSession();
+  resetSessionScroll();
 }
 
 function renderSession() {

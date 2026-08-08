@@ -12,6 +12,7 @@
   --clay: #a9583e;
   --clay-hover: #8a4732;
   --ok: #16803a;
+  --ok-text: #126b30;
   --ng: #b42318;
   --warn: #a16207;
   --sans: "Inter", "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
@@ -149,7 +150,7 @@ h2 {
   margin-top: 16px;
   padding-top: 12px;
 }
-.resumeNotice .label { color: var(--clay); margin-bottom: 4px; }
+.resumeNotice .label { color: var(--clay-hover); margin-bottom: 4px; }
 .resumeText { margin: 0; font-weight: 600; }
 .sessionState { color: var(--muted); font-size: 12px; margin: -8px 0 14px; }
 
@@ -662,7 +663,7 @@ h2 {
 .recEyebrow {
   display: block;
   margin: 0 0 8px;
-  color: var(--clay);
+  color: var(--clay-hover);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 600;
@@ -726,7 +727,7 @@ h2 {
 }
 .meaningMission h3 {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.35;
   margin: 0;
 }
@@ -881,10 +882,10 @@ h2 {
   text-transform: uppercase;
   color: var(--muted);
 }
-.qCard.done .qstat { color: var(--ok); }
+.qCard.done .qstat { color: var(--ok-text); }
 .qCard.unknown .qstat { color: var(--muted); }
-.qCard.due .qstat { color: var(--clay); }
-.qCard.review .qstat { color: var(--clay); }
+.qCard.due .qstat { color: var(--clay-hover); }
+.qCard.review .qstat { color: var(--clay-hover); }
 
 /* ---- Session shell ---- */
 .stageBar {
@@ -1058,7 +1059,7 @@ h2 {
   gap: 12px;
   flex-wrap: wrap;
 }
-.selfExampleHead .label { margin-bottom: 4px; color: var(--clay); }
+.selfExampleHead .label { margin-bottom: 4px; color: var(--clay-hover); }
 .selfExampleHead h3 { margin: 0; font-family: var(--serif); font-size: 23px; }
 .selfExampleTag { color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
 .selfExamplePrompt { margin: 8px 0 14px; color: var(--muted); font-size: 13px; }
@@ -1082,7 +1083,7 @@ h2 {
   margin-top: 6px;
 }
 .selfExampleCount, .selfExampleStatus { color: var(--muted); font-family: var(--mono); font-size: 11px; }
-.selfExampleStatus.ok { color: var(--ok); }
+.selfExampleStatus.ok { color: var(--ok-text); }
 .selfExampleStatus.ng { color: var(--ng); }
 .selfExampleActions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
 .selfExampleActions button { min-width: 140px; }
@@ -1096,7 +1097,7 @@ h2 {
 .selfExampleFeedback.revise { border-left-color: var(--clay); }
 .selfExampleFeedback p { margin: 5px 0 0; font-size: 13px; }
 .selfExampleFeedbackTitle { margin: 0 !important; font-family: var(--serif); font-size: 20px !important; font-weight: 600; }
-.selfExampleSuggestionLabel { color: var(--clay); font-family: var(--mono); font-size: 10px !important; letter-spacing: .08em; }
+.selfExampleSuggestionLabel { color: var(--clay-hover); font-family: var(--mono); font-size: 10px !important; letter-spacing: .08em; }
 .selfExampleSuggestion { font-family: var(--serif); font-size: 16px !important; }
 .selfExampleFeedbackText { color: var(--muted); }
 .selfExampleUnavailable { margin-bottom: 0; }
@@ -1178,8 +1179,10 @@ h2 {
   margin-top: 14px;
   padding: 12px 14px;
 }
+.feedback.ok { border-left-color: var(--ok); }
+.feedback.ng { border-left-color: var(--ng); }
 .feedback h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 18px; }
-.feedback.ok h3 { color: var(--ok); }
+.feedback.ok h3 { color: var(--ok-text); }
 .feedback.ng h3 { color: var(--ng); }
 .feedback p { margin: 6px 0 0; }
 .feedback .trans { color: var(--muted); font-size: 14px; }
@@ -1226,6 +1229,11 @@ h2 {
   .dailyGrid { grid-template-columns: repeat(3, 1fr); }
   .dailyGrid.cols4 { grid-template-columns: repeat(2, 1fr); }
   .dailyGrid.cols5 { grid-template-columns: repeat(2, 1fr); }
+  .dailyGrid.cols5 > .dailyCell:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 8px) / 2);
+  }
   .topActions, .itemHead, .sectionHead { align-items: stretch; }
   .stagePill { min-width: 90px; font-size: 10px; }
   .meaningMissionHead { flex-direction: column; }
