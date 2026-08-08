@@ -643,9 +643,12 @@ function meaningIntervalBreakdown(items) {
   items.forEach((item) => { counts[meaningIntervalLabel(item)] += 1; });
   const wrap = el("div", {
     class: "meaningMissionIntervals",
-    "aria-label": "学習済み語句の間隔別内訳",
+    "aria-label": "学習済み語句の復習間隔別内訳",
   });
-  wrap.appendChild(el("p", { class: "meaningMissionIntervalsLabel" }, "学習済み語句の間隔別内訳"));
+  wrap.appendChild(el("p", { class: "meaningMissionIntervalsLabel" }, "学習済み語句の復習間隔別内訳"));
+  wrap.appendChild(el("p", { class: "meaningMissionIntervalsHelp" },
+    `全${items.length}語句の現在の復習間隔です。「今すぐ復習」の件数とは別に集計しています。`,
+  ));
   const grid = el("div", { class: "meaningMissionIntervalGrid" });
   MEANING_INTERVALS.forEach(({ label }) => {
     grid.appendChild(el("div", { class: "meaningMissionInterval" },
@@ -1031,7 +1034,7 @@ function renderHomeContent() {
     // ここが無いと、復習待ちの語句があっても常に「第1問からもう一周」だけが案内される。
     primary = {
       label: `意味だけの復習を始める（今回${Math.min(meaningDueCount, MEANING_SESSION_SIZE)}語句）`,
-      why: "通常学習で解いた語句だけを、最大30語句ずつ確認します。",
+      why: `今すぐ復習する語句は${meaningDueCount}語句。最大${MEANING_SESSION_SIZE}語句ずつ確認します。`,
       onclick: () => startMeaningPractice(true, meaningQueue),
       isMeaningDue: true,
     };
@@ -1122,6 +1125,7 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   const learned = summary.learned;
   const due = summary.due;
   const batch = nextQueue.length || Math.min(due, MEANING_SESSION_SIZE);
+  const remaining = Math.max(0, due - batch);
   const mission = el("div", { class: "meaningMission" });
   const head = el("div", { class: "meaningMissionHead" },
     el("div", {},
@@ -1132,12 +1136,13 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   );
   mission.appendChild(head);
   mission.appendChild(el("p", { class: "meaningMissionLead" },
-    `通常学習で最後まで解いた設問の4語句だけが対象です。${dataset().shortLabel}の収録セットをまとめ、1回の出題は最大${MEANING_SESSION_SIZE}語句です。`,
+    `通常学習で最後まで解いた設問の4語句だけが対象です。${dataset().shortLabel}の収録セットをまとめ、復習期限が来た語句から1回に最大${MEANING_SESSION_SIZE}語句を出題します。`,
   ));
 
   const metrics = el("div", { class: "meaningMissionMetrics" },
     el("div", {}, el("strong", {}, ready ? `${learned} / ${total}` : "—"), el("span", {}, "学習済み対象")),
-    el("div", {}, el("strong", {}, ready ? `${batch}語句` : "—"), el("span", {}, "今回の出題")),
+    el("div", { class: due > 0 ? "meaningMissionMetricDue" : "" }, el("strong", {}, ready ? `${due}語句` : "—"), el("span", {}, "今すぐ復習")),
+    el("div", {}, el("strong", {}, ready ? `${batch}語句` : "—"), el("span", {}, "今回の1回分")),
     el("div", {}, el("strong", {}, ready ? `${summary.locked}語句` : "—"), el("span", {}, "未解放")),
   );
   mission.appendChild(metrics);
@@ -1159,11 +1164,13 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
     buttonLabel = "第1問を学習すると開始できます";
     note = "まだ意味練習の対象はありません。まず通常学習で設問を解いてください。";
   } else if (ready && due === 0) {
-    buttonLabel = "今日の復習対象はありません";
-    note = "復習日が来た語句がない状態です。次の復習日にまた表示されます。";
+    buttonLabel = "今すぐ復習する語句はありません";
+    note = "復習期限が来た語句はありません。次の復習日にまた表示されます。";
   } else if (ready) {
     buttonLabel = `今回の${batch}語句を練習する`;
-    note = `対象は最大${total}語句まで増えます。正解した語句は復習間隔に沿って次回へ回ります。`;
+    note = remaining > 0
+      ? `今すぐ復習する${due}語句のうち、今回は${batch}語句を出題します。残り${remaining}語句は次の回に回ります。`
+      : `今すぐ復習する語句は${due}語句です。正解した語句は復習間隔に沿って次回へ回ります。`;
     buttonAttrs.onclick = () => startMeaningPractice(true, nextQueue);
   }
   if (!buttonAttrs.onclick) buttonAttrs.disabled = "disabled";

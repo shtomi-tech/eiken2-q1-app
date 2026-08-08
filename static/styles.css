@@ -750,13 +750,17 @@ h2 {
 .meaningMissionMetrics {
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 12px;
 }
 .meaningMissionMetrics > div {
   background: var(--parchment);
   border-radius: var(--r-md);
   padding: 10px;
+}
+.meaningMissionMetrics > .meaningMissionMetricDue {
+  background: var(--surface-strong);
+  border-left: 3px solid var(--clay);
 }
 .meaningMissionMetrics strong,
 .meaningMissionMetrics span { display: block; }
@@ -788,6 +792,12 @@ h2 {
   color: var(--muted);
   font-size: 11px;
   margin: 0 0 8px;
+}
+.meaningMissionIntervalsHelp {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: -2px 0 8px;
 }
 .meaningMissionIntervalGrid {
   display: grid;
@@ -1229,6 +1239,7 @@ h2 {
   .dailyGrid { grid-template-columns: repeat(3, 1fr); }
   .dailyGrid.cols4 { grid-template-columns: repeat(2, 1fr); }
   .dailyGrid.cols5 { grid-template-columns: repeat(2, 1fr); }
+  .meaningMissionMetrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dailyGrid.cols5 > .dailyCell:last-child {
     grid-column: 1 / -1;
     justify-self: center;
