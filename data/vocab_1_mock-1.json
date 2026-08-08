@@ -1,0 +1,917 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "mock-1",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "ユーザー提供の模試原稿（模試 第1回）を学習用JSONへ構造化",
+    "counts": {
+      "words": 84,
+      "idioms": 16,
+      "total": 100
+    }
+  },
+  "words": [
+    {
+      "q": 1,
+      "is_answer": true,
+      "meaning": "脳震盪",
+      "example": "The doctor diagnosed him with a mild concussion after the fall.",
+      "exampleTranslation": "医師は転倒後、彼を軽い脳震盪と診断した。",
+      "pos": "名詞",
+      "word": "concussion"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "（規則の）違反",
+      "example": "The referee called the late tackle an infraction.",
+      "exampleTranslation": "審判は遅れて入ったタックルを反則と判定した。",
+      "pos": "名詞",
+      "word": "infraction"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "排除、妨げ",
+      "example": "The rule allows preclusion of applicants who submit false documents.",
+      "exampleTranslation": "その規則は、虚偽の書類を提出した申請者を排除することを認めている。",
+      "pos": "名詞",
+      "word": "preclusion"
+    },
+    {
+      "q": 1,
+      "is_answer": false,
+      "meaning": "報復、仕返し",
+      "example": "The attack was presented as retribution for the earlier bombing.",
+      "exampleTranslation": "その攻撃は、先の爆撃への報復として説明された。",
+      "pos": "名詞",
+      "word": "retribution"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "倹約",
+      "example": "Her thrift allowed her to save enough for a small house.",
+      "exampleTranslation": "彼女は倹約によって小さな家を買えるだけのお金を貯めた。",
+      "pos": "名詞",
+      "word": "thrift"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "愛想のよさ、親しみやすさ",
+      "example": "The host's affability made every guest feel welcome.",
+      "exampleTranslation": "司会者の愛想のよさで、すべての客が歓迎されていると感じた。",
+      "pos": "名詞",
+      "word": "affability"
+    },
+    {
+      "q": 2,
+      "is_answer": false,
+      "meaning": "失敗作、役立たず",
+      "example": "The expensive gadget turned out to be a dud.",
+      "exampleTranslation": "その高価な機器は、結局のところ失敗作だった。",
+      "pos": "名詞",
+      "word": "dud"
+    },
+    {
+      "q": 2,
+      "is_answer": true,
+      "meaning": "回顧、振り返って",
+      "example": "In retrospect, taking that job was the right decision.",
+      "exampleTranslation": "振り返ってみると、あの仕事を受けたのは正しい決断だった。",
+      "pos": "名詞",
+      "word": "retrospect"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "素早く走る、突進する",
+      "example": "A rabbit was darting across the field.",
+      "exampleTranslation": "ウサギが野原を素早く横切っていた。",
+      "pos": "動詞",
+      "word": "darting"
+    },
+    {
+      "q": 3,
+      "is_answer": true,
+      "meaning": "前かがみでだらしなく座ること",
+      "example": "Slouching at a desk can cause back pain.",
+      "exampleTranslation": "机で前かがみになると、背中が痛くなることがある。",
+      "pos": "動詞",
+      "word": "slouching"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "差し込む、押し込む",
+      "example": "He was wedging a chair under the door handle.",
+      "exampleTranslation": "彼はドアの取っ手の下に椅子を押し込んでいた。",
+      "pos": "動詞",
+      "word": "wedging"
+    },
+    {
+      "q": 3,
+      "is_answer": false,
+      "meaning": "離反すること",
+      "example": "The spy was arrested while defecting to the other side.",
+      "exampleTranslation": "そのスパイは相手側へ離反しようとして逮捕された。",
+      "pos": "動詞",
+      "word": "defecting"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "強く促す、激励する",
+      "example": "The coach exhorts the players to keep trying.",
+      "exampleTranslation": "コーチは選手たちに挑戦し続けるよう強く促す。",
+      "pos": "動詞",
+      "word": "exhorts"
+    },
+    {
+      "q": 4,
+      "is_answer": true,
+      "meaning": "典型的に示す",
+      "example": "This quiet village typifies life in the northern region.",
+      "exampleTranslation": "この静かな村は北部地域の暮らしを典型的に示している。",
+      "pos": "動詞",
+      "word": "typifies"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "落胆させる",
+      "example": "A single defeat does not dispirit the determined team.",
+      "exampleTranslation": "一度の敗北で、その意志の強いチームが落胆することはない。",
+      "pos": "動詞",
+      "word": "dispirits"
+    },
+    {
+      "q": 4,
+      "is_answer": false,
+      "meaning": "省く、記載しない",
+      "example": "The report omits several important details.",
+      "exampleTranslation": "その報告書はいくつかの重要な詳細を省いている。",
+      "pos": "動詞",
+      "word": "omits"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "慈悲、寛大な処置",
+      "example": "The prisoner appealed to the governor for clemency.",
+      "exampleTranslation": "その囚人は知事に慈悲を求めた。",
+      "pos": "名詞",
+      "word": "clemency"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "死、終焉",
+      "example": "The newspaper reported the demise of the old theater.",
+      "exampleTranslation": "その新聞は古い劇場の終焉を報じた。",
+      "pos": "名詞",
+      "word": "demise"
+    },
+    {
+      "q": 5,
+      "is_answer": false,
+      "meaning": "憂鬱、物悲しさ",
+      "example": "The empty station filled her with melancholy.",
+      "exampleTranslation": "無人の駅を見て、彼女は物悲しい気持ちになった。",
+      "pos": "名詞",
+      "word": "melancholy"
+    },
+    {
+      "q": 5,
+      "is_answer": true,
+      "meaning": "詐欺",
+      "example": "The email was a scam designed to steal bank details.",
+      "exampleTranslation": "そのメールは銀行情報を盗むための詐欺だった。",
+      "pos": "名詞",
+      "word": "scam"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "仮定、推測",
+      "example": "His conclusion was based on a supposition rather than evidence.",
+      "exampleTranslation": "彼の結論は証拠ではなく推測に基づいていた。",
+      "pos": "名詞",
+      "word": "supposition"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "風変わりな癖",
+      "example": "One quirk of the old clock is that it rings twice at noon.",
+      "exampleTranslation": "その古時計の風変わりな癖の一つは、正午に2回鳴ることだ。",
+      "pos": "名詞",
+      "word": "quirk"
+    },
+    {
+      "q": 6,
+      "is_answer": true,
+      "meaning": "誤った名称、誤称",
+      "example": "Calling the tiny room a ballroom is a misnomer.",
+      "exampleTranslation": "その小さな部屋を舞踏室と呼ぶのは誤称だ。",
+      "pos": "名詞",
+      "word": "misnomer"
+    },
+    {
+      "q": 6,
+      "is_answer": false,
+      "meaning": "激しい苦痛；ねじる道具",
+      "example": "Leaving her hometown was an emotional wrench.",
+      "exampleTranslation": "故郷を離れることは精神的に大きな苦痛だった。",
+      "pos": "名詞",
+      "word": "wrench"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "ろ過した、選別した",
+      "example": "The technician filtered the water before testing it.",
+      "exampleTranslation": "技術者は検査前に水をろ過した。",
+      "pos": "動詞",
+      "word": "filtered"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "申し立てられた、 alleged の",
+      "example": "The alleged thief denied taking the necklace.",
+      "exampleTranslation": "容疑者とされた泥棒はネックレスを盗んだことを否定した。",
+      "pos": "形容詞",
+      "word": "alleged"
+    },
+    {
+      "q": 7,
+      "is_answer": false,
+      "meaning": "つなぎ留めた",
+      "example": "The hikers tethered the horses near the river.",
+      "exampleTranslation": "ハイカーたちは川の近くで馬をつないだ。",
+      "pos": "動詞",
+      "word": "tethered"
+    },
+    {
+      "q": 7,
+      "is_answer": true,
+      "meaning": "任務後に事情聴取した",
+      "example": "The rescue team was debriefed after returning to base.",
+      "exampleTranslation": "救助隊は基地に戻った後、任務について報告を求められた。",
+      "pos": "動詞",
+      "word": "debriefed"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "非常にひどい、忌まわしい",
+      "example": "The restaurant received an abominable safety rating.",
+      "exampleTranslation": "そのレストランは非常にひどい安全評価を受けた。",
+      "pos": "形容詞",
+      "word": "abominable"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "生意気な、無礼な",
+      "example": "The clerk was dismissed for making an impertinent remark.",
+      "exampleTranslation": "その店員は生意気な発言をしたため解雇された。",
+      "pos": "形容詞",
+      "word": "impertinent"
+    },
+    {
+      "q": 8,
+      "is_answer": false,
+      "meaning": "致命的な",
+      "example": "The snake's bite can be lethal without treatment.",
+      "exampleTranslation": "そのヘビのかみ傷は、治療しなければ致命的になることがある。",
+      "pos": "形容詞",
+      "word": "lethal"
+    },
+    {
+      "q": 8,
+      "is_answer": true,
+      "meaning": "なめらかで洗練された",
+      "example": "The company launched a sleek new electric car.",
+      "exampleTranslation": "その会社は洗練された新しい電気自動車を発表した。",
+      "pos": "形容詞",
+      "word": "sleek"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "猛暑の、灼熱の",
+      "example": "The runners struggled through a torrid afternoon.",
+      "exampleTranslation": "ランナーたちは猛暑の午後に苦戦した。",
+      "pos": "形容詞",
+      "word": "torrid"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "優柔不断な",
+      "example": "The irresolute manager kept postponing the decision.",
+      "exampleTranslation": "その優柔不断な管理職は決定を先延ばしにし続けた。",
+      "pos": "形容詞",
+      "word": "irresolute"
+    },
+    {
+      "q": 9,
+      "is_answer": true,
+      "meaning": "初歩的な、未発達な",
+      "example": "The village had only rudimentary medical facilities.",
+      "exampleTranslation": "その村には初歩的な医療設備しかなかった。",
+      "pos": "形容詞",
+      "word": "rudimentary"
+    },
+    {
+      "q": 9,
+      "is_answer": false,
+      "meaning": "受け入れやすい、従順な",
+      "example": "The committee was amenable to a reasonable compromise.",
+      "exampleTranslation": "委員会は妥当な妥協案を受け入れる用意があった。",
+      "pos": "形容詞",
+      "word": "amenable"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "条件、規定",
+      "example": "The contract includes a stipulation about working hours.",
+      "exampleTranslation": "その契約には勤務時間に関する条件が含まれている。",
+      "pos": "名詞",
+      "word": "stipulation"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "条項、備え",
+      "example": "The law contains a provision for emergency aid.",
+      "exampleTranslation": "その法律には緊急支援の条項がある。",
+      "pos": "名詞",
+      "word": "provision"
+    },
+    {
+      "q": 10,
+      "is_answer": false,
+      "meaning": "注釈",
+      "example": "The professor added an annotation to the difficult passage.",
+      "exampleTranslation": "教授は難しい箇所に注釈を加えた。",
+      "pos": "名詞",
+      "word": "annotation"
+    },
+    {
+      "q": 10,
+      "is_answer": true,
+      "meaning": "軽率な言動、秘密漏洩",
+      "example": "His indiscretion revealed the confidential plan.",
+      "exampleTranslation": "彼の軽率な言動によって秘密の計画が明らかになった。",
+      "pos": "名詞",
+      "word": "indiscretion"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "はねかけた",
+      "example": "The passing truck splashed mud on my coat.",
+      "exampleTranslation": "通り過ぎたトラックが私のコートに泥をはねかけた。",
+      "pos": "動詞",
+      "word": "splashed"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "急いだ、促進した",
+      "example": "She hastened to the station when she heard the announcement.",
+      "exampleTranslation": "彼女はアナウンスを聞くと駅へ急いだ。",
+      "pos": "動詞",
+      "word": "hastened"
+    },
+    {
+      "q": 11,
+      "is_answer": true,
+      "meaning": "利用した、活用した",
+      "example": "The small shop capitalized on the sudden tourist boom.",
+      "exampleTranslation": "その小さな店は突然の観光客増加を活用した。",
+      "pos": "動詞",
+      "word": "capitalized"
+    },
+    {
+      "q": 11,
+      "is_answer": false,
+      "meaning": "折れた、態度を和らげた",
+      "example": "The teacher finally relented and extended the deadline.",
+      "exampleTranslation": "先生はついに折れて締め切りを延ばした。",
+      "pos": "動詞",
+      "word": "relented"
+    },
+    {
+      "q": 12,
+      "is_answer": true,
+      "meaning": "変動した",
+      "example": "Oil prices fluctuated sharply during the crisis.",
+      "exampleTranslation": "危機の間、石油価格は大きく変動した。",
+      "pos": "動詞",
+      "word": "fluctuated"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "急に走り去った",
+      "example": "The startled horse bolted toward the open field.",
+      "exampleTranslation": "驚いた馬は開けた野原へ急に走り去った。",
+      "pos": "動詞",
+      "word": "bolted"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "悪化した",
+      "example": "His condition deteriorated during the night.",
+      "exampleTranslation": "彼の容体は夜の間に悪化した。",
+      "pos": "動詞",
+      "word": "deteriorated"
+    },
+    {
+      "q": 12,
+      "is_answer": false,
+      "meaning": "くすくす笑った",
+      "example": "Grandfather chuckled at the child's clever answer.",
+      "exampleTranslation": "祖父は子どもの賢い答えを聞いてくすくす笑った。",
+      "pos": "動詞",
+      "word": "chuckled"
+    },
+    {
+      "q": 13,
+      "is_answer": true,
+      "meaning": "強制送還",
+      "example": "The court ordered his deportation after the visa violation.",
+      "exampleTranslation": "裁判所はビザ違反の後、彼の強制送還を命じた。",
+      "pos": "名詞",
+      "word": "deportation"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "反乱、暴動",
+      "example": "The government declared a state of emergency after the insurrection.",
+      "exampleTranslation": "政府は反乱の後、非常事態を宣言した。",
+      "pos": "名詞",
+      "word": "insurrection"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "発音・朗読法",
+      "example": "The actor took elocution lessons before the play opened.",
+      "exampleTranslation": "その俳優は初演前に発音・朗読法のレッスンを受けた。",
+      "pos": "名詞",
+      "word": "elocution"
+    },
+    {
+      "q": 13,
+      "is_answer": false,
+      "meaning": "気質、処分",
+      "example": "Her cheerful disposition helped the team through the difficult week.",
+      "exampleTranslation": "彼女の明るい気質が、困難な週を乗り切るチームの助けになった。",
+      "pos": "名詞",
+      "word": "disposition"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "悔い改めた、後悔している",
+      "example": "The penitent student apologized to the class.",
+      "exampleTranslation": "その後悔した生徒はクラスに謝った。",
+      "pos": "形容詞",
+      "word": "penitent"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "勉強熱心な",
+      "example": "Her studious habits earned her a scholarship.",
+      "exampleTranslation": "彼女は勉強熱心だったため奨学金を得た。",
+      "pos": "形容詞",
+      "word": "studious"
+    },
+    {
+      "q": 14,
+      "is_answer": false,
+      "meaning": "びしょ濡れの、ふやけた",
+      "example": "The soggy newspaper fell apart in my hands.",
+      "exampleTranslation": "びしょ濡れの新聞は手の中でばらばらになった。",
+      "pos": "形容詞",
+      "word": "soggy"
+    },
+    {
+      "q": 14,
+      "is_answer": true,
+      "meaning": "抑えきれない、非常に前向きな",
+      "example": "His irrepressible enthusiasm encouraged everyone around him.",
+      "exampleTranslation": "彼の抑えきれない熱意が周囲の全員を勇気づけた。",
+      "pos": "形容詞",
+      "word": "irrepressible"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "いたずらっぽい",
+      "example": "The child gave us a roguish smile.",
+      "exampleTranslation": "その子どもは私たちにいたずらっぽい笑顔を見せた。",
+      "pos": "形容詞",
+      "word": "roguish"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "脳の、知的な",
+      "example": "The injury caused serious cerebral damage.",
+      "exampleTranslation": "そのけがは深刻な脳損傷を引き起こした。",
+      "pos": "形容詞",
+      "word": "cerebral"
+    },
+    {
+      "q": 15,
+      "is_answer": false,
+      "meaning": "複雑な、入り組んだ",
+      "example": "The artist designed an intricate pattern for the tile.",
+      "exampleTranslation": "その芸術家はタイルに複雑な模様をデザインした。",
+      "pos": "形容詞",
+      "word": "intricate"
+    },
+    {
+      "q": 15,
+      "is_answer": true,
+      "meaning": "不正な、詐欺的な",
+      "example": "The bank blocked the fraudulent transaction.",
+      "exampleTranslation": "銀行は不正な取引を阻止した。",
+      "pos": "形容詞",
+      "word": "fraudulent"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "流出、こぼれ",
+      "example": "The crew cleaned up the chemical spillage immediately.",
+      "exampleTranslation": "乗組員は化学物質の流出を直ちに処理した。",
+      "pos": "名詞",
+      "word": "spillage"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "軟骨",
+      "example": "The old dog had trouble chewing the tough gristle.",
+      "exampleTranslation": "その老犬は硬い軟骨をかむのに苦労した。",
+      "pos": "名詞",
+      "word": "gristle"
+    },
+    {
+      "q": 16,
+      "is_answer": true,
+      "meaning": "厚かましい大胆さ",
+      "example": "I was surprised by her audacity in challenging the director.",
+      "exampleTranslation": "私は、彼女が監督に意見した大胆さに驚いた。",
+      "pos": "名詞",
+      "word": "audacity"
+    },
+    {
+      "q": 16,
+      "is_answer": false,
+      "meaning": "焼き直し",
+      "example": "The sequel felt like a rehash of the first movie.",
+      "exampleTranslation": "その続編は1作目の焼き直しのように感じられた。",
+      "pos": "名詞",
+      "word": "rehash"
+    },
+    {
+      "q": 17,
+      "is_answer": true,
+      "meaning": "吐き戻す、逆流させる",
+      "example": "The parent bird regurgitates food for its chicks.",
+      "exampleTranslation": "親鳥はひなたちのために食べ物を吐き戻す。",
+      "pos": "動詞",
+      "word": "regurgitates"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "照らす、明らかにする",
+      "example": "The diagram illuminates the structure of the machine.",
+      "exampleTranslation": "その図は機械の構造を明らかにする。",
+      "pos": "動詞",
+      "word": "illuminates"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "切り詰める、省略する",
+      "example": "The program truncates long file names automatically.",
+      "exampleTranslation": "そのプログラムは長いファイル名を自動的に切り詰める。",
+      "pos": "動詞",
+      "word": "truncates"
+    },
+    {
+      "q": 17,
+      "is_answer": false,
+      "meaning": "燻蒸消毒する",
+      "example": "The company fumigates the warehouse once a year.",
+      "exampleTranslation": "その会社は年に一度、倉庫を燻蒸消毒する。",
+      "pos": "動詞",
+      "word": "fumigates"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "にじみ出る、発散する",
+      "example": "The flowers exude a sweet fragrance at night.",
+      "exampleTranslation": "その花は夜に甘い香りを発散する。",
+      "pos": "動詞",
+      "word": "exude"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "弱らせる",
+      "example": "A long illness can debilitate even a strong athlete.",
+      "exampleTranslation": "長い病気は強い運動選手でさえ弱らせることがある。",
+      "pos": "動詞",
+      "word": "debilitate"
+    },
+    {
+      "q": 18,
+      "is_answer": true,
+      "meaning": "放棄する、免除する",
+      "example": "The hotel agreed to waive the cancellation fee.",
+      "exampleTranslation": "ホテルはキャンセル料を免除することに同意した。",
+      "pos": "動詞",
+      "word": "waive"
+    },
+    {
+      "q": 18,
+      "is_answer": false,
+      "meaning": "多様化する",
+      "example": "The company plans to diversify its product line.",
+      "exampleTranslation": "その会社は製品ラインを多様化する計画だ。",
+      "pos": "動詞",
+      "word": "diversify"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "著名な、輝かしい",
+      "example": "The museum honors the illustrious scientist every year.",
+      "exampleTranslation": "その博物館は毎年、その著名な科学者をたたえている。",
+      "pos": "形容詞",
+      "word": "illustrious"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "横柄な、尊大な",
+      "example": "His imperious tone annoyed the entire staff.",
+      "exampleTranslation": "彼の横柄な口調はスタッフ全員をいら立たせた。",
+      "pos": "形容詞",
+      "word": "imperious"
+    },
+    {
+      "q": 19,
+      "is_answer": false,
+      "meaning": "余分な、無関係な",
+      "example": "Please remove any extraneous information from the summary.",
+      "exampleTranslation": "要約から余分な情報を取り除いてください。",
+      "pos": "形容詞",
+      "word": "extraneous"
+    },
+    {
+      "q": 19,
+      "is_answer": true,
+      "meaning": "静脈内の",
+      "example": "The patient received intravenous fluids after the operation.",
+      "exampleTranslation": "患者は手術後、静脈内輸液を受けた。",
+      "pos": "形容詞",
+      "word": "intravenous"
+    },
+    {
+      "q": 20,
+      "is_answer": true,
+      "meaning": "克服できない、乗り越えがたい",
+      "example": "The team found a way around what seemed like an insurmountable obstacle.",
+      "exampleTranslation": "チームは克服不可能に見えた障害を乗り越える方法を見つけた。",
+      "pos": "形容詞",
+      "word": "insurmountable"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "生意気な、横柄な",
+      "example": "The insolent student refused to follow the simple instruction.",
+      "exampleTranslation": "その生意気な生徒は簡単な指示に従うことを拒んだ。",
+      "pos": "形容詞",
+      "word": "insolent"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "遠回りの、間接的な",
+      "example": "We took a roundabout route to avoid the traffic.",
+      "exampleTranslation": "私たちは渋滞を避けるため遠回りの道を通った。",
+      "pos": "形容詞",
+      "word": "roundabout"
+    },
+    {
+      "q": 20,
+      "is_answer": false,
+      "meaning": "老衰した、老年性の",
+      "example": "The novel portrays a senile king losing his grip on power.",
+      "exampleTranslation": "その小説は、権力を失っていく老衰した王を描いている。",
+      "pos": "形容詞",
+      "word": "senile"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "逆さにする、反転する",
+      "example": "Invert the bottle before opening it.",
+      "exampleTranslation": "開ける前に瓶を逆さにしてください。",
+      "pos": "動詞",
+      "word": "invert"
+    },
+    {
+      "q": 21,
+      "is_answer": true,
+      "meaning": "大目に見る、容認する",
+      "example": "The school will not condone bullying of any kind.",
+      "exampleTranslation": "学校はいかなる種類のいじめも容認しない。",
+      "pos": "動詞",
+      "word": "condone"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "屈辱を与える、悔しがらせる",
+      "example": "The public mistake mortified the young speaker.",
+      "exampleTranslation": "公の場での間違いは若い講演者に屈辱を与えた。",
+      "pos": "動詞",
+      "word": "mortify"
+    },
+    {
+      "q": 21,
+      "is_answer": false,
+      "meaning": "巻き込む",
+      "example": "The dispute could embroil several neighboring countries.",
+      "exampleTranslation": "その紛争は近隣諸国をいくつも巻き込む可能性がある。",
+      "pos": "動詞",
+      "word": "embroil"
+    }
+  ],
+  "idioms": [
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "持ち越す",
+      "example": "The unused budget is carrying over to the next quarter.",
+      "exampleTranslation": "未使用の予算は次の四半期へ持ち越される。",
+      "pos": "熟語",
+      "phrase": "carrying over"
+    },
+    {
+      "q": 22,
+      "is_answer": true,
+      "meaning": "厳しく取り締まる",
+      "example": "The city is cracking down on illegal parking.",
+      "exampleTranslation": "市は違法駐車を厳しく取り締まっている。",
+      "pos": "熟語",
+      "phrase": "cracking down"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "ぶらぶら過ごす、遊ぶ",
+      "example": "We spent the afternoon hanging out at the park.",
+      "exampleTranslation": "私たちは午後を公園でぶらぶら過ごした。",
+      "pos": "熟語",
+      "phrase": "hanging out"
+    },
+    {
+      "q": 22,
+      "is_answer": false,
+      "meaning": "やせ衰える、衰弱する",
+      "example": "Without proper care, the abandoned garden was wasting away.",
+      "exampleTranslation": "適切な世話がなく、その放置された庭は衰えていった。",
+      "pos": "熟語",
+      "phrase": "wasting away"
+    },
+    {
+      "q": 23,
+      "is_answer": true,
+      "meaning": "ぼんやりした状態から立ち直る",
+      "example": "You need to snap out of your gloomy mood and face the problem.",
+      "exampleTranslation": "憂鬱な気分から立ち直って、問題に向き合う必要がある。",
+      "pos": "熟語",
+      "phrase": "Snap out of"
+    },
+    {
+      "q": 23,
+      "is_answer": false,
+      "meaning": "期待に応えて行動する",
+      "example": "The young player acted up to the high expectations placed on him.",
+      "exampleTranslation": "その若い選手は寄せられた大きな期待に応えて行動した。",
+      "pos": "熟語",
+      "phrase": "Act up to"
+    },
+    {
+      "q": 23,
+      "is_answer": false,
+      "meaning": "隠して与えない、出し惜しみする",
+      "example": "Please do not hold out on us when you know the answer.",
+      "exampleTranslation": "答えを知っているなら、私たちに隠さないでください。",
+      "pos": "熟語",
+      "phrase": "Hold out on"
+    },
+    {
+      "q": 23,
+      "is_answer": false,
+      "meaning": "立ち向かう",
+      "example": "She stood up to the bully and reported the incident.",
+      "exampleTranslation": "彼女はいじめっ子に立ち向かい、その出来事を報告した。",
+      "pos": "熟語",
+      "phrase": "Stand up to"
+    },
+    {
+      "q": 24,
+      "is_answer": true,
+      "meaning": "説明する、明確に示す",
+      "example": "The lawyer laid out the risks before we signed the contract.",
+      "exampleTranslation": "弁護士は私たちが契約に署名する前にリスクを説明した。",
+      "pos": "熟語",
+      "phrase": "lay out"
+    },
+    {
+      "q": 24,
+      "is_answer": false,
+      "meaning": "（支持・仕事など）をかき集める",
+      "example": "The campaign tried to drum up support from local residents.",
+      "exampleTranslation": "その運動は地元住民から支持を集めようとした。",
+      "pos": "熟語",
+      "phrase": "drum up"
+    },
+    {
+      "q": 24,
+      "is_answer": false,
+      "meaning": "～に決める",
+      "example": "After comparing several plans, we settled on the simplest one.",
+      "exampleTranslation": "いくつかの計画を比較した後、私たちは最も簡単なものに決めた。",
+      "pos": "熟語",
+      "phrase": "settle on"
+    },
+    {
+      "q": 24,
+      "is_answer": false,
+      "meaning": "封鎖する、立ち入り禁止にする",
+      "example": "Police sealed off the street after the accident.",
+      "exampleTranslation": "警察は事故の後、その通りを封鎖した。",
+      "pos": "熟語",
+      "phrase": "seal off"
+    },
+    {
+      "q": 25,
+      "is_answer": false,
+      "meaning": "当てにした、予期した",
+      "example": "We had not bargained on such a long delay.",
+      "exampleTranslation": "私たちはこれほど長い遅延を予期していなかった。",
+      "pos": "熟語",
+      "phrase": "bargained on"
+    },
+    {
+      "q": 25,
+      "is_answer": true,
+      "meaning": "買収した、金で黙らせた",
+      "example": "The company tried to buy off the witness with a large payment.",
+      "exampleTranslation": "その会社は多額の支払いで証人を買収しようとした。",
+      "pos": "熟語",
+      "phrase": "bought off"
+    },
+    {
+      "q": 25,
+      "is_answer": false,
+      "meaning": "かろうじて得た、やりくりした",
+      "example": "She eked out a living by repairing old bicycles.",
+      "exampleTranslation": "彼女は古い自転車を修理して、かろうじて生計を立てた。",
+      "pos": "熟語",
+      "phrase": "eked out"
+    },
+    {
+      "q": 25,
+      "is_answer": false,
+      "meaning": "吸収した、十分に味わった",
+      "example": "The children soaked up every detail of the science show.",
+      "exampleTranslation": "子どもたちは科学ショーの細部をすべて吸収した。",
+      "pos": "熟語",
+      "phrase": "soaked up"
+    }
+  ]
+}

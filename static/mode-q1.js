@@ -22,7 +22,7 @@ const MANIFEST_URL = "data/manifest.json";
 // datasetId の級プレフィックス → 音声フォルダ名。級の判定・同一級のプール化にも使う。
 // ここに無いプレフィックスは「級不明」として扱い、意味練習のプール対象から外す。
 const GRADE_BY_PREFIX = { eiken1: "1", eiken2: "2", eikenp1: "pre1", eikenp2: "pre2" };
-const DATASET_ID_RE = new RegExp(`^(${Object.keys(GRADE_BY_PREFIX).join("|")})-(\\d{4}-\\d+)$`);
+const DATASET_ID_RE = new RegExp(`^(${Object.keys(GRADE_BY_PREFIX).join("|")})-(\\d{4}-\\d+|mock-\\d+)$`);
 // 問題セット一覧は data/manifest.json（"q1"キー）から読み込む。
 // 回を追加するときはデータJSONを置いてmanifest.jsonに1エントリ足すだけでよく、このファイルの編集は不要。
 let DATASETS = {};
@@ -940,7 +940,7 @@ function renderHomeContent() {
   const currentDataset = dataset();
   // 意味だけ練習のバッジ・ラベル用（finalTotal とは別名。finalProgress の再判定に巻き込まない）。
   const grade = currentGrade();
-  // 各級とも3回分の語彙を読み込むが、通常学習済みの設問に属する語句だけを対象にする。
+  // 各級の収録セットの語彙を読み込むが、通常学習済みの設問に属する語句だけを対象にする。
   // ホーム画面を表示中で、かつ級が変わっていないときだけ再描画
   // （学習セッション中や級の切り替え後に、古い級の数字で画面が奪われないようにする）。
   if (grade && !pooledData(grade)) {
@@ -1127,7 +1127,7 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   );
   mission.appendChild(head);
   mission.appendChild(el("p", { class: "meaningMissionLead" },
-    `通常学習で最後まで解いた設問の4語句だけが対象です。${dataset().shortLabel}3回分をまとめ、1回の出題は最大${MEANING_SESSION_SIZE}語句に絞ります。`,
+    `通常学習で最後まで解いた設問の4語句だけが対象です。${dataset().shortLabel}の収録セットをまとめ、1回の出題は最大${MEANING_SESSION_SIZE}語句に絞ります。`,
   ));
 
   const metrics = el("div", { class: "meaningMissionMetrics" },
@@ -1297,7 +1297,7 @@ async function startMeaningPractice(dueOnly = true, queueOverride = null) {
     try {
       pooled = await loadPooledItems(grade);
     } catch (e) {
-      // オフライン等で3回分を読めないときは、ホームに戻して次の操作で再試行させる。
+      // オフライン等で収録セットを読めないときは、ホームに戻して次の操作で再試行させる。
       renderHome();
       return false;
     }

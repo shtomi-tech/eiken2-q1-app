@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "mock-1",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "ユーザー提供の模試原稿（模試 第1回）を学習用JSONへ構造化",
+    "counts": {
+      "words": 84,
+      "idioms": 16,
+      "total": 100
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "Joey took a bad fall while he was snowboarding earlier this month. He hit his head, suffering a mild ( ). Doctors advised him to always wear a helmet in the future.",
+      "choices": [
+        "concussion",
+        "infraction",
+        "preclusion",
+        "retribution"
+      ],
+      "answerIndex": 0,
+      "translation": "ジョーイは今月初め、スノーボード中にひどく転んだ。頭を打ち、軽い脳震盪を起こした。医師は今後必ずヘルメットを着用するよう助言した。"
+    },
+    {
+      "q": 2,
+      "stem": "In ( ), I probably should have finished college, but at the time all I could think about was traveling the world and meeting new people.",
+      "choices": [
+        "thrift",
+        "affability",
+        "dud",
+        "retrospect"
+      ],
+      "answerIndex": 3,
+      "translation": "振り返ってみると、私はおそらく大学を卒業しておくべきだったが、当時は世界を旅して新しい人々に会うことしか考えられなかった。"
+    },
+    {
+      "q": 3,
+      "stem": "A: Diane, you have such good posture.\nB: Thank you. It's probably because my mom was always telling me to stop ( ) as a child.",
+      "choices": [
+        "darting",
+        "slouching",
+        "wedging",
+        "defecting"
+      ],
+      "answerIndex": 1,
+      "translation": "A：ダイアン、姿勢がとてもいいね。\nB：ありがとう。子どものころ、母にいつも猫背をやめなさいと言われていたからだと思う。"
+    },
+    {
+      "q": 4,
+      "stem": "This new car-sharing app ( ) the recently popular sharing economy. It is a great example of how people are using technology to come together and help one another.",
+      "choices": [
+        "exhorts",
+        "typifies",
+        "dispirits",
+        "omits"
+      ],
+      "answerIndex": 1,
+      "translation": "この新しいカーシェアリングアプリは、最近人気のシェアリングエコノミーを典型的に示している。人々がテクノロジーを使って集まり、助け合っている好例だ。"
+    },
+    {
+      "q": 5,
+      "stem": "A: Hey, have you seen what they're saying on the news about Saving Our Kids?\nB: Yeah, that's really horrible. All these years they've been taking charitable donations, but really it was all just a ( ).",
+      "choices": [
+        "clemency",
+        "demise",
+        "melancholy",
+        "scam"
+      ],
+      "answerIndex": 3,
+      "translation": "A：Saving Our Kidsについてニュースで何と言われているか見た？\nB：うん、本当にひどいね。何年も慈善寄付を集めていたけれど、実は全部ただの詐欺だったんだ。"
+    },
+    {
+      "q": 6,
+      "stem": "A: This is the dirtiest hotel I've ever seen.\nB: Yeah, I think \"Greenhill Luxury Suites\" is a bit of a ( ). They should rename it \"Garbage Rooms.\"",
+      "choices": [
+        "supposition",
+        "quirk",
+        "misnomer",
+        "wrench"
+      ],
+      "answerIndex": 2,
+      "translation": "A：こんなに汚いホテルは初めて見た。\nB：そうだね。「グリーンヒル・ラグジュアリー・スイーツ」という名前は少し誤称だと思う。「ごみ部屋」に改名すべきだよ。"
+    },
+    {
+      "q": 7,
+      "stem": "After he managed to land the malfunctioning plane, the pilot was immediately ( ). They wanted to know exactly what had gone wrong during the flight.",
+      "choices": [
+        "filtered",
+        "alleged",
+        "tethered",
+        "debriefed"
+      ],
+      "answerIndex": 3,
+      "translation": "故障した飛行機を何とか着陸させた後、パイロットはすぐに事情聴取を受けた。彼らは飛行中に何が起きたのかを正確に知りたかった。"
+    },
+    {
+      "q": 8,
+      "stem": "I got to visit the executive's condo in New York last weekend, which was just as ( ) as the man himself. It was stylish, clean, and clearly worth a lot of money.",
+      "choices": [
+        "abominable",
+        "impertinent",
+        "lethal",
+        "sleek"
+      ],
+      "answerIndex": 3,
+      "translation": "先週末、ニューヨークにあるその重役のマンションを訪ねたが、本人と同じくらい洗練されていた。おしゃれで清潔で、明らかに高価だった。"
+    },
+    {
+      "q": 9,
+      "stem": "Only ten years ago, this technology was still quite ( ), and although it may seem advanced now, we are still only seeing a fraction of its true potential.",
+      "choices": [
+        "torrid",
+        "irresolute",
+        "rudimentary",
+        "amenable"
+      ],
+      "answerIndex": 2,
+      "translation": "わずか10年前、この技術はまだかなり初歩的だった。今は先進的に見えるかもしれないが、私たちはまだ本当の可能性のほんの一部しか見ていない。"
+    },
+    {
+      "q": 10,
+      "stem": "A: It seems that Dr. Rogers isn't very popular among the other researchers.\nB: That's because he often shows ( ) in his remarks about what we do here. Our research is supposed to be top-secret.",
+      "choices": [
+        "stipulation",
+        "provision",
+        "annotation",
+        "indiscretion"
+      ],
+      "answerIndex": 3,
+      "translation": "A：ロジャース博士は他の研究者たちにあまり人気がないようだね。\nB：ここで行っていることについて、発言で軽率に秘密を漏らすことが多いからだよ。私たちの研究は極秘のはずなのに。"
+    },
+    {
+      "q": 11,
+      "stem": "When Marissa found herself alone with the famous author, she ( ) on the opportunity to ask him questions about how to write good stories.",
+      "choices": [
+        "splashed",
+        "hastened",
+        "capitalized",
+        "relented"
+      ],
+      "answerIndex": 2,
+      "translation": "マリッサは有名な作家と二人きりになると、よい物語の書き方について質問する機会を活用した。"
+    },
+    {
+      "q": 12,
+      "stem": "The mayor's popularity has ( ) throughout the year, as he has experienced times of both widespread admiration and considerable criticism.",
+      "choices": [
+        "fluctuated",
+        "bolted",
+        "deteriorated",
+        "chuckled"
+      ],
+      "answerIndex": 0,
+      "translation": "市長は広く称賛される時期と激しく批判される時期の両方を経験し、年間を通じて人気が変動した。"
+    },
+    {
+      "q": 13,
+      "stem": "Jennifer did not realize that her work visa was no longer valid after changing jobs, and she faced ( ) for overstaying her visa.",
+      "choices": [
+        "deportation",
+        "insurrection",
+        "elocution",
+        "disposition"
+      ],
+      "answerIndex": 0,
+      "translation": "ジェニファーは転職後、就労ビザがもう有効でないことに気づかず、滞在期間を超過したため強制送還に直面した。"
+    },
+    {
+      "q": 14,
+      "stem": "There were a few times when Marvin was sure that their business was going to fail, but his partner's ( ) attitude helped him to stay positive, and in the end the company was a huge success.",
+      "choices": [
+        "penitent",
+        "studious",
+        "soggy",
+        "irrepressible"
+      ],
+      "answerIndex": 3,
+      "translation": "マービンが事業は失敗すると確信したことが何度かあったが、パートナーの抑えきれないほど前向きな態度が彼を明るく保ち、結局会社は大成功した。"
+    },
+    {
+      "q": 15,
+      "stem": "The woman was arrested by border authorities when she tried to use ( ) travel documents to gain access to the country.",
+      "choices": [
+        "roguish",
+        "cerebral",
+        "intricate",
+        "fraudulent"
+      ],
+      "answerIndex": 3,
+      "translation": "その女性は入国するために偽造された旅行書類を使おうとして、国境当局に逮捕された。"
+    },
+    {
+      "q": 16,
+      "stem": "Everyone in the sales team was shocked when the new representative had the ( ) to blame their manager instead of acknowledging his own mistake.",
+      "choices": [
+        "spillage",
+        "gristle",
+        "audacity",
+        "rehash"
+      ],
+      "answerIndex": 2,
+      "translation": "新しい担当者が自分の過ちを認めず、上司を責めるとは、その営業チームの全員がその厚かましさに驚いた。"
+    },
+    {
+      "q": 17,
+      "stem": "At that age, the baby birds are still not able to eat solid food, so the mother eats it first, then ( ) it for them to eat.",
+      "choices": [
+        "regurgitates",
+        "illuminates",
+        "truncates",
+        "fumigates"
+      ],
+      "answerIndex": 0,
+      "translation": "その年齢では、ひな鳥はまだ固形物を食べられないため、母鳥が先に食べてから、ひなたちのために吐き戻す。"
+    },
+    {
+      "q": 18,
+      "stem": "A: How much does it cost to apply?\nB: Usually it costs $80. However, the school will ( ) the application fee for any low-income students.",
+      "choices": [
+        "exude",
+        "debilitate",
+        "waive",
+        "diversify"
+      ],
+      "answerIndex": 2,
+      "translation": "A：申し込みにはいくらかかりますか。\nB：通常は80ドルです。ただし、学校は低所得の学生について申請料を免除します。"
+    },
+    {
+      "q": 19,
+      "stem": "They gave her the medicine via an ( ) drip, as that was more effective than taking it orally.",
+      "choices": [
+        "illustrious",
+        "imperious",
+        "extraneous",
+        "intravenous"
+      ],
+      "answerIndex": 3,
+      "translation": "経口で服用するより効果的だったため、彼らは静脈内点滴で彼女に薬を投与した。"
+    },
+    {
+      "q": 20,
+      "stem": "After the car accident, doctors told Matthew that he'd be lucky to ever walk again, let alone run. However, he overcame seemingly ( ) odds, and ten years later he ran his first marathon.",
+      "choices": [
+        "insurmountable",
+        "insolent",
+        "roundabout",
+        "senile"
+      ],
+      "answerIndex": 0,
+      "translation": "交通事故の後、医師はマシューに、走るどころか再び歩けたら幸運だと言った。しかし彼は一見克服不可能な困難を乗り越え、10年後には初めてマラソンを走った。"
+    },
+    {
+      "q": 21,
+      "stem": "After Rudy's son got into a fight with a bully at school, he told his son that, although he didn't ( ) violence, he sympathized with his desire to protect his classmate.",
+      "choices": [
+        "invert",
+        "condone",
+        "mortify",
+        "embroil"
+      ],
+      "answerIndex": 1,
+      "translation": "ルディの息子が学校でいじめっ子とけんかをした後、ルディは暴力を容認はしないが、同級生を守りたい気持ちには共感すると息子に伝えた。"
+    },
+    {
+      "q": 22,
+      "stem": "The police have started ( ) on drunk drivers. Arrests for drinking and driving have gone up over 200% in the last month.",
+      "choices": [
+        "carrying over",
+        "cracking down",
+        "hanging out",
+        "wasting away"
+      ],
+      "answerIndex": 1,
+      "translation": "警察は飲酒運転者の厳しい取り締まりを始めた。飲酒運転による逮捕者は先月、200％以上増加した。"
+    },
+    {
+      "q": 23,
+      "stem": "A: ( ) it, Wendy! If we don't finish this project tonight, we're going to fail this class.\nB: Sorry, Meg. I just keep thinking about what Vince said to me earlier.",
+      "choices": [
+        "Snap out of",
+        "Act up to",
+        "Hold out on",
+        "Stand up to"
+      ],
+      "answerIndex": 0,
+      "translation": "A：ウェンディ、しっかりして！今夜この課題を終えなければ、この授業に落ちてしまうよ。\nB：ごめん、メグ。さっきヴィンスに言われたことが頭から離れないの。"
+    },
+    {
+      "q": 24,
+      "stem": "Steve tried to ( ) the reasons for his decision to quit his job, but his wife was not interested in hearing his explanation.",
+      "choices": [
+        "lay out",
+        "drum up",
+        "settle on",
+        "seal off"
+      ],
+      "answerIndex": 0,
+      "translation": "スティーブは仕事を辞める決断の理由を説明しようとしたが、妻は彼の説明を聞くことに関心がなかった。"
+    },
+    {
+      "q": 25,
+      "stem": "A: I told my boss that I noticed some money missing from one of our accounts, and he offered to give me a raise if I just ignored it.\nB: He thinks that you can just be ( ) like that? What did you say to him?",
+      "choices": [
+        "bargained on",
+        "bought off",
+        "eked out",
+        "soaked up"
+      ],
+      "answerIndex": 1,
+      "translation": "A：口座の一つからお金がなくなっていることに気づいたと上司に伝えたら、見て見ぬふりをすれば昇給すると言われた。\nB：そんなふうに買収できると思っているの？何て答えたの？"
+    }
+  ]
+}
