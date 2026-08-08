@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "mock-2",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "ユーザー提供の模試原稿（模試 第2回）を学習用JSONへ構造化",
+    "counts": {
+      "words": 84,
+      "idioms": 16,
+      "total": 100
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "The university's well-known literature program is often ( ) as being the best in the country.",
+      "choices": [
+        "dispatched",
+        "trampled",
+        "touted",
+        "toppled"
+      ],
+      "answerIndex": 2,
+      "translation": "その大学の有名な文学プログラムは、国内最高のものだとよく称賛されている。"
+    },
+    {
+      "q": 2,
+      "stem": "The teacher explained that children are ( ) curious, and that it's easy to teach them if you just present information in a way that will interest them.",
+      "choices": [
+        "bluntly",
+        "innately",
+        "astutely",
+        "devoutly"
+      ],
+      "answerIndex": 1,
+      "translation": "教師は、子どもは生まれつき好奇心が強く、興味を引く形で情報を示せば教えるのは簡単だと説明した。"
+    },
+    {
+      "q": 3,
+      "stem": "The company offers free IT classes for any employees that are interested in ( ) their computer skills.",
+      "choices": [
+        "streaking",
+        "canvassing",
+        "impelling",
+        "honing"
+      ],
+      "answerIndex": 3,
+      "translation": "その会社は、コンピューター技能を磨くことに関心のある従業員に無料のIT講座を提供している。"
+    },
+    {
+      "q": 4,
+      "stem": "Jonah's doctors were ( ) when his cancer suddenly disappeared. They couldn't think of any scientific explanation for it.",
+      "choices": [
+        "rigorous",
+        "perplexed",
+        "insurgent",
+        "sedate"
+      ],
+      "answerIndex": 1,
+      "translation": "ジョナのがんが突然消えたとき、医師たちは困惑した。科学的な説明を思いつけなかった。"
+    },
+    {
+      "q": 5,
+      "stem": "Roger's first business was a failure, and it left him ( ). Still, he didn't give up, and he went from having no money to being one of the richest men in the country.",
+      "choices": [
+        "palliative",
+        "sinister",
+        "colloquial",
+        "destitute"
+      ],
+      "answerIndex": 3,
+      "translation": "ロジャーの最初の事業は失敗し、彼は無一文になった。それでも諦めず、金のない状態から国内有数の富豪になった。"
+    },
+    {
+      "q": 6,
+      "stem": "Very few accountants know all of the ( ) rules and regulations regarding international tax laws, so it is difficult to find an expert who specializes in this area.",
+      "choices": [
+        "arcane",
+        "inclement",
+        "benevolent",
+        "covetous"
+      ],
+      "answerIndex": 0,
+      "translation": "国際的な税法に関する難解な規則と規制をすべて知る会計士はほとんどいないので、この分野の専門家を見つけるのは難しい。"
+    },
+    {
+      "q": 7,
+      "stem": "A: Susan, I heard that you're planning to quit and move to Australia. Is there anything I can do to ( ) you?\nB: I'm sorry, Mrs. Williams. Going to Australia has been a dream of mine for a long time.",
+      "choices": [
+        "dissuade",
+        "straddle",
+        "contravene",
+        "infiltrate"
+      ],
+      "answerIndex": 0,
+      "translation": "A：スーザン、仕事を辞めてオーストラリアへ引っ越すつもりだと聞いたよ。あなたを思いとどまらせるために私にできることはある？\nB：すみません、ウィリアムズさん。オーストラリアへ行くのはずっと私の夢だったんです。"
+    },
+    {
+      "q": 8,
+      "stem": "Experts say that the merging of these two huge companies is the ( ) of years of negotiating and planning.",
+      "choices": [
+        "perforation",
+        "culmination",
+        "adulation",
+        "abomination"
+      ],
+      "answerIndex": 1,
+      "translation": "専門家によると、この2つの巨大企業の合併は、何年にもわたる交渉と計画の集大成だという。"
+    },
+    {
+      "q": 9,
+      "stem": "Mariah ( ) about the negative effects of alcohol every time she went out with her coworkers. After a while, they just stopped inviting her so that they could drink in peace.",
+      "choices": [
+        "ranted",
+        "strutted",
+        "poached",
+        "shuffled"
+      ],
+      "answerIndex": 0,
+      "translation": "マライアは同僚と出かけるたびに、アルコールの悪影響についてわめいた。しばらくすると、同僚たちは安心して飲めるよう、彼女を誘わなくなった。"
+    },
+    {
+      "q": 10,
+      "stem": "Board members have been in a ( ) over this issue for over three months. If they don't come to an agreement soon, it could seriously upset the company's financial situation.",
+      "choices": [
+        "constellation",
+        "paucity",
+        "deadlock",
+        "headway"
+      ],
+      "answerIndex": 2,
+      "translation": "取締役会のメンバーはこの問題で3か月以上行き詰まっている。すぐに合意できなければ、会社の財務状況に深刻な影響が出る可能性がある。"
+    },
+    {
+      "q": 11,
+      "stem": "When someone is choking, you must act quickly to ( ) the food stuck in their throat. There are a number of emergency procedures that can help clear a person's airways.",
+      "choices": [
+        "insinuate",
+        "decant",
+        "deprecate",
+        "dislodge"
+      ],
+      "answerIndex": 3,
+      "translation": "誰かが窒息しているときは、喉に詰まった食べ物をすぐに取り除くため、素早く行動しなければならない。気道を確保するのに役立つ緊急処置はいくつかある。"
+    },
+    {
+      "q": 12,
+      "stem": "Darren's ( ) as a newspaper writer only lasted one year, but he has a lot of interesting stories from that time of his life.",
+      "choices": [
+        "layover",
+        "vigil",
+        "convalescence",
+        "stint"
+      ],
+      "answerIndex": 3,
+      "translation": "ダレンの新聞記者としての仕事は1年しか続かなかったが、その時期の人生には興味深い話がたくさんある。"
+    },
+    {
+      "q": 13,
+      "stem": "The war marked a ( ) time in the nation's history. People were hungry and fighting amongst themselves, the economy was in ruins, and it seemed that there would be no end to the fighting.",
+      "choices": [
+        "vigilant",
+        "consensual",
+        "turbulent",
+        "terse"
+      ],
+      "answerIndex": 2,
+      "translation": "その戦争は、国家の歴史における激動の時代を印象づけた。人々は飢え、互いに争い、経済は破綻し、戦闘が終わる気配はなかった。"
+    },
+    {
+      "q": 14,
+      "stem": "Experts suggest that some countries are likely to consider the peace treaty disadvantageous to their political goals, which could prevent its ( ).",
+      "choices": [
+        "attrition",
+        "apparition",
+        "revelation",
+        "ratification"
+      ],
+      "answerIndex": 3,
+      "translation": "専門家は、一部の国がその平和条約を政治目標に不利だと考える可能性が高く、それによって批准が妨げられるかもしれないと指摘している。"
+    },
+    {
+      "q": 15,
+      "stem": "Chuck had to sell his restaurant when the government ( ) the land that it sat on in order to establish a nature preserve.",
+      "choices": [
+        "expropriated",
+        "modulated",
+        "piqued",
+        "enumerated"
+      ],
+      "answerIndex": 0,
+      "translation": "チャックは、政府が自然保護区を設けるためにレストランの敷地を収用したとき、店を売らなければならなかった。"
+    },
+    {
+      "q": 16,
+      "stem": "The professor warned his students not to copy information from the Internet in their papers. \"Anyone caught committing ( ) will fail this class,\" he said.",
+      "choices": [
+        "divulgence",
+        "blasphemy",
+        "plagiarism",
+        "walkout"
+      ],
+      "answerIndex": 2,
+      "translation": "教授は学生たちに、レポートでインターネット上の情報をコピーしないよう警告した。「剽窃をしているところを見つかった者は、この授業に落ちる」と彼は言った。"
+    },
+    {
+      "q": 17,
+      "stem": "As a child, Chris had to take speech classes because he often ( ), making it difficult for teachers to understand what he was saying.",
+      "choices": [
+        "acceded",
+        "stammered",
+        "whined",
+        "resonated"
+      ],
+      "answerIndex": 1,
+      "translation": "子どものころ、クリスはよくどもって教師が発言を理解しにくかったため、発声の授業を受けなければならなかった。"
+    },
+    {
+      "q": 18,
+      "stem": "Martin seems to have an ( ) memory. He even remembers the name of every classmate he had in elementary school.",
+      "choices": [
+        "unwieldy",
+        "ailing",
+        "excruciating",
+        "infallible"
+      ],
+      "answerIndex": 3,
+      "translation": "マーティンは絶対に間違いのない記憶力を持っているようだ。小学校時代の同級生全員の名前まで覚えている。"
+    },
+    {
+      "q": 19,
+      "stem": "Susan has a ( ) of complaints about her previous employer, including poor wages, long hours, and incompetent management.",
+      "choices": [
+        "pageant",
+        "spasm",
+        "morass",
+        "litany"
+      ],
+      "answerIndex": 3,
+      "translation": "スーザンは、低賃金、長時間労働、無能な経営など、以前の雇用主について数多くの不満を並べ立てている。"
+    },
+    {
+      "q": 20,
+      "stem": "In his speech the CEO said, \"Intelligence is useful, but hard work and persistence are the only true ( ) for success in this world.\"",
+      "choices": [
+        "pretexts",
+        "ledgers",
+        "requisites",
+        "facades"
+      ],
+      "answerIndex": 2,
+      "translation": "CEOはスピーチで、「知性は役に立つが、この世界で成功するための真の必須条件は勤勉さと粘り強さだけだ」と述べた。"
+    },
+    {
+      "q": 21,
+      "stem": "The students in Dick's language class were still at a low level, so he had to ( ) his words very clearly in order for them to understand what he was saying.",
+      "choices": [
+        "foist",
+        "muffle",
+        "enunciate",
+        "ascribe"
+      ],
+      "answerIndex": 2,
+      "translation": "ディックの語学クラスの生徒たちはまだ初級レベルだったので、彼は生徒たちが理解できるよう、言葉をとても明瞭に発音しなければならなかった。"
+    },
+    {
+      "q": 22,
+      "stem": "After winning a record number of medals at the Olympics, the swimmer ( ) his sudden fame by appearing in television commercials and magazine ads.",
+      "choices": [
+        "crept up on",
+        "chipped away at",
+        "cashed in on",
+        "put in for"
+      ],
+      "answerIndex": 2,
+      "translation": "オリンピックで記録的な数のメダルを獲得した後、その水泳選手はテレビCMや雑誌広告に出演して突然の名声を利用した。"
+    },
+    {
+      "q": 23,
+      "stem": "A: Bill's not here because he ( ) at the last minute.\nB: Again? He always promises to go out with us, then he backs out right before we meet up!",
+      "choices": [
+        "brimmed over",
+        "copped out",
+        "leveled off",
+        "played off"
+      ],
+      "answerIndex": 1,
+      "translation": "A：ビルがここにいないのは、直前になって約束をすっぽかしたからだよ。\nB：また？彼はいつも一緒に出かけると約束するのに、会う直前になって断るんだ！"
+    },
+    {
+      "q": 24,
+      "stem": "A: Why is the website loading so slowly today?\nB: The unusually high number of visitors is ( ) the servers. If we continue to get this level of traffic, we may need to upgrade them.",
+      "choices": [
+        "bogging down",
+        "phasing out",
+        "staking out",
+        "hemming in"
+      ],
+      "answerIndex": 0,
+      "translation": "A：今日はなぜウェブサイトの読み込みがこんなに遅いの？\nB：異常に多い訪問者数がサーバーの動作を遅くしているんだ。この水準のアクセスが続くなら、サーバーをアップグレードする必要があるかもしれない。"
+    },
+    {
+      "q": 25,
+      "stem": "A: It's still raining. What should we do? We don't have umbrellas.\nB: Let's just wait here for a little while longer. I think it's starting to ( ).",
+      "choices": [
+        "taper off",
+        "work out",
+        "fan out",
+        "blare out"
+      ],
+      "answerIndex": 0,
+      "translation": "A：まだ雨が降っている。どうしよう？傘を持っていないよ。\nB：もう少しここで待とう。雨が弱まり始めていると思う。"
+    }
+  ]
+}

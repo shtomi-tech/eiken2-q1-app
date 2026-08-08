@@ -78,6 +78,12 @@
       "shortLabel": "1級",
       "vocabUrl": "data/vocab_1_mock-1.json",
       "questionsUrl": "data/questions_1_mock-1.json"
+    },
+    "eiken1-mock-2": {
+      "label": "英検1級 模試 第2回",
+      "shortLabel": "1級",
+      "vocabUrl": "data/vocab_1_mock-2.json",
+      "questionsUrl": "data/questions_1_mock-2.json"
     }
   },
   "q2": {

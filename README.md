@@ -1,6 +1,6 @@
 # 英検 大問1 単語アプリ
 
-英検1級・2級・準2級・準1級の大問1（語彙）だけを扱う静的Webアプリです。各級の過去問3回分に加え、1級の模試第1回を収録しています（合計13セット）。
+英検1級・2級・準2級・準1級の大問1（語彙）だけを扱う静的Webアプリです。各級の過去問3回分に加え、1級の模試第1回・第2回を収録しています（合計14セット）。
 
 ## 学習の流れ
 
@@ -21,7 +21,7 @@
 | 2級 | 51 | 204 |
 | 準2級 | 45 | 180 |
 | 準1級 | 54 | 216 |
-| 1級（模試第1回を含む） | 91 | 364 |
+| 1級（模試第1回・第2回を含む） | 116 | 464 |
 
 語句ごとの復習間隔は、その語句が属する回の進捗（`eiken_q1_progress_<datasetId>` の `items`）に保存します。級をまたいで混ざることはありません。
 
@@ -32,6 +32,7 @@
 - 準1級: `data/questions_pre1_*.json` / `data/vocab_pre1_*.json`
 - 1級: `data/questions_1_*.json` / `data/vocab_1_*.json`
 - 1級模試第1回: `data/questions_1_mock-1.json` / `data/vocab_1_mock-1.json`
+- 1級模試第2回: `data/questions_1_mock-2.json` / `data/vocab_1_mock-2.json`
 - 問題セット一覧: `data/manifest.json` の `q1`
 
 準1級のQ1データは、全体過去問データから次で抽出します。
@@ -111,6 +112,7 @@ Q1のクラウドアプリIDは `eiken2-q1` です。旧準1級アプリの `eik
 - `scripts/enrich_flashcard_fields.py`: 1級・準1級の発音・品詞の補完
 - `scripts/curate_1_examples.py`: 1級のオリジナル例文・日本語訳の適用
 - `scripts/build_q1_mock_1_data.py`: 1級模試第1回の問題・語彙データ生成
-- `scripts/check_q1_data.py`: 13セットのデータ契約チェック
+- `scripts/build_q1_mock_2_data.py`: 1級模試第2回の問題・語彙データ生成
+- `scripts/check_q1_data.py`: 14セットのデータ契約チェック
 
 大問2以降の旧統合コードは移管用にリポジトリ内へ残っていますが、現在のQ1アプリでは読み込まず、Pages公開物にも含めません。

@@ -147,7 +147,7 @@ def generate(args: argparse.Namespace) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--grade", choices=sorted(GRADE_CONFIG), default="1", help="1 / 2 / pre1 / pre2")
-    parser.add_argument("--round", dest="round_id", default="all", help="2026-1 / 2025-3 / 2025-2 / mock-1 / all")
+    parser.add_argument("--round", dest="round_id", default="all", help="2026-1 / 2025-3 / 2025-2 / mock-1 / mock-2 / all")
     parser.add_argument("--limit", type=int, help="先頭から指定件数だけ処理する")
     parser.add_argument("--voice", default=os.environ.get("AZURE_SPEECH_VOICE", DEFAULT_VOICE))
     parser.add_argument("--force", action="store_true", help="既存音声を上書きする")
