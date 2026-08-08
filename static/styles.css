@@ -536,10 +536,45 @@ h2 {
 .sectionHead h2 { margin: 0; }
 .datasetPicker {
   display: grid;
-  gap: 4px;
-  min-width: min(100%, 260px);
+  gap: 8px;
+  min-width: min(100%, 360px);
 }
 .datasetPicker .fieldLabel { margin: 0; }
+.datasetGradeChoices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.datasetGradeChoice {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  background: var(--parchment);
+  color: var(--ink);
+  padding: 8px 10px;
+  text-align: center;
+}
+.datasetGradeChoice:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--surface-soft);
+}
+.datasetGradeChoice[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--surface-strong);
+  font-weight: 600;
+}
+.datasetGradeChoice[aria-pressed="true"]:hover:not(:disabled) {
+  background: var(--surface-strong);
+}
+.datasetPickerCurrent {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.datasetSetField {
+  display: grid;
+  gap: 4px;
+}
+.datasetSetField .fieldLabel { margin: 0; }
 .datasetSelect {
   min-width: 220px;
   width: 100%;
@@ -1178,6 +1213,11 @@ h2 {
   .meaningMissionHead { flex-direction: column; }
   .meaningMissionBadge { align-self: flex-start; }
   .selfExamplePanel { margin: 14px; }
+}
+
+@media (max-width: 560px) {
+  .datasetPicker { min-width: 100%; }
+  .datasetGradeChoices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ============================================================

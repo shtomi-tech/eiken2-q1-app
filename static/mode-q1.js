@@ -1167,17 +1167,103 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   return mission;
 }
 
+function datasetGrades() {
+  const grades = [];
+  for (const [id] of availableDatasets()) {
+    const grade = gradeOf(id);
+    if (grade && !grades.includes(grade)) grades.push(grade);
+  }
+  return grades;
+}
+
+function datasetGradeLabel(grade) {
+  const entry = availableDatasets().find(([id]) => gradeOf(id) === grade);
+  return entry ? entry[1].shortLabel : grade;
+}
+
+function datasetSetKind(datasetId) {
+  return datasetId.includes("-mock-") ? "模試" : "過去問";
+}
+
+function datasetSetLabel(datasetId, data) {
+  const prefix = `英検${data.shortLabel || ""}`;
+  let label = String(data.label || "");
+  if (prefix && label.startsWith(prefix)) label = label.slice(prefix.length).trim();
+  if (datasetSetKind(datasetId) === "模試") label = label.replace(/^模試\s*/, "");
+  return label || data.label || datasetId;
+}
+
 function datasetPicker() {
-  const wrap = el("label", { class: "datasetPicker" },
-    el("span", { class: "fieldLabel" }, "問題セット"),
-  );
-  const select = el("select", { class: "datasetSelect", onchange: (e) => switchDataset(e.target.value) });
-  availableDatasets().forEach(([id, data]) => {
-    const opt = el("option", { value: id }, `${data.label}${datasetCleared(id) ? " ✅" : ""}`);
-    if (id === state.datasetId) opt.selected = true;
-    select.appendChild(opt);
+  const entries = availableDatasets();
+  const grades = datasetGrades();
+  let pickerGrade = currentGrade() || grades[0];
+  const wrap = el("div", { class: "datasetPicker" });
+  const current = el("p", { class: "datasetPickerCurrent", "aria-live": "polite" });
+  const gradeChoices = el("div", {
+    class: "datasetGradeChoices",
+    role: "group",
+    "aria-label": "級を選ぶ",
   });
-  wrap.appendChild(select);
+  const setField = el("label", { class: "datasetSetField" },
+    el("span", { class: "fieldLabel" }, "回を選ぶ"),
+  );
+  const select = el("select", { class: "datasetSelect" });
+
+  function renderOptions() {
+    select.innerHTML = "";
+    const currentDatasetGrade = currentGrade();
+    if (currentDatasetGrade !== pickerGrade) {
+      const placeholder = el("option", { value: "" }, `${datasetGradeLabel(pickerGrade)}のセットを選ぶ`);
+      placeholder.disabled = "disabled";
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+    }
+
+    for (const kind of ["過去問", "模試"]) {
+      const groupEntries = entries.filter(([id]) => gradeOf(id) === pickerGrade && datasetSetKind(id) === kind);
+      if (!groupEntries.length) continue;
+      const group = el("optgroup", { label: `${datasetGradeLabel(pickerGrade)}・${kind}` });
+      for (const [id, data] of groupEntries) {
+        const opt = el("option", { value: id }, `${datasetSetLabel(id, data)}${datasetCleared(id) ? " ✅" : ""}`);
+        if (id === state.datasetId) opt.selected = true;
+        group.appendChild(opt);
+      }
+      select.appendChild(group);
+    }
+
+    if (currentDatasetGrade === pickerGrade) select.value = state.datasetId;
+    const currentLabel = `${dataset().label}${datasetCleared(state.datasetId) ? " ✅" : ""}`;
+    current.textContent = currentDatasetGrade === pickerGrade
+      ? `現在：${currentLabel}`
+      : `現在：${currentLabel} ／ ${datasetGradeLabel(pickerGrade)}の回を選ぶと切り替わります`;
+  }
+
+  function renderGradeChoices() {
+    gradeChoices.innerHTML = "";
+    for (const grade of grades) {
+      gradeChoices.appendChild(el("button", {
+        class: "datasetGradeChoice",
+        type: "button",
+        "aria-pressed": String(grade === pickerGrade),
+        onclick: () => {
+          pickerGrade = grade;
+          renderGradeChoices();
+          renderOptions();
+        },
+      }, datasetGradeLabel(grade)));
+    }
+  }
+
+  select.addEventListener("change", (event) => {
+    if (event.target.value) switchDataset(event.target.value);
+  });
+  wrap.appendChild(el("span", { class: "fieldLabel" }, "問題セット"));
+  wrap.appendChild(gradeChoices);
+  wrap.appendChild(current);
+  setField.appendChild(select);
+  wrap.appendChild(setField);
+  renderGradeChoices();
+  renderOptions();
   return wrap;
 }
 
