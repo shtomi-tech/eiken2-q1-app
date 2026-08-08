@@ -284,7 +284,7 @@ function resumeDescription(resume) {
   if (resume.mode === "learn") {
     const stage = {
       flash: `STEP 1 暗記カード ${Number(resume.flashIdx || 0) + 1}/${resume.items?.length || 4}`,
-      check: `STEP 2 意味チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 4}`,
+      check: `STEP 2 4語句の意味確認 ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 4}`,
       wrongReview: "間違えた語句の復習",
       practice: "STEP 3 本番形式",
       done: "完了確認",
@@ -293,7 +293,7 @@ function resumeDescription(resume) {
   }
   if (resume.mode === "review") return `復習 ${Number(resume.reviewIdx || 0) + 1}/${resume.reviewQueue?.length || 1}（第${resume.q}問）`;
   if (resume.mode === "meaning") {
-    const label = resume.dueOnly ? "意味練習" : "全語句の意味チェック";
+    const label = resume.dueOnly ? "意味だけ復習" : "全語句の意味確認";
     return `${label} ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
   }
   if (resume.mode === "final") return `最終チェック ${Number(resume.checkIdx || 0) + 1}/${resume.checkOrder?.length || 1}`;
@@ -959,7 +959,7 @@ function renderHomeContent() {
     home.appendChild(el("section", { class: "card hero" },
       el("p", { class: "label" }, "学習の流れ"),
       el("h2", {}, "大問1の語句を「覚えてから解く」"),
-      el("p", { class: "hint" }, "各設問の4つの選択肢を、意味・補足情報で覚える → 意味チェック → 本番形式で解く、の3ステップ。"),
+      el("p", { class: "hint" }, "各設問の4つの選択肢を、意味・補足情報で覚える → 意味を確認 → 本番形式で解く、の3ステップ。"),
     ));
   }
 
@@ -974,12 +974,11 @@ function renderHomeContent() {
     datasetPicker(),
   ));
   const grid = el("div", { class: "dailyGrid cols5" });
-  grid.appendChild(statCell(learned, total, "実施済み"));
-  grid.appendChild(statCell(solved, total, "正解確認"));
-  grid.appendChild(statCell(unknown, total, "正誤未確認"));
+  grid.appendChild(statCell(learned, total, "学習済み"));
+  grid.appendChild(statCell(solved, total, "正解確認済み"));
+  grid.appendChild(statCell(unknown, total, "要確認"));
   grid.appendChild(statCell(reviewQs.length, total, "復習対象"));
-  grid.appendChild(statCell(final.bestScore, finalTotal, "最終チェック BEST"));
-  summary.appendChild(grid);
+  grid.appendChild(statCell(final.bestScore, finalTotal, "全語句 BEST"));
 
   // --- 次にやること（Hickの法則：迷わせないため主導線は常に1つに絞る） ---
   const resume = currentResume();
@@ -1000,7 +999,7 @@ function renderHomeContent() {
     ));
   }
 
-  // おすすめ（主導線）＝状態に応じて1つだけ決める。重要度：学習 → 復習 → 最終 → 意味練習(1級) → 最初から。
+  // おすすめ（主導線）＝状態に応じて1つだけ決める。詳細な進捗より先に置く。
   let primary;
   if (resume) {
     primary = {
@@ -1011,7 +1010,7 @@ function renderHomeContent() {
   } else if (nextQ) {
     primary = {
       label: `第${nextQ}問を学習する`,
-      why: "暗記カード → 意味チェック → 本番形式の3ステップで進みます。",
+      why: "暗記カード → 意味確認 → 本番形式の3ステップで進みます。",
       onclick: () => startLearn(nextQ),
     };
   } else if (reviewQs.length) {
@@ -1030,7 +1029,7 @@ function renderHomeContent() {
     // 1周目の学習・復習・最終チェックが片付いたあとの「戻ってきた日」の主導線。
     // ここが無いと、復習待ちの語句があっても常に「第1問からもう一周」だけが案内される。
     primary = {
-      label: `意味練習を始める（今回${Math.min(meaningDueCount, MEANING_SESSION_SIZE)}語句）`,
+      label: `意味だけの復習を始める（今回${Math.min(meaningDueCount, MEANING_SESSION_SIZE)}語句）`,
       why: "通常学習で解いた語句だけを、最大30語句ずつ確認します。",
       onclick: () => startMeaningPractice(true, meaningQueue),
       isMeaningDue: true,
@@ -1055,6 +1054,11 @@ function renderHomeContent() {
   summary.appendChild(el("div", { class: "missionNote" },
     el("p", { class: "hint" }, finalMessage(solved, total, reviewQs.length, final, finalTotal)),
   ));
+  const progressDetails = el("details", { class: "progressDetails" },
+    el("summary", { class: "progressDetailsSummary" }, "進捗の詳細"),
+  );
+  progressDetails.appendChild(grid);
+  summary.appendChild(progressDetails);
   home.appendChild(summary);
 
   // question path
@@ -1074,7 +1078,7 @@ function renderHomeContent() {
     const cls = "qCard" + (u.needsReview ? " review" : (result === "correct" ? " done" : (result === "unknown" ? " unknown" : "")));
     const stat = u.needsReview
       ? `復習対象・ミス${u.wrongCount}回`
-      : (result === "correct" ? "実施済み・正解確認" : (result === "unknown" ? "実施済み・正誤未確認" : "未学習"));
+      : (result === "correct" ? "学習済み・正解確認済み" : (result === "unknown" ? "学習済み・要確認" : "未学習"));
     list.appendChild(el("button", { class: cls, onclick: () => startLearn(q) },
       el("span", { class: "qno" }, `第${q}問 ・ ${isIdiom ? "熟語" : "単語"}`),
       el("span", { class: "qwords" }, words),
@@ -1121,13 +1125,13 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
   const head = el("div", { class: "meaningMissionHead" },
     el("div", {},
       el("p", { class: "label" }, "中心学習"),
-      el("h3", {}, "学習済みの語句を、意味だけ30語句ずつ"),
+      el("h3", {}, "学習済みの語句を、意味だけ復習"),
     ),
     el("span", { class: "meaningMissionBadge" }, ready ? `対象 ${learned} / ${total}語句` : "対象を確認中"),
   );
   mission.appendChild(head);
   mission.appendChild(el("p", { class: "meaningMissionLead" },
-    `通常学習で最後まで解いた設問の4語句だけが対象です。${dataset().shortLabel}の収録セットをまとめ、1回の出題は最大${MEANING_SESSION_SIZE}語句に絞ります。`,
+    `通常学習で最後まで解いた設問の4語句だけが対象です。${dataset().shortLabel}の収録セットをまとめ、1回の出題は最大${MEANING_SESSION_SIZE}語句です。`,
   ));
 
   const metrics = el("div", { class: "meaningMissionMetrics" },
@@ -1142,7 +1146,7 @@ function meaningMission(summary, ready, nextQueue = [], learnedItems = []) {
     class: "meaningMissionProgress",
     max: Math.max(1, total),
     value: learned,
-    "aria-label": `${dataset().shortLabel}の意味練習対象語句数`,
+    "aria-label": `${dataset().shortLabel}の意味だけ復習対象語句数`,
   });
   progress.setAttribute("aria-valuetext", ready ? `学習済み対象 ${learned}語句 / 全${total}語句` : "対象語句を確認中");
   mission.appendChild(progress);
@@ -1455,7 +1459,7 @@ function renderSession() {
      el("div", {},
        el("p", { class: "label" }, sessionLabel(q, isIdiom, isReview, isMeaning, isFinal)),
        el("h2", {}, stageTitle(session.stage)),
-       el("p", { class: "sessionState" }, "現在地をこの端末に保存中"),
+       el("p", { class: "sessionState" }, "現在地はこの端末に保存済み"),
      ),
     el("button", { class: "ghost", onclick: () => { saveResume(); renderHome(); } }, "一覧へ戻る"),
   ));
@@ -1480,7 +1484,7 @@ function renderSession() {
 function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
   if (isFinal) return `最終チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   if (isMeaning) {
-    const label = "意味練習";
+    const label = "意味だけ復習";
     return `${label} ${session.checkIdx + 1} / ${session.checkOrder.length}`;
   }
   if (isReview) return `復習演習 ${session.reviewIdx + 1} / ${session.reviewQueue.length}`;
@@ -1489,12 +1493,12 @@ function sessionLabel(q, isIdiom, isReview, isMeaning, isFinal) {
 
 function stageTitle(stage) {
   if (session && session.mode === "final") return `最終チェック${session.checkOrder.length}問`;
-  if (session && session.mode === "meaning") return `意味だけ練習（最大${MEANING_SESSION_SIZE}語句）`;
+  if (session && session.mode === "meaning") return `意味だけの復習（最大${MEANING_SESSION_SIZE}語句）`;
   if (session && session.mode === "review") return "間違えた問題を演習";
   return {
     flash: "STEP 1　覚える（暗記カード）",
-    check: "STEP 2　確かめる（意味チェック）",
-    wrongReview: "必要なときの復習",
+    check: "STEP 2　確かめる（4語句の意味確認）",
+    wrongReview: "間違えた語句を復習",
     practice: "STEP 3　解く（本番形式）",
     done: "完了",
   }[stage];
@@ -1550,12 +1554,12 @@ function stageBar(stage) {
   order.push("practice");
   const cur = order.indexOf(stage);
   const labels = { flash: "1 覚える", check: "2 確かめる", wrongReview: "必要なら復習", practice: "3 解く" };
-  const bar = el("div", { class: "stageBar" });
+  const bar = el("div", { class: "stageBar", role: "list", "aria-label": "学習ステップ" });
   order.forEach((s, i) => {
     let cls = "stagePill";
     if (stage === "done" || i < cur) cls += " cleared";
     if (s === stage) cls += " active";
-    bar.appendChild(el("div", { class: cls }, labels[s]));
+    bar.appendChild(el("div", { class: cls, role: "listitem", "aria-current": s === stage ? "step" : "false" }, labels[s]));
   });
   return bar;
 }
@@ -1885,7 +1889,7 @@ function renderCheck(body) {
   const item = session.checkOrder[session.checkIdx];
   const surface = surfaceOf(item);
 
-  body.appendChild(el("div", { class: "roundInfo" }, `意味チェック ${session.checkIdx + 1} / ${session.checkOrder.length}`));
+  body.appendChild(el("div", { class: "roundInfo" }, `4語句の意味確認 ${session.checkIdx + 1} / ${session.checkOrder.length}`));
 
   const box = el("div", { class: "quizBox" });
   box.appendChild(el("p", { class: "label" }, "次の語句の意味は？"));
@@ -1945,7 +1949,7 @@ function renderCheck(body) {
 
 function appendCheckFeedback(box, item, surface, correct, isCorrect) {
   if (box.querySelector(".checkFeedback")) return;
-  const fb = el("div", { class: "feedback checkFeedback " + (isCorrect ? "ok" : "ng") },
+  const fb = el("div", { class: "feedback checkFeedback " + (isCorrect ? "ok" : "ng"), role: "status", "aria-live": "polite" },
     el("h3", {}, isCorrect ? "正解！" : "おしい！"),
     el("p", {}, `${surface}：${correct}`),
   );
@@ -1992,20 +1996,40 @@ function nextAfterCheckLabel() {
 function renderWrongReview(body) {
   const log = session.wrongLog;
   const checked = new Set(session.wrongChecked || []);
+  const nextLabel = afterCheckDestination() === "done" ? "結果を見る →" : "本番形式の問題へ →";
+  const lockedNextLabel = afterCheckDestination() === "done"
+    ? "すべて確認すると結果へ →"
+    : "すべて確認すると本番形式へ →";
 
   body.appendChild(el("p", { class: "hint" }, "間違えた語句を確認してください。読み終えたら「確認した」を押してください。"));
 
   const listWrap = el("div", { class: "wrongReview" });
-  const hint = el("p", { class: "hint reviewCountHint" }, `残り${log.length}語`);
+  const hint = el("p", {
+    id: "wrongReviewProgress",
+    class: "hint reviewCountHint",
+    role: "status",
+    "aria-live": "polite",
+  });
   const nextBtn = el("button", {
     class: "cta",
     disabled: "disabled",
+    "aria-describedby": "wrongReviewProgress",
     onclick: () => {
       session.wrongReviewed = true;
       session.stage = afterCheckDestination();
       renderSession();
     },
-  }, afterCheckDestination() === "done" ? "結果を見る →" : "本番形式の問題へ →");
+  }, lockedNextLabel);
+  const updateReviewState = () => {
+    const remaining = log.length - checked.size;
+    const complete = remaining === 0;
+    hint.textContent = complete
+      ? `復習 ${log.length}/${log.length}語を確認済み`
+      : `復習 ${checked.size}/${log.length}語を確認済み（残り${remaining}語）`;
+    nextBtn.disabled = !complete;
+    nextBtn.textContent = complete ? nextLabel : lockedNextLabel;
+  };
+  updateReviewState();
 
   log.forEach((entry, i) => {
     const { item, picked } = entry;
@@ -2031,19 +2055,14 @@ function renderWrongReview(body) {
       checkBtn.disabled = true;
       checkBtn.textContent = "確認済み";
       card.classList.add("reviewCardDone");
-      const remaining = log.length - checked.size;
-      hint.textContent = remaining > 0 ? `残り${remaining}語` : "すべて確認しました";
-      if (checked.size === log.length) nextBtn.disabled = false;
+      updateReviewState();
     });
     card.appendChild(checkBtn);
     listWrap.appendChild(card);
   });
 
-  body.appendChild(listWrap);
-  const remaining = log.length - checked.size;
-  hint.textContent = remaining > 0 ? `残り${remaining}語` : "すべて確認しました";
-  if (checked.size === log.length) nextBtn.disabled = false;
   body.appendChild(hint);
+  body.appendChild(listWrap);
   body.appendChild(el("div", { class: "actions" }, nextBtn));
 }
 
@@ -2106,7 +2125,7 @@ function onPracticeAnswer(idx, box, choiceWrap, q_, items) {
   const correctWord = q_.choices[correctIdx];
   const ansItem = findItemForSurface(items, correctWord);
 
-  const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng") },
+  const fb = el("div", { class: "feedback " + (isCorrect ? "ok" : "ng"), role: "status", "aria-live": "polite" },
     el("h3", {}, isCorrect ? "正解！" : "不正解"),
     el("p", {}, `正解：${correctIdx + 1}　${correctWord}　— ${ansItem ? ansItem.meaning : ""}`),
   );
@@ -2139,6 +2158,7 @@ function renderDone(body) {
   const isFinal = session.mode === "final";
   const isReview = session.mode === "review";
   const meaningSummary = isMeaning && currentGrade() ? meaningPracticeSummary() : null;
+  const pendingReviews = !isMeaning && !isFinal && !isReview ? reviewQueue() : [];
   const banner = el("div", { class: "doneBanner" });
   banner.appendChild(el("p", { class: "label", style: "color:rgba(250,249,246,.72)" }, "Step Complete"));
   if (isFinal) {
@@ -2156,7 +2176,7 @@ function renderDone(body) {
       : "意味チェックが完了しました"));
     if (meaningSummary) {
       banner.appendChild(el("p", { class: "hint" },
-        `意味練習の対象は現在${meaningSummary.learned}/${meaningSummary.total}語句。未解放の語句は通常学習後に追加されます。`,
+        `意味だけの復習対象は現在${meaningSummary.learned}/${meaningSummary.total}語句。未解放の語句は通常学習後に追加されます。`,
       ));
     }
   } else {
@@ -2164,7 +2184,11 @@ function renderDone(body) {
     banner.appendChild(el("h2", {}, isReview ? `第${q}問の復習演習が完了しました` : `第${q}問の4語句を学習しました`));
     if (!isReview) {
       banner.appendChild(el("p", { class: "hint" },
-        `意味チェック ${session.meaningCorrect}/${session.checkOrder.length}・誤答 ${session.wrongLog.length}語`));
+        `意味確認 ${session.meaningCorrect}/${session.checkOrder.length}・誤答 ${session.wrongLog.length}語`));
+      if (pendingReviews.length) {
+        banner.appendChild(el("p", { class: "hint" },
+          `復習対象が${pendingReviews.length}問あります。下のボタンから確認できます。`));
+      }
     }
   }
   body.appendChild(banner);
@@ -2177,10 +2201,10 @@ function renderDone(body) {
   } else if (isMeaning) {
     if (meaningSummary && meaningSummary.due > 0) {
       actions.appendChild(el("button", { class: "cta meaningCta", onclick: () => startMeaningPractice(true) },
-        `次の意味練習（今回${Math.min(meaningSummary.due, MEANING_SESSION_SIZE)}語句）へ →`));
+        `次の意味だけ復習（今回${Math.min(meaningSummary.due, MEANING_SESSION_SIZE)}語句）へ →`));
     } else if (!meaningSummary) {
       actions.appendChild(el("button", { class: "cta meaningCta", onclick: () => startMeaningPractice(session.dueOnly) },
-        "もう一度、意味練習をする"));
+        "もう一度、意味だけの復習をする"));
     }
   } else if (isReview) {
     const nextReview = reviewQueue()[0];
@@ -2192,6 +2216,13 @@ function renderDone(body) {
     const nextQ = state.qList.find((qq) => !unit(qq).learned);
     if (nextQ) {
       actions.appendChild(el("button", { class: "cta", onclick: () => startLearn(nextQ) }, `次の設問へ（第${nextQ}問） →`));
+      if (pendingReviews.length) {
+        actions.appendChild(el("button", { class: "secondaryCta", onclick: startReview },
+          `復習対象を確認する（あと${pendingReviews.length}問） →`));
+      }
+    } else if (pendingReviews.length) {
+      actions.appendChild(el("button", { class: "cta reviewCta", onclick: startReview },
+        `復習対象を確認する（あと${pendingReviews.length}問） →`));
     } else if (finalUnlocked() && !finalProgress(allVocabularyItems().length).cleared) {
       actions.appendChild(el("button", { class: "cta finalCta", onclick: startFinalCheck }, "最終チェックへ →"));
     } else {
