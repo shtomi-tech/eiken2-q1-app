@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "mock-3",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "ユーザー提供の模試原稿（模試 第3回）を学習用JSONへ構造化",
+    "counts": {
+      "words": 84,
+      "idioms": 16,
+      "total": 100
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "A: Mrs. Jones told Emilio that she was going to fire him if he came in late again.\nB: She's just ( ). She can't afford to fire Emilio. He's our best salesman.",
+      "choices": [
+        "degenerating",
+        "haggling",
+        "scowling",
+        "bluffing"
+      ],
+      "answerIndex": 3,
+      "translation": "A：ジョーンズ夫人は、また遅刻したらエミリオを解雇すると言った。\nB：彼女はただはったりをかけているだけだ。エミリオを解雇する余裕はない。彼は私たちの最高の営業マンだから。"
+    },
+    {
+      "q": 2,
+      "stem": "Bart's mom called for him to come downstairs for dinner, but he was so focused on his video game that he remained completely ( ).",
+      "choices": [
+        "devious",
+        "magnanimous",
+        "deciduous",
+        "oblivious"
+      ],
+      "answerIndex": 3,
+      "translation": "バートの母親は夕食のため階下に来るよう彼を呼んだが、彼はテレビゲームに集中していて、まったく気づかないままだった。"
+    },
+    {
+      "q": 3,
+      "stem": "George and Mariah hit a few ( ) in the last week of their trip, which caused them to miss a couple of the sights they'd wanted to see.",
+      "choices": [
+        "regimes",
+        "glimmers",
+        "liaisons",
+        "glitches"
+      ],
+      "answerIndex": 3,
+      "translation": "ジョージとマライアは旅行の最後の週にいくつかの問題にぶつかり、見たかった名所を何か所か見逃した。"
+    },
+    {
+      "q": 4,
+      "stem": "Gregory Craftsman ( ) the revolution, so many thought that he was the best person to lead the newly established government.",
+      "choices": [
+        "debarred",
+        "spearheaded",
+        "beckoned",
+        "reciprocated"
+      ],
+      "answerIndex": 1,
+      "translation": "グレゴリー・クラフツマンは革命を主導したので、多くの人が彼こそ新しく成立した政府を率いる最適な人物だと考えた。"
+    },
+    {
+      "q": 5,
+      "stem": "Researchers say that taking their newly developed medicine at the ( ) of the flu decreases its duration by three days, on average.",
+      "choices": [
+        "pivot",
+        "onset",
+        "gradient",
+        "jab"
+      ],
+      "answerIndex": 1,
+      "translation": "研究者によると、新しく開発された薬をインフルエンザの発症時に飲むと、平均で罹患期間が3日短くなる。"
+    },
+    {
+      "q": 6,
+      "stem": "With many differing positions on how to deal with the threat of a military conflict, the political party split into a variety of ( ), making it difficult for them to make big decisions effectively.",
+      "choices": [
+        "stakes",
+        "sanctuaries",
+        "shrugs",
+        "factions"
+      ],
+      "answerIndex": 3,
+      "translation": "軍事衝突の脅威への対応をめぐって多くの異なる立場があったため、その政党はさまざまな派閥に分裂し、大きな決定を効果的に下すことが難しくなった。"
+    },
+    {
+      "q": 7,
+      "stem": "According to reports, the other passengers on the bus just sat ( ) by as the old woman had her purse stolen. \"No one did anything to help her,\" one witness said.",
+      "choices": [
+        "somberly",
+        "idly",
+        "flagrantly",
+        "inherently"
+      ],
+      "answerIndex": 1,
+      "translation": "報道によると、老婦人が財布を盗まれている間、バスの他の乗客はただ何もせず傍観していた。「誰も彼女を助けるために何もしなかった」と目撃者の一人は述べた。"
+    },
+    {
+      "q": 8,
+      "stem": "The famous actress did not have any family when she died, and she ( ) her entire fortune to a children's charity in her hometown.",
+      "choices": [
+        "sanctified",
+        "convened",
+        "detracted",
+        "bequeathed"
+      ],
+      "answerIndex": 3,
+      "translation": "その有名な女優には亡くなった時に家族がいなかったため、全財産を故郷の子ども向け慈善団体に遺贈した。"
+    },
+    {
+      "q": 9,
+      "stem": "In the event of a fire, please stay low to the ground in order to avoid ( ) the smoke, as it can cause you to lose consciousness.",
+      "choices": [
+        "slanting",
+        "inhaling",
+        "deflecting",
+        "whetting"
+      ],
+      "answerIndex": 1,
+      "translation": "火事の際は、煙を吸い込むと意識を失うことがあるので、煙を吸わないよう地面近くの低い姿勢を保ってください。"
+    },
+    {
+      "q": 10,
+      "stem": "A: How's that new job of yours?\nB: The pay isn't too bad, but it's such ( ) work. I think that I might have the most boring job in the world.",
+      "choices": [
+        "sumptuous",
+        "transient",
+        "mundane",
+        "pessimistic"
+      ],
+      "answerIndex": 2,
+      "translation": "A：新しい仕事はどう？\nB：給料はそれほど悪くないけれど、あまりに退屈な仕事なんだ。世界で一番つまらない仕事かもしれないと思うよ。"
+    },
+    {
+      "q": 11,
+      "stem": "Chelsea became ( ) when she couldn't find her daughter at the department store. She started crying and calling out for help. Luckily, her daughter was just hiding inside of a clothing rack.",
+      "choices": [
+        "lenient",
+        "frantic",
+        "ascetic",
+        "livid"
+      ],
+      "answerIndex": 1,
+      "translation": "チェルシーはデパートで娘を見つけられず、取り乱した。泣きながら助けを求めて叫び始めた。幸い、娘は洋服ラックの中に隠れていただけだった。"
+    },
+    {
+      "q": 12,
+      "stem": "Martin tried dieting again and again, but he always ( ) to his temptation to eat fatty foods. \"I just don't have enough self-control,\" he said.",
+      "choices": [
+        "fared",
+        "compounded",
+        "succumbed",
+        "corroded"
+      ],
+      "answerIndex": 2,
+      "translation": "マーティンは何度もダイエットを試みたが、脂っこい食べ物を食べたいという誘惑にいつも屈した。「自制心が足りないだけだ」と彼は言った。"
+    },
+    {
+      "q": 13,
+      "stem": "Many people complained that the government's newly proposed identification system, which includes fingerprinting every citizen, would be ( ) upon people's privacy.",
+      "choices": [
+        "disembarking",
+        "acquiescing",
+        "delving",
+        "infringing"
+      ],
+      "answerIndex": 3,
+      "translation": "すべての市民の指紋を採取する政府の新しい身分証明制度は、人々のプライバシーを侵害するものだと多くの人が不満を述べた。"
+    },
+    {
+      "q": 14,
+      "stem": "A: I'm feeling much better now, Coach Wallace. Can't I just go home?\nB: I'm sorry, Billy, but anytime a player loses consciousness, ( ) states that I must take them to the nearest hospital.",
+      "choices": [
+        "coronation",
+        "vogue",
+        "maneuver",
+        "protocol"
+      ],
+      "answerIndex": 3,
+      "translation": "A：ウォレスコーチ、もうずっと気分がよくなりました。帰ってはいけませんか？\nB：すまない、ビリー。しかし選手が意識を失った場合はいつでも、規定により最寄りの病院へ連れて行かなければならないんだ。"
+    },
+    {
+      "q": 15,
+      "stem": "Dennis covered the walls of his office with a special type of foam to ( ) it from outside sounds because he often had to make audio recordings for his work.",
+      "choices": [
+        "abort",
+        "reclaim",
+        "pinpoint",
+        "insulate"
+      ],
+      "answerIndex": 3,
+      "translation": "デニスは仕事で音声録音をすることが多かったので、外の音を遮断するため、特殊な泡状素材でオフィスの壁を覆った。"
+    },
+    {
+      "q": 16,
+      "stem": "The manager praised Kenta for his ( ) work, saying that his performance served as a good model for all of the other employees to follow.",
+      "choices": [
+        "exemplary",
+        "haggard",
+        "insipid",
+        "petulant"
+      ],
+      "answerIndex": 0,
+      "translation": "マネージャーはケンタの模範的な仕事ぶりを称賛し、彼の働きは他の従業員全員が見習うべきよい手本だと述べた。"
+    },
+    {
+      "q": 17,
+      "stem": "A: Charlie had the ( ) to ask Mr. Withers for another day off next week.\nB: Again!? I can't believe it. He knows how busy everyone is this month.",
+      "choices": [
+        "envoy",
+        "allegory",
+        "gall",
+        "intrigue"
+      ],
+      "answerIndex": 2,
+      "translation": "A：チャーリーは、来週もう1日休みを取れないかウィザーズさんに頼む厚かましさがあった。\nB：また？信じられない。今月みんながどれだけ忙しいか分かっているのに。"
+    },
+    {
+      "q": 18,
+      "stem": "The international community warned the nation's leaders that there would be heavy economic ( ) for failure to withdraw from the military conflict.",
+      "choices": [
+        "reprisals",
+        "provisos",
+        "apexes",
+        "fringes"
+      ],
+      "answerIndex": 0,
+      "translation": "国際社会はその国の指導者たちに、軍事衝突から撤退しなければ重い経済的報復を受けることになると警告した。"
+    },
+    {
+      "q": 19,
+      "stem": "A cruise company has begun organizing trips to the ( ), including a two-week option where guests can visit all of its 22 islands.",
+      "choices": [
+        "onslaught",
+        "archipelago",
+        "aberration",
+        "sham"
+      ],
+      "answerIndex": 1,
+      "translation": "あるクルーズ会社が、その群島への旅行の企画を始めた。2週間かけて22の島すべてを訪れる選択肢もある。"
+    },
+    {
+      "q": 20,
+      "stem": "Brenda had been ( ) the question the teacher had asked the class for over a week, but she still could not think of an answer.",
+      "choices": [
+        "devouring",
+        "cradling",
+        "pondering",
+        "juxtaposing"
+      ],
+      "answerIndex": 2,
+      "translation": "ブレンダは先生がクラスに出した問題を1週間以上考え続けていたが、それでも答えを思いつけなかった。"
+    },
+    {
+      "q": 21,
+      "stem": "The judge found Graham criminally ( ) for playing a game on his smartphone when he caused the car crash. \"Your carelessness could have killed someone,\" the judge said.",
+      "choices": [
+        "negligent",
+        "pedantic",
+        "dainty",
+        "introspective"
+      ],
+      "answerIndex": 0,
+      "translation": "グラハムが自動車事故を起こした際にスマートフォンでゲームをしていたため、裁判官は彼に刑事上の過失があると認定した。「あなたの不注意で誰かが死んでいたかもしれない」と裁判官は述べた。"
+    },
+    {
+      "q": 22,
+      "stem": "The company decided to ( ) the marketing work for their new product because it would be more time-efficient than trying to do it themselves.",
+      "choices": [
+        "dabble in",
+        "let down",
+        "put across",
+        "farm out"
+      ],
+      "answerIndex": 3,
+      "translation": "その会社は、新製品のマーケティング業務を自社で行おうとするより時間効率がよいとして、外注することに決めた。"
+    },
+    {
+      "q": 23,
+      "stem": "Rebecca was just wandering around the local flea market when she ( ) a signed copy of her favorite novel. It was a bit expensive, but she bought it anyway.",
+      "choices": [
+        "stumbled upon",
+        "chipped off",
+        "marked out",
+        "fawned over"
+      ],
+      "answerIndex": 0,
+      "translation": "レベッカが地元のフリーマーケットをぶらぶらしていると、好きな小説の署名入り本を偶然見つけた。少し高かったが、それでも買った。"
+    },
+    {
+      "q": 24,
+      "stem": "The night before her trip to Madagascar, Christie was so ( ) that she couldn't sleep at all. She couldn't wait for her trip to begin.",
+      "choices": [
+        "laid on",
+        "keyed up",
+        "banked on",
+        "held down"
+      ],
+      "answerIndex": 1,
+      "translation": "マダガスカル旅行の前夜、クリスティーはとても興奮していてまったく眠れなかった。旅行が始まるのが待ちきれなかったのだ。"
+    },
+    {
+      "q": 25,
+      "stem": "Carlyle thought that he had no chance of winning the election for class president, but in the end he just ( ). He won by a single vote.",
+      "choices": [
+        "backed out",
+        "flipped out",
+        "squeaked by",
+        "sank in"
+      ],
+      "answerIndex": 2,
+      "translation": "カーライルはクラス委員長選挙に勝つ見込みがないと思っていたが、最後にはかろうじて勝った。1票差での勝利だった。"
+    }
+  ]
+}
