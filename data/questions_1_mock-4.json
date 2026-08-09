@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "grade": "英検1級",
+    "round": "mock-4",
+    "section": "Reading 大問1（語句空所補充）",
+    "source": "ユーザー提供の模試原稿（模試 第4回）を学習用JSONへ構造化",
+    "counts": {
+      "words": 84,
+      "idioms": 16,
+      "total": 100
+    }
+  },
+  "questions": [
+    {
+      "q": 1,
+      "stem": "One of the ( ) of starting a business with friends is that personal feelings can sometimes interfere with making objective business decisions.",
+      "choices": [
+        "implements",
+        "curfews",
+        "pitfalls",
+        "grouches"
+      ],
+      "answerIndex": 2,
+      "translation": "友人と一緒に事業を始めることの落とし穴の一つは、個人的な感情が客観的な経営判断の妨げになることがある点だ。"
+    },
+    {
+      "q": 2,
+      "stem": "The former CEO is now on trial for theft. He faces charges for ( ) stealing over one million dollars in company assets.",
+      "choices": [
+        "allegedly",
+        "unabashedly",
+        "nonchalantly",
+        "ascetically"
+      ],
+      "answerIndex": 0,
+      "translation": "その元CEOは現在、窃盗の罪で裁判を受けている。会社の資産100万ドル以上を盗んだとされ、起訴されている。"
+    },
+    {
+      "q": 3,
+      "stem": "A: I didn't know your brother likes wine.\nB: Are you kidding? He's a ( ). He can tell you a whole bunch of things about a wine just by taking one sip of it.",
+      "choices": [
+        "novice",
+        "connoisseur",
+        "pushover",
+        "bigot"
+      ],
+      "answerIndex": 1,
+      "translation": "A：あなたのお兄さんがお酒好きだとは知らなかった。\nB：冗談でしょう？彼は目利きなんだ。ワインを一口飲むだけで、そのワインについていろいろなことが分かるんだよ。"
+    },
+    {
+      "q": 4,
+      "stem": "Hank is a popular teacher because he is good at creating a ( ) with students. He often has lunch with them or helps them with their homework after school.",
+      "choices": [
+        "stampede",
+        "graft",
+        "convergence",
+        "rapport"
+      ],
+      "answerIndex": 3,
+      "translation": "ハンクは生徒たちと親密な関係を築くのが上手なので人気のある教師だ。生徒たちとよく昼食を共にしたり、放課後に宿題を手伝ったりする。"
+    },
+    {
+      "q": 5,
+      "stem": "Although the company claimed that scientific studies had shown their weight-loss pill to be effective, it turned out that they had only conducted ( ) experiments that didn't really mean anything.",
+      "choices": [
+        "evocative",
+        "ponderous",
+        "bogus",
+        "rowdy"
+      ],
+      "answerIndex": 2,
+      "translation": "その会社は減量薬が効果的だと科学的研究で示されたと主張したが、実際には意味のない偽の実験しか行っていなかったことが分かった。"
+    },
+    {
+      "q": 6,
+      "stem": "Amy did not want to participate when her biology class was ( ) frogs. She said that looking at the frogs' internal organs made her feel sick.",
+      "choices": [
+        "surmising",
+        "dissecting",
+        "swilling",
+        "muddling"
+      ],
+      "answerIndex": 1,
+      "translation": "生物の授業でカエルを解剖することになったとき、エイミーは参加したくなかった。カエルの内臓を見ると気分が悪くなると言った。"
+    },
+    {
+      "q": 7,
+      "stem": "A: I don't mean to ( ), but how did you manage to buy such an expensive house?\nB: I'd rather not talk about my personal finances.",
+      "choices": [
+        "pry",
+        "cogitate",
+        "writhe",
+        "consort"
+      ],
+      "answerIndex": 0,
+      "translation": "A：詮索するつもりはないのですが、どうやってそんな高い家を買ったのですか？\nB：個人的な経済事情については話したくありません。"
+    },
+    {
+      "q": 8,
+      "stem": "Officials panicked last Thursday when a gorilla escaped from the zoo. Luckily, he hadn't gone too far, and they were able to find and capture him in the ( ) of the parking lot.",
+      "choices": [
+        "complacency",
+        "echelon",
+        "vicinity",
+        "rupture"
+      ],
+      "answerIndex": 2,
+      "translation": "先週の木曜日、動物園からゴリラが逃げ出し、職員たちは慌てた。幸い、ゴリラは遠くへ行っておらず、駐車場の近辺で見つけて捕まえることができた。"
+    },
+    {
+      "q": 9,
+      "stem": "A: I can't wait much longer to receive money for my medical bills.\nB: I'm sorry for the delay. I'll try to see if we can ( ) the processing of your insurance claim.",
+      "choices": [
+        "disdain",
+        "expedite",
+        "shackle",
+        "annex"
+      ],
+      "answerIndex": 1,
+      "translation": "A：医療費のお金を受け取るのをこれ以上長く待てません。\nB：遅れていてすみません。保険請求の処理を早められないか確認してみます。"
+    },
+    {
+      "q": 10,
+      "stem": "Reynold was ( ) when he didn't get the scholarship. Without it, he wouldn't be able to complete the doctoral degree that he'd spent years working for.",
+      "choices": [
+        "agnostic",
+        "distraught",
+        "enamored",
+        "remedial"
+      ],
+      "answerIndex": 1,
+      "translation": "レイノルドは奨学金を得られず、ひどく取り乱した。それがなければ、何年も努力してきた博士号を取得できないからだ。"
+    },
+    {
+      "q": 11,
+      "stem": "When Chris had to borrow money from Scott, they didn't write out a contract or anything like that. There was a ( ) understanding that Chris would pay Scott back as soon as he could.",
+      "choices": [
+        "tacit",
+        "tangible",
+        "rueful",
+        "devout"
+      ],
+      "answerIndex": 0,
+      "translation": "クリスがスコットからお金を借りたとき、二人は契約書などを書かなかった。クリスができるだけ早くスコットに返すという暗黙の了解があった。"
+    },
+    {
+      "q": 12,
+      "stem": "You wouldn't have known that Lloyd had won the lottery by looking at his ( ) face. He didn't seem to be feeling any emotion at all.",
+      "choices": [
+        "cordial",
+        "impassive",
+        "elaborate",
+        "flippant"
+      ],
+      "answerIndex": 1,
+      "translation": "ロイドの無表情な顔を見ても、彼が宝くじに当たったとは分からなかった。彼はまったく感情を表していないようだった。"
+    },
+    {
+      "q": 13,
+      "stem": "Victor enjoyed getting drinks with his coworkers after work on Thursdays. It was nice to exchange some friendly ( ) with them, not like the serious discussions they had at work.",
+      "choices": [
+        "banter",
+        "jeer",
+        "indolence",
+        "boon"
+      ],
+      "answerIndex": 0,
+      "translation": "ビクターは木曜日の仕事帰りに同僚と飲みに行くのを楽しんでいた。職場でする真剣な議論とは違い、同僚と気軽な冗談を交わせるのは楽しかった。"
+    },
+    {
+      "q": 14,
+      "stem": "Bella grew up in the desert, so she was not at all accustomed to the climate of the tropical island, where it rained every day. It was quite different than her ( ) hometown.",
+      "choices": [
+        "dormant",
+        "pivotal",
+        "resilient",
+        "arid"
+      ],
+      "answerIndex": 3,
+      "translation": "ベラは砂漠で育ったため、毎日雨が降る熱帯の島の気候にはまったく慣れていなかった。それは彼女の乾燥した故郷とは大きく異なっていた。"
+    },
+    {
+      "q": 15,
+      "stem": "The rebels' attempt to overthrow the government was ( ) by the army, and most of the group's leaders were arrested.",
+      "choices": [
+        "rectified",
+        "deployed",
+        "esteemed",
+        "thwarted"
+      ],
+      "answerIndex": 3,
+      "translation": "反政府勢力による政権転覆の試みは軍によって阻止され、グループの指導者の大半が逮捕された。"
+    },
+    {
+      "q": 16,
+      "stem": "Robson Tech claimed that they had no responsibility to finish the contract, as it had already been ( ) when their client broke the Terms of Agreement.",
+      "choices": [
+        "flapped",
+        "nullified",
+        "solicited",
+        "pawned"
+      ],
+      "answerIndex": 1,
+      "translation": "顧客が契約条件に違反した時点ですでに契約は無効になっていたため、ロブソン・テックは契約を完了する責任はないと主張した。"
+    },
+    {
+      "q": 17,
+      "stem": "The diplomat was quick to organize a peaceful dialogue between the two countries' leaders, and many say that his efforts were key to ( ) a war.",
+      "choices": [
+        "depreciating",
+        "clobbering",
+        "relishing",
+        "averting"
+      ],
+      "answerIndex": 3,
+      "translation": "その外交官は両国の指導者間の平和的な対話をすぐに組織し、多くの人が彼の努力は戦争を回避する鍵だったと述べている。"
+    },
+    {
+      "q": 18,
+      "stem": "The plot of the play wasn't bad. Rather, the ( ) of the criticism has been directed at the poor performance of the actors.",
+      "choices": [
+        "sloth",
+        "tremor",
+        "obscurity",
+        "brunt"
+      ],
+      "answerIndex": 3,
+      "translation": "その劇の筋書きは悪くなかった。むしろ、批判の矛先の大部分は俳優たちの下手な演技に向けられている。"
+    },
+    {
+      "q": 19,
+      "stem": "Ashley couldn't believe it when the doctor told her that she'd only been taking a ( ), not a weight-loss pill. She had lost ten pounds, and she had done it without the help of any medicine.",
+      "choices": [
+        "placebo",
+        "rebound",
+        "salvo",
+        "transgression"
+      ],
+      "answerIndex": 0,
+      "translation": "アシュリーは、減量薬ではなく偽薬を飲んでいただけだと医師から聞かされ、信じられなかった。彼女は10ポンド痩せており、薬の助けなしにそれを達成していた。"
+    },
+    {
+      "q": 20,
+      "stem": "Molly was one of the prettiest, most popular girls in her school, and she always had a number of boys ( ) for her attention.",
+      "choices": [
+        "vying",
+        "proliferating",
+        "soaring",
+        "snowballing"
+      ],
+      "answerIndex": 0,
+      "translation": "モリーは学校で最もかわいく人気のある女子の一人で、いつも何人もの男子が彼女の気を引こうと競い合っていた。"
+    },
+    {
+      "q": 21,
+      "stem": "When Vanessa was in high school, she was ( ) with her first boyfriend. She wrote him love letters every day, and she spent all of her time thinking about him.",
+      "choices": [
+        "invigorated",
+        "dredged",
+        "saturated",
+        "infatuated"
+      ],
+      "answerIndex": 3,
+      "translation": "ヴァネッサは高校生のころ、初めてのボーイフレンドに夢中だった。毎日彼にラブレターを書き、ずっと彼のことを考えていた。"
+    },
+    {
+      "q": 22,
+      "stem": "A: You have work tomorrow? But tomorrow's Saturday.\nB: Yeah, I got ( ) working by my boss. He said that he's under a lot of pressure to finish this project by Monday.",
+      "choices": [
+        "roped into",
+        "factored in",
+        "frowned on",
+        "smoothed down"
+      ],
+      "answerIndex": 0,
+      "translation": "A：明日仕事なの？でも明日は土曜日だよ。\nB：そうなんだ。上司に無理やり仕事に引き込まれた。月曜日までにこの計画を終えるよう大きなプレッシャーを受けているらしい。"
+    },
+    {
+      "q": 23,
+      "stem": "The new mayor had promised to ( ) corruption in the local government, and within two months of being elected, five city officials were arrested.",
+      "choices": [
+        "fire up",
+        "root out",
+        "lap up",
+        "pass down"
+      ],
+      "answerIndex": 1,
+      "translation": "新市長は地方政府の汚職を根絶すると約束し、当選から2か月以内に5人の市職員が逮捕された。"
+    },
+    {
+      "q": 24,
+      "stem": "Peter ( ) his back trying to lift the refrigerator by himself. Now he's in so much pain that he can hardly walk.",
+      "choices": [
+        "threw out",
+        "scraped together",
+        "pushed up",
+        "forced back"
+      ],
+      "answerIndex": 0,
+      "translation": "ピーターは一人で冷蔵庫を持ち上げようとして腰を痛めた。今は痛みがひどく、ほとんど歩けない。"
+    },
+    {
+      "q": 25,
+      "stem": "The detective was finally able to solve the case after ( ) the large number of clues that he had uncovered in his investigation.",
+      "choices": [
+        "heading up",
+        "piecing together",
+        "punching out",
+        "stirring up"
+      ],
+      "answerIndex": 1,
+      "translation": "その探偵は、捜査で見つけた大量の手がかりをつなぎ合わせた後、ついに事件を解決できた。"
+    }
+  ]
+}
